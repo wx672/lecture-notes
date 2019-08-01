@@ -1,0 +1,3394 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{love2010linux}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a40c808f8f2dd65c5e3d951206e5da65}{%
+           family={Love},
+           familyi={L\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \strng{fullhash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \strng{bibnamehash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \strng{authorbibnamehash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \strng{authornamehash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \strng{authorfullhash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Developer's Library}
+      \field{title}{Linux Kernel Development}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/12/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/12/Calibre1
+      \endverb
+    \endentry
+    \entry{wiki:unixtree}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-September-2017]}
+      \field{title}{Unix --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Unix&oldid=801075686
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Unix&oldid=801075686
+      \endverb
+    \endentry
+    \entry{bovet2005understanding}{book}{}
+      \name{author}{2}{}{%
+        {{hash=fa27fa2e45812b8ebdcefbbace72dad8}{%
+           family={Bovet},
+           familyi={B\bibinitperiod},
+           given={D.P.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6acdb1d85e9e66f8529528646372bf1c}{%
+           family={Cesati},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OReilly}%
+      }
+      \strng{namehash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{fullhash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{bibnamehash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{authorbibnamehash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{authornamehash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{authorfullhash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Understanding The Linux Kernel}
+      \field{year}{2005}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
+      \endverb
+    \endentry
+    \entry{web:kernelctrlpath}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=257281f9b2aa93be7c12f5c49e122ca3}{%
+           family={Stackoverflow},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{fullhash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{bibnamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authorbibnamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authornamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authorfullhash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 18-Apr-2015]}
+      \field{title}{Userspace process preempts kernel thread?}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/8453294/userspace-process-preempts-kernel-thread
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/8453294/userspace-process-preempts-kernel-thread
+      \endverb
+    \endentry
+    \entry{web:reentrant}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=257281f9b2aa93be7c12f5c49e122ca3}{%
+           family={Stackoverflow},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{fullhash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{bibnamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authorbibnamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authornamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authorfullhash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 18-Apr-2015]}
+      \field{title}{Threadsafe vs re-entrant}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/856823/threadsafe-vs-re-entrant
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/856823/threadsafe-vs-re-entrant
+      \endverb
+    \endentry
+    \entry{web:reentrant2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=257281f9b2aa93be7c12f5c49e122ca3}{%
+           family={Stackoverflow},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{fullhash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{bibnamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authorbibnamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authornamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authorfullhash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 18-Apr-2015]}
+      \field{title}{what is the difference between re-entrant function and recursive function in C?}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/261311/what-is-the-difference-between-re-entrant-function-and-recursive-function-in-c
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/261311/what-is-the-difference-between-re-entrant-function-and-recursive-function-in-c
+      \endverb
+    \endentry
+    \entry{wiki:signal}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 18-April-2015]}
+      \field{title}{Unix signal --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Unix_signal&oldid=647945611
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Unix_signal&oldid=647945611
+      \endverb
+    \endentry
+    \entry{stevens2013advanced}{book}{}
+      \name{author}{2}{}{%
+        {{hash=929594d79c81e98f99ecc26028592c59}{%
+           family={Stevens},
+           familyi={S\bibinitperiod},
+           given={W\bibnamedelima Richard},
+           giveni={W\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=dc4fd5c1806d82260ef10cea86eae72e}{%
+           family={Rago},
+           familyi={R\bibinitperiod},
+           given={Stephen\bibnamedelima A},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{fc7756f822897fbcb7b1929b6a82b1f6}
+      \strng{fullhash}{fc7756f822897fbcb7b1929b6a82b1f6}
+      \strng{bibnamehash}{fc7756f822897fbcb7b1929b6a82b1f6}
+      \strng{authorbibnamehash}{fc7756f822897fbcb7b1929b6a82b1f6}
+      \strng{authornamehash}{fc7756f822897fbcb7b1929b6a82b1f6}
+      \strng{authorfullhash}{fc7756f822897fbcb7b1929b6a82b1f6}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Advanced programming in the UNIX environment}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/145/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/145/Calibre1
+      \endverb
+    \endentry
+    \entry{web:ps-session}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=297b8e73cfc4b5f4f1ee2599ac8e0f03}{%
+           family={Stackexchange},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{297b8e73cfc4b5f4f1ee2599ac8e0f03}
+      \strng{fullhash}{297b8e73cfc4b5f4f1ee2599ac8e0f03}
+      \strng{bibnamehash}{297b8e73cfc4b5f4f1ee2599ac8e0f03}
+      \strng{authorbibnamehash}{297b8e73cfc4b5f4f1ee2599ac8e0f03}
+      \strng{authornamehash}{297b8e73cfc4b5f4f1ee2599ac8e0f03}
+      \strng{authorfullhash}{297b8e73cfc4b5f4f1ee2599ac8e0f03}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 18-Apr-2015]}
+      \field{title}{What are session leaders in PS?}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb http://unix.stackexchange.com/questions/18166/what-are-session-leaders-in-ps
+      \endverb
+      \verb{url}
+      \verb http://unix.stackexchange.com/questions/18166/what-are-session-leaders-in-ps
+      \endverb
+    \endentry
+    \entry{silberschatz11essentials}{book}{}
+      \name{author}{3}{}{%
+        {{hash=4f34927dfbed9f6425b40ef776942177}{%
+           family={Silberschatz},
+           familyi={S\bibinitperiod}}}%
+        {{hash=f4d673ffd940c82d92eb33a866608f22}{%
+           family={Galvin},
+           familyi={G\bibinitperiod}}}%
+        {{hash=0fc12a0b906a3d2131f0f3e2b958321e}{%
+           family={Gagne},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
+      \strng{fullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{bibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{authorbibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{authornamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
+      \strng{authorfullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Operating System Concepts Essentials}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
+      \endverb
+    \endentry
+    \entry{web:debkernelhandbook}{book}{}
+      \name{author}{1}{}{%
+        {{hash=13c1eae83d791d6868b85bf8bc7e2972}{%
+           family={Project},
+           familyi={P\bibinitperiod},
+           given={The\bibnamedelimb Debian\bibnamedelimb Kernel\bibnamedelima Handbook},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Free software Foundation}%
+      }
+      \strng{namehash}{13c1eae83d791d6868b85bf8bc7e2972}
+      \strng{fullhash}{13c1eae83d791d6868b85bf8bc7e2972}
+      \strng{bibnamehash}{13c1eae83d791d6868b85bf8bc7e2972}
+      \strng{authorbibnamehash}{13c1eae83d791d6868b85bf8bc7e2972}
+      \strng{authornamehash}{13c1eae83d791d6868b85bf8bc7e2972}
+      \strng{authorfullhash}{13c1eae83d791d6868b85bf8bc7e2972}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Debian Linux Kernel Handbook}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb http://kernel-handbook.alioth.debian.org/index.html#contents
+      \endverb
+      \verb{url}
+      \verb http://kernel-handbook.alioth.debian.org/index.html#contents
+      \endverb
+    \endentry
+    \entry{wiki:inlinefunction}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{Inline function --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Inline_function&oldid=651556435
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Inline_function&oldid=651556435
+      \endverb
+    \endentry
+    \entry{web:inline-c}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=47b3470abf333d1baff9ae1f12a8a6e0}{%
+           family={RJK},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{47b3470abf333d1baff9ae1f12a8a6e0}
+      \strng{fullhash}{47b3470abf333d1baff9ae1f12a8a6e0}
+      \strng{bibnamehash}{47b3470abf333d1baff9ae1f12a8a6e0}
+      \strng{authorbibnamehash}{47b3470abf333d1baff9ae1f12a8a6e0}
+      \strng{authornamehash}{47b3470abf333d1baff9ae1f12a8a6e0}
+      \strng{authorfullhash}{47b3470abf333d1baff9ae1f12a8a6e0}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{Inline Functions In C}
+      \verb{urlraw}
+      \verb http://www.greenend.org.uk/rjk/tech/inline.html
+      \endverb
+      \verb{url}
+      \verb http://www.greenend.org.uk/rjk/tech/inline.html
+      \endverb
+    \endentry
+    \entry{wiki:inline-asm}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{Inline assembler --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Inline_assembler&oldid=650502959
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Inline_assembler&oldid=650502959
+      \endverb
+    \endentry
+    \entry{rodriguez2005linux}{book}{}
+      \name{author}{3}{}{%
+        {{hash=8c72ff1fd1a7cb97a01a85d471a24d3b}{%
+           family={Rodriguez},
+           familyi={R\bibinitperiod},
+           given={C.S.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=36e97d0b6bf37afe62df6b211831b97d}{%
+           family={Fischer},
+           familyi={F\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=14372d02306489b64fb4f49c5c86a7c4}{%
+           family={Smolski},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall Professional Technical Reference}%
+      }
+      \strng{namehash}{70a01a73ceaec558041c6881a0c53b98}
+      \strng{fullhash}{0d1df0f49836b4d66f4fe06acd031348}
+      \strng{bibnamehash}{0d1df0f49836b4d66f4fe06acd031348}
+      \strng{authorbibnamehash}{0d1df0f49836b4d66f4fe06acd031348}
+      \strng{authornamehash}{70a01a73ceaec558041c6881a0c53b98}
+      \strng{authorfullhash}{0d1df0f49836b4d66f4fe06acd031348}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Linux kernel primer: a top-down approach for x86 and PowerPC architectures}
+      \field{year}{2005}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/34/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/34/Calibre1
+      \endverb
+    \endentry
+    \entry{web:likely}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=187d220264edd8830204b6523b54870f}{%
+           family={kernelnewbies.org},
+           familyi={k\bibinitperiod}}}%
+      }
+      \strng{namehash}{187d220264edd8830204b6523b54870f}
+      \strng{fullhash}{187d220264edd8830204b6523b54870f}
+      \strng{bibnamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authorbibnamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authornamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authorfullhash}{187d220264edd8830204b6523b54870f}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{FAQ/LikelyUnlikely}
+      \field{year}{2006}
+      \verb{urlraw}
+      \verb http://kernelnewbies.org/FAQ/LikelyUnlikely
+      \endverb
+      \verb{url}
+      \verb http://kernelnewbies.org/FAQ/LikelyUnlikely
+      \endverb
+    \endentry
+    \entry{wiki:kernel-oops}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{Linux kernel oops --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Linux_kernel_oops&oldid=636894004
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Linux_kernel_oops&oldid=636894004
+      \endverb
+    \endentry
+    \entry{web:kernel-fp}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{Use of floating point in the Linux kernel}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/13886338/use-of-floating-point-in-the-linux-kernel
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/13886338/use-of-floating-point-in-the-linux-kernel
+      \endverb
+    \endentry
+    \entry{web:kernel-fp2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=902285535f9dd25dc496ed95bdba667b}{%
+           family={blogspot.com},
+           familyi={b\bibinitperiod}}}%
+      }
+      \strng{namehash}{902285535f9dd25dc496ed95bdba667b}
+      \strng{fullhash}{902285535f9dd25dc496ed95bdba667b}
+      \strng{bibnamehash}{902285535f9dd25dc496ed95bdba667b}
+      \strng{authorbibnamehash}{902285535f9dd25dc496ed95bdba667b}
+      \strng{authornamehash}{902285535f9dd25dc496ed95bdba667b}
+      \strng{authorfullhash}{902285535f9dd25dc496ed95bdba667b}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{Linux Kernel and Floating Point}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb http://porterchen-note.blogspot.com/2011/03/linux-kernel-and-floating-point.html
+      \endverb
+      \verb{url}
+      \verb http://porterchen-note.blogspot.com/2011/03/linux-kernel-and-floating-point.html
+      \endverb
+    \endentry
+    \entry{corbet05ldd}{book}{}
+      \name{author}{3}{}{%
+        {{hash=729670cd9d39b9b575390147a29d51d7}{%
+           family={Corbet},
+           familyi={C\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8edf24ea3e75c726f2c163493ab3e3c3}{%
+           family={Kroah-Hartman},
+           familyi={K\bibinithyphendelim H\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod}}}%
+        {{hash=548a2260c8f6dbadc0d85dfad02ba349}{%
+           family={Rubini},
+           familyi={R\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly}%
+      }
+      \strng{namehash}{6e4199b3024d681757cab2ddcea8a638}
+      \strng{fullhash}{212042be31105560b7f3b53bf5bb196d}
+      \strng{bibnamehash}{212042be31105560b7f3b53bf5bb196d}
+      \strng{authorbibnamehash}{212042be31105560b7f3b53bf5bb196d}
+      \strng{authornamehash}{6e4199b3024d681757cab2ddcea8a638}
+      \strng{authorfullhash}{212042be31105560b7f3b53bf5bb196d}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Linux Device Drivers}
+      \field{year}{2005}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/45/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/45/Calibre1
+      \endverb
+    \endentry
+    \entry{web:array-linkedlist}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{Array versus linked-list}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/166884/array-versus-linked-list
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/166884/array-versus-linked-list
+      \endverb
+    \endentry
+    \entry{web:linkedlist}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=187d220264edd8830204b6523b54870f}{%
+           family={kernelnewbies.org},
+           familyi={k\bibinitperiod}}}%
+      }
+      \strng{namehash}{187d220264edd8830204b6523b54870f}
+      \strng{fullhash}{187d220264edd8830204b6523b54870f}
+      \strng{bibnamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authorbibnamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authornamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authorfullhash}{187d220264edd8830204b6523b54870f}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{FAQ/LinkedLists}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb http://kernelnewbies.org/FAQ/LinkedLists
+      \endverb
+      \verb{url}
+      \verb http://kernelnewbies.org/FAQ/LinkedLists
+      \endverb
+    \endentry
+    \entry{web:klist}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=41d94408475b5d6960c770770e00f367}{%
+           family={isis.poly.edu},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{41d94408475b5d6960c770770e00f367}
+      \strng{fullhash}{41d94408475b5d6960c770770e00f367}
+      \strng{bibnamehash}{41d94408475b5d6960c770770e00f367}
+      \strng{authorbibnamehash}{41d94408475b5d6960c770770e00f367}
+      \strng{authornamehash}{41d94408475b5d6960c770770e00f367}
+      \strng{authorfullhash}{41d94408475b5d6960c770770e00f367}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{Linux Kernel Linked List Explained}
+      \field{year}{2005}
+      \verb{urlraw}
+      \verb http://isis.poly.edu/kulesh/stuff/src/klist/
+      \endverb
+      \verb{url}
+      \verb http://isis.poly.edu/kulesh/stuff/src/klist/
+      \endverb
+    \endentry
+    \entry{kernelnewbies:FAQ/L72}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=187d220264edd8830204b6523b54870f}{%
+           family={kernelnewbies.org},
+           familyi={k\bibinitperiod}}}%
+      }
+      \strng{namehash}{187d220264edd8830204b6523b54870f}
+      \strng{fullhash}{187d220264edd8830204b6523b54870f}
+      \strng{bibnamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authorbibnamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authornamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authorfullhash}{187d220264edd8830204b6523b54870f}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{http://kernelnewbies.org/FAQ/LinkedLists}
+      \field{note}{(Accessed on 2016-06-26)}
+      \field{title}{FAQ/LinkedLists}
+    \endentry
+    \entry{ubuntuforums:linkl47}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d828f9b71e1eb72cd25549ef86d93713}{%
+           family={ubuntuforums.org},
+           familyi={u\bibinitperiod}}}%
+      }
+      \strng{namehash}{d828f9b71e1eb72cd25549ef86d93713}
+      \strng{fullhash}{d828f9b71e1eb72cd25549ef86d93713}
+      \strng{bibnamehash}{d828f9b71e1eb72cd25549ef86d93713}
+      \strng{authorbibnamehash}{d828f9b71e1eb72cd25549ef86d93713}
+      \strng{authornamehash}{d828f9b71e1eb72cd25549ef86d93713}
+      \strng{authorfullhash}{d828f9b71e1eb72cd25549ef86d93713}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{http://ubuntuforums.org/archive/index.php/t-1591281.html}
+      \field{note}{(Accessed on 2016-06-26)}
+      \field{title}{link list implementation in linux kernel}
+    \endentry
+    \entry{stackoverflow:c-Lin84}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{http://stackoverflow.com/questions/10262017/linux-kernel-list-list-head-init-vs-init-list-head}
+      \field{note}{(Accessed on 2016-06-26)}
+      \field{title}{LIST\_HEAD\_INIT vs INIT\_LIST\_HEAD}
+    \endentry
+    \entry{wiki:malloc}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 25-April-2015]}
+      \field{title}{C dynamic memory allocation --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=C_dynamic_memory_allocation&oldid=658580417
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=C_dynamic_memory_allocation&oldid=658580417
+      \endverb
+    \endentry
+    \entry{web:pagealloc}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=86ebd71f2b33d1a8873d915dda22378a}{%
+           family={Linuxmm},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{86ebd71f2b33d1a8873d915dda22378a}
+      \strng{fullhash}{86ebd71f2b33d1a8873d915dda22378a}
+      \strng{bibnamehash}{86ebd71f2b33d1a8873d915dda22378a}
+      \strng{authorbibnamehash}{86ebd71f2b33d1a8873d915dda22378a}
+      \strng{authornamehash}{86ebd71f2b33d1a8873d915dda22378a}
+      \strng{authorfullhash}{86ebd71f2b33d1a8873d915dda22378a}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 18-Apr-2015]}
+      \field{title}{PageAllocation}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb http://linux-mm.org/PageAllocation#head-49144cba93f028bf6e50f5192b9d108badc2c5e8
+      \endverb
+      \verb{url}
+      \verb http://linux-mm.org/PageAllocation#head-49144cba93f028bf6e50f5192b9d108badc2c5e8
+      \endverb
+    \endentry
+    \entry{web:dowhile}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d828f9b71e1eb72cd25549ef86d93713}{%
+           family={ubuntuforums.org},
+           familyi={u\bibinitperiod}}}%
+      }
+      \strng{namehash}{d828f9b71e1eb72cd25549ef86d93713}
+      \strng{fullhash}{d828f9b71e1eb72cd25549ef86d93713}
+      \strng{bibnamehash}{d828f9b71e1eb72cd25549ef86d93713}
+      \strng{authorbibnamehash}{d828f9b71e1eb72cd25549ef86d93713}
+      \strng{authornamehash}{d828f9b71e1eb72cd25549ef86d93713}
+      \strng{authorfullhash}{d828f9b71e1eb72cd25549ef86d93713}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{link list implementation in linux kernel easy question syntax not clear}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb http://ubuntuforums.org/archive/index.php/t-1591281.html
+      \endverb
+      \verb{url}
+      \verb http://ubuntuforums.org/archive/index.php/t-1591281.html
+      \endverb
+    \endentry
+    \entry{web:dowhile2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{What's the use of do while(0) when we define a macro?}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/923822/whats-the-use-of-do-while0-when-we-define-a-macro
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/923822/whats-the-use-of-do-while0-when-we-define-a-macro
+      \endverb
+    \endentry
+    \entry{web:dowhile3}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{Do-While and if-else statements in C/C++ macros}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/154136/do-while-and-if-else-statements-in-c-c-macros
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/154136/do-while-and-if-else-statements-in-c-c-macros
+      \endverb
+    \endentry
+    \entry{web:containerof}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=187d220264edd8830204b6523b54870f}{%
+           family={kernelnewbies.org},
+           familyi={k\bibinitperiod}}}%
+      }
+      \strng{namehash}{187d220264edd8830204b6523b54870f}
+      \strng{fullhash}{187d220264edd8830204b6523b54870f}
+      \strng{bibnamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authorbibnamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authornamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authorfullhash}{187d220264edd8830204b6523b54870f}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{FAQ/ContainerOf}
+      \field{year}{2006}
+      \verb{urlraw}
+      \verb http://kernelnewbies.org/FAQ/ContainerOf
+      \endverb
+      \verb{url}
+      \verb http://kernelnewbies.org/FAQ/ContainerOf
+      \endverb
+    \endentry
+    \entry{web:klist2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=902285535f9dd25dc496ed95bdba667b}{%
+           family={blogspot.com},
+           familyi={b\bibinitperiod}}}%
+      }
+      \strng{namehash}{902285535f9dd25dc496ed95bdba667b}
+      \strng{fullhash}{902285535f9dd25dc496ed95bdba667b}
+      \strng{bibnamehash}{902285535f9dd25dc496ed95bdba667b}
+      \strng{authorbibnamehash}{902285535f9dd25dc496ed95bdba667b}
+      \strng{authornamehash}{902285535f9dd25dc496ed95bdba667b}
+      \strng{authorfullhash}{902285535f9dd25dc496ed95bdba667b}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 18-Apr-2015]}
+      \field{title}{Linux Kernel: 強大又好用的list\_head結構}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb http://adrianhuang.blogspot.com/2007/10/linux-kernel-listhead.html
+      \endverb
+      \verb{url}
+      \verb http://adrianhuang.blogspot.com/2007/10/linux-kernel-listhead.html
+      \endverb
+    \endentry
+    \entry{wiki:circular-buf}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{Circular buffer --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Circular_buffer&oldid=656496379
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Circular_buffer&oldid=656496379
+      \endverb
+    \endentry
+    \entry{wiki:bin-search-tree}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{Binary search tree --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Binary_search_tree&oldid=656820485
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Binary_search_tree&oldid=656820485
+      \endverb
+    \endentry
+    \entry{wiki:tree}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{Tree (data structure) --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Tree_(data_structure)&oldid=655387023
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Tree_(data_structure)&oldid=655387023
+      \endverb
+    \endentry
+    \entry{wiki:bin-tree}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{Binary tree --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Binary_tree&oldid=654913647
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Binary_tree&oldid=654913647
+      \endverb
+    \endentry
+    \entry{wiki:avl-tree}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{AVL tree --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=AVL_tree&oldid=650884975
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=AVL_tree&oldid=650884975
+      \endverb
+    \endentry
+    \entry{wiki:rbtree}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=e2ceeea38f8620383cfbd3e99c5c0cd8}{%
+           family={contributors},
+           familyi={c\bibinitperiod},
+           given={Wikipedia},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{fullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{bibnamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authorbibnamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authornamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authorfullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 21-February-2018]}
+      \field{title}{Red–black tree --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Red%E2%80%93black_tree&oldid=823322569
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Red%E2%80%93black_tree&oldid=823322569
+      \endverb
+    \endentry
+    \entry{wiki:big-o}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{Big O notation --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Big_O_notation&oldid=651019357
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Big_O_notation&oldid=651019357
+      \endverb
+    \endentry
+    \entry{web:rbtree}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a4c7238f918f714fdcb326d2a551a841}{%
+           family={lwn.net},
+           familyi={l\bibinitperiod}}}%
+      }
+      \strng{namehash}{a4c7238f918f714fdcb326d2a551a841}
+      \strng{fullhash}{a4c7238f918f714fdcb326d2a551a841}
+      \strng{bibnamehash}{a4c7238f918f714fdcb326d2a551a841}
+      \strng{authorbibnamehash}{a4c7238f918f714fdcb326d2a551a841}
+      \strng{authornamehash}{a4c7238f918f714fdcb326d2a551a841}
+      \strng{authorfullhash}{a4c7238f918f714fdcb326d2a551a841}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 18-Apr-2015]}
+      \field{title}{Red-black trees}
+      \field{year}{2006}
+      \verb{urlraw}
+      \verb http://lwn.net/Articles/184495/
+      \endverb
+      \verb{url}
+      \verb http://lwn.net/Articles/184495/
+      \endverb
+    \endentry
+    \entry{web:rbtree2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=6e71ebe1692001f5c82cb1ee3a80021c}{%
+           family={Landly},
+           familyi={L\bibinitperiod},
+           given={Rob},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{6e71ebe1692001f5c82cb1ee3a80021c}
+      \strng{fullhash}{6e71ebe1692001f5c82cb1ee3a80021c}
+      \strng{bibnamehash}{6e71ebe1692001f5c82cb1ee3a80021c}
+      \strng{authorbibnamehash}{6e71ebe1692001f5c82cb1ee3a80021c}
+      \strng{authornamehash}{6e71ebe1692001f5c82cb1ee3a80021c}
+      \strng{authorfullhash}{6e71ebe1692001f5c82cb1ee3a80021c}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 18-Apr-2015]}
+      \field{title}{Red-black Trees (rbtree) in Linux}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb https://www.kernel.org/doc/Documentation/rbtree.txt
+      \endverb
+      \verb{url}
+      \verb https://www.kernel.org/doc/Documentation/rbtree.txt
+      \endverb
+    \endentry
+    \entry{web:gcc}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=4c6fc56fe0fadce6e97d65207f461827}{%
+           family={gcc.gnu.org},
+           familyi={g\bibinitperiod}}}%
+      }
+      \strng{namehash}{4c6fc56fe0fadce6e97d65207f461827}
+      \strng{fullhash}{4c6fc56fe0fadce6e97d65207f461827}
+      \strng{bibnamehash}{4c6fc56fe0fadce6e97d65207f461827}
+      \strng{authorbibnamehash}{4c6fc56fe0fadce6e97d65207f461827}
+      \strng{authornamehash}{4c6fc56fe0fadce6e97d65207f461827}
+      \strng{authorfullhash}{4c6fc56fe0fadce6e97d65207f461827}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 18-Apr-2015]}
+      \field{title}{GCC Manual}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://gcc.gnu.org/onlinedocs/gcc/
+      \endverb
+      \verb{url}
+      \verb https://gcc.gnu.org/onlinedocs/gcc/
+      \endverb
+    \endentry
+    \entry{ISO:C99}{report}{}
+      \name{author}{1}{}{%
+        {{hash=5b512ee8a59deb284ad0a6a035ba10b1}{%
+           family={ISO},
+           familyi={I\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=a0bfdb51f997461657d13a3e37e49a5d}{%
+           family={WG14},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {ISO}%
+      }
+      \strng{namehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{fullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{bibnamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{authorbibnamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{authornamehash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{authorfullhash}{5b512ee8a59deb284ad0a6a035ba10b1}
+      \strng{editorbibnamehash}{a0bfdb51f997461657d13a3e37e49a5d}
+      \strng{editornamehash}{a0bfdb51f997461657d13a3e37e49a5d}
+      \strng{editorfullhash}{a0bfdb51f997461657d13a3e37e49a5d}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This is the "combined C99 + TC1 + TC2, WG14 N1124, dated 2005-05-06. This is a WG14 working paper, but it reflects the consolidated standard at the time of issue."}
+      \field{note}{ISO/IEC 9899:1999 draft}
+      \field{title}{ISO C Standard 1999}
+      \field{type}{techreport}
+      \field{year}{1999}
+      \verb{urlraw}
+      \verb http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1124.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1124.pdf
+      \endverb
+      \keyw{c c99 iso standard}
+    \endentry
+    \entry{web:ibm-c}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=e0eee5091a70c72092178a8994a23a5d}{%
+           family={ibm.com},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{e0eee5091a70c72092178a8994a23a5d}
+      \strng{fullhash}{e0eee5091a70c72092178a8994a23a5d}
+      \strng{bibnamehash}{e0eee5091a70c72092178a8994a23a5d}
+      \strng{authorbibnamehash}{e0eee5091a70c72092178a8994a23a5d}
+      \strng{authornamehash}{e0eee5091a70c72092178a8994a23a5d}
+      \strng{authorfullhash}{e0eee5091a70c72092178a8994a23a5d}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-Apr-2015]}
+      \field{title}{Designated initializers for aggregate types (C only)}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://www-01.ibm.com/support/knowledgecenter/SSXVZZ_8.0.0/%5C/com.ibm.xlcpp8l.doc%5C/language%5C/ref%5C/designators.htm
+      \endverb
+      \verb{url}
+      \verb http://www-01.ibm.com/support/knowledgecenter/SSXVZZ_8.0.0/%5C/com.ibm.xlcpp8l.doc%5C/language%5C/ref%5C/designators.htm
+      \endverb
+    \endentry
+    \entry{wiki:endianness}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{Endianness --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Endianness&oldid=654008462
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Endianness&oldid=654008462
+      \endverb
+    \endentry
+    \entry{web:TheAr30}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=142f3e3188ae447358745285632cc491}{%
+           family={Swanson},
+           familyi={S\bibinitperiod},
+           given={William},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{142f3e3188ae447358745285632cc491}
+      \strng{fullhash}{142f3e3188ae447358745285632cc491}
+      \strng{bibnamehash}{142f3e3188ae447358745285632cc491}
+      \strng{authorbibnamehash}{142f3e3188ae447358745285632cc491}
+      \strng{authornamehash}{142f3e3188ae447358745285632cc491}
+      \strng{authorfullhash}{142f3e3188ae447358745285632cc491}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{http://www.swansontec.com/sregisters.html}
+      \field{note}{(Accessed on 2016-06-26)}
+      \field{title}{The Art of Picking Intel Registers}
+      \field{year}{2003}
+    \endentry
+    \entry{stack:stos}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{What does \texttt{rep stos} do?}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/3818856/what-does-this-assembly-do
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/3818856/what-does-this-assembly-do
+      \endverb
+    \endentry
+    \entry{wiki:eflags}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{FLAGS register --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=FLAGS_register&oldid=645323667
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=FLAGS_register&oldid=645323667
+      \endverb
+    \endentry
+    \entry{bartlett2009programming}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d4eb00f4ebc62f9ae6bbfdd4912c2068}{%
+           family={Bartlett},
+           familyi={B\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {University Press of Florida}%
+      }
+      \strng{namehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \strng{fullhash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \strng{bibnamehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \strng{authorbibnamehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \strng{authornamehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \strng{authorfullhash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Programming from the Ground Up}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb http://books.google.com.hk/books?id=E4J8RAAACAAJ
+      \endverb
+      \verb{url}
+      \verb http://books.google.com.hk/books?id=E4J8RAAACAAJ
+      \endverb
+    \endentry
+    \entry{wikibooks-gas}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5886004bd42dfe6ea957dc7e00167fcc}{%
+           family={Wikibooks},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \strng{fullhash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \strng{bibnamehash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \strng{authorbibnamehash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \strng{authornamehash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \strng{authorfullhash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GAS Syntax}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax
+      \endverb
+      \verb{url}
+      \verb http://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax
+      \endverb
+    \endentry
+    \entry{wiki:callstack}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 19-April-2015]}
+      \field{title}{Call stack --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Call_stack&oldid=644914355
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Call_stack&oldid=644914355
+      \endverb
+    \endentry
+    \entry{wiki:alignment}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 25-April-2015]}
+      \field{title}{Data structure alignment --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Data_structure_alignment&oldid=627790068
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Data_structure_alignment&oldid=627790068
+      \endverb
+    \endentry
+    \entry{howto:gcc-inline-asm}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=414ea760c7fee2e286274be211640a59}{%
+           family={ibiblio.org},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{414ea760c7fee2e286274be211640a59}
+      \strng{fullhash}{414ea760c7fee2e286274be211640a59}
+      \strng{bibnamehash}{414ea760c7fee2e286274be211640a59}
+      \strng{authorbibnamehash}{414ea760c7fee2e286274be211640a59}
+      \strng{authornamehash}{414ea760c7fee2e286274be211640a59}
+      \strng{authorfullhash}{414ea760c7fee2e286274be211640a59}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GCC Inline Assembly HOWTO}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html
+      \endverb
+      \verb{url}
+      \verb http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html
+      \endverb
+    \endentry
+    \entry{kernelnewbies:FAQ/a70}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=187d220264edd8830204b6523b54870f}{%
+           family={kernelnewbies.org},
+           familyi={k\bibinitperiod}}}%
+      }
+      \strng{namehash}{187d220264edd8830204b6523b54870f}
+      \strng{fullhash}{187d220264edd8830204b6523b54870f}
+      \strng{bibnamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authorbibnamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authornamehash}{187d220264edd8830204b6523b54870f}
+      \strng{authorfullhash}{187d220264edd8830204b6523b54870f}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{http://kernelnewbies.org/FAQ/asmlinkage}
+      \field{note}{(Accessed on 2016-06-26)}
+      \field{title}{FAQ/asmlinkage}
+      \field{year}{2011}
+    \endentry
+    \entry{wiki:callingconvention}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 25-April-2015]}
+      \field{title}{Calling convention --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Calling_convention&oldid=650623807
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Calling_convention&oldid=650623807
+      \endverb
+    \endentry
+    \entry{web:uin93}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=1da2d4dddd6aea2349abf92e2205c3dd}{%
+           family={cprogramming.com},
+           familyi={c\bibinitperiod}}}%
+      }
+      \strng{namehash}{1da2d4dddd6aea2349abf92e2205c3dd}
+      \strng{fullhash}{1da2d4dddd6aea2349abf92e2205c3dd}
+      \strng{bibnamehash}{1da2d4dddd6aea2349abf92e2205c3dd}
+      \strng{authorbibnamehash}{1da2d4dddd6aea2349abf92e2205c3dd}
+      \strng{authornamehash}{1da2d4dddd6aea2349abf92e2205c3dd}
+      \strng{authorfullhash}{1da2d4dddd6aea2349abf92e2205c3dd}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{http://cboard.cprogramming.com/c-programming/130111-uint32_t-\char`~0ul.html}
+      \field{note}{(Accessed on 2016-06-26)}
+      \field{title}{((uint32\_t)(\char`~0UL)) ??}
+      \field{year}{2010}
+    \endentry
+    \entry{wiki:volatile}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 25-April-2015]}
+      \field{title}{Volatile (computer programming) --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Volatile_(computer_programming)&oldid=644262109
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Volatile_(computer_programming)&oldid=644262109
+      \endverb
+    \endentry
+    \entry{salzman07kernel}{book}{}
+      \name{author}{3}{}{%
+        {{hash=622225add635ace07aac7da44005e108}{%
+           family={Salzman},
+           familyi={S\bibinitperiod},
+           given={Peter\bibnamedelima Jay},
+           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=07ee686fadc2644c7f6ae7ef8d56184e}{%
+           family={Burian},
+           familyi={B\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=312125c7adc85558bc68d5f3fd3658a1}{%
+           family={Pomerantz},
+           familyi={P\bibinitperiod},
+           given={Ori},
+           giveni={O\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {tldp.org}%
+      }
+      \strng{namehash}{376c76c4a9516d98576004be1c3d17c9}
+      \strng{fullhash}{70d1d354c890411ee85b6badfac6e3dc}
+      \strng{bibnamehash}{70d1d354c890411ee85b6badfac6e3dc}
+      \strng{authorbibnamehash}{70d1d354c890411ee85b6badfac6e3dc}
+      \strng{authornamehash}{376c76c4a9516d98576004be1c3d17c9}
+      \strng{authorfullhash}{70d1d354c890411ee85b6badfac6e3dc}
+      \field{sortinit}{9}
+      \field{sortinithash}{1dd72ab054147731c9d824b49aba0534}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2.6.4}
+      \field{title}{The Linux Kernel Module Programming Guide}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb http://tldp.org/LDP/lkmpg/2.6/html/
+      \endverb
+      \verb{url}
+      \verb http://tldp.org/LDP/lkmpg/2.6/html/
+      \endverb
+    \endentry
+    \entry{wiki:elf}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 12-May-2015]}
+      \field{title}{Executable and Linkable Format --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Executable_and_Linkable_Format&oldid=659380509
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Executable_and_Linkable_Format&oldid=659380509
+      \endverb
+    \endentry
+    \entry{duarte:gustavo2008chipsets}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=31c285d00b6f77a6f85d3b97391db3ea}{%
+           family={Duarte},
+           familyi={D\bibinitperiod},
+           given={Gustavo},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{fullhash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{bibnamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authorbibnamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authornamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authorfullhash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{Motherboard Chipsets and the Memory Map}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map
+      \endverb
+      \verb{url}
+      \verb http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map
+      \endverb
+    \endentry
+    \entry{duarte:gustavo2008boot}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=31c285d00b6f77a6f85d3b97391db3ea}{%
+           family={Duarte},
+           familyi={D\bibinitperiod},
+           given={Gustavo},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{fullhash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{bibnamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authorbibnamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authornamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authorfullhash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{How Computers Boot up}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb http://duartes.org/gustavo/blog/post/how-computers-boot-up
+      \endverb
+      \verb{url}
+      \verb http://duartes.org/gustavo/blog/post/how-computers-boot-up
+      \endverb
+    \endentry
+    \entry{web:bios-rom}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{How is the BIOS ROM mapped into address space on PC?}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/7804724/how-is-the-bios-rom-mapped-into-address-space-on-pc
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/7804724/how-is-the-bios-rom-mapped-into-address-space-on-pc
+      \endverb
+    \endentry
+    \entry{web:boot-seq}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=95ab158114c746cbbbc6ce3e9631fbb3}{%
+           family={www.pcguide.com},
+           familyi={w\bibinitperiod}}}%
+      }
+      \strng{namehash}{95ab158114c746cbbbc6ce3e9631fbb3}
+      \strng{fullhash}{95ab158114c746cbbbc6ce3e9631fbb3}
+      \strng{bibnamehash}{95ab158114c746cbbbc6ce3e9631fbb3}
+      \strng{authorbibnamehash}{95ab158114c746cbbbc6ce3e9631fbb3}
+      \strng{authornamehash}{95ab158114c746cbbbc6ce3e9631fbb3}
+      \strng{authorfullhash}{95ab158114c746cbbbc6ce3e9631fbb3}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{System Boot Sequence}
+      \field{year}{2001}
+      \verb{urlraw}
+      \verb http://www.pcguide.com/ref/mbsys/bios/bootSequence-c.html
+      \endverb
+      \verb{url}
+      \verb http://www.pcguide.com/ref/mbsys/bios/bootSequence-c.html
+      \endverb
+    \endentry
+    \entry{web:bios-rom2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Do normal x86 or AMD PCs run startup/BIOS code directly from ROM, or do they copy it first to RAM?}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/5300527/do-normal-x86-or-amd-pcs-run-startup-bios-code-directly-from-rom-or-do-they-cop
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/5300527/do-normal-x86-or-amd-pcs-run-startup-bios-code-directly-from-rom-or-do-they-cop
+      \endverb
+    \endentry
+    \entry{wiki:rst-vector}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-April-2015]}
+      \field{title}{Reset vector --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Reset_vector&oldid=645988149
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Reset_vector&oldid=645988149
+      \endverb
+    \endentry
+    \entry{web:boot-cpu}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a1666f615aca2ec8ab58de41427c5979}{%
+           family={lateblt.tripod.com},
+           familyi={l\bibinitperiod}}}%
+      }
+      \strng{namehash}{a1666f615aca2ec8ab58de41427c5979}
+      \strng{fullhash}{a1666f615aca2ec8ab58de41427c5979}
+      \strng{bibnamehash}{a1666f615aca2ec8ab58de41427c5979}
+      \strng{authorbibnamehash}{a1666f615aca2ec8ab58de41427c5979}
+      \strng{authornamehash}{a1666f615aca2ec8ab58de41427c5979}
+      \strng{authorfullhash}{a1666f615aca2ec8ab58de41427c5979}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{What Happens When A CPU Starts}
+      \verb{urlraw}
+      \verb http://lateblt.tripod.com/bit68.txt
+      \endverb
+      \verb{url}
+      \verb http://lateblt.tripod.com/bit68.txt
+      \endverb
+    \endentry
+    \entry{freebsd:archbook}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=656e3289d5e619fc623982baa3da764b}{%
+           family={Project},
+           familyi={P\bibinitperiod},
+           given={The\bibnamedelimb FreeBSD\bibnamedelima Documentation},
+           giveni={T\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{656e3289d5e619fc623982baa3da764b}
+      \strng{fullhash}{656e3289d5e619fc623982baa3da764b}
+      \strng{bibnamehash}{656e3289d5e619fc623982baa3da764b}
+      \strng{authorbibnamehash}{656e3289d5e619fc623982baa3da764b}
+      \strng{authornamehash}{656e3289d5e619fc623982baa3da764b}
+      \strng{authorfullhash}{656e3289d5e619fc623982baa3da764b}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{FreeBSD Architecture Handbook}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb http://www.freebsd.org/doc/en/books/arch-handbook/index.html
+      \endverb
+      \verb{url}
+      \verb http://www.freebsd.org/doc/en/books/arch-handbook/index.html
+      \endverb
+    \endentry
+    \entry{wiki:realmode}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-April-2015]}
+      \field{title}{Real mode --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Real_mode&oldid=651626957
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Real_mode&oldid=651626957
+      \endverb
+    \endentry
+    \entry{osdev:realmode}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=2e6eb4de9852fddd08007f978f3d7828}{%
+           family={wiki.osdev.org},
+           familyi={w\bibinitperiod}}}%
+      }
+      \strng{namehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{fullhash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{bibnamehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{authorbibnamehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{authornamehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{authorfullhash}{2e6eb4de9852fddd08007f978f3d7828}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Real Mode}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb http://wiki.osdev.org/Real_Mode
+      \endverb
+      \verb{url}
+      \verb http://wiki.osdev.org/Real_Mode
+      \endverb
+    \endentry
+    \entry{osdev:descriptor-cache}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=2e6eb4de9852fddd08007f978f3d7828}{%
+           family={wiki.osdev.org},
+           familyi={w\bibinitperiod}}}%
+      }
+      \strng{namehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{fullhash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{bibnamehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{authorbibnamehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{authornamehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{authorfullhash}{2e6eb4de9852fddd08007f978f3d7828}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Descriptor Cache}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb http://wiki.osdev.org/Descriptor_Cache
+      \endverb
+      \verb{url}
+      \verb http://wiki.osdev.org/Descriptor_Cache
+      \endverb
+    \endentry
+    \entry{osdev:unrealmode2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5064837987134fc6f19e3b421b2c9771}{%
+           family={forum.osdev.org},
+           familyi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{5064837987134fc6f19e3b421b2c9771}
+      \strng{fullhash}{5064837987134fc6f19e3b421b2c9771}
+      \strng{bibnamehash}{5064837987134fc6f19e3b421b2c9771}
+      \strng{authorbibnamehash}{5064837987134fc6f19e3b421b2c9771}
+      \strng{authornamehash}{5064837987134fc6f19e3b421b2c9771}
+      \strng{authorfullhash}{5064837987134fc6f19e3b421b2c9771}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Unreal mode}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb http://forum.osdev.org/viewtopic.php?f=1&t=21179&start=15
+      \endverb
+      \verb{url}
+      \verb http://forum.osdev.org/viewtopic.php?f=1&t=21179&start=15
+      \endverb
+    \endentry
+    \entry{osdev:realmode2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a82271d878d6d960653bec72784ea90e}{%
+           family={files.osdev.org},
+           familyi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{a82271d878d6d960653bec72784ea90e}
+      \strng{fullhash}{a82271d878d6d960653bec72784ea90e}
+      \strng{bibnamehash}{a82271d878d6d960653bec72784ea90e}
+      \strng{authorbibnamehash}{a82271d878d6d960653bec72784ea90e}
+      \strng{authornamehash}{a82271d878d6d960653bec72784ea90e}
+      \strng{authorfullhash}{a82271d878d6d960653bec72784ea90e}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Segment Registers: Real mode vs. Protected mode}
+      \verb{urlraw}
+      \verb http://files.osdev.org/mirrors/geezer/johnfine/segments.htm
+      \endverb
+      \verb{url}
+      \verb http://files.osdev.org/mirrors/geezer/johnfine/segments.htm
+      \endverb
+    \endentry
+    \entry{wiki:unrealmode}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-April-2015]}
+      \field{title}{Unreal mode --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Unreal_mode&oldid=648580022
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Unreal_mode&oldid=648580022
+      \endverb
+    \endentry
+    \entry{osdev:unrealmode}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=2e6eb4de9852fddd08007f978f3d7828}{%
+           family={wiki.osdev.org},
+           familyi={w\bibinitperiod}}}%
+      }
+      \strng{namehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{fullhash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{bibnamehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{authorbibnamehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{authornamehash}{2e6eb4de9852fddd08007f978f3d7828}
+      \strng{authorfullhash}{2e6eb4de9852fddd08007f978f3d7828}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Unreal Mode}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb http://wiki.osdev.org/Unreal_Mode
+      \endverb
+      \verb{url}
+      \verb http://wiki.osdev.org/Unreal_Mode
+      \endverb
+    \endentry
+    \entry{web:linuxbootloader}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=78cfb27a42fd7c32ed59cbb78d7d1d42}{%
+           family={Benschop},
+           familyi={B\bibinitperiod},
+           given={L.C.},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{78cfb27a42fd7c32ed59cbb78d7d1d42}
+      \strng{fullhash}{78cfb27a42fd7c32ed59cbb78d7d1d42}
+      \strng{bibnamehash}{78cfb27a42fd7c32ed59cbb78d7d1d42}
+      \strng{authorbibnamehash}{78cfb27a42fd7c32ed59cbb78d7d1d42}
+      \strng{authornamehash}{78cfb27a42fd7c32ed59cbb78d7d1d42}
+      \strng{authorfullhash}{78cfb27a42fd7c32ed59cbb78d7d1d42}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Linux Boot Loaders Compared}
+      \field{year}{2003}
+      \verb{urlraw}
+      \verb http://lennartb.home.xs4all.nl/bootloaders/bootloaders.html
+      \endverb
+      \verb{url}
+      \verb http://lennartb.home.xs4all.nl/bootloaders/bootloaders.html
+      \endverb
+    \endentry
+    \entry{linux2.6.25protocol}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f539dc6960b8530beea340a86fb73ca9}{%
+           family={source},
+           familyi={s\bibinitperiod},
+           given={Kernel},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{f539dc6960b8530beea340a86fb73ca9}
+      \strng{fullhash}{f539dc6960b8530beea340a86fb73ca9}
+      \strng{bibnamehash}{f539dc6960b8530beea340a86fb73ca9}
+      \strng{authorbibnamehash}{f539dc6960b8530beea340a86fb73ca9}
+      \strng{authornamehash}{f539dc6960b8530beea340a86fb73ca9}
+      \strng{authorfullhash}{f539dc6960b8530beea340a86fb73ca9}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Linux Boot Protocol}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb http://lxr.linux.no/linux+v2.6.25.6/Documentation/i386/boot.txt
+      \endverb
+      \verb{url}
+      \verb http://lxr.linux.no/linux+v2.6.25.6/Documentation/i386/boot.txt
+      \endverb
+    \endentry
+    \entry{newbies:kernelstart}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d5b3114d019df4f1f164bebb3f87eaa6}{%
+           family={lists.kernelnewbies.org},
+           familyi={l\bibinitperiod}}}%
+      }
+      \strng{namehash}{d5b3114d019df4f1f164bebb3f87eaa6}
+      \strng{fullhash}{d5b3114d019df4f1f164bebb3f87eaa6}
+      \strng{bibnamehash}{d5b3114d019df4f1f164bebb3f87eaa6}
+      \strng{authorbibnamehash}{d5b3114d019df4f1f164bebb3f87eaa6}
+      \strng{authornamehash}{d5b3114d019df4f1f164bebb3f87eaa6}
+      \strng{authorfullhash}{d5b3114d019df4f1f164bebb3f87eaa6}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{From which point onwards the kernel execution starts?}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb http://lists.kernelnewbies.org/pipermail/kernelnewbies/2011-March/001133.html
+      \endverb
+      \verb{url}
+      \verb http://lists.kernelnewbies.org/pipermail/kernelnewbies/2011-March/001133.html
+      \endverb
+    \endentry
+    \entry{blogspot:bootprocess}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=deab32201742e0ffc1949c746c02042c}{%
+           family={Blog},
+           familyi={B\bibinitperiod},
+           given={Unixbhaskar's},
+           giveni={U\bibinitperiod}}}%
+      }
+      \strng{namehash}{deab32201742e0ffc1949c746c02042c}
+      \strng{fullhash}{deab32201742e0ffc1949c746c02042c}
+      \strng{bibnamehash}{deab32201742e0ffc1949c746c02042c}
+      \strng{authorbibnamehash}{deab32201742e0ffc1949c746c02042c}
+      \strng{authornamehash}{deab32201742e0ffc1949c746c02042c}
+      \strng{authorfullhash}{deab32201742e0ffc1949c746c02042c}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Insight into GNU/Linux boot process}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb http://unixbhaskar.blogspot.com/2010/03/insight-into-gnulinux-boot-process.html
+      \endverb
+      \verb{url}
+      \verb http://unixbhaskar.blogspot.com/2010/03/insight-into-gnulinux-boot-process.html
+      \endverb
+    \endentry
+    \entry{blogspot:bootprocess2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d43637ae69cc545eab9f47889ede4d68}{%
+           family={Sudhansu},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{d43637ae69cc545eab9f47889ede4d68}
+      \strng{fullhash}{d43637ae69cc545eab9f47889ede4d68}
+      \strng{bibnamehash}{d43637ae69cc545eab9f47889ede4d68}
+      \strng{authorbibnamehash}{d43637ae69cc545eab9f47889ede4d68}
+      \strng{authornamehash}{d43637ae69cc545eab9f47889ede4d68}
+      \strng{authorfullhash}{d43637ae69cc545eab9f47889ede4d68}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Linux Boot Process in a nutshell}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://linux-development-for-fresher.blogspot.com/2012/07/linux-boot-process-in-nutshell.html
+      \endverb
+      \verb{url}
+      \verb http://linux-development-for-fresher.blogspot.com/2012/07/linux-boot-process-in-nutshell.html
+      \endverb
+    \endentry
+    \entry{abhishek2002memory}{book}{}
+      \name{author}{3}{}{%
+        {{hash=2a18cf4ceb288342bd993355d5005af8}{%
+           family={Nayani},
+           familyi={N\bibinitperiod},
+           given={Abhishek},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1c6104a43668a066dc04e28523bc2dad}{%
+           family={Gorman},
+           familyi={G\bibinitperiod},
+           given={Mel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d80798e343d97b9a300a17822800b6ee}{%
+           family={Castro},
+           familyi={C\bibinitperiod},
+           given={Rodrigo\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Free book}%
+      }
+      \strng{namehash}{0be21e92ba9120f44c29f3da66b0d97d}
+      \strng{fullhash}{edf8e8f7952017175739d1b17246fda5}
+      \strng{bibnamehash}{edf8e8f7952017175739d1b17246fda5}
+      \strng{authorbibnamehash}{edf8e8f7952017175739d1b17246fda5}
+      \strng{authornamehash}{0be21e92ba9120f44c29f3da66b0d97d}
+      \strng{authorfullhash}{edf8e8f7952017175739d1b17246fda5}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Memory Management in Linux: Desktop Companion to the Linux Source Code}
+      \field{year}{2002}
+    \endentry
+    \entry{wiki:e820}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 26-April-2015]}
+      \field{title}{E820 --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=E820&oldid=545269170
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=E820&oldid=545269170
+      \endverb
+    \endentry
+    \entry{wiki:a20}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-April-2015]}
+      \field{title}{A20 line --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=A20_line&oldid=654620285
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=A20_line&oldid=654620285
+      \endverb
+    \endentry
+    \entry{wiki:idt}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-April-2015]}
+      \field{title}{Interrupt descriptor table --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Interrupt_descriptor_table&oldid=622465896
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Interrupt_descriptor_table&oldid=622465896
+      \endverb
+    \endentry
+    \entry{wiki:gdt}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-April-2015]}
+      \field{title}{Global Descriptor Table --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Global_Descriptor_Table&oldid=623971141
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Global_Descriptor_Table&oldid=623971141
+      \endverb
+    \endentry
+    \entry{howto:init}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=af7b8e222f65f949f72d29041227138a}{%
+           family={www.tldp.org},
+           familyi={w\bibinitperiod}}}%
+      }
+      \strng{namehash}{af7b8e222f65f949f72d29041227138a}
+      \strng{fullhash}{af7b8e222f65f949f72d29041227138a}
+      \strng{bibnamehash}{af7b8e222f65f949f72d29041227138a}
+      \strng{authorbibnamehash}{af7b8e222f65f949f72d29041227138a}
+      \strng{authornamehash}{af7b8e222f65f949f72d29041227138a}
+      \strng{authorfullhash}{af7b8e222f65f949f72d29041227138a}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Linux 2.4.x Initialization for IA-32 HOWTO}
+      \field{year}{2001}
+      \verb{urlraw}
+      \verb http://www.tldp.org/HOWTO/Linux-Init-HOWTO.html
+      \endverb
+      \verb{url}
+      \verb http://www.tldp.org/HOWTO/Linux-Init-HOWTO.html
+      \endverb
+    \endentry
+    \entry{intel86}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=ff97a9fdede09eaf6e1c8ec9f6a61dd5}{%
+           family={Intel},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{fullhash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{bibnamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{authorbibnamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{authornamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{authorfullhash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{INTEL 80386 Programmer's Reference Manual}
+      \field{year}{1986}
+      \verb{urlraw}
+      \verb http://pdos.csail.mit.edu/6.828/2004/readings/i386/toc.htm
+      \endverb
+      \verb{url}
+      \verb http://pdos.csail.mit.edu/6.828/2004/readings/i386/toc.htm
+      \endverb
+    \endentry
+    \entry{wiki:x86asm}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-April-2015]}
+      \field{title}{X86 assembly language --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=X86_assembly_language&oldid=655458178
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=X86_assembly_language&oldid=655458178
+      \endverb
+    \endentry
+    \entry{howto:i386bootcode}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=4a64eb9a316b361c256cd06c8fde8a10}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Feiyun},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{4a64eb9a316b361c256cd06c8fde8a10}
+      \strng{fullhash}{4a64eb9a316b361c256cd06c8fde8a10}
+      \strng{bibnamehash}{4a64eb9a316b361c256cd06c8fde8a10}
+      \strng{authorbibnamehash}{4a64eb9a316b361c256cd06c8fde8a10}
+      \strng{authornamehash}{4a64eb9a316b361c256cd06c8fde8a10}
+      \strng{authorfullhash}{4a64eb9a316b361c256cd06c8fde8a10}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Linux i386 Boot Code HOWTO}
+      \field{year}{2004}
+      \verb{urlraw}
+      \verb http://tldp.org/HOWTO/Linux-i386-Boot-Code-HOWTO/index.html
+      \endverb
+      \verb{url}
+      \verb http://tldp.org/HOWTO/Linux-i386-Boot-Code-HOWTO/index.html
+      \endverb
+    \endentry
+    \entry{wangshuang03}{book}{}
+      \name{author}{1}{}{%
+        {{hash=32d6e63c7febbb74d8ccacd9015d6ae6}{%
+           family={王爽},
+           familyi={王\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {清华大学出版社}%
+      }
+      \strng{namehash}{32d6e63c7febbb74d8ccacd9015d6ae6}
+      \strng{fullhash}{32d6e63c7febbb74d8ccacd9015d6ae6}
+      \strng{bibnamehash}{32d6e63c7febbb74d8ccacd9015d6ae6}
+      \strng{authorbibnamehash}{32d6e63c7febbb74d8ccacd9015d6ae6}
+      \strng{authornamehash}{32d6e63c7febbb74d8ccacd9015d6ae6}
+      \strng{authorfullhash}{32d6e63c7febbb74d8ccacd9015d6ae6}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{汇编语言}
+      \field{year}{2003}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/58/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/58/Calibre1
+      \endverb
+    \endentry
+    \entry{duarte:cpu-ring}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=31c285d00b6f77a6f85d3b97391db3ea}{%
+           family={Duarte},
+           familyi={D\bibinitperiod},
+           given={Gustavo},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{fullhash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{bibnamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authorbibnamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authornamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authorfullhash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{CPU Rings, Privilege, and Protection}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb http://duartes.org/gustavo/blog/post/cpu-rings-privilege-and-protection/
+      \endverb
+      \verb{url}
+      \verb http://duartes.org/gustavo/blog/post/cpu-rings-privilege-and-protection/
+      \endverb
+    \endentry
+    \entry{duarte:mem}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=31c285d00b6f77a6f85d3b97391db3ea}{%
+           family={Duarte},
+           familyi={D\bibinitperiod},
+           given={Gustavo},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{fullhash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{bibnamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authorbibnamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authornamehash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \strng{authorfullhash}{31c285d00b6f77a6f85d3b97391db3ea}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Memory Translation and Segmentation}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb http://duartes.org/gustavo/blog/post/memory-translation-and-segmentation/
+      \endverb
+      \verb{url}
+      \verb http://duartes.org/gustavo/blog/post/memory-translation-and-segmentation/
+      \endverb
+    \endentry
+    \entry{wiki:tss}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-April-2015]}
+      \field{title}{Task state segment --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Task_state_segment&oldid=639965441
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Task_state_segment&oldid=639965441
+      \endverb
+    \endentry
+    \entry{mauerer2008professional}{book}{}
+      \name{author}{1}{}{%
+        {{hash=94e687d10b275206ed48744534b73f87}{%
+           family={Mauerer},
+           familyi={M\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{94e687d10b275206ed48744534b73f87}
+      \strng{fullhash}{94e687d10b275206ed48744534b73f87}
+      \strng{bibnamehash}{94e687d10b275206ed48744534b73f87}
+      \strng{authorbibnamehash}{94e687d10b275206ed48744534b73f87}
+      \strng{authornamehash}{94e687d10b275206ed48744534b73f87}
+      \strng{authorfullhash}{94e687d10b275206ed48744534b73f87}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Professional Linux Kernel Architecture}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/10/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/10/Calibre1
+      \endverb
+    \endentry
+    \entry{gorman2004understanding}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b3eba509f20e14c4cd71b2829517cc4e}{%
+           family={Gorman},
+           familyi={G\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{b3eba509f20e14c4cd71b2829517cc4e}
+      \strng{fullhash}{b3eba509f20e14c4cd71b2829517cc4e}
+      \strng{bibnamehash}{b3eba509f20e14c4cd71b2829517cc4e}
+      \strng{authorbibnamehash}{b3eba509f20e14c4cd71b2829517cc4e}
+      \strng{authornamehash}{b3eba509f20e14c4cd71b2829517cc4e}
+      \strng{authorfullhash}{b3eba509f20e14c4cd71b2829517cc4e}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding the Linux Virtual Memory Manager}
+      \field{year}{2004}
+    \endentry
+    \entry{linuxmm:highmemory}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c8c66728edcdd445c3f2ed6a794011b0}{%
+           family={linux-mm.org},
+           familyi={l\bibinithyphendelim m\bibinitperiod}}}%
+      }
+      \strng{namehash}{c8c66728edcdd445c3f2ed6a794011b0}
+      \strng{fullhash}{c8c66728edcdd445c3f2ed6a794011b0}
+      \strng{bibnamehash}{c8c66728edcdd445c3f2ed6a794011b0}
+      \strng{authorbibnamehash}{c8c66728edcdd445c3f2ed6a794011b0}
+      \strng{authornamehash}{c8c66728edcdd445c3f2ed6a794011b0}
+      \strng{authorfullhash}{c8c66728edcdd445c3f2ed6a794011b0}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{HighMemory}
+      \field{year}{2006}
+      \verb{urlraw}
+      \verb http://linux-mm.org/HighMemory
+      \endverb
+      \verb{url}
+      \verb http://linux-mm.org/HighMemory
+      \endverb
+    \endentry
+    \entry{stack:kernelstack}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Does there exist Kernel stack for each process ?}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/6083236/does-there-exist-kernel-stack-for-each-process
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/6083236/does-there-exist-kernel-stack-for-each-process
+      \endverb
+    \endentry
+    \entry{stack:kernelstack2}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{kernel stack for linux process}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/886807/kernel-stack-for-linux-process
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/886807/kernel-stack-for-linux-process
+      \endverb
+    \endentry
+    \entry{stack:kernelstack3}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{kernel stack vs user-mode application stack}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/1974612/kernel-stack-vs-user-mode-application-stack
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/1974612/kernel-stack-vs-user-mode-application-stack
+      \endverb
+    \endentry
+    \entry{unix:kstack}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c25e0e3f3f8f89ac51955e2af2fb9f6c}{%
+           family={Dummies\bibnamedelimb Questions\bibnamedelimb \&\bibnamedelima Answers},
+           familyi={D\bibinitperiod\bibinitdelim Q\bibinitperiod\bibinitdelim \~A\bibinitperiod},
+           given={UNIX},
+           giveni={U\bibinitperiod},
+           prefix={for},
+           prefixi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{c25e0e3f3f8f89ac51955e2af2fb9f6c}
+      \strng{fullhash}{c25e0e3f3f8f89ac51955e2af2fb9f6c}
+      \strng{bibnamehash}{c25e0e3f3f8f89ac51955e2af2fb9f6c}
+      \strng{authorbibnamehash}{c25e0e3f3f8f89ac51955e2af2fb9f6c}
+      \strng{authornamehash}{c25e0e3f3f8f89ac51955e2af2fb9f6c}
+      \strng{authorfullhash}{c25e0e3f3f8f89ac51955e2af2fb9f6c}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Kernel Stack vs User Mode Stack}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://www.unix.com/unix-for-dummies-questions-and-answers/174134-kernel-stack-vs-user-mode-stack.html
+      \endverb
+      \verb{url}
+      \verb http://www.unix.com/unix-for-dummies-questions-and-answers/174134-kernel-stack-vs-user-mode-stack.html
+      \endverb
+    \endentry
+    \entry{linuxq:kstack}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=3225317169e77c187631c2086739447c}{%
+           family={www.linuxquestions.org},
+           familyi={w\bibinitperiod}}}%
+      }
+      \strng{namehash}{3225317169e77c187631c2086739447c}
+      \strng{fullhash}{3225317169e77c187631c2086739447c}
+      \strng{bibnamehash}{3225317169e77c187631c2086739447c}
+      \strng{authorbibnamehash}{3225317169e77c187631c2086739447c}
+      \strng{authornamehash}{3225317169e77c187631c2086739447c}
+      \strng{authorfullhash}{3225317169e77c187631c2086739447c}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Kernel Stack Initialization}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb http://www.linuxquestions.org/questions/linux-kernel-70/kernel-stack-initialization-894413/
+      \endverb
+      \verb{url}
+      \verb http://www.linuxquestions.org/questions/linux-kernel-70/kernel-stack-initialization-894413/
+      \endverb
+    \endentry
+    \entry{linuxjournal:process}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=52b5fc5f9688e5dad85f77540cf97b88}{%
+           family={Bar},
+           familyi={B\bibinitperiod},
+           given={Moshe},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{52b5fc5f9688e5dad85f77540cf97b88}
+      \strng{fullhash}{52b5fc5f9688e5dad85f77540cf97b88}
+      \strng{bibnamehash}{52b5fc5f9688e5dad85f77540cf97b88}
+      \strng{authorbibnamehash}{52b5fc5f9688e5dad85f77540cf97b88}
+      \strng{authornamehash}{52b5fc5f9688e5dad85f77540cf97b88}
+      \strng{authorfullhash}{52b5fc5f9688e5dad85f77540cf97b88}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{The Linux Process Model}
+      \field{year}{2000}
+      \verb{urlraw}
+      \verb http://www.linuxjournal.com/article/3814#navigation
+      \endverb
+      \verb{url}
+      \verb http://www.linuxjournal.com/article/3814#navigation
+      \endverb
+    \endentry
+    \entry{quora:array}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b586fab9e7f81dc5f5cdb2dadaf1890b}{%
+           family={Quora},
+           familyi={Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \strng{fullhash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \strng{bibnamehash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \strng{authorbibnamehash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \strng{authornamehash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \strng{authorfullhash}{b586fab9e7f81dc5f5cdb2dadaf1890b}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{What is the advantage of using zero-length arrays in C?}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://www.quora.com/What-is-the-advantage-of-using-zero-length-arrays-in-C
+      \endverb
+      \verb{url}
+      \verb http://www.quora.com/What-is-the-advantage-of-using-zero-length-arrays-in-C
+      \endverb
+    \endentry
+    \entry{stack:kstack}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=73868cb1848a216984dca1b6b0ee37bc}{%
+           family={stackoverflow},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{fullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{bibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorbibnamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authornamehash}{73868cb1848a216984dca1b6b0ee37bc}
+      \strng{authorfullhash}{73868cb1848a216984dca1b6b0ee37bc}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 20-Apr-2015]}
+      \field{title}{Understanding the getting of task\_struct pointer from process kernel stack}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/11961490/understanding-the-getting-of-task-struct-pointer-from-process-kernel-stack
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/11961490/understanding-the-getting-of-task-struct-pointer-from-process-kernel-stack
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{1}
+  \datalist[entry]{none/global//global/global}
+    \entry{tanenbaum2008modern}{book}{}
+      \name{author}{1}{}{%
+        {{hash=5fec945e2e4e128e1f94258b75085d2d}{%
+           family={Tanenbaum},
+           familyi={T\bibinitperiod},
+           given={Andrew\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall Press}%
+      }
+      \strng{namehash}{5fec945e2e4e128e1f94258b75085d2d}
+      \strng{fullhash}{5fec945e2e4e128e1f94258b75085d2d}
+      \strng{bibnamehash}{5fec945e2e4e128e1f94258b75085d2d}
+      \strng{authorbibnamehash}{5fec945e2e4e128e1f94258b75085d2d}
+      \strng{authornamehash}{5fec945e2e4e128e1f94258b75085d2d}
+      \strng{authorfullhash}{5fec945e2e4e128e1f94258b75085d2d}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Modern Operating Systems}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/4/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/4/Calibre1
+      \endverb
+    \endentry
+    \entry{silberschatz11essentials}{book}{}
+      \name{author}{3}{}{%
+        {{hash=4f34927dfbed9f6425b40ef776942177}{%
+           family={Silberschatz},
+           familyi={S\bibinitperiod}}}%
+        {{hash=f4d673ffd940c82d92eb33a866608f22}{%
+           family={Galvin},
+           familyi={G\bibinitperiod}}}%
+        {{hash=0fc12a0b906a3d2131f0f3e2b958321e}{%
+           family={Gagne},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
+      \strng{fullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{bibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{authorbibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{authornamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
+      \strng{authorfullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Operating System Concepts Essentials}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
+      \endverb
+    \endentry
+    \entry{zouhengming09}{book}{}
+      \name{author}{1}{}{%
+        {{hash=be7bd4ddf5d28e79cc32e96758036ac9}{%
+           family={邹恒明},
+           familyi={邹\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {机械工业出版社}%
+      }
+      \strng{namehash}{be7bd4ddf5d28e79cc32e96758036ac9}
+      \strng{fullhash}{be7bd4ddf5d28e79cc32e96758036ac9}
+      \strng{bibnamehash}{be7bd4ddf5d28e79cc32e96758036ac9}
+      \strng{authorbibnamehash}{be7bd4ddf5d28e79cc32e96758036ac9}
+      \strng{authornamehash}{be7bd4ddf5d28e79cc32e96758036ac9}
+      \strng{authorfullhash}{be7bd4ddf5d28e79cc32e96758036ac9}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{计算机的心智：操作系统之哲学原理}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/82/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/82/Calibre1
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{2}
+  \datalist[entry]{none/global//global/global}
+    \entry{corbet05ldd}{book}{}
+      \name{author}{3}{}{%
+        {{hash=729670cd9d39b9b575390147a29d51d7}{%
+           family={Corbet},
+           familyi={C\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8edf24ea3e75c726f2c163493ab3e3c3}{%
+           family={Kroah-Hartman},
+           familyi={K\bibinithyphendelim H\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod}}}%
+        {{hash=548a2260c8f6dbadc0d85dfad02ba349}{%
+           family={Rubini},
+           familyi={R\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly}%
+      }
+      \strng{namehash}{6e4199b3024d681757cab2ddcea8a638}
+      \strng{fullhash}{212042be31105560b7f3b53bf5bb196d}
+      \strng{bibnamehash}{212042be31105560b7f3b53bf5bb196d}
+      \strng{authorbibnamehash}{212042be31105560b7f3b53bf5bb196d}
+      \strng{authornamehash}{6e4199b3024d681757cab2ddcea8a638}
+      \strng{authorfullhash}{212042be31105560b7f3b53bf5bb196d}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Linux Device Drivers}
+      \field{year}{2005}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/45/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/45/Calibre1
+      \endverb
+    \endentry
+    \entry{bovet2005understanding}{book}{}
+      \name{author}{2}{}{%
+        {{hash=fa27fa2e45812b8ebdcefbbace72dad8}{%
+           family={Bovet},
+           familyi={B\bibinitperiod},
+           given={D.P.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6acdb1d85e9e66f8529528646372bf1c}{%
+           family={Cesati},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OReilly}%
+      }
+      \strng{namehash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{fullhash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{bibnamehash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{authorbibnamehash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{authornamehash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{authorfullhash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Understanding The Linux Kernel}
+      \field{year}{2005}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
+      \endverb
+    \endentry
+    \entry{mauerer2008professional}{book}{}
+      \name{author}{1}{}{%
+        {{hash=94e687d10b275206ed48744534b73f87}{%
+           family={Mauerer},
+           familyi={M\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{94e687d10b275206ed48744534b73f87}
+      \strng{fullhash}{94e687d10b275206ed48744534b73f87}
+      \strng{bibnamehash}{94e687d10b275206ed48744534b73f87}
+      \strng{authorbibnamehash}{94e687d10b275206ed48744534b73f87}
+      \strng{authornamehash}{94e687d10b275206ed48744534b73f87}
+      \strng{authorfullhash}{94e687d10b275206ed48744534b73f87}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Professional Linux Kernel Architecture}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/10/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/10/Calibre1
+      \endverb
+    \endentry
+    \entry{love2010linux}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a40c808f8f2dd65c5e3d951206e5da65}{%
+           family={Love},
+           familyi={L\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \strng{fullhash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \strng{bibnamehash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \strng{authorbibnamehash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \strng{authornamehash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \strng{authorfullhash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Developer's Library}
+      \field{title}{Linux Kernel Development}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/12/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/12/Calibre1
+      \endverb
+    \endentry
+    \entry{rodriguez2005linux}{book}{}
+      \name{author}{3}{}{%
+        {{hash=8c72ff1fd1a7cb97a01a85d471a24d3b}{%
+           family={Rodriguez},
+           familyi={R\bibinitperiod},
+           given={C.S.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=36e97d0b6bf37afe62df6b211831b97d}{%
+           family={Fischer},
+           familyi={F\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=14372d02306489b64fb4f49c5c86a7c4}{%
+           family={Smolski},
+           familyi={S\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall Professional Technical Reference}%
+      }
+      \strng{namehash}{70a01a73ceaec558041c6881a0c53b98}
+      \strng{fullhash}{0d1df0f49836b4d66f4fe06acd031348}
+      \strng{bibnamehash}{0d1df0f49836b4d66f4fe06acd031348}
+      \strng{authorbibnamehash}{0d1df0f49836b4d66f4fe06acd031348}
+      \strng{authornamehash}{70a01a73ceaec558041c6881a0c53b98}
+      \strng{authorfullhash}{0d1df0f49836b4d66f4fe06acd031348}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Linux kernel primer: a top-down approach for x86 and PowerPC architectures}
+      \field{year}{2005}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/34/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/34/Calibre1
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{3}
+  \datalist[entry]{none/global//global/global}
+    \entry{bartlett2009programming}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d4eb00f4ebc62f9ae6bbfdd4912c2068}{%
+           family={Bartlett},
+           familyi={B\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {University Press of Florida}%
+      }
+      \strng{namehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \strng{fullhash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \strng{bibnamehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \strng{authorbibnamehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \strng{authornamehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \strng{authorfullhash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Programming from the Ground Up}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb http://books.google.com.hk/books?id=E4J8RAAACAAJ
+      \endverb
+      \verb{url}
+      \verb http://books.google.com.hk/books?id=E4J8RAAACAAJ
+      \endverb
+    \endentry
+    \entry{carter06:_pc_assem_languag}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2639fbe0632cade3350c590f8d791587}{%
+           family={Carter},
+           familyi={C\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {www.drpaulcarter.com}%
+      }
+      \strng{namehash}{2639fbe0632cade3350c590f8d791587}
+      \strng{fullhash}{2639fbe0632cade3350c590f8d791587}
+      \strng{bibnamehash}{2639fbe0632cade3350c590f8d791587}
+      \strng{authorbibnamehash}{2639fbe0632cade3350c590f8d791587}
+      \strng{authornamehash}{2639fbe0632cade3350c590f8d791587}
+      \strng{authorfullhash}{2639fbe0632cade3350c590f8d791587}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{PC Assembly Language}
+      \field{year}{2006}
+      \verb{urlraw}
+      \verb http://www.drpaulcarter.com/pcasm/
+      \endverb
+      \verb{url}
+      \verb http://www.drpaulcarter.com/pcasm/
+      \endverb
+    \endentry
+    \entry{x86assemblymanual}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=30162ed78b6c10f731411f2fc440c24f}{%
+           family={Oracle},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{30162ed78b6c10f731411f2fc440c24f}
+      \strng{fullhash}{30162ed78b6c10f731411f2fc440c24f}
+      \strng{bibnamehash}{30162ed78b6c10f731411f2fc440c24f}
+      \strng{authorbibnamehash}{30162ed78b6c10f731411f2fc440c24f}
+      \strng{authornamehash}{30162ed78b6c10f731411f2fc440c24f}
+      \strng{authorfullhash}{30162ed78b6c10f731411f2fc440c24f}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{x86 Assembly Language Reference Manual}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://docs.oracle.com/cd/E19253-01/817-5477/817-5477.pdf
+      \endverb
+      \verb{url}
+      \verb http://docs.oracle.com/cd/E19253-01/817-5477/817-5477.pdf
+      \endverb
+    \endentry
+    \entry{wikibooks-gas}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5886004bd42dfe6ea957dc7e00167fcc}{%
+           family={Wikibooks},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \strng{fullhash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \strng{bibnamehash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \strng{authorbibnamehash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \strng{authornamehash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \strng{authorfullhash}{5886004bd42dfe6ea957dc7e00167fcc}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GAS Syntax}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax
+      \endverb
+      \verb{url}
+      \verb http://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax
+      \endverb
+    \endentry
+    \entry{howto:gcc-inline-asm}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=414ea760c7fee2e286274be211640a59}{%
+           family={ibiblio.org},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{414ea760c7fee2e286274be211640a59}
+      \strng{fullhash}{414ea760c7fee2e286274be211640a59}
+      \strng{bibnamehash}{414ea760c7fee2e286274be211640a59}
+      \strng{authorbibnamehash}{414ea760c7fee2e286274be211640a59}
+      \strng{authornamehash}{414ea760c7fee2e286274be211640a59}
+      \strng{authorfullhash}{414ea760c7fee2e286274be211640a59}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GCC Inline Assembly HOWTO}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html
+      \endverb
+      \verb{url}
+      \verb http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html
+      \endverb
+    \endentry
+    \entry{x86-inline-asm-linux}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c43b23f58cbf28c0a9e10d7ced223b7a}{%
+           family={Developerworks},
+           familyi={D\bibinitperiod},
+           given={IBM},
+           giveni={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{c43b23f58cbf28c0a9e10d7ced223b7a}
+      \strng{fullhash}{c43b23f58cbf28c0a9e10d7ced223b7a}
+      \strng{bibnamehash}{c43b23f58cbf28c0a9e10d7ced223b7a}
+      \strng{authorbibnamehash}{c43b23f58cbf28c0a9e10d7ced223b7a}
+      \strng{authornamehash}{c43b23f58cbf28c0a9e10d7ced223b7a}
+      \strng{authorfullhash}{c43b23f58cbf28c0a9e10d7ced223b7a}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Inline assembly for x86 in Linux}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://www.ibm.com/developerworks/linux/library/l-ia/index.html
+      \endverb
+      \verb{url}
+      \verb http://www.ibm.com/developerworks/linux/library/l-ia/index.html
+      \endverb
+    \endentry
+    \entry{stack:gcc-gen-asm}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=257281f9b2aa93be7c12f5c49e122ca3}{%
+           family={Stackoverflow},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{fullhash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{bibnamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authorbibnamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authornamehash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \strng{authorfullhash}{257281f9b2aa93be7c12f5c49e122ca3}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding gcc generated assembly}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://stackoverflow.com/questions/8478491/understanding-base-pointer-and-stack-pointers-in-context-with-gcc-output
+      \endverb
+      \verb{url}
+      \verb http://stackoverflow.com/questions/8478491/understanding-base-pointer-and-stack-pointers-in-context-with-gcc-output
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{4}
+  \datalist[entry]{none/global//global/global}
+    \entry{Kroah-Hartman:1053063}{book}{}
+      \name{author}{1}{}{%
+        {{hash=8edf24ea3e75c726f2c163493ab3e3c3}{%
+           family={Kroah-Hartman},
+           familyi={K\bibinithyphendelim H\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly}%
+      }
+      \strng{namehash}{8edf24ea3e75c726f2c163493ab3e3c3}
+      \strng{fullhash}{8edf24ea3e75c726f2c163493ab3e3c3}
+      \strng{bibnamehash}{8edf24ea3e75c726f2c163493ab3e3c3}
+      \strng{authorbibnamehash}{8edf24ea3e75c726f2c163493ab3e3c3}
+      \strng{authornamehash}{8edf24ea3e75c726f2c163493ab3e3c3}
+      \strng{authorfullhash}{8edf24ea3e75c726f2c163493ab3e3c3}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Linux Kernel in a Nutshell: A Desktop Quick Reference}}
+      \field{year}{2007}
+      \verb{urlraw}
+      \verb http://www.kroah.com/lkn/
+      \endverb
+      \verb{url}
+      \verb http://www.kroah.com/lkn/
+      \endverb
+    \endentry
+    \entry{yuyuan2009orange}{book}{}
+      \name{author}{1}{}{%
+        {{hash=6bd3ec8d773585effb6c0719f377cb04}{%
+           family={于渊},
+           familyi={于\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {电子工业出版社}%
+      }
+      \strng{namehash}{6bd3ec8d773585effb6c0719f377cb04}
+      \strng{fullhash}{6bd3ec8d773585effb6c0719f377cb04}
+      \strng{bibnamehash}{6bd3ec8d773585effb6c0719f377cb04}
+      \strng{authorbibnamehash}{6bd3ec8d773585effb6c0719f377cb04}
+      \strng{authornamehash}{6bd3ec8d773585effb6c0719f377cb04}
+      \strng{authorfullhash}{6bd3ec8d773585effb6c0719f377cb04}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Orange'S：一个操作系统的实现}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/2/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/2/Calibre1
+      \endverb
+    \endentry
+    \entry{zhenggang2016}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a1a361ddd91c8bdf31a230b7c5e80df0}{%
+           family={郑钢},
+           familyi={郑\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {人民邮电出版社}%
+      }
+      \strng{namehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
+      \strng{fullhash}{a1a361ddd91c8bdf31a230b7c5e80df0}
+      \strng{bibnamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
+      \strng{authorbibnamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
+      \strng{authornamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
+      \strng{authorfullhash}{a1a361ddd91c8bdf31a230b7c5e80df0}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{操作系统真象还原}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/158/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/158/Calibre1
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

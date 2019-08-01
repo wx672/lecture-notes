@@ -1,0 +1,235 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{tanenbaum2011computer}{book}{}
+      \name{author}{2}{}{%
+        {{hash=475fc20325ef27087752520d6ff3f10d}{%
+           family={Tanenbaum},
+           familyi={T\bibinitperiod},
+           given={A.S.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8f73481f92a55c8e66308bc7aa104ec0}{%
+           family={Wetherall},
+           familyi={W\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Prentice Hall}%
+      }
+      \strng{namehash}{c4b5ccab0fd2a9c7f5e4b1a6749f0eab}
+      \strng{fullhash}{c4b5ccab0fd2a9c7f5e4b1a6749f0eab}
+      \strng{bibnamehash}{c4b5ccab0fd2a9c7f5e4b1a6749f0eab}
+      \strng{authorbibnamehash}{c4b5ccab0fd2a9c7f5e4b1a6749f0eab}
+      \strng{authornamehash}{c4b5ccab0fd2a9c7f5e4b1a6749f0eab}
+      \strng{authorfullhash}{c4b5ccab0fd2a9c7f5e4b1a6749f0eab}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780132126953}
+      \field{title}{Computer Networks}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1
+      \endverb
+    \endentry
+    \entry{fall2011tcp}{book}{}
+      \name{author}{2}{}{%
+        {{hash=1c3dd4734257fa942b47e2ccd5e5b8ef}{%
+           family={Fall},
+           familyi={F\bibinitperiod},
+           given={K.R.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=b81492bb1f997b1358c4f36b20d360b3}{%
+           family={Stevens},
+           familyi={S\bibinitperiod},
+           given={W.R.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Education}%
+      }
+      \strng{namehash}{a2a9dd01f40e1af2084e65d6a6c400f0}
+      \strng{fullhash}{a2a9dd01f40e1af2084e65d6a6c400f0}
+      \strng{bibnamehash}{a2a9dd01f40e1af2084e65d6a6c400f0}
+      \strng{authorbibnamehash}{a2a9dd01f40e1af2084e65d6a6c400f0}
+      \strng{authornamehash}{a2a9dd01f40e1af2084e65d6a6c400f0}
+      \strng{authorfullhash}{a2a9dd01f40e1af2084e65d6a6c400f0}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780132808187}
+      \field{series}{Addison-Wesley Professional Computing Series}
+      \field{title}{TCP/IP Illustrated, Volume 1: The Protocols}
+      \field{year}{2011}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/32/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/32/Calibre1
+      \endverb
+    \endentry
+    \entry{kurose2013computer}{book}{}
+      \name{author}{2}{}{%
+        {{hash=d4110822aca2bda8804711462ad0b57d}{%
+           family={Kurose},
+           familyi={K\bibinitperiod},
+           given={J.F.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=18bab839200500eb009454ad31cfc070}{%
+           family={Ross},
+           familyi={R\bibinitperiod},
+           given={K.W.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{2a8735db17f13c0102dc58f8b2bb36f4}
+      \strng{fullhash}{2a8735db17f13c0102dc58f8b2bb36f4}
+      \strng{bibnamehash}{2a8735db17f13c0102dc58f8b2bb36f4}
+      \strng{authorbibnamehash}{2a8735db17f13c0102dc58f8b2bb36f4}
+      \strng{authornamehash}{2a8735db17f13c0102dc58f8b2bb36f4}
+      \strng{authorfullhash}{2a8735db17f13c0102dc58f8b2bb36f4}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780132856201}
+      \field{series}{Always learning}
+      \field{title}{Computer Networking: A Top-down Approach}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/27/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/27/Calibre1
+      \endverb
+    \endentry
+    \entry{bautts2005linux}{book}{}
+      \name{author}{3}{}{%
+        {{hash=87eadbc1b3c6aaec403ecf5dccb58e91}{%
+           family={Bautts},
+           familyi={B\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=d44c6919faff968a9c9eb6216e3253b6}{%
+           family={Dawson},
+           familyi={D\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=6f00859001eeb103193bf1a312282285}{%
+           family={Purdy},
+           familyi={P\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{7929f8f9c1e0230f4fd5fcd1fdd973f0}
+      \strng{fullhash}{9988c094990dd3636a664f49cfbbba14}
+      \strng{bibnamehash}{9988c094990dd3636a664f49cfbbba14}
+      \strng{authorbibnamehash}{9988c094990dd3636a664f49cfbbba14}
+      \strng{authornamehash}{7929f8f9c1e0230f4fd5fcd1fdd973f0}
+      \strng{authorfullhash}{9988c094990dd3636a664f49cfbbba14}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780596005481}
+      \field{series}{O'Reilly Series}
+      \field{title}{Linux Network Administrator's Guide}
+      \field{year}{2005}
+      \verb{urlraw}
+      \verb https://books.google.com.hk/books?id=T8V02u2jDP0C
+      \endverb
+      \verb{url}
+      \verb https://books.google.com.hk/books?id=T8V02u2jDP0C
+      \endverb
+    \endentry
+    \entry{hunt2002tcp}{book}{}
+      \name{author}{1}{}{%
+        {{hash=6a36cec47e1a64949bd10d3dd162ce8d}{%
+           family={Hunt},
+           familyi={H\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \strng{fullhash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \strng{bibnamehash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \strng{authorbibnamehash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \strng{authornamehash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \strng{authorfullhash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781449390785}
+      \field{title}{TCP/IP Network Administration}
+      \field{year}{2002}
+      \verb{urlraw}
+      \verb https://books.google.com.hk/books?id=A\_LL2LQASdoC
+      \endverb
+      \verb{url}
+      \verb https://books.google.com.hk/books?id=A%5C_LL2LQASdoC
+      \endverb
+    \endentry
+    \entry{hall2009beej}{book}{}
+      \name{author}{1}{}{%
+        {{hash=6a1e74cb9271e3dcff1af64f66e62117}{%
+           family={Hall},
+           familyi={H\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{6a1e74cb9271e3dcff1af64f66e62117}
+      \strng{fullhash}{6a1e74cb9271e3dcff1af64f66e62117}
+      \strng{bibnamehash}{6a1e74cb9271e3dcff1af64f66e62117}
+      \strng{authorbibnamehash}{6a1e74cb9271e3dcff1af64f66e62117}
+      \strng{authornamehash}{6a1e74cb9271e3dcff1af64f66e62117}
+      \strng{authorfullhash}{6a1e74cb9271e3dcff1af64f66e62117}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Beej's Guide to Network Programming: Using Internet Sockets}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://beej.us/guide/bgnet/output/html/singlepage/bgnet.html
+      \endverb
+      \verb{url}
+      \verb http://beej.us/guide/bgnet/output/html/singlepage/bgnet.html
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

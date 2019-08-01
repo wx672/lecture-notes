@@ -1,0 +1,163 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.8 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{none/global/}
+    \entry{cooper10bash}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a68d43464fc7c618bd8459c842e940a5}{%
+           family={Cooper},
+           familyi={C\bibinitperiod},
+           given={Mendel},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Lulu.com}%
+      }
+      \strng{namehash}{a68d43464fc7c618bd8459c842e940a5}
+      \strng{fullhash}{a68d43464fc7c618bd8459c842e940a5}
+      \strng{authornamehash}{a68d43464fc7c618bd8459c842e940a5}
+      \strng{authorfullhash}{a68d43464fc7c618bd8459c842e940a5}
+      \field{sortinit}{1}
+      \field{sortinithash}{27a2bc5dfb9ed0a0422134d636544b5d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Advanced Bash Scripting Guide 5.3 Volume 1}
+      \field{year}{2010}
+      \verb{url}
+      \verb http://cs2.swfu.edu.cn/cgi-bin/dwww/usr/share/doc/abs-guide/html/index.html
+      \endverb
+    \endentry
+    \entry{web:debianhandbook}{book}{}
+      \name{author}{2}{}{%
+        {{hash=bcd9a05a9b6d0e0027e1e4276faecee4}{%
+           family={Hertzog},
+           familyi={H\bibinitperiod},
+           given={Raphaël},
+           giveni={R\bibinitperiod}}}%
+        {{hash=feae49c4d2a41efb9f5a02febb6024ad}{%
+           family={Mas},
+           familyi={M\bibinitperiod},
+           given={Roland},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Freexian SARL}%
+      }
+      \strng{namehash}{264a4f30828c334b24fdec32962df7fd}
+      \strng{fullhash}{264a4f30828c334b24fdec32962df7fd}
+      \strng{authornamehash}{264a4f30828c334b24fdec32962df7fd}
+      \strng{authorfullhash}{264a4f30828c334b24fdec32962df7fd}
+      \field{sortinit}{2}
+      \field{sortinithash}{0aa614ace9f3a40ef5a67e7f7a184048}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{10}
+      \field{title}{The Debian Administrator's Handbook}
+      \field{year}{2015}
+      \verb{url}
+      \verb https://debian-handbook.info/
+      \endverb
+    \endentry
+    \entry{web:debkernelhandbook}{book}{}
+      \name{author}{1}{}{%
+        {{hash=13c1eae83d791d6868b85bf8bc7e2972}{%
+           family={Project},
+           familyi={P\bibinitperiod},
+           given={The\bibnamedelimb Debian\bibnamedelimb Kernel\bibnamedelima Handbook},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Free software Foundation}%
+      }
+      \strng{namehash}{13c1eae83d791d6868b85bf8bc7e2972}
+      \strng{fullhash}{13c1eae83d791d6868b85bf8bc7e2972}
+      \strng{authornamehash}{13c1eae83d791d6868b85bf8bc7e2972}
+      \strng{authorfullhash}{13c1eae83d791d6868b85bf8bc7e2972}
+      \field{sortinit}{3}
+      \field{sortinithash}{197da6d6c34c6b20ce45c4d4baace5a4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Debian Linux Kernel Handbook}
+      \field{year}{2013}
+      \verb{url}
+      \verb http://kernel-handbook.alioth.debian.org/index.html#contents
+      \endverb
+    \endentry
+    \entry{bovet2005understanding}{book}{}
+      \name{author}{2}{}{%
+        {{hash=fa27fa2e45812b8ebdcefbbace72dad8}{%
+           family={Bovet},
+           familyi={B\bibinitperiod},
+           given={D.P.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6acdb1d85e9e66f8529528646372bf1c}{%
+           family={Cesati},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {OReilly}%
+      }
+      \strng{namehash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{fullhash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{authornamehash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{authorfullhash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \field{sortinit}{4}
+      \field{sortinithash}{d221becdd544034cf9082056cd6e6d2d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Understanding The Linux Kernel}
+      \field{year}{2005}
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
+      \endverb
+    \endentry
+    \entry{tanenbaum2008modern}{book}{}
+      \name{author}{1}{}{%
+        {{hash=5fec945e2e4e128e1f94258b75085d2d}{%
+           family={Tanenbaum},
+           familyi={T\bibinitperiod},
+           given={Andrew\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall Press}%
+      }
+      \strng{namehash}{5fec945e2e4e128e1f94258b75085d2d}
+      \strng{fullhash}{5fec945e2e4e128e1f94258b75085d2d}
+      \strng{authornamehash}{5fec945e2e4e128e1f94258b75085d2d}
+      \strng{authorfullhash}{5fec945e2e4e128e1f94258b75085d2d}
+      \field{sortinit}{5}
+      \field{sortinithash}{c9df3c9fb8f555dd9201cedc5e343021}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{title}{Modern Operating Systems}
+      \field{year}{2007}
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/4/Calibre1
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

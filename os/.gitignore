@@ -1,10 +1,13 @@
 *
 !*/
 !*.*
+*.[ao]
+*.[ks]o
+*.md5
+**/_minted*/
 diy
 figs/fig
 figs/svg
-old
-src/hello-lkm
+figs/.trash
 src/mm/*.s
 ttyrec/20121152888/*.html

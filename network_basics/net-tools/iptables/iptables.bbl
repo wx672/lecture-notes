@@ -1,0 +1,338 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{1}
+  \datalist[entry]{none/global//global/global}
+    \entry{rfc2663}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=a9051932ed340c2ec9a99b83c5e2275a}{%
+           family={Srisuresh},
+           familyi={S\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=6539a091ab39d78ad81f8873fcc5836c}{%
+           family={Holdrege},
+           familyi={H\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \list{publisher}{1}{%
+        {IETF}%
+      }
+      \strng{namehash}{a32b6f21afdeb342ac4e87a48b048003}
+      \strng{fullhash}{a32b6f21afdeb342ac4e87a48b048003}
+      \strng{bibnamehash}{a32b6f21afdeb342ac4e87a48b048003}
+      \strng{authorbibnamehash}{a32b6f21afdeb342ac4e87a48b048003}
+      \strng{authornamehash}{a32b6f21afdeb342ac4e87a48b048003}
+      \strng{authorfullhash}{a32b6f21afdeb342ac4e87a48b048003}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{RFC 2663 (Informational)}
+      \field{month}{8}
+      \field{number}{2663}
+      \field{series}{Request for Comments}
+      \field{title}{{IP Network Address Translator (NAT) Terminology and Considerations}}
+      \field{year}{1999}
+      \verb{urlraw}
+      \verb http://www.ietf.org/rfc/rfc2663.txt
+      \endverb
+      \verb{url}
+      \verb http://www.ietf.org/rfc/rfc2663.txt
+      \endverb
+    \endentry
+    \entry{rfc3022}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=a9051932ed340c2ec9a99b83c5e2275a}{%
+           family={Srisuresh},
+           familyi={S\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=134c95ae25a6a2c6de41d0bf8d49907c}{%
+           family={Egevang},
+           familyi={E\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \list{publisher}{1}{%
+        {IETF}%
+      }
+      \strng{namehash}{95eca6f009faee68b6b63744e5e3b97d}
+      \strng{fullhash}{95eca6f009faee68b6b63744e5e3b97d}
+      \strng{bibnamehash}{95eca6f009faee68b6b63744e5e3b97d}
+      \strng{authorbibnamehash}{95eca6f009faee68b6b63744e5e3b97d}
+      \strng{authornamehash}{95eca6f009faee68b6b63744e5e3b97d}
+      \strng{authorfullhash}{95eca6f009faee68b6b63744e5e3b97d}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{RFC 3022 (Informational)}
+      \field{month}{1}
+      \field{number}{3022}
+      \field{series}{Request for Comments}
+      \field{title}{{Traditional IP Network Address Translator (Traditional NAT)}}
+      \field{year}{2001}
+      \verb{urlraw}
+      \verb http://www.ietf.org/rfc/rfc3022.txt
+      \endverb
+      \verb{url}
+      \verb http://www.ietf.org/rfc/rfc3022.txt
+      \endverb
+    \endentry
+    \entry{rfc2827}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=939909615470afaeb7b8bfb8fbf061a7}{%
+           family={Ferguson},
+           familyi={F\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=d68744d5bfe3aba288a34e7b6c2364b2}{%
+           family={Senie},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \list{publisher}{1}{%
+        {IETF}%
+      }
+      \strng{namehash}{c351764c077fcbff48f5a8c484410095}
+      \strng{fullhash}{c351764c077fcbff48f5a8c484410095}
+      \strng{bibnamehash}{c351764c077fcbff48f5a8c484410095}
+      \strng{authorbibnamehash}{c351764c077fcbff48f5a8c484410095}
+      \strng{authornamehash}{c351764c077fcbff48f5a8c484410095}
+      \strng{authorfullhash}{c351764c077fcbff48f5a8c484410095}
+      \field{sortinit}{3}
+      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{RFC 2827 (Best Current Practice)}
+      \field{month}{5}
+      \field{note}{Updated by RFC 3704}
+      \field{number}{2827}
+      \field{series}{Request for Comments}
+      \field{title}{{Network Ingress Filtering: Defeating Denial of Service Attacks which employ IP Source Address Spoofing}}
+      \field{year}{2000}
+      \verb{urlraw}
+      \verb http://www.ietf.org/rfc/rfc2827.txt
+      \endverb
+      \verb{url}
+      \verb http://www.ietf.org/rfc/rfc2827.txt
+      \endverb
+    \endentry
+    \entry{rfc1858}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=96215c8c2c65e3f9ba8ebc0fda36407f}{%
+           family={Ziemba},
+           familyi={Z\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=6677da965204b0c672fe224255d1d619}{%
+           family={Reed},
+           familyi={R\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=012ac6b1cbb9401948b021094865277c}{%
+           family={Traina},
+           familyi={T\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \list{publisher}{1}{%
+        {IETF}%
+      }
+      \strng{namehash}{608409aee30601fbaf668a5ef7585e1d}
+      \strng{fullhash}{ad131920a453cb2745a9a448ce3870f1}
+      \strng{bibnamehash}{ad131920a453cb2745a9a448ce3870f1}
+      \strng{authorbibnamehash}{ad131920a453cb2745a9a448ce3870f1}
+      \strng{authornamehash}{608409aee30601fbaf668a5ef7585e1d}
+      \strng{authorfullhash}{ad131920a453cb2745a9a448ce3870f1}
+      \field{sortinit}{4}
+      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{RFC 1858 (Informational)}
+      \field{month}{10}
+      \field{note}{Updated by RFC 3128}
+      \field{number}{1858}
+      \field{series}{Request for Comments}
+      \field{title}{{Security Considerations for IP Fragment Filtering}}
+      \field{year}{1995}
+      \verb{urlraw}
+      \verb http://www.ietf.org/rfc/rfc1858.txt
+      \endverb
+      \verb{url}
+      \verb http://www.ietf.org/rfc/rfc1858.txt
+      \endverb
+    \endentry
+    \entry{rfc3128}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=2d7f5cabe1d2d623f818386f4363bcd5}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={I.},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \list{publisher}{1}{%
+        {IETF}%
+      }
+      \strng{namehash}{2d7f5cabe1d2d623f818386f4363bcd5}
+      \strng{fullhash}{2d7f5cabe1d2d623f818386f4363bcd5}
+      \strng{bibnamehash}{2d7f5cabe1d2d623f818386f4363bcd5}
+      \strng{authorbibnamehash}{2d7f5cabe1d2d623f818386f4363bcd5}
+      \strng{authornamehash}{2d7f5cabe1d2d623f818386f4363bcd5}
+      \strng{authorfullhash}{2d7f5cabe1d2d623f818386f4363bcd5}
+      \field{sortinit}{5}
+      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{RFC 3128 (Informational)}
+      \field{month}{6}
+      \field{number}{3128}
+      \field{series}{Request for Comments}
+      \field{title}{{Protection Against a Variant of the Tiny Fragment Attack (RFC 1858)}}
+      \field{year}{2001}
+      \verb{urlraw}
+      \verb http://www.ietf.org/rfc/rfc3128.txt
+      \endverb
+      \verb{url}
+      \verb http://www.ietf.org/rfc/rfc3128.txt
+      \endverb
+    \endentry
+    \entry{wiki:iptables}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=e2ceeea38f8620383cfbd3e99c5c0cd8}{%
+           family={contributors},
+           familyi={c\bibinitperiod},
+           given={Wikipedia},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{fullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{bibnamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authorbibnamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authornamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authorfullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \field{sortinit}{6}
+      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Online; accessed 11-March-2018]}
+      \field{title}{Iptables --- Wikipedia{,} The Free Encyclopedia}
+      \field{year}{2017}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Iptables&oldid=817424711
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Iptables&oldid=817424711
+      \endverb
+    \endentry
+    \entry{bautts2005linux}{book}{}
+      \name{author}{3}{}{%
+        {{hash=87eadbc1b3c6aaec403ecf5dccb58e91}{%
+           family={Bautts},
+           familyi={B\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=d44c6919faff968a9c9eb6216e3253b6}{%
+           family={Dawson},
+           familyi={D\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=6f00859001eeb103193bf1a312282285}{%
+           family={Purdy},
+           familyi={P\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{7929f8f9c1e0230f4fd5fcd1fdd973f0}
+      \strng{fullhash}{9988c094990dd3636a664f49cfbbba14}
+      \strng{bibnamehash}{9988c094990dd3636a664f49cfbbba14}
+      \strng{authorbibnamehash}{9988c094990dd3636a664f49cfbbba14}
+      \strng{authornamehash}{7929f8f9c1e0230f4fd5fcd1fdd973f0}
+      \strng{authorfullhash}{9988c094990dd3636a664f49cfbbba14}
+      \field{sortinit}{7}
+      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780596005481}
+      \field{series}{O'Reilly Series}
+      \field{title}{Linux Network Administrator's Guide}
+      \field{year}{2005}
+      \verb{urlraw}
+      \verb https://books.google.com.hk/books?id=T8V02u2jDP0C
+      \endverb
+      \verb{url}
+      \verb https://books.google.com.hk/books?id=T8V02u2jDP0C
+      \endverb
+    \endentry
+    \entry{hunt2002tcp}{book}{}
+      \name{author}{1}{}{%
+        {{hash=6a36cec47e1a64949bd10d3dd162ce8d}{%
+           family={Hunt},
+           familyi={H\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {O'Reilly Media}%
+      }
+      \strng{namehash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \strng{fullhash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \strng{bibnamehash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \strng{authorbibnamehash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \strng{authornamehash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \strng{authorfullhash}{6a36cec47e1a64949bd10d3dd162ce8d}
+      \field{sortinit}{8}
+      \field{sortinithash}{07edf88d4ea82509b9c4b4d13f41c452}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781449390785}
+      \field{title}{TCP/IP Network Administration}
+      \field{year}{2002}
+      \verb{urlraw}
+      \verb https://books.google.com.hk/books?id=A\_LL2LQASdoC
+      \endverb
+      \verb{url}
+      \verb https://books.google.com.hk/books?id=A%5C_LL2LQASdoC
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
