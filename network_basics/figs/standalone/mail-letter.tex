@@ -1,0 +1,23 @@
+\documentclass[letter]{letter}
+\usepackage{kantlipsum}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\begin{document}
+\pagestyle{firstpage}
+\begin{letter}{Dr. Whoever\\Department of Unknown,\\University of Whatever,\\London, SE18 3AB\\UK}
+
+  \address{Immanuel Kant (Dr.)\\
+    K\"{o}nigsberg, Prussia\\
+    German}
+  \signature{Immanuel Kant}
+  \date{\today}
+
+  \opening{Dear Dr. Whoever,}
+  \kant[1-2]
+  \closing{Yours sincerely,}
+  \tikz[baseline,overlay]{
+    \node [xshift=8cm, yshift=1.5cm] at (0cm,0cm) {
+      \includegraphics[scale=0.5]{kant-signature}}}
+\end{letter}
+\end{document}

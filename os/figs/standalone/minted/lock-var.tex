@@ -1,0 +1,18 @@
+\documentclass[varwidth=15.5em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+int lock=0; //shared variable
+{
+  ...
+  while(lock); //busy waiting
+  lock=1;
+  critical_code();
+  lock=0;
+  ...
+}        
+\end{ccode}
+\end{document}

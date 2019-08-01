@@ -1,0 +1,33 @@
+\documentclass[varwidth=31.5em,crop]{standalone}
+
+\usepackage{xltxtra} %fontspec,xunicode are loaded here.
+\setsansfont{DejaVu Sans}
+\setmainfont{DejaVu Serif}
+\setmonofont{DejaVu Sans Mono}
+
+\usepackage{minted}
+\renewcommand{\theFancyVerbLine}{
+  \textcolor{lightgray}{\scriptsize \arabic{FancyVerbLine}}}
+
+\begin{document}
+% \inputminted{c}{filename}
+\begin{minted}[
+  linenos=true,numbersep=2pt,
+  frame=leftline,framesep=3pt,rulecolor=\color{lightgray},
+  xleftmargin=10pt
+  ]{python}
+from socket import *
+serverPort = 12000
+serverSocket = socket(AF_INET,SOCK_STREAM)
+serverSocket.bind(('',serverPort))
+serverSocket.listen(1)
+print 'The server is ready to receive'
+while 1:
+    connectionSocket, addr = serverSocket.accept()
+    sentence = connectionSocket.recv(1024)
+    capitalizedSentence = sentence.upper()
+    connectionSocket.send(capitalizedSentence)
+    connectionSocket.close()
+\end{minted}
+\end{document}
+

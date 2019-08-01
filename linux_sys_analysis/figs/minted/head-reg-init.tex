@@ -1,0 +1,18 @@
+\documentclass[varwidth=16em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{gascode}
+startup_32:
+        cld
+        cli
+        movl $(__BOOT_DS),%eax
+        movl %eax,%ds
+        movl %eax,%es
+        movl %eax,%fs
+        movl %eax,%gs
+
+        lss stack_start,%esp
+\end{gascode}
+\end{document}

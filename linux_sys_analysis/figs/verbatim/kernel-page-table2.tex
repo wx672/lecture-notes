@@ -1,0 +1,44 @@
+\documentclass[varwidth=70em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+                                                    4G┌────────────────┐
+                                                      │                │
+  swapper_pg_dir:                                   8M├                ┤─┬─
+                                                      ~                ~ │
+  ▶ has 1K entries pointing to 1K page tables;        ├────────────────┤ │
+                                                      │    pg1 (4K)    │ │
+  ▶ only 4 entries (0,1,0x300,0x301) are used         ├────────────────┤ 
+    in initialization phase;                          │    pg0 (4K)    │ protected
+                                                      ├────────────────┤ mode
+  ▶ after initialization, it's used as a              │                │ mapping
+    reference model for all processes.                │ swapper_pg_dir │ 
+                                                      ├────────────────┤ │
+                                                      │  Kernel image  │ │
+                                                   +1M├────────────────┤ │
+                                                      │ BIOS, holes... │ │
+                                      PAGE_OFFSET (3G)┝━━━━━━━━━━━━━━━━┥─┴─
+                                                      │                │
+     ┌────────┐     8M├                ┤            8M├                ┤─┬─
+0x3FF~    0   ~       ~                ~              ~                ~ │
+     ├────────┤       ├────────────────┤              ├────────────────┤ │
+0x301│ ─> pg1 ├─┬────>│    pg1 (4K)    │              │    pg1 (4K)    │ │
+     ├────────┤ │     ├────────────────┤              ├────────────────┤ 
+0x300│ ─> pg0 ├─│─┬──>│    pg0 (4K)    │              │    pg0 (4K)    │ provisional
+     ├────────┤ │ │   ├────────────────┤_end          ├────────────────┤ read mode
+     ~        ~ │ │   ~                ~              ~                ~ mapping
+     │    0   │ │ │   │ swapper_pg_dir │              │ swapper_pg_dir │ 
+     ├────────┤ │ │   ├────────────────┤__bss_start   ├────────────────┤ │
+    1│ ─> pg1 ├─┘ │   │  Kernel image  │              │  Kernel image  │ │
+     ├────────┤   │ 1M├────────────────┤_text       1M├────────────────┤ │
+    0│ ─> pg0 ├───┘   │ BIOS, holes... │              │ BIOS, holes... │ │
+     └────────┘      0└────────────────┘             0└────────────────┘─┴─
+   swapper_pg_dir      Physical memory                      Kernel
+                                                        virtual memory
+\end{verbatim}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

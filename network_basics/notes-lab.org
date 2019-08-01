@@ -1,0 +1,16 @@
+* Lab work
+** get familiar with Linux networking commands
+** google
+   - Chrome extensions
+   - Gmail
+   - Calendar
+   - Docs
+   - Maps
+   - Books
+   - IPv6
+** Cisco Packet Tracer Labs
+   - file:///opt/pt/help/default/tutorials.htm
+   - http://www.packettracernetwork.com/labs/packettracerlabs.html
+     - basic routing, switching
+** Network tools
+   

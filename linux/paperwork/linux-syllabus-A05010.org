@@ -1,0 +1,175 @@
+#+TITLE:     《Linux应用基础》课程大纲
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION: 
+#+KEYWORDS:  
+#+LANGUAGE: cn
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+LaTeX_CLASS: article
+# (setq org-export-html-use-infojs nil)
+
+- 课程编号: A05010
+- 学时: 32 (理论: 16; 实验: 16)
+- 学分: 1.5
+- 实习: 0
+- 面向专业: 信息工程
+
+#+LaTeX: \clearpage
+* 课程大纲
+** 课程内容
+   1. GNU/Linux 和开源运动
+     - 什么是开源
+     - 什么是GNU？
+     - 什么是 Linux？
+     - 开源软件能干什么？
+     - 怎样学习Linux？
+   2. Shell基础
+     - UNIX文件系统
+     - 路径，目录，特殊文件
+     - 基本 shell 命令
+     - Shell 编程
+   3. 常用软件工具
+     - 编辑器: emacs, vim
+     - 网络工具: firefox, lftp, wget, mutt, pidgin ...
+     - 办公自动化: openoffice.org
+     - 图像处理: gimp, imagemagick, dia, xfig, inkscape, hugin
+   4. 软件开发环境
+     - GCC
+     - make
+     - gdb
+     - 可视化编程: Qt4, glade, gambas, Tcl/Tk
+   5. Debian GNU/Linux 系统管理
+     - 最小系统的安装
+     - apt
+     - Debian 管理工具
+** 实验内容
+   参见《实验教学大纲》。
+** 实习
+   无
+** 考核
+   - 考试: 80%
+   - 作业: 20%
+** 参考教材
+   - 教材: 
+     - 《完美应用Ubuntu/LAMP技术大系》，UbuntuChina，电子工业出版社，2008；
+   - 参考资料:
+     - /Advanced Bash-Scripting Guide/, Mendel Cooper, Version 4.1.01, 25 October 2006
+     - /Debian system administration guide/
+
+#+LaTeX: \clearpage
+* 课程说明
+** 课程性质和要求
+   目前《操作系统原理》课程都是以开源的Linux为范本进行教学。因此学生必须要有一定的Linux应用基础能力。
+   本课程介绍给同学如下内容：
+   - GNU/Linux的过去、现在、和未来
+   - Bash
+   - Linux下的软件开发环境
+   - Linux系统管理和网络管理
+** 课程重点
+   - Shell命令行
+   - 软件工具，开发环境
+   - Linux下的C编程
+** 作业、实习要求
+   按时交作业。
+** 与其它课程的关系
+   - 前期课程：大学计算机基础
+   - 后期课程：网络课程，编程课程，操作系统课程
+** 课时安排
+|----------------------+----------+----------|
+| 课程内容             | 理论学时 | 实验学时 |
+|----------------------+----------+----------|
+| GNU/Linux 与开源运动 |        2 |          |
+| Shell 基础           | 6        |        6 |
+| 常用软件工具         |   2      |        2 |
+| 软件开发环境         |    4     |        6 |
+| Debian系统管理       |        2 |        2 |
+|----------------------+----------+----------|
+** 特殊说明
+   本课程以应用为主，最好全部授课安排在机房进行
+#+LaTeX: \clearpage
+* 实验教学大纲
+  - 课程编号: A05010
+  - 学时: 32 (理论: 16; 实验: 16)
+  - 学分: 1.5
+  - 实习: 0
+  - 授课对象: 信息工程
+** 实验教学的目的和要求
+   本课程的目的就是让学生熟悉Linux下的工作环境和开发环境，为后续课程打下坚实的基础。
+
+** 实践教学大纲
+   |----------------+------|
+   | 实验安排       | 学时 |
+   |----------------+------|
+   | shell基础      |    6 |
+   | 常用软件工具   |    2 |
+   | 软件开发环境   |    6 |
+   | Debian系统管理 |    2 |
+   |----------------+------|
+
+** 实验设备要求
+   - Debian/Ubuntu PC
+** 实验内容
+    1. Shell基础
+      - UNIX文件系统
+      - 路径，目录，特殊文件
+      - 基本 shell 命令
+      - Shell 编程
+    2. 常用软件工具
+      - 编辑器: emacs, vim
+      - 网络工具: firefox, lftp, wget, mutt, pidgin ...
+      - 办公自动化: openoffice.org
+      - 图像处理: gimp, imagemagick, dia, xfig, inkscape, hugin
+    3. 软件开发环境
+      - GCC
+      - make
+      - gdb
+      - 可视化编程: Qt4, glade, gambas, Tcl/Tk
+    4. Debian GNU/Linux 系统管理
+      - 最小系统的安装
+      - apt
+      - Debian 管理工具
+** 实验报告要求
+   按规定格式完成，不得延误
+** 成绩考核
+   - 实验报告满分100，60分及格
+** 实验指导和参考书目
+   - 教材: 
+     - 《完美应用Ubuntu/LAMP技术大系》，UbuntuChina，电子工业出版社，2008；
+   - 参考资料:
+     - /Advanced Bash-Scripting Guide/, Mendel Cooper, Version 4.1.01, 25 October 2006
+     - /Debian system administration guide/
+
+** 特别说明
+   本课程以应用为主，最好全部授课安排在机房进行
+  
+#+LaTeX: \clearpage
+* 课程简介
+- 课程编号: A05010
+- 学时: 32 (理论: 16; 实验: 16)
+- 学分: 1.5
+- 实习: 0
+- 面向专业: 信息工程
+- 前期课程：英语，大学计算机基础
+- 课程性质和要求
+   目前《操作系统原理》课程都是以开源的Linux为范本进行教学。因此学生必须要有一定的Linux应用基础能力。
+   本课程介绍给同学如下内容：
+   - GNU/Linux的过去、现在、和未来
+   - Bash
+   - Linux下的软件开发环境
+   - Linux系统管理和网络管理
+- 课程重点
+   - Shell命令行
+   - 软件工具，开发环境
+   - Linux下的C编程
+- 参考教材
+   - 教材: 
+     - 《完美应用Ubuntu/LAMP技术大系》，UbuntuChina，电子工业出版社，2008；
+   - 参考资料:
+     - /Advanced Bash-Scripting Guide/, Mendel Cooper, Version 4.1.01, 25 October 2006
+     - /Debian system administration guide/

@@ -1,0 +1,32 @@
+\documentclass[varwidth=48em,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+┌───────────────┬────────────────────────
+│  IPv6 header  │ 
+│               │ TCP header + data
+│ Next Header = │
+│      TCP      │
+└───────────────┴────────────────────────
+
+┌───────────────┬────────────────┬────────────────────────
+│  IPv6 header  │ Routing header │ 
+│               │                │ TCP header + data
+│ Next Header = │  Next Header = │
+│    Routing    │      TCP       │
+└───────────────┴────────────────┴────────────────────────
+
+┌───────────────┬────────────────┬─────────────────┬─────────────────
+│  IPv6 header  │ Routing header │ Fragment header │
+│               │                │                 │ fragment of TCP
+│ Next Header = │  Next Header = │  Next Header =  │  header + data
+│    Routing    │    Fragment    │       TCP       │
+└───────────────┴────────────────┴─────────────────┴─────────────────
+\end{verbatim}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

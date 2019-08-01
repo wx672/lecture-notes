@@ -1,0 +1,28 @@
+\documentclass[varwidth=25cm,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+        0               1               2               3
+├───────────────┴───────────────┼───────────────┴───────────────┤
+│          Source Port          │       Destination Port        │
+├───────────────────────────────┴───────────────────────────────┤
+│                        Sequence Number                        │
+├───────────────────────────────────────────────────────────────┤
+│                    Acknowledgment Number                      │
+├───────┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬───────────────────────────────┤
+│  Data │ │ │ │N│C│E│U│A│P│R│S│F│                               │
+│ Offset│0│0│0│ │W│C│R│C│S│S│Y│I│            Window             │
+│       │ │ │ │S│R│E│G│K│H│T│N│N│                               │
+├───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┼───────────────────────────────┤
+│           Checksum            │         Urgent Pointer        │
+├───────────────────────────────┴───────────────┬───────────────┤
+│                    Options                    │    Padding    │
+└───────────────────────────────────────────────┴───────────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX─master: t
+%%% End: 

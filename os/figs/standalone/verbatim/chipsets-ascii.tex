@@ -1,0 +1,34 @@
+\documentclass[varwidth=41em,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+                            ┌──────────────┐
+                            │ Intel Core 2 │
+                            │  Processor   │
+                            │    (CPU)     │
+                            └──────────────┘
+                                   │
+                             Front Side Bus
+                                   │
+ ┌────────────┐    DDR2     ┌─────────────┐     ┌───────────────┐
+ │ System RAM │<───────────>│ Northbridge │<───>│ Graphics Card │
+ └────────────┘   Channel   │    Chip     │     └───────────────┘
+                            └─────────────┘
+                                   │
+                             DMI Interface
+                                   │
+┌─────────────────────┐     ┌─────────────┐     ┌──────────────────┐
+│ BIOS (flash memory) │<───>│             │<───>│ Power management │
+├─────────────────────┤     │ Southbridge │     ├──────────────────┤
+│ Serial ATA Ports    │<───>│    Chip     │<───>│ Clock generation │
+├─────────────────────┤     │             │     ├──────────────────┤
+│ USB Ports           │<───>│             │<───>│     PCI Bus      │
+└─────────────────────┘     └─────────────┘     └──────────────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

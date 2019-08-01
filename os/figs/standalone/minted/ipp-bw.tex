@@ -1,0 +1,20 @@
+\documentclass[varwidth=23em,crop]{standalone}
+
+\usepackage{wx672minted}
+\usemintedstyle{bw}
+
+\begin{document}
+\begin{nasmcode}
+LOAD    [i], r0   ;load the value of 'i' into
+                  ;a register from memory
+ADD     r0, 1     ;increment the value
+                  ;in the register
+STORE   r0, [i]   ;write the updated
+                  ;value back to memory          
+\end{nasmcode}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,30 @@
+\documentclass[varwidth=37.5em,crop]{standalone}
+
+\usepackage{xltxtra} %fontspec,xunicode are loaded here.
+\setsansfont{DejaVu Sans}
+\setmainfont{DejaVu Serif}
+\setmonofont{DejaVu Sans Mono}
+
+\usepackage{minted}
+\renewcommand{\theFancyVerbLine}{
+  \textcolor{lightgray}{\scriptsize \arabic{FancyVerbLine}}}
+
+\begin{document}
+% \inputminted{c}{filename}
+\begin{minted}[
+  linenos=true,numbersep=2pt,
+  frame=leftline,framesep=3pt,rulecolor=\color{lightgray},
+  xleftmargin=10pt
+  ]{python}
+from socket import *
+serverName = 'hostname'
+serverPort = 12000
+clientSocket = socket(AF_INET, SOCK_DGRAM)
+message = raw_input('Input lowercase sentence:')
+clientSocket.sendto(message,(serverName, serverPort))
+modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
+print modifiedMessage
+clientSocket.close()  
+\end{minted}
+\end{document}
+

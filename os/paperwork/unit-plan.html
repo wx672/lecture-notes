@@ -1,0 +1,2392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cn" xml:lang="cn">
+<head>
+<title>《操作系统原理》教案</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="《操作系统原理》教案"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2012-08-15 Wed"/>
+<meta name="author" content="王晓林"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style><link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css"><style>code {font-weight:bold; font-size:100%; color:darkblue} body {font-size:14pt}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">《操作系统原理》教案</h1>
+
+
+<ul>
+<li>课程名称: 操作系统原理
+</li>
+<li>面向专业: 计算机相关本科专业
+</li>
+<li>教材参考：
+<ol>
+<li>A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
+</li>
+<li>Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley &amp; Sons, 2011.
+</li>
+</ol>
+
+</li>
+<li>授课学期：大三第一学期
+</li>
+<li>任课教师：王晓林
+</li>
+<li>编写时间： <span class="timestamp-wrapper"> <span class="timestamp">2012-08-15 Wed</span></span>
+</li>
+</ul>
+
+
+<div id="table-of-contents">
+<h2>目录</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 操作系统简介</a>
+<ul>
+<li><a href="#sec-1-1">1.1 教学目标及基本要求</a></li>
+<li><a href="#sec-1-2">1.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1 What's an OS? (0.5h)</a>
+<ul>
+<li><a href="#sec-1-2-1-1">1.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-1-2-1-2">1.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2-2">1.2.2 OS services (0.5h)</a>
+<ul>
+<li><a href="#sec-1-2-2-1">1.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-1-2-2-2">1.2.2.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2-3">1.2.3 Bootstrapping (1h)</a>
+<ul>
+<li><a href="#sec-1-2-3-1">1.2.3.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-1-2-3-2">1.2.3.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2-4">1.2.4 Hardware (0.5h)</a>
+<ul>
+<li><a href="#sec-1-2-4-1">1.2.4.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-1-2-4-2">1.2.4.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2-5">1.2.5 Interrupt (1h)</a>
+<ul>
+<li><a href="#sec-1-2-5-1">1.2.5.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-1-2-5-2">1.2.5.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2-6">1.2.6 System calls (1h)</a>
+<ul>
+<li><a href="#sec-1-2-6-1">1.2.6.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-1-2-6-2">1.2.6.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3 重点和难点</a></li>
+<li><a href="#sec-1-4">1.4 深化和拓宽</a></li>
+<li><a href="#sec-1-5">1.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 进程与线程</a>
+<ul>
+<li><a href="#sec-2-1">2.1 教学目标及基本要求</a></li>
+<li><a href="#sec-2-2">2.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-2-2-1">2.2.1 What's a process? (.5h)</a>
+<ul>
+<li><a href="#sec-2-2-1-1">2.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-1-2">2.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-2">2.2.2 Process creation (1h)</a>
+<ul>
+<li><a href="#sec-2-2-2-1">2.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-2-2">2.2.2.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-3">2.2.3 Process state (.5h)</a>
+<ul>
+<li><a href="#sec-2-2-3-1">2.2.3.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-3-2">2.2.3.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-4">2.2.4 Process Control Block(PCB) (1h)</a>
+<ul>
+<li><a href="#sec-2-2-4-1">2.2.4.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-4-2">2.2.4.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-5">2.2.5 CPU switch from process to process (.5h)</a>
+<ul>
+<li><a href="#sec-2-2-5-1">2.2.5.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-5-2">2.2.5.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-6">2.2.6 Processes vs. threads (.5h)</a>
+<ul>
+<li><a href="#sec-2-2-6-1">2.2.6.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-6-2">2.2.6.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-7">2.2.7 Why thread? (.5)</a>
+<ul>
+<li><a href="#sec-2-2-7-1">2.2.7.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-7-2">2.2.7.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-8">2.2.8 Thread characteristics (.5)</a>
+<ul>
+<li><a href="#sec-2-2-8-1">2.2.8.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-8-2">2.2.8.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-9">2.2.9 Thread operation and POSIX threads (1h)</a>
+<ul>
+<li><a href="#sec-2-2-9-1">2.2.9.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-9-2">2.2.9.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-10">2.2.10 User-level threads vs. kernel-level threads (.5h)</a>
+<ul>
+<li><a href="#sec-2-2-10-1">2.2.10.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-10-2">2.2.10.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-11">2.2.11 Linux threads (1h)</a>
+<ul>
+<li><a href="#sec-2-2-11-1">2.2.11.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-11-2">2.2.11.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-2-3">2.3 重点和难点</a></li>
+<li><a href="#sec-2-4">2.4 深化和拓宽</a></li>
+<li><a href="#sec-2-5">2.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-2-6">2.6 思考题和习题</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 进程间同步</a>
+<ul>
+<li><a href="#sec-3-1">3.1 教学目标及基本要求</a></li>
+<li><a href="#sec-3-2">3.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-3-2-1">3.2.1 Inter-process communication (.5h)</a>
+<ul>
+<li><a href="#sec-3-2-1-1">3.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-3-2-1-2">3.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2-2">3.2.2 Shared memory (1h)</a>
+<ul>
+<li><a href="#sec-3-2-2-1">3.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-3-2-2-2">3.2.2.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2-3">3.2.3 Race condition and mutual exclusion (2h)</a>
+<ul>
+<li><a href="#sec-3-2-3-1">3.2.3.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-3-2-3-2">3.2.3.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2-4">3.2.4 Semaphores (2h)</a>
+<ul>
+<li><a href="#sec-3-2-4-1">3.2.4.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-3-2-4-2">3.2.4.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2-5">3.2.5 Monitors (1h)</a>
+<ul>
+<li><a href="#sec-3-2-5-1">3.2.5.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-3-2-5-2">3.2.5.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2-6">3.2.6 Message passing (1h)</a>
+<ul>
+<li><a href="#sec-3-2-6-1">3.2.6.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-3-2-6-2">3.2.6.2 教学方式（手段）</a></li>
+<li><a href="#sec-3-2-6-3">3.2.6.3 师生活动设计</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2-7">3.2.7 Classical IPC problems (2h)</a>
+<ul>
+<li><a href="#sec-3-2-7-1">3.2.7.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-3-2-7-2">3.2.7.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-3-3">3.3 重点和难点</a></li>
+<li><a href="#sec-3-4">3.4 深化和拓宽</a></li>
+<li><a href="#sec-3-5">3.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-3-6">3.6 思考题和习题</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4 CPU调度</a>
+<ul>
+<li><a href="#sec-4-1">4.1 教学目标及基本要求</a></li>
+<li><a href="#sec-4-2">4.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-4-2-1">4.2.1 Scheduling introduction (1h)</a>
+<ul>
+<li><a href="#sec-4-2-1-1">4.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-4-2-1-2">4.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-2-2">4.2.2 Scheduling algorithms (1h)</a>
+<ul>
+<li><a href="#sec-4-2-2-1">4.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-4-2-2-2">4.2.2.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-2-3">4.2.3 Thread scheduling (.5h)</a>
+<ul>
+<li><a href="#sec-4-2-3-1">4.2.3.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-4-2-3-2">4.2.3.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-2-4">4.2.4 Linux scheduling (1h)</a>
+<ul>
+<li><a href="#sec-4-2-4-1">4.2.4.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-4-2-4-2">4.2.4.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-4-3">4.3 重点和难点</a></li>
+<li><a href="#sec-4-4">4.4 深化和拓宽</a></li>
+<li><a href="#sec-4-5">4.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-4-6">4.6 思考题和习题</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5 死锁</a>
+<ul>
+<li><a href="#sec-5-1">5.1 教学目标及基本要求</a></li>
+<li><a href="#sec-5-2">5.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-5-2-1">5.2.1 Resources (.5h)</a>
+<ul>
+<li><a href="#sec-5-2-1-1">5.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-5-2-1-2">5.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-2-2">5.2.2 Introduction to deadlock (.5h)</a>
+<ul>
+<li><a href="#sec-5-2-2-1">5.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-5-2-2-2">5.2.2.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-2-3">5.2.3 Deadlock modeling (.5h)</a>
+<ul>
+<li><a href="#sec-5-2-3-1">5.2.3.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-5-2-3-2">5.2.3.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-2-4">5.2.4 Dealing with deadlocks (2h)</a>
+<ul>
+<li><a href="#sec-5-2-4-1">5.2.4.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-5-2-4-2">5.2.4.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-5-3">5.3 重点和难点</a></li>
+<li><a href="#sec-5-4">5.4 深化和拓宽</a></li>
+<li><a href="#sec-5-5">5.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-5-6">5.6 思考题和习题</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6 内存管理</a>
+<ul>
+<li><a href="#sec-6-1">6.1 教学目标及基本要求</a></li>
+<li><a href="#sec-6-2">6.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-6-2-1">6.2.1 Real-mode vs. protected-mode memory management (1.5h)</a>
+<ul>
+<li><a href="#sec-6-2-1-1">6.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-6-2-1-2">6.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-2-2">6.2.2 Contiguous memory allocation (.5h)</a>
+<ul>
+<li><a href="#sec-6-2-2-1">6.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-6-2-2-2">6.2.2.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-2-3">6.2.3 Virtual memory (5h)</a>
+<ul>
+<li><a href="#sec-6-2-3-1">6.2.3.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-6-2-3-2">6.2.3.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-6-3">6.3 重点和难点</a></li>
+<li><a href="#sec-6-4">6.4 深化和拓宽</a></li>
+<li><a href="#sec-6-5">6.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-6-6">6.6 思考题和习题</a></li>
+</ul>
+</li>
+<li><a href="#sec-7">7 文件系统</a>
+<ul>
+<li><a href="#sec-7-1">7.1 教学目标及基本要求</a></li>
+<li><a href="#sec-7-2">7.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-7-2-1">7.2.1 Files (1.5h)</a>
+<ul>
+<li><a href="#sec-7-2-1-1">7.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-7-2-1-2">7.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-7-2-2">7.2.2 Directories (1h)</a>
+<ul>
+<li><a href="#sec-7-2-2-1">7.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-7-2-2-2">7.2.2.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-7-2-3">7.2.3 File system implementation (3h)</a>
+<ul>
+<li><a href="#sec-7-2-3-1">7.2.3.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-7-2-3-2">7.2.3.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-7-2-4">7.2.4 Ext2 file system (1.5h)</a>
+<ul>
+<li><a href="#sec-7-2-4-1">7.2.4.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-7-2-4-2">7.2.4.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-7-2-5">7.2.5 Virtual file system (1.5h)</a>
+<ul>
+<li><a href="#sec-7-2-5-1">7.2.5.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-7-2-5-2">7.2.5.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-7-3">7.3 重点和难点</a></li>
+<li><a href="#sec-7-4">7.4 深化和拓宽</a></li>
+<li><a href="#sec-7-5">7.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-7-6">7.6 参考书目</a></li>
+<li><a href="#sec-7-7">7.7 思考题和习题</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> 操作系统简介</h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<p>   了解什么是操作系统，及相关基本概念。
+</p></div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<ul>
+<li><a href="./slides/intro-a.pdf">讲义</a>
+</li>
+<li><a href="./slides/intro-b.pdf">幻灯片</a>
+</li>
+<li><a href="./lab.html#sec-3">作业</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> What's an OS? (0.5h)</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+
+</div>
+
+<div id="outline-container-1-2-1-1" class="outline-5">
+<h5 id="sec-1-2-1-1"><span class="section-number-5">1.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-1-2-1-1">
+
+<ul>
+<li>Resource manager
+</li>
+<li>Control program
+</li>
+<li>System goals &ndash; convenient vs. efficient
+</li>
+<li>History of OS
+</li>
+<li>Various OSes
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-1-2" class="outline-5">
+<h5 id="sec-1-2-1-2"><span class="section-number-5">1.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-1-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> OS services (0.5h)</h4>
+<div class="outline-text-4" id="text-1-2-2">
+
+
+</div>
+
+<div id="outline-container-1-2-2-1" class="outline-5">
+<h5 id="sec-1-2-2-1"><span class="section-number-5">1.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-1-2-2-1">
+
+<ul>
+<li>Helping the user
+</li>
+<li>Keeping the system efficient
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-2-2" class="outline-5">
+<h5 id="sec-1-2-2-2"><span class="section-number-5">1.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-1-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> Bootstrapping (1h)</h4>
+<div class="outline-text-4" id="text-1-2-3">
+
+
+</div>
+
+<div id="outline-container-1-2-3-1" class="outline-5">
+<h5 id="sec-1-2-3-1"><span class="section-number-5">1.2.3.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-1-2-3-1">
+
+<ul>
+<li>Intel x86 bootstrapping
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-3-2" class="outline-5">
+<h5 id="sec-1-2-3-2"><span class="section-number-5">1.2.3.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-1-2-3-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> Hardware (0.5h)</h4>
+<div class="outline-text-4" id="text-1-2-4">
+
+
+</div>
+
+<div id="outline-container-1-2-4-1" class="outline-5">
+<h5 id="sec-1-2-4-1"><span class="section-number-5">1.2.4.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-1-2-4-1">
+
+<ul>
+<li>CPU working cycle
+</li>
+<li>CPU registers
+</li>
+<li>System bus
+</li>
+<li>Controllers and Peripherals 
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-4-2" class="outline-5">
+<h5 id="sec-1-2-4-2"><span class="section-number-5">1.2.4.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-1-2-4-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-5" class="outline-4">
+<h4 id="sec-1-2-5"><span class="section-number-4">1.2.5</span> Interrupt (1h)</h4>
+<div class="outline-text-4" id="text-1-2-5">
+
+
+</div>
+
+<div id="outline-container-1-2-5-1" class="outline-5">
+<h5 id="sec-1-2-5-1"><span class="section-number-5">1.2.5.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-1-2-5-1">
+
+<ul>
+<li>Why interrupt?
+</li>
+<li>Interrupt timeline
+</li>
+<li>Concepts: 
+<ul>
+<li>hardware interrupt
+</li>
+<li>software interrupt
+</li>
+<li>trap
+</li>
+<li>interrupt vector
+</li>
+</ul>
+
+</li>
+<li>Interrupt processing
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-5-2" class="outline-5">
+<h5 id="sec-1-2-5-2"><span class="section-number-5">1.2.5.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-1-2-5-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-6" class="outline-4">
+<h4 id="sec-1-2-6"><span class="section-number-4">1.2.6</span> System calls (1h)</h4>
+<div class="outline-text-4" id="text-1-2-6">
+
+
+</div>
+
+<div id="outline-container-1-2-6-1" class="outline-5">
+<h5 id="sec-1-2-6-1"><span class="section-number-5">1.2.6.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-1-2-6-1">
+
+<ul>
+<li>What's a system call?
+</li>
+<li>How a system call works?
+</li>
+<li>Various system calls
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-6-2" class="outline-5">
+<h5 id="sec-1-2-6-2"><span class="section-number-5">1.2.6.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-1-2-6-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-1-3">
+
+<ul>
+<li>Bootstrapping
+</li>
+<li>Interrupt
+</li>
+<li>System calls
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-1-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-1-5">
+
+<ul>
+<li>理论 + 实验
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> 进程与线程</h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p>   了解进程和线程相关的基本概念。
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<ul>
+<li><a href="./slides/process-thread-a.pdf">讲义</a>
+</li>
+<li><a href="./slides/process-thread-b.pdf">幻灯片</a>
+</li>
+<li><a href="./lab.html#sec-4">作业</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> What's a process? (.5h)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+
+
+</div>
+
+<div id="outline-container-2-2-1-1" class="outline-5">
+<h5 id="sec-2-2-1-1"><span class="section-number-5">2.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-1-1">
+
+<ul>
+<li>logical view of a process
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-1-2" class="outline-5">
+<h5 id="sec-2-2-1-2"><span class="section-number-5">2.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> Process creation (1h)</h4>
+<div class="outline-text-4" id="text-2-2-2">
+
+
+</div>
+
+<div id="outline-container-2-2-2-1" class="outline-5">
+<h5 id="sec-2-2-2-1"><span class="section-number-5">2.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-2-1">
+
+<ul>
+<li>fork(), exec(), wait(), exit()
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-2-2" class="outline-5">
+<h5 id="sec-2-2-2-2"><span class="section-number-5">2.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-3" class="outline-4">
+<h4 id="sec-2-2-3"><span class="section-number-4">2.2.3</span> Process state (.5h)</h4>
+<div class="outline-text-4" id="text-2-2-3">
+
+
+</div>
+
+<div id="outline-container-2-2-3-1" class="outline-5">
+<h5 id="sec-2-2-3-1"><span class="section-number-5">2.2.3.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-3-1">
+
+<ul>
+<li>running, blocked, ready
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-3-2" class="outline-5">
+<h5 id="sec-2-2-3-2"><span class="section-number-5">2.2.3.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-3-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-4" class="outline-4">
+<h4 id="sec-2-2-4"><span class="section-number-4">2.2.4</span> Process Control Block(PCB) (1h)</h4>
+<div class="outline-text-4" id="text-2-2-4">
+
+
+</div>
+
+<div id="outline-container-2-2-4-1" class="outline-5">
+<h5 id="sec-2-2-4-1"><span class="section-number-5">2.2.4.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-4-1">
+
+<ul>
+<li>How to describe a process?
+</li>
+<li><code>task_struct</code> in Linux
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-4-2" class="outline-5">
+<h5 id="sec-2-2-4-2"><span class="section-number-5">2.2.4.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-4-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-5" class="outline-4">
+<h4 id="sec-2-2-5"><span class="section-number-4">2.2.5</span> CPU switch from process to process (.5h)</h4>
+<div class="outline-text-4" id="text-2-2-5">
+
+
+</div>
+
+<div id="outline-container-2-2-5-1" class="outline-5">
+<h5 id="sec-2-2-5-1"><span class="section-number-5">2.2.5.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-5-1">
+
+<ul>
+<li>The OS role in process switch
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-5-2" class="outline-5">
+<h5 id="sec-2-2-5-2"><span class="section-number-5">2.2.5.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-5-2">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-6" class="outline-4">
+<h4 id="sec-2-2-6"><span class="section-number-4">2.2.6</span> Processes vs. threads (.5h)</h4>
+<div class="outline-text-4" id="text-2-2-6">
+
+
+</div>
+
+<div id="outline-container-2-2-6-1" class="outline-5">
+<h5 id="sec-2-2-6-1"><span class="section-number-5">2.2.6.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-6-1">
+
+<ul>
+<li>A process is a unit of resource ownership
+</li>
+<li>A thread is a unit of scheduling
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-6-2" class="outline-5">
+<h5 id="sec-2-2-6-2"><span class="section-number-5">2.2.6.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-6-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-7" class="outline-4">
+<h4 id="sec-2-2-7"><span class="section-number-4">2.2.7</span> Why thread? (.5)</h4>
+<div class="outline-text-4" id="text-2-2-7">
+
+
+</div>
+
+<div id="outline-container-2-2-7-1" class="outline-5">
+<h5 id="sec-2-2-7-1"><span class="section-number-5">2.2.7.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-7-1">
+
+<ul>
+<li>Advantages 
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-7-2" class="outline-5">
+<h5 id="sec-2-2-7-2"><span class="section-number-5">2.2.7.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-7-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-8" class="outline-4">
+<h4 id="sec-2-2-8"><span class="section-number-4">2.2.8</span> Thread characteristics (.5)</h4>
+<div class="outline-text-4" id="text-2-2-8">
+
+
+</div>
+
+<div id="outline-container-2-2-8-1" class="outline-5">
+<h5 id="sec-2-2-8-1"><span class="section-number-5">2.2.8.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-8-1">
+
+<ul>
+<li>Thread state
+</li>
+<li>A thread has its own stack
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-8-2" class="outline-5">
+<h5 id="sec-2-2-8-2"><span class="section-number-5">2.2.8.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-8-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-9" class="outline-4">
+<h4 id="sec-2-2-9"><span class="section-number-4">2.2.9</span> Thread operation and POSIX threads (1h)</h4>
+<div class="outline-text-4" id="text-2-2-9">
+
+
+</div>
+
+<div id="outline-container-2-2-9-1" class="outline-5">
+<h5 id="sec-2-2-9-1"><span class="section-number-5">2.2.9.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-9-1">
+
+<ul>
+<li>Thread library calls
+</li>
+<li>POSIX threads examples
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-9-2" class="outline-5">
+<h5 id="sec-2-2-9-2"><span class="section-number-5">2.2.9.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-9-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-10" class="outline-4">
+<h4 id="sec-2-2-10"><span class="section-number-4">2.2.10</span> User-level threads vs. kernel-level threads (.5h)</h4>
+<div class="outline-text-4" id="text-2-2-10">
+
+
+</div>
+
+<div id="outline-container-2-2-10-1" class="outline-5">
+<h5 id="sec-2-2-10-1"><span class="section-number-5">2.2.10.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-10-1">
+
+<ul>
+<li>pros and cons
+</li>
+<li>Hybrid implementations
+</li>
+<li>Programming complications
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-10-2" class="outline-5">
+<h5 id="sec-2-2-10-2"><span class="section-number-5">2.2.10.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-10-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-11" class="outline-4">
+<h4 id="sec-2-2-11"><span class="section-number-4">2.2.11</span> Linux threads (1h)</h4>
+<div class="outline-text-4" id="text-2-2-11">
+
+
+</div>
+
+<div id="outline-container-2-2-11-1" class="outline-5">
+<h5 id="sec-2-2-11-1"><span class="section-number-5">2.2.11.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-11-1">
+
+<ul>
+<li>clone()
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-11-2" class="outline-5">
+<h5 id="sec-2-2-11-2"><span class="section-number-5">2.2.11.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-11-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-2-3">
+
+<ul>
+<li>进程的一生
+</li>
+<li>线程的一生
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-2-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-2-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-2-6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 进程间同步</h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<p>   了解进程间协调的基本概念和方法。
+</p></div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<ul>
+<li><a href="./slides/process-sync-a.pdf">讲义</a>
+</li>
+<li><a href="./slides/process-sync-b.pdf">幻灯片</a>
+</li>
+<li><a href="./lab.html#sec-4-3">作业</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1"><span class="section-number-4">3.2.1</span> Inter-process communication (.5h)</h4>
+<div class="outline-text-4" id="text-3-2-1">
+
+
+</div>
+
+<div id="outline-container-3-2-1-1" class="outline-5">
+<h5 id="sec-3-2-1-1"><span class="section-number-5">3.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-3-2-1-1">
+
+<ul>
+<li>IPC issues
+</li>
+<li>Two models of IPC
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-1-2" class="outline-5">
+<h5 id="sec-3-2-1-2"><span class="section-number-5">3.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-3-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2"><span class="section-number-4">3.2.2</span> Shared memory (1h)</h4>
+<div class="outline-text-4" id="text-3-2-2">
+
+
+</div>
+
+<div id="outline-container-3-2-2-1" class="outline-5">
+<h5 id="sec-3-2-2-1"><span class="section-number-5">3.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-3-2-2-1">
+
+<ul>
+<li>Producer-consumer problem
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-2-2" class="outline-5">
+<h5 id="sec-3-2-2-2"><span class="section-number-5">3.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-3-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-3-2-3" class="outline-4">
+<h4 id="sec-3-2-3"><span class="section-number-4">3.2.3</span> Race condition and mutual exclusion (2h)</h4>
+<div class="outline-text-4" id="text-3-2-3">
+
+
+</div>
+
+<div id="outline-container-3-2-3-1" class="outline-5">
+<h5 id="sec-3-2-3-1"><span class="section-number-5">3.2.3.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-3-2-3-1">
+
+<ul>
+<li>Race scenarios
+</li>
+<li>Critical regions
+</li>
+<li>Algorithms: 
+<ul>
+<li>busy-waiting
+<ul>
+<li>disable interrupts 
+</li>
+<li>Peterson's algorithm
+</li>
+<li>Hardware solution &mdash; TSL instruction
+</li>
+</ul>
+
+</li>
+<li>No busy-waiting
+<ul>
+<li>sleep/wake up
+</li>
+</ul>
+
+</li>
+</ul>
+
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-3-2" class="outline-5">
+<h5 id="sec-3-2-3-2"><span class="section-number-5">3.2.3.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-3-2-3-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-3-2-4" class="outline-4">
+<h4 id="sec-3-2-4"><span class="section-number-4">3.2.4</span> Semaphores (2h)</h4>
+<div class="outline-text-4" id="text-3-2-4">
+
+
+</div>
+
+<div id="outline-container-3-2-4-1" class="outline-5">
+<h5 id="sec-3-2-4-1"><span class="section-number-5">3.2.4.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-3-2-4-1">
+
+<ul>
+<li>What's a semaphore?
+</li>
+<li>Why semaphore?
+</li>
+<li>How to use semaphore?
+</li>
+<li>Mutex
+</li>
+<li>Barriers
+</li>
+<li>Examples
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-4-2" class="outline-5">
+<h5 id="sec-3-2-4-2"><span class="section-number-5">3.2.4.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-3-2-4-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-3-2-5" class="outline-4">
+<h4 id="sec-3-2-5"><span class="section-number-4">3.2.5</span> Monitors (1h)</h4>
+<div class="outline-text-4" id="text-3-2-5">
+
+
+</div>
+
+<div id="outline-container-3-2-5-1" class="outline-5">
+<h5 id="sec-3-2-5-1"><span class="section-number-5">3.2.5.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-3-2-5-1">
+
+<ul>
+<li>What's a monitor?
+</li>
+<li>Examples
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-5-2" class="outline-5">
+<h5 id="sec-3-2-5-2"><span class="section-number-5">3.2.5.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-3-2-5-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-3-2-6" class="outline-4">
+<h4 id="sec-3-2-6"><span class="section-number-4">3.2.6</span> Message passing (1h)</h4>
+<div class="outline-text-4" id="text-3-2-6">
+
+
+</div>
+
+<div id="outline-container-3-2-6-1" class="outline-5">
+<h5 id="sec-3-2-6-1"><span class="section-number-5">3.2.6.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-3-2-6-1">
+
+<ul>
+<li>What's messaging?
+</li>
+<li>Examples
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-6-2" class="outline-5">
+<h5 id="sec-3-2-6-2"><span class="section-number-5">3.2.6.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-3-2-6-2">
+
+<p>     理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-3-2-6-3" class="outline-5">
+<h5 id="sec-3-2-6-3"><span class="section-number-5">3.2.6.3</span> 师生活动设计</h5>
+<div class="outline-text-5" id="text-3-2-6-3">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3-2-7" class="outline-4">
+<h4 id="sec-3-2-7"><span class="section-number-4">3.2.7</span> Classical IPC problems (2h)</h4>
+<div class="outline-text-4" id="text-3-2-7">
+
+
+</div>
+
+<div id="outline-container-3-2-7-1" class="outline-5">
+<h5 id="sec-3-2-7-1"><span class="section-number-5">3.2.7.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-3-2-7-1">
+
+<ul>
+<li>The dining philosophers problem
+</li>
+<li>The readers-writers problem
+</li>
+<li>The sleeping barber problem
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-7-2" class="outline-5">
+<h5 id="sec-3-2-7-2"><span class="section-number-5">3.2.7.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-3-2-7-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-3-3">
+
+<ul>
+<li>Semaphores
+</li>
+<li>Classical IPC problems
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-3-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-3-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-3-6" class="outline-3">
+<h3 id="sec-3-6"><span class="section-number-3">3.6</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-3-6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> CPU调度</h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-4-1">
+
+<p>   了解进程调度的基本算法
+</p></div>
+
+</div>
+
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-4-2">
+
+<ul>
+<li><a href="./slides/cpu-sched-a.pdf">讲义</a>
+</li>
+<li><a href="./slides/cpu-sched-b.pdf">幻灯片</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-4-2-1" class="outline-4">
+<h4 id="sec-4-2-1"><span class="section-number-4">4.2.1</span> Scheduling introduction (1h)</h4>
+<div class="outline-text-4" id="text-4-2-1">
+
+
+</div>
+
+<div id="outline-container-4-2-1-1" class="outline-5">
+<h5 id="sec-4-2-1-1"><span class="section-number-5">4.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-4-2-1-1">
+
+<ul>
+<li>Process scheduling queues
+</li>
+<li>Different system has different scheduling algorithm
+</li>
+<li>Process behavior
+</li>
+<li>Process classification
+</li>
+<li>Process schedulers
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-2-1-2" class="outline-5">
+<h5 id="sec-4-2-1-2"><span class="section-number-5">4.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-4-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-4-2-2" class="outline-4">
+<h4 id="sec-4-2-2"><span class="section-number-4">4.2.2</span> Scheduling algorithms (1h)</h4>
+<div class="outline-text-4" id="text-4-2-2">
+
+
+</div>
+
+<div id="outline-container-4-2-2-1" class="outline-5">
+<h5 id="sec-4-2-2-1"><span class="section-number-5">4.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-4-2-2-1">
+
+<ul>
+<li>Scheduling in batch systems
+</li>
+<li>Scheduling in interactive systems
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-2-2-2" class="outline-5">
+<h5 id="sec-4-2-2-2"><span class="section-number-5">4.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-4-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-4-2-3" class="outline-4">
+<h4 id="sec-4-2-3"><span class="section-number-4">4.2.3</span> Thread scheduling (.5h)</h4>
+<div class="outline-text-4" id="text-4-2-3">
+
+
+</div>
+
+<div id="outline-container-4-2-3-1" class="outline-5">
+<h5 id="sec-4-2-3-1"><span class="section-number-5">4.2.3.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-4-2-3-1">
+
+<ul>
+<li>kernel-threads vs. user-threads
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-2-3-2" class="outline-5">
+<h5 id="sec-4-2-3-2"><span class="section-number-5">4.2.3.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-4-2-3-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-4-2-4" class="outline-4">
+<h4 id="sec-4-2-4"><span class="section-number-4">4.2.4</span> Linux scheduling (1h)</h4>
+<div class="outline-text-4" id="text-4-2-4">
+
+
+</div>
+
+<div id="outline-container-4-2-4-1" class="outline-5">
+<h5 id="sec-4-2-4-1"><span class="section-number-5">4.2.4.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-4-2-4-1">
+
+<ul>
+<li>140 priorities
+</li>
+<li>O(1)
+</li>
+<li>active array, expired array
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-2-4-2" class="outline-5">
+<h5 id="sec-4-2-4-2"><span class="section-number-5">4.2.4.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-4-2-4-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-4-3">
+
+<ul>
+<li>Scheduling algorithms
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-4-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-4-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-4-6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> 死锁</h2>
+<div class="outline-text-2" id="text-5">
+
+
+</div>
+
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-5-1">
+
+<p>   了解死锁产生的原因和处理方法。
+</p></div>
+
+</div>
+
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-5-2">
+
+<ul>
+<li><a href="./slides/deadlock-a.pdf">讲义</a>
+</li>
+<li><a href="./slides/deadlock-b.pdf">幻灯片</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-5-2-1" class="outline-4">
+<h4 id="sec-5-2-1"><span class="section-number-4">5.2.1</span> Resources (.5h)</h4>
+<div class="outline-text-4" id="text-5-2-1">
+
+
+</div>
+
+<div id="outline-container-5-2-1-1" class="outline-5">
+<h5 id="sec-5-2-1-1"><span class="section-number-5">5.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-5-2-1-1">
+
+<ul>
+<li>Processes need access to resources in reasonable order
+</li>
+<li>Preemptable and non-preemptable resources
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-2-1-2" class="outline-5">
+<h5 id="sec-5-2-1-2"><span class="section-number-5">5.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-5-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-5-2-2" class="outline-4">
+<h4 id="sec-5-2-2"><span class="section-number-4">5.2.2</span> Introduction to deadlock (.5h)</h4>
+<div class="outline-text-4" id="text-5-2-2">
+
+
+</div>
+
+<div id="outline-container-5-2-2-1" class="outline-5">
+<h5 id="sec-5-2-2-1"><span class="section-number-5">5.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-5-2-2-1">
+
+<ul>
+<li>four conditions
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-2-2-2" class="outline-5">
+<h5 id="sec-5-2-2-2"><span class="section-number-5">5.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-5-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-5-2-3" class="outline-4">
+<h4 id="sec-5-2-3"><span class="section-number-4">5.2.3</span> Deadlock modeling (.5h)</h4>
+<div class="outline-text-4" id="text-5-2-3">
+
+
+</div>
+
+<div id="outline-container-5-2-3-1" class="outline-5">
+<h5 id="sec-5-2-3-1"><span class="section-number-5">5.2.3.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-5-2-3-1">
+
+<ul>
+<li>resource requirements graph
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-2-3-2" class="outline-5">
+<h5 id="sec-5-2-3-2"><span class="section-number-5">5.2.3.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-5-2-3-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-5-2-4" class="outline-4">
+<h4 id="sec-5-2-4"><span class="section-number-4">5.2.4</span> Dealing with deadlocks (2h)</h4>
+<div class="outline-text-4" id="text-5-2-4">
+
+
+</div>
+
+<div id="outline-container-5-2-4-1" class="outline-5">
+<h5 id="sec-5-2-4-1"><span class="section-number-5">5.2.4.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-5-2-4-1">
+
+<ul>
+<li>Deadlock detection and recovery
+</li>
+<li>Deadlock avoidance
+</li>
+<li>Deadlock prevention
+</li>
+<li>The ostrich algorithm
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-2-4-2" class="outline-5">
+<h5 id="sec-5-2-4-2"><span class="section-number-5">5.2.4.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-5-2-4-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5-3" class="outline-3">
+<h3 id="sec-5-3"><span class="section-number-3">5.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-5-3">
+
+<ul>
+<li>死锁处理方法
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-4" class="outline-3">
+<h3 id="sec-5-4"><span class="section-number-3">5.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-5-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-5-5" class="outline-3">
+<h3 id="sec-5-5"><span class="section-number-3">5.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-5-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-5-6" class="outline-3">
+<h3 id="sec-5-6"><span class="section-number-3">5.6</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-5-6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> 内存管理</h2>
+<div class="outline-text-2" id="text-6">
+
+
+</div>
+
+<div id="outline-container-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-6-1">
+
+<p>   了解内存管理的相关概念
+</p></div>
+
+</div>
+
+<div id="outline-container-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-6-2">
+
+<ul>
+<li><a href="./slides/mm-a.pdf">讲义</a>
+</li>
+<li><a href="./slides/mm-b.pdf">幻灯片</a>
+</li>
+<li><a href="./lab.html#sec-5">作业</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-6-2-1" class="outline-4">
+<h4 id="sec-6-2-1"><span class="section-number-4">6.2.1</span> Real-mode vs. protected-mode memory management (1.5h)</h4>
+<div class="outline-text-4" id="text-6-2-1">
+
+
+</div>
+
+<div id="outline-container-6-2-1-1" class="outline-5">
+<h5 id="sec-6-2-1-1"><span class="section-number-5">6.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-6-2-1-1">
+
+<ul>
+<li>Relocation problem
+</li>
+<li>Process' memory is divided into logical segments
+</li>
+<li>Memory allocation, who/when/how?
+</li>
+<li>Swapping
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2-1-2" class="outline-5">
+<h5 id="sec-6-2-1-2"><span class="section-number-5">6.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-6-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-6-2-2" class="outline-4">
+<h4 id="sec-6-2-2"><span class="section-number-4">6.2.2</span> Contiguous memory allocation (.5h)</h4>
+<div class="outline-text-4" id="text-6-2-2">
+
+
+</div>
+
+<div id="outline-container-6-2-2-1" class="outline-5">
+<h5 id="sec-6-2-2-1"><span class="section-number-5">6.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-6-2-2-1">
+
+<ul>
+<li>first-fit, best-fit, worst-fit
+</li>
+<li>internal-fragmentation, external-fragmentation
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2-2-2" class="outline-5">
+<h5 id="sec-6-2-2-2"><span class="section-number-5">6.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-6-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-6-2-3" class="outline-4">
+<h4 id="sec-6-2-3"><span class="section-number-4">6.2.3</span> Virtual memory (5h)</h4>
+<div class="outline-text-4" id="text-6-2-3">
+
+
+</div>
+
+<div id="outline-container-6-2-3-1" class="outline-5">
+<h5 id="sec-6-2-3-1"><span class="section-number-5">6.2.3.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-6-2-3-1">
+
+<ul>
+<li>Logical memory vs. physical memory
+</li>
+<li>Paging
+<ul>
+<li>Demand paging
+</li>
+<li>Copy-on-write
+</li>
+<li>Memory-mapped file
+</li>
+<li>Page replacement algorithm
+</li>
+<li>Allocation of frames
+</li>
+<li>Thrashing and working set model
+</li>
+</ul>
+
+</li>
+<li>Segmentation
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2-3-2" class="outline-5">
+<h5 id="sec-6-2-3-2"><span class="section-number-5">6.2.3.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-6-2-3-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-6-3">
+
+<ul>
+<li>Virtual memory
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-6-4" class="outline-3">
+<h3 id="sec-6-4"><span class="section-number-3">6.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-6-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-6-5" class="outline-3">
+<h3 id="sec-6-5"><span class="section-number-3">6.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-6-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-6-6" class="outline-3">
+<h3 id="sec-6-6"><span class="section-number-3">6.6</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-6-6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> 文件系统</h2>
+<div class="outline-text-2" id="text-7">
+
+
+</div>
+
+<div id="outline-container-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-7-1">
+
+<p>   了解文件系统的基本工作原理
+</p></div>
+
+</div>
+
+<div id="outline-container-7-2" class="outline-3">
+<h3 id="sec-7-2"><span class="section-number-3">7.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-7-2">
+
+<ul>
+<li><a href="./slides/fs-a.pdf">讲义</a>
+</li>
+<li><a href="./slides/fs-b.pdf">幻灯片</a>
+</li>
+<li><a href="./lab.html#sec-6">作业</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-7-2-1" class="outline-4">
+<h4 id="sec-7-2-1"><span class="section-number-4">7.2.1</span> Files (1.5h)</h4>
+<div class="outline-text-4" id="text-7-2-1">
+
+
+</div>
+
+<div id="outline-container-7-2-1-1" class="outline-5">
+<h5 id="sec-7-2-1-1"><span class="section-number-5">7.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-7-2-1-1">
+
+<ul>
+<li>What's a file?
+</li>
+<li>File system design issues
+</li>
+<li>File system models &mdash; layered design
+</li>
+<li>File attributes and types
+</li>
+<li>File operations
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-7-2-1-2" class="outline-5">
+<h5 id="sec-7-2-1-2"><span class="section-number-5">7.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-7-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-7-2-2" class="outline-4">
+<h4 id="sec-7-2-2"><span class="section-number-4">7.2.2</span> Directories (1h)</h4>
+<div class="outline-text-4" id="text-7-2-2">
+
+
+</div>
+
+<div id="outline-container-7-2-2-1" class="outline-5">
+<h5 id="sec-7-2-2-1"><span class="section-number-5">7.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-7-2-2-1">
+
+<ul>
+<li>Single level, multi-level directories
+</li>
+<li>Operations
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-7-2-2-2" class="outline-5">
+<h5 id="sec-7-2-2-2"><span class="section-number-5">7.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-7-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-7-2-3" class="outline-4">
+<h4 id="sec-7-2-3"><span class="section-number-4">7.2.3</span> File system implementation (3h)</h4>
+<div class="outline-text-4" id="text-7-2-3">
+
+
+</div>
+
+<div id="outline-container-7-2-3-1" class="outline-5">
+<h5 id="sec-7-2-3-1"><span class="section-number-5">7.2.3.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-7-2-3-1">
+
+<ul>
+<li>File system layout
+</li>
+<li>Implementing files
+<ul>
+<li>Linked-list allocation
+</li>
+<li>Indexed allocation
+</li>
+</ul>
+
+</li>
+<li>Implementing directories
+</li>
+<li>Shared files
+</li>
+<li>Disk space management
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-7-2-3-2" class="outline-5">
+<h5 id="sec-7-2-3-2"><span class="section-number-5">7.2.3.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-7-2-3-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-7-2-4" class="outline-4">
+<h4 id="sec-7-2-4"><span class="section-number-4">7.2.4</span> Ext2 file system (1.5h)</h4>
+<div class="outline-text-4" id="text-7-2-4">
+
+
+</div>
+
+<div id="outline-container-7-2-4-1" class="outline-5">
+<h5 id="sec-7-2-4-1"><span class="section-number-5">7.2.4.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-7-2-4-1">
+
+<ul>
+<li>Ext2 fs layout
+</li>
+<li>Ext2 superblock
+</li>
+<li>Ext2 inode
+</li>
+<li>Ext2 directory
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-7-2-4-2" class="outline-5">
+<h5 id="sec-7-2-4-2"><span class="section-number-5">7.2.4.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-7-2-4-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-7-2-5" class="outline-4">
+<h4 id="sec-7-2-5"><span class="section-number-4">7.2.5</span> Virtual file system (1.5h)</h4>
+<div class="outline-text-4" id="text-7-2-5">
+
+
+</div>
+
+<div id="outline-container-7-2-5-1" class="outline-5">
+<h5 id="sec-7-2-5-1"><span class="section-number-5">7.2.5.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-7-2-5-1">
+
+<ul>
+<li>Why VFS? 
+</li>
+<li>FS mounting
+</li>
+<li>Linux VFS
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-7-2-5-2" class="outline-5">
+<h5 id="sec-7-2-5-2"><span class="section-number-5">7.2.5.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-7-2-5-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7-3" class="outline-3">
+<h3 id="sec-7-3"><span class="section-number-3">7.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-7-3">
+
+<ul>
+<li>File system implementation
+</li>
+<li>Ext2 FS
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-7-4" class="outline-3">
+<h3 id="sec-7-4"><span class="section-number-3">7.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-7-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-7-5" class="outline-3">
+<h3 id="sec-7-5"><span class="section-number-3">7.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-7-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-7-6" class="outline-3">
+<h3 id="sec-7-6"><span class="section-number-3">7.6</span> 参考书目</h3>
+<div class="outline-text-3" id="text-7-6">
+
+</div>
+
+</div>
+
+<div id="outline-container-7-7" class="outline-3">
+<h3 id="sec-7-7"><span class="section-number-3">7.7</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-7-7">
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="author">Author: 王晓林 (<a href="mailto:wx672ster@gmail.com">wx672ster@gmail.com</a>)</p>
+<p class="date">Date: 2012-08-15 Wed</p>
+
+</div>
+</body>
+</html>

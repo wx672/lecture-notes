@@ -1,0 +1,21 @@
+\documentclass[varwidth=40em,crop]{standalone}
+
+\begin{document}
+\begin{verbatim}
+~$ sudo apt install iptables
+~$ 
+~$ sudo iptables -A INPUT -s 147.8.212.123 -p all -j DROP
+~$ 
+~$ sudo iptables -D INPUT -s 147.8.212.123 -p all -j DROP
+~$ 
+~$ man iptables
+~$ 
+~$ chromium http://www.netfilter.org/documentation/
+~$ 
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

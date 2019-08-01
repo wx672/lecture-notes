@@ -1,0 +1,18 @@
+\documentclass[varwidth=36em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+pgd = swapper_pg_dir + pgd_index(PAGE_OFFSET); /* 768 */
+phys_addr = 0x00000000;
+while (phys_addr < (max_low_pfn * PAGE_SIZE))
+{
+  pmd = one_md_table_init(pgd); /* returns pgd itself */
+  set_pmd(pmd, __pmd(phys_addr | pgprot_val(__pgprot(0x1e3))));
+  /* 0x1e3 == Present, Accessed, Dirty, Read/Write, Page Size, Global */
+  phys_addr += PTRS_PER_PTE * PAGE_SIZE; /* 0x400000, 4M */
+  ++pgd;
+}
+\end{ccode}
+\end{document}

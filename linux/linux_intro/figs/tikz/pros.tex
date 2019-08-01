@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[paperwidth=11.1cm,paperheight=12.4cm,top=.3mm,bottom=0mm,left=-4.8mm,right=0mm]{geometry}
+\usepackage{latexsym,pifont,units,amsmath,amsfonts,amssymb}
+\usepackage{xltxtra} %fontspec,xunicode are loaded here.
+\setsansfont{DejaVu Sans Mono}
+\setmainfont{DejaVu Sans Mono}
+\setmonofont{DejaVu Sans Mono}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shadows,trees,mindmap,backgrounds}
+\pagestyle{empty}
+\begin{document}
+\begin{tikzpicture}[mindmap, 
+    concept color=white,
+    grow cyclic,
+%    every node/.style={concept, circular drop shadow},
+    % root concept/.append style={ concept color=black, fill=white, line width=1ex,text=black},
+    % redhat/.style = {concept color=Green!50,faded/.style={concept color=Green!20}},
+    % debian/.style = {concept color=Blue!50,faded/.style={concept color=Blue!20}},
+    % other/.style =  {concept color=black!30,faded/.style={concept color=black!20}},
+    %level 1/.append style={level distance=4.5cm,sibling angle=120},
+    % level 2/.append style={level distance=3cm}
+    ]
+  
+    \node [concept] {\includegraphics[width=3.5cm]{linux_logo}}
+    child [concept color=red!40] {node [concept] {Network friendly} }
+    child [concept color=red!40] {node [concept] {Multi-user}}
+    child [concept color=red!40] {node [concept] {Reliable}}
+    child [concept color=red!40] {node [concept] {Open source}}
+    child [concept color=red!40] {node [concept] {Free of charge}}
+    child [concept color=red!40] {node [concept] {Backward compatible}};
+\end{tikzpicture}
+\end{document}

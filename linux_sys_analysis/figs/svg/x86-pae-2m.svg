@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2 Patchlevel 5-alpha7 -->
+<!-- CreationDate: Thu Mar 20 12:23:45 2008 -->
+<!-- Magnification: 1.050 -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="6.8in"
+   height="4.2in"
+   viewBox="1262 2141 8198 5068"
+   id="svg3240"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="X86_Paging_PAE_2M.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <metadata
+     id="metadata3459">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3457">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 188.99998 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="612 : 188.99998 : 1"
+       inkscape:persp3d-origin="306 : 125.99999 : 1"
+       id="perspective3461" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-height="947"
+     inkscape:window-width="1280"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     showgrid="false"
+     inkscape:zoom="1.9100531"
+     inkscape:cx="159.14544"
+     inkscape:cy="249.73128"
+     inkscape:window-x="1280"
+     inkscape:window-y="25"
+     inkscape:current-layer="svg3240" />
+  <polyline
+     id="polyline3244"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="9212,2598 9212,3070 " />
+  <polyline
+     id="polyline3246"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="8976,2598 8976,3070 " />
+  <polyline
+     id="polyline3248"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="8740,2598 8740,3070 " />
+  <polyline
+     id="polyline3250"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="8503,2598 8503,3070 " />
+  <polyline
+     id="polyline3252"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="8267,2598 8267,3070 " />
+  <polyline
+     id="polyline3254"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="8031,2598 8031,3070 " />
+  <polyline
+     id="polyline3256"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="7795,2598 7795,3070 " />
+  <polyline
+     id="polyline3258"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="7559,2456 7559,3070 " />
+  <polyline
+     id="polyline3260"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="7322,2598 7322,3070 " />
+  <polyline
+     id="polyline3262"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="7086,2598 7086,3070 " />
+  <polyline
+     id="polyline3264"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="6850,2598 6850,3070 " />
+  <polyline
+     id="polyline3266"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="6614,2598 6614,3070 " />
+  <polyline
+     id="polyline3268"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="6377,2598 6377,3070 " />
+  <polyline
+     id="polyline3270"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="6141,2598 6141,3070 " />
+  <polyline
+     id="polyline3272"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="5905,2598 5905,3070 " />
+  <polyline
+     id="polyline3274"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="5669,2456 5669,3070 " />
+  <polyline
+     id="polyline3276"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="5433,2598 5433,3070 " />
+  <polyline
+     id="polyline3278"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="5196,2598 5196,3070 " />
+  <polyline
+     id="polyline3280"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="4960,2598 4960,3070 " />
+  <polyline
+     id="polyline3282"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="4724,2598 4724,3070 " />
+  <polyline
+     id="polyline3284"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="4488,2598 4488,3070 " />
+  <polyline
+     id="polyline3286"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="4251,2598 4251,3070 " />
+  <polyline
+     id="polyline3288"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="4015,2598 4015,3070 " />
+  <polyline
+     id="polyline3290"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="3779,2409 3779,3070 " />
+  <polyline
+     id="polyline3292"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="3543,2598 3543,3070 " />
+  <polyline
+     id="polyline3294"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="3307,2598 3307,3070 " />
+  <polyline
+     id="polyline3296"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="3070,2598 3070,3070 " />
+  <polyline
+     id="polyline3298"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="2834,2598 2834,3070 " />
+  <polyline
+     id="polyline3300"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="2598,2598 2598,3070 " />
+  <polyline
+     id="polyline3302"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="2362,2598 2362,3070 " />
+  <polyline
+     id="polyline3304"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="2125,2598 2125,3070 " />
+  <polyline
+     id="polyline3306"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="1889,2409 1889,3070 " />
+  <polyline
+     id="polyline3308"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="9448,2456 9448,3070 " />
+  <polyline
+     id="polyline3310"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="1889,2598 9448,2598 " />
+  <polyline
+     id="polyline3312"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="9448,3070 2125,3070 1889,3070 " />
+  <text
+     style="font-size:152px;font-style:normal;font-weight:normal;text-anchor:end;fill:#000000;stroke:#000000;stroke-width:0.025in;font-family:Helvetica Narrow"
+     id="text3314"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="9401"
+     xml:space="preserve">0</text>
+  <text
+     style="font-size:152px;font-style:normal;font-weight:normal;text-anchor:end;fill:#000000;stroke:#000000;stroke-width:0.025in;font-family:Helvetica Narrow"
+     id="text3316"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="7511"
+     xml:space="preserve">8</text>
+  <text
+     style="font-size:152px;font-style:normal;font-weight:normal;text-anchor:end;fill:#000000;stroke:#000000;stroke-width:0.025in;font-family:Helvetica Narrow"
+     id="text3318"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="5622"
+     xml:space="preserve">16</text>
+  <text
+     style="font-size:152px;font-style:normal;font-weight:normal;text-anchor:end;fill:#000000;stroke:#000000;stroke-width:0.025in;font-family:Helvetica Narrow"
+     id="text3320"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="3732"
+     xml:space="preserve">24</text>
+  <text
+     style="font-size:152px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:0.025in;font-family:Helvetica Narrow"
+     id="text3322"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="1937"
+     xml:space="preserve">31</text>
+  <text
+     style="font-size:152px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:0.025in;font-family:Helvetica Narrow"
+     id="text3324"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="5716"
+     xml:space="preserve">15</text>
+  <text
+     style="font-size:152px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:0.025in;font-family:Helvetica Narrow"
+     id="text3326"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="7606"
+     xml:space="preserve">7</text>
+  <text
+     style="font-size:152px;font-style:normal;font-weight:normal;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:0.025in;font-family:Helvetica Narrow"
+     id="text3328"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="3826"
+     xml:space="preserve">23</text>
+  <rect
+     id="rect3330"
+     style="fill:#dfdfdf;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="1889"
+     width="1417"
+     y="4251"
+     x="1889" />
+  <rect
+     id="rect3332"
+     style="fill:#dfdfdf;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="3307"
+     width="708"
+     y="3543"
+     x="8031" />
+  <rect
+     id="rect3334"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="472"
+     width="1417"
+     y="6377"
+     x="1889" />
+  <rect
+     id="rect3336"
+     style="fill:#dfdfdf;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="2362"
+     width="1417"
+     y="4251"
+     x="4251" />
+  <rect
+     id="rect3338"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="472"
+     width="1417"
+     y="5669"
+     x="1889" />
+  <rect
+     id="rect3340"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="472"
+     width="1417"
+     y="5196"
+     x="1889" />
+  <rect
+     id="rect3342"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="472"
+     width="1417"
+     y="4724"
+     x="1889" />
+  <rect
+     id="rect3344"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="472"
+     width="1417"
+     y="4251"
+     x="1889" />
+  <rect
+     id="rect3346"
+     style="fill:none;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="472"
+     width="1417"
+     y="4724"
+     x="4251" />
+  <rect
+     id="rect3348"
+     style="fill:#dfdfdf;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="236"
+     width="708"
+     y="4960"
+     x="8031" />
+  <circle
+     sodipodi:ry="47"
+     sodipodi:rx="47"
+     sodipodi:cy="5433"
+     sodipodi:cx="3070"
+     id="circle3352"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:32"
+     r="47"
+     cy="5433"
+     cx="3070" />
+  <rect
+     id="rect3354"
+     style="fill:none;stroke:#0000ff;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="472"
+     width="472"
+     y="5196"
+     x="2834" />
+  <polyline
+     id="polyline3376"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="1559,6283 1275,6472 " />
+  <polyline
+     id="polyline3380"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="3685,3685 3401,3874 " />
+  <circle
+     sodipodi:ry="47"
+     sodipodi:rx="47"
+     sodipodi:cy="4960"
+     sodipodi:cx="5433"
+     id="circle3384"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:32"
+     r="47"
+     cy="4960"
+     cx="5433" />
+  <rect
+     id="rect3386"
+     style="fill:none;stroke:#0000ff;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="472"
+     width="472"
+     y="4724"
+     x="5196" />
+  <g
+     style="fill:none;stroke:#000000;stroke-width:0.025in"
+     id="g3392"
+     transform="matrix(-3.6732199e-6,-1,1,-3.6732199e-6,8503,4251)">
+    <text
+       style="font-size:404px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;stroke:#000000;font-family:Helvetica"
+       id="text3394"
+       font-size="404"
+       font-weight="normal"
+       font-style="normal"
+       y="0"
+       x="0"
+       xml:space="preserve">...</text>
+  </g>
+  <g
+     style="fill:none;stroke:#000000;stroke-width:0.025in"
+     id="g3396"
+     transform="matrix(-3.6732199e-6,-1,1,-3.6732199e-6,8503,6141)">
+    <text
+       style="font-size:404px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;stroke:#000000;font-family:Helvetica"
+       id="text3398"
+       font-size="404"
+       font-weight="normal"
+       font-style="normal"
+       y="0"
+       x="0"
+       xml:space="preserve">...</text>
+  </g>
+  <polyline
+     id="polyline3404"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="7228,3685 6944,3874 " />
+  <circle
+     sodipodi:ry="47"
+     sodipodi:rx="47"
+     sodipodi:cy="6614"
+     sodipodi:cx="2125"
+     id="circle3408"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:32"
+     r="47"
+     cy="6614"
+     cx="2125" />
+  <rect
+     id="rect3410"
+     style="fill:none;stroke:#0000ff;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter"
+     rx="0"
+     height="472"
+     width="472"
+     y="6377"
+     x="1889" />
+  <polyline
+     id="polyline3414"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="3543,3543 3543,5196 4094,5196 " />
+  <polygon
+     id="polygon3416"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:8"
+     points="4079,5244 4237,5196 4079,5149 4079,5244 " />
+  <polyline
+     id="polyline3418"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="2125,6614 1417,6614 1417,6141 1732,6141 " />
+  <polygon
+     id="polygon3420"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:8"
+     points="1717,6188 1875,6141 1717,6094 1717,6188 " />
+  <polyline
+     id="polyline3422"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="2362,3070 2598,3307 3307,3307 3543,3543 3779,3307 4251,3307 4488,3070 " />
+  <polyline
+     id="polyline3424"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="1889,3070 2125,3307 2362,3070 " />
+  <polyline
+     id="polyline3426"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="2125,3307 2125,3543 1417,3543 1417,5669 1732,5669 " />
+  <polygon
+     id="polygon3428"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:8"
+     points="1717,5716 1875,5669 1717,5622 1717,5716 " />
+  <polyline
+     id="polyline3430"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="3070,5433 3543,5433 3543,6614 4094,6614 " />
+  <polygon
+     id="polygon3432"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:8"
+     points="4079,6661 4237,6614 4079,6566 4079,6661 " />
+  <polyline
+     id="polyline3434"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="4488,3070 4724,3307 6850,3307 7086,3543 7322,3307 9212,3307 9448,3070 " />
+  <polyline
+     id="polyline3436"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="5433,4960 6377,4960 6377,6850 7874,6850 " />
+  <polygon
+     id="polygon3438"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:8"
+     points="7859,6897 8016,6850 7859,6803 7859,6897 " />
+  <polyline
+     id="polyline3440"
+     style="fill:none;stroke:#0000ff;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter"
+     points="7086,3543 7086,5196 7874,5196 " />
+  <polygon
+     id="polygon3442"
+     style="fill:#0000ff;stroke:#0000ff;stroke-width:8"
+     points="7859,5244 8016,5196 7859,5149 7859,5244 " />
+  <g
+     style="fill:none;stroke:#000000;stroke-width:0.025in"
+     id="g3446"
+     transform="matrix(-3.6732199e-6,-1,1,-3.6732199e-6,4960,6141)">
+    <text
+       style="font-size:404px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;stroke:#000000;font-family:Helvetica"
+       id="text3448"
+       font-size="404"
+       font-weight="normal"
+       font-style="normal"
+       y="0"
+       x="0"
+       xml:space="preserve">...</text>
+  </g>
+  <g
+     style="fill:none;stroke:#000000;stroke-width:0.025in"
+     id="g3452"
+     transform="matrix(-3.6732199e-6,-1,1,-3.6732199e-6,4960,4488)">
+    <text
+       style="font-size:328px;font-style:normal;font-weight:normal;text-anchor:middle;fill:#000000;stroke:#000000;font-family:Helvetica"
+       id="text3454"
+       font-size="328"
+       font-weight="normal"
+       font-style="normal"
+       y="0"
+       x="0"
+       xml:space="preserve">...</text>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="2594.1611"
+     y="3955.1648"
+     id="text3569"><tspan
+       sodipodi:role="line"
+       id="tspan3571"
+       x="2594.1611"
+       y="3955.1648"
+       style="text-align:center;text-anchor:middle">page-directory-</tspan><tspan
+       sodipodi:role="line"
+       x="2594.1611"
+       y="4156.2759"
+       id="tspan3573"
+       style="text-align:center;text-anchor:middle">pointer table</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="4954.5898"
+     y="4156.2759"
+     id="text3575"><tspan
+       sodipodi:role="line"
+       x="4954.5898"
+       y="4156.2759"
+       id="tspan3579"
+       style="text-align:center;text-anchor:middle">page directory</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="2430.1016"
+     y="4430.8301"
+     id="text3587"><tspan
+       sodipodi:role="line"
+       x="2430.1016"
+       y="4430.8301"
+       id="tspan3589"
+       style="text-align:center;text-anchor:middle">Dir.Pointer</tspan><tspan
+       sodipodi:role="line"
+       x="2430.1016"
+       y="4631.9414"
+       style="text-align:center;text-anchor:middle"
+       id="tspan3591">entry</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="2430.1016"
+     y="4903.8301"
+     id="text3593"><tspan
+       sodipodi:role="line"
+       x="2430.1016"
+       y="4903.8301"
+       id="tspan3595"
+       style="text-align:center;text-anchor:middle">Dir.Pointer</tspan><tspan
+       sodipodi:role="line"
+       x="2430.1016"
+       y="5104.9414"
+       style="text-align:center;text-anchor:middle"
+       id="tspan3597">entry</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="2430.1016"
+     y="5375.8301"
+     id="text3599"><tspan
+       sodipodi:role="line"
+       x="2430.1016"
+       y="5375.8301"
+       id="tspan3601"
+       style="text-align:center;text-anchor:middle">Dir.Pointer</tspan><tspan
+       sodipodi:role="line"
+       x="2430.1016"
+       y="5576.9414"
+       style="text-align:center;text-anchor:middle"
+       id="tspan3603">entry</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="2430.1016"
+     y="5848.8301"
+     id="text3605"><tspan
+       sodipodi:role="line"
+       x="2430.1016"
+       y="5848.8301"
+       id="tspan3607"
+       style="text-align:center;text-anchor:middle">Dir.Pointer</tspan><tspan
+       sodipodi:role="line"
+       x="2430.1016"
+       y="6049.9414"
+       style="text-align:center;text-anchor:middle"
+       id="tspan3609">entry</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="4789.645"
+     y="4903.8301"
+     id="text3611"><tspan
+       sodipodi:role="line"
+       x="4789.645"
+       y="4903.8301"
+       style="text-align:center;text-anchor:middle"
+       id="tspan3615">64 bit PD</tspan><tspan
+       sodipodi:role="line"
+       x="4789.645"
+       y="5104.9414"
+       style="text-align:center;text-anchor:middle"
+       id="tspan3619">entry</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="3085.6399"
+     y="7132.2817"
+     id="text3621"><tspan
+       sodipodi:role="line"
+       x="3085.6399"
+       y="7132.2817"
+       id="tspan3623"
+       style="text-align:center;text-anchor:middle">*) 32 bits aligned to a 32-Byte boundary</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="2841.4036"
+     y="6693.0034"
+     id="text3625"><tspan
+       sodipodi:role="line"
+       x="2841.4036"
+       y="6693.0034"
+       id="tspan3627"
+       style="text-align:center;text-anchor:middle">CR3</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="1746.8611"
+     y="6425.9951"
+     id="text3629"><tspan
+       sodipodi:role="line"
+       x="1746.8611"
+       y="6425.9951"
+       id="tspan3631"
+       style="text-align:center;text-anchor:middle;fill:#0000ff;fill-opacity:1">32*</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="3781.533"
+     y="3831.4722"
+     id="text4403"><tspan
+       sodipodi:role="line"
+       x="3781.533"
+       y="3831.4722"
+       id="tspan4405"
+       style="text-align:center;text-anchor:middle;fill:#0000ff;fill-opacity:1">9</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="7375.665"
+     y="3827.1287"
+     id="text4407"><tspan
+       sodipodi:role="line"
+       x="7375.665"
+       y="3827.1287"
+       id="tspan4409"
+       style="text-align:center;text-anchor:middle;fill:#0000ff;fill-opacity:1">21</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="-5112.3013"
+     y="8975.2754"
+     id="text4415"
+     transform="matrix(0,-1,1,0,0,0)"><tspan
+       sodipodi:role="line"
+       x="-5112.3013"
+       y="8975.2754"
+       style="text-align:center;text-anchor:middle"
+       id="tspan4419">2M memory page</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.88890076px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans;-inkscape-font-specification:Sans"
+     x="2506.2048"
+     y="2315.002"
+     id="text4423"><tspan
+       sodipodi:role="line"
+       x="2506.2048"
+       y="2315.002"
+       id="tspan4425"
+       style="text-align:center;text-anchor:middle">Linear address:</tspan></text>
+</svg>

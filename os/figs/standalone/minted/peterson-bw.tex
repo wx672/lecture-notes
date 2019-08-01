@@ -1,0 +1,40 @@
+\documentclass[varwidth=29em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+\usemintedstyle{bw}
+
+\begin{document}
+\begin{center}
+  \begin{varwidth}{.5\textwidth}
+    \begin{ccode}
+int interest[0] = 0;
+int interest[1] = 0;
+int turn;        
+    \end{ccode}
+  \end{varwidth}
+\end{center}
+
+\begin{minipage}{.45\linewidth}
+  \textbf{P0}
+  \begin{ccode}
+interest[0] = 1;
+turn = 1;
+while(interest[1] == 1 
+          && turn == 1);
+critical_section();
+interest[0] = 0;
+  \end{ccode}
+\end{minipage}\hfill
+\begin{minipage}{.45\linewidth}
+  \textbf{P1}
+  \begin{ccode}
+interest[1] = 1;
+turn = 0;
+while(interest[0] == 1
+          && turn == 0);
+critical_section();
+interest[1] = 0;      
+  \end{ccode}
+\end{minipage}
+\end{document}

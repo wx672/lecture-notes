@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Debian/Ubuntu Package Management Commands</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="Debian/Ubuntu Package Management Commands"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-05-21 13:17:03 CST"/>
+<meta name="author" content="WANG Xiaolin"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style><link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css"><style>code {font-weight:bold; font-size:100%; color:darkblue} body {font-size:14pt}</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Debian/Ubuntu Package Management Commands</h1>
+
+<ul>
+<li>Edit <b>sources.list</b> file
+<pre class="example">
+sudo nano /etc/apt/sources.list
+</pre>
+
+<p>    For example, if you are going to use <b>Ubuntu natty</b>, you should put the following lines into
+    your <b>sources.list</b> file:
+</p><pre class="example">
+deb http://cs3.swfu.edu.cn/ubuntu/ natty main restricted universe multiverse
+deb http://cs3.swfu.edu.cn/ubuntu/ natty-backports restricted universe multiverse
+deb http://cs3.swfu.edu.cn/ubuntu/ natty-proposed main restricted universe multiverse
+deb http://cs3.swfu.edu.cn/ubuntu/ natty-security main restricted universe multiverse
+deb http://cs3.swfu.edu.cn/ubuntu/ natty-updates main restricted universe multiverse
+deb http://cs3.swfu.edu.cn/medibuntu/ natty free non-free
+</pre>
+
+</li>
+<li>Update the package index files
+<pre class="example">
+sudo apt-get update
+</pre>
+
+<p>    or
+</p><pre class="example">
+sudo aptitude update
+</pre>
+
+</li>
+<li>Upgrade installed packages to newest version
+<pre class="example">
+sudo apt-get upgrade
+</pre>
+
+<p>    or
+</p><pre class="example">
+sudo aptitude upgrade
+</pre>
+
+</li>
+<li>Search music related package in the package list
+<pre class="example">
+apt-cache search music
+</pre>
+
+<p>    or, search a package name matching "mpg"
+</p><pre class="example">
+aptitude search mpg
+</pre>
+
+</li>
+<li>Install a package, e.g. emacs
+<pre class="example">
+sudo apt-get install emacs
+</pre>
+
+<p>    or
+</p><pre class="example">
+sudo aptitude install emacs
+</pre>
+
+</li>
+<li>Install a downloaded <code>.deb</code> package, e.g. tor_0.2.1.25-2_i386.deb
+<pre class="example">
+sudo dpkg -i tor_0.2.1.25-2_i386.deb
+</pre>
+
+</li>
+<li>Remove a package, e.g. emacs
+<pre class="example">
+sudo apt-get remove emacs
+sudo apt-get purge emacs
+</pre>
+
+<p>    or
+</p><pre class="example">
+sudo aptitude remove emacs
+sudo aptitude purge emacs
+</pre>
+
+<p>    or
+</p><pre class="example">
+sudo dpkg -P emacs
+</pre>
+
+</li>
+<li>Get source code of a package, e.g. emacs
+<pre class="example">
+apt-get source emacs
+</pre>
+
+</li>
+<li>List contents of an installed package, e.g. emacs
+<pre class="example">
+dpkg -L emacs
+</pre>
+
+</li>
+<li>Check a file belongs to which package, e.g. ls
+<pre class="example">
+dpkg -S /bin/ls
+</pre>
+
+</li>
+<li>Check a package information, e.g. yasnippet_0.6.1c-1_i386.deb
+<pre class="example">
+dpkg -I yasnippet_0.6.1c-1_i386.deb
+</pre>
+
+</li>
+<li>List installed packages
+<pre class="example">
+dpkg -l
+</pre>
+
+</li>
+<li>Package re-configuration, e.g. locales
+<pre class="example">
+sudo dpkg-reconfigure locales
+</pre>
+
+</li>
+<li>Clone your Debian/Ubuntu installation from a PC in D215 lab to your home PC
+<ol>
+<li>List installed packages in the source PC in D215 into a file named 'installed-packages'
+<pre class="example">
+dpkg --get-selections &gt; installed-packages
+</pre>
+
+</li>
+<li>Copy installed-pakcages file to your home PC, then
+<pre class="example">
+cat installed-packages | sudo dpkg --set-selections
+</pre>
+
+</li>
+<li>Upgrade the destination PC
+<pre class="example">
+sudo apt-get dselect-upgrade
+</pre>
+
+</li>
+</ol>
+
+</li>
+</ul>
+
+</div>
+
+<div id="postamble">
+<p class="author">Author: WANG Xiaolin (<a href="mailto:wx672ster@gmail.com">wx672ster@gmail.com</a>)</p>
+<p class="date">Date: 2013-05-21 13:17:03 CST</p>
+
+</div>
+</body>
+</html>

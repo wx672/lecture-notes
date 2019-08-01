@@ -1,0 +1,15 @@
+\documentclass[varwidth=12.5em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+while(TRUE){
+  while(turn != 0);
+  critical_region();
+  turn = 1;
+  noncritical_region();
+}      
+\end{ccode}
+\end{document}

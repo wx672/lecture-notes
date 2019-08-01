@@ -1,0 +1,14 @@
+\documentclass[varwidth=20em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{gascode}
+xorl %eax,%eax
+movl $__bss_start - __PAGE_OFFSET,%edi
+movl $__bss_stop - __PAGE_OFFSET,%ecx
+subl %edi,%ecx
+shrl $2,%ecx
+rep ; stosl
+\end{gascode}
+\end{document}

@@ -1,0 +1,32 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{beamerarticle}
+\setjobnamebeamerversion{mem-addressing-b}
+
+\usepackage{fullpage}
+
+\usepackage[backend=biber,url=false,style=alphabetic]{biblatex}
+\addbibresource{os.bib}
+
+\usepackage{hyperref}
+\usepackage[textsize=footnotesize]{todonotes}
+\addtolength{\oddsidemargin}{-15pt}
+\addtolength{\marginparsep}{5pt}
+% \setlength{\marginparwidth}{1.2in}
+% \let\oldmarginpar\marginpar
+% \renewcommand\marginpar[1]{\-\oldmarginpar[\raggedleft\footnotesize #1]%
+% {\raggedright\footnotesize #1}}
+\newcommand{\Marginpar}[1]{\marginpar{\raggedright{\footnotesize \emph{#1}}}}
+
+% http://tex.stackexchange.com/q/25259/86
+% for *notes*
+\defbeamertemplate<article>{frame begin}{lined}{
+  \par\noindent\rule{\textwidth}{2pt}\par}
+\defbeamertemplate<article>{frame end}{lined}{
+  \par\vspace{1em}\noindent\rule{.1\textwidth}{.3pt}
+  \raisebox{-3pt}{{\large \Info}}
+  \rule{.1618\textwidth}{.3pt}\par\vspace{.5em}}
+
+\setbeamertemplate{frame begin}[lined]
+\setbeamertemplate{frame end}[lined]
+
+\input{mem-addressing.tex}

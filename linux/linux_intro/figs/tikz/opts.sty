@@ -1,0 +1,18 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{opts}
+
+\RequirePackage[margin=1.5cm,headheight=15pt]{geometry}
+\RequirePackage{wx672cjk}
+\RequirePackage{wx672tikz-external}
+
+\RequirePackage{caption} % \captionsetup
+\captionsetup{labelsep=colon}
+
+%\tikzset{external/force remake}
+
+\tikzset{%
+  every node/.style = {inner sep=0},%
+  help lines/.style = {ultra thin,dotted},%
+  xy/.style = {font=\ttfamily\tiny,inner sep=1pt},%
+}
+

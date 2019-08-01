@@ -1,0 +1,27 @@
+\documentclass[varwidth=29em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{gascode}
+gdt_48:
+     .word gdt_end - gdt - 1 # gdt limit
+     .word 0, 0              # gdt base (filled in later)
+
+gdt:
+     .fill GDT_ENTRY_BOOT_CS,8,0
+
+     .word 0xFFFF # 4Gb - (0x100000*0x1000 = 4Gb)
+     .word 0      # base address = 0
+     .word 0x9A00 # code read/exec
+     .word 0x00CF # granularity = 4096, 386
+                  # (+5th nibble of limit)
+
+     .word 0xFFFF # 4Gb - (0x100000*0x1000 = 4Gb)
+     .word 0      # base address = 0
+     .word 0x9200 # data read/write
+     .word 0x00CF # granularity = 4096, 386
+                  # (+5th nibble of limit)
+gdt_end:
+\end{gascode}
+\end{document}

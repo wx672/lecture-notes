@@ -1,0 +1,36 @@
+#+TITLE:     学会用git
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+DATE:      2011-07-06 Wed
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:nil mouse:underline buttons:0 path:http://cs3.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+# (setq org-export-html-use-infojs nil)
+
+git是Linus Torvalds开发的源代码管理工具(scm，source code management)，也就是版本控制工具(vcs, version control system)。Linus有两个广为人知的软件杰作，一个是Linux操作系统，另一个就是git。现在众多的开源软件项目，包括[[http://kernel.org/][kernel]], [[kde.org][KDE]], [[http://git.gnome.org][GNOME]], 都用git来做代码管理。用它来管理配置文件也非常顺手。如果你做了[[http://cs3.swfu.edu.cn/~wx672/lecture_notes/linux/install.html][光盘弹出以后]]的事情，那么你肯定已经用过git了。
+
+: git clone http://cs3.swfu.edu.cn/~wx672/git/dotfile-d215.git
+
+通过执行上面这行命令，你把远在 =http://cs3.swfu.edu.cn/~wx672/git/dotfile-d215.git= 的一个软件包clone(克隆)了过来。于是在你的当前目录下多了一个目录 =dotfile-d215= 。
+
+你也许会问，从远端去下载一个软件包，办法不是很多吗？干吗非要git呢？因为我们不止是要下载它，我们还要和远端的软件包保持同步更新。如果远端的软件包做了修改，那么我们只要简单地做一下：
+
+: cd dotfile-d215
+: git pull
+
+本地的 =dotfile-d215= 就和远端的同步了。那么，你也许又要问，保持和远端同步，也可以采用其它方式啊，比如重新下载一次不就行了吗？没错，重新下载当然没问题，但git比重新下载更有效率，因为git只去下载被更新了的东西，而不会去下载没更新的东西。比如，在远端的 =dotfile-d215.git= 里有很多文件，但只有其中的 =dot.emacs= 文件做了极少量的改动，也许只是添加了一行而已。那么， =git pull= 就会很聪明地只把那新的一行下载过来，而不会去下载剩下的那些没改动的东西。
+
+git的好处远不止节省带宽而已，比如 =git log= 可以让你看到更新的记录。要了解更多，可以
+: man gittutorial
+: man gittutorial-2
+: sudo apt-get install gitmagic && evince /usr/share/doc/gitmagic/gitmagic.pdf &
+
+

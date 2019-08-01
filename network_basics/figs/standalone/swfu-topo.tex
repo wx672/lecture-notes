@@ -1,0 +1,61 @@
+\documentclass[varwidth=42em,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+
+\begin{document}
+\begin{Verbatim}[commandchars=\\\{\}]
+┌────────────────────────────────────┐
+│         The Great Internet         │
+└──o─────o──────o─────o─────o─────o──┘
+   │     │      │     │     │     │
+  ─o──  ─o──   ─o──   │    ─o──  ─o──
+    us     uk    ...  │       jp    ...
+                      │
+┌─────────────────────o───────────────────────┐
+│  The Big Router In (perhaps?) China Unicom  │
+└──o─────o─────o──────────────o───────────────┘
+   │     │     │              │\color{red}{221.213.45.244}
+  ─o──  ─o──  ─o──            │
+                              │
+┌─────────────────────────────o────────────────────────┐
+│            The Big Router In Kunming Unicom          │
+└──o─────o──────o─────────────o──────────────────────o─┘
+   │     │      │             │{\color{red}{202.203.132.x}}         │
+  ─o──  ─o──   ─o──           │                    ──o────...
+                              │
+┌─────────────────────────────o────────────────────────────────┐
+│   The Big Router (Gateway) In SWFU Campus Network Center     │
+└─o──────────────o────────────────────o──────────────────o─────┘
+  │{\color{red}{172.16.x.x}}    │218.194.106.x       │202.203.132.x     │...
+  │              │                    │                  │
+  │           ───o─────               │                 ─o──────
+  │                  218.194.106.0    │
+  │                                 ──o────o────o────o─────
+  │                                   │    │    │       202.203.132.0
+  │           ─o──  ─o──             cs2  cs3  ...
+  │            │     │
+──o───o────────o─────o─────o────────
+      │                    │       172.16.0.0
+      │172.16.80.117      ─o──
+   ┌──o─────┐
+   │  your  │
+   │ router │
+   └─o────o─┘
+     │    │
+     │  ┌─o──┐
+     │  │ PC │192.168.x.x
+     │  └────┘
+     │
+   ┌─o────┐
+   │ your │
+   │  PC  │192.168.x.x
+   └──────┘
+\end{Verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

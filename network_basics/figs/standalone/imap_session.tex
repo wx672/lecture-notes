@@ -1,0 +1,31 @@
+\documentclass[varwidth,crop]{standalone}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\begin{document}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+~$ \color{violet}{nc cs3 143}
+* OK Dovecot ready.
+\color{violet}{a001 login wx672 topsecrete}
+a001 OK Logged in.
+\color{violet}{a002 select inbox}
+* FLAGS (/Answered /Flagged /Deleted /Seen /Draft)
+* OK [PERMANENTFLAGS (/Answered /Flagged /Deleted /Seen /Draft /*)] Flags permitted.
+* 15 EXISTS
+* 0 RECENT
+* OK [UIDVALIDITY 1174505444] UIDs valid
+* OK [UIDNEXT 184] Predicted next UID
+a002 OK [READ-WRITE] Select completed.
+\color{violet}{a004 fetch 1 full}
+* 1 FETCH (FLAGS (/Seen) INTERNALDATE "16-Oct-2011 22:40:55 +0800" RFC822.SIZE 629 ENVELOPE ("Sun, 16 Oct 2011 22:40:19 +0800" NIL ((NIL NIL "stud" "debian")) ((NIL NIL "stud" "debian")) ((NIL NIL "stud" "debian")) NIL NIL NIL NIL "<E1HgcE3-0006Qp-3d@cs3.swfu.edu.cn>") BODY ("text" "plain" ("charset" "us-ascii") NIL NIL "7bit" 55 4))
+a004 OK Fetch completed.
+\color{violet}{a006 fetch 1 body[text]}
+* 1 FETCH (BODY[TEXT] {55}
+hello ,there!
+)
+a006 OK Fetch completed.
+\color{violet}{a007 logout}
+* BYE Logging out
+a007 OK Logout completed.
+\end{Verbatim}
+\end{document}

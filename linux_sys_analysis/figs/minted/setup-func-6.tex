@@ -1,0 +1,10 @@
+\documentclass[varwidth=20em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{gascode}
+movw $1, %ax # protected mode (PE) bit
+lmsw %ax     # This is it!
+\end{gascode}
+\end{document}

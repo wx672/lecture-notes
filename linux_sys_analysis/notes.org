@@ -1,0 +1,77 @@
+* References
+  - http://bm.gduf.edu.cn/kcpt/Linuxczxtfx/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90%E6%95%99%E7%A8%8B3.htm
+  - http://www.ss.pku.edu.cn/linux/index.php?option=com_content&task=section&id=2&Itemid=3
+  - http://home.ustc.edu.cn/~zjh/embedded/linux.html
+  - http://staff.ustc.edu.cn/~xlanchen/
+* Introduction
+** Detailed 'helloworld'
+** asm basics
+*** Memory
+    - [[http://www.cpu-world.com/Arch/8088.html][8088.html]]
+      - 16-bit registers can only address 2^16=64k memory
+      - To access 1M memory, segment registers are introduced
+	- code, stack, data segments, 64k each, are positioned within 1M RAM
+      - Physical memory address pointed by segment:offset pair is calculated as:
+        : address = (<segment> * 16) + <offset>
+      - *short jump* : within one 64k-segment
+      - *far jump* : within 1M
+      - *conditional jump* : within approximately (-127,+127) bytes from current instruction
+   
+** From power up to bash prompt
+*** sequence
+    1. Motherboard power up
+       - initializes its firmware (chipset, etc.)
+       - gets CPU running
+    2. CPU acts as 1978 Intel 8086
+       - Real mode --- any code can write to any place in memory
+       - only 1MB of memory can be addressed
+       - registers are initialized
+	 - EIP has =0xFFFFFFF0=, the *reset vector*
+           - at the reset vector, there is a /jump/ instruction, jumping to the BIOS entry
+             point. (0xF0000, 64KB below 1MB)
+    3. CPU start executing BIOS code
+       - initializes hardwares
+       - POST
+       - find a boot device
+       - load MBR into =0x7c00=
+       - Jump to =0x7c00=
+    4. MBR
+       1. GRUB stage 1 loads GRUB stage 2
+       2. stage 2 reads GRUB configuration file, and presents boot menu
+       3. loads the kernel image file into memory
+	  - can't done in real mode, since it's bigger than 640KB
+            - unreal mode
+       4. jumps to the kernel entry point
+	     
+*** kernel
+   - arch/i386/boot
+     - bootsect.S
+     - setup.S
+     - video.S
+** When Linux was born
+   - Commercial UNIX
+     | SVR4         | AT&T  |
+     | 4.4BSD       | UCB   |
+     | Digital UNIX | DEC   |
+     | AIX          | IBM   |
+     | HP-UX        | HP    |
+     | Solaris      | Sun   |
+     | Mac OS X     | Apple |
+   - Opensource 
+     | FreeBSD | NetBSD | OpenBSD |
+** Linux vs. other UNIX-like kernels
+   - All commercial variants were derived from either SVR4 or 4.4BSD
+   - All tend to agree on some common standards like IEEE's POSIX and The Open Group's CAE
+     - Windows NT and its descendents are POSIX-compliant.
+   - Unix-like kernels often share fundamental design ideas and features.
+*** Linux kernel 2.6 
+    - POSIX compliant
+    - includes all the features of a modern Unix
+      - virtual memory
+      - VFS
+      - lightweight processes
+      - Unix signals
+      - SVR4 IPC
+      - SMP
+    - source tree
+   

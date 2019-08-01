@@ -1,0 +1,26 @@
+\documentclass[varwidth]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+│                       │ 
+│                       │ 
+│     ZONE_HIGHMEM      │
+│ (not directly mapped) │
+│                       │
+├───────────────────────┤
+│      ZONE_NORMAL      │
+│   (directly mapped)   │
+│      896M ─ 16M       │   
+├───────────────────────┤
+│       ZONE_DMA        │
+│         16M           │
+└───────────────────────┘
+      Physical RAM
+\end{verbatim}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX─master: t
+%%% End: 

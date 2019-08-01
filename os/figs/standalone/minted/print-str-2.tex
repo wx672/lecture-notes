@@ -1,0 +1,14 @@
+\documentclass[varwidth=19em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+copy_from_user(buffer, p, count);
+enable_interrupts();
+while(*printer_status_reg != READY);
+*printer_data_register = p[0];
+scheduler();
+\end{ccode}
+\end{document}

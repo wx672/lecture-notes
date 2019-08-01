@@ -1,0 +1,56 @@
+#+TITLE:     Operating System Review Questions
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION: 
+#+KEYWORDS: 
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT: 
+# (setq org-export-html-use-infojs nil)
+
+* General
+  1. What's an OS?
+  2. System calls
+  3. Interrupts
+  4. Multi-tasking
+* Process management
+  1. Process state transition 
+  2. IPC
+     - Two ways of IPC
+     - Get a clear idea about how to use pipe()
+     - signals
+  3. fork()
+     - What's happened after fork()?
+     - anything is shared or not?
+  4. A process is a unit of resource ownership, while a thread is a unit of scheduling.
+  5. What's a /critical region/? A solution to the critical region problem must satisfy
+     three conditions. 
+  6. Semaphore, mutex
+     - Go through all the examples in the lecture slides
+     - The 4 conditions to hold for a deadlock
+  7. deadlock (four conditions)
+  8. 140 priorities of process scheduling in Linux
+  9. Linux 2.6 scheduling algorithm? O(1)?
+
+* Memory management
+  1. virtual memory
+  2. Two ways of virtual memory implementation?
+  3. Heap vs. stack
+  4. paging
+  5. thrashing
+  6. LRU page replacement algorithm
+
+* File system
+  1. inode
+  2. hard link vs. soft link
+  3. Two ways of free blocks tracking?
+  4. Fast symbolic link?
+  5. FAT and memory usage
+  6. Why open() returns a FD rather than a inode number?
+  7. File systems' functionality

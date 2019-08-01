@@ -1,0 +1,66 @@
+#+TITLE:     《计算机网络基础》课程作业及要求
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION: 
+#+KEYWORDS: 
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT: 
+# (setq org-export-html-use-infojs nil)
+
+* 作业要求
+  各写各的，不许互相抄。若闻到抄袭的味道，严惩不贷！
+* 作业内容
+  1. 注册一个[[http://gmail.com][Gmail]]帐号，给我发一个邮件，告诉我在网络技术和网络应用方面，你想了解些什么？未来是否想在网络方向上有所发展？
+  2. 在[[https://www.google.com/calendar/][Google Calendar]]上创建一个新日历，名字叫Coursework或者叫“作业”，日历里要体现出你完成本作业的详细计划，也就是说，要标明你准备在哪些天的哪些个时间段来完成哪些东西。然后把这个日历共享给我和其它同学。注意，共享时只给我和其它同学查看的权限，不要给我们修改的权限，以免节外生枝。 如果你把权限搞错了，说明你不能熟练使用Google calendar，我将会严厉扣分！
+  3. 用[[https://docs.google.com/][google docs]]写一篇不少于1000字的东西。题目嘛……我鼓励大家自己定题目，但要围绕互联网，比如：
+     - 对各个浏览器的使用心得
+     - 我为什么坚持用IE
+     - 我为什么改用Firefox
+     - 我为什么喜欢Google Chrome
+     - 对各个操作系统的使用心得
+     - 我为什么非用Windows不可
+     - 我为什么改用Linux
+     - 我和我的电脑
+     - 我和互联网
+     - 我和Google
+     - 我和……随便什么东西
+     - 计算机网络基础 --- 我噩梦般的上课经历
+     - 为了爱国，我支持百度
+     - 为了自由，我天天翻墙
+     - ……
+
+     把你这篇大作共享给我和其它同学。注意，共享时只给我和其它同学查看的权限，不要给我们修改的权限，以免节外生枝。如果你把权限搞错了，说明你不能熟练使用Google docs，我将会严厉扣分！
+
+  4. 把你写的东西通过[[https://plus.google.com][Google Plus]]共享出来，让我和其它同学可以看到。当然，胆大的话，也可以共享给全世界。
+  5. 在[[http://maps.google.com/][Google Maps]]上找到你家，越具体越好，然后共享给我，便于轰炸。
+     或者把你拍的得意照片放到[[https://photos.google.com/][Google Photos]] 上，然后共享给我。
+  6. 如果你有自己的[[https://sites.google.com/][Google Sites]], 记得向我炫耀，我好给你加分。
+
+* 关于墙							   :noexport:
+  1963年夏天, 美国总统肯尼迪站在柏林墙下, 对全世界说:
+  : Freedom has many difficulties and democracy is not perfect, but we have never had to put a wall up
+  : to keep our people in, to prevent them from leaving us. 
+  : (自由有许多困难，民主亦非完美，然而我们从未建造一堵墙把我们的人民关在里面，不准他们离开。)
+  ([[http://en.wikipedia.org/wiki/Ich_bin_ein_Berliner][I am a citizen of Berlin]], 这是[[http://news.bbc.co.uk/2/hi/europe/3022166.stm][冷战中最精彩的演讲之一]], 值得一读.)
+
+  40年后的今天, 幸福的我们发现:
+  "自由有许多困难，民主亦非完美，而且没人承认建造了一堵墙把我们关在里面，不准我们向外张望。"
+  那么, 我们就尝试着向外张望一下, 来满足一下好奇心.
+  
+   1. 一键翻墙 :: 作业中, 我提到的[[http://sites.google.com][Google Sites]], [[http://picasaweb.google.com/][Picasaweb]], 还有其它一些Google 提供的优秀服务, 比如
+      [[http://www.blogger.com/][Blogger]], [[http://groups.google.com][Google Groups]], [[http://www.youtube.com/][Youtube]] 等, 现在都无法正常访问了. 那么, 翻墙吧, 很简单, 用[[http://www.google.com/chrome/][Google Chrome]]
+      浏览器, 加上[[https://chrome.google.com/extensions/detail/kjdehhkgdgjcekacdccoflccmhbkefce?hl%3Den][一键翻墙]] 就可以了.
+   2. 如何访问Google Docs? :: Google Docs 是Google的杰作之一, 绝对值得我们好奇一下.
+	访问 Google Docs可以"一键翻墙". 也可以尝试一下修改你的hosts文件,
+	这种方式应该比"一键翻墙"要快, 尽管稍稍麻烦一点.
+	具体做法: 只要在hosts文件里加上下面一行, 然后重启你的Windows, 应该就可以了.
+	: 66.249.80.104 encrypted.google.com reader.google.com clients1.google.com clients2.google.com clients3.google.com clients4.google.com talkgadget.google.com sites.google.com webcache.googleusercontent.com spreadsheets0.google.com spreadsheets.google.com docs1.google.com docs0.google.com docs.google.com groups.google.com.hk groups.google.com mail.google.com suggestqueries.google.com
+	至于hosts文件在哪儿, 如何修改等问题, 可以看看
+	- [[http://www.google.com/search?hl%3Den&newwindow%3D1&c2coff%3D1&q%3DWindows%2Bhosts%2B%E6%96%87%E4%BB%B6&aq%3Df&aqi%3Dg-g8g1g-g1&aql%3D&oq%3D&gs_rfai%3D][如何修改hosts文件]]

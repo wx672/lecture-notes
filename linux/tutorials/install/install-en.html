@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2018-12-27 Thu 10:49 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Debian Installation Quick Guide</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="WANG Xiaolin">
+<link rel="stylesheet" href="https://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
+<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Debian Installation Quick Guide</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgdb88070">1. UEFI</a></li>
+<li><a href="#org23536a6">2. Install a Debian minimal system</a></li>
+<li><a href="#org824300c">3. More than minimal</a>
+<ul>
+<li><a href="#orgb6676af">3.1. Configuration</a>
+<ul>
+<li><a href="#orga77e4f2">3.1.1. sudo</a></li>
+<li><a href="#orgad65582">3.1.2. dotfile</a></li>
+<li><a href="#orgc102064">3.1.3. Auto login</a></li>
+<li><a href="#org3d7bb55">3.1.4. Backlight</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdb88070" class="outline-2">
+<h2 id="orgdb88070"><span class="section-number-2">1</span> UEFI</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+By the time I wrote this short installation guide <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun&gt;</span></span>,
+UEFI has already replaced the old BIOS in nearly all laptop models. More about UEFI and
+BIOS:
+</p>
+<ul class="org-ul">
+<li><a href="https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface">https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BIOS">https://en.wikipedia.org/wiki/BIOS</a></li>
+</ul>
+
+<p>
+I am still using an old BIOS based laptop, Lenovo Thinkpad E40, so I really don't have much
+experiences with UEFI. I googled "<i>uefi linux install</i>", and got a basic idea. That is you
+have to disable all the Windows related UEFI settings, including:
+</p>
+<ul class="org-ul">
+<li>Secure boot</li>
+<li>QuickBoot/FastBoot</li>
+<li>Intel Smart Response Technology (SRT)</li>
+<li>FastStartup</li>
+</ul>
+
+<p>
+For more detailed instructions, you should read the <a href="https://www.debian.org/releases/stretch/amd64/ch03s05.html.en"><i>Debian GNU/Linux Installation Guide</i></a>,
+especially <a href="https://www.debian.org/releases/stretch/amd64/ch03s06.html.en">Section 3.6 <i>Pre-Installation Hardware and Operating System Setup</i></a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org23536a6" class="outline-2">
+<h2 id="org23536a6"><span class="section-number-2">2</span> Install a Debian minimal system</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>Preparing a bootable USB stick.
+<ol class="org-ol">
+<li>Download the ISO file from <a href="http://mirrors.163.com/debian-cd/current/amd64/iso-cd/">http://mirrors.163.com/debian-cd/current/amd64/iso-cd/</a>
+<ul class="org-ul">
+<li>There are more than one ISO files in the above link. You just need the smallest
+one which is usually suffixed by <code>netinst.iso</code>.
+If you are still confused, you should read the <a href="http://mirrors.163.com/debian-cd/current/amd64/iso-cd/HEADER.html"><code>HEADER.html</code></a> file in that directory.</li>
+</ul></li>
+<li><p>
+Preparing the bootable USB stick is quite simple with a Debian machine.
+</p>
+<pre class="example">
+sudo cp debian-9.5.0-amd64-netinst.iso /dev/sdX
+sudo sync
+
+</pre>
+<p>
+<b>Caution</b>
+</p>
+<ul class="org-ul">
+<li>Replace <code>debian-9.5.0-amd64-netinst.iso</code> with your iso file name;</li>
+<li>Replace <code>X</code> with your USB drive letter. It's probably <code>b</code> or <code>c</code>.  you can use
+the command <code>lsblk</code> to check it for sure.</li>
+</ul></li>
+</ol></li>
+<li>Unplug the Ethernet cable, and then reboot your laptop from USB stick. Following the
+screen instructions, it takes probably half an hour to get a <i>minimal</i> Debian
+system installed.
+<ul class="org-ul">
+<li>The only tricky part of the installation is how to partition your hard
+disk. Well, if you are installing a Debian only system like me, you can simply follow
+the on screen instruction to do a <i>guided partitioning</i>. If you want to keep your
+Windows so as to have a dual-boot system, you should consult the <a href="https://www.debian.org/releases/stretch/amd64/ch03s05.html.en"><i>Debian GNU/Linux
+Installation Guide</i></a>, especally the following sections:
+<ul class="org-ul">
+<li><a href="https://www.debian.org/releases/stretch/amd64/ch03s05.html.en">Section 3.5 <i>Pre-Partitioning for Multi-Boot Systems</i></a></li>
+<li><a href="https://www.debian.org/releases/stretch/amd64/ch06s03.html.en#di-partition">Section 6.3.3 <i>Partitioning and Mount Point Selection</i></a></li>
+</ul></li>
+</ul></li>
+<li>Now, unplug the USB stick, and reboot.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org824300c" class="outline-2">
+<h2 id="org824300c"><span class="section-number-2">3</span> More than minimal</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+You can't expect too much from a minimal system, right? So, let there be more
+application programs.
+</p>
+<ol class="org-ol">
+<li>Login with your username and password. Now you should see a <code>$</code> sign on the screen
+which indicates that the command line shell is ready at your service.</li>
+<li><p>
+Now, you need to be <i>root</i> to install software. Just type at the prompt:
+</p>
+<pre class="example">
+su
+
+</pre>
+<p>
+followed by the <i>root password</i> which was set during the minimal system
+installation. If the password was inputted correctly, now the command line prompt
+should have changed from <code>$</code> to <code>#</code>.
+</p></li>
+<li><p>
+Plug in the Ethernet cable, and check if the network is ok. Type at the <code>#</code> prompt:
+</p>
+<pre class="example">
+ip a
+
+</pre>
+<p>
+In the screen output, you should find a network card named <code>ethX</code> or <code>enpXsY</code> where <code>X</code>
+and <code>Y</code> are small numbers. For example, on my Debian laptop I got something like the
+following:
+</p>
+<pre class="example">
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 ...
+     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+     inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+     inet6 ::1/128 scope host 
+        valid_lft forever preferred_lft forever
+2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 ...
+     link/ether 04:7d:7b:43:0e:01 brd ff:ff:ff:ff:ff:ff
+     inet 192.168.1.112/24 brd 192.168.1.255 scope global dynamic noprefixroute eth0
+        valid_lft 86347sec preferred_lft 86347sec
+     inet6 fe80::6375:4264:c2a4:9e2b/64 scope link noprefixroute 
+        valid_lft forever preferred_lft forever
+3: wlan0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 ...
+     link/ether 60:d8:19:ce:44:f6 brd ff:ff:ff:ff:ff:ff
+     inet 192.168.1.107/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0
+        valid_lft 84322sec preferred_lft 84322sec
+</pre>
+<p>
+See? The 2nd network card listed above is named <code>eth0</code>, and its IP address is
+<code>192.168.1.112</code>. 
+</p>
+
+<p>
+If your network card doesn't have an IP address, you should:
+</p>
+<ol class="org-ol">
+<li>Check whether the cable is plugged firmly in your laptop. If so,</li>
+<li><p>
+Type the following command to request an IP address from the local DHCP server:
+</p>
+<pre class="example">
+dhclient enpXsY
+
+</pre>
+<p>
+<b>Caution:</b>  make sure you replace the <code>X</code> and <code>Y</code> with proper numbers.
+</p></li>
+<li>Now, type command <code>ip a</code> again to check if your card got an IP address. If so,</li>
+<li><p>
+Use <code>ping</code> command to make sure your netwrk is working well. For example,
+</p>
+<pre class="example">
+ping cs2.swfu.edu.cn
+
+</pre></li>
+</ol></li>
+
+<li><p>
+Edit <code>/etc/apt/sources.list</code> file.
+</p>
+<pre class="example">
+nano /etc/apt/sources.list
+
+</pre>
+<p>
+You just need the following 3 lines in this file:
+</p>
+<pre class="example">
+deb http://mirrors.163.com/debian testing main non-free contrib
+deb http://mirrors.163.com/debian testing-updates main non-free contrib
+deb http://mirrors.163.com/debian testing-proposed-updates main non-free contrib
+
+</pre>
+<p>
+Use <code>Ctrl-o</code> to save, and <code>Ctrl-x</code> to quit nano.
+</p></li>
+<li><p>
+Now, type the following command to upgrade your still minimal Debian system:
+</p>
+<pre class="example">
+apt update &amp;&amp; apt dist-upgrade
+
+</pre>
+<p>
+This step takes usually about 20 minutes if your network is not too slow.
+</p></li>
+<li>Big moment! "I want everything I saw in your Debian lab!". No problem.
+<ol class="org-ol">
+<li><p>
+Get the software list. <b>Caution:</b> <i>Do NOT be ROOT to do this step!</i> That means you
+should type <code>exit</code> to quit the root shell. When you see the <code>$</code> prompt, you can
+now download the software list file using <code>wget</code>:      
+</p>
+<pre class="example">
+wget http://cs2.swfu.edu.cn/~wx672/debian-install/list.laptop
+
+</pre></li>
+<li><p>
+Install all the software packages listed in the file in batch.
+</p>
+<pre class="example">
+su
+apt install `cat list.laptop`
+
+</pre>
+<p>
+<b>Caution:</b> See the single quote mark? It's a <code>`</code> (around the uppper left corner on
+your keyboard), not a <code>'</code> (the one next to the <code>Enter</code> key).
+</p>
+
+<p>
+This step takes about an hour with a speedy network connection.
+</p>
+
+<p>
+Somewhere in the installation process, you will be asked to answer [Yes/no], if
+you are not sure, just type <code>Enter</code> to let it go.
+</p></li>
+</ol></li>
+</ol>
+</div>
+
+<div id="outline-container-orgb6676af" class="outline-3">
+<h3 id="orgb6676af"><span class="section-number-3">3.1</span> Configuration</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-orga77e4f2" class="outline-4">
+<h4 id="orga77e4f2"><span class="section-number-4">3.1.1</span> sudo</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+If you don't want to be asked for password whenever using <code>sudo</code>, you can do the following:
+</p>
+<ol class="org-ol">
+<li><p>
+Working as <i>root</i>
+</p>
+<pre class="example">
+su
+
+</pre>
+<p>
+input root password.
+</p></li>
+<li><p>
+Create a new file in <code>/etc/sudoers.d/</code> directory.
+</p>
+<pre class="example">
+nano /etc/sudoers.d/your-user-name
+
+</pre>
+<p>
+<b>Caution:</b> Replace <code>your-user-name</code> with your real username.
+</p></li>
+<li><p>
+Add the following line into the file you are editing:
+</p>
+<pre class="example">
+your-user-name  ALL = NOPASSWD: ALL
+
+</pre>
+<p>
+<b>Caution:</b> Replace <code>your-user-name</code> with your real username.
+</p>
+
+<p>
+Save and quit editing.
+</p></li>
+<li><p>
+Change the mode of that file to <code>0440</code>.
+</p>
+<pre class="example">
+chmod 0440 /etc/sudoers.d/your-user-name
+
+</pre></li>
+<li><p>
+Quit root shell
+</p>
+<pre class="example">
+exit
+
+</pre></li>
+<li>Now, try <code>sudo ls</code>, you shouldn't be asked for password any longer.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgad65582" class="outline-4">
+<h4 id="orgad65582"><span class="section-number-4">3.1.2</span> dotfile</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+Now, your Debian system is almost the same as the lab ones, except that you haven't done
+configurations for those software you just installed. To make the configuration easier,
+you can copy my ready-to-use config files via git. As a <i>non-root</i> user, do:
+</p>
+<pre class="example">
+cd
+git clone http://cs2.swfu.edu.cn/~wx672/dotfile/.git
+ls
+
+</pre>
+<p>
+Now you should see a new directory <code>dotfile</code> sitting in your <code>$HOME</code> directory with all
+necessory config files in it. Still some more things to do&#x2026;
+</p>
+<ol class="org-ol">
+<li><p>
+Make sure you are in your <code>$HOME</code>.
+</p>
+<pre class="example">
+cd
+
+</pre></li>
+<li><p>
+Remove some old files.
+</p>
+<pre class="example">
+rm -f .bash*
+
+</pre></li>
+<li><p>
+Link the config files in directory <code>dotfile</code> to your <code>$HOME</code>.
+</p>
+<pre class="example">
+ln -sf dotfile/dot.* ./
+ln -sf dotfile/help/dot.* ./
+ls
+
+</pre>
+<p>
+You should find that there are lots of <code>dot.</code> prefixed files in your <code>$HOME</code> directory.
+</p></li>
+<li><p>
+Rename these <code>dot.*</code> files.
+</p>
+<pre class="example">
+rename 's/dot//' dot.*
+ls -al
+
+</pre>
+<p>
+All the <code>dot.*</code> files should be replaced by <code>.</code> prefixed files now.
+</p></li>
+<li><p>
+Grab my wallpaper.
+</p>
+<pre class="example">
+$ wget -O .keys.png http://cs2.swfu.edu.cn/~wx672/tex-fun/keys/keys-1.png
+
+</pre>
+<p>
+After reboot (don't do it now) you should be able to bring up this wallpaper by typing
+<code>Super-F1</code>. (<code>Super</code> key can be found at the lower left area of your keyboard. It's
+usually marked as a <code>Win</code> key.)
+</p></li>
+<li><p>
+Grab my Emacs packages.
+</p>
+<pre class="example">
+wget http://cs2.swfu.edu.cn/~wx672/debian-install/elpa.tgz
+mv elpa.tgz ~/.emacs.d/
+cd ~/.emacs.d
+tar zxf elpa.tgz
+
+</pre></li>
+<li><p>
+Emacs test run
+</p>
+<pre class="example">
+emacs --debug-init
+
+</pre>
+<p>
+If you see error messages, let me know (wx672ster@gmail.com).
+</p></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgc102064" class="outline-4">
+<h4 id="orgc102064"><span class="section-number-4">3.1.3</span> Auto login</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+If you don't want to input username/password every time when you start your system, you
+can do like this:
+</p>
+<pre class="example">
+sudo cp -r ~/dotfile/etc/systemd/system/getty@tty1.service.d/ /etc/systemd/system/
+sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf
+
+</pre>
+<p>
+There are just three lines in this file:
+</p>
+<pre class="example">
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin wx672 --noclear %I $TERM
+
+</pre>
+<p>
+<b>Caution:</b> Replace <code>wx672</code> with your own username.
+</p>
+
+<p>
+Now, it's time to reboot your system.
+</p>
+<pre class="example">
+sudo reboot
+
+</pre>
+
+<p>
+Now what? Well, it actually depends on what you want to do with your new
+system. A computer is just a tool for problem solving. If you don't have any problem, you
+don't need it.
+</p>
+</div>
+</div>
+<div id="outline-container-org3d7bb55" class="outline-4">
+<h4 id="org3d7bb55"><span class="section-number-4">3.1.4</span> Backlight</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<p>
+Usually there are function keys for changing screen backlight on laptops. If these keys
+don't work, you can try:
+</p>
+<ol class="org-ol">
+<li>whether these keys can be recognized by <code>xev</code>. If so,</li>
+<li><p>
+use <code>brightnessctl</code> to change backlight at the command line
+</p>
+<pre class="example">
+brightnessctl set 20%-
+brightnessctl set +20%
+
+</pre>
+<p>
+if the above commands work, now you can&#x2026;
+</p></li>
+<li><p>
+enable the keys by modifying sawfish config file (<code>~/.sawfish/rc</code>). There are two lines
+related to <code>brightnessctl</code> already in the file like the following:
+</p>
+<pre class="example">
+;"XF86MonBrightnessDown" '(system "brightnessctl set 10%-")
+;"XF86MonBrightnessUp" '(system "brightnessctl set +10%")
+
+</pre>
+<p>
+You just need to uncomment these two lines to make them effective. That's to say remove
+the semicolon at the beginning of the lines so that they look like the following:
+</p>
+<pre class="example">
+"XF86MonBrightnessDown" '(system "brightnessctl set 10%-")
+"XF86MonBrightnessUp" '(system "brightnessctl set +10%")
+
+</pre></li>
+<li>Press <code>Ctrl-Alt-Backspace</code> to restart X. These keys should function well now.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: WANG Xiaolin</p>
+<p class="date">Created: 2018-12-27 Thu 10:49</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+\documentclass[varwidth=25.2em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+#define N 100  /* number of slots in the buffer */
+int count = 0; /* number of items in the buffer */  
+\end{ccode}
+\begin{minipage}{.49\linewidth}
+  \begin{ccode}
+void producer(){
+  int item;
+  while(TRUE){
+    item = produce_item();
+    if(count == N)
+      sleep();
+    insert_item(item);
+    count++;
+    if(count == 1)
+      wakeup(consumer);
+  }
+}
+  \end{ccode}
+\end{minipage}\hfill
+\begin{minipage}{.49\linewidth}
+  \begin{ccode}
+void consumer(){
+  int item;
+  while(TRUE){
+    if(count == 0)
+      sleep();
+    item = rm_item();
+    count--;
+    if(count == N - 1)
+      wakeup(producer);
+    consume_item(item);
+  }
+}
+  \end{ccode}
+\end{minipage}
+\end{document}

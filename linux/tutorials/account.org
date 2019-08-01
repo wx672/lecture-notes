@@ -1,0 +1,68 @@
+#+TITLE:     Case Study: User Account Management
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION: 
+#+KEYWORDS: linux management account case-study
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS:   author:t creator:t timestamp:t
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs3.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME:
+
+In this example, we do several things:
+   1. add 141 users to the system
+      1. usernames are *20081152001, 20081152002, ..., 20081152141*. 
+      2. All these users belong to the same group *stud*.
+      3.  Their home directories are in */home/stud/*.
+   2. give each user 200M disk space with *quota*.
+
+* Add/Remove Users
+** Add a single user
+   e.g. add user 20081152001
+   : useradd -e 2012-12-31 -g stud -b /home/stud -m 20081152001
+   - Show default settings of *useradd*
+     : useradd -D
+   - Change password for 20081152001
+     : passwd 20081152001
+   - Delete an user, and remove his home
+     : userdel -r 20081152001
+     *useradd* and *userdel* can easily be used in a script.
+** Add users in batch
+   1. Put all userID in a file
+      : seq 20081152001 20081152141 > 20081152
+   2. Add users
+      : for user in `cat 20081152`; do useradd -e 2012-12-31 -g stud -b /home/stud -m $user; done
+   3. Generate password with makepasswd, and put into file PASS
+      : makepasswd --count `cat 20081152 | wc -l` > PASS
+   4. Join file 20081152 and PASS with 'paste' to get file 20081152.PASS
+      : paste -d: 20081152 PASS > 20081152.PASS
+   5. Process file 20081152.PASS with chpasswd
+      : cat 20081152.PASS | chpasswd
+
+* quota --- Limit Space Usage For Each User
+** journaled quota set up
+   1. Edit */etc/fstab*
+      : /dev/sdb1 /home ext3 errors=remount-ro,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv 0 0 
+   2. To enable quota, run these commands:
+      : touch /home/aquota.user /home/aquota.group
+      : chmod 600 /home/aquota.*
+      : mount -o remount /home
+      : quotacheck -avugm
+      : quotaon -avug
+** edquota
+   1. Edit quota for a single user
+      : edquota -u `id -u 20081152001`
+   2. Check quota
+      : quota 20081152001
+      : repquota -a
+   3. copy 20081152001's quota to all other users
+      1. *edquota* treats an integer argument as UID. Unluckly, all our usernames are integer numbers,
+         this can confuse *edquota*. So we have to get a real UID list, and feed it to *edquota*
+         later. To get the UID list, do:
+	 : cat /etc/passwd | grep ^20081152 | awk -F: '{print $3}' > UID.list
+      2. Feed UIDs to *edquota* to edit quota for all users
+	 : for UID in `cat UID.list`; do edquota -p `id -u 20081152001` -u $UID; done

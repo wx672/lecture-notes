@@ -1,0 +1,26 @@
+\documentclass[varwidth=25cm,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+ 31                                   12 11                    0
+┌─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┼─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┐
+│                                       │     │   │ │ │   │U│R│ │
+│       PAGE FRAME ADDRESS 31..12       │AVAIL│0 0│D│A│0 0│/│/│P│
+│                                       │     │   │ │ │   │S│W│ │
+└─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┼─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┘
+            P ─ PRESENT
+          R/W ─ READ/WRITE
+          U/S ─ USER/SUPERVISOR
+            A ─ ACCESSED
+            D ─ DIRTY
+        AVAIL ─ AVAILABLE FOR SYSTEMS PROGRAMMER USE
+
+        NOTE: 0 INDICATES INTEL RESERVED. DO NOT DEFINE.
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% End:

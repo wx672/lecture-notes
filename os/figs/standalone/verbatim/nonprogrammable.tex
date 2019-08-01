@@ -1,0 +1,21 @@
+\documentclass[varwidth,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+     DESCRIPTOR TABLE            SEGMENT
+     ┌──────────────┐            ┌─────┐
+     │     ...      │    ┌──────>│     │<───┐
+     ├──────────────┤    │       │ ... │    │
+┌───>│   Segment    │────┘       │     │    │
+│    │  Descriptor  │            └─────┘    │
+│    ├──────────────┤                       │
+│    │     ...      │                       │
+│    └──────────────┘                       │
+│                       Nonprogrammable     │
+│   Segment Registor       Register         │
+│ ┌──────────────────┬────────────────────┐ │
+└─│ Segment Selector │ Segment Descriptor │─┘
+  └──────────────────┴────────────────────┘
+\end{verbatim}
+\end{document}

@@ -1,0 +1,172 @@
+#+TITLE:    《操作系统原理》实验报告
+#+AUTHOR:    姓名(学号)
+#+EMAIL:     
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:t toc:2 \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+STYLE: <link rel="stylesheet" type="text/css" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" />
+#+STYLE: <style>body {font-size:14pt} code {font-weight:bold;font-size:100%; color:darkblue}</style>
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT: 
+# (setq org-export-html-use-infojs nil)
+# (setq org-export-html-style nil)
+
+#+BEGIN_CENTER 
+  Don't forget to answer the sum up questions in your email message!
+#+END_CENTER 
+
+* Approaching to the Linux kernel
+** 实验内容
+   - [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2]]
+** 实验步骤及思考题
+*** proc file-system
+    *Questions:*
+    1. What's the CPU type and model? =/proc/cpuinfo=
+       : less /proc/cpuinfo
+       : model name      : Intel(R) Core(TM)2 Duo CPU     T6570  @ 2.10GHz
+    2. What version of the Linux kernel are you using? =uname=
+       : uname -a	
+       : Linux debian 3.0.0-1-amd64
+    3. How long has it been since your PC last booted? =uptime=
+       : 58 mins 
+    4. How much of the total CPU time has been spent executing in user mode? kernel mode? idle? =top=
+       : 2.0% in user mode; 1.3% in kernel mode; 96.7% idle
+    5. How much memory is configured in your PC? =top,free,/proc/meminfo=
+       : 6G
+    6. How much memory is currently available? =top,free,/proc/meminfo=
+       : 4.5G
+    7. How many disk read/write requests have been made? =/proc/diskstats=
+       : disk read: 17915
+       : disk write: 15416
+    8. How many context switches has the kernel performed? =/proc/stat=
+       : ctxt: 5602243
+    9. How many context switches has a process had? =/proc/[pid]/status=
+       : voluntary_ctxt_switches:        9
+       : nonvoluntary_ctxt_switches:     0
+    10. How many processes have been created since the system was booted? =/proc/stat=
+	: processes 16409
+    11. How many processes are there in the ready queue? =/proc/stat=
+	: procs_running 2
+    12. How many processes are blocked waiting for I/O to complete? =/proc/stat=
+  	: procs_blocked 0
+    13. What does the following command do?
+	: cd /proc/`ps | head -2 | tail -1 | cut -f2 -d' '` && ls -l
+	Get into the directory of my bash process in /proc, and list everything in it.
+*** Play with the kernel
+    - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-2]] 
+    - 实验环境 :: 
+      - OS version: (=uname -srv=)
+      - Kernel source version: (=ls /usr/src/=)  
+      - GCC version: (=gcc -v | tail -1=)
+**** 实验步骤
+     1. 实
+     2. 验
+     3. 步
+     4. 骤
+*** Hello, kernel Module!
+    - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-3]] 
+    - 实验环境 :: 
+      - OS version: (=uname -srv=)
+      - Kernel source version: (=ls /usr/src/=)  
+      - GCC version: (=gcc -v | tail -1=)
+**** 实验步骤
+     1. 实
+     2. 验
+     3. 步
+     4. 骤
+*** System calls
+    - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-4]]  
+    - 实验环境 :: 
+      - OS version: (=uname -srv=)
+      - Kernel source version: (=ls /usr/src/=)  
+      - GCC version: (=gcc -v | tail -1=)
+**** 实验步骤
+     1. 实
+     2. 验
+     3. 步
+     4. 骤
+* Process management
+  - [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3]]
+** Process creation
+   - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-1-1]]
+   - 实验环境 :: 
+     - OS version: (=uname -srv=)
+     - Kernel source version: (=ls /usr/src/=)  
+     - GCC version: (=gcc -v | tail -1=)
+*** 实验步骤
+    1. 实
+    2. 验
+    3. 步
+    4. 骤
+** Thread
+   - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-2]]
+   - 实验环境 :: 
+     - OS version: (=uname -srv=)
+     - Kernel source version: (=ls /usr/src/=)  
+     - GCC version: (=gcc -v | tail -1=)
+*** 实验步骤
+    1. 实
+    2. 验
+    3. 步
+    4. 骤
+** IPC
+   - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-3]]
+   - 实验环境 :: 
+     - OS version: (=uname -srv=)
+     - Kernel source version: (=ls /usr/src/=)  
+     - GCC version: (=gcc -v | tail -1=)
+*** 实验步骤
+    1. 实
+    2. 验
+    3. 步
+    4. 骤
+* Memory management
+  - [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4]]
+** Basic commands
+   - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-1]]
+   - 实验环境 :: 
+     - OS version: (=uname -srv=)
+     - Kernel source version: (=ls /usr/src/=)  
+     - GCC version: (=gcc -v | tail -1=)
+*** 实验步骤
+    1. 实
+    2. 验
+    3. 步
+    4. 骤
+** Shared Memory Segments
+   - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-2]]
+   - 实验环境 :: 
+     - OS version: (=uname -srv=)
+     - Kernel source version: (=ls /usr/src/=)  
+     - GCC version: (=gcc -v | tail -1=)
+*** 实验步骤
+    1. 实
+    2. 验
+    3. 步
+    4. 骤
+** Memory Mapped Files
+   - 实验内容 :: http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-3
+   - 实验环境 :: 
+     - OS version: (=uname -srv=)
+     - Kernel source version: (=ls /usr/src/=)  
+     - GCC version: (=gcc -v | tail -1=)
+*** 实验步骤
+    1. 实
+    2. 验
+    3. 步
+    4. 骤
+* File system
+  - *实验内容* http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-5
+  - *实验环境* 
+    - OS version: (=uname -srv=)
+    - Kernel source version: (=ls /usr/src/=)  
+    - GCC version: (=gcc -v | tail -1=)
+** 实验步骤
+   1. 实
+   2. 验
+   3. 步
+   4. 骤

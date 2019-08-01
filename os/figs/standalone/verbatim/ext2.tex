@@ -1,0 +1,21 @@
+\documentclass[varwidth=46.3em,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+┌────────────┬───────────────┬───────────────┬──//──┬───────────────┐
+│ Boot Block │ Block Group 0 │ Block Group 1 │      │ Block Group n │
+└────────────┴───────────────┴───────────────┴──//──┴───────────────┘
+  __________________________/                 \_____________
+ /                                                          \
+┌───────┬─────────────┬────────────┬────────┬───────┬────────┐
+│ Super │    Group    │ Data Block │ inode  │ inode │ Data   │
+│ Block │ Descriptors │   Bitmap   │ Bitmap │ Table │ Blocks │
+└───────┴─────────────┴────────────┴────────┴───────┴────────┘
+  1 blk     n blks        1 blk      1 blk   n blks   n blks
+\end{verbatim}
+\end{document}
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

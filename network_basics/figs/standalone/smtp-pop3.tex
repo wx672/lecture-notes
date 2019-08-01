@@ -1,0 +1,24 @@
+\documentclass[varwidth=25cm,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+            ┌──────┐    SMTP    ┌──────┐
+            │      │<──────────>│ SMTP │    ┌───────────┐
+┌──────┐    │      │            │Server│<──>│           │
+│ User │<──>│      │            └──────┘    │           │
+└──────┘    │ Mail │    POP3    ┌──────┐    │   File    │
+            │Client│<──────────>│ POP3 │<──>│  System   │
+            │      │            │Server│    │(/var/mail)│
+┌──────┐    │      │            └──────┘    │           │
+│ File │<──>│      │            ┌──────┐    │           │
+│System│    │      │    IMAP    │ IMAP │<──>│           │
+└──────┘    │      │<──────────>│Server│    └───────────┘
+            └──────┘            └──────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,14 @@
+\documentclass[varwidth=50em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+ page           160             256                                   768
+frame: 0 1      0xa0            0x100                                0x300
+       ┌─┬───────┬───────┬───────┬────────┬─────────────┬──────┬───────┬─
+       │ │ avail │ resvd │ avail │ kernel │ Initialized │ BSS  │ avail │..
+       │ │       │       │       │  code  │    data     │ data │       │..
+       └─┴───────┴───────┴───────┴────────┴─────────────┴──────┴───────┴─
+       0 4K     640K          _text    _etext        _edata   _end     3M
+\end{verbatim}
+\end{document}

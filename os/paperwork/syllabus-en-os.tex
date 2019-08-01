@@ -1,0 +1,75 @@
+\documentclass{wx672article} % $HOME/texmf/tex/latex/wx672article.cls
+
+
+\usepackage{wx672bib}
+\addbibresource{os.bib}
+
+\title{Syllabus for Operating Systems}
+\author{}\date{}
+
+\pagestyle{empty}
+
+%\newgeometry{top=1cm}
+
+\begin{document}
+
+%\maketitle
+
+\begin{description}
+\item[Principle of Operating Systems]
+\item[Contacts: 4L]
+\item[Credits:] 4
+\item[Prerequisites:] C programming, Linux basics
+\item[Course Description:] This course examines the important problems in operating system
+  design and implementation. The operating system provides an established, convenient, and
+  efficient interface between user programs and the bare hardware of the computer on which
+  they run. The operating system is responsible for sharing resources (e.g., disks,
+  networks, and processors), providing common services needed by many different programs
+  (e.g., file service, the ability to start or stop processes, and access to the printer),
+  and protecting individual programs from interfering with one another. The course will
+  start with a brief historical perspective of the evolution of operating systems over the
+  last fifty years and then cover the major components of most operating systems. This
+  discussion will cover the tradeoffs that can be made between performance and
+  functionality during the design and implementation of an operating system. Particular
+  emphasis will be given to three major OS subsystems: process management (processes,
+  threads, CPU scheduling, synchronization, and deadlock), memory management
+  (segmentation, paging, swapping), and file systems; and on operating system support for
+  distributed systems.
+\item[Course Topics:] will include the following:
+  \begin{itemize}
+  \item[Week 1:] Overview of operating systems, functionalities and charateristics of OS.
+  \item[Week 2:] Hardware concepts related to OS, CPU states, I/O channels, memory
+    hierarchy, microprogramming
+  \item[Week 3:] The concept of a process, operations on processes, process states,
+    concurrent processes,process control block, process context.
+  \item[Week 4:] UNIX process control and management, PCB, signals, forks and pipes.
+  \item[Week 5:] Interrupt processing, operating system organisation, OS kernel FLIH,
+    dispatcher.
+  \item[Week 6:] Job and processor scheduling, scheduling algorithms, process hierarchies.
+  \item[Week 7:] Problems of concurrent processes, critical sections, mutual exclusion,
+    synchronisation, deadlock, mutual exclusion, process co-operation, producer and
+    consumer processes.
+  \item[Week 8:] Semaphores: definition, init, wait, signal operations.
+  \item[Week 9:] Use of semaphores to implement mutex, process synchronisation etc.,
+    implementation of semaphores.
+  \item[Week 10:] Interprocess Communication (IPC), Message Passing, Direct and Indirect
+  \item[Week 11:] Deadlock: prevention, detection, avoidance, banker's algorithm.
+  \item[Week 12:] Memory organisation and management, storage allocation.
+  \item[Week 13:] Virtual memory concepts, paging and segmentation, address mapping.
+  \item[Week 14:] Virtual storage management, page replacemant strategies.
+  \item[Week 15:] File organisation: blocking and buffering, file descriptor, directory
+    structure
+  \item[Week 16:] File and Directory structures, blocks and fragments, directory tree,
+    inodes, file descriptors, UNIX.
+  \end{itemize}
+\item[Textbook and References:]\hfill
+  \nocite{silberschatz11essentials,tanenbaum2008modern,bovet2005understanding}
+  \printbibliography[heading=none]{}
+\end{description}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,49 @@
+\documentclass[varwidth=100em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+─── Time Flow ───➤
+┌┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┐   ┌┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┐
+┆            CPU in Real Mode                  ┆   ┆  CPU in Protected Mode, paging disabled  ┆
+┆┌─────────────────┐   ┌──────────────────────┐┆   ┆┌───────────────────┐   ┌────────────────┐┆
+┆│ arch/x86/boot   │   │  arch/x86/boot       │┆   ┆│  arch/x86/boot/   │   │arch/x86/kernel/│┆
+┆│                 │   │                      │┆   ┆│  compressed       │   │                │┆
+┆│ header.S:110    │   │                      │┆   ┆│                   │   │                ┆┆
+┆│  first kernel   │   │  main.c:122, main()  │┆   ┆│                   │   │                │┆
+┆│  instruction:   │   │                      │┆   ┆│   head_32.S:35    │   │  head_32.S:86  │┆
+┆│ 2─byte jump to  ├──➤│      pm.c:153        ├────➤│    startup_32     ├──➤│   startup_32   │┆
+┆│ start_of_setup  │   │go_to_protected_mode()│┆   ┆│                   │   │                │┆
+┆│                 │   │                      │┆   ┆│                   │   │                │┆
+┆│ header.S:220    │   │     pmjump.S:31      │┆   ┆│    misc.c:368     │   │Enables paging, │┆
+┆│ start_of_setup  │   │protected_mode_jump() │┆   ┆│decompress_kernel()│   │     calls      │┆
+┆│Assembly start up│   │                      │┆   ┆│                   │   │ start_kernel() │┆
+┆│     code        │   │                      │┆   ┆│                   │   │                │┆
+┆└─────────────────┘   └──────────────────────┘┆   ┆└───────────────────┘   └────────────────┘┆
+└┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┘   └┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┘
+
+─── Time Flow ───➤
+┌┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┐
+┆ CPU in Protected Mode, paging enabled.Architecture-independent kernel, mostly. ┆
+┆┌─────────────────┐   ┌─────────────────┐   ┌──────────────────────────────────┐┆
+┆│      PID 0      │   │      PID 0      │   │              PID 0               │┆
+┆│ init/main.c:507 ├──➤│ init/main.c:432 ├──➤│ arch/x86/kernel/process_32.c:180 │┆
+┆│ start_kernel()  │   │   rest_init()   │   │            cpu_idle()            │┆
+┆│                 │   │                 │   │        Kernel idle thread        │┆
+┆└─────────────────┘   └────────┬────────┘   └──────────────────────────────────┘┆
+┆                       New kernel thread                                        ┆
+┆                               ⬇                                                ┆
+┆                      ┌─────────────────┐   ┌───────────────┐   ┌─────────────┐ ┆
+┆                      │      PID 1      │   │     PID 1     │   │    PID 1    │ ┆
+┆                      │ init/main.c:808 ├──➤│init/main.c:769├──➤│kernel_execve│ ┆
+┆                      │  kernel_init()  │   │  init_post()  │   │ /sbin/init  │ ┆
+┆                      └─────────────────┘   └───────────────┘   └─────────────┘ ┆
+└┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+

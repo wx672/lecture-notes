@@ -1,0 +1,6 @@
+
+struct task_struct {
+  ...
+  struct thread_info *thread_info;
+  ...
+};

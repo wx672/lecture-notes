@@ -1,0 +1,39 @@
+\documentclass[varwidth=50em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+      ┌────────────────────┐         4G ┌────────────────────┐
+0x3FF │        0           │            │                    │
+      ~        0           ~         8M ~                    ~
+      ├────────────────────┤            │                    │
+0x301 │     ─> pg1         │            ├────────────────────┤
+      ├────────────────────┤            │      pg1 (4K)      │
+0x300 │     ─> pg0         │            ├────────────────────┤
+      ├────────────────────┤            │      pg0 (4K)      │
+      │        0           │            ├────────────────────┤ _end
+      ├────────────────────┤            │                    │
+    1 │     ─> pg1         │            │   swapper_pg_dir   │
+      ├────────────────────┤            │────────────────────┤ __bss_start
+    0 │     ─> pg0         │            │    Kernel image    │
+      └────────────────────┘        +1M ├────────────────────┤ _text
+          swapper_pg_dir                │    BIOS, holes...  │
+                                     3G ├────────────────────┤ PAGE_OFFSET
+                                        │                    │
+8M │                    │            8M ~                    ~
+   │                    │               │                    │
+   ├────────────────────┤               ├────────────────────┤
+   │      pg1 (4K)      │               │      pg1 (4K)      │
+   ├────────────────────┤               ├────────────────────┤
+   │      pg0 (4K)      │               │      pg0 (4K)      │
+   ├────────────────────┤ _end          ├────────────────────┤ _end
+   │                    │               │                    │
+   │   swapper_pg_dir   │               │   swapper_pg_dir   │
+   │────────────────────┤ __bss_start   │────────────────────┤ __bss_start
+   │    Kernel image    │               │    Kernel image    │
+1M ├────────────────────┤ _text      1M ├────────────────────┤ _text
+   │    BIOS, holes...  │               │    BIOS, holes...  │
+ 0 └────────────────────┘             0 └────────────────────┘
+      Physical memory                    Kernel virtual memory
+\end{verbatim}
+\end{document}

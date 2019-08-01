@@ -1,0 +1,38 @@
+\documentclass[varwidth=15em,crop]{standalone}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\begin{document}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+~$ \color{red}{nc cs3 110}
++OK Dovecot ready.
+\color{red}{user wx672}
++OK
+\color{red}{pass topsecrete}
++OK Logged in.
+\color{red}{stat}
++OK 3 459
+\color{red}{retr 1}
++OK 146 octets
+  The full text of message 1
+\color{red}{dele 1}
++OK message # 1 deleted
+\color{red}{retr 2}
++OK 155 octets
+  The full text of message 2
+\color{red}{dele 2}
++OK message # 2 deleted
+\color{red}{retr 3}
++OK 158 octets
+  The full text of message 3
+\color{red}{dele 3}
++OK message # 3 deleted
+\color{red}{quit}
++OK Logging out.
+\end{Verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

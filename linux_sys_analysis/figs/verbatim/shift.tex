@@ -1,0 +1,19 @@
+\documentclass[varwidth=40em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+│<─PGDIR_MASK─>│<──────────────────PGDIR_SIZE─────────────────>│
+│<────────PUD_MASK───────>│<──────────────PUD_SIZE────────────>│
+│<─────────────PMD_MASK─────────────>│<────────PMD_SIZE───────>│
+│<─────────────────PAGE_MASK───────────────────>│<─PAGE_SIZE──>│
+├──────────────┬──────────┬──────────┬──────────┼──────────────┤
+│ Global       │ Upper    │ Middle   │ Page     │ Offset       │
+│ DIR         ?│ DIR     ?│ DIR     ?│ Table   ?│            12│
+└──────────────┴──────────┴──────────┴──────────┼──────────────┤
+                                                │<─PAGE_SHIFT─>│
+                                     │<───PMD_SHIFT───────────>│
+                          │<─────PUD_SHIFT────────────────────>│
+               │<─────PGDIR_SHIFT─────────────────────────────>│
+\end{verbatim}
+\end{document}

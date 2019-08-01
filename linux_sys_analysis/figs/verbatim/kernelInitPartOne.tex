@@ -1,0 +1,25 @@
+\documentclass[varwidth=100em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+─── Time Flow ───➤
+┌┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┐   ┌┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┐
+┆            CPU in Real Mode                  ┆   ┆  CPU in Protected Mode, paging disabled  ┆
+┆┌─────────────────┐   ┌──────────────────────┐┆   ┆┌───────────────────┐   ┌────────────────┐┆
+┆│ arch/x86/boot   │   │  arch/x86/boot       │┆   ┆│  arch/x86/boot/   │   │arch/x86/kernel/│┆
+┆│                 │   │                      │┆   ┆│  compressed       │   │                │┆
+┆│ header.S:110    │   │                      │┆   ┆│                   │   │                ┆┆
+┆│  first kernel   │   │  main.c:122, main()  │┆   ┆│                   │   │                │┆
+┆│  instruction:   │   │                      │┆   ┆│   head_32.S:35    │   │  head_32.S:86  │┆
+┆│ 2─byte jump to  ├──➤│      pm.c:153        ├────➤│    startup_32     ├──➤│   startup_32   │┆
+┆│ start_of_setup  │   │go_to_protected_mode()│┆   ┆│                   │   │                │┆
+┆│                 │   │                      │┆   ┆│                   │   │                │┆
+┆│ header.S:220    │   │     pmjump.S:31      │┆   ┆│    misc.c:368     │   │Enables paging, │┆
+┆│ start_of_setup  │   │protected_mode_jump() │┆   ┆│decompress_kernel()│   │     calls      │┆
+┆│Assembly start up│   │                      │┆   ┆│                   │   │ start_kernel() │┆
+┆│     code        │   │                      │┆   ┆│                   │   │                │┆
+┆└─────────────────┘   └──────────────────────┘┆   ┆└───────────────────┘   └────────────────┘┆
+└┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┘   └┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┘
+\end{verbatim}
+\end{document}

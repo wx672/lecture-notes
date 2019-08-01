@@ -1,0 +1,25 @@
+\documentclass[varwidth=31.5em,crop]{standalone}
+\usepackage{fancyvrb,xcolor}
+\begin{document}
+\begin{Verbatim}[commandchars=\\\{\}]
+~$ \color{violet}{host -a cs2.swfu.edu.cn}
+\hrulefill
+~$ \color{violet}{sudo tcpdump -i wlan0 -n port 53}
+09:30:29.860901 IP 192.168.1.109.34075 > 114.114.115.115.53:
+                {\color{red}{34035+ ANY?}} cs2.swfu.edu.cn. (33)
+09:30:29.979390 IP 114.114.115.115.53 > 192.168.1.109.34075:
+                {\color{red}{34035 1/0/0 A}} 202.203.132.242 (49)
+\end{Verbatim}
+\vspace{-1.5em}
+\hrulefill
+\begin{center}
+  \begin{tabular}{rcl}
+    \texttt{34035}&--&id\\
+    \texttt{+}&--&rd=1\\
+    \texttt{ANY?}&--& query type\\
+    \texttt{33/49}&--&UDP payload length\\
+    \texttt{1/0/0}&--&\textbf{1} answer RR; \textbf{0} authority RR; \textbf{0} additional RR.\\
+    \texttt{A}&--&IPv4 address
+  \end{tabular}
+\end{center}
+\end{document}

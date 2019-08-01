@@ -1,0 +1,14 @@
+\documentclass[varwidth=24em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{gascode}
+# Enable paging
+movl $swapper_pg_dir - __PAGE_OFFSET, %eax
+movl %eax, %cr3  # set the page table pointer..
+movl %cr0, %eax
+ orl $0x80000000, %eax
+movl %eax, %cr0  # ..and set paging (PG) bit
+\end{gascode}
+\end{document}

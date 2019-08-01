@@ -1,0 +1,30 @@
+\documentclass[varwidth,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+max ┌──────────────────┐
+    │      Stack       │ Stack segment
+    ├────────┬─────────┤    
+    │        │         │
+    │        v         │
+    │                  │
+    │        ^         │
+    │        │         │
+    ├────────┴─────────┤
+    │ Dynamic storage  │ Heap
+    │(from new, malloc)│
+    ├──────────────────┤
+    │ Static variables │ 
+    │ (uninitialized,  │ BSS  segment
+    │  initialized)    │ Data segment
+    ├──────────────────┤
+    │      Code        │ Text segment
+  0 └──────────────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

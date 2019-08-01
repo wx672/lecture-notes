@@ -1,0 +1,81 @@
+\documentclass{wx672article} % $HOME/texmf/tex/latex/wx672article.cls
+
+
+\usepackage{wx672bib}
+\addbibresource{net.bib}
+
+\title{Syllabus for Computer Networking}
+\author{}\date{}
+
+\pagestyle{empty}
+
+%\newgeometry{top=1cm}
+
+\begin{document}
+
+%\maketitle
+
+\begin{description}
+\item[Computer Networking]
+\item[Contacts: 4L]
+\item[Credits:] 4
+\item[Prerequisites:] Basic c/python programming knowledge is not mandatory, but helpful.
+\item[Course Description:] The past few years have seen a remarkable growth in the global
+  network infrastructure. The Internet has grown from a research curiosity to something we
+  all take for granted, and is becoming as essential as the ubiquitous telephone and
+  utility networks. It has been able to withstand rapid growth fairly well and its core
+  protocols have been robust enough to accommodate applications that were unforeseen by
+  the original Internet designers, such as the World Wide Web.
+
+  How does this global network infrastructure work and what are the design principles on
+  which it is based? In what ways are these design principles compromised in practice? How
+  do we make it work better in today's world? How do we ensure that it will work well in
+  the future in the face of rapidly growing scale and heterogeneity? And how should
+  Internet applications be written, so they can obtain the best possible performance both
+  for themselves and for others using the infrastructure? These are some issues that we
+  will grapple with in this course. The course will focus on the design, implementation,
+  analysis, and evaluation of large-scale networked systems.
+
+  The goals of this course are to give students clear understanding about comprehensive
+  concepts of computer networking. In particular, our goals are to understand:
+  \begin{itemize}
+  \item Basic Concepts of Data Communication
+  \item Network Infrastructure
+  \item ISO/OSI RM and TCP/IP Protocol Suite
+  \item Network management and security
+  \end{itemize}
+\item[Course Topics:] This course will cover the following topics:
+  %http://www.csee.usf.edu/~kchriste/class2/syllab2.html
+  \begin{itemize}
+  \item[Week 1:] Protocol layers and service models. OSI and Internet protocols.
+  \item[Week 2:] What is the Internet. Concepts of delay, security, and Quality of Service
+    (QoS).       
+  \item[Week 3:] Application layer protocols and client-server model.
+  \item[Week 4:] Sockets programming in C (client-server and web server programs).
+  \item[Week 5:] Reliable data transfer. Stop-and-Go evaluation. TCP and UCP semantics and
+    syntax.      
+  \item[Week 6:] TCP RTT estimation. Principles of congestion control.
+  \item[Week 7:] Principles of routing. Link-state and distance vector. IP semantics and
+    syntax.      
+  \item[Week 8:] Link-state and distance vector routing. Midterm Exam.
+  \item[Week 9:] Link layer. Error detection. Multiple access protocols. IEEE 802.3
+    Ethernet.
+  \item[Week 10:] Switching and bridging. Media. Signal strength. Data encoding.
+  \item[Week 11:] Wireless and mobile networks.
+  \item[Week 12:] Security. Overview of threats, cryptography, authentication.
+  \item[Week 13:] Network firewalls.
+  \item[Week 14:] Network management including SNMP. Network troubleshooting.
+  \item[Week 15:] Hot topics such as SDN and IoT. Course wrap-up. Review for final exam.
+  \item[Week 16:] Comprehensive final exam.
+  \end{itemize}
+\item[Textbook and References:]\hfill
+  \nocite{tanenbaum2011computer,fall2011tcp,kurose2013computer,bautts2005linux,hunt2002tcp,hall2009beej}
+  \printbibliography[heading=none]{}
+\end{description}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

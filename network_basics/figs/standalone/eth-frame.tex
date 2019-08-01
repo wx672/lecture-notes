@@ -1,0 +1,28 @@
+\documentclass[varwidth,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+     0        1        2        3
+┌────────┬────────┬────────┬────────┐
+│             Dst Address           │
+├─────────────────┬─────────────────┤
+│    Dst Address  │    Src Address  │
+├─────────────────┴─────────────────┤
+│             Src Address           │
+├─────────────────┬─────────────────┤
+│   Length/Type   │    MAC Data ... │
+├─────────────────┴─────────────────┤
+│             MAC Data ...          │
+│         (46 ─ 1500 bytes)         │
+├───────────────────────────────────┤
+│                FCS                │
+└────────┴────────┴────────┴────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

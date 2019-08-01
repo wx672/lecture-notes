@@ -1,0 +1,36 @@
+\documentclass[varwidth=60em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+┌───────────┐                ┌──────┐                 ┌───────────┐
+│  Client   ├────────────────┤Router├─────────────────┤  Server   │
+│192.168.1.3│     192.168.1.1│(NAT) │12.13.14.15      │40.30.20.10│
+└───────────┘                └──────┘                 └───────────┘
+
+   ┌───┐                                                   ┌───┐
+   │FTP│            FTP Control Connection Setup           │FTP│
+   ├───┤                                                   ├───┤
+   │TCP├────TCP CONN: 192.168.1.3:3333<=>40.30.20.10:21────┤TCP│
+   ├───┤                     ┌───────┐                     ├───┤
+   │IP ├──SRC: 192.168.1.3──>│IP(NAT)├──SRC: 12.13.14.15──>│IP │
+   └───┘                     └───────┘                     └───┘
+
+                                                                   
+                    FTP Data Connection...                       
+   ┌───┐                                                   ┌───┐
+   │FTP├──────────FTP CMD: port 192,168,1,3,100,0─────────>│FTP│
+   ├───┤                                                   ├───┤
+   │TCP│<───────────TCP: SYN 192.168.1.3:25600─────────────┤TCP│
+   ├───┤                                                   ├───┤
+   │IP │                        X<────DST: 192.168.1.3─────┤IP │
+   └───┘                                                   └───┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

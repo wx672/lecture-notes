@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2018-11-30 Fri 13:00 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play With Bash</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="WANG Xiaolin">
+<meta name="description" content="A basic bash tutorial by examples"
+>
+<meta name="keywords" content="bash, shell-scripting, linux">
+<link rel="stylesheet" href="https://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
+<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Play With Bash</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org63d9a74">1. Basic Commands and Concepts</a></li>
+<li><a href="#org3666177">2. Bash Programming Examples</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org63d9a74" class="outline-2">
+<h2 id="org63d9a74"><span class="section-number-2">1</span> Basic Commands and Concepts</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org8fa3547" class="outline-3">
+<h3 id="org8fa3547"><span class="section-number-3">1.1</span> Understanding The File System</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<div class="figure">
+<p><img src="cs2.png" alt="cs2.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb03abbe" class="outline-3">
+<h3 id="orgb03abbe"><span class="section-number-3">1.2</span> Must Known Commands</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">Where I am?</span>
+<span style="color: #483d8b;">pwd</span>
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">What's in current directory?</span>
+ls
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">Get into some other directory</span>
+<span style="color: #483d8b;">cd</span> /usr/share/doc
+<span style="color: #b22222;"># </span><span style="color: #b22222;">and see what's in it:</span>
+ls
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Now, go home</span>
+<span style="color: #483d8b;">cd</span>
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">I want to have a new folder for my homework</span>
+mkdir homework; ls
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Now, get into this newly created directory</span>
+<span style="color: #483d8b;">cd</span> homework; ls
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">Write a c program:</span>
+cat &gt; hello.c
+<span style="color: #b22222;">#</span><span style="color: #b22222;">include&lt;stdio.h&gt;</span>
+int main(){
+  <span style="color: #483d8b;">printf</span>(<span style="color: #8b2252;">"Hello, world!\n"</span>);
+  <span style="color: #a020f0;">return</span> 0;
+}
+
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Now, type "Ctrl-d" to quit. Then...</span>
+ls
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Compile it</span>
+gcc hello.c -o my-hello
+ls
+<span style="color: #b22222;"># </span><span style="color: #b22222;">run it</span>
+./my-hello
+
+<span style="color: #b22222;">### </span><span style="color: #b22222;">Here is a more easy way to say "Hello, world":</span>
+<span style="color: #483d8b;">echo</span> Hello, world
+</pre>
+</div>
+
+<p>
+The commands you've learnt so far
+</p>
+<pre class="example">
+pwd, ls, cd, mkdir, cat, gcc, echo
+
+</pre>
+
+<p>
+Now let's have some more&#x2026;
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">To change a file name</span>
+mv hello.c hello1.c
+ls
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">To make a copy</span>
+cp hello1.c hello2.c
+ls
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">To remove a file</span>
+rm hello1.c
+ls
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">To see what's in a file</span>
+cat hello2.c
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+less hello2.c
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+more hello2.c
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">To edit a file</span>
+nano hello2.c
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+vim hello2.c
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+emacsclient hello2.c
+</pre>
+</div>
+
+<p>
+<code>nano</code>, <code>vim</code>, and <code>emacs</code> are the most commonly used editors in Linux.
+</p>
+
+<p>
+To read the manual of a command
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">man ls
+man mv
+man rm
+man cp
+man man
+</pre>
+</div>
+
+<p>
+To find out something about <code>music player</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">man -k music player
+</pre>
+</div>
+
+<p>
+The commands you have seen
+</p>
+<pre class="example">
+pwd, ls, cd, mkdir, cat, gcc, echo
+mv, cp, rm, less, more
+nano, vim, emacs
+man
+</pre>
+
+<p>
+If you want to survive in the terminal, you have to be happy with all the above
+commands.
+</p>
+
+<p>
+And there are a lot more to know if you want to be a hacker.
+</p>
+<pre class="example">
+chmod, chown
+info, help
+file, type, which, whereis
+ln, wc, sort, uniq
+ps, w, top, free, du, df
+ssh, scp
+grep, find, pipe
+tar, gzip, 7z
+diff, patch
+</pre>
+
+<p>
+and still more&#x2026;
+</p>
+</div>
+</div>
+
+<div id="outline-container-org68367e1" class="outline-3">
+<h3 id="org68367e1"><span class="section-number-3">1.3</span> CLI shortcuts</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><b>Ctrl-a</b>: beginning of line</li>
+<li><b>Ctrl-e</b>: end of line</li>
+<li><b>Ctrl-f</b>: forward</li>
+<li><b>Ctrl-b</b>: backward</li>
+<li><b>Ctrl-n</b>: next</li>
+<li><b>Ctrl-p</b>: previous</li>
+<li><b>Ctrl-r</b>: reverse search</li>
+<li><b>Ctrl-u</b>: cut to beginning</li>
+<li><b>Ctrl-k</b>: kill (cut to end)</li>
+<li><b>Ctrl-y</b>: yank (paste)</li>
+<li><b>Ctrl-d</b>: delete a character</li>
+<li><b>TAB</b>: magic key</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org36d6c50" class="outline-3">
+<h3 id="org36d6c50"><span class="section-number-3">1.4</span> "&gt;", "&gt;&gt;" &#x2014; Output to a file</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">To show the current time and date on the screen, you can do:</span>
+date
+<span style="color: #b22222;"># </span><span style="color: #b22222;">What if you do:</span>
+date &gt; file1
+<span style="color: #b22222;"># </span><span style="color: #b22222;">See nothing on screen? Check what's in 'file1':</span>
+cat file1
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Now you see '&gt;' is for outputting to a file</span>
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">To show a string on the screen, you can do:</span>
+<span style="color: #483d8b;">echo</span> Hello, world
+<span style="color: #b22222;"># </span><span style="color: #b22222;">See "Hello, world"? Now, do:</span>
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">'Hello, world!'</span> &gt;&gt; file1
+cat file1
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Now you see '&gt;&gt;' is for appending to the end of a file</span>
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">'Hello again, world!'</span> &gt;&gt; file1
+cat file1
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb457049" class="outline-3">
+<h3 id="orgb457049"><span class="section-number-3">1.5</span> <code>cat</code> &#x2014; concatenate files</h3>
+<div class="outline-text-3" id="text-1-5">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">To see what's in a file:</span>
+cat file1
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">To output to a file:</span>
+cat file1 &gt; file2
+cat file2
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">What does the following command do?</span>
+cat file1 file2
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">To append to a file:</span>
+cat file1 &gt;&gt; file2
+cat file2
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">To write into a file:</span>
+cat &gt; file2
+<span style="color: #b22222;"># </span><span style="color: #b22222;">type 'Ctrl-d' on a new line to quit.</span>
+cat file2
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">What does the following command do?</span>
+cat &gt;&gt; file2
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6d96e20" class="outline-3">
+<h3 id="org6d96e20"><span class="section-number-3">1.6</span> Wildcard characters</h3>
+<div class="outline-text-3" id="text-1-6">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">Still following me? If so, you should have 4 files in your 'homework' directory right now</span>
+ls
+<span style="color: #b22222;"># </span><span style="color: #b22222;">you should see</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">file1  file2  hello  hello2.c</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Right?</span>
+<span style="color: #b22222;">## </span><span style="color: #b22222;">Now, do...</span>
+mkdir f h
+ls
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Now, you should see 2 newly created directories 'f' and 'h', right?</span>
+mv fi* f; mv he* h
+ls
+ls f
+ls h
+ls -R
+</pre>
+</div>
+
+<p>
+See what's happened?
+</p>
+<ul class="org-ul">
+<li>"<code>*</code>" is a special character means "any number of any characters"</li>
+<li><p>
+"<code>fi*</code>" means every file starting with "<code>fi</code>" in its name. For example,
+</p>
+<ul class="org-ul">
+<li><code>file</code>, <code>file1</code>, <code>file2</code>, <code>fileanything</code>, they all match "<code>fi*</code>"</li>
+</ul>
+
+<p>
+Now you don't have problem with the "<code>he*</code>", right?
+</p></li>
+
+<li>"<code>?</code>" is another wildcard char means "any <i>one</i> character". For example, still in
+your <code>homework</code> directory, you can create some more files with the following command,</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-sh">touch fa fb fc faa fbb fcc faaa fbbb fccc
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Now, you have 9 new empty files created. If you do</span>
+ls f?
+<span style="color: #b22222;"># </span><span style="color: #b22222;">you can only see 'fa', 'fb', and 'fc'. If you do</span>
+ls f??
+<span style="color: #b22222;"># </span><span style="color: #b22222;">you can only see 'faa', 'fbb', and 'fcc'.</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Got the idea? Now, tell me what the following commands do</span>
+mkdir f-test
+mv f? f?? f??? f-test
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb045e2d" class="outline-3">
+<h3 id="orgb045e2d"><span class="section-number-3">1.7</span> Understanding <code>ls -l</code></h3>
+<div class="outline-text-3" id="text-1-7">
+<pre class="example">
+-rw------- 1 sam sam    57 Apr 17  1998 weather.txt
+drwxr-xr-x 6 sam sam   102 Oct  9  1999 web_page
+-rw-rw-r-- 1 sam sam 27648 Feb 11 20:41 web_site.tar
+-rw------- 1 sam sam   574 Dec 16  1998 xmas_file.txt
+╷────┬──── ╷ ─┬─ ─┬─ ──┬── ─────┬────── ──────┬──────
+│    │     │  │   │    │        │             │
+│    │     │  │   │    │        │         File Name
+│    │     │  │   │    │        │
+│    │     │  │   │    │        └─── Modification Time
+│    │     │  │   │    │
+│    │     │  │   │    └──────────── Size (in bytes)
+│    │     │  │   │
+│    │     │  │   └───────────────── Group
+│    │     │  │
+│    │     │  └───────────────────── Owner
+│    │     │
+│    │     └──────────────────────── Number of hard links
+│    │
+│    └────────────────────────────── File Permissions
+│
+└─────────────────────────────────── File types
+</pre>
+</div>
+
+<div id="outline-container-orgedcdf0e" class="outline-4">
+<h4 id="orgedcdf0e"><span class="section-number-4">1.7.1</span> File types</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<ul class="org-ul">
+<li>"<code>d</code>" &#x2014; directory</li>
+<li>"<code>-</code>" &#x2014; regular file</li>
+<li>"<code>l</code>" &#x2014; soft link</li>
+<li>"<code>c</code>" &#x2014; character device</li>
+<li>"<code>b</code>" &#x2014; block device</li>
+<li>"<code>s</code>" &#x2014; socket</li>
+<li>"<code>p</code>" &#x2014; named pipe (FIFO)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org85e3c40" class="outline-4">
+<h4 id="org85e3c40"><span class="section-number-4">1.7.2</span> File modes</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<pre class="example">
+drwxr-xr-x 2 wx672 wx672 4096 Sep 26 17:59 f/
+drwxr-xr-x 2 wx672 wx672 4096 Sep 26 20:49 f-test/
+drwxr-xr-x 2 wx672 wx672 4096 Sep 26 18:00 h/
+ └┼┘└┼┘└┼┘
+  │  │  │
+  │  │  │
+  │  │  └─── Other's permission
+  │  └────── Group's permission
+  └───────── Owner's permission
+</pre>
+<ul class="org-ul">
+<li>"<code>rwx</code>" &#x2014; readable, writable, executable</li>
+<li>"<code>r-x</code>" &#x2014; readable, not writable, executable</li>
+<li>"<code>r--</code>" &#x2014; readable, not writable, not executable</li>
+<li>"<code>---</code>" &#x2014; not readable, not writable, not executable</li>
+</ul>
+
+<ul class="org-ul">
+<li><p>
+<code>chmod</code> &#x2014; change <i>file modes</i>
+</p>
+<pre class="example">
+chmod 777 f &amp;&amp; ls -l f
+chmod 700 f &amp;&amp; ls -l f
+chmod 600 f &amp;&amp; ls -l f
+chmod 000 f &amp;&amp; ls -l f
+chmod 755 f &amp;&amp; ls -l f
+chmod a+rwx f &amp;&amp; ls -l f
+chmod a-rwx f &amp;&amp; ls -l f
+chmod go-rwx f  &amp;&amp; ls -l f
+chmod u+x f &amp;&amp; ls -l f
+
+</pre></li>
+<li><p>
+Know the meanings of the numbers
+</p>
+<pre class="example">
+rwx rwx rwx   rwx --- ---   rwx r-x r-x   rw- r-- r--
+111 111 111   111 000 000   111 101 101   110 100 100 ─ binary
+─── ─── ─── ┃ ─── ─── ─── ┃ ─── ─── ─── ┃ ─── ─── ───
+ 7   7   7     7   0   0     7   5   5     6   4   4  ─ decimal
+</pre></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdbb3602" class="outline-3">
+<h3 id="orgdbb3602"><span class="section-number-3">1.8</span> Shell variables</h3>
+<div class="outline-text-3" id="text-1-8">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">PATH</span>
+<span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">PWD</span>
+<span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">HOME</span>
+<span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">USER</span>
+</pre>
+</div>
+<p>
+"<code>$</code>" &#x2014; Get the value of the variable. For example,
+</p>
+<ul class="org-ul">
+<li>"<code>$a</code>" is to get the value of variable "<code>a</code>";</li>
+<li>"<code>$PATH</code>" is to get the value of variable "<code>PATH</code>".</li>
+</ul>
+</div>
+
+<div id="outline-container-orgb205eb2" class="outline-4">
+<h4 id="orgb205eb2"><span class="section-number-4">1.8.1</span> PATH</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">PATH</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">Assign a new value to PATH</span>
+<span style="color: #a0522d;">PATH</span>=<span style="color: #8b2252;">"./:$PATH"</span> 
+<span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">PATH</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org042cf1a" class="outline-3">
+<h3 id="org042cf1a"><span class="section-number-3">1.9</span> Background and foreground jobs</h3>
+<div class="outline-text-3" id="text-1-9">
+<pre class="example">
+## To run a command in the background
+emacs &amp;
+google-chrome &amp;
+
+## Show background jobs:
+jobs
+
+## To push a foreground process into background
+# 1. type 'Ctrl-z' to put it into sleep. Then,
+# 2. bg jobnumber. For example,
+bg 1
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org47de80b" class="outline-3">
+<h3 id="org47de80b"><span class="section-number-3">1.10</span> Special files</h3>
+<div class="outline-text-3" id="text-1-10">
+</div>
+<div id="outline-container-org56562ea" class="outline-4">
+<h4 id="org56562ea"><span class="section-number-4">1.10.1</span> <code>/dev/null</code> &#x2014; A black hole!</h4>
+<div class="outline-text-4" id="text-1-10-1">
+<div class="org-src-container">
+<pre class="src src-sh">ls  &gt;  /dev/null
+<span style="color: #483d8b;">echo</span> hello &gt; /dev/null
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">You can output error messages into '/dev/null'.</span>
+<span style="color: #b22222;">## </span><span style="color: #b22222;">For example, if you do</span>
+cat no-this-file
+<span style="color: #b22222;"># </span><span style="color: #b22222;">you will see an error message saying:</span>
+<span style="color: #b22222;">#   </span><span style="color: #b22222;">cat: no-this-file: No such file or directory</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">If you do</span>
+cat no-this-file 2&gt;  /dev/null
+<span style="color: #b22222;"># </span><span style="color: #b22222;">the error message will go into the black hole --- /dev/null.</span>
+
+<span style="color: #b22222;"># </span><span style="color: #b22222;">learn more about /dev/null</span>
+man null
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5689cc2" class="outline-4">
+<h4 id="org5689cc2"><span class="section-number-4">1.10.2</span> <code>/dev/zero</code> &#x2014; A zero generator</h4>
+<div class="outline-text-4" id="text-1-10-2">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">To create a 1000KiB-sized empty file</span>
+dd <span style="color: #a0522d;">if</span>=/dev/zero <span style="color: #a0522d;">of</span>=/tmp/testfile <span style="color: #a0522d;">bs</span>=1k <span style="color: #a0522d;">count</span>=1000
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">learn more about dd</span>
+man dd
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org683f960" class="outline-4">
+<h4 id="org683f960"><span class="section-number-4">1.10.3</span> <code>/dev/random</code> &#x2014; A random number generator</h4>
+<div class="outline-text-4" id="text-1-10-3">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">to generate a random decimal number which is smaller than 1000.</span>
+<span style="color: #483d8b;">echo</span> $(( <span style="color: #ff00ff;">`od -An -N2 -i /dev/random`</span> % 1000 ))
+
+<span style="color: #b22222;"># </span><span style="color: #b22222;">learn more about /dev/random</span>
+man 4 random
+</pre>
+</div>
+<ul class="org-ul">
+<li><p>
+"<code>$((...))</code>" &#x2014; is for math calculation. For example,
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #483d8b;">echo</span> $((1+2))
+</pre>
+</div>
+<p>
+will give you "3".
+</p></li>
+<li><p>
+"<code>`...`</code>" &#x2014; The things between the quote (<code>`</code>) pair must be commands. For
+example,
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #483d8b;">echo</span> <span style="color: #ff00ff;">`ls`</span>
+</pre>
+</div>
+<p>
+The output of "<code>ls</code>" will be passed to <code>echo</code>.
+</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org393438a" class="outline-3">
+<h3 id="org393438a"><span class="section-number-3">1.11</span> Pipe &#x2014; Chaining commands together</h3>
+<div class="outline-text-3" id="text-1-11">
+<div class="org-src-container">
+<pre class="src src-sh">man ls | head
+man ls | head | tail -3
+cat file1 | head -20 | tee file5
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org58ed577" class="outline-3">
+<h3 id="org58ed577"><span class="section-number-3">1.12</span> Single-quotes and double-quotes</h3>
+<div class="outline-text-3" id="text-1-12">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #a0522d;">a</span>=alpha;  <span style="color: #a0522d;">b</span>=<span style="color: #8b2252;">"$a"</span>;  <span style="color: #a0522d;">c</span>=<span style="color: #8b2252;">'$a'</span>
+<span style="color: #483d8b;">echo</span>  a  b  c
+<span style="color: #483d8b;">echo</span>  $<span style="color: #a0522d;">a</span> $<span style="color: #a0522d;">b</span> $<span style="color: #a0522d;">c</span>
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">'$a $b $c'</span>
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"$a $b $c"</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>The special character between single quotes ('&#x2026;') will be printed as it is.</li>
+<li>The special character between double quotes ("&#x2026;") will be expended by bash.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1eb7689" class="outline-3">
+<h3 id="org1eb7689"><span class="section-number-3">1.13</span> Soft links and hard links</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+Still in your <code>homework</code> directory, do:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #483d8b;">cd</span> f-test; ls
+</pre>
+</div>
+<p>
+You should see the 9 useless files sitting there, right?
+</p>
+
+<p>
+Now, let's make a symbolic link of file <code>fa</code>, do:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ln -s fa fA &amp;&amp; ls -l f?
+</pre>
+</div>
+<p>
+You should see something like this:
+</p>
+<pre class="example">
+-rw-r--r-- 1 wx672 wx672 0 Sep 26 20:49 fa
+lrwxrwxrwx 1 wx672 wx672 2 Sep 27 18:45 fA -&gt; fa
+
+</pre>
+<p>
+This means <code>fA</code> is a symbolic link of <code>fa</code>. Now do:
+</p>
+<pre class="example">
+echo I am fa &gt; fa  # write something into 'fa'
+cat fA
+
+</pre>
+<p>
+Got the idea? A symbolic link (or soft link) is just like another name of a file.
+</p>
+
+<p>
+Now, let's try a hard link
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ln fa fAA; ls -li fa fA fAA
+</pre>
+</div>
+<p>
+You should see:
+</p>
+<pre class="example">
+8916937 -rw-r--r-- 2 wx672 wx672 8 Sep 26 20:49 fa
+8916955 lrwxrwxrwx 1 wx672 wx672 2 Sep 27 18:45 fA -&gt; fa
+8916937 -rw-r--r-- 2 wx672 wx672 8 Sep 26 20:49 fAA
+───┬───            ┬             ┬
+   │               │             │
+   │               │             └─── File size
+   │               └───────────────── Number of hard links
+   └───────────────────────────────── Inode number
+</pre>
+<p>
+A file is like a person
+</p>
+<ul class="org-ul">
+<li>Every people can have a lot of names, but he can have only one unique ID number.</li>
+<li>Every file can have a lot of names, but it can have only one unique ID number.
+<ul class="org-ul">
+<li><code>fa</code> and <code>fAA</code> are the same file, while</li>
+<li><code>fA</code> is another file linking to <code>fa</code>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgad3949c" class="outline-3">
+<h3 id="orgad3949c"><span class="section-number-3">1.14</span> finding a file</h3>
+<div class="outline-text-3" id="text-1-14">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">Within your HOME directory (~), find a file named 'fa':</span>
+find ~ -name fa
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">In /etc directory, find all the directories that named "rc*"</span>
+find  /etc  -type d -name <span style="color: #8b2252;">"rc*"</span>
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">In your HOME, find all the files that named "*~", and delete them</span>
+find ~ -name <span style="color: #8b2252;">"*~"</span> | xargs rm
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org1980480" class="outline-3">
+<h3 id="org1980480"><span class="section-number-3">1.15</span> grep &#x2014; finding matching lines in files</h3>
+<div class="outline-text-3" id="text-1-15">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">In file /etc/passwd, to find out the lines that have the string "stud" in it</span>
+grep stud /etc/passwd
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">What the following command do?</span>
+man cp | grep -B2 -A2 recur
+
+<span style="color: #b22222;"># </span><span style="color: #b22222;">you can "man grep" to find out the answer.</span>
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org549ce02" class="outline-3">
+<h3 id="org549ce02"><span class="section-number-3">1.16</span> Command alias</h3>
+<div class="outline-text-3" id="text-1-16">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #483d8b;">alias</span>
+<span style="color: #483d8b;">alias</span> <span style="color: #a0522d;">la</span>=<span style="color: #8b2252;">'ls -a'</span>
+<span style="color: #483d8b;">alias</span> <span style="color: #a0522d;">rm</span>=<span style="color: #8b2252;">'rm -i'</span>
+which rm
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgefac0e0" class="outline-3">
+<h3 id="orgefac0e0"><span class="section-number-3">1.17</span> <code>STDIN</code>, <code>STDOUT</code>, <code>STDERR</code>, and redirection (<code>&gt;</code>, <code>&gt;&gt;</code>, <code>&lt;</code>)</h3>
+<div class="outline-text-3" id="text-1-17">
+<ul class="org-ul">
+<li><code>STDIN</code>: keyboard input</li>
+<li><code>STDOUT</code>: screen output</li>
+<li><code>STDERR</code>: standard error, also output to screen</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc7c69c3" class="outline-4">
+<h4 id="orgc7c69c3"><span class="section-number-4">1.17.1</span> Redirect <code>STDOUT</code> to a file</h4>
+<div class="outline-text-4" id="text-1-17-1">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">Rather than output to screen (~STDOUT~), you can output to a file.</span>
+<span style="color: #b22222;">## </span><span style="color: #b22222;">For example</span>
+ls  &gt;  listing
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">In this case, the output of 'ls' is redirected to a file 'listing'.</span>
+<span style="color: #b22222;">## </span><span style="color: #b22222;">This is called "output redirection".</span>
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">More examples:</span>
+cat  listing  &gt;  listing2
+cat  listing*  &gt;  listing3
+cat  listing* &gt;&gt; listing3
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9eb0793" class="outline-4">
+<h4 id="org9eb0793"><span class="section-number-4">1.17.2</span> Redirect <code>STDIN</code> from a file</h4>
+<div class="outline-text-4" id="text-1-17-2">
+<p>
+Have you ever tried:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">cat
+Hello, world!
+Ctrl-d
+</pre>
+</div>
+<p>
+What happened is:
+</p>
+<ol class="org-ol">
+<li>After typing "<code>cat</code>" followed by <code>ENTER</code>, <code>cat</code> starts running, and expects your
+keyboard input (standard input);</li>
+<li>You key in "<code>Hello, world!</code>" (standard input);</li>
+<li><code>cat</code> reads from standard input (<code>STDIN</code>), and display it to <code>STDOUT</code>;</li>
+<li>You see another line of <code>Hello, world!</code> on the screen (standard output);</li>
+<li>You type "<code>Ctrl-d</code>" to quit from input.</li>
+</ol>
+
+<p>
+You don't have to always input from keyboard. For example,
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">cat &lt; listing
+</pre>
+</div>
+<p>
+In this case, rather than gets input from <code>STDIN</code>, <code>cat</code> gets input from a file
+"<code>listing</code>". This is called "input redirection".
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span class="linenr">1: </span><span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/</span><span style="color: #a020f0;">bash</span>
+<span class="linenr">2: </span><span style="color: #a020f0;">while  </span><span style="color: #483d8b;">read</span>  LINE
+<span class="linenr">3: </span><span style="color: #a020f0;">do</span>
+<span class="linenr">4: </span>  <span style="color: #a020f0;">case</span>  $<span style="color: #a0522d;">LINE</span> <span style="color: #a020f0;"> in</span>
+<span class="linenr">5: </span>  *root*)  <span style="color: #483d8b;">echo</span>  $<span style="color: #a0522d;">LINE</span> ;;
+<span class="linenr">6: </span>  *stud*)  <span style="color: #483d8b;">echo</span>  $<span style="color: #a0522d;">LINE</span> ;;
+<span class="linenr">7: </span>       *)  <span style="color: #483d8b;">echo</span>  <span style="color: #8b2252;">"I don't care."</span> ;;
+<span class="linenr">8: </span>  <span style="color: #a020f0;">esac</span>
+<span class="linenr">9: </span><span style="color: #a020f0;">done</span> &lt; /etc/passwd
+</pre>
+</div>
+
+<p>
+See "<code>&lt; /etc/passwd</code>"? This means the small <code>while</code> loop gets input from the file
+<code>/etc/passwd</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgef995b3" class="outline-4">
+<h4 id="orgef995b3"><span class="section-number-4">1.17.3</span> Redirect <code>STDERR</code> into a file</h4>
+<div class="outline-text-4" id="text-1-17-3">
+<p>
+If you do:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ls asfdsadsdasfdf
+</pre>
+</div>
+<p>
+Most probably you will see an error message like this:
+</p>
+<pre class="example">
+/bin/ls: cannot access 'asfdsadsdasfdf': No such file or directory
+
+</pre>
+<p>
+If you don't want the error message is displayed on the screen, you can save it to a
+file. For example,
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ls asfdsadsdasfdf 2&gt; errorlog
+cat errorlog
+</pre>
+</div>
+
+<p>
+Usually, both <code>STDERR</code> and <code>STDOUT</code> are output to the screen.
+</p>
+
+<ul class="org-ul">
+<li><p>
+If you do, for example,
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ls sdadsdssdf / &gt; log
+</pre>
+</div>
+<ul class="org-ul">
+<li>The content of the root directory (<code>/</code>) will go into the file "<code>log</code>", while</li>
+<li>The error message will be displayed on the screen.</li>
+</ul></li>
+<li><p>
+If you want both <code>STDERR</code> and <code>STDOUT</code> go into "<code>log</code>" file, you can do:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ls sdadsdssdf / &amp;&gt; log
+</pre>
+</div></li>
+<li><p>
+If you want only <code>STDERR</code> goes into <code>log</code> file, you should do:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ls sdadsdssdf / 2&gt; log
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3b1d87d" class="outline-3">
+<h3 id="org3b1d87d"><span class="section-number-3">1.18</span> Initial files (<code>.bashrc</code>, <code>.bash_profile</code>, <code>.profile</code>)</h3>
+<div class="outline-text-3" id="text-1-18">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">to edit a initial file</span>
+vim .bashrc
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">to active the change</span>
+<span style="color: #483d8b;">source</span> .bashrc
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+<span style="color: #483d8b;">.</span> .bashrc
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2b14821" class="outline-3">
+<h3 id="org2b14821"><span class="section-number-3">1.19</span> tar</h3>
+<div class="outline-text-3" id="text-1-19">
+<p>
+<code>tar</code> is for archiving files
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">tar  cvf  myarchive.tar  /etc/termcap  /etc/passwd
+tar  tvf  myarchive.tar
+tar  xvf  myarchive.tar
+<span style="color: #b22222;">## </span><span style="color: #b22222;">With compression:</span>
+tar  zcvf  myarchive.tgz  /etc/termcap  /etc/passwd
+tar  zxvf  myarchive.tgz
+tar  ztvf  myarchive.tgz
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1af57a5" class="outline-3">
+<h3 id="org1af57a5"><span class="section-number-3">1.20</span> gzip</h3>
+<div class="outline-text-3" id="text-1-20">
+<p>
+<code>gzip</code> is for compressing files
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">gzip file1
+zcat file1.gz
+gunzip file1.gz
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb4bbe1a" class="outline-3">
+<h3 id="orgb4bbe1a"><span class="section-number-3">1.21</span> Process info</h3>
+<div class="outline-text-3" id="text-1-21">
+<div class="org-src-container">
+<pre class="src src-sh">ps
+ps aux
+top
+top -b -n1 | grep bash
+w
+<span style="color: #483d8b;">kill</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0c75540" class="outline-3">
+<h3 id="org0c75540"><span class="section-number-3">1.22</span> System info</h3>
+<div class="outline-text-3" id="text-1-22">
+<div class="org-src-container">
+<pre class="src src-sh">mount
+uname -a
+dmesg
+lspci
+lsusb
+lsmod
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org709afe7" class="outline-3">
+<h3 id="org709afe7"><span class="section-number-3">1.23</span> Job scheduling</h3>
+<div class="outline-text-3" id="text-1-23">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">examples:</span>
+at  11:00
+at&gt;  date &gt;&gt; $<span style="color: #a0522d;">HOME</span>/date.out
+at&gt;  type CTRL-D to quit
+at -l
+man at
+
+crontab -e
+*/2 * * * * date  &gt;&gt;  $<span style="color: #a0522d;">HOME</span>/date.out
+crontab -l
+man crontab
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbf3c486" class="outline-3">
+<h3 id="orgbf3c486"><span class="section-number-3">1.24</span> Networking</h3>
+<div class="outline-text-3" id="text-1-24">
+<ul class="org-ul">
+<li><code>ifconfig</code>, <code>dhclient</code>, <code>ifup/down</code>, <code>ping</code>, <code>route</code>, <code>arp</code>, <code>netstat</code></li>
+<li><code>ip</code></li>
+<li><code>ssh</code>, <code>scp</code>, <code>rsync</code>, <code>nc</code>, <code>aria2c</code></li>
+<li><code>tcpdump</code>, <code>nmap</code></li>
+<li><code>iptables</code></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3666177" class="outline-2">
+<h2 id="org3666177"><span class="section-number-2">2</span> Bash Programming Examples</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org7fed866" class="outline-3">
+<h3 id="org7fed866"><span class="section-number-3">2.1</span> Shabang</h3>
+<div class="outline-text-3" id="text-2-1">
+<pre class="example">
+#!/bin/sh
+#!/bin/bash
+#!/usr/bin/python
+#!/usr/bin/php
+
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc8db3de" class="outline-3">
+<h3 id="orgc8db3de"><span class="section-number-3">2.2</span> <code>for</code> VAR <code>in</code> LIST; <code>do</code> SOMETHING; <code>done</code></h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">Example 1:</span>
+<span style="color: #a020f0;">for</span> ((<span style="color: #a0522d;">i</span>=1;i&lt;6;i++)); <span style="color: #a020f0;">do </span><span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">i</span>; <span style="color: #a020f0;">done</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+<span style="color: #a020f0;">for</span> i<span style="color: #a020f0;"> in</span> 1 2 3 4 5; <span style="color: #a020f0;">do </span><span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">i</span>; <span style="color: #a020f0;">done</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+<span style="color: #a020f0;">for</span> i<span style="color: #a020f0;"> in</span> <span style="color: #ff00ff;">`seq 5`</span>; <span style="color: #a020f0;">do </span><span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">i</span>; <span style="color: #a020f0;">done</span>
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">Example 2:</span>
+<span style="color: #a020f0;">for</span> i<span style="color: #a020f0;"> in</span> 1 2 3 4 5; <span style="color: #a020f0;">do </span><span style="color: #483d8b;">echo</span> $((i*i)); <span style="color: #a020f0;">done</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+<span style="color: #a020f0;">for</span> ((<span style="color: #a0522d;">i</span>=1;i&lt;6;i++)); <span style="color: #a020f0;">do </span><span style="color: #483d8b;">echo</span> $((i*i)); <span style="color: #a020f0;">done</span>
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">Example 3:</span>
+<span style="color: #a020f0;">for</span> i<span style="color: #a020f0;"> in</span> 1 2 3 4 5; <span style="color: #a020f0;">do</span> <span style="color: #a0522d;">j</span>=$((i*i)); <span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">i</span> $<span style="color: #a0522d;">j</span>; <span style="color: #a020f0;">done</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+<span style="color: #a020f0;">for</span> ((<span style="color: #a0522d;">i</span>=1;i&lt;6;i++)); <span style="color: #a020f0;">do</span> <span style="color: #a0522d;">j</span>=$((i*i)); <span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">i</span> $<span style="color: #a0522d;">j</span>; <span style="color: #a020f0;">done</span>
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">Example 4:</span>
+<span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/bash</span>
+<span style="color: #a020f0;">for</span> f<span style="color: #a020f0;"> in</span> /home/students/*
+<span style="color: #a020f0;">do</span>
+  du -cks $<span style="color: #a0522d;">f</span> | grep -v total
+<span style="color: #a020f0;">done</span> | sort -n | tail -10
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">Example 5:</span>
+<span style="color: #a020f0;">for</span> f<span style="color: #a020f0;"> in</span> *jpg
+<span style="color: #a020f0;">do</span>
+  convert $<span style="color: #a0522d;">f</span> -resize 1280x <span style="color: #8b2252;">\</span>
+           -gravity center <span style="color: #8b2252;">\</span>
+           -crop 1280x768+0+0 <span style="color: #8b2252;">\</span>
+           <span style="color: #ff00ff;">`basename $f .jpg`</span>-1280x768.jpg
+<span style="color: #a020f0;">done</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0b21aec" class="outline-3">
+<h3 id="org0b21aec"><span class="section-number-3">2.3</span> <code>if</code> TEST; <code>then</code> COMMANDS; <code>else</code> OTHERCOMMANDS; <code>fi</code></h3>
+<div class="outline-text-3" id="text-2-3">
+</div>
+<div id="outline-container-org3229713" class="outline-4">
+<h4 id="org3229713"><span class="section-number-4">2.3.1</span> Comparisons</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">## </span><span style="color: #b22222;">Example 1:</span>
+<span style="color: #a020f0;">if</span> [ $<span style="color: #a0522d;">a</span> -lt 10 ];   <span style="color: #a020f0;">then</span> <span style="color: #a0522d;">a</span>=$(($<span style="color: #a0522d;">a</span>+1)); <span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">a</span>; <span style="color: #a020f0;">else </span><span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"a is too large."</span>; <span style="color: #a020f0;">fi</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+<span style="color: #a020f0;">if</span> [[ $<span style="color: #a0522d;">a</span> -lt 10 ]]; <span style="color: #a020f0;">then</span> <span style="color: #a0522d;">a</span>=$(($<span style="color: #a0522d;">a</span>+1)); <span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">a</span>; <span style="color: #a020f0;">else </span><span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"a is too large."</span>; <span style="color: #a020f0;">fi</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+<span style="color: #a020f0;">if</span> ((<span style="color: #8b2252;">"$a"</span> &lt; 10));   <span style="color: #a020f0;">then</span> <span style="color: #a0522d;">a</span>=$(($<span style="color: #a0522d;">a</span>+1)); <span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">a</span>; <span style="color: #a020f0;">else </span><span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"a is too large."</span>; <span style="color: #a020f0;">fi</span>
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">Example 2:</span>
+<span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/bash</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">This is a simple string comparision script.</span>
+<span style="color: #b22222;">#</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">1. Use '[[' instead of '[' whenever possible.</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">2. Don't use '[  ]' with '&lt;', '&gt;'.</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">3. '-eq -le -ge -lt -gt' are for arithmetic comparisons</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">4. '&lt; &gt;' for string comparisons</span>
+<span style="color: #b22222;">#</span>
+<span style="color: #a020f0;">if</span> [ -z <span style="color: #8b2252;">"$2"</span> ]; <span style="color: #a020f0;">then</span>
+    <span style="color: #483d8b;">echo</span> Usage: $<span style="color: #a0522d;">0</span> <span style="color: #8b2252;">'&lt;string1&gt; &lt;string2&gt;'</span>
+<span style="color: #a020f0;">elif</span> [[ <span style="color: #8b2252;">"$1"</span> &gt; <span style="color: #8b2252;">"$2"</span> ]]; <span style="color: #a020f0;">then</span>
+    <span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">1</span> is bigger than $<span style="color: #a0522d;">2</span>.
+<span style="color: #a020f0;">elif</span> [[ <span style="color: #8b2252;">"$1"</span> = <span style="color: #8b2252;">"$2"</span> ]]; <span style="color: #a020f0;">then</span>
+    <span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">1</span> is equal to $<span style="color: #a0522d;">2</span>.
+<span style="color: #a020f0;">else</span>
+    <span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">1</span> is smaller than $<span style="color: #a0522d;">2</span>.
+<span style="color: #a020f0;">fi</span>
+
+<span style="color: #b22222;">## </span><span style="color: #b22222;">Example 3:</span>
+<span style="color: #a020f0;">if</span> [[ $(<span style="color: #ff00ff;">ls</span> | wc -l) -gt 10 ]]; <span style="color: #a020f0;">then </span><span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"messy!"</span>; <span style="color: #a020f0;">else </span><span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"clean!"</span>; <span style="color: #a020f0;">fi</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li><a href="http://www.tldp.org/LDP/abs/html/comparison-ops.html">Other Comparison Operators</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org89abeac" class="outline-4">
+<h4 id="org89abeac"><span class="section-number-4">2.3.2</span> Test exit status</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/</span><span style="color: #a020f0;">bash</span>
+<span style="color: #a020f0;">for</span> f<span style="color: #a020f0;"> in</span> *.sh
+<span style="color: #a020f0;">do</span>
+    <span style="color: #a020f0;">if</span> grep -q while $<span style="color: #a0522d;">f</span>; <span style="color: #a020f0;">then</span>
+    <span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"$f: while loop found\!"</span>
+    <span style="color: #a020f0;">else</span>
+    <span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"$f: no while loop."</span>
+    <span style="color: #a020f0;">fi</span>
+<span style="color: #a020f0;">done</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge7c588e" class="outline-4">
+<h4 id="orge7c588e"><span class="section-number-4">2.3.3</span> See your <code>.bash_profile</code></h4>
+<div class="outline-text-4" id="text-2-3-3">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;"># </span><span style="color: #b22222;">include .bashrc if it exists</span>
+<span style="color: #a020f0;">if</span> [ -f ~/.bashrc ]; <span style="color: #a020f0;">then</span>
+   <span style="color: #483d8b;">.</span> ~/.bashrc
+<span style="color: #a020f0;">fi</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">set PATH so it includes user's private bin if it exists</span>
+<span style="color: #a020f0;">if</span> [ -d ~/bin ] ; <span style="color: #a020f0;">then</span>
+   <span style="color: #a0522d;">PATH</span>=~/bin:<span style="color: #8b2252;">"${PATH}"</span>
+<span style="color: #a020f0;">fi</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcb8ac57" class="outline-3">
+<h3 id="orgcb8ac57"><span class="section-number-3">2.4</span> <code>while</code> CONDITION; <code>do</code> SOMETHING; <code>done</code></h3>
+<div class="outline-text-3" id="text-2-4">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #a020f0;">while</span> true; <span style="color: #a020f0;">do</span> mpg123 song.mp3; <span style="color: #a020f0;">done</span>
+<span style="color: #b22222;"># </span><span style="color: #b22222;">or</span>
+<span style="color: #a020f0;">while</span> true; <span style="color: #a020f0;">do</span> mpg123 <span style="color: #ff00ff;">`find ~/ -iname "*.mp3"`</span>; <span style="color: #a020f0;">done</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/</span><span style="color: #a020f0;">bash</span>
+<span style="color: #a0522d;">x</span>=0 
+<span style="color: #a020f0;">while</span> [ $<span style="color: #a0522d;">x</span> -lt 10 ]        <span style="color: #b22222;">#  </span><span style="color: #b22222;">[ ]</span>
+<span style="color: #a020f0;">do</span> 
+    <span style="color: #a0522d;">y</span>=$<span style="color: #a0522d;">x</span> 
+    <span style="color: #a020f0;">while</span> [[ $<span style="color: #a0522d;">y</span> -ge 0 ]]   <span style="color: #b22222;">#  </span><span style="color: #b22222;">[[ ]]</span>
+    <span style="color: #a020f0;">do</span> 
+    <span style="color: #483d8b;">echo</span> -n $<span style="color: #a0522d;">y</span>         <span style="color: #b22222;"># </span><span style="color: #b22222;">no newline</span>
+    <span style="color: #a0522d;">y</span>=$((y-1))         <span style="color: #b22222;"># </span><span style="color: #b22222;">y--</span>
+    <span style="color: #a020f0;">done</span> 
+    <span style="color: #483d8b;">echo</span> 
+    <span style="color: #a0522d;">x</span>=<span style="color: #ff00ff;">`echo "$x + 1" | bc`</span> <span style="color: #b22222;"># </span><span style="color: #b22222;">x++</span>
+<span style="color: #a020f0;">done</span> 
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org200ef55" class="outline-4">
+<h4 id="org200ef55"><span class="section-number-4">2.4.1</span> <code>read</code> &#x2014; Read a line from STDIN</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #a020f0;">while </span><span style="color: #483d8b;">read</span> LINE; <span style="color: #a020f0;">do </span><span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"what I typed is: $LINE"</span>; <span style="color: #a020f0;">done</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/</span><span style="color: #a020f0;">bash</span>
+<span style="color: #a020f0;">while </span><span style="color: #483d8b;">read</span> LINE
+<span style="color: #a020f0;">do</span>
+    <span style="color: #a020f0;">case</span> $<span style="color: #a0522d;">LINE</span><span style="color: #a020f0;"> in</span>  
+        *root*) <span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">LINE</span> ;;
+    *stud*) <span style="color: #483d8b;">echo</span> $<span style="color: #a0522d;">LINE</span> ;;
+    *) <span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"I don't care."</span> ;;
+    <span style="color: #a020f0;">esac</span> 
+<span style="color: #a020f0;">done</span> &lt; /etc/passwd 
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc6bd5b6" class="outline-3">
+<h3 id="orgc6bd5b6"><span class="section-number-3">2.5</span> <code>case</code> VAR <code>in</code> PATTERN) COMMANDS ;; <code>esac</code></h3>
+<div class="outline-text-3" id="text-2-5">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/</span><span style="color: #a020f0;">bash</span>
+<span style="color: #483d8b;">printf</span> <span style="color: #8b2252;">"Play a game?"</span> 
+<span style="color: #483d8b;">read</span> YN 
+<span style="color: #a020f0;">case</span> $<span style="color: #a0522d;">YN</span><span style="color: #a020f0;"> in</span> 
+  [yY]|[yY][eE][sS]) <span style="color: #a020f0;">exec</span> bb ;; 
+          *) <span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"Maybe later."</span> ;; 
+<span style="color: #a020f0;">esac</span> 
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/</span><span style="color: #a020f0;">bash</span>
+<span style="color: #a0522d;">YN</span>=yes 
+<span style="color: #483d8b;">printf</span> <span style="color: #8b2252;">"Play a game?[$YN]"</span> 
+<span style="color: #483d8b;">read</span> YN 
+: ${<span style="color: #a0522d;">YN</span>:=yes}
+<span style="color: #a020f0;">case</span> $<span style="color: #a0522d;">YN</span><span style="color: #a020f0;"> in</span> 
+  [yY]|[yY][eE][sS]) <span style="color: #a020f0;">exec</span> bb ;; 
+          *) <span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"Maybe later."</span> ;; 
+<span style="color: #a020f0;">esac</span> 
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5decd4e" class="outline-3">
+<h3 id="org5decd4e"><span class="section-number-3">2.6</span> Command line arguments (<code>$0, $1, $2...</code>, <code>$#, $@</code>)</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+An example C program:
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">argc</span>, <span style="color: #228b22;">char</span> *<span style="color: #a0522d;">argv</span>[])
+{
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>;
+  printf(<span style="color: #8b2252;">"You said:\n\t"</span>);
+
+  <span style="color: #a020f0;">for</span>(i=1; i&lt;argc; i++)
+    printf(<span style="color: #8b2252;">"%s "</span>,argv[i]);
+
+  printf(<span style="color: #8b2252;">"\n\n\targc = %d\n"</span>, argc);
+
+  <span style="color: #a020f0;">for</span>(i=0; i&lt;argc; i++)
+    printf(<span style="color: #8b2252;">"\targv[%d] = %s\n"</span>,i,argv[i]);
+
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+
+<p>
+An equivalent bash script:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/</span><span style="color: #a020f0;">bash</span>
+
+<span style="color: #483d8b;">echo</span> <span style="color: #8b2252;">"You said:"</span>
+
+<span style="color: #483d8b;">echo</span> -e <span style="color: #8b2252;">"\t$@"</span>
+<span style="color: #483d8b;">echo</span>
+<span style="color: #483d8b;">echo</span> -e <span style="color: #8b2252;">"\targc = $#"</span>
+<span style="color: #483d8b;">echo</span> -e <span style="color: #8b2252;">"\targv[0] = $0"</span>
+
+<span style="color: #a0522d;">i</span>=1
+<span style="color: #a020f0;">for</span> arg<span style="color: #a020f0;"> in</span> $<span style="color: #a0522d;">@</span>; <span style="color: #a020f0;">do</span>
+    <span style="color: #b22222;"># </span><span style="color: #b22222;">printf "arg[$i] is %s\n" "$arg"</span>
+    <span style="color: #483d8b;">echo</span> -e <span style="color: #8b2252;">"\targv[$i] = $arg"</span>
+    <span style="color: #483d8b;">let</span> i++
+<span style="color: #a020f0;">done</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org51288d7" class="outline-3">
+<h3 id="org51288d7"><span class="section-number-3">2.7</span> Arrays</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+Set random wallpaper:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/</span><span style="color: #a020f0;">bash</span>
+<span style="color: #b22222;">### </span><span style="color: #b22222;">demonstrate ARRAY and RANDOM ###</span>
+
+<span style="color: #a0522d;">files</span>=($<span style="color: #a0522d;">HOME</span>/pics/2009summer/wallpapers/2009summer-1280x768/*.jpg)
+
+<span style="color: #b22222;"># </span><span style="color: #b22222;">get the length of array ${files[@]}</span>
+<span style="color: #a0522d;">n</span>=${#<span style="color: #a0522d;">files</span>[@]}
+
+<span style="color: #b22222;"># </span><span style="color: #b22222;">get a random array element</span>
+<span style="color: #a0522d;">wallpaper</span>=<span style="color: #8b2252;">"${files[RANDOM % n]}"</span>
+
+<span style="color: #b22222;"># </span><span style="color: #b22222;">set it as wallpaper</span>
+qiv -z $<span style="color: #a0522d;">wallpaper</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7e688c9" class="outline-3">
+<h3 id="org7e688c9"><span class="section-number-3">2.8</span> GUI</h3>
+<div class="outline-text-3" id="text-2-8">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #b22222;">#</span><span style="color: #b22222;">!/bin/</span><span style="color: #a020f0;">bash</span>
+<span style="color: #a020f0;">while</span> <span style="color: #a0522d;">NAME</span>=<span style="color: #ff00ff;">`zenity --entry --text="Your name?"`</span> 
+<span style="color: #a020f0;">do</span>
+    zenity --info --text=<span style="color: #8b2252;">"Hello, $NAME\!"</span>
+<span style="color: #a020f0;">done</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2ca60ea" class="outline-3">
+<h3 id="org2ca60ea"><span class="section-number-3">2.9</span> <code>/etc/init.d/*</code></h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+Check files in <code>/etc/init.d/</code> directory to see how shell scripts can be used seriously.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: WANG Xiaolin</p>
+<p class="date">Created: 2018-11-30 Fri 13:00</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 25.2.2 (<a href="https://orgmode.org">Org</a> mode 9.1.14)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

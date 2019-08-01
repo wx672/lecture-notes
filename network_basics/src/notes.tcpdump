@@ -1,0 +1,2 @@
+watch -d -n0 "netstat -tapn | grep 12345"
+sudo tcpdump -i lo -SX port 12345

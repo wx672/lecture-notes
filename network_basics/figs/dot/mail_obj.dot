@@ -1,0 +1,9 @@
+digraph mail_msg {
+	node [shape=plaintext];
+	rankdir=LR;
+	"a mail\nobject" -> {"a mail\nenvelope";"mail\ncontent"}
+	"a mail\nenvelope" -> {"an orig_addr";"rcpt_addrs";other
+	[label="..."]}
+	"mail\ncontent" -> {"headers";"body"}
+	"headers" -> {"orig-date";"from";"to";"..."}
+}

@@ -1,0 +1,27 @@
+\documentclass[varwidth=25cm,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+                                ┌─────────────┐
+                                │ Application │
+                                │   message   │
+                    ┌───────────┼─────────────┤
+                    │ Transport │ Application │
+                    │  header   │   message   │
+           ┌────────┼───────────┴─────────────┤
+           │   IP   │       Transport         │
+           │ header │        message          │
+┌──────────┼────────┴─────────────────────────┤
+│ Ethernet │                IP                │
+│  header  │              packet              │
+└──────────┴──────────────────────────────────┘
+│<──────────── Ethernet frame ───────────────>│
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

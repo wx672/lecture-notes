@@ -1,0 +1,23 @@
+\documentclass[varwidth,crop]{standalone}
+\begin{document}
+\begin{verbatim}
+     ,--------> inode number
+     |   ,---> record length
+     |   | ,---> name length
+     |   | | ,---> file type
+     |   | | |   ,----> name
+  +----+--+-+-+----+
+0 | 21 |12|1|2|.   |
+  +----+--+-+-+----+
+12| 22 |12|2|2|..  |
+  +----+--+-+-+----+----+
+24| 53 |16|5|2|hell|o   |
+  +----+--+-+-+----+----+
+40| 67 |28|3|2|usr |
+  +----+--+-+-+----+----+
+52| 0  |16|7|1|oldf|ile |
+  +----+--+-+-+----+----+
+68| 34 |12|4|2|sbin|
+  +----+--+-+-+----+
+\end{verbatim}
+\end{document}

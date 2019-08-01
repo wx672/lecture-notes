@@ -1,0 +1,25 @@
+* Size matters
+** Ethernet frame
+   - Min: (+ 6 6 2 46 4) = 64
+   - Max: (+ 6 6 2 1500 4) = 1518
+   - MTU: 1500
+** IP packet
+   - Min: 20
+   - Max: 64k
+   - PMTU: > 576
+** TCP segment
+   - Window size: 64k
+   - Often: 1460
+   - Min: 20
+   - MSS: 536 (default)
+** UDP datagram
+* Checksum
+  - \cite[Sec.~5.6, p.~464]{ast-net} The argument against checksums was that any application that really cares about data
+    integrity has to have a transport layer checksum anyway, so having another one in IP (in
+    addition to the data link layer checksum) is overkill. Furthermore, experience showed
+    that computing the IP checksum was a major expense in IPv4. The antichecksum camp won
+    this one, and IPv6 does not have a checksum.
+  - http://networkengineering.stackexchange.com/questions/5191/why-are-there-checksums-for-different-osi-layers
+  - http://stackoverflow.com/questions/4835996/why-there-is-separate-checksum-in-tcp-and-ip-headers
+
+  

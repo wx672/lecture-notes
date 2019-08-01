@@ -1,0 +1,460 @@
+#+TITLE:     《操作系统原理》教案
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+DATE:      2012-08-15 Wed
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  cn
+#+OPTIONS:   H:4 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+# (setq org-export-html-use-infojs nil)
+
+#+LaTeX: \clearpage
+- 课程名称: 操作系统原理
+- 面向专业: 计算机相关本科专业
+- 教材参考：
+  1. A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
+  2. Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley & Sons, 2011.
+- 授课学期：大三第一学期
+- 任课教师：王晓林
+- 编写时间：[2012-08-15 Wed]
+* 操作系统简介
+** 教学目标及基本要求
+   了解什么是操作系统，及相关基本概念。
+** 教学内容及学时分配
+   - [[./slides/intro-a.pdf][讲义]]
+   - [[./slides/intro-b.pdf][幻灯片]]
+   - [[./lab.html#sec-3][作业]]
+*** What's an OS? (0.5h)
+**** 教学内容（具体到知识点）
+     - Resource manager
+     - Control program
+     - System goals -- convenient vs. efficient
+     - History of OS
+     - Various OSes
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+     课堂讲授，课后答疑
+*** OS services (0.5h)
+**** 教学内容（具体到知识点）
+     - Helping the user
+     - Keeping the system efficient
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+     课堂讲授，课后答疑
+*** Bootstrapping (1h)
+**** 教学内容（具体到知识点）
+     - Intel x86 bootstrapping
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+     课堂讲授，课后答疑
+*** Hardware (0.5h)
+**** 教学内容（具体到知识点）
+     - CPU working cycle
+     - CPU registers
+     - System bus
+     - Controllers and Peripherals 
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Interrupt (1h)
+**** 教学内容（具体到知识点）
+     - Why interrupt?
+     - Interrupt timeline
+     - Concepts: 
+       - hardware interrupt
+       - software interrupt
+       - trap
+       - interrupt vector
+     - Interrupt processing
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** System calls (1h)
+**** 教学内容（具体到知识点）
+     - What's a system call?
+     - How a system call works?
+     - Various system calls
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - Bootstrapping
+   - Interrupt
+   - System calls
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   - 理论 + 实验
+** 参考书目						   :noexport:
+** 思考题和习题							   :noexport:
+* 进程与线程
+** 教学目标及基本要求
+   了解进程和线程相关的基本概念。
+** 教学内容及学时分配
+  - [[./slides/process-thread-a.pdf][讲义]]
+  - [[./slides/process-thread-b.pdf][幻灯片]]
+  - [[./lab.html#sec-4][作业]]
+*** What's a process? (.5h)
+**** 教学内容（具体到知识点）
+     - logical view of a process
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Process creation (1h)
+**** 教学内容（具体到知识点）
+     - fork(), exec(), wait(), exit()
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Process state (.5h)
+**** 教学内容（具体到知识点）
+     - running, blocked, ready
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Process Control Block(PCB) (1h)
+**** 教学内容（具体到知识点）
+     - How to describe a process?
+     - =task_struct= in Linux
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** CPU switch from process to process (.5h)
+**** 教学内容（具体到知识点）
+     - The OS role in process switch
+**** 教学方式（手段）
+**** 师生活动设计						   :noexport:
+*** Processes vs. threads (.5h)
+**** 教学内容（具体到知识点）
+     - A process is a unit of resource ownership
+     - A thread is a unit of scheduling
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Why thread? (.5)
+**** 教学内容（具体到知识点）
+     - Advantages 
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Thread characteristics (.5)
+**** 教学内容（具体到知识点）
+     - Thread state
+     - A thread has its own stack
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Thread operation and POSIX threads (1h)
+**** 教学内容（具体到知识点）
+     - Thread library calls
+     - POSIX threads examples
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** User-level threads vs. kernel-level threads (.5h)
+**** 教学内容（具体到知识点）
+     - pros and cons
+     - Hybrid implementations
+     - Programming complications
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Linux threads (1h)
+**** 教学内容（具体到知识点）
+     - clone()
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - 进程的一生
+   - 线程的一生
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目							   :noexport:
+** 思考题和习题
+* 进程间同步
+** 教学目标及基本要求
+   了解进程间协调的基本概念和方法。
+** 教学内容及学时分配
+  - [[./slides/process-sync-a.pdf][讲义]]
+  - [[./slides/process-sync-b.pdf][幻灯片]]
+  - [[./lab.html#sec-4-3][作业]]
+*** Inter-process communication (.5h)
+**** 教学内容（具体到知识点）
+     - IPC issues
+     - Two models of IPC
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Shared memory (1h)
+**** 教学内容（具体到知识点）
+     - Producer-consumer problem
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Race condition and mutual exclusion (2h)
+**** 教学内容（具体到知识点）
+     - Race scenarios
+     - Critical regions
+     - Algorithms: 
+       - busy-waiting
+	 - disable interrupts 
+	 - Peterson's algorithm
+	 - Hardware solution --- TSL instruction
+       - No busy-waiting
+	 - sleep/wake up
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Semaphores (2h)
+**** 教学内容（具体到知识点）
+     - What's a semaphore?
+     - Why semaphore?
+     - How to use semaphore?
+     - Mutex
+     - Barriers
+     - Examples
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Monitors (1h)
+**** 教学内容（具体到知识点）
+     - What's a monitor?
+     - Examples
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Message passing (1h)
+**** 教学内容（具体到知识点）
+     - What's messaging?
+     - Examples
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计
+*** Classical IPC problems (2h)
+**** 教学内容（具体到知识点）
+     - The dining philosophers problem
+     - The readers-writers problem
+     - The sleeping barber problem
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - Semaphores
+   - Classical IPC problems
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目							   :noexport:
+** 思考题和习题
+* CPU调度
+** 教学目标及基本要求
+   了解进程调度的基本算法
+** 教学内容及学时分配
+  - [[./slides/cpu-sched-a.pdf][讲义]]
+  - [[./slides/cpu-sched-b.pdf][幻灯片]]
+*** Scheduling introduction (1h)
+**** 教学内容（具体到知识点）
+     - Process scheduling queues
+     - Different system has different scheduling algorithm
+     - Process behavior
+     - Process classification
+     - Process schedulers
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Scheduling algorithms (1h)
+**** 教学内容（具体到知识点）
+     - Scheduling in batch systems
+     - Scheduling in interactive systems
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Thread scheduling (.5h)
+**** 教学内容（具体到知识点）
+     - kernel-threads vs. user-threads
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Linux scheduling (1h)
+**** 教学内容（具体到知识点）
+     - 140 priorities
+     - O(1)
+     - active array, expired array
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - Scheduling algorithms
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目							   :noexport:
+** 思考题和习题
+* 死锁
+** 教学目标及基本要求
+   了解死锁产生的原因和处理方法。
+** 教学内容及学时分配
+  - [[./slides/deadlock-a.pdf][讲义]]
+  - [[./slides/deadlock-b.pdf][幻灯片]]
+*** Resources (.5h)
+**** 教学内容（具体到知识点）
+     - Processes need access to resources in reasonable order
+     - Preemptable and non-preemptable resources
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Introduction to deadlock (.5h)
+**** 教学内容（具体到知识点）
+     - four conditions
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Deadlock modeling (.5h)
+**** 教学内容（具体到知识点）
+     - resource requirements graph
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Dealing with deadlocks (2h)
+**** 教学内容（具体到知识点）
+     - Deadlock detection and recovery
+     - Deadlock avoidance
+     - Deadlock prevention
+     - The ostrich algorithm
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - 死锁处理方法
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目							   :noexport:
+** 思考题和习题
+* 内存管理
+** 教学目标及基本要求
+   了解内存管理的相关概念
+** 教学内容及学时分配
+  - [[./slides/mm-a.pdf][讲义]]
+  - [[./slides/mm-b.pdf][幻灯片]]
+  - [[./lab.html#sec-5][作业]]
+*** Real-mode vs. protected-mode memory management (1.5h)
+**** 教学内容（具体到知识点）
+     - Relocation problem
+     - Process' memory is divided into logical segments
+     - Memory allocation, who/when/how?
+     - Swapping
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Contiguous memory allocation (.5h)
+**** 教学内容（具体到知识点）
+     - first-fit, best-fit, worst-fit
+     - internal-fragmentation, external-fragmentation
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Virtual memory (5h)
+**** 教学内容（具体到知识点）
+     - Logical memory vs. physical memory
+     - Paging
+       - Demand paging
+       - Copy-on-write
+       - Memory-mapped file
+       - Page replacement algorithm
+       - Allocation of frames
+       - Thrashing and working set model
+     - Segmentation
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - Virtual memory
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目							   :noexport:
+** 思考题和习题
+* 文件系统
+** 教学目标及基本要求
+   了解文件系统的基本工作原理
+** 教学内容及学时分配
+  - [[./slides/fs-a.pdf][讲义]]
+  - [[./slides/fs-b.pdf][幻灯片]]
+  - [[./lab.html#sec-6][作业]]
+*** Files (1.5h)
+**** 教学内容（具体到知识点）
+     - What's a file?
+     - File system design issues
+     - File system models --- layered design
+     - File attributes and types
+     - File operations
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Directories (1h)
+**** 教学内容（具体到知识点）
+     - Single level, multi-level directories
+     - Operations
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** File system implementation (3h)
+**** 教学内容（具体到知识点）
+     - File system layout
+     - Implementing files
+       - Linked-list allocation
+       - Indexed allocation
+     - Implementing directories
+     - Shared files
+     - Disk space management
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Ext2 file system (1.5h)
+**** 教学内容（具体到知识点）
+     - Ext2 fs layout
+     - Ext2 superblock
+     - Ext2 inode
+     - Ext2 directory
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Virtual file system (1.5h)
+**** 教学内容（具体到知识点）
+     - Why VFS? 
+     - FS mounting
+     - Linux VFS
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - File system implementation
+   - Ext2 FS
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目
+** 思考题和习题
+
+# +BIBLIOGRAPHY: os plain limit:t option:-u
+   
+#+BEGIN_LaTeX
+\bibliographystyle{plain}
+\bibliography{os}
+#+END_LaTeX
+   

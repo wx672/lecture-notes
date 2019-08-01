@@ -1,0 +1,13 @@
+\documentclass[varwidth=30.5em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+unsigned long hash_long(unsigned long val, unsigned int bits)
+{
+    unsigned long hash = val * 0x9e370001UL;
+    return hash >> (32 - bits);
+}
+\end{ccode}
+\end{document}

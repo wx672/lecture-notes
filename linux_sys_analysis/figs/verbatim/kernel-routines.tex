@@ -1,0 +1,19 @@
+\documentclass[varwidth=50em,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+         ┌─────────┐     ┌─────────┐     ┌─────────┐
+         │ Process │     │ Process │     │ Process │
+         └────┬────┘     └────┬────┘     └────┬────┘
+              │ System        │ Timer         │ Device
+  User Mode   │ call          │ Interrupt     │ Interrupt 
+──────────────│───────────────│───────────────│──────────
+Kernel Mode   │               │               │ 
+              v               v               v
+       ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+       │ System call │ │  Scheduler  │ │ System call │
+       │   handler   │ │             │ │   handler   │
+       └─────────────┘ └─────────────┘ └─────────────┘
+\end{verbatim}
+\end{document}

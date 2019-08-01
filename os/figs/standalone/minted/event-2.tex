@@ -1,0 +1,43 @@
+\documentclass[varwidth=35em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{minipage}{.35\linewidth}
+\vspace{1em}
+\begin{pythoncode}
+event = waitForEvent()
+mutex.wait()
+    buffer.add(event)
+    items.signal()
+mutex.signal()
+\end{pythoncode}
+or,
+\begin{pythoncode}
+event = waitForEvent()
+mutex.wait()
+    buffer.add(event)
+mutex.signal()
+items.signal()      
+\end{pythoncode}
+\end{minipage}\qquad
+\begin{minipage}{.38\linewidth}
+\vspace{1em}
+\begin{pythoncode}
+items.wait()
+mutex.wait()
+    event = buffer.get()
+mutex.signal()
+event.process()
+\end{pythoncode}
+or,
+\begin{pythoncode}
+mutex.wait()
+    items.wait()
+    event = buffer.get()
+mutex.signal()
+event.process()
+\end{pythoncode}
+\end{minipage}
+\end{document}

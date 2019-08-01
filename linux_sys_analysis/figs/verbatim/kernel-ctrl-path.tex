@@ -1,0 +1,23 @@
+\documentclass[varwidth=55em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+┌──────┐          ┌──────┐                            ┌──────┐
+│ User │          │ User │                            │ User │
+└──────┘↓        ↑└──────┘↓                          ↑└──────┘  user mode
+────────↓────────↑────────↓──────────────────────────↑───────────────────
+        ↓┌──────┐↑        ↓┌──────┐          ┌──────┐↑        kernel mode
+         │ Excp │          │ Intr │          │ Intr │
+         └──────┘          └──────┘↓        ↑└──────┘
+                                   ↓        ↑
+                                   ↓┌──────┐↑
+                                    │ Intr │
+                                    └──────┘
+➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ ➤ Time ➤ ➤ ➤ ➤
+\end{verbatim}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% End:

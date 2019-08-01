@@ -1,0 +1,15 @@
+\documentclass[varwidth=10.2em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{gascode}
+xorl %eax, %eax
+movl $_edata, %edi
+movl $_end, %ecx
+subl %edi, %ecx
+cld
+rep
+stosb
+\end{gascode}
+\end{document}

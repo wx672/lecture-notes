@@ -1,0 +1,36 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t broken-links:nil
+#+OPTIONS: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t title:t toc:t
+#+OPTIONS: todo:t |:t
+#+TITLE: A keyboard is more important than a mouse
+#+DATE: <2018-09-10 Mon>
+#+AUTHOR: WANG Xiaolin
+#+EMAIL: wx672@localhost.localdomain
+#+LANGUAGE: cn
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.2.2 (Org mode 9.1.14)
+
+In the computer world, you can live without a mouse, but you can't live without a
+keyboard. For example, as a general user, can you write an email entirely with a mouse?
+Well, maybe you can do it with an on screen virtual keyboard. Do you really enjoy that?
+
+As a sys-admin who maintains bunch of network servers, do you prefer using a mouse
+to manage the remote servers? If so, I don't think you are a good sys-admin. Why?
+   
+1) System stability. To support mouse clicking, the remote servers must have GUI programs
+   installed. But, as we know, more programs more bugs. Buggy GUIs make your servers weak.
+
+2) Resource efficiency. A server is supposed to devote its resources to the users rather
+   than to the sys-admin. However, the mouse enabled resource-consuming GUI programs can
+   only serve the sys-admin. For example, a web server doesn't need to have a GUI to
+   satisfy the users' requests.
+      
+3) Network efficiency. Operating on the remote server with a command shell is much more
+   efficient than that with a mouse. For example, I can list files on remote side by
+   sending a 2-bytes command =ls=, and soon I can receive a file list which could be just
+   a few bytes long. With a GUI, the picture of the file manager window, usually several
+   kilobytes in size, has to be transmitted back and forth. Obviously, the CLI way is much
+   more bandwidth efficient than the GUI way.
+     
+      

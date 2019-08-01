@@ -1,0 +1,12 @@
+\documentclass[varwidth=29em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+struct {
+    long *a;
+    short b;
+} stack_start = { & user_stack [STACK_SIZE] , __BOOT_DS };
+\end{ccode}
+\end{document}

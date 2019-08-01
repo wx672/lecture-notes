@@ -1,0 +1,29 @@
+\documentclass[varwidth=26em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{minipage}{.45\linewidth}
+\vspace{1em}  
+\begin{ccode}
+while(TRUE){
+  while(turn != 0);
+  critical_region();
+  turn = 1;
+  noncritical_region();
+}      
+\end{ccode}
+\end{minipage}\qquad
+\begin{minipage}{.48\linewidth}
+\vspace{1em}  
+\begin{ccode}
+while(TRUE){
+  while(turn != 1);
+  critical_region();
+  turn = 0;
+  noncritical_region();
+}
+\end{ccode}  
+\end{minipage}
+\end{document}

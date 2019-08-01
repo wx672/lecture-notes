@@ -1,0 +1,20 @@
+\documentclass[tikz,svgnames]{standalone}
+
+\usepackage{wx672tikz} % wx672fonts loaded here
+
+\newcommand{\cpu}{\includegraphics[width=2em]{processor}}
+\begin{document}
+
+\begin{tikzpicture}[
+  every node/.style={thick,draw,circle}
+  ]
+  \node (s) at (0,0) [minimum size=12em,,fill=gray!10] {};
+  \node (k) at (0,0) [label={[above,label distance=-.4em]:{Shell}},minimum size=7em,,fill=gray!20]{};
+  \node (h) at (0,0) [label={[above,label distance=-1em]:{Kernel}},fill=gray!40,inner sep=0pt]{\cpu};
+\end{tikzpicture}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

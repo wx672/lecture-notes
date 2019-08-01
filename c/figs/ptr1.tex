@@ -1,0 +1,21 @@
+\documentclass[varwidth=30cm,crop]{standalone}
+
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+c_ptr = &c;                        b_ptr = &b; a_ptr = &a;
+        ↓                                  ↓    ↓
+ addr: 25ec 25ed 25ee 25ef 25f0 25f1 25f2 25f3 25f4 25f5 25f6 25f7
+     ┈╆━━━━┯━━━━┯━━━━┯━━━━╅────┬────┬────╆━━━━╈━━━━┯━━━━┯━━━━┯━━━━╅┈
+     ┈┃     3.1415926     ┃    │    │    ┃ A  ┃       1966        ┃┈
+     ┈╄━━━━┷━━━━┷━━━━┷━━━━╃────┴────┴────╄━━━━╇━━━━┷━━━━┷━━━━┷━━━━╃┈
+            float c;                    char b;      int a;
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

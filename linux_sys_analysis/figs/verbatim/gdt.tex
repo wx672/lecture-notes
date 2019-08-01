@@ -1,0 +1,27 @@
+\documentclass[varwidth=40em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+cpu_gdt_descr         cpu_gdt_table        GDT     Selector
+┌───────────┐  ┌─┐       ┌─────┐  ┌─────┬────────┐
+│           ├─>│ │       │     │  │   0 │  null  │ 0x0
+│           │  └─┘       ├─────┤  │     ├────────┤
+├───────────┤            │     │ ╱      │  ...   │
+│   size    │   ┌────┐   ├─────┤/       ├────────┤
+│  address  ├──>│gdtr├──>│ GDT │      12│ kernel │ __KERNEL_CS
+├───────────┤   └────┘   ├─────┤\       │  code  │ 0x60
+│           │  ┌─┐       │     │ ╲      ├────────┤
+│           ├─>│ │       └─────┘  │   13│ kernel │ __KERNEL_DS
+├───────────┤  └─┘                │     │  data  │ 0x68
+│           │                     │     ├────────┤
+│           │                     │   14│  user  │ __USER_CS
+└───────────┘                     │     │  code  │ 0x73
+                                  │     ├────────┤
+                                  │   15│  user  │ __USER_DS
+                                  │     │  data  │ 0x7b
+                                  │     ├────────┤
+                                  │     │  ...   │
+                                  └─────┴────────┘
+\end{verbatim}
+\end{document}

@@ -1,0 +1,45 @@
+\documentclass[varwidth=38em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{minipage}{.32\linewidth}
+\begin{ccode}
+#include <unistd.h> 
+#include <sched.h> 
+#include <sys/types.h> 
+#include <stdlib.h> 
+#include <string.h> 
+#include <stdio.h> 
+#include <fcntl.h>
+ 
+int variable;
+ 
+int do_something()
+{
+  variable = 42;
+  _exit(0);
+}
+\end{ccode}  
+\end{minipage}\hfill
+\begin{minipage}{.65\linewidth}
+\begin{minted}[firstnumber=16]{c}
+int main(void)
+{
+  void *child_stack;
+  variable = 9;
+
+  child_stack = (void *) malloc(16384);
+  printf("The variable was %d\n", variable);
+   
+  clone(do_something, child_stack,
+        CLONE_FS | CLONE_VM | CLONE_FILES, NULL);
+  sleep(1);
+ 
+  printf("The variable is now %d\n", variable);
+  return 0;
+}
+\end{minted}
+\end{minipage}
+\end{document}

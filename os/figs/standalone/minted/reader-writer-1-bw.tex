@@ -1,0 +1,46 @@
+\documentclass[varwidth=29em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{minipage}{.42\linewidth}
+\vspace{1em}
+\begin{ccode}
+semaphore mutex = 1;
+semaphore noOther = 1;
+int readers = 0;
+
+void writer(void)
+{
+  while (TRUE) {
+    wait(&noOther);
+      writing();
+    signal(&noOther);
+  }
+}        
+\end{ccode}
+\end{minipage}\qquad
+\begin{minipage}{.48\linewidth}
+\vspace{1em}
+\begin{ccode}
+void reader(void)
+{
+  while (TRUE) {
+    wait(&mutex);
+      readers++;
+      if (readers == 1)
+         wait(&noOther);
+    signal(&mutex);
+    reading();
+    wait(&mutex);
+      readers--;
+      if (readers == 0)
+        signal(&noOther);
+    signal(&mutex);
+    anything();
+  }
+}      
+\end{ccode}  
+\end{minipage}
+\end{document}

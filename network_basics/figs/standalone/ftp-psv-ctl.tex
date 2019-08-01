@@ -1,0 +1,31 @@
+\documentclass[varwidth=29em,crop]{standalone}
+\usepackage{wx672fonts,fancyvrb,xcolor,booktabs}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{tabular}{cc}
+  \toprule
+  \textbf{Server}&\textbf{Client}\\\midrule
+  \texttt{cs2} $\Rightarrow$ \texttt{202.203.132.242}& \texttt{cs3} $\Rightarrow$ \texttt{202.203.132.245}\\\bottomrule
+\end{tabular}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+wx672@cs3:~$ \color{violet}{nc cs2 ftp}
+220 (vsFTPd 2.0.5)
+\color{violet}{user wx672}
+331 Please specify the password.
+\color{violet}{pass canttellyou}
+230 Login successful.
+\color{violet}{pasv}
+227 Entering Passive Mode (202,203,132,242,{\color{blue}{36,5}})
+\color{violet}{list}
+150 Here comes the directory listing.
+\color{violet}{quit}
+221 Goodbye.
+\end{Verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,317 @@
+#+TITLE:     《Linux应用基础》教案
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+DATE:      2012-08-18 Wed
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  cn
+#+OPTIONS:   H:4 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+# (setq org-export-html-use-infojs nil)
+
+#+LaTeX: \clearpage
+- 课程名称: Linux应用基础
+- 面向专业: 计算机相关本科专业
+- 教材参考：Mendel Cooper, /Advanced Bash Scripting Guide 5.3 Volume 1/, 2010
+- 授课学期：大一～大三
+- 任课教师：王晓林
+- 编写时间：[2012-08-18 Sat]
+* Linux introduction 
+** 教学目标及基本要求
+   了解什么是Linux, GNU, Opensource
+** 教学内容及学时分配
+   - [[./linux_intro/linux_intro.pdf][幻灯片]]
+*** What's GNU/Linux? (0.5h)
+**** 教学内容（具体到知识点）
+     - What's Linux?
+     - What's GNU?
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+     课堂讲授，课后答疑
+*** Opensource history and future (0.5h)
+**** 教学内容（具体到知识点）
+     - What's opensource?
+     - History and future
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+     课堂讲授，课后答疑
+** 重点和难点
+   - What's GNU/Linux
+   - Opensource
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   - 理论 + 实验
+** 参考书目						   :noexport:
+** 思考题和习题							   :noexport:
+* Play with bash
+** 教学目标及基本要求
+   了解基本的命令行操作和shell编程
+** 教学内容及学时分配
+  - [[./bash/shell_basics.html][讲义]]
+  - [[./linux_lectures/][幻灯片]]
+*** UNIX file system (1h)
+**** 教学内容（具体到知识点）
+     - UNIX file system structure
+     - basic commands
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Terminal operations (.5h)
+**** 教学内容（具体到知识点）
+     - CLI shortcuts
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** File operations (1h)
+**** 教学内容（具体到知识点）
+     - understanding =ls= output
+     - copy, move, delete, view, link
+     - cat
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Shell basics (1h)
+**** 教学内容（具体到知识点）
+     - Help
+     - Path
+     - Initial files
+     - Special files
+     - Special characters
+     - Search
+     - Alias
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Bash programming (4h)
+**** 教学内容（具体到知识点）
+     - =for ...; do ...; done= loop
+     - =while ...; do ...; done= loop
+     - =if ...; then ...; else ...; fi=
+     - =case VAR in PATTERN) COMMANDS;; esac=
+     - =read=
+     - Arrays
+     - GUI
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Sed, Awk (2h)
+**** 教学内容（具体到知识点）
+     - Sed
+     - Awk
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - UNIX file system
+   - PATH
+   - shell programming
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目							   :noexport:
+** 思考题和习题
+* Classical Linux IDE
+** 教学目标及基本要求
+   了解Linux下的经典开发环境
+** 教学内容及学时分配
+  - [[./c/c_dev.html][讲义]]
+  - [[./linux_lectures/][幻灯片]]
+*** From c source code to executable (1h)
+**** 教学内容（具体到知识点）
+     - c pre-processor
+     - Compiler
+     - Assembler
+     - Linker
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Emacs + GCC + GDB (2h)
+**** 教学内容（具体到知识点）
+     - emacs
+     - gcc
+     - gdb
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** make and version control (2.5h)
+**** 教学内容（具体到知识点）
+     - makefile
+     - git
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - from c source code to executable
+   - makefile
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目							   :noexport:
+** 思考题和习题
+* system administration
+** 教学目标及基本要求
+   了解基本的系统管理操作
+** 教学内容及学时分配
+   - [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/linux/admin.html][讲义]]
+   - [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/linux/account.html][作业]]
+*** debian/ubuntu package management (2h)
+**** 教学内容（具体到知识点）
+     - sources.list
+     - apt
+     - aptitude
+     - dpkg
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** system maintenance (2h)
+**** 教学内容（具体到知识点）
+     - user account management
+     - system security
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - sources.list
+   - apt
+   - server maintenance
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目							   :noexport:
+** 思考题和习题
+* advanced linux programming 
+** 教学目标及基本要求
+   了解linux下的高级编程技术
+** 教学内容及学时分配
+  - 讲义
+    - [[http://cs3.swfu.edu.cn/moodle/mod/resource/view.php?id%3d1175][advanced linux programming]]
+    - [[http://cs3.swfu.edu.cn/moodle/mod/resource/view.php?id%3d1176][program library howto]]
+    - [[http://cs3.swfu.edu.cn/moodle/mod/resource/view.php?id%3d1197][linux assembly howto]]
+    - [[http://cs3.swfu.edu.cn/moodle/mod/resource/view.php?id%3D1198][NCURSES programming HOWTO]]
+*** Program library (1h)
+**** 教学内容（具体到知识点）
+     - Libraries introduction
+     - Linking
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Linux assembly (1h)
+**** 教学内容（具体到知识点）
+     - Intel vs. AT\&T
+     - GAS
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** NCURSES programming (2h)
+**** 教学内容（具体到知识点）
+     - Ncurses intro
+     - Examples
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - Library
+   - GAS
+   - Ncurses
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目							   :noexport:
+** 思考题和习题
+* Popular software tools in Linux 
+** 教学目标及基本要求
+   了解Linux平台下的常用软件
+** 教学内容及学时分配
+   - [[http://cs2/cgi-bin/dwww/usr/share/doc/qt4-doc-html/html/tutorials.html][讲义]]
+*** Graphical IDE (2h)
+**** 教学内容（具体到知识点）
+     - Qt designer
+     - Eclipse       
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Image processing (1h)
+**** 教学内容（具体到知识点）
+     - Imagemagick 
+     - GIMP
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Command line tools (1h)
+**** 教学内容（具体到知识点）
+     - ssh/scp
+     - lynx/curl
+     - mutt/mailx
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Graph drawing
+**** 教学内容（具体到知识点）
+     - Dia
+     - Xfig
+     - umbrello
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - Qt designer
+   - Eclipse
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目							   :noexport:
+** 思考题和习题
+* Linux networking
+** 教学目标及基本要求
+   了解基本的Linux网络操作命令
+** 教学内容及学时分配
+  - [[http://cs3.swfu.edu.cn/moodle/mod/resource/view.php?id%3D1178][讲义]]
+  - [[./iptables.pdf][幻灯片]]
+*** Basic commands (1h)
+**** 教学内容（具体到知识点）
+     - ifconfig
+     - ping
+     - route
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+*** Advanced tools (3h)
+**** 教学内容（具体到知识点）
+     - netcat
+     - nmap
+     - tcpdump
+     - iptables
+**** 教学方式（手段）
+     理论 + 实验
+**** 师生活动设计						   :noexport:
+** 重点和难点
+   - Advanced tools
+** 深化和拓宽
+   暂无
+** 教学方式（手段）及教学过程中应注意的问题
+   理论 + 实验
+** 参考书目							   :noexport:
+** 思考题和习题
+
+# #+BIBLIOGRAPHY: os plain limit:t option:-u
+   
+#+BEGIN_LaTeX
+\bibliographystyle{plain}
+\bibliography{os}
+#+END_LaTeX
+   

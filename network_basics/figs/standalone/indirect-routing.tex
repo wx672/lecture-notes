@@ -1,0 +1,25 @@
+\documentclass[varwidth=30cm,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+  A      B      C      ┌───D───┐      E      F      G
+  │      │      │      │   │   │      │      │      │   
+──o──────o──────o──────o─  │  ─o──────o──────o──────o──
+Ethernet 1                 │  Ethernet 2
+IP network "development"   │  IP network "accounting"
+                           │
+                           │
+                           │     H      I      J
+                           │     │      │      │
+                         ──o─────o──────o──────o──
+                         Ethernet 3
+                         IP network "factory"
+\end{verbatim}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

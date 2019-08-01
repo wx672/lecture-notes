@@ -1,0 +1,26 @@
+\documentclass[tikz,svgnames]{standalone}
+
+\usepackage{wx672minted}
+\usemintedstyle{bw}
+\usepackage{wx672tikz} % wx672fonts loaded here
+
+\begin{document}
+
+\begin{tikzpicture}[node distance=0pt,inner sep=1pt, thick,draw,fill]
+  \node (bgcode) {%
+    \begin{minipage}{.45\linewidth}%
+\begin{minted}{makefile}
+hello: hello.c
+        gcc -o hello hello.c
+\end{minted}
+    \end{minipage}
+  };
+  \node (tab1) [opacity=.3,below=of bgcode.west,xshift=4ex] {\textbf{|}}
+    edge [->,opacity=.5] node [auto,scale=.5,opacity=.5] {TAB} ($(tab1)+(1.2,0)$);
+
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,15 @@
+\documentclass[varwidth=32em,crop]{standalone}
+
+\usepackage{wx672minted}
+\begin{document}
+\begin{ccode}
+struct task_struct *task;
+struct list_head *list;
+for (list = (&current->children)->next;
+             prefetch(list->next), list != (&current->children);
+             list = list->next)
+{
+    task = list_entry(list, struct task_struct, sibling);
+}
+\end{ccode}
+\end{document}

@@ -1,0 +1,150 @@
+% Created 2016-05-13 Fri 09:00
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage{fullpage}
+\usepackage{indentfirst}
+\usepackage[indentafter,pagestyles]{titlesec}
+\usepackage{minted}
+\usepackage{xltxtra}
+\usepackage{xeCJK}
+\tolerance=1000
+\setlength{\parindent}{2.5em}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\setCJKmainfont[BoldFont={WenQuanYi Zen Hei}]{SimSun}
+\setCJKfamilyfont{hei}{WenQuanYi Zen Hei}
+\setCJKfamilyfont{song}{SimSun}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\graphicspath{{./figs/}{../figs/}{./}{../}}
+\renewcommand{\contentsname}{目录}
+\renewcommand{\listfigurename}{插图目录}
+\renewcommand{\listtablename}{表格目录}
+\renewcommand{\abstractname}{摘要}
+\renewcommand{\appendixname}{附录}
+\renewcommand{\indexname}{索引}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\author{王晓林}
+\date{2015-03-06}
+\title{《计算机网络》考核大纲}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.5.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\begin{itemize}
+\item 课程编号：A05055
+\item 课程名称：计算机网络
+\item 任课教师：王晓林
+\item 适应专业：计算机本科专业
+\item 授课学时：32/16
+\item 考试方式：闭卷笔试
+\item 命题规则：按《西南林学院考试命题规则》(试行)(1996年10月修订)执行
+\item 考试时间：120分钟
+\item 推荐教材：
+\begin{itemize}
+\item \emph{Computer Networks}, Xie Xiren, Electronics Engineering Press.
+\item \emph{Computer Networks}, Andrew S.Tanenbaum, Tsinghua Unversity Press.
+\item \emph{Computer Networks Lab Tutorials}, Xie Qian, Electronics Engineering Press.
+\item \emph{Computer Network Tutorials}, Du Yu, People's Post and
+Telecommunication Press, 1st edition Jan 2002.
+\item \emph{Computer Network Practical Tutorials}, Wang Li, Zhang Yuxiang,
+Yang Lianghuai, Tsinghua University Press, 1st edition Dec 1999.
+\end{itemize}
+\item 课程性质及教学目的：本课程为计算机专业本科专业基础课。要求学生全面了解TCP/IP网络的工作原理。
+\end{itemize}
+
+各章节考核目标如下：
+\section{TCP/IP Introction}
+\label{sec-1}
+\subsection{考核知识点}
+\label{sec-1-1}
+\begin{itemize}
+\item What's TCP/IP?
+\item What's a protocol stack?
+\item Relation between adjacent layers?
+\item Relation between peer layers?
+\item What's RFC?
+\end{itemize}
+\subsection{考核要求}
+\label{sec-1-2}
+Know the above key points.
+\section{Ethernet and ARP}
+\label{sec-2}
+\subsection{考核知识点}
+\label{sec-2-1}
+\begin{itemize}
+\item Frame format
+\item Address format
+\item Broadcast address
+\item CSMA/CD
+\item How ARP works?
+\end{itemize}
+\subsection{考核要求}
+\label{sec-2-2}
+Know the above key points.
+\section{IP routing}
+\label{sec-3}
+\subsection{考核知识点}
+\label{sec-3-1}
+\begin{itemize}
+\item IP address (format, classification, Netmask)
+\item Route table
+\item How routing works
+\item Subnetting
+\item IPv6 address format
+\end{itemize}
+\subsection{考核要求}
+\label{sec-3-2}
+Know the above key points.
+\section{TCP, UDP}
+\label{sec-4}
+\subsection{考核知识点}
+\label{sec-4-1}
+\begin{itemize}
+\item Sockets
+\item 3-way handshake
+\item TCP header
+\item tcpdump
+\item Socket programming
+\end{itemize}
+\subsection{考核要求}
+\label{sec-4-2}
+Know the above key points.
+\section{Application layer protocols}
+\label{sec-5}
+\subsection{考核知识点}
+\label{sec-5-1}
+\begin{itemize}
+\item HTTP
+\item FTP
+\item SMPT, POP3, IMAP
+\item DNS
+\end{itemize}
+\subsection{考核要求}
+\label{sec-5-2}
+Know the above key points.
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}

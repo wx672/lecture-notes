@@ -1,0 +1,263 @@
+\documentclass{wx672article}
+
+\usepackage{wx672ctex,wx672bib}
+\addbibresource{os.bib}
+
+\newcommand{\Sign}{\begin{flushright}%
+  \begin{tabular}{r@{：\,}l}%
+    撰稿人（职称）&王晓林（讲师）\\%
+    审核人（职称）&赵家刚（副教授）\\%
+    审定人（职称）&狄光智（副教授）\\%
+    制定日期&2012年11月1日%
+  \end{tabular}%
+\end{flushright}}
+
+\title{《Linux应用基础》课程大纲}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+% \tableofcontents
+% \clearpage
+
+\begin{itemize}
+\item 课程编号: 31100066
+\item 学时: 32 (理论: 8; 实验: 24)
+\item 学分: 2
+\item 实习: 0
+\item 面向专业: 计算机科学与技术，电子信息工程
+\end{itemize}
+
+\section{课程大纲}
+
+\subsection{课程内容}
+
+\begin{enumerate}
+\item GNU/Linux 和开源运动
+\begin{itemize}
+\item 什么是开源
+\item 什么是GNU？
+\item 什么是 Linux？
+\item 开源软件能干什么？
+\item 怎样学习Linux？
+\end{itemize}
+\item Shell基础
+\begin{itemize}
+\item UNIX文件系统
+\item 路径，目录，特殊文件
+\item 基本 shell 命令
+\item Shell 编程
+\end{itemize}
+\item 常用软件工具
+\begin{itemize}
+\item 编辑器: emacs, vim
+\item 网络工具: firefox, lftp, wget, mutt, pidgin \ldots{}
+\item 办公自动化: openoffice.org
+\item 图像处理: gimp, imagemagick, dia, xfig, inkscape, hugin
+\end{itemize}
+\item 软件开发环境
+\begin{itemize}
+\item GCC
+\item make
+\item gdb
+\item 可视化编程: Qt4, glade, gambas, Tcl/Tk
+\end{itemize}
+\item Debian GNU/Linux 系统管理
+\begin{itemize}
+\item 最小系统的安装
+\item apt
+\item Debian 管理工具
+\end{itemize}
+\end{enumerate}
+\subsection{实验内容}
+
+参见第\ref{sec:lab}节《实验教学大纲》。
+
+\subsection{实习}
+无
+\subsection{考核}
+
+\begin{itemize}
+\item 考试: 80\%
+\item 作业: 20\%
+\end{itemize}
+
+\subsection{参考教材}
+
+\nocite{cooper10bash,web:debianhandbook}
+\printbibliography[heading=none]{}
+
+
+\section{课程说明}
+
+\subsection{课程性质和要求}
+
+目前《操作系统原理》课程都是以开源的Linux为范本进行教学。因此学生必须要有一定的Linux应用基
+础能力。本课程介绍给同学如下内容：
+\begin{itemize}
+\item GNU/Linux的过去、现在、和未来
+\item Bash
+\item Linux下的软件开发环境
+\item Linux系统管理和网络管理
+\end{itemize}
+
+\subsection{课程重点}
+
+\begin{itemize}
+\item Shell命令行
+\item 软件工具，开发环境
+\item Linux下的C编程
+\end{itemize}
+
+\subsection{作业、实习要求}
+作业迟交一天扣分10\%。
+
+\subsection{与其它课程的关系}
+
+\begin{itemize}
+\item 前期课程：大学计算机基础
+\item 后期课程：网络课程，编程课程，操作系统课程
+\end{itemize}
+
+\subsection{课时安排}
+
+\begin{center}
+  \begin{tabular}{lrr}
+    \hline
+    课程内容              &  理论学时  &  实验学时  \\
+    \hline
+    GNU/Linux 与开源运动  &         2  &            \\
+    Shell 基础            &        6  &         8  \\
+    常用软件工具          &         6  &         6  \\
+    软件开发环境          &         6  &         6  \\
+    Debian系统管理        &         4  &         4  \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsection{特殊说明}
+本课程以应用为主，最好全部授课安排在机房进行
+
+\Sign{}
+
+\section{实验教学大纲}
+\label{sec:lab}
+
+\begin{itemize}
+\item 课程编号: 31100066
+\item 学时: 32 (理论: 8; 实验: 24)
+\item 学分: 2
+\item 实习: 0
+\item 授课对象: 计算机科学与技术，电子信息工程，信息与计算机技术
+\end{itemize}
+
+\subsection{实验教学的目的和要求}
+本课程的目的就是让学生熟悉Linux下的工作环境和开发环境，为后续课程打下坚实的基础。
+
+\subsection{实践教学大纲}
+
+\begin{center}
+  \begin{tabular}{lr}
+    \hline
+    实验安排        &  学时  \\
+    \hline
+    shell基础       &     8  \\
+    常用软件工具    &     6  \\
+    软件开发环境    &     6  \\
+    Debian系统管理  &     4  \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsection{实验设备要求}
+
+\begin{itemize}
+\item Debian/Ubuntu PC
+\end{itemize}
+
+\subsection{实验内容}
+
+\begin{enumerate}
+\item Shell基础
+  \begin{itemize}
+  \item UNIX文件系统
+  \item 路径，目录，特殊文件
+  \item 基本 shell 命令
+  \item Shell 编程
+  \end{itemize}
+\item 常用软件工具
+  \begin{itemize}
+  \item 编辑器: emacs, vim
+  \item 网络工具: firefox, lftp, wget, mutt, pidgin \ldots{}
+  \item 办公自动化: openoffice.org
+  \item 图像处理: gimp, imagemagick, dia, xfig, inkscape, hugin
+  \end{itemize}
+\item 软件开发环境
+  \begin{itemize}
+  \item GCC
+  \item make
+  \item gdb
+  \item 可视化编程: Qt4, glade, gambas, Tcl/Tk
+  \end{itemize}
+\item Debian GNU/Linux 系统管理
+  \begin{itemize}
+  \item 最小系统的安装
+  \item apt
+  \item Debian 管理工具
+  \end{itemize}
+\end{enumerate}
+
+\subsection{实验报告要求}
+按规定格式完成，延误一天扣分10\%。
+
+\subsection{成绩考核}
+
+\begin{itemize}
+\item 实验报告满分100，60分及格
+\end{itemize}
+
+\subsection{实验指导和参考书目}
+
+\nocite{cooper10bash,web:debianhandbook}
+\printbibliography[heading=none]{}
+
+
+\subsection{特别说明}
+本课程以应用为主，最好全部授课安排在机房进行
+
+\Sign{}
+
+\section{课程简介}
+
+\begin{itemize}
+\item 课程编号: 31100066
+\item 学时: 32 (理论: 8; 实验: 24)
+\item 学分: 2
+\item 实习: 0
+\item 面向专业: 计算机科学与技术，电子信息工程，信息与计算机技术
+\item 前期课程：英语，大学计算机基础
+\item 课程性质和要求目前《操作系统原理》课程都是以开源的Linux为范本进行教学。因此学生必须要
+  有一定的Linux应用基础能力。本课程介绍给同学如下内容：
+  \begin{itemize}
+  \item GNU/Linux的过去、现在、和未来
+  \item Bash
+  \item Linux下的软件开发环境
+  \item Linux系统管理和网络管理
+  \end{itemize}
+\item 课程重点
+  \begin{itemize}
+  \item Shell命令行
+  \item 软件工具，开发环境
+  \item Linux下的C编程
+  \end{itemize}
+\item 参考教材\hfill \nocite{cooper10bash,web:debianhandbook}
+  \printbibliography[heading=none]{}
+\end{itemize}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

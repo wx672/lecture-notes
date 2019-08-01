@@ -1,0 +1,75 @@
+\documentclass[tikz, svgnames]{standalone}
+\usepackage{wx672tikz}
+
+\setmainfont{Purisa}
+
+\begin{document}
+
+\begin{tikzpicture}[decoration=bent,%
+  every edge/.style={draw,blue!50,decorate},%
+  outter edge/.style={ultra thick}]
+
+  \def\wall{\filldraw[even odd rule,opacity=.3,ultra thin,pattern=bricks] (0,0) circle (4) (0,0)
+    circle (4.5);}
+  
+  \wall
+  
+  \node (laptop) at (.5,-.5) [scale=15,opacity=.3] {\fa };%
+
+  \node (chrome) at (-.5,.5) [scale=2,inner sep=1pt,yellow!30!red] {\fa } %
+  edge [edge node={node [red,fill=white,at end,anchor=west,inner sep=0pt,scale=2] %
+    {\dejavu ☠}}] ($(chrome)+(4.5cm,0)$);
+
+  \node (shadowsocks) [below right=0pt of chrome, shift={(1cm,0)},%
+  label={below,yshift=4mm,align=center:{{\tiny Shadowsocks}\\[-1ex]{\tiny Client}}}, %
+  circle, blue!50, inner sep=1pt,scale=2]{\fa } edge [outter edge] (chrome);%
+  
+  \node (qq) [left=of chrome,scale=2,black!70] {\fa } edge (chrome);%
+  
+  \node (wechat) [below=.5cm of qq,scale=2,Green] {\fa } edge (chrome);%
+  
+  \node (baidu) [above=.5cm of qq] {{\Huge\textcolor{blue}{\fa
+        }}\hspace{-1.75em}\textcolor{white}{\dejavu du}} edge (chrome);%
+  
+  \node (cctv) [above=of chrome,yellow,fill=red!95!black,inner sep=1pt,scale=1.2] {{\emj ☭☭}{\dejavu TV}{{\LARGE
+          \emj 🕬}}} edge (chrome);%\fa 
+
+  \node (weibo) [below right=5mm of wechat,scale=2,red!85!black] {\fa } edge (chrome);%
+  
+  \node (shadowsocks-server) [right=of laptop, blue!50,circle,scale=3,inner sep=0pt,%
+  label={above left,shift={(6mm,2mm)},align=center,rotate=47:%
+    {{\tiny Shadowsocks}\\[-1ex]{\tiny Server}}},] {\fa } %
+  edge [outter edge, edge node={node [Green,fill=white,xshift=2mm,inner sep=.5pt]{\fa }}]
+  (shadowsocks);%
+  
+%  \node (google) [right=of shadowsocks-server,scale=.05] {\includegraphics{imgs/google}} %
+  \node (google) [right=of shadowsocks-server,scale=2,blue!65] {\fa } %
+  edge [outter edge] (shadowsocks-server);%
+  
+  \node (youtube) [above=1 of google,scale=2,red] {\fa } edge [outter edge]
+  (shadowsocks-server);%
+  
+  \node (gplus) [above left=1mm of youtube,scale=2,red] {\fa } edge [outter edge]
+  (shadowsocks-server);%
+  
+  \node (wikipedia) [left=of gplus,scale=1.5] {\fa } edge [outter edge]
+  (shadowsocks-server);%
+  
+  \node (twitter) [below=of google,scale=2,LightSkyBlue] {\fa } edge [outter edge]
+  (shadowsocks-server);%
+  
+  \node (facebook) [below left=1mm of twitter,scale=2,blue!50!black] {\fa } edge [outter
+  edge] (shadowsocks-server);%
+  
+  \node (voa) [left=3mm of facebook, %
+  FireBrick!60!red,fill=blue!40!black,%
+  inner sep=0pt,scale=1.5] {\US VOA} edge [outter edge] (shadowsocks-server);%
+
+  \node (bbc) [above left=2mm of voa,blue!50!black,fill=Crimson,inner sep=0pt,scale=1.3] {\UK BBC} edge [outter edge] (shadowsocks-server);%
+
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

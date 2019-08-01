@@ -1,0 +1,33 @@
+#+TITLE:     Computer Networks Textbooks and References 
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:comment d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil stat:t tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+CREATOR: Emacs 25.2.2 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+
+* Textbooks
+  1. Andrew S. Tanenbaum, [[https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1][/Computer Networks, 5e/]], Prentice Hall, 2011.
+  2. W. Richard Stevens, [[https://cs3.swfu.edu.cn/tech/get/PDF/32/Calibre1][/TCP/IP Illustrated, Volume 1, The Protocols/]],
+     Addison-Wesley, 1994. 
+  3. Kurose, Ross, [[https://cs3.swfu.edu.cn/tech/get/PDF/27/Calibre1][/Computer Networking - A Top-Down Approach, 6e/]], Addison-Wesley, 2011. 
+
+* References
+** Online Course
+- Cisco, [[https://www.netacad.com/][/Cisco Networking Academy/]].
+** Wikipedia
+   - [[http://en.wikipedia.org/wiki/Internet_protocol_suite][Internet protocol suite]] 
+** RFC
+   - [[https://www.ietf.org/rfc/rfc1180.txt][rfc1180]] - A TCP/IP Tutorial
+   - [[http://www.rfc-editor.org/rfc/rfc1122.txt][rfc1122]] - Requirements for Internet Hosts -- Communication Layers
+   - [[http://www.rfc-editor.org/rfc/rfc1123.txt][rfc1123]] - Requirements for Internet Hosts -- Application and Support
+   - [[https://www.ietf.org/rfc/rfc791.txt][rfc791]] - Internet Protocol
+   - [[https://www.ietf.org/rfc/rfc793.txt][rfc793]] - Transmission Control Protocol
+   - [[https://www.ietf.org/rfc/rfc2460.txt][rfc2460]] - IPv6
+   

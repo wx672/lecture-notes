@@ -1,0 +1,23 @@
+\documentclass[varwidth=15em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+\usemintedstyle{bw}
+
+\begin{document}
+\begin{minipage}[t]{.6\linewidth}
+\begin{ccode}
+down(S){
+  while(S<=0);
+  S--;
+}      
+\end{ccode}
+\end{minipage}\hfill
+\begin{minipage}[t]{.3\linewidth}
+\begin{ccode}
+up(S){
+  S++;
+}      
+\end{ccode}
+\end{minipage}
+\end{document}

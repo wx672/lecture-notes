@@ -1,0 +1,32 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{backgrounds}
+
+\usepackage{xltxtra}
+\setmainfont{Humor Sans}
+
+\begin{document}
+\begin{tikzpicture}[%
+  every node/.style = {inner sep=0},%
+  help lines/.style = {ultra thin,dotted},%
+  xy/.style = {font=\ttfamily\tiny,inner sep=1pt},%
+  ]%
+  %%% background image
+  \node[anchor=south west] (image) at (0,0)%
+  {\includegraphics[width=\paperwidth]{opensourceweb2014}};
+
+  \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+    % %%% grid
+    % \draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);%
+    % \foreach \x in {0,1,...,9} { \node [xy,anchor=north] at (\x/10,0) {0.\x}; }%
+    % \foreach \y in {0,1,...,9} { \node [xy,anchor=east] at (0,\y/10) {0.\y}; }%
+
+    %%% start annotating here %%%
+    \node [scale=6,rotate=30,violet] at (.1,.9) {2014};
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

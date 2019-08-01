@@ -1,0 +1,15 @@
+\documentclass[varwidth=22.5em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+% \inputminted{c}{filename}
+\begin{ccode}
+while (true) {
+    while (((in + 1) % BUFFER_SIZE) == out);
+    buffer[in] = item;
+    in = (in + 1) % BUFFER_SIZE;
+}      
+\end{ccode}
+\end{document}

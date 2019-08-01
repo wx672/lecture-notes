@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2019-03-08 Fri 10:23 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Familiar With Linux Networking Command Line Tools</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="WANG Xiaolin">
+<link rel="stylesheet" href="https://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
+<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
+<script type="text/javascript" src="http://cs2.swfu.edu.cn/org-info-js/org-info.js">
+/**
+ *
+ * @source: http://cs2.swfu.edu.cn/org-info-js/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in http://cs2.swfu.edu.cn/org-info-js/org-info.js.
+ *
+ * Copyright (C) 2012-2019 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in http://cs2.swfu.edu.cn/org-info-js/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "plain");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Familiar With Linux Networking Command Line Tools</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org77dcf6a">1. iproute2, <code>ifconfig</code>, <code>arp</code>, <code>route</code> &#x2014; Configure A Network Interface</a></li>
+<li><a href="#org0c3cf6f">2. ping &#x2014; send ICMP ECHO_REQUEST to network hosts</a></li>
+<li><a href="#org6567c2b">3. route &#x2014; show / manipulate the IP routing table</a></li>
+<li><a href="#org7604ace">4. netstat &#x2014; Print network information</a></li>
+<li><a href="#orgfa2b158">5. tcpdump &#x2014; dump traffic on a network</a>
+<ul>
+<li><a href="#org03ac015">5.1. Exercise &#x2014; Get a clear idea about the output</a></li>
+<li><a href="#orge7dbac7">5.2. Basic examples</a></li>
+<li><a href="#orgf469132">5.3. host/src/dst</a></li>
+<li><a href="#orgd20adf7">5.4. proto</a></li>
+<li><a href="#orgf453bdb">5.5. port</a></li>
+<li><a href="#org0e71e5e">5.6. src port, dst port</a></li>
+<li><a href="#org496eb34">5.7. portrange</a></li>
+<li><a href="#org317a211">5.8. src/dst, port, protocol</a></li>
+<li><a href="#org68f3945">5.9. read/write</a></li>
+<li><a href="#orgb895c29">5.10. grouping &#x2014; for complex queries</a></li>
+<li><a href="#orgeede63e">5.11. References</a></li>
+</ul>
+</li>
+<li><a href="#orgbf53d6c">6. iptables &#x2014; administration tool for IPv4 packet filtering and NAT</a>
+<ul>
+<li><a href="#org2b48b99">6.1. References</a></li>
+<li><a href="#orgb087719">6.2. Big picture</a></li>
+<li><a href="#org01f7d22">6.3. Basic Examples</a></li>
+<li><a href="#orgc22889d">6.4. More Examples</a></li>
+</ul>
+</li>
+<li><a href="#org15a5578">7. netcat &#x2014; TCP/IP swiss army knife</a>
+<ul>
+<li><a href="#org874043f">7.1. Setup a simple C/S chat session</a></li>
+<li><a href="#org7064733">7.2. Transferring Files</a></li>
+<li><a href="#orgfa23c5b">7.3. Other Examples</a></li>
+<li><a href="#org49c7e55">7.4. Telnet-like Usage</a></li>
+<li><a href="#org4e1e3c1">7.5. Works as a Port Scanner too</a></li>
+<li><a href="#org677b3aa">7.6. Grab Port Banners</a></li>
+</ul>
+</li>
+<li><a href="#orgb43bf5c">8. nmap &#x2014; Network exploration tool and security / port scanner</a>
+<ul>
+<li><a href="#orgd099b58">8.1. Simple Examples</a></li>
+<li><a href="#org4c57035">8.2. Scanning more than one machine</a></li>
+<li><a href="#org3ee5ece">8.3. Scanning specific ports:</a></li>
+<li><a href="#org59b30d7">8.4. Various Scanning options:</a>
+<ul>
+<li><a href="#org4f40c59">8.4.1. <code>-sS</code></a></li>
+<li><a href="#org27cc71c">8.4.2. <code>-sT</code></a></li>
+<li><a href="#org85d3f01">8.4.3. <code>-sF</code>, <code>-sX</code>, <code>-sN</code></a></li>
+<li><a href="#orgfa83047">8.4.4. <code>-sU</code></a></li>
+<li><a href="#orgbd377ae">8.4.5. <code>-sO</code></a></li>
+<li><a href="#org63f4b58">8.4.6. <code>-sR</code></a></li>
+<li><a href="#orgc5e635f">8.4.7. <code>-sV</code></a></li>
+<li><a href="#org266852e">8.4.8. <code>-sA</code></a></li>
+<li><a href="#org5e8c5c7">8.4.9. <code>-sI</code></a></li>
+<li><a href="#orgd34df5d">8.4.10. <code>-sP</code>: Ping scan</a></li>
+<li><a href="#org38217a0">8.4.11. <code>-sW</code>: Window scan</a></li>
+<li><a href="#orgd473037">8.4.12. <code>-sL</code>: List scan</a></li>
+</ul>
+</li>
+<li><a href="#orgef418c6">8.5. O/S fingerprinting and version detection</a>
+<ul>
+<li><a href="#org3592f54">8.5.1. <code>-O</code></a></li>
+<li><a href="#org47fa1e2">8.5.2. <code>-sV</code></a></li>
+<li><a href="#org8f3bda0">8.5.3. <code>-A</code>: Additional, Advanced, Aggressive option</a></li>
+</ul>
+</li>
+<li><a href="#orgb1f3bdf">8.6. Typical scenario</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org77dcf6a" class="outline-2">
+<h2 id="org77dcf6a"><span class="section-number-2">1</span> iproute2, <code>ifconfig</code>, <code>arp</code>, <code>route</code> &#x2014; Configure A Network Interface</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><p>
+<b>References</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">man ip
+man ip-address
+man ip-link
+man ip-neighbour
+man ip-route
+man ifconfig
+man arp
+man route
+</pre>
+</div></li>
+<li><p>
+To <b>show</b> active network interfaces
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ip addr
+ip addr show eth0
+ip addr show up
+ip -s link
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+ifconfig -a
+ifconfig eth0
+ifconfig
+</pre>
+</div></li>
+<li><p>
+To <b>assign</b> IP address 192.168.8.8 to <i>eth0</i>
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ip addr add 192.168.8.8/24 dev eth0
+ip addr add 192.168.8.9/24 dev eth0 label eth0:1
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+ifconfig eth0 192.168.8.8 netmask 255.255.255.0
+ifconfig eth0:1 192.168.8.9 netmask 255.255.255.0
+</pre>
+</div></li>
+<li><p>
+To <b>delete</b> IP address
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ip addr del 192.168.8.9/24 dev eth0
+</pre>
+</div></li>
+<li><p>
+To bring <i>eth0</i> up
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ip link set eth0 up
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+ifconfig eth0 up
+</pre>
+</div></li>
+<li><p>
+To bring <i>eth0</i> down
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ip link set eth0 down
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+ifconfig eth0 down    
+</pre>
+</div></li>
+<li><p>
+ARP
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Display the ARP cache</span>
+ip neigh show
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+arp -an
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+ip neigh show dev eth0
+ip neigh show 192.168.1.1
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Add a permanent ARP entry</span>
+ip neigh add 192.168.1.4 lladdr aa:bb:cc:dd:ee:ff dev eth0 nud permanent
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+arp -i eth0 -s 192.168.1.4 aa:bb:cc:dd:ee:ff
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Change an ARP entry</span>
+ip neigh change 192.168.1.4 lladdr aa:bb:cc:dd:ee:ff dev eth0
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Delete an entry</span>
+ip neigh del 192.168.1.4 lladdr aa:bb:cc:dd:ee:ff dev eth0 nud permanent
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+arp -d 192.168.1.4
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Flush the ARP cache</span>
+ip neigh flush dev eth0
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0c3cf6f" class="outline-2">
+<h2 id="org0c3cf6f"><span class="section-number-2">2</span> ping &#x2014; send ICMP ECHO_REQUEST to network hosts</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+To check network availability to some host, e.g. <i>cs3.swfu.edu.cn</i>, do
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">ping cs3.swfu.edu.cn
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">ping 10 times</span>
+ping -c 10 cs3.swfu.edu.cn
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">ping every 10 seconds</span>
+ping -i 10 cs3.swfu.edu.cn
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6567c2b" class="outline-2">
+<h2 id="org6567c2b"><span class="section-number-2">3</span> route &#x2014; show / manipulate the IP routing table</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Check routing table</span>
+ip route show
+ip route get 202.203.132.244
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+netstat -rn
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+route -n
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Manually add a new route to a host (e.g. 192.168.1.5) through gateway 192.168.1.1, do</span>
+ip route add 192.168.1.5/24 via 192.168.1.1
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+route add 192.168.1.5 netmask 255.255.255.255 gw 192.168.1.1
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Manually add a default route through gateway 192.168.1.1, do</span>
+ip route add default via 192.168.1.1
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+route add default gw 192.168.1.1
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To manually delete a route</span>
+ip route del 192.168.1.5/24 via 192.168.1.1
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+route del 192.168.1.5
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To manually delete a default route</span>
+ip route del default
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+route del default
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><code>man route</code> for more examples.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7604ace" class="outline-2">
+<h2 id="org7604ace"><span class="section-number-2">4</span> netstat &#x2014; Print network information</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<code>netstat</code> displays all open sockets by default
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">netstat
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Display only TCP connections</span>
+netstat --tcp --numeric
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Show which program is listening on which port</span>
+netstat --tcp --listening --programs
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Show routing table</span>
+netstat --route
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Display network statistics</span>
+netstat --statistics
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfa2b158" class="outline-2">
+<h2 id="orgfa2b158"><span class="section-number-2">5</span> tcpdump &#x2014; dump traffic on a network</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+You have to be <i>root</i> (<code>sudo</code>) to execute most <code>tcpdump</code> functions.
+</p>
+</div>
+<div id="outline-container-org03ac015" class="outline-3">
+<h3 id="org03ac015"><span class="section-number-3">5.1</span> Exercise &#x2014; Get a clear idea about the output</h3>
+<div class="outline-text-3" id="text-5-1">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">1. Open a CLI terminal *A*, type:</span>
+tcpdump -XS -i lo host localhost
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">2. Open another CLI terminal *B*, and type:</span>
+nc -l 3333
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">3. Open one more CLI terminal *C*, type:</span>
+nc localhost 3333
+
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">Can you see the 3-way handshake in terminal *A*?</span>
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">4. Now, in terminal *B* or *C*, type any single letter to see what you get in terminal *A*.</span>
+<span style="color: #5F7F5F;">#      </span><span style="color: #7F9F7F;">Try to explain what you have seen.</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge7dbac7" class="outline-3">
+<h3 id="orge7dbac7"><span class="section-number-3">5.2</span> Basic examples</h3>
+<div class="outline-text-3" id="text-5-2">
+<div class="org-src-container">
+<pre class="src src-sh">tcpdump -nS
+tcpdump -nnvvS
+tcpdump -nnvvXS
+tcpdump -nnvvXS -c2 icmp
+tcpdump ip6
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To capture packets that are above or below a certain size:</span>
+tcpdump less 128
+tcpdump greater 256
+tcpdump &gt; 256
+tcpdump &lt;= 128
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf469132" class="outline-3">
+<h3 id="orgf469132"><span class="section-number-3">5.3</span> host/src/dst</h3>
+<div class="outline-text-3" id="text-5-3">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To print all packets arriving at or departing from cs3:</span>
+tcpdump host cs3.swfu.edu.cn
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To print all packets departing from cs3:</span>
+tcpdump src  cs3.swfu.edu.cn
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To print all packets arriving at cs3:</span>
+tcpdump dst  cs3.swfu.edu.cn
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd20adf7" class="outline-3">
+<h3 id="orgd20adf7"><span class="section-number-3">5.4</span> proto</h3>
+<div class="outline-text-3" id="text-5-4">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">works for 'tcp', 'udp', and 'icmp'. Note that you don't have to type 'proto'</span>
+tcpdump icmp
+tcpdump udp
+tcpdump tcp
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf453bdb" class="outline-3">
+<h3 id="orgf453bdb"><span class="section-number-3">5.5</span> port</h3>
+<div class="outline-text-3" id="text-5-5">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">see only traffic to or from a certain port</span>
+tcpdump port 80
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0e71e5e" class="outline-3">
+<h3 id="org0e71e5e"><span class="section-number-3">5.6</span> src port, dst port</h3>
+<div class="outline-text-3" id="text-5-6">
+<div class="org-src-container">
+<pre class="src src-sh">tcpdump src port 1025
+tcpdump dst port 80
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org496eb34" class="outline-3">
+<h3 id="org496eb34"><span class="section-number-3">5.7</span> portrange</h3>
+<div class="outline-text-3" id="text-5-7">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">see traffic to any port in a range</span>
+tcpdump portrange 21-23
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org317a211" class="outline-3">
+<h3 id="org317a211"><span class="section-number-3">5.8</span> src/dst, port, protocol</h3>
+<div class="outline-text-3" id="text-5-8">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">combine all three</span>
+tcpdump tcp and dst port 80
+tcpdump tcp dst port 80
+tcpdump tcp port 80
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Capture both DNS packets and TCP packets to/from cs3.swfu.edu.cn</span>
+tcpdump <span style="color: #CC9393;">"(tcp and host cs3.swfu.edu.cn) or udp port 53"</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org68f3945" class="outline-3">
+<h3 id="org68f3945"><span class="section-number-3">5.9</span> read/write</h3>
+<div class="outline-text-3" id="text-5-9">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">write output to a file, or read a data file</span>
+tcpdump -s 1514 port 80 -w capture_file
+tcpdump -r capture_file
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb895c29" class="outline-3">
+<h3 id="orgb895c29"><span class="section-number-3">5.10</span> grouping &#x2014; for complex queries</h3>
+<div class="outline-text-3" id="text-5-10">
+<div class="org-src-container">
+<pre class="src src-sh">tcpdump src 10.0.2.4 and (dst port 3389 or 22)
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">Error? try this:</span>
+tcpdump <span style="color: #CC9393;">'src 10.0.2.4 and (dst port 3389 or 22)'</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeede63e" class="outline-3">
+<h3 id="orgeede63e"><span class="section-number-3">5.11</span> References</h3>
+<div class="outline-text-3" id="text-5-11">
+<ul class="org-ul">
+<li><a href="http://danielmiessler.com/study/tcpdump/">A tcpdump Tutorial and Primer</a></li>
+<li><code>man tcpdump</code></li>
+<li><a href="http://www.ietf.org/rfc/rfc793.txt">RFC793</a></li>
+<li><a href="http://www.ietf.org/rfc/rfc791.txt">RFC791</a></li>
+<li><a href="http://tutorial.msamir.net/tcpdump.htm">tcpdump video tutorial</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbf53d6c" class="outline-2">
+<h2 id="orgbf53d6c"><span class="section-number-2">6</span> iptables &#x2014; administration tool for IPv4 packet filtering and NAT</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org2b48b99" class="outline-3">
+<h3 id="org2b48b99"><span class="section-number-3">6.1</span> References</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li><a href="http://www.netfilter.org/documentation/">http://www.netfilter.org/documentation/</a></li>
+<li><a href="http://www.frozentux.net/iptables-tutorial/chunkyhtml/">Iptables Tutorial</a></li>
+<li><code>man iptables</code></li>
+<li><a href="http://tldp.org/LDP/nag/nag.html">Linux Network Administrators Guide</a>, chapter 9.</li>
+<li><a href="http://cs3.swfu.edu.cn/pub/Books/network/OReilly-TCPIPNetworkAdministration3rdEdition.chm">TCP/IP Network Administration</a>, 3rd Edition, Apr 2002, O´REILLY.</li>
+<li><a href="http://en.wikipedia.org/wiki/iptables">Wikipedia &#x2013; iptables</a></li>
+<li><a href="http://www.faqs.org/rfcs/rfc2663.html">RFC2663 &#x2013; NAT Terminology and Considerations</a></li>
+<li><a href="http://www.faqs.org/rfcs/rfc3022.html">RFC3022 &#x2013; Traditional NAT</a></li>
+<li><a href="http://www.faqs.org/rfcs/rfc2827.html">RFC2827 &#x2013; Network Ingress Filtering</a></li>
+<li><a href="http://www.faqs.org/rfcs/rfc1858.html">RFC1858 &#x2013; Security Considerations - IP Fragment Filtering</a></li>
+<li><a href="http://www.faqs.org/rfcs/rfc3128.html">RFC3128 &#x2013; Protection Against a Tiny Fragment Attack</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb087719" class="outline-3">
+<h3 id="orgb087719"><span class="section-number-3">6.2</span> Big picture</h3>
+<div class="outline-text-3" id="text-6-2">
+
+<div class="figure">
+<p><img src="./chains.png" alt="chains.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org01f7d22" class="outline-3">
+<h3 id="org01f7d22"><span class="section-number-3">6.3</span> Basic Examples</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+You have to be <b>root</b> (<code>sudo</code>) to execute iptables functions.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Add a rule into the INPUT chain, to drop all packets from 147.8.212.123, do</span>
+iptables -A INPUT -s 147.8.212.123 -p all -j DROP
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To delete this rule, do</span>
+iptables -D INPUT -s 147.8.212.123 -p all -j DROP
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Drop ICMP packets from localhost, do</span>
+iptables -A INPUT -s 127.0.0.1 -p icmp -j DROP
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Drop ping packets from anywhere except localhost, do</span>
+iptables -A INPUT -s ! 127.0.0.1 -p all -j DROP
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Filter a network segment, do</span>
+iptables -A INPUT -s 192.168.1.0/24 -p all -j DROP
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc22889d" class="outline-3">
+<h3 id="orgc22889d"><span class="section-number-3">6.4</span> More Examples</h3>
+<div class="outline-text-3" id="text-6-4">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Syn-flood protection</span>
+iptables -A FORWARD -p tcp --syn -m limit --limit 1/s -j ACCEPT
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Furtive port scanner proctetion</span>
+iptables -A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Ping of death proctetion</span>
+iptables -A FORWARD -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org15a5578" class="outline-2">
+<h2 id="org15a5578"><span class="section-number-2">7</span> netcat &#x2014; TCP/IP swiss army knife</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>From <a href="http://www.g-loaded.eu/2006/11/06/netcat-a-couple-of-useful-examples/">http://www.g-loaded.eu/2006/11/06/netcat-a-couple-of-useful-examples/</a></li>
+</ul>
+</div>
+<div id="outline-container-org874043f" class="outline-3">
+<h3 id="org874043f"><span class="section-number-3">7.1</span> Setup a simple C/S chat session</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+Suppose the server IP is <code>202.203.132.244</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">At the server side, do</span>
+nc -l 3333
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">At the client side, do</span>
+nc 202.203.132.244 3333
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">Start chatting</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7064733" class="outline-3">
+<h3 id="org7064733"><span class="section-number-3">7.2</span> Transferring Files</h3>
+<div class="outline-text-3" id="text-7-2">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">1. Similar to the chat example above, at the server side, do</span>
+cat backup.iso | nc -l 3333
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">2. At the client side, do</span>
+nc 202.203.132.242 3333 &gt; backup.iso
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">As you may have noticed, netcat does not show any info about the progress of the</span>
+<span style="color: #5F7F5F;">#   </span><span style="color: #7F9F7F;">data transfer. This is inconvenient when dealing with large files. In such cases, a</span>
+<span style="color: #5F7F5F;">#   </span><span style="color: #7F9F7F;">pipe-monitoring utility like =pv= can be used to show a progress indicator. For</span>
+<span style="color: #5F7F5F;">#   </span><span style="color: #7F9F7F;">example, the following shows the total amount of data that has been transfered in</span>
+<span style="color: #5F7F5F;">#   </span><span style="color: #7F9F7F;">real-time on the server side:</span>
+cat backup.iso | pv -b | nc -l 3333
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Of course, the same can be implemented on the client side by piping netcat's output through =pv=:</span>
+nc 202.203.132.242 3333 | pv -b &gt; backup.iso
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfa23c5b" class="outline-3">
+<h3 id="orgfa23c5b"><span class="section-number-3">7.3</span> Other Examples</h3>
+<div class="outline-text-3" id="text-7-3">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">1. Netcat is extremely useful for creating a partition image and sending it to a remote machine on-the-fly:</span>
+dd <span style="color: #DFAF8F;">if</span>=/dev/hdb5 | gzip -9 | nc -l 3333
+
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">On the remote machine, connect to the server and receive the partition image with the following command:</span>
+nc 202.203.132.242 3333 | pv -b &gt; myhdb5partition.img.gz
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">This might not be as classy as the partition backups using =partimage=, but it is efficient.</span>
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">2. Another useful thing is to compress the critical files on the server machine with =tar=</span>
+<span style="color: #5F7F5F;">#      </span><span style="color: #7F9F7F;">and have them pulled by a remote machine:</span>
+tar -czf - /etc/ | nc -l 3333
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">As you can see, there is a dash in the tar options instead of a filename. This is because</span>
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">tar's output needs to be passed to netcat.</span>
+
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">On the remote machine, the backup is pulled in the same way as before:</span>
+nc 202.203.132.242 3333 | pv -b &gt; mybackup.tar.gz
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">3. IPv6</span>
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">In terminal A:</span>
+nc -6 -l 3333
+
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">In terminal B:</span>
+nc -6 ::1 3333
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org49c7e55" class="outline-3">
+<h3 id="org49c7e55"><span class="section-number-3">7.4</span> Telnet-like Usage</h3>
+<div class="outline-text-3" id="text-7-4">
+<p>
+Netcat can be used in order to talk to servers like telnet does. For example, in order
+to get the definition of the word “server” from the “WordNet” database at the dict.org
+dictionary server, I’d do:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">nc dict.org 2628
+DEFINE wn server
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4e1e3c1" class="outline-3">
+<h3 id="org4e1e3c1"><span class="section-number-3">7.5</span> Works as a Port Scanner too</h3>
+<div class="outline-text-3" id="text-7-5">
+<p>
+A useful command line flag is <code>-z</code>. When it is used, netcat does not initiate a
+connection to the server, but just informs about the open port it has found. Also,
+instead of a single port, it can accept a port-range to scan. For example:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">nc -z cs3.swfu.edu.cn 80-90
+</pre>
+</div>
+
+<p>
+In this example, netcat scanned the 80-90 range of ports.
+</p>
+</div>
+</div>
+<div id="outline-container-org677b3aa" class="outline-3">
+<h3 id="org677b3aa"><span class="section-number-3">7.6</span> Grab Port Banners</h3>
+<div class="outline-text-3" id="text-7-6">
+<p>
+So we're interested in knowing what's running behind port 80 and 21. We can use netcat to grab
+port banners in the following way:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">nc -v -n 202.203.132.242 80
+nc -v -n 202.203.132.242 21
+</pre>
+</div>
+<ul class="org-ul">
+<li>more examples:
+<ul class="org-ul">
+<li><a href="http://en.wikipedia.org/wiki/Netcat">http://en.wikipedia.org/wiki/Netcat</a></li>
+<li>The man page contains some more interesting examples, so take the time to read it.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb43bf5c" class="outline-2">
+<h2 id="orgb43bf5c"><span class="section-number-2">8</span> nmap &#x2014; Network exploration tool and security / port scanner</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+You have to be <b>root</b> to execute most nmap functions.
+</p>
+<ul class="org-ul">
+<li><b>References</b>
+<ul class="org-ul">
+<li><a href="http://www.gnulinuxclub.org/index.php?option=com_content&amp;task=view&amp;id=350&amp;Itemid=31">NMap tutorial for beginners</a></li>
+<li><a href="http://nmap.org/bennieston-tutorial/">NMAP - A Stealth Port Scanner</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-orgd099b58" class="outline-3">
+<h3 id="orgd099b58"><span class="section-number-3">8.1</span> Simple Examples</h3>
+<div class="outline-text-3" id="text-8-1">
+<div class="org-src-container">
+<pre class="src src-sh">nmap 202.203.132.244
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">no reverse DNS lookup:</span>
+nmap -n 202.203.132.244
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">verbose:</span>
+nmap -n -v 202.203.132.244
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">even more:</span>
+nmap -n -vv 202.203.132.244
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4c57035" class="outline-3">
+<h3 id="org4c57035"><span class="section-number-3">8.2</span> Scanning more than one machine</h3>
+<div class="outline-text-3" id="text-8-2">
+<div class="org-src-container">
+<pre class="src src-sh">nmap -n -vv 202.203.132.242,244
+nmap -n -vv 202.203.132.241-244
+nmap -n -vv 202.203.132.241-242,244
+nmap -n -vv 202.203.132.*
+nmap -n -vv 202.203.132.192-255
+nmap -n -vv 202.203.132.192/26
+
+nmap -vv -n 192.168.0-2.*
+nmap -vv -n 192.168.0,1,2.0-255
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3ee5ece" class="outline-3">
+<h3 id="org3ee5ece"><span class="section-number-3">8.3</span> Scanning specific ports:</h3>
+<div class="outline-text-3" id="text-8-3">
+<div class="org-src-container">
+<pre class="src src-sh">nmap -vv -n -p 80 202.203.132.244
+nmap -vv -n -p 21,23,25,80-120 202.203.132.244
+nmap -vv -n -p 21,23,25,80-120 202.203.132.241-244
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org59b30d7" class="outline-3">
+<h3 id="org59b30d7"><span class="section-number-3">8.4</span> Various Scanning options:</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+There are many scanning options available with Nmap. All have their advantages and
+disadvantages. You should use them according to your requirements.
+</p>
+</div>
+
+<div id="outline-container-org4f40c59" class="outline-4">
+<h4 id="org4f40c59"><span class="section-number-4">8.4.1</span> <code>-sS</code></h4>
+<div class="outline-text-4" id="text-8-4-1">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">SYN scanning (this is the default option)</span>
+nmap -vv -n -sS 202.203.132.244
+</pre>
+</div>
+
+<p>
+TCP SYN scan gather information about open ports without completing the TCP handshake
+process. When an open port is identified, the TCP handshake is reset before it can be
+completed. This technique is often referred to as “half open” scanning.
+</p>
+
+<p>
+It's the default scanning technique if you are <b>root</b>. It's the most common scan to
+use because it works on all networks, across all operating systems.
+</p>
+
+<dl class="org-dl">
+<dt>ADV</dt><dd>The TCP SYN scan never actually creates a TCP session so isn't logged by the
+destination host's applications. And hence it's a quiet scan.</dd>
+<dt>DISADV</dt><dd>You need privileged access to the system.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org27cc71c" class="outline-4">
+<h4 id="org27cc71c"><span class="section-number-4">8.4.2</span> <code>-sT</code></h4>
+<div class="outline-text-4" id="text-8-4-2">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">TCP connect scanning</span>
+nmap -vv -n -sT 202.203.132.244
+</pre>
+</div>
+<p>
+It performs the 3-way handshake.
+</p>
+<dl class="org-dl">
+<dt>ADV</dt><dd>You don't need to have privileged access.</dd>
+<dt>DISADV</dt><dd>Since it completes a TCP connection so apparent when application
+connection logs are examined.</dd>
+</dl>
+
+<p>
+<b>I would suggest you to never ever use this scan</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org85d3f01" class="outline-4">
+<h4 id="org85d3f01"><span class="section-number-4">8.4.3</span> <code>-sF</code>, <code>-sX</code>, <code>-sN</code></h4>
+<div class="outline-text-4" id="text-8-4-3">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">FIN scan</span>
+nmap &#8211;vv &#8211;n &#8211;sF 218.194.106.91
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Xmas tree scan</span>
+nmap &#8211;vv &#8211;n &#8211;sX 192.168.0.1
+
+<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">NULL scan</span>
+nmap &#8211;vv &#8211;n &#8211;sN 192.168.0.1
+</pre>
+</div>
+
+<p>
+These are called “stealth” scans. They send a single frame to a TCP port without any TCP
+handshaking or additional packet transfers. They are more “stealth” than SYN scan and must be
+used if the remote machine is not a Windows-based machine. I’ll tell you why.
+</p>
+
+<p>
+These scans operate by manipulating the bits of the TCP header. Nmap creates TCP headers that
+combine bit options that should never occur in the real world. These purposely mangled TCP
+header packets are thrown at a remote device, and nmap watches for the responses.
+</p>
+
+<p>
+Window-based systems will reply with a RST frame for all queries, regardless of the status of
+the specific port that was queried.
+</p>
+
+<dl class="org-dl">
+<dt>ADV</dt><dd>Since no TCP sessions are established, they are quiet stealthy.</dd>
+<dt>DISADV</dt><dd>Can't be used against windows-based machine.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgfa83047" class="outline-4">
+<h4 id="orgfa83047"><span class="section-number-4">8.4.4</span> <code>-sU</code></h4>
+<div class="outline-text-4" id="text-8-4-4">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">UDP scan</span>
+nmap -vv -n -sU 202.203.132.244
+</pre>
+</div>
+<p>
+The only scan in the arsenal of Nmap to identify UDP ports.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbd377ae" class="outline-4">
+<h4 id="orgbd377ae"><span class="section-number-4">8.4.5</span> <code>-sO</code></h4>
+<div class="outline-text-4" id="text-8-4-5">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Protocol scan</span>
+nmap -vv -n -sO 202.203.132.244
+</pre>
+</div>
+<p>
+Sometimes it has to be checked that what protocols the remote machine is running. It locates
+uncommon IP protocols that may be in use on the remote system. Hence it helps determining the
+type of remote device, i.e. is that router or printer or workstation etc.
+</p>
+
+<dl class="org-dl">
+<dt>DISADV</dt><dd>This scan will appear on any network monitoring application that identifies the IP
+protocol types in use.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org63f4b58" class="outline-4">
+<h4 id="org63f4b58"><span class="section-number-4">8.4.6</span> <code>-sR</code></h4>
+<div class="outline-text-4" id="text-8-4-6">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">RPC scan</span>
+nmap -vv -sR 202.203.132.244
+</pre>
+</div>
+<p>
+It's used to locate and identify RPC applications. It runs automatically during a version scan
+(-sV, explained later)
+</p>
+
+<dl class="org-dl">
+<dt>DISADV</dt><dd>RPC scan opens application sessions and hence it will be logged.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgc5e635f" class="outline-4">
+<h4 id="orgc5e635f"><span class="section-number-4">8.4.7</span> <code>-sV</code></h4>
+<div class="outline-text-4" id="text-8-4-7">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Version scan</span>
+nmap &#8211;vv &#8211;sV 202.203.132.244
+</pre>
+</div>
+<p>
+The scans which we have seen by now give you the status of the port and the service running on
+them. For exploiting the service you need the exact version number of the service. Version scan
+gives you this.
+</p>
+
+<dl class="org-dl">
+<dt>DISADV</dt><dd>It opens sessions with the remote applications, which will often display in an
+application's log file.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org266852e" class="outline-4">
+<h4 id="org266852e"><span class="section-number-4">8.4.8</span> <code>-sA</code></h4>
+<div class="outline-text-4" id="text-8-4-8">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">ACK scan</span>
+nmap &#8211;vv &#8211;sA 218.194.106.91
+</pre>
+</div>
+<p>
+It's quite useful when there is some packet filtering device or firewall. It never locates an
+open port. It does the job of identifying ports that are filtered through a firewall. It doesn't
+open any application sessions and hence the conversation between nmap and the remote device is
+relatively simple.
+</p>
+<dl class="org-dl">
+<dt>DISADV</dt><dd>It can only tell whether port is filtered or unfiltered.  But can never definitively
+identify an open port.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org5e8c5c7" class="outline-4">
+<h4 id="org5e8c5c7"><span class="section-number-4">8.4.9</span> <code>-sI</code></h4>
+<div class="outline-text-4" id="text-8-4-9">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Idle scan</span>
+nmap &#8211;vv &#8211;sI 218.194.106.91
+</pre>
+</div>
+<p>
+It's the stealthy most scan you can have. Tough to launch because you need a zombie for it. It
+would not be justice with this great scan to be described in just few lines. I would recommend
+you to read it in detail.
+</p>
+<dl class="org-dl">
+<dt>ADV</dt><dd>You will never be caught.</dd>
+<dt>DISADV</dt><dd>Tough to launch as it's not easy to find some zombie machine.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgd34df5d" class="outline-4">
+<h4 id="orgd34df5d"><span class="section-number-4">8.4.10</span> <code>-sP</code>: Ping scan</h4>
+<div class="outline-text-4" id="text-8-4-10">
+<p>
+You must have heard of <i>ping sweep</i>. It's Nmap's ping sweep.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">To check whether this machine is up or not, do</span>
+nmap &#8211;vv &#8211;sP 192.168.0.10
+
+<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">To check the whole subnet (254) machines and will tell you which are up.</span>
+nmap &#8211;vv &#8211;sP 192.168.0.*
+</pre>
+</div>
+<dl class="org-dl">
+<dt>DISADV</dt><dd>Ping scan will not interoperate with any other type of scan.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org38217a0" class="outline-4">
+<h4 id="org38217a0"><span class="section-number-4">8.4.11</span> <code>-sW</code>: Window scan</h4>
+<div class="outline-text-4" id="text-8-4-11">
+<p>
+Forget it. As the number of operating systems vulnerable to its methodology is dwindling as
+operating systems are upgraded and patched.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd473037" class="outline-4">
+<h4 id="orgd473037"><span class="section-number-4">8.4.12</span> <code>-sL</code>: List scan</h4>
+<div class="outline-text-4" id="text-8-4-12">
+<p>
+Would like to say only one line about it that you must use it if a separate application provides
+nmap with a list of IP addresses. Rest read yourself.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgef418c6" class="outline-3">
+<h3 id="orgef418c6"><span class="section-number-3">8.5</span> O/S fingerprinting and version detection</h3>
+<div class="outline-text-3" id="text-8-5">
+<p>
+Ok, now you can use various scanning techniques to look for open/closed or filtered/unfiltered
+TCP as well as UDP ports. Don't you want to know the remote operating system running?
+</p>
+</div>
+
+<div id="outline-container-org3592f54" class="outline-4">
+<h4 id="org3592f54"><span class="section-number-4">8.5.1</span> <code>-O</code></h4>
+<div class="outline-text-4" id="text-8-5-1">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Operating system fingerprinting</span>
+nmap -vv -O 202.203.132.241,244
+</pre>
+</div>
+
+<p>
+It will tell you or at least tries its best to tell you the remote operating system along with
+the version it's using. It at least need one open and one close TCP port. In case it doesn't, it
+won't be able to give the accurate result. In that case you should use some third party tool.
+</p>
+
+<dl class="org-dl">
+<dt>DISADV</dt><dd>A trained eye will quickly identify that someone is watching the network.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org47fa1e2" class="outline-4">
+<h4 id="org47fa1e2"><span class="section-number-4">8.5.2</span> <code>-sV</code></h4>
+<div class="outline-text-4" id="text-8-5-2">
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Version detection</span>
+nmap -vv -sV 202.203.132.244
+</pre>
+</div>
+<p>
+As has been explained it will help you know the version of the service running on the remote
+machine.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8f3bda0" class="outline-4">
+<h4 id="org8f3bda0"><span class="section-number-4">8.5.3</span> <code>-A</code>: Additional, Advanced, Aggressive option</h4>
+<div class="outline-text-4" id="text-8-5-3">
+<p>
+Its comprises of both the operating system fingerprinting process (<code>-O</code>) and the version scanning
+process (<code>-sV</code>). i.e following two are same:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">nmap -vv -sV -O 202.203.132.244
+nmap -vv -A 202.203.132.244
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb1f3bdf" class="outline-3">
+<h3 id="orgb1f3bdf"><span class="section-number-3">8.6</span> Typical scenario</h3>
+<div class="outline-text-3" id="text-8-6">
+<ol class="org-ol">
+<li><p>
+First, we’ll sweep the network with a simple Ping scan to determine which hosts are online.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">nmap -sP 202.203.132.192/26
+</pre>
+</div>
+<p>
+Tell me how many hosts are up?
+</p></li>
+<li><p>
+Now we’re going to take a look at 202.203.132.240-242,244. These IPs belong to School of CIS.
+We’ll scan 202.203.132.240-242,244 using a SYN scan [-sS] and -A to enable OS fingerprinting
+and version detection.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">nmap -sS -A -n -vv 202.203.132.240-242,244
+</pre>
+</div>
+<p>
+Tell me what OS they are running? What services are they running?
+</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: WANG Xiaolin</p>
+<p class="date">Created: 2019-03-08 Fri 10:23</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.1 (<a href="https://orgmode.org">Org</a> mode 9.2.1)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

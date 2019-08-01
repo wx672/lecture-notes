@@ -1,0 +1,748 @@
+% Created 2015-12-06 Sun 21:50
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage{fullpage}
+\usepackage{indentfirst}
+\usepackage[indentafter,pagestyles]{titlesec}
+\usepackage{minted}
+\usepackage{xltxtra}
+\usepackage{xeCJK}
+\tolerance=1000
+\setlength{\parindent}{2.5em}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\setCJKmainfont[BoldFont={WenQuanYi Zen Hei}]{SimSun}
+\setCJKfamilyfont{hei}{WenQuanYi Zen Hei}
+\setCJKfamilyfont{song}{SimSun}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\graphicspath{{./figs/}{../figs/}{./}{../}}
+\renewcommand{\contentsname}{目录}
+\renewcommand{\listfigurename}{插图目录}
+\renewcommand{\listtablename}{表格目录}
+\renewcommand{\abstractname}{摘要}
+\renewcommand{\appendixname}{附录}
+\renewcommand{\indexname}{索引}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\author{王晓林}
+\date{2015-06-20}
+\title{《操作系统原理》教案}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.5.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\clearpage
+\begin{itemize}
+\item 课程名称: 操作系统原理
+\item 面向专业: 计算机相关本科专业
+\item 教材参考：
+\begin{enumerate}
+\item A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008.
+\item Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley \& Sons, 2011.
+\end{enumerate}
+\item 授课学期：大三第一学期
+\item 任课教师：王晓林
+\item 编写时间：\textit{[2016-06-20]}
+\end{itemize}
+\section{操作系统简介}
+\label{sec-1}
+\subsection{教学目标及基本要求}
+\label{sec-1-1}
+了解什么是操作系统，及相关基本概念。
+\subsection{教学内容及学时分配}
+\label{sec-1-2}
+\begin{itemize}
+\item \href{./slides/intro-a.pdf}{讲义}
+\item \href{./slides/intro-b.pdf}{幻灯片}
+\item \href{./lab.html#sec-3}{作业}
+\end{itemize}
+\subsubsection{What's an OS? (0.5h)}
+\label{sec-1-2-1}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-1-2-1-1}
+\begin{itemize}
+\item Resource manager
+\item Control program
+\item System goals -- convenient vs. efficient
+\item History of OS
+\item Various OSes
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-1-2-1-2}
+理论 + 实验
+\subsubsection{OS services (0.5h)}
+\label{sec-1-2-2}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-1-2-2-1}
+\begin{itemize}
+\item Helping the user
+\item Keeping the system efficient
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-1-2-2-2}
+理论 + 实验
+\subsubsection{Bootstrapping (1h)}
+\label{sec-1-2-3}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-1-2-3-1}
+\begin{itemize}
+\item Intel x86 bootstrapping
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-1-2-3-2}
+理论 + 实验
+\subsubsection{Hardware (0.5h)}
+\label{sec-1-2-4}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-1-2-4-1}
+\begin{itemize}
+\item CPU working cycle
+\item CPU registers
+\item System bus
+\item Controllers and Peripherals
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-1-2-4-2}
+理论 + 实验
+\subsubsection{Interrupt (1h)}
+\label{sec-1-2-5}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-1-2-5-1}
+\begin{itemize}
+\item Why interrupt?
+\item Interrupt timeline
+\item Concepts: 
+\begin{itemize}
+\item hardware interrupt
+\item software interrupt
+\item trap
+\item interrupt vector
+\end{itemize}
+\item Interrupt processing
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-1-2-5-2}
+理论 + 实验
+\subsubsection{System calls (1h)}
+\label{sec-1-2-6}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-1-2-6-1}
+\begin{itemize}
+\item What's a system call?
+\item How a system call works?
+\item Various system calls
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-1-2-6-2}
+理论 + 实验
+\subsection{重点和难点}
+\label{sec-1-3}
+\begin{itemize}
+\item Bootstrapping
+\item Interrupt
+\item System calls
+\end{itemize}
+\subsection{深化和拓宽}
+\label{sec-1-4}
+暂无
+\subsection{教学方式（手段）及教学过程中应注意的问题}
+\label{sec-1-5}
+\begin{itemize}
+\item 理论 + 实验
+\end{itemize}
+\section{进程与线程}
+\label{sec-2}
+\subsection{教学目标及基本要求}
+\label{sec-2-1}
+了解进程和线程相关的基本概念。
+\subsection{教学内容及学时分配}
+\label{sec-2-2}
+\begin{itemize}
+\item \href{./slides/process-thread-a.pdf}{讲义}
+\item \href{./slides/process-thread-b.pdf}{幻灯片}
+\item \href{./lab.html#sec-4}{作业}
+\end{itemize}
+\subsubsection{What's a process? (.5h)}
+\label{sec-2-2-1}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-2-2-1-1}
+\begin{itemize}
+\item logical view of a process
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-2-2-1-2}
+理论 + 实验
+\subsubsection{Process creation (1h)}
+\label{sec-2-2-2}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-2-2-2-1}
+\begin{itemize}
+\item fork(), exec(), wait(), exit()
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-2-2-2-2}
+理论 + 实验
+\subsubsection{Process state (.5h)}
+\label{sec-2-2-3}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-2-2-3-1}
+\begin{itemize}
+\item running, blocked, ready
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-2-2-3-2}
+理论 + 实验
+\subsubsection{Process Control Block(PCB) (1h)}
+\label{sec-2-2-4}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-2-2-4-1}
+\begin{itemize}
+\item How to describe a process?
+\item \texttt{task\_struct} in Linux
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-2-2-4-2}
+理论 + 实验
+\subsubsection{CPU switch from process to process (.5h)}
+\label{sec-2-2-5}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-2-2-5-1}
+\begin{itemize}
+\item The OS role in process switch
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-2-2-5-2}
+\subsubsection{Processes vs. threads (.5h)}
+\label{sec-2-2-6}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-2-2-6-1}
+\begin{itemize}
+\item A process is a unit of resource ownership
+\item A thread is a unit of scheduling
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-2-2-6-2}
+理论 + 实验
+\subsubsection{Why thread? (.5)}
+\label{sec-2-2-7}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-2-2-7-1}
+\begin{itemize}
+\item Advantages
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-2-2-7-2}
+理论 + 实验
+\subsubsection{Thread characteristics (.5)}
+\label{sec-2-2-8}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-2-2-8-1}
+\begin{itemize}
+\item Thread state
+\item A thread has its own stack
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-2-2-8-2}
+理论 + 实验
+\subsubsection{Thread operation and POSIX threads (1h)}
+\label{sec-2-2-9}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-2-2-9-1}
+\begin{itemize}
+\item Thread library calls
+\item POSIX threads examples
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-2-2-9-2}
+理论 + 实验
+\subsubsection{User-level threads vs. kernel-level threads (.5h)}
+\label{sec-2-2-10}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-2-2-10-1}
+\begin{itemize}
+\item pros and cons
+\item Hybrid implementations
+\item Programming complications
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-2-2-10-2}
+理论 + 实验
+\subsubsection{Linux threads (1h)}
+\label{sec-2-2-11}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-2-2-11-1}
+\begin{itemize}
+\item clone()
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-2-2-11-2}
+理论 + 实验
+\subsection{重点和难点}
+\label{sec-2-3}
+\begin{itemize}
+\item 进程的一生
+\item 线程的一生
+\end{itemize}
+\subsection{深化和拓宽}
+\label{sec-2-4}
+暂无
+\subsection{教学方式（手段）及教学过程中应注意的问题}
+\label{sec-2-5}
+理论 + 实验
+\subsection{思考题和习题}
+\label{sec-2-6}
+\section{进程间同步}
+\label{sec-3}
+\subsection{教学目标及基本要求}
+\label{sec-3-1}
+了解进程间协调的基本概念和方法。
+\subsection{教学内容及学时分配}
+\label{sec-3-2}
+\begin{itemize}
+\item \href{./slides/process-sync-a.pdf}{讲义}
+\item \href{./slides/process-sync-b.pdf}{幻灯片}
+\item \href{./lab.html#sec-4-3}{作业}
+\end{itemize}
+\subsubsection{Inter-process communication (.5h)}
+\label{sec-3-2-1}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-3-2-1-1}
+\begin{itemize}
+\item IPC issues
+\item Two models of IPC
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-3-2-1-2}
+理论 + 实验
+\subsubsection{Shared memory (1h)}
+\label{sec-3-2-2}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-3-2-2-1}
+\begin{itemize}
+\item Producer-consumer problem
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-3-2-2-2}
+理论 + 实验
+\subsubsection{Race condition and mutual exclusion (2h)}
+\label{sec-3-2-3}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-3-2-3-1}
+\begin{itemize}
+\item Race scenarios
+\item Critical regions
+\item Algorithms: 
+\begin{itemize}
+\item busy-waiting
+\begin{itemize}
+\item disable interrupts
+\item Peterson's algorithm
+\item Hardware solution --- TSL instruction
+\end{itemize}
+\item No busy-waiting
+\begin{itemize}
+\item sleep/wake up
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-3-2-3-2}
+理论 + 实验
+\subsubsection{Semaphores (2h)}
+\label{sec-3-2-4}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-3-2-4-1}
+\begin{itemize}
+\item What's a semaphore?
+\item Why semaphore?
+\item How to use semaphore?
+\item Mutex
+\item Barriers
+\item Examples
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-3-2-4-2}
+理论 + 实验
+\subsubsection{Monitors (1h)}
+\label{sec-3-2-5}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-3-2-5-1}
+\begin{itemize}
+\item What's a monitor?
+\item Examples
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-3-2-5-2}
+理论 + 实验
+\subsubsection{Message passing (1h)}
+\label{sec-3-2-6}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-3-2-6-1}
+\begin{itemize}
+\item What's messaging?
+\item Examples
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-3-2-6-2}
+理论 + 实验
+\paragraph{师生活动设计}
+\label{sec-3-2-6-3}
+\subsubsection{Classical IPC problems (2h)}
+\label{sec-3-2-7}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-3-2-7-1}
+\begin{itemize}
+\item The dining philosophers problem
+\item The readers-writers problem
+\item The sleeping barber problem
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-3-2-7-2}
+理论 + 实验
+\subsection{重点和难点}
+\label{sec-3-3}
+\begin{itemize}
+\item Semaphores
+\item Classical IPC problems
+\end{itemize}
+\subsection{深化和拓宽}
+\label{sec-3-4}
+暂无
+\subsection{教学方式（手段）及教学过程中应注意的问题}
+\label{sec-3-5}
+理论 + 实验
+\subsection{思考题和习题}
+\label{sec-3-6}
+\section{CPU调度}
+\label{sec-4}
+\subsection{教学目标及基本要求}
+\label{sec-4-1}
+了解进程调度的基本算法
+\subsection{教学内容及学时分配}
+\label{sec-4-2}
+\begin{itemize}
+\item \href{./slides/cpu-sched-a.pdf}{讲义}
+\item \href{./slides/cpu-sched-b.pdf}{幻灯片}
+\end{itemize}
+\subsubsection{Scheduling introduction (1h)}
+\label{sec-4-2-1}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-4-2-1-1}
+\begin{itemize}
+\item Process scheduling queues
+\item Different system has different scheduling algorithm
+\item Process behavior
+\item Process classification
+\item Process schedulers
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-4-2-1-2}
+理论 + 实验
+\subsubsection{Scheduling algorithms (1h)}
+\label{sec-4-2-2}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-4-2-2-1}
+\begin{itemize}
+\item Scheduling in batch systems
+\item Scheduling in interactive systems
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-4-2-2-2}
+理论 + 实验
+\subsubsection{Thread scheduling (.5h)}
+\label{sec-4-2-3}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-4-2-3-1}
+\begin{itemize}
+\item kernel-threads vs. user-threads
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-4-2-3-2}
+理论 + 实验
+\subsubsection{Linux scheduling (1h)}
+\label{sec-4-2-4}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-4-2-4-1}
+\begin{itemize}
+\item 140 priorities
+\item O(1)
+\item active array, expired array
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-4-2-4-2}
+理论 + 实验
+\subsection{重点和难点}
+\label{sec-4-3}
+\begin{itemize}
+\item Scheduling algorithms
+\end{itemize}
+\subsection{深化和拓宽}
+\label{sec-4-4}
+暂无
+\subsection{教学方式（手段）及教学过程中应注意的问题}
+\label{sec-4-5}
+理论 + 实验
+\subsection{思考题和习题}
+\label{sec-4-6}
+\section{死锁}
+\label{sec-5}
+\subsection{教学目标及基本要求}
+\label{sec-5-1}
+了解死锁产生的原因和处理方法。
+\subsection{教学内容及学时分配}
+\label{sec-5-2}
+\begin{itemize}
+\item \href{./slides/deadlock-a.pdf}{讲义}
+\item \href{./slides/deadlock-b.pdf}{幻灯片}
+\end{itemize}
+\subsubsection{Resources (.5h)}
+\label{sec-5-2-1}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-5-2-1-1}
+\begin{itemize}
+\item Processes need access to resources in reasonable order
+\item Preemptable and non-preemptable resources
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-5-2-1-2}
+理论 + 实验
+\subsubsection{Introduction to deadlock (.5h)}
+\label{sec-5-2-2}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-5-2-2-1}
+\begin{itemize}
+\item four conditions
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-5-2-2-2}
+理论 + 实验
+\subsubsection{Deadlock modeling (.5h)}
+\label{sec-5-2-3}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-5-2-3-1}
+\begin{itemize}
+\item resource requirements graph
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-5-2-3-2}
+理论 + 实验
+\subsubsection{Dealing with deadlocks (2h)}
+\label{sec-5-2-4}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-5-2-4-1}
+\begin{itemize}
+\item Deadlock detection and recovery
+\item Deadlock avoidance
+\item Deadlock prevention
+\item The ostrich algorithm
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-5-2-4-2}
+理论 + 实验
+\subsection{重点和难点}
+\label{sec-5-3}
+\begin{itemize}
+\item 死锁处理方法
+\end{itemize}
+\subsection{深化和拓宽}
+\label{sec-5-4}
+暂无
+\subsection{教学方式（手段）及教学过程中应注意的问题}
+\label{sec-5-5}
+理论 + 实验
+\subsection{思考题和习题}
+\label{sec-5-6}
+\section{内存管理}
+\label{sec-6}
+\subsection{教学目标及基本要求}
+\label{sec-6-1}
+了解内存管理的相关概念
+\subsection{教学内容及学时分配}
+\label{sec-6-2}
+\begin{itemize}
+\item \href{./slides/mm-a.pdf}{讲义}
+\item \href{./slides/mm-b.pdf}{幻灯片}
+\item \href{./lab.html#sec-5}{作业}
+\end{itemize}
+\subsubsection{Real-mode vs. protected-mode memory management (1.5h)}
+\label{sec-6-2-1}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-6-2-1-1}
+\begin{itemize}
+\item Relocation problem
+\item Process' memory is divided into logical segments
+\item Memory allocation, who/when/how?
+\item Swapping
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-6-2-1-2}
+理论 + 实验
+\subsubsection{Contiguous memory allocation (.5h)}
+\label{sec-6-2-2}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-6-2-2-1}
+\begin{itemize}
+\item first-fit, best-fit, worst-fit
+\item internal-fragmentation, external-fragmentation
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-6-2-2-2}
+理论 + 实验
+\subsubsection{Virtual memory (5h)}
+\label{sec-6-2-3}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-6-2-3-1}
+\begin{itemize}
+\item Logical memory vs. physical memory
+\item Paging
+\begin{itemize}
+\item Demand paging
+\item Copy-on-write
+\item Memory-mapped file
+\item Page replacement algorithm
+\item Allocation of frames
+\item Thrashing and working set model
+\end{itemize}
+\item Segmentation
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-6-2-3-2}
+理论 + 实验
+\subsection{重点和难点}
+\label{sec-6-3}
+\begin{itemize}
+\item Virtual memory
+\end{itemize}
+\subsection{深化和拓宽}
+\label{sec-6-4}
+暂无
+\subsection{教学方式（手段）及教学过程中应注意的问题}
+\label{sec-6-5}
+理论 + 实验
+\subsection{思考题和习题}
+\label{sec-6-6}
+\section{文件系统}
+\label{sec-7}
+\subsection{教学目标及基本要求}
+\label{sec-7-1}
+了解文件系统的基本工作原理
+\subsection{教学内容及学时分配}
+\label{sec-7-2}
+\begin{itemize}
+\item \href{./slides/fs-a.pdf}{讲义}
+\item \href{./slides/fs-b.pdf}{幻灯片}
+\item \href{./lab.html#sec-6}{作业}
+\end{itemize}
+\subsubsection{Files (1.5h)}
+\label{sec-7-2-1}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-7-2-1-1}
+\begin{itemize}
+\item What's a file?
+\item File system design issues
+\item File system models --- layered design
+\item File attributes and types
+\item File operations
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-7-2-1-2}
+理论 + 实验
+\subsubsection{Directories (1h)}
+\label{sec-7-2-2}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-7-2-2-1}
+\begin{itemize}
+\item Single level, multi-level directories
+\item Operations
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-7-2-2-2}
+理论 + 实验
+\subsubsection{File system implementation (3h)}
+\label{sec-7-2-3}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-7-2-3-1}
+\begin{itemize}
+\item File system layout
+\item Implementing files
+\begin{itemize}
+\item Linked-list allocation
+\item Indexed allocation
+\end{itemize}
+\item Implementing directories
+\item Shared files
+\item Disk space management
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-7-2-3-2}
+理论 + 实验
+\subsubsection{Ext2 file system (1.5h)}
+\label{sec-7-2-4}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-7-2-4-1}
+\begin{itemize}
+\item Ext2 fs layout
+\item Ext2 superblock
+\item Ext2 inode
+\item Ext2 directory
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-7-2-4-2}
+理论 + 实验
+\subsubsection{Virtual file system (1.5h)}
+\label{sec-7-2-5}
+\paragraph{教学内容（具体到知识点）}
+\label{sec-7-2-5-1}
+\begin{itemize}
+\item Why VFS?
+\item FS mounting
+\item Linux VFS
+\end{itemize}
+\paragraph{教学方式（手段）}
+\label{sec-7-2-5-2}
+理论 + 实验
+\subsection{重点和难点}
+\label{sec-7-3}
+\begin{itemize}
+\item File system implementation
+\item Ext2 FS
+\end{itemize}
+\subsection{深化和拓宽}
+\label{sec-7-4}
+暂无
+\subsection{教学方式（手段）及教学过程中应注意的问题}
+\label{sec-7-5}
+理论 + 实验
+\subsection{参考书目}
+\label{sec-7-6}
+\subsection{思考题和习题}
+\label{sec-7-7}
+
+
+\bibliographystyle{plain}
+\bibliography{os}
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}

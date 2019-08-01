@@ -1,0 +1,173 @@
+#+TITLE:     Operating Systems Course Syllabus
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION: 
+#+KEYWORDS:  
+#+LANGUAGE: en
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:nil mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+LaTeX_CLASS: article
+# (setq org-export-html-use-infojs nil)
+
+- ID: A05026
+- Total hours: 64 (Lectures: 48; Labs: 16)
+- Credits: 3
+- Practical: None
+- Applicable: Computer Science and Technology, Electronic Information Engineering,
+  Information and Computer Technology
+
+* Course Nature and Pre-requisites
+  This course examines the important problems in operating system design and
+  implementation. The operating system provides an established, convenient, and efficient
+  interface between user programs and the bare hardware of the computer on which they
+  run. The operating system is responsible for sharing resources (e.g., disks, networks,
+  and processors), providing common services needed by many different programs (e.g.,
+  file service, the ability to start or stop processes, and access to the printer), and
+  protecting individual programs from interfering with one another. The course will start
+  with a brief historical perspective of the evolution of operating systems over the last
+  fifty years and then cover the major components of most operating systems. This
+  discussion will cover the tradeoffs that can be made between performance and
+  functionality during the design and implementation of an operating system. Particular
+  emphasis will be given to three major OS subsystems: process management (processes,
+  threads, CPU scheduling, synchronization, and deadlock), memory management
+  (segmentation, paging, swapping), and file systems; and on operating system support for
+  distributed systems.
+
+  - Pre-requisites: C programming, Linux basics
+* Chapters
+  1. Introduction
+     - What's an OS?
+     - OS services
+     - Bootstrapping
+     - Hardware
+     - Interrupt
+     - System calls
+  2. Processes and Threads
+     - What's a process?
+     - Process creation
+     - Process state
+     - Process Control Block (PCB)
+     - CPU switch from process to process
+     - Processes vs. threads
+     - Why threads?
+     - Thread characteristics
+     - Thread operation and POSIX threads
+     - User-level threads vs. kernel-level threads
+     - Linux threads
+  3. Process synchronization
+     - Concepts
+     - Shared memory
+     - Race condition and mutual exclusion
+     - Semaphores
+     - Monitors
+     - Message passing
+     - Classical IPC problems
+  4. CPU Scheduling
+     - Scheduling introduction
+     - Scheduling algorithms
+     - Thread scheduling
+     - Linux scheduling
+  5. Deadlocks
+     - Resources
+     - Introduction to deadlocks
+     - Deadlock modeling
+     - Dealing with deadlocks
+  6. Memory Management
+     - Real-mode vs. protected-mode memory management
+     - Contiguous memory allocation
+     - Virtual memory
+  7. File Systems
+     - Files
+     - Directories
+     - File system implementation
+     - Ext2 file system
+     - Virtual file system
+* Lab
+** Approaching to the Linux kernel (4 hrs)
+   - proc file-system
+   - Play with the kernel
+   - Hello, kernel module!
+   - System calls
+** Process Management (4 hrs)
+   - Process creation
+   - Thread
+   - IPC
+**** Signals
+**** Pipe
+**** FIFO
+**** File Locking
+**** Message Queues
+**** Semaphores
+** Memory management (4 hrs)
+   - Basic commands
+   - Shared Memory Segments
+   - Memory Mapped Files
+** File System (4 hrs) 
+   - File system creation
+   - Finding a file with =hexdump=
+* Time arrangement (lectures + labs)
+  - Introduction (4+2 hrs)
+  - Process and thread (8+2.5 hrs)
+  - Process synchronization (10+2.5 hrs)
+  - CPU Scheduling (4+0.5 hrs)
+  - Deadlocks (4+0.5 hrs)
+  - Memory management (9+4 hrs)
+  - File systems (9+4 hrs)
+
+* Grading
+  - Exam: 80%
+  - Assignments: 20%
+* Textbook and References
+   1. A.S. Tanenbaum. /Modern Operating Systems/, 3e. Pearson Prentice Hall, 2008. 
+   2. Silberschatz, Galvin, and Gagne. /Operating System Concepts Essentials/. John Wiley & Sons, 2011.
+   3. D.P. Bovet and M. Cesatí. /Understanding The Linux Kernel/. O'Reilly, 2005.
+
+* Focals
+  - Process synchronization
+  - Virtual memory 
+  - File systems
+* Requirements about assignments and lab work
+  1. To complete the lab work, you have to be happy with 2 foreign languages, =English= and =C=.
+  2. Time is short. In the lab, you have no time for both understanding the instruction
+     manuals and doing the programing work. So you have to read and understand the lab
+     instructions *before* you come to the lab.
+  3. Your work (report + source code) must be handed in *within a week after the lab work*.
+  4. To start your work, make a directory first, e.g. 20121156001. And then you should do
+     everything within this directory. Finally, after you've done, make this directory a
+     [[http://www.gnu.org/software/tar/manual/html_chapter/Formats.html#SEC131][=tar-ball=]] and submit it to [[mailto:wx672ster%2Bos@gmail.com][{{{email}}}]]. Besides this tar ball, in your email message
+     you *must* tell me:
+     1) How many hours you spent in this work?
+     2) Your major work in this report;
+     3) The major problems you met, and how did you solve (or try solving) them;
+     4) Reference books and web links;
+  5. These are Linux projects. Your work *must* be done in Linux.
+     - You are *required* to finish your report with [[http://orgmode.org/][=Emacs org-mode=]]
+       - To enforce the above requirement, you have to submit both an =org file= and a generated
+	 =html file= as your lab report.
+       - A sample [[file:sample-report][report template]] written with Emacs org-mode is provided for your
+	 reference.
+       - You can get some Chinese help about emacs at [[http://emacser.com/][Emacs中文网]].
+       - Org-mode Tutorials
+	 - [[http://orgmode.org/worg/org-tutorials/orgtutorial_dto.php][David O'Toole Org tutorial]]
+	 - [[http://jaderholm.com/screencasts.html][Org-mode screencast]] ([[http://cs3.swfu.edu.cn/~wx672/org-mode.swf][local copy]])
+	 - [[http://orgmode.org/worg/org-tutorials/index.php][More org-mode tutorials]]
+	 - =info org=
+       - If you need to draw a picture (e.g. flow chart, etc.), you can use [[http://live.gnome.org/Dia][Dia]], [[http://www.xfig.org/][xfig]], or preferably
+	 embed an [[http://en.wikipedia.org/wiki/ASCII_art][ascii art]] in your org file.
+       - If you need to insert source codes into your org file, you should check:
+	 - http://orgmode.org/manual/Include-files.html#Include-files, and you can find some
+	   examples in [[#code-insertion][this section]].
+     - MS-word file will *NOT* be accepted!
+  6. Late reports will be penalized 20% per day.
+  7. Cheating will result in automatic failure of this course.
+
+* Courses Relations
+  - Pre: Computer Organization, Linux Basics, C programming, Assembly programming
+  - Post: Linux System Analysis
+* Notes
+   None.

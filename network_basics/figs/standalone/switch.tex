@@ -1,0 +1,36 @@
+\documentclass[varwidth,crop]{standalone}
+
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+╔══════════════════════════════════════════════╗
+║ ┌───────────┬───────┐                        ║
+║ │MAC address│ Port  │      Ethernet Switch   ║
+║ ├───────────┼───────┤      ═══════════════   ║
+║ │     A     │ Eth 1 │                        ║
+║ ├───────────┼───────┤                        ║
+║ │     B     │ Eth 1 │                        ║
+║ ├───────────┼───────┤                        ║
+║ │     C     │ Eth 2 │  ┌────────┬──────────┐ ║
+║ ├───────────┼───────┤  │Bridging│Interface │ ║
+║ │     D     │ Eth 2 │  │Protocol│Management│ ║
+║ ├───────────┼───────┤  └───┬────┴──────────┘ ║
+║ │     E     │ Eth 2 │      │                 ║
+║ └───────────┴───────┘   ┌──┴──┐              ║
+║              ┌─────┐    │Cache│    ┌─────┐   ║
+║              │Eth 1├────┤     ├────┤Eth 2│   ║
+╚══════════════╧══┬══╧════╧═════╧════╧══┬══╧═══╝
+──────┬───────┬───┴──    ───┬───────┬───┴───┬───
+    ┌─┴─┐   ┌─┴─┐         ┌─┴─┐   ┌─┴─┐   ┌─┴─┐
+    │ A │   │ B │         │ C │   │ D │   │ E │
+    └───┘   └───┘         └───┘   └───┘   └───┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% TeX-master: t
+%%% End:

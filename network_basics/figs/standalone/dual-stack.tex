@@ -1,0 +1,30 @@
+\documentclass[varwidth,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+        Dual stack
+┌───────────────────────┐
+│... ╲ │ ╱ ..  ╲ │ ╱ ...│
+│    ┌───┐    ┌──────┐  │
+│    │TCP│    │ UDP  │  │
+│    └───┘    └──────┘  │
+│      │  ╲  ╱      │   │
+│      │  ┌──┐      │   │
+│      │  │IP│┌───┐ │   │
+│      │  └*─┘│ARP│ │   │
+│      │   │  └───┘ │   │
+│      │   │ ╱      │   │
+│    ┌────────────────┐ │
+│    │    ETHERNET    │ │
+│    └───────@────────┘ │
+└────────────┼──────────┘
+             │
+       ──────o──────
+\end{verbatim}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

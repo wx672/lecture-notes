@@ -1,0 +1,38 @@
+\documentclass[varwidth=27.2em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+\usemintedstyle{bw}
+
+\begin{document}
+\begin{ccode}
+semaphore items = 0;
+semaphore spaces = BUFFER_SIZE;        
+\end{ccode}
+\begin{minipage}{.42\linewidth}
+\vspace{1em}
+\begin{ccode}
+void producer() {
+  while (true) {
+    item = produceItem();
+    down(spaces);
+    putIntoBuffer(item);
+    up(items);
+  }
+}      
+\end{ccode}
+\end{minipage}\qquad
+\begin{minipage}{.48\linewidth}
+\vspace{1em}
+\begin{ccode}
+void consumer() {
+  while (true) {
+    down(items);
+    item = rmFromBuffer();
+    up(spaces);
+    consumeItem(item);
+  }
+}
+\end{ccode}  
+\end{minipage}
+\end{document}

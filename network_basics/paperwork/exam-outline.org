@@ -1,0 +1,77 @@
+#+TITLE:     《计算机网络》考核大纲
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+DATE:      2015-03-06
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+XSLT:
+# (setq org-export-html-use-infojs nil)
+
+- 课程编号：A05055
+- 课程名称：计算机网络
+- 任课教师：王晓林
+- 适应专业：计算机本科专业
+- 授课学时：32/16
+- 考试方式：闭卷笔试
+- 命题规则：按《西南林学院考试命题规则》(试行)(1996年10月修订)执行
+- 考试时间：120分钟
+- 推荐教材：
+   - /Computer Networks/, Xie Xiren, Electronics Engineering Press.
+   - /Computer Networks/, Andrew S.Tanenbaum, Tsinghua Unversity Press.
+   - /Computer Networks Lab Tutorials/, Xie Qian, Electronics Engineering Press.
+   - /Computer Network Tutorials/, Du Yu, People's Post and
+     Telecommunication Press, 1st edition Jan 2002.
+   - /Computer Network Practical Tutorials/, Wang Li, Zhang Yuxiang,
+     Yang Lianghuai, Tsinghua University Press, 1st edition Dec 1999.
+- 课程性质及教学目的：本课程为计算机专业本科专业基础课。要求学生全面了解TCP/IP网络的工作原理。
+  
+各章节考核目标如下：
+* TCP/IP Introction
+** 考核知识点
+     - What's TCP/IP?
+     - What's a protocol stack?
+     - Relation between adjacent layers?
+     - Relation between peer layers?
+     - What's RFC?
+** 考核要求
+   Know the above key points.
+* Ethernet and ARP
+** 考核知识点
+     - Frame format
+     - Address format
+     - Broadcast address
+     - CSMA/CD
+     - How ARP works?
+** 考核要求
+   Know the above key points.
+* IP routing
+** 考核知识点
+     - IP address (format, classification, Netmask)
+     - Route table
+     - How routing works
+     - Subnetting
+     - IPv6 address format
+** 考核要求
+   Know the above key points.
+* TCP, UDP
+** 考核知识点
+     - Sockets
+     - 3-way handshake
+     - TCP header
+     - tcpdump
+     - Socket programming
+** 考核要求
+   Know the above key points.
+* Application layer protocols
+** 考核知识点
+     - HTTP
+     - FTP
+     - SMPT, POP3, IMAP
+     - DNS
+** 考核要求
+   Know the above key points.

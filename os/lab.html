@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2018-11-25 Sun 12:23 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operating Systems &#x2014; Lab Instruction</title>
+<meta name="generator" content="Org mode">
+<meta name="author" content="WANG Xiaolin">
+<meta name="description" content="Lab projects for the OS course"
+>
+<meta name="keywords" content="os, operating system, linux, kernel, system call, process, memory, file, gcc, lab, project">
+<link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
+<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Operating Systems &#x2014; Lab Instruction</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2f9d49c">1. Caution</a></li>
+<li><a href="#org508cb55">2. Approaching to the Linux kernel</a>
+<ul>
+<li><a href="#org594521d">2.1. proc file-system</a></li>
+<li><a href="#org1514f0b">2.2. Play with the kernel</a></li>
+<li><a href="#org11fdc03">2.3. Hello, kernel module!</a>
+<ul>
+<li><a href="#org4bc832e">2.3.1. Questions</a></li>
+<li><a href="#orgb73fb2f">2.3.2. Sum up</a></li>
+</ul>
+</li>
+<li><a href="#org3afd4ba">2.4. System calls</a></li>
+</ul>
+</li>
+<li><a href="#org71eb190">3. Process Management</a>
+<ul>
+<li><a href="#code-insertion">3.1. Process creation</a></li>
+<li><a href="#orgf5211e9">3.2. Thread</a></li>
+<li><a href="#org7ddd645">3.3. IPC</a>
+<ul>
+<li><a href="#org3478b10">3.3.1. Signals</a></li>
+<li><a href="#org7b61201">3.3.2. Pipe</a></li>
+<li><a href="#orgf573a67">3.3.3. FIFO</a></li>
+<li><a href="#org604e764">3.3.4. File Locking</a></li>
+<li><a href="#orgb1999c5">3.3.5. Message Queues</a></li>
+<li><a href="#orgc48e7aa">3.3.6. Semaphores</a></li>
+<li><a href="#orgc65b71e">3.3.7. Sum up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgdf5637d">4. Memory management</a>
+<ul>
+<li><a href="#org431d975">4.1. Basic commands</a></li>
+<li><a href="#orgdc8622f">4.2. Shared Memory Segments</a></li>
+<li><a href="#org298cdd7">4.3. Memory Mapped Files</a></li>
+<li><a href="#org0dcc1b6">4.4. Sum up</a></li>
+</ul>
+</li>
+<li><a href="#org4f0faa4">5. File System</a>
+<ul>
+<li><a href="#orgfc26c80">5.1. File system creation</a>
+<ul>
+<li><a href="#org4268e73">5.1.1. Your tasks</a></li>
+</ul>
+</li>
+<li><a href="#org7a5a2a9">5.2. Finding a file with <code>hexdump</code></a></li>
+<li><a href="#org834760c">5.3. Sum up</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2f9d49c" class="outline-2">
+<h2 id="org2f9d49c"><span class="section-number-2">1</span> Caution</h2>
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>To complete the lab work, you have to be happy with 2 foreign languages, <code>English</code> and <code>C</code>.</li>
+<li>Time is short. In the lab, you have no time for both understanding the instruction
+manuals and doing the programing work. So you have to read and understand the lab
+instructions <b>before</b> you come to the lab.</li>
+<li>Your work (report + source code) must be handed in <b>within a week after the lab work</b>.</li>
+<li>To start your work, make a directory first, e.g. 20121156001. And then you should do
+everything within this directory. Finally, after you've done, make this directory a
+<a href="http://www.gnu.org/software/tar/manual/html_chapter/Formats.html#SEC131"><code>tar-ball</code></a> and submit it to <a href="mailto:wx672ster+os@gmail.com">wx672ster+os@gmail.com</a>. Besides this tar ball, in your email message
+you <b>must</b> tell me:
+<ol class="org-ol">
+<li>How many hours you spent in this work?</li>
+<li>Your major work in this report;</li>
+<li>The major problems you met, and how did you solve (or try solving) them;</li>
+<li>Reference books and web links;</li>
+</ol></li>
+<li>These are Linux projects. Your work <b>must</b> be done in Linux.
+<ul class="org-ul">
+<li>You are <b>required</b> to finish your report with <a href="http://orgmode.org/"><code>Emacs org-mode</code></a>
+<ul class="org-ul">
+<li>To enforce the above requirement, you have to submit both an <code>org file</code> and a generated
+<code>html file</code> as your lab report.</li>
+<li>A sample <a href="sample-report">report template</a> written with Emacs org-mode is provided for your
+reference.</li>
+<li>You can get some Chinese help about emacs at <a href="http://emacser.com/">Emacs中文网</a>.</li>
+<li>Org-mode Tutorials</li>
+</ul></li>
+<li><a href="http://orgmode.org/worg/org-tutorials/orgtutorial_dto.php">David O'Toole Org tutorial</a></li>
+<li><a href="http://jaderholm.com/screencasts.html">Org-mode screencast</a> (<a href="http://cs3.swfu.edu.cn/~wx672/org-mode.swf">local copy</a>)</li>
+<li><a href="http://orgmode.org/worg/org-tutorials/index.php">More org-mode tutorials</a></li>
+<li><code>info org</code>
+<ul class="org-ul">
+<li>If you need to draw a picture (e.g. flow chart, etc.), you can use <a href="http://live.gnome.org/Dia">Dia</a>, <a href="http://www.xfig.org/">xfig</a>, or preferably
+embed an <a href="http://en.wikipedia.org/wiki/ASCII_art">ascii art</a> in your org file.</li>
+<li>If you need to insert source codes into your org file, you should check:</li>
+</ul></li>
+<li><a href="http://orgmode.org/manual/Include-files.html#Include-files">http://orgmode.org/manual/Include-files.html#Include-files</a>, and you can find some
+examples in <a href="#code-insertion">this section</a>.</li>
+<li>MS-word file will <b>NOT</b> be accepted!</li>
+</ul></li>
+<li>Late reports will be penalized 20% per day.</li>
+<li>Cheating will result in automatic failure of this course.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org508cb55" class="outline-2">
+<h2 id="org508cb55"><span class="section-number-2">2</span> Approaching to the Linux kernel</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org594521d" class="outline-3">
+<h3 id="org594521d"><span class="section-number-3">2.1</span> proc file-system</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li><b>Reference</b>
+<ul class="org-ul">
+<li><a href="http://www.ibm.com/developerworks/linux/library/l-proc.html">Access the Linux kernel using the /proc filesystem</a></li>
+<li><code>man proc</code></li>
+<li><code>ttyplay</code> <a href="http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/ttyrec/2.1-ttyrec"><code>2.1-ttyrec</code></a></li>
+<li><code>ttyplay</code> <a href="http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/ttyrec/submit.ttyrec"><code>submit.ttyrec</code></a></li>
+</ul></li>
+<li><p>
+<b>Questions</b>
+</p>
+<ol class="org-ol">
+<li>What's the CPU type and model? (<code>/proc/cpuinfo</code>)</li>
+<li>What version of the Linux kernel are you using? (<code>uname</code>)</li>
+<li>How long has it been since your PC last booted? (<code>uptime</code>)</li>
+<li>How much of the total CPU time has been spent executing in user mode? kernel mode? idle? (<code>top</code>)</li>
+<li>How much memory is configured in your PC? (<code>top,free,/proc/meminfo</code>)</li>
+<li>How much memory is currently available? (<code>top,free,/proc/meminfo</code>)</li>
+<li>How many disk read/write requests have been made? (<code>/proc/diskstats</code>)</li>
+<li>How many context switches has the kernel performed? (<code>/proc/stat</code>)</li>
+<li>How many context switches has a process had? (<code>/proc/[pid]/status</code>)</li>
+<li>How many processes have been created since the system was booted? (<code>/proc/stat</code>)</li>
+<li>How many processes are there in the ready queue? (<code>/proc/stat</code>)</li>
+<li>How many processes are blocked waiting for I/O to complete? (<code>/proc/stat</code>)</li>
+<li>What does the following command do?</li>
+</ol>
+<pre class="example">
+cd /proc/`ps | head -2 | tail -1 | cut -f1 -d' '` &amp;&amp; ls -l
+
+</pre></li>
+<li><b>Sum up:</b> In your email message, please answer the following questions.
+<ol class="org-ol">
+<li>How many hours you spent in this section?</li>
+<li>What's the major difficulties you met in this section? And,</li>
+<li>How did you solve (or try solving) them?</li>
+<li>Have you learnt anything? Or your time was just wasted?</li>
+</ol></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1514f0b" class="outline-3">
+<h3 id="org1514f0b"><span class="section-number-3">2.2</span> Play with the kernel</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li><b>Help for beginners</b>
+<ul class="org-ul">
+<li><i>Debian Linux Kernel Handbook</i>, 2012. (Chapter 4, <a href="http://kernel-handbook.alioth.debian.org/ch-common-tasks.html"><i>Common kernel-related tasks</i></a>)</li>
+<li>Kroah-Hartman, Greg. <a href="http://www.kroah.com/lkn/"><i>Linux Kernel in a Nutshell: A Desktop Quick Reference</i></a>,
+O'Reilly, 2007.</li>
+<li>R. Love. <a href="https://cs3.swfu.edu.cn/tech/get/PDF/12/Calibre1"><i>Linux Kernel Development</i></a>. Developer’s
+Library. Addison-Wesley, 2010. (Chapter 2, <i>Getting start with the kernel</i>)</li>
+<li><a href="http://kernelnewbies.org/"><i>Linux Kernel Newbies</i></a>, 2013.</li>
+<li><a href="https://courses.linuxchix.org/kernel-hacking-2002.html"><i>LinuxChix Kernel Hacking Lessons</i></a>, 2002.</li>
+<li><a href="http://www.win.tue.nl/~aeb/linux/lk/lk.html#toc2"><i>The Linux kernel</i></a>, Andries Brouwer, 2003. (Chapter 2, <a href="http://www.win.tue.nl/~aeb/linux/lk/lk-2.html"><i>The Kernel Source</i></a>)</li>
+</ul></li>
+<li><b>How to get around in the source code tree?</b> The kernel source is in
+<code>/usr/src/</code> directory if you installed it with <code>sudo apt install linux-source</code>. There are several ways to browse this huge repository:
+<ol class="org-ol">
+<li><a href="https://elixir.bootlin.com/linux/latest/source">https://elixir.bootlin.com</a></li>
+<li>global (<code>man global</code>)</li>
+<li>cscope (<code>man cscope</code>)</li>
+<li>ctags (<code>man ctags</code>)</li>
+<li><code>find + grep + less</code></li>
+</ol></li>
+<li><b>Your Task:</b> (The objective of this task is to get an idea about where and how to view
+the Linux source code. You are <b>NOT</b> required to understand the code at this moment.)
+<ol class="org-ol">
+<li>Find the following "famous" code, and tell me why they are "famous".
+<ul class="org-ul">
+<li><code>start_kernel();</code></li>
+<li><code>init();</code></li>
+<li><code>struct task_struct;</code></li>
+<li><code>struct inode;</code></li>
+<li><code>struct file;</code></li>
+<li><code>fork();</code></li>
+<li><code>include/asm-generic/unistd.h</code></li>
+<li><code>arch/x86_64/entry.S</code></li>
+<li><code>kernel/printk.c</code></li>
+</ul></li>
+<li>Finish lesson 2-6 of <a href="https://courses.linuxchix.org/kernel-hacking-2002.html">LinuxChix Kernel Hacking Lessons</a>. And you are
+encouraged to go through lesson 7-9, though it's not mandatory.</li>
+</ol></li>
+<li><b>Sum up:</b> In your email message, please answer the following questions.
+<ol class="org-ol">
+<li>How many hours you spent in this section?</li>
+<li>What's the major difficulties you met in this section? And,</li>
+<li>How did you solve (or try solving) them?</li>
+<li>Have you learnt anything? Or your time was just wasted?</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org11fdc03" class="outline-3">
+<h3 id="org11fdc03"><span class="section-number-3">2.3</span> Hello, kernel module!</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li><b>Reference</b> 
+<ul class="org-ul">
+<li><a href="http://tldp.org/LDP/lkmpg/2.6/html/lkmpg.html#AEN119">The Linux Kernel Module Programming Guide</a>, 2007</li>
+<li><a href="http://www.ibm.com/developerworks/linux/library/l-proc/index.html">Access the Linux kernel using the /proc filesystem</a>, 2006</li>
+<li><a href="http://cs2.swfu.edu.cn/~wx672/lecture_notes/linux/c/c_dev.html#sec-6">A <code>Makefile</code> tutorial</a>, 2013</li>
+</ul></li>
+<li><b>Quick start</b>
+<ol class="org-ol">
+<li><p>
+Find out the right kernel headers package matching your running kernel:
+</p>
+<pre class="example">
+uname -a
+aptitude search ^linux-headers
+
+</pre>
+<p>
+install the right headers-package matching your running kernel:
+</p>
+<pre class="example">
+sudo aptitude install linux-headers-`uname -r`
+
+</pre></li>
+<li><p>
+Make a directory to store your <code>Hello, world!</code> kernel module
+</p>
+<pre class="example">
+mkdir hello-lkm &amp;&amp; cd hello-lkm
+
+</pre></li>
+<li>In <code>hello-lkm</code> directory, write a <a href="src/hello-lkm/hello-1.c">hello-1.c</a>. (See <a href="http://tldp.org/LDP/lkmpg/2.6/html/lkmpg.html#AEN119">The Linux Kernel Module
+Programming Guide</a> chapter 2 for details.)</li>
+<li>Write a <a href="src/hello-lkm/Makefile">Makefile</a></li>
+<li><p>
+make
+</p>
+<pre class="example">
+make
+
+</pre>
+<p>
+If everything is ok, there should be a <code>hello-1.ko</code> file in your <code>hello-lkm</code> directory.
+</p></li>
+<li><p>
+Install the module into the running kernel
+</p>
+<pre class="example">
+sudo insmod hello-1.ko
+
+</pre></li>
+<li><p>
+See if it's running
+</p>
+<pre class="example">
+lsmod | grep hello
+
+</pre>
+<p>
+Does it show up? Well, and you can see "Hello, world!" here:
+</p>
+<pre class="example">
+dmesg | tail
+
+</pre></li>
+<li><p>
+Now, you can remove this useless module from the kernel by doing:
+</p>
+<pre class="example">
+sudo rmmod hello_1
+
+</pre></li>
+<li><p>
+See if it's removed:
+</p>
+<pre class="example">
+lsmod | grep hello
+
+</pre>
+<p>
+And you should see "Goodbye, world!" here:
+</p>
+<pre class="example">
+dmesg | tail
+
+</pre></li>
+</ol></li>
+</ul>
+</div>
+<div id="outline-container-org4bc832e" class="outline-4">
+<h4 id="org4bc832e"><span class="section-number-4">2.3.1</span> Questions</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<ol class="org-ol">
+<li>What's a kernel module?</li>
+<li>How do modules get into the kernel?</li>
+<li>How do you know a kernel module is loaded?</li>
+<li>How do you know a module is working properly or not?</li>
+<li>How do you unload a module?</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgb73fb2f" class="outline-4">
+<h4 id="orgb73fb2f"><span class="section-number-4">2.3.2</span> Sum up</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<p>
+In your email message, please answer the following questions.
+</p>
+<ol class="org-ol">
+<li>How many hours you spent in this section?</li>
+<li>What's the major problems you met in this section? And,</li>
+<li>How did you solve (or try solving) them?</li>
+<li>Have you learnt anything? Or your time was just wasted?</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org3afd4ba" class="outline-3">
+<h3 id="org3afd4ba"><span class="section-number-3">2.4</span> System calls</h3>
+<div class="outline-text-3" id="text-2-4">
+<ul class="org-ul">
+<li><b>Reference</b>
+<ul class="org-ul">
+<li>Google <i>linux system call tutorial</i>.</li>
+</ul></li>
+<li><b>Your task:</b> Follow whatever tutorial you found to write your own a system call.</li>
+<li><b>Sum up:</b> In your email message, please answer the following questions.
+<ol class="org-ol">
+<li>How many hours you spent in this section?</li>
+<li>What's the major problems you met in this section? And,</li>
+<li>How did you solve (or try solving) them?</li>
+<li>Have you learnt anything? Or your time was just wasted?</li>
+</ol></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org71eb190" class="outline-2">
+<h2 id="org71eb190"><span class="section-number-2">3</span> Process Management</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><b>Reference</b>
+<ul class="org-ul">
+<li><a href="http://www.yolinux.com/TUTORIALS/ForkExecProcesses.html">Fork, Exec and Process control</a></li>
+<li><a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html">POSIX thread (pthread) libraries</a></li>
+</ul></li>
+<li><b>Command line</b> 
+Get a sense of the following commands:
+<ol class="org-ol">
+<li><p>
+<code>ps</code>
+</p>
+<pre class="example">
+ps -af
+ps -ax
+ps -eLf
+
+</pre></li>
+<li><code>pstree</code></li>
+<li><code>nice/renice</code></li>
+<li><p>
+<code>top</code>
+</p>
+<pre class="example">
+man top
+
+</pre>
+<p>
+Process Status:
+</p>
+<ul class="org-ul">
+<li><code>D</code>: uninterruptible sleep</li>
+<li><code>R</code>: running</li>
+<li><code>S</code>: sleeping</li>
+<li><code>T</code>: traced or stopped</li>
+<li><code>Z</code>: zombie</li>
+</ul></li>
+</ol></li>
+</ul>
+</div>
+<div id="outline-container-org96bc526" class="outline-3">
+<h3 id="code-insertion"><a id="org96bc526"></a><span class="section-number-3">3.1</span> Process creation</h3>
+<div class="outline-text-3" id="text-code-insertion">
+<ul class="org-ul">
+<li><b>Reference</b> 
+<ul class="org-ul">
+<li><code>man fork</code></li>
+<li><code>man exec</code></li>
+<li><code>man wait</code></li>
+<li><code>man exit</code></li>
+<li><code>man 2 kill</code></li>
+</ul></li>
+<li><b>Your tasks</b>
+<ol class="org-ol">
+<li>There is an example c program at the end of the <code>wait</code> manual page (<code>man
+        wait</code>). Read it, compile it, and run it. Then answer the following questions:
+<ol class="org-ol">
+<li>Both <code>exit()</code> and <code>_exit()</code> are used in the program. What's the difference?</li>
+<li><p>
+Tell me about the following line of code:
+</p>
+<pre class="example">
+w = waitpid(cpid, &amp;status, WUNTRACED | WCONTINUED);
+
+</pre></li>
+</ol></li>
+<li><p>
+<code>system()</code>, <code>fork()</code>, <code>exec()</code>
+</p>
+
+<p>
+Compile and run the following 4 programs. Tell me what they do? And <a href="http://stackoverflow.com/questions/1697440/difference-between-system-and-exec-in-linux">their differences</a>?
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdlib.h&gt;</span>
+<span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
+<span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>()
+{
+    printf(<span style="color: #CC9393;">"Running ps with system\n"</span>);
+    system(<span style="color: #CC9393;">"ps -ax &amp;"</span>);
+    printf(<span style="color: #CC9393;">"Done.\n"</span>);
+    exit(0);
+}
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;unistd.h&gt;</span>
+<span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
+<span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>()
+{
+    printf(<span style="color: #CC9393;">"Running ps with execlp\n"</span>);
+    execlp(<span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"-ax"</span>, 0);
+    printf(<span style="color: #CC9393;">"Done.\n"</span>);
+    exit(0);
+}
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
+<span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;unistd.h&gt;</span>
+<span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>(){
+
+   <span style="color: #7CB8BB;">pid_t</span> <span style="color: #DFAF8F;">child_p</span>;
+   printf(<span style="color: #CC9393;">"Running ps with fork\n"</span>);
+
+   child_p = fork();
+
+   execlp(<span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"-ax"</span>, 0);
+   <span style="color: #F0DFAF; font-weight: bold;">return</span> 0;
+}
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;unistd.h&gt;</span>
+<span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
+<span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>()
+{
+    <span style="color: #7CB8BB;">pid_t</span> <span style="color: #DFAF8F;">pid</span>;
+    printf(<span style="color: #CC9393;">"Running ps again with fork\n"</span>);
+    pid = fork();
+    <span style="color: #F0DFAF; font-weight: bold;">if</span> ( pid == 0 ) { <span style="color: #5F7F5F;">// </span><span style="color: #7F9F7F;">in the child, do exec</span>
+    execlp(<span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"-ax"</span>, 0);
+    }
+    <span style="color: #F0DFAF; font-weight: bold;">else</span> <span style="color: #F0DFAF; font-weight: bold;">if</span> (pid &lt; 0) <span style="color: #5F7F5F;">// </span><span style="color: #7F9F7F;">failed to fork</span>
+    {
+        printf(<span style="color: #CC9393;">"fork failed.\n"</span>);
+        exit(1);
+    }
+    <span style="color: #F0DFAF; font-weight: bold;">else</span> <span style="color: #5F7F5F;">// </span><span style="color: #7F9F7F;">parent</span>
+    {
+    wait(<span style="color: #BFEBBF;">NULL</span>);
+    }
+    exit(0);
+}
+</pre>
+</div></li>
+<li><p>
+more on <code>fork()</code> and <code>wait()</code> 
+</p>
+
+<p>
+Compile and run <a href="./src/proc/fork-blp.c">this program</a>. Tell me why the output is weird (mixed with
+the <code>$</code> prompt)? And fix it with the <code>wait()</code> system call.
+</p></li>
+<li><p>
+zombies and <code>waitpid()</code>
+</p>
+<ul class="org-ul">
+<li>Read the <b>NOTES</b> section in the <code>wait</code> manual page (<code>man 2 wait</code>) to get a clear
+idea about zombie processes. And tell me why zombie is not welcomed.</li>
+<li>At the end of <code>wait</code> manual page (<code>man 2 wait</code>), there is an example
+program. Play with it, and tell me about <code>WUNTRACED</code>, <code>WCONTINUED</code>, <code>WIFEXITED</code>,
+<code>WEXITSTATUS</code>, <code>WIFSIGNALED</code>, <code>WTERMSIG</code>, <code>WIFSTOPPED</code>, <code>WSTOPSIG</code>,
+<code>WIFCONTINUED</code>, <code>pause()</code>.</li>
+<li><p>
+Compile and run <a href="./src/proc/zombie.c">this small program</a>. This program can leave a <a href="http://en.wikipedia.org/wiki/Zombie_process">zombie process</a>
+in the system. You can see it with
+</p>
+<pre class="example">
+ps u
+
+</pre></li>
+</ul>
+<ul class="org-ul">
+<li><b>Your task:</b>
+<ul class="org-ul">
+<li>Write a similar program that leaves 5 zombies.</li>
+<li>Tell me what's the difference between a <a href="http://en.wikipedia.org/wiki/Zombie_process">zombie process</a> and a <a href="http://en.wikipedia.org/wiki/Orphan_process">orphan process</a>?</li>
+<li>Read <a href="http://cs2.swfu.edu.cn/calibre/browse/book/39">Beginning Linux Programming</a>, Chapter 11, page 503 to learn how to avoid
+zombies with <code>waitpid()</code> system call. And correct the above program.</li>
+<li>Tell me the difference between <code>exit()</code> and <code>return</code>.</li>
+</ul></li>
+</ul></li>
+</ol></li>
+<li><b>Sum up:</b>  In your email message, please answer the following questions.
+<ol class="org-ol">
+<li>How many hours you spent in this section?</li>
+<li>What's the major problems you met in this section? And,</li>
+<li>How did you solve (or try solving) them?</li>
+<li>Have you learnt anything? Or your time was just wasted?</li>
+</ol></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf5211e9" class="outline-3">
+<h3 id="orgf5211e9"><span class="section-number-3">3.2</span> Thread</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li><b>Reference</b> 
+<ul class="org-ul">
+<li><code>man 3 pthread_create</code></li>
+<li><code>man 3 pthread_attr_init</code></li>
+</ul></li>
+<li><b>Tasks</b>
+<ol class="org-ol">
+<li>At the end of <code>pthread_create</code> manual page (<code>man 3 pthread_create</code>), there is an example
+program. Play with it, and then tell me:
+<ol class="org-ol">
+<li>What's the <code>tinfo[]</code>?</li>
+<li>What's the <code>res</code>?</li>
+</ol></li>
+<li>At the end of <code>pthread_attr_init</code> manual page (<code>man 3 pthread_attr_init</code>), there is an
+example program. Compile and run it.</li>
+<li>Compile and run <a href="./src/proc/thread2.c">this program</a>. Now, remove the <code>pthread_join</code> call, i.e. comment
+out line 29-32. Compile and run it again for multiple times. Tell me the
+difference, and why?</li>
+</ol></li>
+<li><b>Sum up:</b> In your email message, please answer the following questions.
+<ol class="org-ol">
+<li>How many hours you spent in this section?</li>
+<li>What's the major difficulties you met in this section? And,</li>
+<li>How did you solve (or try solving) them?</li>
+<li>Have you learnt anything? Or your time was just wasted?</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7ddd645" class="outline-3">
+<h3 id="org7ddd645"><span class="section-number-3">3.3</span> IPC</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li><b>Reference:</b> 
+<a href="http://beej.us/guide/bgipc/"><i>Beej's Guide to Unix IPC</i></a></li>
+</ul>
+</div>
+<div id="outline-container-org3478b10" class="outline-4">
+<h4 id="org3478b10"><span class="section-number-4">3.3.1</span> Signals</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<ul class="org-ul">
+<li><b>Reference</b>
+<ul class="org-ul">
+<li><i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/signals.html">section 3</a></li>
+<li><a href="file:///usr/src/linux/include/asm-generic/signal.h">signal.h</a></li>
+<li><a href="http://bytes.com/topic/c/answers/220198-how-understand-function-prototype-signal">How to understand function prototype signal()</a></li>
+<li><a href="http://www.newty.de/fpt/intro.html">The Function Pointer Tutorials</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Typedef">typedef</a></li>
+<li><code>man 2 signal</code>, <code>man 7 signal</code></li>
+<li><code>man sigaction</code></li>
+<li><code>kill, killall</code></li>
+</ul></li>
+<li><b>Tasks</b>
+<ol class="org-ol">
+<li><p>
+understanding <code>signal()</code>
+</p>
+
+<p>
+If you can understand
+</p>
+<pre class="example">
+typedef int MYINT;
+MYINT myfunction(MYINT);
+
+</pre>
+<p>
+Then, you should be able to understand 
+</p>
+<pre class="example">
+typedef void (*sighandler_t)(int);
+sighandler_t signal(int signum, sighandler_t handler);
+
+</pre>
+<p>
+Now, tell me your understanding about the following <a href="http://en.wikipedia.org/wiki/Function_prototype">function prototype</a>:
+</p>
+<pre class="example">
+void (*signal(int sig, void (*func)(int)))(int);
+             `-------------------v------------'
+                                  `----&gt; *signal() is a function returning a 'function pointer'
+                                   `               pointing to a function of type void(*)(int)
+                                    `--&gt; *signal() takes 2 arguments:
+                                           .  sig - an int
+                                           . func - a 'function pointer' void(*)(int)
+
+</pre>
+<p>
+Put it in another way:
+</p>
+<pre class="example">
+void (*signal(int sig, void (*func)(int)))(int);
+void (                 *                 )(int);
+`--------------------v------------------------'
+                      `---&gt; void(*)(int) is a function pointer which is:
+                            - returned by function '*signal()'
+                            - pointing to a function taking an int, returning void
+
+</pre>
+<ul class="org-ul">
+<li><code>man 2 signal</code> can help</li>
+</ul></li>
+
+<li><p>
+Following <i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/signals.html">section 3</a> to play with signals. And then
+tell me details about the following code
+</p>
+<pre class="example">
+int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact);
+
+</pre>
+<ul class="org-ul">
+<li><code>man 2 sigaction</code> can help</li>
+</ul></li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7b61201" class="outline-4">
+<h4 id="org7b61201"><span class="section-number-4">3.3.2</span> Pipe</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<ul class="org-ul">
+<li><b>Reference</b>
+<ul class="org-ul">
+<li><i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/pipes.html">section 4</a></li>
+<li><code>man pipe</code></li>
+<li><code>man 2 write</code></li>
+<li><code>man 2 read</code></li>
+</ul></li>
+<li><b>Tasks</b>
+<ol class="org-ol">
+<li>Follow <i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/pipes.html">section 4</a> step by step to learn how to use <code>pipe</code>.</li>
+<li>Modify <a href="http://beej.us/guide/bgipc/examples/pipe3.c">pipe3.c</a> in <i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/pipes.html">section 4</a> to make the child does the <code>wc -l</code>, and the parent does the <code>ls</code>.</li>
+<li>At the end of <code>pipe</code> manual page (<code>man 2 pipe</code>), there is an example program. Compile it, run it, understand it, and then, modify the program, let parent do read, and child do write.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf573a67" class="outline-4">
+<h4 id="orgf573a67"><span class="section-number-4">3.3.3</span> FIFO</h4>
+<div class="outline-text-4" id="text-3-3-3">
+<ul class="org-ul">
+<li><b>Reference</b>
+<ul class="org-ul">
+<li><i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/fifos.html">section 5</a></li>
+<li><code>man fifo</code></li>
+<li><code>man mkfifo</code></li>
+<li><code>man 3 mkfifo</code></li>
+<li><code>man mknod</code></li>
+<li><code>man 2 mknod</code></li>
+</ul></li>
+<li><b>Tasks</b>
+<ol class="org-ol">
+<li>Follow <i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/output/html/singlepage/bgipc.html#fifos">section 5</a> step by step to learn how to use FIFOs.</li>
+<li>When you run the example programs (<code>speak</code> and <code>tick</code>), there should be a new file named <code>american_maid</code> appear in your working directory (<code>$PWD</code>). What will happen if you delete this FIFO file while the two programs running? Why?</li>
+<li>Modify the example programs to use <code>mkfifo</code> instead of <code>mknod</code>.</li>
+<li>Extend the example programs, and make it have 3 writers.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org604e764" class="outline-4">
+<h4 id="org604e764"><span class="section-number-4">3.3.4</span> File Locking</h4>
+<div class="outline-text-4" id="text-3-3-4">
+<ul class="org-ul">
+<li><b>Reference</b>
+<ul class="org-ul">
+<li><i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/flocking.html">section 6</a></li>
+<li><code>man flock</code></li>
+<li><code>man 2 flock</code></li>
+<li><code>man fcntl</code></li>
+<li><code>include/asm-generic/fcntl.h</code></li>
+</ul></li>
+<li><b>Tasks</b>
+<ol class="org-ol">
+<li>Follow <i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/flocking.html">section 6</a> step by step to learn how to use File locks.</li>
+<li>Try the example <code>lockdemo.c</code> with both <code>F_RDLCK</code> and <code>F_WRLCK</code>.</li>
+<li>Tell me whether the locked file, e.g. <code>lockdemo.c</code> can be delete while the programs are running? And why?</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb1999c5" class="outline-4">
+<h4 id="orgb1999c5"><span class="section-number-4">3.3.5</span> Message Queues</h4>
+<div class="outline-text-4" id="text-3-3-5">
+<ul class="org-ul">
+<li><b>Reference</b>
+<ul class="org-ul">
+<li><i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/mq.html">section 7</a></li>
+<li><code>man ipcs</code></li>
+<li><code>man ipcrm</code></li>
+<li><code>man ipcmk</code></li>
+<li><code>man msgget</code></li>
+<li><code>man ftok</code></li>
+<li><code>man msgsnd</code>, <code>man msgrcv</code></li>
+<li><code>man msgctl</code></li>
+<li><code>man offsetof</code></li>
+<li><code>include/linux/msg.h</code></li>
+</ul></li>
+<li><b>Tasks</b>
+<ol class="org-ol">
+<li>Follow <i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/mq.html">section 7</a> step by step to learn how to use message queues.</li>
+<li>What happens when you're running both in separate windows and you kill one or the other?</li>
+<li>Also try running two copies of <code>kirk</code> or two copies of <code>spock</code> to get an idea of what
+happens when you have two readers or two writers.</li>
+<li>Another interesting demonstration is to run kirk, enter a bunch of messages, then run spock
+and see it retrieve all the messages in one swoop. Just messing around with these toy
+programs will help you gain an understanding of what is really going on.</li>
+<li>What happens if you <code>ipcrm</code> the queue while it's in use? Why?</li>
+<li>Create a message queue with <code>ipcmk</code>, and use it in your programs.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc48e7aa" class="outline-4">
+<h4 id="orgc48e7aa"><span class="section-number-4">3.3.6</span> Semaphores</h4>
+<div class="outline-text-4" id="text-3-3-6">
+<ul class="org-ul">
+<li><b>Reference</b>
+<ul class="org-ul">
+<li><i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/semaphores.html">section 8</a></li>
+<li><code>include/linux/sem.h</code></li>
+<li><code>man semget</code></li>
+<li><code>man semop</code></li>
+<li><code>man semctl</code></li>
+</ul></li>
+<li><b>Tasks</b>
+<ol class="org-ol">
+<li>Follow <i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/semaphores.html">section 8</a> step by step to learn how to use semaphores.</li>
+<li>Semaphores are used to lock some shared resources to enforce mutual-exclusion. In the demo program <code>semdemo.c</code>, what's locked?</li>
+<li>Draw a flow chart to show how the demo program works.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc65b71e" class="outline-4">
+<h4 id="orgc65b71e"><span class="section-number-4">3.3.7</span> Sum up</h4>
+<div class="outline-text-4" id="text-3-3-7">
+<p>
+In your email message, please answer the following questions.
+</p>
+<ol class="org-ol">
+<li>How many hours you spent in this section?</li>
+<li>What's the major difficulties you met in this section? And,</li>
+<li>How did you solve (or try solving) them?</li>
+<li>Have you learnt anything? Or your time was just wasted?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdf5637d" class="outline-2">
+<h2 id="orgdf5637d"><span class="section-number-2">4</span> Memory management</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><b>Reference</b>
+<a href="http://www.informit.com/articles/article.aspx?p=173438">User-Level Memory Management in Linux Programming</a>, 2004.</li>
+</ul>
+</div>
+<div id="outline-container-org431d975" class="outline-3">
+<h3 id="org431d975"><span class="section-number-3">4.1</span> Basic commands</h3>
+<div class="outline-text-3" id="text-4-1">
+<ol class="org-ol">
+<li><p>
+top
+</p>
+<pre class="example">
+top
+
+</pre>
+<p>
+With the help of <code>man top</code>, get a clear idea about:
+</p>
+<dl class="org-dl">
+<dt>VIRT</dt><dd><p>
+Virtual Image (kb)
+</p>
+
+<p>
+The total amount of virtual memory used by the task. It includes all
+code, data and shared libraries plus pages that have been swapped out.
+</p>
+
+<p>
+VIRT = SWAP + RES
+</p></dd>
+
+<dt>SWAP</dt><dd><p>
+Swapped size (kb)
+</p>
+
+<p>
+The swapped out portion of a task's total virtual memory image.
+</p></dd>
+
+<dt>RES</dt><dd><p>
+Resident size (kb). (<code>ps -aly</code>).
+</p>
+
+<p>
+The non-swapped physical memory a task has used.
+</p>
+
+<p>
+RES = CODE + DATA
+</p></dd>
+
+<dt>CODE</dt><dd><p>
+Code size (kb)
+</p>
+
+<p>
+The amount of physical memory devoted to executable code, also
+known as the 'text resident set' size or TRS.
+</p></dd>
+
+<dt>DATA</dt><dd><p>
+Data+Stack size (kb)
+</p>
+
+<p>
+The amount of physical memory devoted to other than executable
+code, also known as the 'data resident set' size or DRS.
+</p></dd>
+
+<dt>SHR</dt><dd><p>
+Shared Mem size (kb)
+</p>
+
+<p>
+The amount of shared memory used by a task. It simply reflects
+memory that could be potentially shared with other processes.
+</p></dd>
+
+<dt>nFLT</dt><dd><p>
+Page Fault count
+</p>
+
+<p>
+The number of major page faults that have occurred for a task.  A page fault occurs
+when a process attempts to read from or write to a virtual page that is not
+currently present in its address space.  A major page fault is when backing storage
+access (such as a disk) is involved in making that page available.
+</p></dd>
+
+<dt>nDRT</dt><dd><p>
+Dirty Pages count
+</p>
+
+<p>
+The number of pages that have been modified since they were last written to disk.
+Dirty pages must be written to disk before the corresponding physical memory
+location can be used for some other virtual page.
+</p></dd>
+</dl></li>
+
+<li><p>
+<code>size</code>, <code>objdump</code>, <code>nm</code>
+</p>
+
+<p>
+Compile <a href="./src/mem/size.c">this c program</a> with
+</p>
+<pre class="example">
+gcc -Wall size.c
+
+</pre>
+<p>
+Then, use <code>size</code> to see the size of its <i>text</i>, <i>data</i>, and <i>bss</i> segments.
+</p>
+<pre class="example">
+size a.out
+
+</pre>
+<p>
+The output should be something like
+</p>
+<pre class="example">
+text   data   bss        dec         hex    filename
+1200   520    1024032    1025752     fa6d8      a.out
+
+</pre>
+<p>
+If you exam its size with <code>ls -l</code>, you should get something similar to the following
+line
+</p>
+<pre class="example">
+-rwxr-xr-x   1 wx672          wx672        6627 Oct 18 18:05 a.out
+
+</pre>
+<p>
+Tell me:
+</p>
+<ol class="org-ol">
+<li>What does the <code>6627</code> mean?</li>
+<li>What do the <code>1200</code>, <code>520</code>, <code>1024032</code>, and <code>1025752</code> mean?</li>
+</ol></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgdc8622f" class="outline-3">
+<h3 id="orgdc8622f"><span class="section-number-3">4.2</span> Shared Memory Segments</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li><b>Reference</b> 
+<ul class="org-ul">
+<li><i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/shm.html">section 9</a>.</li>
+<li><code>man shmget</code></li>
+<li><code>man shmat</code></li>
+<li><code>man shmdt</code></li>
+<li><code>man shmctl</code></li>
+<li><code>man ipcrm</code></li>
+<li><code>man ipcs</code></li>
+</ul></li>
+<li><b>Your tasks</b>
+<ol class="org-ol">
+<li>Follow <i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/shm.html">section 9</a> step by step to learn how to use shared memory segments.</li>
+<li>Use <code>ipcrm</code> to remove the segment you just created while running the example code.</li>
+<li>Add semaphore mechanism into the sample program (<code>shmdemo.c</code>) to enforce mutual-exclusive
+access to the shared data area.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org298cdd7" class="outline-3">
+<h3 id="org298cdd7"><span class="section-number-3">4.3</span> Memory Mapped Files</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li><b>Reference</b> 
+<ul class="org-ul">
+<li><i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/mmap.html">section 10</a>.</li>
+<li><code>man fseek</code></li>
+<li><code>man mmap</code>, <code>man munmap</code></li>
+<li><code>man getpagesize</code></li>
+<li><code>man stat</code></li>
+</ul></li>
+<li><b>Your tasks</b>
+<ol class="org-ol">
+<li>Follow <i>Beej's Guide to Unix IPC</i>, <a href="http://beej.us/guide/bgipc/html/multi/mmap.html">section 10</a> step by step to learn how to use memory mapped files.</li>
+<li>Write a small program to find out the page size of your Linux PC.</li>
+<li>Add semaphore mechanism into the sample program (<code>mmapdemo.c</code>) to enforce mutual-exclusive
+access to the shared data area.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0dcc1b6" class="outline-3">
+<h3 id="org0dcc1b6"><span class="section-number-3">4.4</span> Sum up</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+In your email message, please answer the following questions.
+</p>
+<ol class="org-ol">
+<li>How many hours you spent in this section?</li>
+<li>What's the major difficulties you met in this section? And,</li>
+<li>How did you solve (or try solving) them?</li>
+<li>Have you learnt anything? Or your time was just wasted?</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4f0faa4" class="outline-2">
+<h2 id="org4f0faa4"><span class="section-number-2">5</span> File System</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><b>Reference</b>
+<ul class="org-ul">
+<li><a href="http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/ext2-analysis.html">Ext2 file system analysis</a></li>
+<li><a href="http://www.nongnu.org/ext2-doc/ext2.html">Ext2 documentation</a></li>
+<li><a href="http://www.ibm.com/developerworks/linux/library/l-linux-filesystem/">Anatomy of the Linux file system</a></li>
+<li><a href="http://www.haifux.org/lectures/119/linux-2.4-vfs/index.html">The VFS (Virtual File System) in Linux Kernel V2.4 &#x2014; A Play In 5 Acts</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-orgfc26c80" class="outline-3">
+<h3 id="orgfc26c80"><span class="section-number-3">5.1</span> File system creation</h3>
+<div class="outline-text-3" id="text-5-1">
+<ol class="org-ol">
+<li><p>
+Create a initialized file
+</p>
+<pre class="example">
+dd if=/dev/zero of=fs.img bs=1k count=10000
+
+</pre>
+<p>
+You now have a file called <code>fs.img</code> that's 10MB.
+</p></li>
+<li><p>
+Use the <code>losetup</code> command to associate a loop device with the file (making it look
+like a block device instead of just a regular file within the file system):
+</p>
+<pre class="example">
+sudo losetup /dev/loop0 fs.img
+
+</pre></li>
+<li><p>
+Creating an ext2 file system within the loop device
+</p>
+<pre class="example">
+sudo mke2fs /dev/loop0 
+
+</pre></li>
+<li><p>
+Mount the newly created file system onto <code>/mnt</code> directory
+</p>
+<pre class="example">
+sudo mount -t ext2 /dev/loop0 /mnt
+
+</pre>
+<p>
+or
+</p>
+<pre class="example">
+sudo mount -o loop fs.img /mnt
+
+</pre></li>
+<li><p>
+Get information about your new file system   
+</p>
+<pre class="example">
+dumpe2fs /dev/loop0
+
+</pre></li>
+</ol>
+</div>
+<div id="outline-container-org4268e73" class="outline-4">
+<h4 id="org4268e73"><span class="section-number-4">5.1.1</span> Your tasks</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<ol class="org-ol">
+<li>By following the above 5 steps, you've got a new file system mounted on <code>/mnt</code>
+directory. Now you can get into <code>/mnt</code>, and create a new file in it. And then
+associate it with a loop device (<code>/dev/loop1</code>), and create another file system in
+it.</li>
+<li>Plug your USB disk into your PC's USB port, and check 
+<ol class="org-ol">
+<li>what file system it is?</li>
+<li>which directory it's mounted on?</li>
+<li>Use <code>fsck</code> to get some details about your USB disk.</li>
+</ol></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org7a5a2a9" class="outline-3">
+<h3 id="org7a5a2a9"><span class="section-number-3">5.2</span> Finding a file with <code>hexdump</code></h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Follow the instructions in
+<a href="http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/ext2-analysis.html#sec-3">http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/ext2-analysis.html#sec-3</a>
+to learn how to find a file with <code>hexdump</code> in your newly created file system.
+And then answer this question:
+</p>
+<ul class="org-ul">
+<li><p>
+After you do '<code>cat hello</code>' at the command line, you will see on the screen the
+content of file <code>hello</code>, in our case it is '<code>helloworld</code>'.
+</p>
+
+<p>
+Now give me a detailed picture about what is happened in the OS from '<code>cat hello</code>' to
+'<code>helloworld</code>' is shown on the screen.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org834760c" class="outline-3">
+<h3 id="org834760c"><span class="section-number-3">5.3</span> Sum up</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+In your email message, please answer the following questions.
+</p>
+<ol class="org-ol">
+<li>How many hours you spent in this section?</li>
+<li>What's the major difficulties you met in this section? And,</li>
+<li>How did you solve (or try solving) them?</li>
+<li>Have you learnt anything? Or your time was just wasted?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: WANG Xiaolin</p>
+<p class="date">Created: 2018-11-25 Sun 12:23</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

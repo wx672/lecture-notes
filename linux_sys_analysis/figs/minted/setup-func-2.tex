@@ -1,0 +1,10 @@
+\documentclass[varwidth=31em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{gascode}
+code32: .long 0x1000 # will be set to 0x100000 for big kernels
+        .word __BOOT_CS  
+\end{gascode}
+\end{document}

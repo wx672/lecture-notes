@@ -1,0 +1,1605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cn" xml:lang="cn">
+<head>
+<title>《Linux应用基础》教案</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="《Linux应用基础》教案"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2012-08-18 Wed"/>
+<meta name="author" content="王晓林"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style><link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css"><style>code {font-weight:bold; font-size:100%; color:darkblue} body {font-size:14pt}</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">《Linux应用基础》教案</h1>
+
+
+<ul>
+<li>课程名称: Linux应用基础
+</li>
+<li>面向专业: 计算机相关本科专业
+</li>
+<li>教材参考：Mendel Cooper, <i>Advanced Bash Scripting Guide 5.3 Volume 1</i>, 2010
+</li>
+<li>授课学期：大一～大三
+</li>
+<li>任课教师：王晓林
+</li>
+<li>编写时间： <span class="timestamp-wrapper"> <span class="timestamp">2012-08-18 Sat</span></span>
+</li>
+</ul>
+
+
+<div id="table-of-contents">
+<h2>目录</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Linux introduction</a>
+<ul>
+<li><a href="#sec-1-1">1.1 教学目标及基本要求</a></li>
+<li><a href="#sec-1-2">1.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1 What's GNU/Linux? (0.5h)</a>
+<ul>
+<li><a href="#sec-1-2-1-1">1.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-1-2-1-2">1.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-2-2">1.2.2 Opensource history and future (0.5h)</a>
+<ul>
+<li><a href="#sec-1-2-2-1">1.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-1-2-2-2">1.2.2.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3 重点和难点</a></li>
+<li><a href="#sec-1-4">1.4 深化和拓宽</a></li>
+<li><a href="#sec-1-5">1.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 Play with bash</a>
+<ul>
+<li><a href="#sec-2-1">2.1 教学目标及基本要求</a></li>
+<li><a href="#sec-2-2">2.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-2-2-1">2.2.1 UNIX file system (1h)</a>
+<ul>
+<li><a href="#sec-2-2-1-1">2.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-1-2">2.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-2">2.2.2 Terminal operations (.5h)</a>
+<ul>
+<li><a href="#sec-2-2-2-1">2.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-2-2">2.2.2.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-3">2.2.3 File operations (1h)</a>
+<ul>
+<li><a href="#sec-2-2-3-1">2.2.3.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-3-2">2.2.3.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-4">2.2.4 Shell basics (1h)</a>
+<ul>
+<li><a href="#sec-2-2-4-1">2.2.4.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-4-2">2.2.4.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-5">2.2.5 Bash programming (4h)</a>
+<ul>
+<li><a href="#sec-2-2-5-1">2.2.5.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-5-2">2.2.5.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2-6">2.2.6 Sed, Awk (2h)</a>
+<ul>
+<li><a href="#sec-2-2-6-1">2.2.6.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-2-2-6-2">2.2.6.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-2-3">2.3 重点和难点</a></li>
+<li><a href="#sec-2-4">2.4 深化和拓宽</a></li>
+<li><a href="#sec-2-5">2.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-2-6">2.6 思考题和习题</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 Classical Linux IDE</a>
+<ul>
+<li><a href="#sec-3-1">3.1 教学目标及基本要求</a></li>
+<li><a href="#sec-3-2">3.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-3-2-1">3.2.1 From c source code to executable (1h)</a>
+<ul>
+<li><a href="#sec-3-2-1-1">3.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-3-2-1-2">3.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2-2">3.2.2 Emacs + GCC + GDB (2h)</a>
+<ul>
+<li><a href="#sec-3-2-2-1">3.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-3-2-2-2">3.2.2.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2-3">3.2.3 make and version control (2.5h)</a>
+<ul>
+<li><a href="#sec-3-2-3-1">3.2.3.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-3-2-3-2">3.2.3.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-3-3">3.3 重点和难点</a></li>
+<li><a href="#sec-3-4">3.4 深化和拓宽</a></li>
+<li><a href="#sec-3-5">3.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-3-6">3.6 思考题和习题</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4 system administration</a>
+<ul>
+<li><a href="#sec-4-1">4.1 教学目标及基本要求</a></li>
+<li><a href="#sec-4-2">4.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-4-2-1">4.2.1 debian/ubuntu package management (2h)</a>
+<ul>
+<li><a href="#sec-4-2-1-1">4.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-4-2-1-2">4.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-2-2">4.2.2 system maintenance (2h)</a>
+<ul>
+<li><a href="#sec-4-2-2-1">4.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-4-2-2-2">4.2.2.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-4-3">4.3 重点和难点</a></li>
+<li><a href="#sec-4-4">4.4 深化和拓宽</a></li>
+<li><a href="#sec-4-5">4.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-4-6">4.6 思考题和习题</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5 advanced linux programming</a>
+<ul>
+<li><a href="#sec-5-1">5.1 教学目标及基本要求</a></li>
+<li><a href="#sec-5-2">5.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-5-2-1">5.2.1 Program library (1h)</a>
+<ul>
+<li><a href="#sec-5-2-1-1">5.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-5-2-1-2">5.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-2-2">5.2.2 Linux assembly (1h)</a>
+<ul>
+<li><a href="#sec-5-2-2-1">5.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-5-2-2-2">5.2.2.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-2-3">5.2.3 NCURSES programming (2h)</a>
+<ul>
+<li><a href="#sec-5-2-3-1">5.2.3.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-5-2-3-2">5.2.3.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-5-3">5.3 重点和难点</a></li>
+<li><a href="#sec-5-4">5.4 深化和拓宽</a></li>
+<li><a href="#sec-5-5">5.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-5-6">5.6 思考题和习题</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6 Popular software tools in Linux</a>
+<ul>
+<li><a href="#sec-6-1">6.1 教学目标及基本要求</a></li>
+<li><a href="#sec-6-2">6.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-6-2-1">6.2.1 Graphical IDE (2h)</a>
+<ul>
+<li><a href="#sec-6-2-1-1">6.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-6-2-1-2">6.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-2-2">6.2.2 Image processing (1h)</a>
+<ul>
+<li><a href="#sec-6-2-2-1">6.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-6-2-2-2">6.2.2.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-2-3">6.2.3 Command line tools (1h)</a>
+<ul>
+<li><a href="#sec-6-2-3-1">6.2.3.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-6-2-3-2">6.2.3.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-6-2-4">6.2.4 Graph drawing</a>
+<ul>
+<li><a href="#sec-6-2-4-1">6.2.4.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-6-2-4-2">6.2.4.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-6-3">6.3 重点和难点</a></li>
+<li><a href="#sec-6-4">6.4 深化和拓宽</a></li>
+<li><a href="#sec-6-5">6.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-6-6">6.6 思考题和习题</a></li>
+</ul>
+</li>
+<li><a href="#sec-7">7 Linux networking</a>
+<ul>
+<li><a href="#sec-7-1">7.1 教学目标及基本要求</a></li>
+<li><a href="#sec-7-2">7.2 教学内容及学时分配</a>
+<ul>
+<li><a href="#sec-7-2-1">7.2.1 Basic commands (1h)</a>
+<ul>
+<li><a href="#sec-7-2-1-1">7.2.1.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-7-2-1-2">7.2.1.2 教学方式（手段）</a></li>
+</ul>
+</li>
+<li><a href="#sec-7-2-2">7.2.2 Advanced tools (3h)</a>
+<ul>
+<li><a href="#sec-7-2-2-1">7.2.2.1 教学内容（具体到知识点）</a></li>
+<li><a href="#sec-7-2-2-2">7.2.2.2 教学方式（手段）</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-7-3">7.3 重点和难点</a></li>
+<li><a href="#sec-7-4">7.4 深化和拓宽</a></li>
+<li><a href="#sec-7-5">7.5 教学方式（手段）及教学过程中应注意的问题</a></li>
+<li><a href="#sec-7-6">7.6 思考题和习题</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Linux introduction</h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<p>   了解什么是Linux, GNU, Opensource
+</p></div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<ul>
+<li><a href="./linux_intro/linux_intro.pdf">幻灯片</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> What's GNU/Linux? (0.5h)</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+
+</div>
+
+<div id="outline-container-1-2-1-1" class="outline-5">
+<h5 id="sec-1-2-1-1"><span class="section-number-5">1.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-1-2-1-1">
+
+<ul>
+<li>What's Linux?
+</li>
+<li>What's GNU?
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-1-2" class="outline-5">
+<h5 id="sec-1-2-1-2"><span class="section-number-5">1.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-1-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> Opensource history and future (0.5h)</h4>
+<div class="outline-text-4" id="text-1-2-2">
+
+
+</div>
+
+<div id="outline-container-1-2-2-1" class="outline-5">
+<h5 id="sec-1-2-2-1"><span class="section-number-5">1.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-1-2-2-1">
+
+<ul>
+<li>What's opensource?
+</li>
+<li>History and future
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2-2-2" class="outline-5">
+<h5 id="sec-1-2-2-2"><span class="section-number-5">1.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-1-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-1-3">
+
+<ul>
+<li>What's GNU/Linux
+</li>
+<li>Opensource
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-1-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-1-5">
+
+<ul>
+<li>理论 + 实验
+</li>
+</ul>
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Play with bash</h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p>   了解基本的命令行操作和shell编程
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<ul>
+<li><a href="./bash/shell_basics.html">讲义</a>
+</li>
+<li><a href="./linux_lectures/">幻灯片</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> UNIX file system (1h)</h4>
+<div class="outline-text-4" id="text-2-2-1">
+
+
+</div>
+
+<div id="outline-container-2-2-1-1" class="outline-5">
+<h5 id="sec-2-2-1-1"><span class="section-number-5">2.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-1-1">
+
+<ul>
+<li>UNIX file system structure
+</li>
+<li>basic commands
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-1-2" class="outline-5">
+<h5 id="sec-2-2-1-2"><span class="section-number-5">2.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> Terminal operations (.5h)</h4>
+<div class="outline-text-4" id="text-2-2-2">
+
+
+</div>
+
+<div id="outline-container-2-2-2-1" class="outline-5">
+<h5 id="sec-2-2-2-1"><span class="section-number-5">2.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-2-1">
+
+<ul>
+<li>CLI shortcuts
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-2-2" class="outline-5">
+<h5 id="sec-2-2-2-2"><span class="section-number-5">2.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-3" class="outline-4">
+<h4 id="sec-2-2-3"><span class="section-number-4">2.2.3</span> File operations (1h)</h4>
+<div class="outline-text-4" id="text-2-2-3">
+
+
+</div>
+
+<div id="outline-container-2-2-3-1" class="outline-5">
+<h5 id="sec-2-2-3-1"><span class="section-number-5">2.2.3.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-3-1">
+
+<ul>
+<li>understanding <code>ls</code> output
+</li>
+<li>copy, move, delete, view, link
+</li>
+<li>cat
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-3-2" class="outline-5">
+<h5 id="sec-2-2-3-2"><span class="section-number-5">2.2.3.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-3-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-4" class="outline-4">
+<h4 id="sec-2-2-4"><span class="section-number-4">2.2.4</span> Shell basics (1h)</h4>
+<div class="outline-text-4" id="text-2-2-4">
+
+
+</div>
+
+<div id="outline-container-2-2-4-1" class="outline-5">
+<h5 id="sec-2-2-4-1"><span class="section-number-5">2.2.4.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-4-1">
+
+<ul>
+<li>Help
+</li>
+<li>Path
+</li>
+<li>Initial files
+</li>
+<li>Special files
+</li>
+<li>Special characters
+</li>
+<li>Search
+</li>
+<li>Alias
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-4-2" class="outline-5">
+<h5 id="sec-2-2-4-2"><span class="section-number-5">2.2.4.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-4-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-5" class="outline-4">
+<h4 id="sec-2-2-5"><span class="section-number-4">2.2.5</span> Bash programming (4h)</h4>
+<div class="outline-text-4" id="text-2-2-5">
+
+
+</div>
+
+<div id="outline-container-2-2-5-1" class="outline-5">
+<h5 id="sec-2-2-5-1"><span class="section-number-5">2.2.5.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-5-1">
+
+<ul>
+<li><code>for ...; do ...; done</code> loop
+</li>
+<li><code>while ...; do ...; done</code> loop
+</li>
+<li><code>if ...; then ...; else ...; fi</code>
+</li>
+<li><code>case VAR in PATTERN) COMMANDS;; esac</code>
+</li>
+<li><code>read</code>
+</li>
+<li>Arrays
+</li>
+<li>GUI
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-5-2" class="outline-5">
+<h5 id="sec-2-2-5-2"><span class="section-number-5">2.2.5.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-5-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2-2-6" class="outline-4">
+<h4 id="sec-2-2-6"><span class="section-number-4">2.2.6</span> Sed, Awk (2h)</h4>
+<div class="outline-text-4" id="text-2-2-6">
+
+
+</div>
+
+<div id="outline-container-2-2-6-1" class="outline-5">
+<h5 id="sec-2-2-6-1"><span class="section-number-5">2.2.6.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-2-2-6-1">
+
+<ul>
+<li>Sed
+</li>
+<li>Awk
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2-6-2" class="outline-5">
+<h5 id="sec-2-2-6-2"><span class="section-number-5">2.2.6.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-2-2-6-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-2-3">
+
+<ul>
+<li>UNIX file system
+</li>
+<li>PATH
+</li>
+<li>shell programming
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-2-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-2-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-2-6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Classical Linux IDE</h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<p>   了解Linux下的经典开发环境
+</p></div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<ul>
+<li><a href="./c/c_dev.html">讲义</a>
+</li>
+<li><a href="./linux_lectures/">幻灯片</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1"><span class="section-number-4">3.2.1</span> From c source code to executable (1h)</h4>
+<div class="outline-text-4" id="text-3-2-1">
+
+
+</div>
+
+<div id="outline-container-3-2-1-1" class="outline-5">
+<h5 id="sec-3-2-1-1"><span class="section-number-5">3.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-3-2-1-1">
+
+<ul>
+<li>c pre-processor
+</li>
+<li>Compiler
+</li>
+<li>Assembler
+</li>
+<li>Linker
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-1-2" class="outline-5">
+<h5 id="sec-3-2-1-2"><span class="section-number-5">3.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-3-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2"><span class="section-number-4">3.2.2</span> Emacs + GCC + GDB (2h)</h4>
+<div class="outline-text-4" id="text-3-2-2">
+
+
+</div>
+
+<div id="outline-container-3-2-2-1" class="outline-5">
+<h5 id="sec-3-2-2-1"><span class="section-number-5">3.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-3-2-2-1">
+
+<ul>
+<li>emacs
+</li>
+<li>gcc
+</li>
+<li>gdb
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-2-2" class="outline-5">
+<h5 id="sec-3-2-2-2"><span class="section-number-5">3.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-3-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-3-2-3" class="outline-4">
+<h4 id="sec-3-2-3"><span class="section-number-4">3.2.3</span> make and version control (2.5h)</h4>
+<div class="outline-text-4" id="text-3-2-3">
+
+
+</div>
+
+<div id="outline-container-3-2-3-1" class="outline-5">
+<h5 id="sec-3-2-3-1"><span class="section-number-5">3.2.3.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-3-2-3-1">
+
+<ul>
+<li>makefile
+</li>
+<li>git
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2-3-2" class="outline-5">
+<h5 id="sec-3-2-3-2"><span class="section-number-5">3.2.3.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-3-2-3-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-3-3">
+
+<ul>
+<li>from c source code to executable
+</li>
+<li>makefile
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-3-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-3-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-3-6" class="outline-3">
+<h3 id="sec-3-6"><span class="section-number-3">3.6</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-3-6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> system administration</h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-4-1">
+
+<p>   了解基本的系统管理操作
+</p></div>
+
+</div>
+
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-4-2">
+
+<ul>
+<li><a href="http://cs2.swfu.edu.cn/~wx672/lecture_notes/linux/admin.html">讲义</a>
+</li>
+<li><a href="http://cs2.swfu.edu.cn/~wx672/lecture_notes/linux/account.html">作业</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-4-2-1" class="outline-4">
+<h4 id="sec-4-2-1"><span class="section-number-4">4.2.1</span> debian/ubuntu package management (2h)</h4>
+<div class="outline-text-4" id="text-4-2-1">
+
+
+</div>
+
+<div id="outline-container-4-2-1-1" class="outline-5">
+<h5 id="sec-4-2-1-1"><span class="section-number-5">4.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-4-2-1-1">
+
+<ul>
+<li>sources.list
+</li>
+<li>apt
+</li>
+<li>aptitude
+</li>
+<li>dpkg
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-2-1-2" class="outline-5">
+<h5 id="sec-4-2-1-2"><span class="section-number-5">4.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-4-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-4-2-2" class="outline-4">
+<h4 id="sec-4-2-2"><span class="section-number-4">4.2.2</span> system maintenance (2h)</h4>
+<div class="outline-text-4" id="text-4-2-2">
+
+
+</div>
+
+<div id="outline-container-4-2-2-1" class="outline-5">
+<h5 id="sec-4-2-2-1"><span class="section-number-5">4.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-4-2-2-1">
+
+<ul>
+<li>user account management
+</li>
+<li>system security
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-2-2-2" class="outline-5">
+<h5 id="sec-4-2-2-2"><span class="section-number-5">4.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-4-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-4-3">
+
+<ul>
+<li>sources.list
+</li>
+<li>apt
+</li>
+<li>server maintenance
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-4-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-4-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-4-6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> advanced linux programming</h2>
+<div class="outline-text-2" id="text-5">
+
+
+</div>
+
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-5-1">
+
+<p>   了解linux下的高级编程技术
+</p></div>
+
+</div>
+
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-5-2">
+
+<ul>
+<li>讲义
+<ul>
+<li><a href="http://cs3.swfu.edu.cn/moodle/mod/resource/view.php?id=1175">advanced linux programming</a>
+</li>
+<li><a href="http://cs3.swfu.edu.cn/moodle/mod/resource/view.php?id=1176">program library howto</a>
+</li>
+<li><a href="http://cs3.swfu.edu.cn/moodle/mod/resource/view.php?id=1197">linux assembly howto</a>
+</li>
+<li><a href="http://cs3.swfu.edu.cn/moodle/mod/resource/view.php?id=1198">NCURSES programming HOWTO</a>
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-5-2-1" class="outline-4">
+<h4 id="sec-5-2-1"><span class="section-number-4">5.2.1</span> Program library (1h)</h4>
+<div class="outline-text-4" id="text-5-2-1">
+
+
+</div>
+
+<div id="outline-container-5-2-1-1" class="outline-5">
+<h5 id="sec-5-2-1-1"><span class="section-number-5">5.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-5-2-1-1">
+
+<ul>
+<li>Libraries introduction
+</li>
+<li>Linking
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-2-1-2" class="outline-5">
+<h5 id="sec-5-2-1-2"><span class="section-number-5">5.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-5-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-5-2-2" class="outline-4">
+<h4 id="sec-5-2-2"><span class="section-number-4">5.2.2</span> Linux assembly (1h)</h4>
+<div class="outline-text-4" id="text-5-2-2">
+
+
+</div>
+
+<div id="outline-container-5-2-2-1" class="outline-5">
+<h5 id="sec-5-2-2-1"><span class="section-number-5">5.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-5-2-2-1">
+
+<ul>
+<li>Intel vs. AT\&amp;T
+</li>
+<li>GAS
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-2-2-2" class="outline-5">
+<h5 id="sec-5-2-2-2"><span class="section-number-5">5.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-5-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-5-2-3" class="outline-4">
+<h4 id="sec-5-2-3"><span class="section-number-4">5.2.3</span> NCURSES programming (2h)</h4>
+<div class="outline-text-4" id="text-5-2-3">
+
+
+</div>
+
+<div id="outline-container-5-2-3-1" class="outline-5">
+<h5 id="sec-5-2-3-1"><span class="section-number-5">5.2.3.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-5-2-3-1">
+
+<ul>
+<li>Ncurses intro
+</li>
+<li>Examples
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-2-3-2" class="outline-5">
+<h5 id="sec-5-2-3-2"><span class="section-number-5">5.2.3.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-5-2-3-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5-3" class="outline-3">
+<h3 id="sec-5-3"><span class="section-number-3">5.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-5-3">
+
+<ul>
+<li>Library
+</li>
+<li>GAS
+</li>
+<li>Ncurses
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-4" class="outline-3">
+<h3 id="sec-5-4"><span class="section-number-3">5.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-5-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-5-5" class="outline-3">
+<h3 id="sec-5-5"><span class="section-number-3">5.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-5-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-5-6" class="outline-3">
+<h3 id="sec-5-6"><span class="section-number-3">5.6</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-5-6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Popular software tools in Linux</h2>
+<div class="outline-text-2" id="text-6">
+
+
+</div>
+
+<div id="outline-container-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-6-1">
+
+<p>   了解Linux平台下的常用软件
+</p></div>
+
+</div>
+
+<div id="outline-container-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-6-2">
+
+<ul>
+<li><a href="http://cs2/cgi-bin/dwww/usr/share/doc/qt4-doc-html/html/tutorials.html">讲义</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-6-2-1" class="outline-4">
+<h4 id="sec-6-2-1"><span class="section-number-4">6.2.1</span> Graphical IDE (2h)</h4>
+<div class="outline-text-4" id="text-6-2-1">
+
+
+</div>
+
+<div id="outline-container-6-2-1-1" class="outline-5">
+<h5 id="sec-6-2-1-1"><span class="section-number-5">6.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-6-2-1-1">
+
+<ul>
+<li>Qt designer
+</li>
+<li>Eclipse       
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2-1-2" class="outline-5">
+<h5 id="sec-6-2-1-2"><span class="section-number-5">6.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-6-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-6-2-2" class="outline-4">
+<h4 id="sec-6-2-2"><span class="section-number-4">6.2.2</span> Image processing (1h)</h4>
+<div class="outline-text-4" id="text-6-2-2">
+
+
+</div>
+
+<div id="outline-container-6-2-2-1" class="outline-5">
+<h5 id="sec-6-2-2-1"><span class="section-number-5">6.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-6-2-2-1">
+
+<ul>
+<li>Imagemagick 
+</li>
+<li>GIMP
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2-2-2" class="outline-5">
+<h5 id="sec-6-2-2-2"><span class="section-number-5">6.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-6-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-6-2-3" class="outline-4">
+<h4 id="sec-6-2-3"><span class="section-number-4">6.2.3</span> Command line tools (1h)</h4>
+<div class="outline-text-4" id="text-6-2-3">
+
+
+</div>
+
+<div id="outline-container-6-2-3-1" class="outline-5">
+<h5 id="sec-6-2-3-1"><span class="section-number-5">6.2.3.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-6-2-3-1">
+
+<ul>
+<li>ssh/scp
+</li>
+<li>lynx/curl
+</li>
+<li>mutt/mailx
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2-3-2" class="outline-5">
+<h5 id="sec-6-2-3-2"><span class="section-number-5">6.2.3.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-6-2-3-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-6-2-4" class="outline-4">
+<h4 id="sec-6-2-4"><span class="section-number-4">6.2.4</span> Graph drawing</h4>
+<div class="outline-text-4" id="text-6-2-4">
+
+
+</div>
+
+<div id="outline-container-6-2-4-1" class="outline-5">
+<h5 id="sec-6-2-4-1"><span class="section-number-5">6.2.4.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-6-2-4-1">
+
+<ul>
+<li>Dia
+</li>
+<li>Xfig
+</li>
+<li>umbrello
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2-4-2" class="outline-5">
+<h5 id="sec-6-2-4-2"><span class="section-number-5">6.2.4.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-6-2-4-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-6-3">
+
+<ul>
+<li>Qt designer
+</li>
+<li>Eclipse
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-6-4" class="outline-3">
+<h3 id="sec-6-4"><span class="section-number-3">6.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-6-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-6-5" class="outline-3">
+<h3 id="sec-6-5"><span class="section-number-3">6.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-6-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-6-6" class="outline-3">
+<h3 id="sec-6-6"><span class="section-number-3">6.6</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-6-6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Linux networking</h2>
+<div class="outline-text-2" id="text-7">
+
+
+</div>
+
+<div id="outline-container-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> 教学目标及基本要求</h3>
+<div class="outline-text-3" id="text-7-1">
+
+<p>   了解基本的Linux网络操作命令
+</p></div>
+
+</div>
+
+<div id="outline-container-7-2" class="outline-3">
+<h3 id="sec-7-2"><span class="section-number-3">7.2</span> 教学内容及学时分配</h3>
+<div class="outline-text-3" id="text-7-2">
+
+<ul>
+<li><a href="http://cs3.swfu.edu.cn/moodle/mod/resource/view.php?id=1178">讲义</a>
+</li>
+<li><a href="./iptables.pdf">幻灯片</a>
+</li>
+</ul>
+
+
+</div>
+
+<div id="outline-container-7-2-1" class="outline-4">
+<h4 id="sec-7-2-1"><span class="section-number-4">7.2.1</span> Basic commands (1h)</h4>
+<div class="outline-text-4" id="text-7-2-1">
+
+
+</div>
+
+<div id="outline-container-7-2-1-1" class="outline-5">
+<h5 id="sec-7-2-1-1"><span class="section-number-5">7.2.1.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-7-2-1-1">
+
+<ul>
+<li>ifconfig
+</li>
+<li>ping
+</li>
+<li>route
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-7-2-1-2" class="outline-5">
+<h5 id="sec-7-2-1-2"><span class="section-number-5">7.2.1.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-7-2-1-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-7-2-2" class="outline-4">
+<h4 id="sec-7-2-2"><span class="section-number-4">7.2.2</span> Advanced tools (3h)</h4>
+<div class="outline-text-4" id="text-7-2-2">
+
+
+</div>
+
+<div id="outline-container-7-2-2-1" class="outline-5">
+<h5 id="sec-7-2-2-1"><span class="section-number-5">7.2.2.1</span> 教学内容（具体到知识点）</h5>
+<div class="outline-text-5" id="text-7-2-2-1">
+
+<ul>
+<li>netcat
+</li>
+<li>nmap
+</li>
+<li>tcpdump
+</li>
+<li>iptables
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-7-2-2-2" class="outline-5">
+<h5 id="sec-7-2-2-2"><span class="section-number-5">7.2.2.2</span> 教学方式（手段）</h5>
+<div class="outline-text-5" id="text-7-2-2-2">
+
+<p>     理论 + 实验
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7-3" class="outline-3">
+<h3 id="sec-7-3"><span class="section-number-3">7.3</span> 重点和难点</h3>
+<div class="outline-text-3" id="text-7-3">
+
+<ul>
+<li>Advanced tools
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-7-4" class="outline-3">
+<h3 id="sec-7-4"><span class="section-number-3">7.4</span> 深化和拓宽</h3>
+<div class="outline-text-3" id="text-7-4">
+
+<p>   暂无
+</p></div>
+
+</div>
+
+<div id="outline-container-7-5" class="outline-3">
+<h3 id="sec-7-5"><span class="section-number-3">7.5</span> 教学方式（手段）及教学过程中应注意的问题</h3>
+<div class="outline-text-3" id="text-7-5">
+
+<p>   理论 + 实验
+</p></div>
+
+</div>
+
+<div id="outline-container-7-6" class="outline-3">
+<h3 id="sec-7-6"><span class="section-number-3">7.6</span> 思考题和习题</h3>
+<div class="outline-text-3" id="text-7-6">
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="author">Author: 王晓林 (<a href="mailto:wx672ster@gmail.com">wx672ster@gmail.com</a>)</p>
+<p class="date">Date: 2012-08-18 Wed</p>
+
+</div>
+</body>
+</html>

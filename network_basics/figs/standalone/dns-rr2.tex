@@ -1,0 +1,32 @@
+\documentclass[varwidth=36.3em,crop]{standalone}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\begin{document}
+\begin{Verbatim}[commandchars=\\\{\}]
+~$ \color{violet}{host -a mirrors.ustc.edu.cn}
+Trying "mirrors.ustc.edu.cn"
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 4421
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 2, ADDITIONAL: 4
+
+;; QUESTION SECTION:
+;mirrors.ustc.edu.cn.           IN      ANY
+
+;; ANSWER SECTION:
+mirrors.ustc.edu.cn.    600     IN      AAAA    2001:da8:d800:95::110
+mirrors.ustc.edu.cn.    600     IN      A       202.38.95.110
+mirrors.ustc.edu.cn.    594     IN      NS      f1g1ns2.dnspod.net.
+mirrors.ustc.edu.cn.    594     IN      NS      f1g1ns1.dnspod.net.
+
+;; AUTHORITY SECTION:
+mirrors.ustc.edu.cn.    594     IN      NS      f1g1ns1.dnspod.net.
+mirrors.ustc.edu.cn.    594     IN      NS      f1g1ns2.dnspod.net.
+
+;; ADDITIONAL SECTION:
+f1g1ns1.dnspod.net.     33536   IN      A       111.30.132.180
+f1g1ns1.dnspod.net.     33536   IN      A       113.108.80.138
+f1g1ns2.dnspod.net.     33536   IN      A       101.226.30.224
+f1g1ns2.dnspod.net.     33536   IN      A       112.90.82.194
+
+Received 323 bytes from 202.203.132.100#53 in 6598 ms
+\end{Verbatim}
+\end{document}

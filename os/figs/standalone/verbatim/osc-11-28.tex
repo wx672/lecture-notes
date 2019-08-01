@@ -1,0 +1,41 @@
+\documentclass[varwidth,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+┌────────┬─────────┐      ┌────┐
+│  Tyep  │  Mode   │ ┌────┤data│
+├────────┼─────────┤ │    └────┘
+│  UID   │   GID   │ │    ┌────┐
+├────────┴─────────┤ │┌───┤data│
+│  timestamps (3)  │ ││   └────┘
+├──────────────────┤ ││   ┌────┐
+│ size block count │ ││┌──┤data│
+├──────────────────┤ │││  └────┘
+│       ...        │ │││   ...
+├──────────────────┤ │││  ┌────┐
+│                  ┼─┘││┌─┤data│  ┊ ┌────┐
+│                  ┼──┘││ └────┘  ├─┤data│
+│                  ┼───┘│   ┌───┐ │ └────┘
+│  direct blocks   ┼┈   │  ┌┤PTR├─┤ ┌────┐
+│                  ┼┈   │  │└───┘ ├─┤data│
+│                  ┼┈   │  │      ┊ └────┘  ┊ ┌────┐
+│                  ┼────┘  │                ├─┤data│
+├──────────────────┤       │                │ └────┘
+│ single indirect  ┼───────┘       ┊  ┌───┐ │ ┌────┐
+├──────────────────┤        ┌───┐  ├──┤PTR├─┼─┤data│
+│ double indirect  ┼────────┤PTR├──┤  └───┘   └────┘
+├──────────────────┤        └───┘  │  ┌───┐ ┊ ┌────┐
+│ triple indirect  ┼┈              ├──┤PTR├─┼─┤data│
+└──────────────────┘               ┊  └───┘ ┊ └────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% TeX─master: t
+%%% TeX-master: t
+%%% End:

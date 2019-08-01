@@ -1,0 +1,45 @@
+\documentclass[tikz, svgnames]{standalone}
+\usepackage{latexsym,pifont,units,amsmath,amsfonts,amssymb}
+\usepackage{xltxtra} %fontspec,xunicode are loaded here.
+\setsansfont{DejaVu Sans Mono}
+\setmainfont{DejaVu Sans Mono}
+\setmonofont{DejaVu Sans Mono}
+
+\usetikzlibrary{
+arrows,
+trees,
+shapes,
+decorations.pathmorphing,
+backgrounds,
+positioning,
+fit,
+topaths}
+
+\begin{document}
+
+% \tikzstyle{every picture}+=[remember picture,overlay]
+% \everymath{\displaystyle}
+
+\begin{tikzpicture}[
+  auto,
+  every node/.style ={inner sep=2pt, rounded corners,},
+  every edge/.style ={draw,black!50, ->, thick},
+  chain/.style ={fill=red!50, circle, minimum size=50pt, scale=.7},
+  pin distance=7pt,
+  pin edge={->,thick},
+  ]  
+  \node [chain] (forward) at (current page.center) {FORWARD};
+  \node [left=of forward, scale=.7, align=center, fill=blue!50] (routing) {Routing\\Decision};
+  \node [chain, below=of routing, yshift=10pt, pin={below:{\tiny Local Process}}] (input) {INPUT};
+  \node [chain, right=of input, xshift=60pt, pin={[pin distance=29.5pt]above:{}}, pin={below:{\tiny Local Process}}] (output) {OUTPUT};
+  \node [left=of routing, label={above:{\tiny Incoming}}] (in) {};
+  \node [right=of forward, xshift=30pt, label={above:{\tiny Outgoing}}] (out) {};
+
+  \path
+  (in) edge (routing)
+  (routing) edge (forward) edge (input)
+  (forward) edge (out)
+%  (output) edge
+  ;  
+\end{tikzpicture}
+\end{document}

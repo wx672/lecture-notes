@@ -1,0 +1,1792 @@
+\newcommand{\unix}{{\fontspec{Purisa}{UNIX}}}
+\newcommand{\emacs}{\includegraphics[width=1.2em]{emacs}}
+\newcommand{\google}{\raisebox{-.2em}{\includegraphics[width=3em]{google}}}
+\newcommand{\GG}{\textcolor{SkyBlue}{\nerd }}
+\newcommand{\world}{\textcolor{SkyBlue}{\nerd }}
+\newcommand{\pdf}{\textcolor{red}{\nerd }}%
+\newcommand{\folder}{{\nerd }}%e5fe,e61e,e7a3,f07c
+\newcommand{\git}{{\nerd }}%f1d2,f1d3
+\newcommand{\moodle}{\includegraphics[width=1em]{moodle}}
+\newcommand{\obook}{{\nerd }}%f212,f401,f405
+\newcommand{\shell}{{\nerd }}%e795
+\newcommand{\CMD}[1]{\texttt{\textcolor{Green}{\$} #1}}
+\newcommand{\cmd}[1]{\texttt{#1}}
+\newcommand{\vim}{{\nerd }}
+\newcommand{\stackoverflow}{{\nerd }}%f16c, e710
+\newcommand{\correct}{{\Large\textcolor{Green}{\nerd ✔}}}
+\newcommand{\wrong}{\textcolor{red}{\nerd ✘}}
+\newcommand{\Bad}{{\Large \textcolor{red}{\bad}}}
+\newcommand{\Good}{{\Large \textcolor{Green}{\good}}}
+
+% f421,f46e,f536
+
+\addbibresource{ref.bib}
+
+%\AtBeginPart{\frame{\partpage}}
+\mode<beamer>{\AtBeginSection{\frame{\sectionpage}}}
+
+% \includeonlylecture{intro}
+% \includeonlylecture{bash}
+
+\title{GNU/Linux\\Application Programming}
+\author{WANG Xiaolin\\%
+  {\footnotesize\texttt{wx672ster+linux@gmail.com}}}
+
+\begin{document}
+
+\mode<article>{  
+  \subtitle{Lecture Handouts}
+  \maketitle
+  \tableofcontents
+  \nocite{matthew2008beginning, cooper10bash, raymond2003art,stevens2013advanced,
+    Bryant2010computersystems}%
+  \printbibliography[title={References}]}
+
+\mode<beamer>{\frame{\titlepage}}
+
+\begin{frame}<beamer>{Textbooks}
+  \begin{refsection}
+    \nocite{matthew2008beginning, cooper10bash, raymond2003art, stevens2013advanced,
+      Love:2007:LSP:1205435, Kerrisk:2010:LPI:1869911, Bryant2010computersystems}%
+    \printbibliography[heading=none]
+  \end{refsection}
+\end{frame}
+
+\begin{frame}{Course Web Links}
+  \begin{itemize}
+  \item[\moodle] \url{https://cs6.swfu.edu.cn/moodle}
+  \item[\pdf] \url{https://cs2.swfu.edu.cn/~wx672/lecture_notes/linux-app/slides/}
+  \item[\folder] \url{https://cs2.swfu.edu.cn/~wx672/lecture_notes/linux-app/src/}
+  \item[\obook] \url{https://cs3.swfu.edu.cn/tech}
+  \end{itemize}
+  \begin{block}{\texttt{/etc/hosts}}
+    \ttfamily
+    \begin{tabular}{ll}
+      202.203.132.241&cs6.swfu.edu.cn\\      
+      202.203.132.242&cs2.swfu.edu.cn\\
+      202.203.132.245&cs3.swfu.edu.cn\\      
+    \end{tabular}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Homework}
+  \begin{block}{Weekly tech question}
+    \begin{enumerate}
+    \item What was I trying to do?
+    \item How did I do it? (steps)
+    \item The expected output? The real output?
+    \item How did I try to solve it? (steps, books, web links)
+    \item How many hours did I struggle?
+    \end{enumerate}
+  \end{block}
+  \begin{itemize}
+  \item[\Large\dejavu ✉] \alert{\ttfamily wx672ster+linux@gmail.com}
+  \item[$\mathbb{E}$] Preferably in English
+  \item[\stackoverflow] in
+    \href{https://stackoverflow.com/questions/39199299/what-is-the-essential-difference-between-compound-command-and-normal-command-inlink}{stackoverflow}
+    style
+  \item[Or] simply show me the tech questions you asked on any website
+  \end{itemize}  
+\end{frame}
+
+\lecture{start}{start}% [short name]<name><label>
+\section{Getting Started}
+\label{sec:start}
+
+\begin{frame}{Linux Programs}
+  \begin{description}
+  \item[Where to find them?] {\ttfamily /bin, /usr/bin, /usr/local/bin,\\\symbol{`~}/bin,
+      \ldots}
+    \begin{itemize}
+    \item[\$] \texttt{echo \$PATH}
+    \end{itemize}
+  \item[How to find them?] \texttt{which, whereis, type}
+  \end{description}
+  \begin{block}{Command not found?}
+    \begin{description}
+    \item[First] double check your spelling
+    \item[Then] try:{\ttfamily
+      \begin{itemize}
+      \item[\debian] aptitude search xxx
+      \item[\debian] apt-cache search xxx
+      \item[\debian] apt-file search xxx
+      \item[\debian] sudo apt install packagename
+      \item[\GG] \google~"linux command xxx"
+      \end{itemize}}
+    \end{description}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Text Editors}
+  \begin{block}{{\Huge\vim}\,\quad{}vs.\quad{}{\LARGE\emacs}}
+    \includegraphics[width=\textwidth]{vivsemacs}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Help Your Editor}
+  \begin{block}{Suffix matters}\ttfamily
+    \begin{itemize}
+    \item[\$] vim \wrong
+    \item[\$] vim hello.c  \correct
+    \item[\$] vim hello.py \correct
+    \item[\$] emacs \wrong
+    \item[\$] emacsclient hello.c  \correct
+    \item[\$] emacsclient hello.py \correct
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Keyboard}
+  \begin{center}
+    \includegraphics[width=.7\linewidth]{qwerty}
+  \end{center}
+  \begin{itemize}
+  \item[\vim] vimtutor
+  \item[\emacs] C-h t
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Compiler vs. Interpreter}
+  \begin{block}{\texttt{hello.c}}
+    \begin{minipage}{.5\linewidth}
+\begin{ccode}
+#include <stdio.h>
+int main()
+{
+  printf("Hello, world!\n");
+  return 0;
+}
+\end{ccode}
+    \end{minipage}
+    \begin{minipage}{.45\linewidth}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -o hello hello.c}
+    \item[\$] \texttt{./hello}
+    \end{itemize}
+    \end{minipage}
+    %\textcolor{LightGray}{\rule{.3\textwidth}{1pt}}
+  \end{block}
+  \begin{block}{\texttt{hello.sh}}
+    \begin{minipage}{.5\linewidth}
+      \begin{shellcode}
+        #!/bin/bash
+        echo 'Hello, world!'
+      \end{shellcode}
+    \end{minipage}
+    \begin{minipage}{.45\linewidth}
+      \begin{enumerate}
+      \item[\$] \texttt{chmod +x hello.sh}
+      \item[\$] \texttt{./hello.sh}
+      \end{enumerate}
+    \end{minipage}
+  \end{block}
+  \begin{block}{\texttt{hello.py}}
+    \begin{minipage}{.5\linewidth}
+\begin{pythoncode}
+#!/usr/bin/python
+print "Hello, world!"
+\end{pythoncode}      
+    \end{minipage}
+    \begin{minipage}{.45\linewidth}
+      \begin{enumerate}
+      \item[\$] \texttt{chmod +x hello.py}
+      \item[\$] \texttt{./hello.py}
+      \end{enumerate}
+    \end{minipage}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Compilation}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{tool-chain} }%
+    \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain} }
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Header Files}
+  \begin{minipage}{.45\linewidth}
+    \begin{block}{Why?}
+\begin{ccode}
+#include "add.h"
+
+int triple(int x)
+{
+  return add(x, add(x,x));
+}
+\end{ccode}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}{.45\linewidth}
+    \begin{block}{Why not?}
+\begin{ccode}
+int add(int, int);
+
+int triple(int x)
+{
+  return add(x, add(x, x));
+}
+\end{ccode}
+    \end{block}
+  \end{minipage}\\[1ex]
+  \begin{itemize}
+  \item Ensure everyone use the same code
+  \item Easy to share, upgrade, reuse
+  \end{itemize}
+  \begin{block}{In the header files\ldots}
+    \begin{multicols}{2}
+      \begin{itemize}
+      \item function declarations
+      \item macro definitions
+      \item contants
+      \item system wide global variables
+      \end{itemize}
+    \end{multicols}
+  \end{block}
+  \begin{itemize}
+  \item[\$] \texttt{ls /usr/include/}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Library Files}
+  \begin{description}
+  \item[Static libraries] \alert{\texttt{.a}} files. Very old ones, but still alive.
+    \begin{itemize}
+    \item[\$] \texttt{find /usr/lib -name "*.a"}
+    \end{itemize}
+  \item[Shared libraries] \alert{\texttt{.so}} files. The preferred ones.
+    \begin{itemize}
+    \item[\$] \texttt{find /usr/lib -name "*.so.*"}
+    \end{itemize}
+  \end{description}
+  Examples:
+  \begin{itemize}
+  \item[\$] \texttt{gcc -o hello hello.c /usr/lib/libm.a}
+  \item[\$] \texttt{gcc -o hello hello.c -lm}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Static Linking}
+    \begin{itemize}
+    \item The entire program and all data of a process must be in physical memory for the
+      process to execute
+    \item The size of a process is thus limited to the size of physical memory
+    \end{itemize}
+  \end{block}
+    \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{static-linking} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{static-linking} }
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Dynamic Linking}
+    \begin{itemize}
+    \item Only one copy in memory
+    \item Don't have to re-link after a library update
+    \end{itemize}
+  \end{block}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{dynamic-linking} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{dynamic-linking} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Build A Static Library}{Source codes}
+  \begin{minipage}[t]{.47\linewidth}
+    \begin{block}{\texttt{main.c}}
+      \includegraphics[width=\textwidth]{main-c}
+    \end{block}
+    \begin{block}{\texttt{lib.h}}
+      \includegraphics[width=.5\textwidth]{lib-h}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}[t]{.43\linewidth}
+    \begin{block}{\texttt{hello.c}}
+      \includegraphics[width=\textwidth]{hello-c}
+    \end{block}
+    \begin{block}{\texttt{hi.c}}
+      \includegraphics[width=\textwidth]{hi-c}
+    \end{block}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Build A Static Library}{Step by step}
+  \begin{enumerate}
+  \item Get \alert{\texttt{hello.o}} and \alert{\texttt{hi.o}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -c hello.c hi.c}
+    \end{itemize}
+  \item Put \alert{\texttt{*.o}} into \alert{\texttt{libhi.a}}
+    \begin{itemize}
+    \item[\$] \texttt{ar crv libhi.a hello.o hi.o}
+    \end{itemize}
+  \item Use \alert{\texttt{libhi.a}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc main.c libhi.a}
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Build A Static Library}{Makefile}
+  \includegraphics[width=.8\textwidth]{makefile-a}
+\end{frame}
+
+\begin{frame}{Build A Shared Library}{Source codes}
+  \begin{block}{\texttt{hello.c}}
+    \includegraphics[width=.8\textwidth]{hello-c-so}
+  \end{block}
+  \begin{minipage}{.35\linewidth}
+    \begin{block}{\texttt{hello.h}}
+      \includegraphics[width=\textwidth]{hello-h-so}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}{.36\linewidth}
+    \begin{block}{\texttt{hi.c}}
+      \includegraphics[width=\textwidth]{hi-c-so}
+    \end{block}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Build A Shared Library}{Step by step}
+  \begin{enumerate}
+  \item Get \alert{\texttt{hi.o}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -fPIC -c hi.c}
+    \end{itemize}
+  \item Get \alert{\texttt{libhi.so}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -shared -o libhi.so hi.o}
+    \end{itemize}
+  \item Use \alert{\texttt{libhi.so}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -L. -Wl,-rpath=. hello.c -lhi}
+    \end{itemize}
+  \item Check it
+    \begin{itemize}
+    \item[\$] \texttt{ldd a.out}
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Build A Shared Library}{Makefile}
+  \includegraphics[width=\textwidth]{makefile-so}
+\end{frame}
+
+\begin{frame}{Getting Help}
+  \begin{itemize}
+  \item[\debian] \texttt{sudo apt install gcc-doc}
+  \item[\$] \texttt{man gcc}
+  \item[\$] \texttt{info gcc}
+  \end{itemize}
+\end{frame}
+
+\section{Shell Basics}
+\label{sec:basic-commands}
+
+\begin{frame}{Shell}
+  \begin{itemize}
+  \item[\shell] A command line interpreter
+  \item[\shell] A programming language
+  \end{itemize}
+  \begin{center}
+    \includegraphics[width=.5\textwidth]{sys-arch}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Redirection}
+  \begin{block}{Redirecting output}\ttfamily
+    \begin{itemize}
+    \item[\$] ls -l > output.txt
+    \item[\$] ps aux >> output.txt
+    \end{itemize}
+  \end{block}
+  \begin{block}{Redirecting input}\ttfamily
+    \begin{itemize}
+    \item[\$] more < output.txt
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Pipe}{Chain processes together}
+  \CMD{ps aux | sort | less}
+\end{frame}
+
+\begin{frame}{Directory Structure}
+  \includegraphics[width=\linewidth]{cs2}
+  
+  \begin{center}
+    \begin{tabular}{r@{\qquad}>{\ttfamily}l}
+      \hline
+      \thead{Todo}  & \thead{How}  \\\hline
+      Where am I?   & pwd          \\
+      What's in it? & ls           \\
+      Move around?  & cd           \\
+      Disk usage?   & du, df       \\
+      USB drive?    & lsblk, mount \\
+      New folder?   & mkdir        \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}{File Operations}
+  \begin{block}{Ways to create a file}
+    \begin{itemize}
+    \item[\vim] Using an editor (vim, emacs, nano\ldots), or
+    \item[\$] \cmd{cat > filename}
+    \item[\$] \cmd{echo "hello, world" > filename}
+    \item[\$] \cmd{touch filename}
+    \end{itemize}
+  \end{block}
+  More file operations:
+  \begin{center}\small
+    \begin{tabular}{r@{\quad}>{\ttfamily}l|r@{\quad}>{\ttfamily}l}
+      \hline
+      \thead{Todo} & \thead{How} & \thead{Todo} & \thead{How}         \\\hline
+      Copy?        & cp          & Move/Rename? & mv                  \\
+      Delete?      & rm          & What's it?   & file                \\
+      Link?        & ln          & Permission?  & chmod, chown        \\
+      Count?       & wc          & Archive?   & tar, gzip, 7z, \ldots \\
+      Sort?        & sort, uniq  & Search?      & find, grep          \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Process Operations}
+  \begin{center}\small
+    \begin{tabular}{r@{\quad}>{\ttfamily}l|r@{\quad}>{\ttfamily}l}
+      \hline
+      \thead{Todo} & \thead{How} & \thead{Todo} & \thead{How}         \\\hline
+      Kill?&kill, Ctrl-c&suspend?&Ctrl-z\\
+      background?&bg, \& &forground?&fg, jobs\\
+      status?&ps, top&&\\\hline
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}{System Info}
+  \begin{center}\small
+    \begin{tabular}{r@{\quad}>{\ttfamily}l|r@{\quad}>{\ttfamily}l}
+      \hline
+      \thead{Todo}   & \thead{How}         & \thead{Todo} & \thead{How}  \\\hline
+      who?           & w, who, whoami      & how long?    & uptime       \\
+      software?      & apt, aptitude, dpkg & kernel?      & uname, lsmod \\
+      hardware?      & lspci, lsusb, lscpu & memory?      & free, lsmem  \\\hline
+    \end{tabular}
+  \end{center}
+  \begin{block}{APT --- ~\debian~package management}
+    \begin{center}\small
+      \begin{tabular}{l>{\ttfamily}l}
+        \hline
+        \thead{Todo} & \thead{How}                                       \\\hline
+        upgrading?   & apt update \&\& apt upgrade                       \\
+        install?     & apt install xxx                                   \\
+        remove?      & apt purge xxx                                     \\
+        search?      & apt search xxx                                    \\
+        details?     & apt show xxx                                      \\
+        friendly UI? & aptitude                                          \\\hline
+      \end{tabular}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{CLI Shortcuts}
+  \begin{center}
+    \begin{tabular}{>{\ttfamily}r@{\quad}l|>{\ttfamily}r@{\quad}l}
+      Ctrl-a: & beginning of line  & Ctrl-e:  & end of line      \\
+      Ctrl-f: & forward            & Ctrl-b:  & backward         \\
+      Ctrl-n: & next               & Ctrl-p:  & previous         \\
+      Ctrl-r: & reverse search     & Ctrl-u:  & cut to beginning \\
+      Ctrl-k: & kill (cut to end)  & Ctrl-y:  & yank (paste)     \\
+      Ctrl-d: & delete a character & TAB:     & completion       \\
+    \end{tabular}
+  \end{center}
+  \begin{block}{Tmux}
+    \begin{tabular}{>{\ttfamily}r@{\quad}l|>{\ttfamily}r@{\quad}l}
+      C-a c:  & create window      & C-a C-a: & switch window    \\
+      C-a n:  & next window        & C-a p:   & previous window  \\
+      C-a -:  & split window       & C-a |:   & split widnow     \\
+      C-a j:  & go down            & C-a k:   & go up            \\
+      C-a l:  & go right           & C-a h:   & go left          \\
+    \end{tabular}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Understanding ``\texttt{ls -l}''}
+  \begin{minipage}{.71\linewidth}
+    \includegraphics[width=\linewidth]{ls-l}
+  \end{minipage}\quad
+  \begin{minipage}{.25\linewidth}\scriptsize
+    \begin{tabular}{c@{\;-\;}l}
+      d& directory\\
+      -& regular file\\
+      l& soft link\\
+      c& character device\\
+      b& block device\\
+      s& socket\\
+      p& named pipe (FIFO)
+      \end{tabular}
+  \end{minipage}
+
+  \begin{block}{9-bit permission}
+    \begin{minipage}{.27\linewidth}
+      \includegraphics[width=\linewidth]{9bit}
+    \end{minipage}\quad
+    \begin{minipage}{.5\linewidth}\small
+      \begin{tabular}{l@{\qquad}l}
+        \CMD{chmod 755 foo}&\CMD{chmod 644 foo}\\
+        \CMD{chmod 000 foo}&\CMD{chmod 777 foo}\\
+        \CMD{chmod a-r foo}&\CMD{chmod u+x foo}\\
+        \CMD{chmod g+w foo}&\CMD{chmod go=rx foo}
+      \end{tabular}
+    \end{minipage}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Wildcard Expansion}
+  \begin{tabular}{>{\ttfamily}rl>{\ttfamily}l}
+    \hline
+    \thead{Character}&\thead{Meaning}&\thead{Example}\\\hline
+    ?&any one&\CMD{ls ???.txt}\\
+    *&zero or more&\CMD{ls *.c}\\
+    {[]}&or&\CMD{ls *.[ch]}\\
+    \{\}&and&\CMD{ls *.\{c,h,cpp\}}\\\hline    
+  \end{tabular}
+  \begin{block}{Example}
+    \CMD{touch \{2,3,4,234\}.\{jpg,png\} \&\& ls}\\[1ex]
+    \begin{description}
+    \item[output:]
+      \begin{tabular}{*{4}{>{\ttfamily}r}}\hline
+        2.jpg&234.jpg&3.jpg&4.jpg\\
+        2.png&234.png&3.png&4.png\\\hline
+      \end{tabular}
+    \end{description}
+    \vspace*{1ex}
+    \begin{multicols}{2}
+      \begin{itemize}
+      \item[\$] \cmd{rm [234].jpg}
+      \item[\$] \cmd{rm \{2,3,4,234\}.jpg}
+      \item[\$] \cmd{rm 2*}
+      \item[\$] \cmd{rm ?.jpg}
+      \item[\$] \cmd{rm ?.*}
+      \item[\$] \cmd{rm *}
+      \end{itemize}
+    \end{multicols}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Everything Is A File}
+  \begin{itemize}
+  \item[\$] \cmd{cat /dev/null > /var/log/messages \# empty a file}
+    \begin{itemize}
+    \item[\$] \cmd{: > /var/log/messages \# no new process}
+    \end{itemize}
+  \item[\$] \cmd{ls > /dev/null}
+  \item[\$] \cmd{dd if=/dev/zero of=/tmp/clean bs=1k count=1k}
+  \item[\$] \cmd{dd if=/dev/urandom of=/tmp/random bs=1k count=1k}
+  \end{itemize}
+\end{frame}
+
+\lecture{Shell Programming}{Bash}
+\section{Shell Programming}
+\label{sec:shell-programming}
+
+\begin{frame}{Shell Programming}
+  \begin{description}
+  \item[why?] handy, powerful 
+  \item[which?] bash
+  \end{description}
+\end{frame}
+
+\begin{frame}{Variables}\ttfamily\small
+  \begin{itemize}
+  \item[\$] a=8; b=2
+  \item[\$] a=a+5; a=\$a+5 \Bad
+  \item[\$] let a=a+5; let a+=5 \Good
+  \item[\$] let b=b+a; let b+=a \Good
+  \item[\$] echo a; echo \$a
+  \item[\$] (( a=5, b=6, a+=b )) \Good
+  \item[\$] (( b=a<5?8:9 )) \Good
+  \item[\$] r=\$(( RANDOM\%100 )) \Good
+  \item[\$] echo "\$a" \# partial quoting
+  \item[\$] echo '\$a' \# full quoting
+  \item[\$] a=\$(ls -l); echo \$a; echo "\$a"
+  \item[\$] a=hello; b=world; let a+=b \Bad
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Positional Parameters}{\cmd{\$0, \$1, \$2, \ldots, \$@, \$\#}}
+  \begin{minipage}{.44\linewidth}
+    \includegraphics[width=\linewidth]{isay-sh}
+  \end{minipage}\quad
+  \begin{minipage}{.52\linewidth}
+    \includegraphics[width=\linewidth]{isay-c}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Parameter Substitution}
+  \begin{block}{Default value}\ttfamily
+    \begin{multicols}{2}
+      \begin{itemize}
+      \item[\$] echo \$\{s:=abc\}
+      \item[\$] echo \$\{s:=xyz\}
+      \item[\$] echo \$\{v:-8\}
+      \item[\$] echo \$\{v:-10\}
+      \end{itemize}
+    \end{multicols}
+  \end{block}
+  \begin{block}{Example}
+    \begin{center}
+      \includegraphics[width=.6\linewidth]{para-substitution-sh}
+    \end{center}
+  \end{block}
+\end{frame}
+% file:///usr/share/doc/abs-guide/html/parameter-substitution.html
+
+\begin{frame}{Parameter Substitution}
+  \begin{block}{Substring removal}
+    \CMD{for f in *.pbm; do ppm2tiff \$f \$\{f\%pbm\}tif; done}
+  \end{block}
+  \begin{block}{Substring replacement}
+    \CMD{for f in *.jpg; do mv \$f \$\{f/jpg/JPG\}; done}
+  \end{block}  
+\end{frame}
+
+\begin{frame}{Environmental Variables}
+  \begin{block}{Each process has an environment}\ttfamily\small
+    \begin{center}
+      \begin{tabular}{lllll}
+        \$PATH&\$PWD&\$HOME&\$UID&\$USER\\
+        \$GROUPS&\$SHELL&\$TERM&\$DISPLAY&\$TEMP\\
+        \$HOSTNAME&\$HOSTTYPE&\$IFS&\$EDITOR&\$BROWSER\\
+        \$HISTSIZE&\$FUNCNAME&\$TMOUT&\ldots&\\
+      \end{tabular}
+    \end{center}
+    \begin{itemize}
+    \item[] export HISTSIZE=2000
+    \item[] export BROWSER='/usr/bin/x-www-browser'
+    \item[] export EDITOR='vim'
+    \item[] export ALTERNATE\_EDITOR="vim"
+    \item[] export PDFVIEWER='/usr/bin/zathura'
+    \end{itemize}
+  \end{block}
+  {\ttfamily
+    \begin{itemize}
+    \item[\$] env
+    \item[\$] declare
+    \end{itemize}}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Tests}\small\ttfamily
+  \begin{itemize}
+  \item[\$] (( 5 < 6 )) \&\& echo should be
+  \item[\$] [[ 1 < 2 ]] \&\& echo of course
+  \item[\$] [[ \$a -lt \$b ]] \&\& echo yes || echo no
+  \item[\$] if [[ \$a -lt \$b ]]; then echo yes; else echo no; fi
+  \item[\$] if test \$a -lt \$b; then echo of course; fi
+  \item[\$] if a = 5; then echo a=\$a; fi \# whitespace matters \wrong
+  \item[\$] if a=5; then echo a=\$a; fi \Bad
+  \item[\$] if test a=5; then echo a=\$a; fi \Bad
+  \item[\$] if test a = 5; then echo a=\$a; fi \Bad
+  \item[\$] if test \$a = 5; then echo a=\$a; fi \correct
+  \item[\$] test \$a = 5 \&\& echo a=\$a \correct
+  \item[\$] [[ \$a = 5 ]] \&\& echo a=\$a \correct
+  \item[\$] [[ cmp a b ]] \&\& echo same file \wrong
+  \item[\$] if test cmp a b; then echo same file; fi \wrong
+  \item[\$] if cmp a b; then echo same file; fi \correct
+  \item[\$] [[ -f \symbol{`~}/.bash\_aliases ]] \&\& . \symbol{`~}/.bash\_aliases
+  \item[\$] [[ -x /usr/bin/xterm ]] \&\& /usr/bin/xterm -e tmux \&
+  \item[\$] [[ "\$pass" != "\$MYPASS" ]] \&\& echo 'Wrong password!' \&\& exit 1
+  \item[\$] help test
+  \end{itemize}
+  \begin{block}{}
+    \begin{center}
+      \includegraphics[width=.7\linewidth]{if-then-else-sh}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Loops}{\ttfamily for ARG in LIST; do COMMAND(s); done}\small\ttfamily
+\begin{itemize}
+\item[\$] for i in 1 2 3; do echo -n i="\$i "; done
+\item[\$] for i in \{1..10\}; do echo \$i; done
+\item[\$] for i in \$(seq 10); do echo \$i; done
+\item[\$] for ((i=1; i<=10; i++)); do echo \$i; done
+\item[\$] for ((i=1, j=1; i<=0; i++, j++)); do\\
+  echo \$i-\$j\\
+  echo \$((\$i-\$j))\\
+  done
+\item[\$] for ((i=1; i<=10; i++)) \{ echo \$i; \}
+\item[\$] for i in hello world; do echo -n "\$i "; done
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Loops}{\ttfamily while CONDITION; do COMMAND(s); done}\small\ttfamily
+\begin{itemize}
+\item[\$] a=0; while [[ a < 10 ]]; do echo \$a; ((a++)); done \Bad
+\item[\$] while [[ \$a < 10 ]]; do echo \$a; ((a++)); done \Bad
+\item[\$] while [[ \$a -lt 10 ]]; do echo \$a; ((a++)); done \correct
+\item[\$] while [ \$a -lt 10 ]; do echo \$a; ((a++)); done \correct
+\item[\$] while (( a < 10 )); do echo \$a; ((a++)); done \correct
+\item[\$] until (( a = 10 )); do echo \$a; ((a++)); done \Bad
+\item[\$] until (( a == 10 )); do echo \$a; ((a++)); done \correct
+\item[\$] while read n; do n2 \$n; done
+\item[\$] while read n; do n2 \$n; done < datafile
+\item[\$] until (( n == 0 )); do read n; n2 \$n; done
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{case}}
+  \begin{center}
+    \includegraphics[width=.8\linewidth]{n2-sh}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\texttt{select}}
+  \begin{center}
+    \includegraphics[width=\linewidth]{select-sh}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Functions}
+  \includegraphics[width=\linewidth]{func-sh}
+\end{frame}
+
+\lecture{OS Basics}{os}
+\section{OS Basics}
+\label{sec:os-basics}
+
+\begin{frame}<beamer>{What's in the OS?}
+  \centering
+  \includegraphics[height=.85\textheight]{kernel-block}
+\end{frame}
+
+\begin{frame}{Abstractions}{To hide the complexity of the actual implementations}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{abstraction} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{abstraction} }
+  \end{center}
+\end{frame}
+
+See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Computer
+  Systems}]{Bryant2010computersystems}.
+
+\begin{frame}{A Computer System}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-1} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-1-1} }
+  \end{center}
+\end{frame}
+
+\subsection{Hardware}
+\label{sec:cpu}
+
+\begin{frame}{CPU Working Cycle}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{mos-figs-1-6} }%
+    \mode<article>{ \includegraphics[width=.3\textwidth]{mos-figs-1-6} }
+  \end{center}
+  \begin{enumerate}
+  \item Fetch the first instruction from memory
+  \item Decode it to determine its type and operands
+  \item execute it
+  \end{enumerate}
+  \begin{block}{Special CPU Registers}
+    \begin{description}
+    \item[Program counter (PC):] keeps the memory address of the next instruction to
+      be fetched
+    \item[Stack pointer (SP):] {\symbola ☛} the top of the current stack in memory
+    \item[Program status (PS):] holds
+      \begin{itemize}
+      \item[-] condition code bits
+      \item[-] processor state
+      \end{itemize}
+    \end{description}
+  \end{block}
+\end{frame}
+
+\begin{frame}{System Bus}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-5} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-5} }
+  \end{center}
+  \begin{description}
+  \item[Address Bus:] specifies the memory locations (addresses) for the
+    data transfers
+  \item[Data Bus:] holds the data transfered. Bidirectional
+  \item[Control Bus:] contains various lines used to route timing and
+    control signals throughout the system
+  \end{description}
+\end{frame}
+
+\begin{frame}{Controllers and Peripherals}
+  \begin{itemize}
+  \item Peripherals are real devices controlled by controller chips
+  \item Controllers are processors like the CPU itself, have control registers
+  \item Device driver writes to the registers, thus control it
+  \item Controllers are connected to the CPU and to each other by a variety of buses
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-11} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-11} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Motherboard Chipsets}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{chipsets} }
+    \mode<article>{ \includegraphics[width=.5\textwidth]{chipsets-bw} }
+  \end{center}
+\end{frame}
+
+See also:
+\href{http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map}{\emph{Motherboard
+    Chipsets And The Memory Map}}
+\footnote{\url{http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map}}.
+
+\begin{frame}
+  \begin{itemize}
+  \item The CPU doesn't know what it's connected to
+    \begin{itemize}
+    \item[-] CPU test bench?\quad{}network router?\quad{}toaster?\quad{}brain implant?
+    \end{itemize}
+  \item The CPU talks to the outside world through its pins
+    \begin{itemize}
+    \item[-] some pins to transmit the physical memory address
+    \item[-] other pins to transmit the values
+    \end{itemize}
+  \item The CPU's gateway to the world is the \alert{front-side bus}
+  \end{itemize}
+  \begin{block}{Intel Core 2 QX6600}
+    \begin{itemize}
+    \item 33 pins to transmit the physical memory address
+      \begin{itemize}
+      \item[-] so there are $2^{33}$ choices of memory locations
+      \end{itemize}
+    \item 64 pins to send or receive data
+      \begin{itemize}
+      \item[-] so data path is 64-bit wide, or 8-byte chunks
+      \end{itemize}
+    \end{itemize}
+    This allows the CPU to physically address 64GB of memory ($2^{33}\times{}8B$)    
+  \end{block}
+\end{frame}
+
+See also:
+\href{http://download.intel.com/design/processor/datashts/31559205.pdf}{\emph{Datasheet
+    for Intel Core 2 Quad-Core Q6000 Sequence}}
+\footnote{\url{http://download.intel.com/design/processor/datashts/31559205.pdf}}.
+
+\begin{frame}[plain]
+  \begin{minipage}{.65\linewidth}
+    \begin{block}{Some physical memory addresses are mapped away!}
+      \begin{itemize}
+      \item only the addresses, not the spaces
+      \item Memory holes
+        \begin{itemize}
+        \item[-] 640 KiB~\symbol{`~}~1 MiB
+        \item[-] \texttt{/proc/iomem}
+        \end{itemize}
+      \end{itemize}
+    \end{block}
+    \begin{block}{Memory-mapped I/O}
+      \begin{itemize}
+      \item BIOS ROM
+      \item video cards
+      \item PCI cards
+      \item \ldots
+      \end{itemize}
+      This is why 32-bit OSes have problems using 4 GiB of RAM.
+    \end{block}
+  \end{minipage}\quad
+  \begin{minipage}{.3\linewidth}
+    \tikz[baseline,overlay]{
+      \node [xshift=1.4cm,yshift=-1cm] at (0,0) {
+        \includegraphics[scale=0.6]{boot-mem}}}
+  \end{minipage}
+  % \begin{center}
+  %   What if you don't have 4G RAM?
+  % \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{the northbridge}
+    \begin{enumerate}
+    \item receives a physical memory request
+    \item decides where to route it
+      \begin{itemize}
+      \item[-] to RAM? to video card? to \ldots{}?
+      \item[-] decision made via the \alert{memory address map}
+      \end{itemize}
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item When is the memory address map built? \texttt{setup()}.
+\end{itemize}
+
+\subsection{Bootstrapping}
+\label{sec:bootstrapping}
+
+\begin{frame}{Bootstrapping}
+  \begin{block}{Can you pull yourself up by your own bootstraps?}
+    \begin{itemize}
+    \item[] A computer cannot run without first loading software but must be running
+      before any software can be loaded.
+    \end{itemize}
+  \end{block}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{boot}}%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{boot-bw}}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Intel x86 Bootstrapping}
+  \begin{enumerate}
+  \item BIOS (\texttt{0xfffffff0})\\
+    \begin{small}
+      {\Symbol{➠}} POST\quad
+      {\Symbol{➠}} HW init\quad
+      {\Symbol{➠}} Find a boot device (FD,CD,HD\ldots{})\quad
+      {\Symbol{➠}} Copy \alert{sector zero (MBR)} to RAM (\texttt{0x00007c00})
+    \end{small}
+  \item MBR -- the first 512 bytes, contains
+    \begin{itemize}
+    \item Small code ($< 446\,B$), e.g. GRUB stage 1, for loading GRUB stage 2
+    \item the primary partition table ($16\times{}4=64\,B$)
+    \item its job is to load the second-stage boot loader.
+    \end{itemize}
+  \item GRUB stage 2 --- load the OS kernel into RAM
+  \item {\linux} startup
+  \item init --- the first user-space process
+  \end{enumerate}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mbr}}%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mbr}}
+  \end{center}
+  \qquad\CMD{sudo hd -n512 /dev/sda}
+\end{frame}
+
+
+\lecture{Interrupt}{int}
+\subsection{Interrupt}
+\label{sec:interrupt}
+
+\begin{frame}{Why Interrupt?}
+  \begin{block}{While a process is reading a disk file, can we do...}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.6\textwidth]{interrupt}}%
+      \mode<article>{ \includegraphics[width=.3\textwidth]{interrupt-bw}}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Modern OS are Interrupt Driven}
+  \begin{description}
+  \item[HW INT] by sending a signal to CPU
+  \item[SW INT] by executing a \alert{system call}
+  \item[Trap (exception)] is a software-generated INT coursed by an error or by a
+    specific request from an user program
+  \item[Interrupt vector] is an array of pointers {\pright} the memory addresses
+    of \alert{interrupt handlers}. This array is indexed by a unique device number
+    \begin{itemize}
+    \item[\$] \cmd{less /proc/devices}
+    \item[\$] \cmd{less /proc/interrupts}
+    \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}{Programmable Interrupt Controllers}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{int-osdi-34}}%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{int-osdi-34}}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Interrupt Processing}
+  % \includegraphics[width=.9\textwidth]{int-mos-figs-5-6}\\
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-10} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-10} }
+  \end{center}
+\end{frame}
+
+Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2008modern}.
+
+\begin{frame}{Interrupt Timeline}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{ir-timeline} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{ir-timeline} }
+  \end{center}
+\end{frame}
+
+
+\lecture{System Calls}{syscall}
+\subsection{System Calls}
+\label{sec:system-calls}
+
+\begin{frame}{System Calls}
+  \begin{block}{A System Call}
+    \begin{itemize}
+    \item is how a program requests a service from an OS kernel
+    \item provides the interface between a process and the OS
+    \end{itemize}
+  \end{block}
+  \begin{itemize}
+  \item[\$] \cmd{man 2 intro}
+  \item[\$] \cmd{man 2 syscalls}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[height=\textheight]{syscall} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{syscall} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{The 11 steps in making a system call}{\texttt{read(fd,buffer,nbytes)}}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-1-18} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-18} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Example}{Linux \texttt{INT 80h}}
+  \begin{description}
+  \item[Interrupt Vector Table:] The very first 1KiB of x86 memory. 
+    \begin{itemize} 
+    \item 256 entries $\times$ 4B = 1KiB
+    \item Each entry is a complete memory address (\texttt{segment:offset})
+    \item It's populated by Linux and BIOS
+    \item Slot \texttt{80h}: address of the kernel services dispatcher ({\pright} sys-call table)
+    \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}{Example}
+  \begin{center}
+    \includegraphics[width=.8\linewidth]{h-asm}
+  \end{center}
+  \begin{block}{}
+    \ttfamily
+    \begin{enumerate}
+    \item[\$] nasm -f elf64 hello.asm -o hello.o
+    \item[\$] ld hello.o -o hello
+    \item[\$] ./hello
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{frame}%{System Calls}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.75\textwidth]{mos-figs-1-19} }
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{System Call Examples}
+  \begin{block}{\cmd{fork()}}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{fork} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{fork-bw} }
+    \end{center}
+  \end{block}
+  \qquad\CMD{man 2 fork}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{\cmd{exec()}}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{fork-exec} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{fork-exec-bw} }
+    \end{center}
+  \end{block}
+  \qquad\CMD{man 3 exec}
+\end{frame}
+
+Quoted from
+\href{https://stackoverflow.com/questions/20823371/what-is-the-difference-between-the-functions-of-the-exec-family-of-system-calls}{
+  stackoverflow: What is the difference between the functions of the \emph{exec} family of system calls}:
+
+\begin{quote}
+  There is no \emph{exec} system call --- this is usually used to refer to all the
+  \emph{execXX} calls as a group. They all do essentially the same thing: loading a new
+  program into the current process, and provide it with arguments and environment
+  variables. The differences are in how the program is found, how the arguments are
+  specified, and where the environment comes from.
+
+  \begin{itemize}
+  \item The calls with \emph{v} in the name take an array parameter to specify the
+    \texttt{argv[]} array (\emph{vector}) of the new program.
+  \item The calls with \emph{l} in the name take the arguments of the new program as a
+    variable-length argument \emph{list} to the function itself.
+  \item The calls with \emph{e} in the name take an extra argument to provide the
+    \emph{environment} of the new program; otherwise, the program inherits the current
+    process's environment.
+  \item The calls with \emph{p} in the name search the \emph{PATH} environment variable to
+    find the program if it doesn't have a directory in it (i.e. it doesn't contain a /
+    character). Otherwise, the program name is always treated as a path to the executable.
+  \end{itemize}
+\end{quote}
+
+\lecture{GNU C Library}{glibc}
+\subsection{GNU C Library}
+\label{sec:gnu-c-library}
+
+\begin{frame}{GNU C Library}
+  \begin{minipage}{.55\linewidth}
+    Linux API > POSIX API
+    \begin{itemize}
+    \item[\$] \cmd{man 7 libc}
+    \item[\$] \cmd{man 3 intro}
+    \item[\$] \cmd{}
+    \item[\$] \cmd{}
+    \item[\$] \cmd{}
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}{.4\linewidth}
+    \includegraphics[width=\linewidth]{api}
+  \end{minipage}
+\end{frame}
+
+
+\lecture{Working with files}{file}
+\section{Working With Files}
+\label{sec:working-with-files}
+
+\subsection{File}
+\label{sec:file}
+
+\begin{frame}{File}{A logical view of information storage}
+  \begin{block}{User's view}
+    A file is the smallest storage unit on disk.
+    \begin{itemize}
+    \item Data cannot be written to disk unless they are within a file
+    \end{itemize}
+  \end{block}
+  \begin{block}{UNIX view}
+    Each file is a sequence of 8-bit bytes
+    \begin{itemize}
+    \item It's up to the application program to interpret this byte stream.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{File}{What is stored in a file?}
+  Source code, object files, executable files, shell scripts, PostScript...
+  \begin{block}{Different type of files have different structure}
+    \begin{itemize}
+    \item UNIX looks at contents to determine type
+      \begin{description}
+      \item[Shell scripts] start with ``\texttt{\#!}''
+      \item[PDF] start with ``\texttt{\%PDF...}''
+      \item[Executables] start with \alert{magic number}
+      \end{description}
+    \item Windows uses file naming conventions
+      \begin{description}
+      \item[executables] end with ``\texttt{.exe}'' and ``\texttt{.com}''
+      \item[MS-Word] end with ``\texttt{.doc}''
+      \item[MS-Excel] end with ``\texttt{.xls}''
+      \end{description}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{File Types}
+  \begin{description}
+  \item[Regular files:] ASCII, binary
+  \item[Directories:] Maintaining the structure of the FS
+  \end{description}
+  \begin{block}{In UNIX, everything is a file}
+    \begin{description}
+    \item[Character special files:] I/O related, such as terminals, printers ...
+    \item[Block special files:] Devices that can contain file systems, i.e. disks
+      \begin{itemize}
+      \item[Disks] --- logically, linear collections of blocks; disk driver translates
+        them into physical block addresses
+      \end{itemize}
+    \end{description}
+  \end{block}
+\end{frame}
+
+\begin{frame}{File Operations}{POSIX file system calls}%[squeeze]
+  \begin{tabular}{>{\ttfamily}l|>{\ttfamily}l}
+    creat(name, mode)&read(fd, buffer, byte\_count)\\
+    open(name, flags)&write(fd, buffer, byte\_count)\\
+    close(fd)&lseek(fd, offset, whence)\\
+    link(oldname, newname)&chown(name, owner, group\\
+    unlink(name)&fchown(fd, owner, group)\\        
+    truncate(name, size)&chmod(name, mode\\
+    ftruncate(fd, size)&fchmod(fd, mode)\\
+    stat(name, buffer)&utimes(name, times)\\
+    fstat(fd, buffer)&\\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}{File System Implementation}
+  \begin{block}{A typical file system layout}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{fs-layout} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{fs-layout} }
+    \end{center}
+  \end{block}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mbr} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mbr} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{On-Disk Information Structure}
+  \begin{description}
+  \item[Boot block] a MBR copy
+  \item[Superblock] Contains volume details
+    \begin{center}
+      \begin{tabular}{ll}
+        number of blocks& size of blocks\\
+        free-block count& free-block pointers\\
+        free FCB count& free FCB pointers
+      \end{tabular}
+    \end{center}
+  \item[I-node] Organizes the files \alert{FCB (File Control Block)},
+    contains file details (metadata).
+  \end{description}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Superblock}
+    Keeps information about the file system
+    \begin{itemize}
+    \item Type --- ext2, ext3, ext4...
+    \item Size
+    \item Status --- how it's mounted, free blocks, free inodes, ...
+    \item Information about other metadata structures
+    \end{itemize}
+  \end{block}
+  \begin{itemize}
+  \item[\$] \cmd{sudo dumpe2fs /dev/sda1 | less}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Implementing Files}
+  \begin{description}
+  \item[Contiguous Allocation] 
+  \end{description}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{file-alloc-contiguous} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{file-alloc-contiguous} }
+    \end{center}
+  \begin{multicols}{2}
+    \begin{itemize}
+    \item[-] simple;
+    \item[-] good for read only;
+    \item[-] fragmentation
+    \end{itemize}
+  \end{multicols}
+\end{frame}
+
+\begin{frame}
+  \begin{description}
+  \item[Linked List (Chained) Allocation] A pointer in each disk block
+  \end{description}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{file-alloc-chained} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{file-alloc-chained} }
+  \end{center}
+  \begin{multicols}{3}
+    \begin{itemize}
+    \item[-] no waste block;
+    \item[-] slow random access;
+    \item[-] not $2^n$
+    \end{itemize}
+  \end{multicols}
+\end{frame}
+
+\begin{frame}
+  \begin{description}
+  \item[Linked List (Chained) Allocation] Though there is no external fragmentation,
+    consolidation is still preferred.
+  \end{description}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{file-alloc-chained2} }%
+    \mode<article>{\label{fig:chained2} \includegraphics[width=.5\textwidth]{file-alloc-chained2} }
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item[FAT:] Linked list allocation with a table in RAM
+  \end{itemize}
+  \begin{minipage}{.59\textwidth}
+    \begin{block}{}
+      \begin{itemize}
+      \item Taking the pointer out of each disk block, and putting it into a table in
+        memory
+      \item fast random access (chain is in RAM)
+      \item is $2^n$
+      \item the entire table must be in RAM
+        $$disk\nearrow{}\Rightarrow FAT\nearrow{}\Rightarrow RAM_{used}\nearrow$$
+      \end{itemize}
+    \end{block}
+  \end{minipage}\quad
+  \begin{minipage}{.35\textwidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{fat} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{fat} }
+  \end{minipage}
+\end{frame}
+
+See also: \citetitle[\emph{Wikipedia:FAT}]{wiki:fat}.
+
+\begin{frame}
+  \begin{description}
+  \item[Indexed Allocation]
+  \end{description}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{file-alloc-idx} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{file-alloc-idx} }
+  \end{center}
+  \begin{description}
+  \item[I-node] A data structure for each file. An i-node is in memory \emph{only if} the
+    file is open
+    $$files_{opened}\nearrow{}\Rightarrow{}RAM_{used}\nearrow{}$$
+  \end{description}
+\end{frame}
+
+See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
+
+\begin{frame}<beamer>{I-node}
+  \begin{tikzpicture}[remember picture, overlay]
+    \node [scale=.8,anchor=south west] at (current page.south west)
+    {\includegraphics{osc-11-28}};
+        
+    \node [scale=.7,xshift=-5em,yshift=-5em,anchor=north east,align=left]
+    at (current page.north east) {%
+      \begin{tabular}{cl}\hline
+        \thead{File type}&\thead{Description}\\\hline
+        0&Unknown\\
+        1&Regular file\\
+        2&Directory\\
+        3&Character device\\
+        4&Block device\\
+        5&Named pipe\\
+        6&Socket\\
+        7&Symbolic link\\\hline
+      \end{tabular}\\[1ex]\textbf{Mode:} 9-bit pattern};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{UNIX Treats a Directory as a File}
+  \mode<article>{\includegraphics[width=.7\textwidth]{inode-struct}}%
+  \mode<beamer>{ \hspace{-2.5em}
+    \begin{tikzpicture}[remember picture, overlay]
+      \node [scale=.29,anchor=south west] at (current page.south west)
+      {\includegraphics{inode-struct}};
+        
+      \node [scale=.7,xshift=-5em,yshift=-5em,anchor=north east] at (current page.north east) {
+        \begin{tabular}{|l|l|}
+          \hline
+          .&2\\\hline
+          ..&2\\\hline
+          bin&11116545\\\hline
+          boot&2\\\hline
+          cdrom&12\\\hline
+          dev&3\\\hline
+          \vdots&\vdots
+        \end{tabular}}; 
+    \end{tikzpicture}}
+\end{frame}
+
+\begin{frame}{\texttt{open()}}
+  \begin{description}
+    \item[Why?] To avoid constant searching
+    \begin{itemize}
+    \item Without \texttt{open()}, every file operation involves searching the directory for
+      the file.
+    \end{itemize}
+  \end{description}
+  The steps in looking up \texttt{/usr/ast/mbox}
+  \begin{center}\label{fig:dir-lookup}
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{04-35} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{04-35} }
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{\texttt{fd open(pathname, flags)}}
+    \begin{itemize}
+    \item[] A per-process \alert{open-file table} is kept in the OS
+      \begin{itemize}
+      \item upon a successful \texttt{open()} syscall, a new entry is added into this table
+      \item indexed by \alert{file descriptor (fd)}
+      \item \texttt{close()} to remove an entry from the table
+      \end{itemize}
+    \item[] To see files opened by a process, e.g. \texttt{init}
+      \begin{itemize}
+      \item[\$] \cmd{lsof -p 1}
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+    \qquad\CMD{man 2 open}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{A process executes the following code:}\ttfamily
+    \begin{itemize}
+    \item[] fd1 = open("/etc/passwd", O\_RDONLY);
+    \item[] fd2 = open("local", O\_RDWR);
+    \item[] fd3 = open("/etc/passwd", O\_WRONLY);
+    \end{itemize}
+  \end{block}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{file-tables2} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{file-tables2} }
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{One more process B:}\ttfamily
+    \begin{itemize}
+    \item[] fd1 = open("/etc/passwd", O\_RDONLY);
+    \item[] fd2 = open("private", O\_RDONLY);
+    \end{itemize}
+  \end{block}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-tables3} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{file-tables3} }
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{minipage}[t]{.53\linewidth}
+    \begin{block}{\texttt{write()}}
+      \includegraphics[width=\linewidth]{write-c}
+    \end{block}
+    \ttfamily
+    \begin{itemize}
+    \item[\$] man 2 write
+    \item[\$] man 3 write
+    \end{itemize}
+  \end{minipage}\qquad
+  \begin{minipage}[t]{.37\linewidth}
+    \begin{block}{\texttt{read()}}
+      \includegraphics[width=\linewidth]{read-c}
+    \end{block}
+    \ttfamily
+    \begin{itemize}
+    \item[\$] man 2 read
+    \item[\$] man 3 read
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{\cmd{cp}}
+  \begin{center}
+    \includegraphics[width=.95\textwidth]{cp-syscall-c}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\texttt{stdio} --- The Standard I/O Library}
+  \begin{description}
+  \item[System calls:] \cmd{open(), read(), write(), close()}\ldots
+  \item[Library functions:] \cmd{fopen(), fread(), fwrite, fclose()}\ldots
+  \end{description}
+  \begin{block}{Avoid calling syscalls directly as much as you can}
+    \begin{minipage}{.4\linewidth}
+      \begin{itemize}
+      \item Portability
+      \item Buffered I/O
+      \end{itemize}
+    \end{minipage}\qquad
+    \begin{minipage}{.4\linewidth}
+      \includegraphics[width=\linewidth]{api}
+    \end{minipage}
+  \end{block}  
+\end{frame}
+
+\begin{frame}{\texttt{open()} {\scriptsize vs.} \texttt{fopen()}}
+  \begin{center}
+    \begin{minipage}{.48\linewidth}
+      \cmd{open()}\\[1ex]
+      \includegraphics[width=\linewidth]{open-c}\\[1ex]
+      \CMD{strace -c ./open}
+    \end{minipage}\quad
+    \begin{minipage}{.48\linewidth}
+      \cmd{fopen()} --- Buffered I/O\\[1ex]
+      \includegraphics[width=\linewidth]{fopen-c}\\[1ex]
+      \CMD{strace -c ./fopen}
+    \end{minipage}
+  \end{center}
+  \begin{itemize}
+  \item[\$] \cmd{dd if=/dev/zero of=/tmp/1m.test bs=1k count=1024}
+  \end{itemize}
+\end{frame}
+
+\url|https://stackoverflow.com/questions/1658476/c-fopen-vs-open|
+
+\begin{frame}{\texttt{cp} --- {\small With} \texttt{stdio}}
+  \begin{center}
+    \includegraphics[width=.6\linewidth]{cp-libc-c}
+  \end{center}
+  \begin{description}
+  \item[Homework:] Try \texttt{fread()/fwrite()} instead.
+  \end{description}
+\end{frame}
+
+\url|https://stackoverflow.com/questions/32742430/is-getc-a-macro-or-a-function|
+\url|https://stackoverflow.com/questions/9104568/macro-vs-function-in-c|
+
+\subsection{Directory}
+\label{sec:directory}
+
+\begin{frame}{Implementing Directories}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-6-16} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-6-16} }
+  \end{center}
+  \begin{itemize}
+  \item[(a)] A simple directory (Windows)
+    \begin{itemize}
+    \item fixed size entries
+    \item disk addresses and attributes in directory entry
+    \end{itemize}
+  \item[(b)] Directory in which each entry just refers to an i-node (UNIX)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}%{Directory}
+  \begin{block}{Directory entry in \texttt{glibc}}
+    \begin{center}
+      \includegraphics[width=\textwidth]{dirent-c}
+    \end{center}
+  \end{block}
+  \begin{itemize}
+  \item[\$] \cmd{man readdir}
+  \item[\$] \cmd{view /usr/include/x86\_64-linux-gnu/bits/dirent.h}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Ext2 Directories}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{ext2dir2} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{ext2dir2} }
+  \end{center}
+  \begin{minipage}{.39\textwidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{ext2dir} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{ext2dir} }
+    \end{center}
+  \end{minipage}\quad
+  \begin{minipage}{.55\textwidth}
+    \begin{itemize}
+    \item Directories are special files
+    \item ``\texttt{.}'' and ``\texttt{..}'' first
+    \item Padding to $4\times{}$
+    \item inode number is 0 --- deleted file
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{\ttfamily ls}
+  \mode<beamer>{%
+    \begin{tikzpicture}[remember picture, overlay]%
+      \node [scale=.27,opacity=.5,anchor=east] at (current page.east)%
+      {\includegraphics{ls-real}};
+    \end{tikzpicture}}
+  
+  \begin{minipage}{.6\linewidth}
+    \includegraphics[width=\linewidth]{ls-c}
+  \end{minipage}\quad
+  \begin{minipage}{.35\linewidth}
+    \begin{description}
+    \item[The real \texttt{ls.c}?] 
+    \end{description}
+    \begin{flushright}
+      \begin{large}
+        116 A4 pages\\
+        5308 lines\\[1em]
+        Do one thing, and do it really well.\\[2em]
+      \end{large}
+    \end{flushright}
+    {\small \CMD{apt source coreutils}}
+  \end{minipage}  
+\end{frame}
+
+\begin{frame}{\ttfamily mkdir(), chdir(), rmdir(), getcwd()}
+  \begin{center}
+    \includegraphics[width=.9\linewidth]{mkdir-c}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Hard Links}
+  \begin{block}{Hard links {\pright} the same inode}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hard-link} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{hard-link} }
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Drawback}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hardlink-drawback} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{hardlink-drawback} }
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Symbolic Links}
+  \begin{block}{A symbolic link has its own inode {\pright} a directory entry}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.9\textwidth]{soft-link} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{soft-link} }
+    \end{center}
+  \end{block}
+  \begin{description}
+  \item[Fast symbolic link:] Short path name ($< 60\,chars$) needs no data block. Can be
+    stored in the 15 pointer fields
+  \end{description}
+\end{frame}
+
+\begin{frame}{\ttfamily link(), unlink(), symlink()}
+  \begin{center}
+    \includegraphics[width=.7\textwidth]{link-c}
+  \end{center}
+\end{frame}
+
+
+% \subsection{The \texttt{/proc} File System}
+% \label{sec:textttpr-file-syst}
+
+% \begin{frame}{\texttt{/proc}}
+
+% \end{frame}
+
+\lecture{The Linux Environment}{Linux Environment}
+\section{The Linux Environment}
+\label{sec:linux-environment}
+
+\begin{frame}{Command Line Options}{\texttt{getopt.c}}
+  \begin{center}
+    \includegraphics[width=.7\linewidth]{getopt-c}
+  \end{center}
+  \qquad\qquad\CMD{man 3 getopt}
+\end{frame}
+
+\begin{frame}{Command Line Options}{\texttt{getopt.sh}}
+  \begin{center}
+    \includegraphics[width=.9\linewidth]{getopt-sh}    
+  \end{center}
+  \ttfamily
+  \begin{itemize}
+  \item[\$] ./getopt.sh -h
+  \item[\$] ./getopt.sh -lf filename
+  \item[\$] ./getopt.sh -l -f filename
+  \item[\$] ./getopt.sh -f filename -l
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Environment Variable}
+  \begin{minipage}{.5\linewidth}
+    \includegraphics[width=\linewidth]{env-c}
+  \end{minipage}\quad
+  \begin{minipage}{.45\linewidth}
+  \ttfamily
+  \begin{itemize}
+  \item[\$] env
+  \item[\$] man 3 getenv
+  \item[\$] man 3 putenv
+  \end{itemize}  
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Time and Date}
+  \begin{center}
+    \includegraphics[width=.7\textwidth]{time-c}
+  \end{center}
+  \begin{itemize}
+  \item January 1 1970 --- start of the Unix epoch
+  \item[\$] \cmd{man 3 time}
+  \item[\$] \cmd{man 3 ctime}
+  % \item[\$] \cmd{man 3 strftime} (\texttt{sprintf()} for time and date)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Temporary Files}
+  \ttfamily
+  \begin{minipage}[t]{.55\linewidth}
+    \begin{block}{\texttt{mkstemp.c}}
+      \includegraphics[width=\linewidth]{mkstemp-c}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}[t]{.35\linewidth}
+    \begin{block}{\texttt{mktemp.sh}}
+      \includegraphics[width=\linewidth]{mktemp-sh}
+    \end{block}
+    \begin{itemize}
+    \item[\$] man 3 mkstemp
+    \item[\$] man 3 tmpfile
+    \item[\$] man 3 asprintf
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Logging}
+  \begin{block}{\ttfamily syslog.c}
+    \includegraphics[width=.8\linewidth]{syslog-c}
+  \end{block}
+  \begin{block}{\ttfamily logger.sh}
+    \includegraphics[width=\linewidth]{logger-sh}
+  \end{block}
+  % \ttfamily
+  % \begin{itemize}
+  % \item[\$] man 3 syslog
+  % \item[\$] man logger
+  % \end{itemize}
+\end{frame}
+
+\lecture{Terminal}{term}
+\section{Terminal}
+\label{sec:terminal}
+
+\lecture{IDE}{ide}
+\section{IDE}
+\label{sec:ide}
+
+
+\lecture{Process}{proc}
+\section{Processes and signals}
+\label{sec:processes-signals}
+
+\lecture{IPC}{ipc}
+\section{IPC}
+\label{sec:ipc}
+
+\lecture{User Interface}{ui}
+\section{User Interface}
+\label{sec:ui}
+
+\subsection{Dialog, Zenity}
+\label{sec:dialog}
+
+\subsection{Ncurses}
+\label{sec:curses}
+
+\subsection{GTK+}
+\label{sec:gtk+}
+
+\subsection{Qt}
+\label{sec:qt}
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "lap-b"
+%%% End:

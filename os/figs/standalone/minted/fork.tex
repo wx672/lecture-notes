@@ -1,0 +1,19 @@
+\documentclass[varwidth=18em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+#include <stdio.h>
+#include <unistd.h>
+
+int main()
+{
+  printf("Hello World!\n");
+  fork();
+  printf("Goodbye Cruel World!\n");
+  return 0;
+}
+\end{ccode}
+\end{document}

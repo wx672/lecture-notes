@@ -1,0 +1,40 @@
+#+TITLE:     Linux学习参考资料及建议
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS:   author:t creator:t timestamp:t
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME:
+# (setq org-export-html-use-infojs nil)
+
+* 参考资料及图书
+  - [[http://cs3.swfu.edu.cn/moodle/course/view.php?id%3D2][计信学院网上教学 --- GNU/Linux课程]] 提供了：
+    - 课程电子讲义
+    - 参考资料
+    - 例题、练习题
+    - Ubuntu安装光盘iso文件
+  - [[http://cs2.swfu.edu.cn/pub/resources/Books][cs3服务器上存有数百部(500M)Linux相关的电子书籍]]。
+    大多为英文PDF版。内容涵盖了Linux入门教程、系统管理、网络管理、系统编程、网络编程、应用编程、游戏编程等方方面面。中文书籍较少，且质量不如英文版。因版权原因，这些图书大多不能公开，有需要者，请联系[[mailto:wx672ster@gmail.com][王晓林]]。
+  - [[http://202.203.132.134:8080/opac/openlink.php%3FstrText%3Dlinux&doctype%3DALL&strSearchType%3Dtitle&match_flag%3Dforward&displaypg%3D20&sort%3DCATA_DATE&orderby%3Ddesc&showmode%3Dlist&location%3DALL][图书馆]] 藏有近300本Linux相关书籍，且多为中文版。
+* 建议学习步骤
+  1. 先熟练掌握命令行的基本操作
+  2. 尝试安装。我推荐Ubuntu。
+  3. 掌握简单系统管理操作
+  4. 了解并适应经典开发环境
+     - vim, emacs
+     - GCC, GDB, make
+     - git
+  5. 了解一些可视化开发环境
+     - eclipse, netbeans
+     - Qt4designer
+  6. 了解LAMP开发环境
+  7. 了解其它常用工具
+     - 系统管理工具
+     - 网络管理工具
+     - 日常工作工具
+  8. 娱乐

@@ -1,0 +1,21 @@
+\documentclass[varwidth=36em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+  ┌───┐             Hash table
+  │PID│            ┌──────────┐
+  └─┬─┘          0 │          │
+    │              ├──────────┤       process 
+    v              │          │     descriptors
+┌────────────┐     ├──────────┤   ┌───┐     ┌───┐
+│pid_hashfn()├──>m │        <─┼──>│885│<───>│169│
+└────────────┘     ├──────────┤   └───┘     └───┘
+                   │          │
+                   ├──────────┤   ┌─────┐
+                   │        <─┼──>│29385│
+                   ├──────────┤   └─────┘
+              2047 │          │
+                   └──────────┘
+\end{verbatim}
+\end{document}

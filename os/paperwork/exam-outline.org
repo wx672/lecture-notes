@@ -1,0 +1,118 @@
+#+TITLE:     《操作系统原理》考核大纲
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+DATE:      2012-11-30 Fri
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+XSLT:
+# (setq org-export-html-use-infojs nil)
+
+- 课程编号：A05025, A05026
+- 课程名称：操作系统原理
+- 任课教师：王晓林
+- 适应专业：电信、信计、计算机等本科专业
+- 授课学时：64
+- 考试方式：闭卷笔试
+- 命题规则：按《西南林学院考试命题规则》(试行)(1996年10月修订)执行
+- 考试时间：120分钟
+- 推荐教材：
+  1. A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
+  2. Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley & Sons, 2011.
+- 课程性质及教学目的：本课程为计算机专业本科专业基础课。要求学生全面了解操作系统的工作原理。
+  
+各章节考核目标如下：
+* 操作系统简介
+** 考核知识点
+     - What's an OS?
+     - OS services
+     - Bootstrapping
+     - Hardware
+     - Interrupt
+     - System calls    
+** 考核要求
+   - 了解什么是操作系统
+   - 了解操作系统提供哪些服务
+   - 了解计算机启动的过程
+   - 了解什么是中断
+   - 了解什么是system call
+* 进程与线程
+** 考核知识点
+     - What's a process?
+     - Process creation
+     - Process state
+     - Process Control Block (PCB)
+     - CPU switch from process to process
+     - Processes vs. threads
+     - Why threads?
+     - Thread characteristics
+     - Thread operation and POSIX threads
+     - User-level threads vs. kernel-level threads
+     - Linux threads
+** 考核要求
+   - 了解什么是进程
+   - 了解进程的创建和进程的状态变化
+   - 了解什么是PCB
+   - 了解CPU切换的过程
+   - 了解什么是线程，线程的特点，及相关操作
+* 进程间同步
+** 考核知识点
+     - Concepts
+     - Shared memory
+     - Race condition and mutual exclusion
+     - Semaphores
+     - Monitors
+     - Message passing
+     - Classical IPC problems
+** 考核要求
+   - 了解进程间同步的概念
+   - 了解共享内存的工作原理
+   - 了解进程间冲突的处理方式
+   - 了解什么是信号量，及其工作机制
+   - 了解什么是消息传递，及其工作过程
+   - 了解经典的IPC问题及解决方案
+* CPU调度
+** 考核知识点
+     - Scheduling introduction
+     - Scheduling algorithms
+     - Thread scheduling
+     - Linux scheduling    
+** 考核要求
+   - 了解什么是调度
+   - 了解各种调度算法
+   - 了解线程的调度
+   - 了解Linux系统的调度机制
+* 死锁
+** 考核知识点
+     - Resources
+     - Introduction to deadlocks
+     - Deadlock modeling
+     - Dealing with deadlocks
+** 考核要求
+   - 了解什么是死锁
+   - 了解死锁的处理机制
+* 内存管理
+** 考核知识点
+     - Real-mode vs. protected-mode memory management
+     - Contiguous memory allocation
+     - Virtual memory
+** 考核要求
+   - 了解什么是虚拟内存
+   - 了解分页内存管理机制
+   - 了解页替换算法
+* 文件系统
+** 考核知识点
+     - Files
+     - Directories
+     - File system implementation
+     - Ext2 file system
+     - Virtual file system
+** 考核要求
+   - 了解文件及目录的概念
+   - 了解文件的实现方式
+   - 了解ext2文件系统的工作原理
+   - 了解什么是虚拟文件系统，及其工作原理

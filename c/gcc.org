@@ -1,0 +1,418 @@
+#+TITLE: Linux平台的C开发环境介绍
+#+AUTHOR: 王晓林
+#+EMAIL: wx672ster@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:comment d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil stat:t tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 24.5.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: cn
+#+SELECT_TAGS: export
+
+# - https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html
+# - http://www.thegeekstuff.com/2012/10/gcc-compiler-options/
+# - http://cseweb.ucsd.edu/classes/fa09/cse141/tutorial_gcc_gdb.html
+# - http://www.cprogramming.com/gcc.html
+
+* Linux平台的经典IDE
+  IDE这个词大家都不陌生吧，Integrated Development Environment, 集成开发环境。
+  说到IDE，估计你会想到Windows平台的Visual Studio，或者Java开发常用的Eclipse。
+  今天我向大家推荐一下世界上最好的IDE。最好的IDE？你一定开始怀疑我是在吹牛了吧。
+  那么，好吧，我们先看看到底什么是IDE。很简单，一个IDE无非包括如下一些功能模块：
+  - 一个编辑器；
+  - 一个编译器；
+  - 一个调试器；
+  - 其它一些辅助功能，比如用鼠标拖控件。
+    
+  什么是最好的IDE？那肯定是：
+  : 最好的IDE = 最好的编辑器 + 最好的编译器 + 最好的调试器
+
+  上面我们提到的VS和Eclipse都没能把最好的东西集成到一起，所以，我说它们不是最好的。
+  有哪个IDE做到这一点了吗？只有Emacs。
+
+  Emacs是一个有数十年悠久历史的开源编辑器。不折不扣地说，它也是世界上最强大的编辑器，
+  因为它是模块化设计，你如果觉得它还缺少什么功能，那么你可以给它添加一个新的功能模块。
+  如此日积月累几十年，凡是你能想到的功能都已经添加好了。
+
+  Emacs可以很方便地调用世界上最牛的编译器（gcc）和调试器（gdb）。
+  : Emacs + gcc + gdb
+  这就是世界上最好的IDE。也许你会说「Emacs不能拖控件啊」。
+  没错，但在我看，拖控件并不总是一个受人欢迎的功能，至少在系统编程的时候，它毫无用处。
+
+  而且，从学习的角度来说，「用鼠标编程」绝对是一个非常恶劣的习惯，因为这根本就是在逃避学习。
+  「鼠标化的IDE」隐藏了很多学生应该了解的技术细节。
+  我们学院的绝大多数学生居然不知道C程序是要编译之后才能运行的。他们以为写好了程序，
+  只要「按那个“感叹号”按钮」就可以了。这就是「鼠标教学」的成果。
+  Emacs可以帮助你克服「鼠标依赖」，强迫你熟练地使用键盘。
+
+  更重要的是，Emacs不只是个IDE，它是个ICE（Integrated Computing Environment，
+  这名字是我刚编出来的）。Emacs的设计目标就是，你装了个Unix或者Linux系统，
+  不需要装任何其它软件，只要装一个Emacs就够了，它能帮助你完成所有的任务。
+  也就是说，除了编程，你还可以用它写论文、做幻灯片、浏览网页、收发邮件、聊天、听歌、
+  看照片、玩游戏……目前，好像除了直接在Emacs里看电影还不行，其它的都实现了。
+
+  Emacs如此「大一统」的设计目标显然有违Unix的设计原则，do one thing, and do it well
+  （做一件事，并且把它真正做好）。
+  但好在Emacs是模块化的，它的每一个功能模块都绝对遵循do one thing, and do it well原则。
+  你不需要哪个功能，可以不装那个模块。
+
+  另外，还是从学习的角度来说，Emacs的学习曲线貌似比其他IDE要长不少，但是你
+  - 不必学习VC去写C/C++，
+  - 不必学习eclipse去写Java，
+  - 不必学习MS-Word去写报告、幻灯片，
+  - 不必学习……
+
+  一句话，“Everything Emacs”，你可以省下大量不必要的学习时间。
+  人生苦短，何必让你的生活被VC/eclipse/MS-Word 搞得头昏脑胀呢？
+  *简单而强大，本就是计科专业学生和非专业学生应有的不同。* 
+
+  Emacs绝对强大，但是否「方便」就不好说了。因为「方便」是一个很主观的概念。
+  反正，作为一个18年的老用户，我肯定觉得方便。其他IDE太无聊了，那么花哨而庞大的东西，
+  却只适用于应用层编程。既不能用来写论文，又不能做幻灯片，更不能用来听歌、玩游戏。
+  生活也太没有乐趣了。
+
+  最后一点，Emacs还是一个巨大的开放社区，在这里你能结识到更酷一些的程序员。
+
+  Emacs入门还是很简单的，它自带了一个基础教程。打开Emacs，按 =Ctrl-h t=,
+  教程就出现在你面前了。照着它边看边练，英文不太困难的话，一个小时应该可以走一遍了。
+  之后，
+  - =Ctrl-h i m emacs= 就可以调出详细的Emacs使用手册;
+  - =Ctrl-h i m emacs lisp intro= 可以调出Emacs Lisp入门教程；
+  - =Ctrl-h i m elisp= 可以调出完整的elisp编程手册。
+
+  当然，Google永远是你最好的帮手。Happy emacsing!
+  
+* GCC使用入门
+  GNU Compiler Collection (GCC) 是GNU自由软件项目开发出的一整套编译器，包括
+  - gcc: c编译器
+  - g++: c++编译器
+  - gcj: java编译器
+  - gfortran: Fortran编译器
+  - GNAT: ada编译器
+  - gccgo: Go编译器
+  - 更多其它语言的编译器
+    
+  注意GCC和gcc的区别。当我们说GCC的时候，是在说那一整套编译器；而当我们说gcc的时候，
+  是在说c编译器。gcc的开发者就是GNU自由软件运动的创始人，大名鼎鼎的Richard Stallman。
+  gcc于1987年问世，自诞生以来就广受推崇。现在，它仍然是诸多Unix-like操作系统的标准配置。
+  Linux内核的数千万行源代码就是用gcc编译的。
+
+  gcc很强大，它支持包括x86, ARM在内的数十种硬件架构，并且支持交叉编译，也就是说，
+  你可以在x86平台上写程序，然后把它编译成能在ARM平台上运行的二进制文件。
+  如果你的系统里已经装好了gcc，那么你可以用 =man gcc | wc -l= 命令来数一数gcc手册的长度。
+  这一万六千多行的庞大手册从侧面说明了gcc功能的强大。
+
+  不过，作为初学者，我们并不必关心gcc有多强大，少数几个简单的命令选项，
+  就足以应付我们的c程序编译了。假设你有个c文件叫 =hello.c=,
+
+  #+INCLUDE: "hello.c" src c -n
+
+  那么，在最通常的情况下，你只需要：
+  : gcc hello.c
+  就可以得到一个名叫 =a.out= 的可执行文件了。如果你不喜欢 =a.out= 这个名字，那么
+  : gcc hello.c -o hello
+  就可以得到一个名叫 =hello= 的可执行文件了。你应该猜到了，选项 "=-o=" 代表 =output=,
+  “输出”的意思。要运行 =hello= 看看结果的话，
+  : ./hello
+  就可以了。 =./= 代表当前目录，也就是你的 =hello.c= 所在的目录。
+
+  当然，生活并不总是像Hello, world!这样简单。比如说，还是 =hello.c=,
+
+  #+INCLUDE: "hello1.c" src c -n
+
+  你敲完 =gcc hello.c=, 一回车，意外地看到了如下一些东西：
+  #+BEGIN_EXAMPLE -n
+  hello.c: In function ‘main’:
+  hello.c:6:3: error: expected ‘;’ before ‘return’
+    return 0;
+    ^
+  #+END_EXAMPLE
+
+  OMG! 怎么办？第一，别慌；第二，别懒。其实，上面这几行输出并没有几个单词，
+  而且差不多都认识，静下心来仔细看看，还是很好理解的嘛。
+  1. 第一行意思是说，在函数 =main= 里面发现了点问题；
+  2. 第二行和第三行具体给你指出了出错的地方，在第6行，第3列，r的前面应该有个分号；
+  3. 第四行的 =^= 就是个向上的箭头，指向 =r=, 也就是问题点所在。
+
+  怎么样，不太困难吧？重新编辑你的 =hello.c=, 在 =return= 与 =)= 之间加上分号，
+
+  #+INCLUDE: "hello2.c" src c -n
+
+  然后再编译一下，
+  #+BEGIN_EXAMPLE -n
+  hello.c: In function ‘main’:
+  hello.c:5:3: error: stray ‘\357’ in program
+      printf("Hello, world!\n")；
+      ^
+  hello.c:5:3: error: stray ‘\274’ in program
+  hello.c:5:3: error: stray ‘\233’ in program
+  hello.c:6:3: error: expected ‘;’ before ‘return’
+     return 0;
+     ^
+  #+END_EXAMPLE
+
+  OMG!!! 怎么问题越来越多了？第一，别慌；第二，别懒；第三，别马虎。
+  上面出错信息的最后三行你都见过了，显然，分号还是有问题。再仔细看看，那居然是个中文分号！
+  你怎么可以这样马虎呢？
+
+  在初学者当中，类似上面这样的小错误是屡见不鲜的。怎么办呢？别慌、别懒、别马虎，
+  静下心来做事情，这就够了。
+
+** 从hello.c到hello.exe
+
+   我们在命令行敲完 =gcc hello.c -o hello.exe=, 然后一回车，不出错误的话，一个可执行文件,
+   =hello.exe=, 就诞生了。现在我们简要了解一下，敲完回车之后，电脑里到底发生了什么。
+   换句话说，就是了解一下我们常说的「编译」到底是怎么回事。
+
+   [[file:compilation.png]]
+
+   上图中，椭圆框里面放的都是工具，包括
+   - 编辑器 :: 我们用的是Emacs，世界上最强大的编辑器。当然，你也可以用nano, vim,
+	       或者其它什么编辑器。毕竟写一个 =Hello, world!= 并不必非要用那么高大上的工具。
+	       但如果你以后想当个程序员，那么Emacs就应该是你的首选利器。
+
+   - C预处理器 :: C预处理器(c preprocessor)负责处理程序中以 =#= 开头的程序语句，比如说：
+     - =#include<stdio.h>= 。怎么处理？你肯定知道 =include= 是「包含」的意思，
+       也肯定知道 =stdio.h= 是一个文件的名字[fn:: 在我们的Debian GNU/Linux系统中，
+       它的完整路径是 =/usr/include/stdio.h= 。]。那么， =#include<stdio.h>=
+       显然就是要把 =stdio.h= 文件的内容包含到你的程序中来。我们用的预处理器是cpp，
+       在命令行敲：
+       : cpp hello.c
+       看到了吗？原来程序中的第一行 =#include<stdio.h>= 被扩展成了800多行。再比如说，
+     - =#define SQR(x) (x * x)=, 这是一句「宏定义」，意思是说，在后面的程序里，凡是遇到
+       =SQR(x)=, 就都给替换成 =(x * x)=. 这个替换工作，也是由 =cpp= 完成的。       
+
+   - C编译器 :: 我们用的是gcc。编译器(Compiler)的工作是把 =cpp= 
+		处理过的源程序翻译成一个汇编程序。
+		如果你是头一次听说汇编语言，那么你应该立即去Google一下「汇编语言」。
+		简而言之，汇编语言是一种比C更底层，也就是更靠近CPU，的编程语言。
+		如果你想搞操作系统开发，或者硬件驱动开发，那么汇编就是你必须掌握的编程语言。
+		
+		为什么我们不直接用汇编来写程序呢？两个原因，
+     1. 用汇编写程序比用C要累得多。和汇编相比，C是一门高级（或者说「高层」）语言。
+	所谓「高级」，通过上面的大流程图来看，就是离上面的那个程序员更近。
+	其实也就是对人更友好的意思。举个简单的例子，
+	: i++
+	如果用汇编来写，大概就成了下面这样
+	: movl    $0, -4(%rbp)
+	: addl    $1, -4(%rbp)
+	: movl    -4(%rbp), %eax
+	显然，还是 =i++= 更友好些吧。通常来讲，用高级语言（比如C）
+	写一条程序语句就相当于好几条，甚至几十条，汇编语句。
+	而一条汇编语句通常就对应一条机器指令。所以，用汇编些程序要累得多。
+	
+	通过下面的命令，就可以把我们的 =hello.c= 翻译成一个汇编程序 =hello.s=:
+	: gcc -S hello.c
+	生成的 =hello.s= 就是下面这副样子：
+
+	#+INCLUDE: "hello.s" src asm
+
+	和前面的 =hello.c= 相比，我想你肯定和我一样，更愿意用C来写程序吧。
+	
+     2. 用汇编语言写出的程序针对性很强，通常不能跨平台使用，可移植性差。
+	针对x86机器写的汇编程序，在其他机器（比如ARM, PowerPC, M68000）上就不能用。
+	因为一条汇编指令就对应一条机器指令，而各CPU架构所支持的机器指令集都不一样，
+	那么对应的汇编程序当然就无法跨平台使用了。	
+	反之，用高级语言写的程序就比较容易跨平台，可移植性比较好。
+
+        所以，基于上述原因，通常我们会尽可能地选用高级语言来编程。
+        之后，再利用汇编器，把对人友好的高级程序语句翻译成对机器友好的底层程序语句。
+                
+   - 汇编器 :: 汇编器(Assembler)是用来把人能看懂的汇编程序翻译成人读不懂，但机器能读懂的二进制程序，
+               通常我们把它叫做目标文件（object file），通常以 =.o= 结尾。 
+	       我们用的汇编器是 GNU Assembler (gas)。
+	       
+	       通常如果想要生成一个 =.o= 文件的话，我们用下面的命令：	       
+	       : gcc -c hello.c
+	       这样，gcc会调用gas帮我们生成一个目标文件。
+	       这时，你的目录里应该多了一个 =hello.o= 文件了。好奇的话，你可以
+	       =cat hello.o= 来看看它的内容。我肯定你读不懂它，除非你是CPU。
+	       用 =hd hello.o= 来看看它的内容，感觉会稍好些，虽然还是看不懂。
+	       
+   - 链接器 :: 链接器(Linker)是用来把若干个 =.o= 文件结合成一个可执行文件。
+	       我们用的链接器是ld。
+	       
+	       也许你会问，「我只写了一个 =hello.c=, 经过编译和汇编之后，
+	       只产生了一个而不是多个 =.o= 文件，还需要链接吗」？的确，
+	       你只有一个 =.o= 文件，但在你的 =hello.c= 
+	       文件里还用到了别人的 =.o= 文件，比如说， =printf()= 函数并不是你写的吧？
+	       它存在于系统自带的函数库里。系统函数库里装的其实就是一大堆 =.o= 文件。
+	       这些 =.o= 文件里都是供我们调用的一个个函数，其中就包括 =printf()= 函数。
+	       所以，你自己的 =hello.o= 必须要和系统函数库中包含 =printf()= 的那个
+	       =.o= 文件[fn::实际上是 =libc.so= 文件。 =so= 代表shared object，
+	       是Unix平台通用的动态链接函数库。想了解更多？去Google一下"shared object"
+	       就知道了。]链接，然后才能得到最终的可执行文件。
+	       
+   - 调试器 :: 调试器(Debugger)是用来帮助我们找出可执行文件中的bug。我们用的调试器是gdb，
+	       它可以
+     - 分步执行程序
+     - 设置断点
+     - 追踪变量的值
+     - 查看堆栈
+     - 还有很多高深的功能
+       
+     如果你的程序像 =Hello, world!= 那样简单，那么通常也就不会有什么bug，
+     自然也就不需要调试器了。
+  
+上面我们简单介绍了一下从 =hello.c= 到 =hello.exe= 的过程。了解这些基础知识，
+有助于我们加深对编程的理解，可以让我们在今后的学习中少走弯路。
+
+** 常用编译选项
+
+   在上一节，我们看到在使用gcc编译C程序的时候，可以跟上一些选项，比如 =-o=,
+   后面可以给出可执行文件的名字。下面我们再介绍几个常用的编译选项。
+
+*** =-Wall=
+    这个选项非常有用，应该随时都带着。大写的 =W= 代表warning, =all= 就代表all，那么 =-Warning=
+    就代表打开所有的告警。也就是说，编译过程中发现的算不上是「错误」
+    的小毛病也都会被提示出来。有的时候，这些小毛病还是挺要命的，比如下面这个小程序 =wall.c=
+
+    #+INCLUDE: "wall.c" src c -n
+
+    如果不带 =-Wall= 直接编译的话， =gcc wall.c=, 看不到任何错误提示。
+    可是运行 =a.out= 的输出结果却是：
+    : Two plus two is 0.000000
+    这明显是错误的。如果编译时带上 =-Wall= 选项， =gcc -Wall wall.c=, 会看到如下输出：
+    #+BEGIN_EXAMPLE
+    wall.c: In function ‘main’:
+    wall.c:5:11: warning: format ‘%f’ expects argument of type ‘double’, but argument 2 has type ‘int’ [-Wformat=]
+    printf ("Two plus two is %f\n", 4);
+            ^
+    #+END_EXAMPLE
+    问题被提示了出来，用 =%f= 的格式来输出整型数是不合情理的。记住，编译时永远带上
+    =-Wall=, 而且 =W= 必须大写！
+    
+*** =-E=
+    =-E= 这个选项是告诉 =gcc=, 调用完 =cpp= 就停下来。也就是说 =gcc -E hello.c= 和 =cpp
+    hello.c= 是一回事。关于 =cpp= 我们前面已经提到过，它是一个c preprocessor,
+    作用之一就是把源程序中的宏定义（Macro）扩展还原成它本来的字符串。
+    宏定义是C编程中经常要用到的强大武器，而且编程大师们可以把它用得非常复杂。
+    比如在Linux的内核源代码里就有下面这样的宏定义：
+    #+BEGIN_SRC c -n
+    #define INIT_LIST_HEAD(ptr) do { \
+               (ptr)->next = (ptr);(ptr)->prev= (ptr);  \
+            } while(0)
+    #+END_SRC
+    一个完整的 =do-while= 结构被 =INIT_LIST_HEAD(prt)= 代表了。你知道 =do {} while(0)=
+    中的花括号里是可以放很多程序语句的，那么你肯定也想到了，宏定义可以用来代表非常非常复杂的东西。
+
+    常识告诉我们，越复杂的东西越容易埋藏着bug。 =-E= 这个选项可以帮助我们排除宏定义中的bug。
+    比如下面这个小程序 =macro.c= 里用到了一个很简单的宏定义 =SQR(x)=
+
+    #+INCLUDE: "macro.c" src c -n
+
+    =SQR(x)= 显然是要对 =x= 做平方运算。编译一下， =gcc -Wall macro.c=, 很顺利，
+    没有任何出错迹象。现在运行一下 =a.out=, 看看结果：
+    #+BEGIN_EXAMPLE
+    x 1, x squared 1
+    x 2, x squared 3
+    x 3, x squared 5
+    x 4, x squared 7
+    x 5, x squared 9
+    #+END_EXAMPLE
+    显然是错误的！问题就出在 =SQR(x)= 。借助 =-E= 把它还原扩展开，程序变成了这样：
+    #+BEGIN_SRC c -n
+    /* 前面省略无数行 */
+    int main()
+    {
+        int counter;
+        for (counter = 0; counter < 5; ++counter)
+        {
+            printf("x %d, x squared %d\n",
+                counter+1, (counter+1 * counter+1));
+        }
+        return (0);
+    }
+    #+END_SRC
+    看明白了吗？在第8行， =SQR(counter+1)= 被扩展成了 =(counter+1 * counter+1)=,
+    而我们真正想要的是 =((counter+1) * (counter+1))=, 所以程序中的宏定义不该是
+    #+BEGIN_SRC c
+    #define SQR(x) (x * x)
+    #+END_SRC
+    而应该是
+    #+BEGIN_SRC c
+    #define SQR(x) ((x) * (x))
+    #+END_SRC
+    如果你也喜欢宏定义，那么一定要记住 =-E= 这个编译选项。
+    
+*** =-D=
+
+    Debug的时候，我们经常会在程序里加入一些 =printf()= 语句，
+    借助它输出某些关键变量的值，帮助我们思考。在bug被解决之后，这些 =printf()=
+    语句也就没用了，如果要一个个地删除掉，实在是一件麻烦的事情。想省点事的话，你可以借助一
+    下 =-D= 这个编译选项。比如，下面这个小程序 =stackoverflow.c=,
+
+    #+INCLUDE: "stackoverflow.c" src c -n
+
+    主函数递归地调用它自己，这实在不是件有意义的工作。
+    但如果你想知道调用多少次之后栈才会溢出，那么可以像上面程序中的第8行那样，利用
+    =printf()= 来输出计数器变量 =i= 的值。
+
+    第7、9两行是干什么用的呢？如果你正常编译这个小程序
+    : gcc -Wall stackoverflow.c
+    然后运行 =./a.out=, 你只能看到如下一行输出，那就是著名的
+    : Segmentation fault
+    很显然，栈溢出，递归程序就结束了，而且 =printf()= 没有发挥作用。
+    但是，如果你像下面这样编译：
+    : gcc -Wall -DDEBUG stackoverflow.c
+    之后再运行 =./a.out=, 怎么样？在我的电脑上，Segmentation fault之前，=i= 最后的值是
+    523629。很显然，带上编译选项 =-DDEBUG= 之后， =printf()= 起作用了。现在，你该猜到
+    =-D= 和程序中的
+    : #ifdef DEBUG
+    : ...
+    : #endif
+    之间的关系了吧？ =DEBUG= 也是个Macro， =-DDEBUG= 就相当于在程序里写上
+    : #define DEBUG 1
+    程序中的 =#ifdef DEBUG= 就是说「如果 =DEBUG= 有定义的话」，那么就执行之后的程序语句，
+    直到看见 =#endif= 为止。
+
+    所以，编译时如果不带 =-D=, 那么 =DEBUG= 就没定义，于是 =#ifdef DEBUG=
+    这句判断结果就是 =false=, 于是它后面的 =printf()= 就不会被执行。反之，编译时带上 =-DDEBUG=,
+    那么 =DEBUG= 就有了定义，于是 =#ifdef DEBUG= 判断就返回 =true=, 于是 =printf()=
+    就发挥作用了。
+
+    如此一来，你再也不用为删除多余的 =printf()= 操心了，只需要操控 =-D=
+    这个小开关就可以达到目的了。
+    
+*** 更多选项
+    =gcc= 的编译选项多如牛毛，但做为初学者，知道上面这些就算是入门了。随着学习的深入，
+    更多的选项也会逐渐变成我们的常用选项。比如，
+    - =-g= :: 如果你想用gdb来debug程序的话，编译时一定要带上它。
+    - =-l= :: 如果你用到了外部函数库里的函数，那么编译时就要带上它， =l= 代表link，
+	      链接的意思。
+      
+    「那么，我怎么知道我到底要链接哪个函数库呢」？答案很简单，「看手册」。比如说，
+    我在程序里调用了 =pthread_create()= 函数用来产生一个新的线程，那么，
+    显然你该看看 =pthread_create()= 的手册，具体了解一下这个函数的应用细节。
+    : man pthread_create
+    手册的前几行如下：
+    #+BEGIN_EXAMPLE
+    NAME
+       pthread_create - create a new thread
+
+    SYNOPSIS
+       #include <pthread.h>
+
+       int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
+                          void *(*start_routine) (void *), void *arg);
+
+       Compile and link with -pthread.
+    #+END_EXAMPLE
+    它告诉你
+    1. 在程序中一定要有 =#include <pthread.h>=;
+    2. 从函数原型你知道
+       1. =pthread_create()= 一定要返回一个 =int=;
+       2. 调用这个函数必须提供4个指针类型的参数。
+    3. 上面的最后一行 =Compile and link with -pthread=, 明确告诉你编译的时候要带上
+       =pthread= 选项。
+       
+    养成看手册的习惯，这可是程序员的基本功。
+
+    关于Linux平台上的C开发环境，我们简单介绍了编辑器Emacs，和编译器gcc。掌握了这两样神器，
+    你就是个相当有前途的程序员了。另外还剩下一个调试神器gdb我们没有介绍。
+    当年我的老师这样对我说，「像你这样两三百行的小程序，最好不要用调试器，静下心来，
+    一行一行地读你自己的代码，用你自己的大脑来找出程序中的bug，这是对你最好的训练」。
+    Happy hacking!
+	      

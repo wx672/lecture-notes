@@ -1,0 +1,33 @@
+\documentclass[varwidth=40em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+void take_forks(int i)            /* i: philosopher number, from 0 to N-1 */
+{
+    down(&mutex);                 /* enter critical region */
+    state[i] = HUNGRY;            /* record fact that philosopher i is hungry */
+    test(i);                      /* try to acquire 2 forks */
+    up(&mutex);                   /* exit critical region */
+    down(&s[i]);                  /* block if forks were not acquired */
+}
+void put_forks(i)                 /* i: philosopher number, from 0 to N-1 */
+{
+    down(&mutex);                 /* enter critical region */
+    state[i] = THINKING;          /* philosopher has finished eating */
+    test(LEFT);                   /* see if left neighbor can now eat */
+    test(RIGHT);                  /* see if right neighbor can now eat */
+    up(&mutex);                   /* exit critical region */
+}
+void test(i)                      /* i: philosopher number, from 0 to N-1 */
+{
+    if (state[i] == HUNGRY && state[LEFT] != EATING && state[RIGHT] != EATING) {
+          state[i] = EATING;
+          up(&s[i]);
+    }
+}  
+\end{ccode}
+\end{document}
+

@@ -1,0 +1,60 @@
+#+TITLE:     How To Write Your Lab Report With Emacs Org-mode
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+LANGUAGE:  en
+#+OPTIONS:   H:1 num:3 toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+* Make a directory named with your student ID, and get into it
+  For example:
+  : mkdir 20091152888 && cd 20091152888
+* Get the /report template org file/ into this directory
+  For example:
+  : wget http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/sample-report/20081152xxx.org -O 20091152888.org
+* Open this file with emacs, and edit it
+  : emacs 20091152888.org&
+** Don't know how to use emacs?
+   : C-h t
+#+CAPTION: Frequently used emacs shortcut keys
+#+ATTR_HTML: border="2" rules="all" frame="all"
+   | C-x C-f | C-x C-s | C-x C-c |       |          |
+   | C-g     | C-j     | C-i     | C-/   |          |
+   | C-k     | C-y     |         |       |          |
+   | C-d     | M-d     |         |       |          |
+   | C-@     | C-SPACE | C-x h   | C-w   | C-INSERT |
+   | C-a     | C-e     | C-f     | C-b   |          |
+   | C-n     | C-p     | C-v     |       |          |
+   | C-x 2   | C-x 3   | C-x 0   | C-x 1 | C-x o    |
+   | C-h i   | C-h t   | C-h k   | C-h f | C-h v    |
+   
+** Don't know how to use Org-mode?
+   : C-h i
+   : m org
+#+CAPTION: Frequently used Org-mode shortcut keys
+#+ATTR_HTML: border="2" rules="all" frame="all"
+   | TAB     | C-return | M-return  |
+   | C-c C-n | C-c C-p  | C-c C-l   |
+   | <e[TAB] | <I[TAB]  | C-c '     |
+   | S-arrow | M-arrow  | S-M-arrow |
+
+* Save your org file, and Export it to a HTML file
+   : C-x C-s
+   : C-c C-e h
+* Open the HTML file in your web browser
+   1. Switch to your newly generated HTML file
+      : C-x C-b
+      Select the =20091152888.html= buffer
+   2. Open it
+      : C-c C-z v
+* If everything looks good, you can now make a tar ball of your current directory
+   : cd ..
+   : tar zcf 20091152888.tgz 20091152888/
+   : ls
+* Send this *tgz* file to me via email
+  All done!

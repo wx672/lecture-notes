@@ -1,0 +1,55 @@
+\documentclass{wx672article} % $HOME/texmf/tex/latex/wx672article.cls
+
+
+\usepackage{wx672bib}
+\addbibresource{os.bib}
+
+\title{Linux原理及应用教学大纲}
+\author{}\date{}
+
+\pagestyle{empty}
+
+%\newgeometry{top=1cm}
+
+\begin{document}
+
+%\maketitle
+
+\begin{description}
+\item[Linux原理及应用]
+\item[每周课次: 4]
+\item[学分:] 4
+\item[前导课程:] C编程
+\item[课程简介:] 本课程涵盖用户层面（应用）与内核层面（原理）的Linux知识。用户层面的内容
+  包括：
+  \begin{itemize}
+  \item 命令行基础
+  \item Bash编程
+  \item 软件开发环境介绍
+  \item 系统管理
+  \item 网络管理
+  \end{itemize}
+  在内核层面，我们将了解Linux是如何解决操作系统设计方面的主要问题的。
+  \begin{multicols}{2}
+    \begin{itemize}
+    \item 系统启动的过程
+    \item 内存寻址
+    \item 中断处理
+    \item 系统调用接口函数
+    \item 进程管理
+    \item CPU调度算法
+    \item Ext2文件系统
+    \item 输入/输出管理
+    \end{itemize}
+  \end{multicols}
+  \item[教程与参考数目:]\hfill
+  \nocite{cooper10bash,web:debianhandbook,web:debkernelhandbook,bovet2005understanding,tanenbaum2008modern,bovet2005understanding}
+  \printbibliography[heading=none]{}
+\end{description}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

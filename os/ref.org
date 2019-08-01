@@ -1,0 +1,67 @@
+#+TITLE:     《操作系统原理》教材及参考资料
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+# (setq org-export-html-use-infojs nil)
+
+* 教材
+  1. A.S. Tanenbaum. [[https://cs3.swfu.edu.cn/tech#book_id%3D4&library_id%3DCalibre1&panel%3Dbook_details][/Modern Operating Systems/]]. Pearson Prentice Hall, 3^{rd}
+     edition, 2008.
+     - [[http://lib.swfu.edu.cn][图书馆]] 中英文版都有
+     - [[https://www.pearson.com/us/higher-education/program/Tanenbaum-Modern-Operating-Systems-4th-Edition/PGM80736.html][配套网站]]
+  2. Silberschatz, Galvin, and Gagne. [[https://cs3.swfu.edu.cn/tech#book_id%3D1&library_id%3DCalibre1&panel%3Dbook_details][/Operating System Concepts Essentials/]]. John Wiley &
+     Sons, 2011.
+     - [[http://lib.swfu.edu.cn][图书馆]] 中英文版都有； 
+     - 配套网站：http://www.os-book.com;
+     - 这本也可以: Silberschatz, Galvin, and Gagne. [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/os-concepts-8e/Operating_System_Concepts_With_Java-8e.pdf][/Operating System Concepts With
+       Java/]]. John Wiley & Sons, 8^{th} edition, 2010.
+  3. Bryant, Randal E. and O'Hallaron, David R. [[https://cs3.swfu.edu.cn/tech#book_id%3D33&library_id%3DCalibre1&panel%3Dbook_details][/Computer Systems: A Programmer's
+     Perspective/]]. Addison-Wesley, 2^{nd} edition, 2010.
+  4. D.P. Bovet and M. Cesatí. [[https://cs3.swfu.edu.cn/tech#book_id%3D11&library_id%3DCalibre1&panel%3Dbook_details][/Understanding The Linux Kernel. O'Reilly/]], 3^{rd}
+     edition, 2005.
+  5. M.J. Bach. [[https://cs3.swfu.edu.cn/tech#book_id%3D8&library_id%3DCalibre1&panel%3Dbook_details][/The design of the UNIX operating system/]]. Prentice-Hall software
+     series. Prentice-Hall, 1986.
+  6. 邹恒明. [[https://cs3.swfu.edu.cn/tech#book_id%3D82&library_id%3DCalibre1&panel%3Dbook_details][/《计算机的心智：操作系统之哲学原理》/]]. 机械工业出版社, 2009.
+  7. 新设计团队. [[https://cs3.swfu.edu.cn/tech/get/PDF/14/Calibre1][/Linux内核设计的艺术/]], 机械工业出版社, 2013.
+  8. 郑钢. [[https://cs3.swfu.edu.cn/tech/get/PDF/158/Calibre1][/操作系统真象还原/]], 人民邮电出版社, 2016.
+  9. 于渊， [[https://cs3.swfu.edu.cn/tech#book_id%3D2&library_id%3DCalibre1&panel%3Dbook_details][/《Orange'S：一个操作系统的实现》/]]. 电子工业出版社, 2009.
+  10. 川合秀实，[[https://cs3.swfu.edu.cn/tech#book_id%3D3&library_id%3DCalibre1&panel%3Dbook_details][/《30天自制操作系统》/]]，人民邮电出版社，2012.8.
+      - 参考链接：
+        - https://code.google.com/p/osask/
+        - https://github.com/Tassandar/OSASK
+        - https://github.com/fakefish/OSASK
+** 购买建议
+   首先, 我鼓励大家尽量节俭, 尽量去图书馆借书, 尽量多查阅网上资料. 如果真的有志于操作系统研究, 那么, 如果我是你, 我会先买:
+   1. A.S. Tanenbaum. [[https://cs3.swfu.edu.cn/tech#book_id%3D4&library_id%3DCalibre1&panel%3Dbook_details][/Modern Operating Systems/]]. Pearson Prentice Hall, 3^{rd}
+      edition, 2008. (《现代操作系统》第三版)
+   7. 新设计团队. [[https://cs3.swfu.edu.cn/tech/get/PDF/14/Calibre1][/Linux内核设计的艺术/]], 机械工业出版社, 2013.
+   8. 郑钢. [[https://cs3.swfu.edu.cn/tech/get/PDF/158/Calibre1][/操作系统真象还原/]], 人民邮电出版社, 2016.
+
+* 参考资料
+- xv6: https://pdos.csail.mit.edu/6.828/2017/xv6.html
+- Wikipedia: https://en.wikipedia.org/wiki/Category:Operating_systems
+- https://cs3.swfu.edu.cn/tech
+
+** More Web Resources
+   - [[http://www.ibm.com/developerworks/]]
+     - [[http://www.ibm.com/developerworks/linux/library/l-linuxboot/][Inside the Linux boot process]]
+     - [[http://www.ibm.com/developerworks/linux/library/l-system-calls/][Kernel command using Linux system calls]]
+     - [[http://www.ibm.com/developerworks/linux/library/l-linux-filesystem/][Anatomy of the Linux file system]]
+     - [[http://www.ibm.com/developerworks/linux/library/l-proc.html][Access the Linux kernel using the /proc filesystem]]
+   - [[http://duartes.org/gustavo/blog/]]
+     - [[http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map][Motherboard Chipsets and the Memory Map]]
+     - [[http://duartes.org/gustavo/blog/category/software-illustrated/page/2][How Computers Boot Up]]
+     - [[http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory][Anatomy of a Program in Memory]]
+     - [[http://duartes.org/gustavo/blog/post/how-the-kernel-manages-your-memory][How The Kernel Manages Your Memory]]
+     - [[http://duartes.org/gustavo/blog/post/getting-physical-with-memory][Getting Physical With Memory]]
+     - [[http://duartes.org/gustavo/blog/post/intel-cpu-caches][Cache: a place for concealment and safekeeping]]
+   - [[http://people.redhat.com/drepper/cpumemory.pdf][What every programmer should know about memory]]
+   - [[http://www.cs.rochester.edu/~sandhya/csc256/]]
+

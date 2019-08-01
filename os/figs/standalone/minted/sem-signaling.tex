@@ -1,0 +1,21 @@
+\documentclass[varwidth=28em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{minipage}{.27\linewidth}
+\vspace{1em}
+\begin{ccode}
+statement a1
+sem.signal()      
+\end{ccode}
+\end{minipage}\qquad
+\begin{minipage}{.27\linewidth}
+\vspace{1em}
+\begin{ccode}
+sem.wait()
+statement b1      
+\end{ccode}  
+\end{minipage}
+\end{document}

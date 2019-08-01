@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[paperwidth=12.5cm,paperheight=12.4cm,top=.3mm,bottom=0mm,left=-4.8mm,right=0mm]{geometry}
+\usepackage{latexsym,pifont,units,amsmath,amsfonts,amssymb}
+\usepackage{xltxtra} %fontspec,xunicode are loaded here.
+\setsansfont{DejaVu Sans Mono}
+\setmainfont{DejaVu Sans Mono}
+\setmonofont{DejaVu Sans Mono}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shadows,trees,mindmap,backgrounds}
+\pagestyle{empty}
+\begin{document}
+\begin{tikzpicture}[mindmap, 
+  concept color=gray!10,
+%    grow cyclic,
+%    every node/.style={concept, circular drop shadow},
+    % root concept/.append style={ concept color=black, fill=white, line width=1ex,text=black},
+    % redhat/.style = {concept color=Green!50,faded/.style={concept color=Green!20}},
+    % debian/.style = {concept color=Blue!50,faded/.style={concept color=Blue!20}},
+    % other/.style =  {concept color=black!30,faded/.style={concept color=black!20}},
+  %level 1 concept/.append style={sibling angle=45},
+    % level 2/.append style={level distance=3cm}
+    ]
+  
+    \node [concept] {\includegraphics[width=3.5cm]{linux_logo}}
+    child [concept color=gray!20,grow=0] {node [concept] {\includegraphics[height=4em]{intel}} }
+    child [concept color=gray!20,grow=45] {node [concept] {\includegraphics[height=2em]{AMD}}}
+    child [concept color=gray!20,grow=90] {node [concept] {\includegraphics[height=3em]{cisco}}}
+    child [concept color=gray!20,grow=135] {node [concept] {\includegraphics[height=2em]{google}}}
+    child [concept color=gray!20,grow=180] {node [concept] {\includegraphics[height=2em]{IBM}}}
+    child [concept color=gray!20,grow=225] {node [concept] {\includegraphics[height=5em]{apple}}}
+    child [concept color=gray!20,grow=270] {node [concept] {...}}
+    child [concept color=gray!20,grow=315] {node [concept] {\includegraphics[height=5em]{Win_logo}}};
+\end{tikzpicture}
+\end{document}

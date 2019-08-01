@@ -1,0 +1,16 @@
+\documentclass[varwidth=19.2em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+#define BUFFER_SIZE 6
+typedef struct {
+  ...
+} item;
+item buffer[BUFFER_SIZE];
+int in = 0; //the next free position
+int out = 0;//the first full position
+\end{ccode}
+\end{document}

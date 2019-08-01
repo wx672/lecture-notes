@@ -1,0 +1,53 @@
+#+TITLE:     Linux很有趣，可我的英文太差了，怎么办？
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS:   author:t creator:t timestamp:t
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs3.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME:
+
+首先，从日常应用的角度来讲，Linux和Windows并没有什么不同，他们都有很好的中文支持。但作为计科系的学生，我们不能只是站在应用的层面上，用它来上上网，写写报告，看看电影，听听音乐……还应该把它当做一个强大的学习和开发工具来利用。
+
+讲到学习，对于很多同学来说，英文就成了一个大问题，同时也是一个不能回避的问题。从某种程度上讲，学英文比学Linux更有用。因为你毕业以后很可能根本用不到Linux，甚至可能根本用不到电脑，但我相信你肯定用得到英文。英文是你与世界交流的必要手段。
+
+我们把文盲叫做睁眼瞎，那么在全球化的今天，英文盲实在是个睁眼半瞎。IT领域的几乎一切技术（除了算盘）都是西方发明的，英文也是一切现行IT技术标准（ISO, RFC, ITU, IEEE...）的通用语言。在我们每天使用的键盘上，也看不到任何一个中文字符。在这种现实条件下，如果想扩展视野，想了解掌握新技术，想在IT行业有所发展，没有良好的英文水平是根本不可能的。 
+
+GNU/Linux也是以西方为主流的技术，Linux方面的英文材料远多于中文材料，而且质量远高于中文材料。所以说，要学好Linux，必须要有比较好的英文阅读能力。
+
+诸位花钱进学校就是要来学习的。而学习本身就是顽强不懈、克服困难的过程。既然知道自己的英文差，那么当然应该努力提高它，克服它。其实，大家可以通过学习Linux来提高自己的英文能力。提高了英文能力，反过来又大大有助于Linux学习。
+
+学英文比学Linux更容易，因为它不需要你聪明，只需要你有足够的耐心。
+
+* 如何提高英文？
+  学英文，当然可以如[[http://zh.wikipedia.org/wiki/辜鸿铭][辜鴻銘]]那般背诵《莎士比亚全集》。但我们学IT的，以娴熟阅读技术资料为目的，那就可以比辜老前辈少花些力气。但无论如何，掌握一门新语言基本上还是个力气活，天天用，天天读，实是不二法门。
+  - 使用英文桌面环境
+  - 遇到问题时，尽量查阅Linux英文参考资料，比如：
+    - [[http://cs3.swfu.edu.cn/dwww/man/][Man pages]]
+    - [[http://en.wikipedia.org/wiki/Linux][Wikipedia]]
+    - [[http://lmgtfy.com/%3Fq%3Dbash%2Btutorial][Tutorials]]
+  - 定期，最好是每天，读一些英文文献，比如：
+    - IT业者必读的[[http://www.rfc-editor.org/][RFC]]
+      - [[http://www.rfc-editor.org/rfc/rfc1180.txt][RFC1180]], [[http://www.rfc-editor.org/rfc/rfc791.txt][RFC791]]，[[http://www.rfc-editor.org/rfcsearch.html][...]]
+    - [[http://fullcirclemagazine.org/downloads/][Ubuntu社区杂志]]
+  - 看英文文章的时候，遇到生词，马上查出它的意思，我推荐你用[[http://www.google.com/dictionary][Google dictionary]], 它有[[https://addons.mozilla.org/en-US/firefox/addon/53151][Firefox]]和[[https://chrome.google.com/extensions/detail/mgijmajocgfcbeboacabfgobmjgjcoja?hl%3Den][Chrome]]浏览器的插件，非常方便，非常快。知道这个生词是什么意思了，就把这个词记到一张纸上。然后继续看文章，再遇到生词，再查，再记录。这样一篇文章看完，你的纸上页记了不少生词，晚上睡觉前，把纸上的词都过一遍，回忆一下它们的意思，就行了，简单吧？日积月累，水滴石穿，不出三五个月，你就不再惧怕英文了。
+  
+* Linux学习步骤
+  1. 先熟练掌握命令行的基本操作
+  2. 尝试安装。我推荐Ubuntu
+  3. 掌握简单系统管理操作
+  4. 了解并适应经典开发环境
+     - vim, emacs
+     - GCC, GDB, make
+     - git
+  5. 了解一些可视化开发环境，比如eclipse, netbeans, Qt4designer, ...
+  6. 了解[[http://en.wikipedia.org/wiki/LAMP_(software_bundle)][LAMP]]开发环境
+  7. 了解其它常用工具
+     - 系统管理工具
+     - 网络管理工具
+     - 日常工作工具
+  8. 娱乐

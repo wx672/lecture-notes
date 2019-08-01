@@ -1,0 +1,57 @@
+\documentclass[varwidth=10.8cm,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+\usemintedstyle{bw}
+
+\begin{document}
+\begin{minipage}[t]{.42\linewidth}
+\begin{ccode}
+#define CHAIRS 5
+semaphore customers = 0;
+semaphore bber = ?; 
+semaphore mutex = 1;
+int waiting = 0;
+
+void barber(void)
+{
+  while (TRUE) {
+    wait(&customers);
+    cutHair();
+  }
+}      
+\end{ccode}
+\end{minipage}\qquad
+\begin{minipage}[t]{.48\linewidth}
+\begin{ccode}
+void customer(void)
+{
+  if (waiting == CHAIRS)
+    goHome();
+  else {
+    wait(&mutex);
+    waiting++;
+    signal(&mutex);
+    signal(&customers);
+    wait(&bber);
+    getHairCut();
+    signal(&bber);
+    wait(&mutex);
+      waiting--;
+    signal(&mutex);
+  }
+}      
+\end{ccode}
+\end{minipage}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

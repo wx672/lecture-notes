@@ -1,0 +1,55 @@
+\documentclass{wx672article} % $HOME/texmf/tex/latex/wx672article.cls
+
+
+\usepackage{wx672bib}
+\addbibresource{os.bib}
+
+\title{Syllabus for Linux Fundamentals and Applications}
+\author{}\date{}
+
+\pagestyle{empty}
+
+%\newgeometry{top=1cm}
+
+\begin{document}
+
+%\maketitle
+
+\begin{description}
+\item[Principle and Application of Linux]
+\item[Contacts: 4L]
+\item[Credits:] 4
+\item[Prerequisites:] C programming
+\item[Course Description:] This course covers both user-level Linux applications and
+  kernel-level Linux fundamentals. At user-level the following topics will be discussed:
+  \begin{itemize}
+  \item Command Line Interface (CLI)
+  \item Bash scripting
+  \item Development environment under Linux     
+  \item System management
+  \item Network management
+  \end{itemize}
+  At kernel-level, we will see how Linux solves the following OS design issues.
+  \begin{multicols}{2}
+    \begin{itemize}
+    \item System bootstrapping
+    \item Memory addressing
+    \item Interrupt handling
+    \item System call interface
+    \item Process management
+    \item CPU scheduling
+    \item Ext2 file system
+    \item I/O management
+    \end{itemize}
+  \end{multicols}
+  \item[Textbook and References:]\hfill
+  \nocite{cooper10bash,web:debianhandbook,web:debkernelhandbook,bovet2005understanding,tanenbaum2008modern,bovet2005understanding}
+  \printbibliography[heading=none]{}
+\end{description}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

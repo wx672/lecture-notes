@@ -1,0 +1,29 @@
+\documentclass[varwidth=50em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+      ~                        ~
+      │ Protected─mode kernel │
+100000├───────────────────────┤1M
+      │ I/O memory hole       │
+0A0000├───────────────────────┤640K
+      │ Reserved for BIOS     │     Leave as much as possible unused
+      ~                       ~
+      │ Command line          │     (Can also be below the X+10000 mark)
+X+1000├───────────────────────┤64K
+      │ Stack/heap            │     For use by the kernel real-mode code.
+X+0800├───────────────────────┤32K     
+      │ Kernel setup          │     The kernel real-mode code.
+      │ Kernel boot sector    │     The kernel legacy boot sector.
+X     ├───────────────────────┤
+      │ Boot loader           │    <─ Boot sector entry point 
+001000├───────────────────────┤4K     [0000:7C00] (31K)
+      │ Reserved for MBR/BIOS │
+000800├───────────────────────┤2K
+      │ Typically used by MBR │
+000600├───────────────────────┤1.5K
+      │ BIOS use only         │
+000000└───────────────────────┘
+\end{verbatim}
+\end{document}

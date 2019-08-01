@@ -1,0 +1,31 @@
+\documentclass[varwidth=40cm,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+                                      ┌───────────┐
+                                      │┌─────────┐│
+                                      ││   User  ││    ┌──────┐
+                                      ││Interface│<───>│ User │
+                                      │└────^────┘│    └──────┘
+            ┌────────┐                │     │     │
+            │┌──────┐│  FTP Commands  │┌────v────┐│
+            ││Server│<────────────────>│   User  ││
+            ││  PI  ││   FTP Replies  ││    PI   ││
+            │└──^───┘│                │└────^────┘│
+            │   │    │                │     │     │
+┌──────┐    │┌──v───┐│      Data      │┌────v────┐│    ┌──────┐
+│ File │<───>│Server│<────────────────>│  User   │<───>│ File │
+│System│    ││ DTP  ││   Connection   ││   DTP   ││    │System│
+└──────┘    │└──────┘│                │└─────────┘│    └──────┘
+            └────────┘                └───────────┘
+            Server─FTP                   USER─FTP
+\end{verbatim}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

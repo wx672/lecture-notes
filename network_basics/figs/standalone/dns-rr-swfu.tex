@@ -1,0 +1,23 @@
+\documentclass[varwidth=36em]{standalone}
+\usepackage{fancyvrb}
+\usepackage[svgname]{xcolor}
+\begin{document}
+\begin{Verbatim}[commandchars=\\\{\}]
+~$ \color{violet}{host -a cs2.swfu.edu.cn}
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 22237
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;cs2.swfu.edu.cn.       IN  ANY
+
+;; ANSWER SECTION:
+cs2.swfu.edu.cn.    3600    IN  A   202.203.132.242
+
+Received 49 bytes from 114.114.114.114#53 in 1161 ms
+\end{Verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

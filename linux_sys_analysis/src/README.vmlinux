@@ -1,0 +1,18 @@
+http://comments.gmane.org/gmane.linux.kernel.kernelnewbies/42926
+
+amit <at> ubuntu:/tmp$ cp /boot/vmlinuz-3.7.0-rc3-next-20121029 /tmp/
+amit <at> ubuntu:/tmp$ od -A d -t x1 vmlinuz-3.7.0-rc3-next-20121029 | grep '1f 8b 08 00'
+0016992 f3 a5 fc 5e 8d 83 b4 91 4f 00 ff e0 1f 8b 08 00
+
+amit <at> ubuntu:/tmp$ dd if=vmlinuz bs=1 skip=17004 | zcat > vmlinux
+
+How did i calculated 17004 ?
+0016992 + offset of GZ signature(1f 8b 08 00), i.e.
+0016992 + 12
+
+amit <at> ubuntu:/tmp$ dd if=vmlinuz-3.7.0-rc3-next-20121029 bs=1 skip=17004 | zcat > vmlinux
+5233764+0 records in
+5233764+0 records out
+5233764 bytes (5.2 MB) copied
+
+amit <at> ubuntu:/tmp$ file vmlinux

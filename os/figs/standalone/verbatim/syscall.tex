@@ -1,0 +1,40 @@
+\documentclass[varwidth=35.2em,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+ Program 1    Program 2    Program 3
+┌─────────┐ ┌─────────┐ ┌─────────┐
+│ fork()  │ │ vfork() │ │ clone() │
+└────┬────┘ └────┬────┘ └────┬────┘
+     │           │           │
+  ┌──v───────────v───────────v──┐
+  │          C Library          │
+  └──────────────┬──────────────┘          User space
+─────────────────│────────────────────────────────────
+  ┌──────────────v──────────────┐        Kernel space
+  │         System call         │
+  └──────────────┬──────────────┘
+                 │       ┌─────────┐
+                 │       │   ...   │
+                 │     3 ├─────────┤  sys_fork()
+                 ├───────> fork()  ├───────────────┐
+                 │       ├─────────┤               │
+                 │       │   ...   │               │
+                 │   120 ├─────────┤  sys_clone()  │
+                 ├───────> clone() ├───────────────┤
+                 │       ├─────────┤               │
+                 │       │   ...   │               │
+                 │   289 ├─────────┤  sys_vfork()  │
+                 └───────> vfork() ├───────────────┤
+                         ├─────────┤               │
+                         │   ...   │               v
+                         └─────────┘          do_fork()
+                      System Call Table
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

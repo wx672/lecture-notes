@@ -1,0 +1,38 @@
+#+TITLE:    《操作系统原理》实验报告
+#+AUTHOR:    王晓林(20091152888)
+#+EMAIL:     wx672ster@gmail.com
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:content toc:nil ltoc:nil mouse:underline buttons:0 path:http://cs3.swfu.edu.cn/org-info-js/org-info.js
+#+STYLE:    <link rel="stylesheet" type="text/css" href="http://cs3.swfu.edu.cn/org-info-js/stylesheet.css" />
+#+STYLE:    <style>code {font-weight:bold;} body {font-size:10pt;}</style>
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT: 
+# (setq org-export-html-use-infojs t)
+
+Now, let me show you some Org-mode tricks.
+
+* This is a section
+  1. this is a numbered list
+  2. type M-return to add a new numbered line
+  3. ok, type C-j to
+     - see? C-j is better than RETURN
+     - type M-return to add a new un-numbered line
+     - To move this line left, type M-leftarrow
+  4. To move this line right, type M-rightarrow
+     : this is a special line, begin with ':'
+  5. if you have a lot of special lines, you can do like this
+#+begin_example
+this is a special line
+this is another
+more...
+#+end_example
+** This is a subsection
+   - if you want to insert some source code, you can do like this
+#+include "~/git/lecture_notes/os/src/tiny.c" src c -n
+   - Now let's export a HTML file
+   - See? Org-mode is easy. But you need more practice

@@ -1,0 +1,31 @@
+\documentclass[varwidth]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+┌──────────────┐
+│              │
+│              │  dynamic mapping
+│ ZONE_HIGHMEM │<───┐
+│              │    │       ┌──────────────┬
+│              │    └──────>│     128M     │
+├──────────────┤            ├──────────────┤ kernel
+│              │<──────────>│              │ space
+│     896M     │<──────────>│     896M     │  (1G)
+│              │<──────────>│              │
+└──────────────┘  directly  ├──────────────┼
+      RAM          mapped   │              │
+                            │ application  │ user
+                            │ program code │ space
+                            │ and data     │ (3G)
+                            ~              ~
+                            │              │
+                            └──────────────┴
+                             Virtual memory
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% End:

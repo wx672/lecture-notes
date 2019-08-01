@@ -1,0 +1,554 @@
+#+TITLE:     C Programming Environment Tutorial
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION: a short introduction to C programming environment under Linux
+#+KEYWORDS: gcc, gdb, make, c, programming, tutorial, linux
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:
+#+LINK_HOME:
+
+* The Big Picture
+  
+# ## uncomment the ditaa source to regenerate the fig.
+  
+# #+BEGIN_ditaa compilation.png -r -s 1
+# +-----------------+ +------------------------------------+
+# | High Level Code | |      include-files, macros         |
+# |    (hello.c)    | |conditional compilation instructions|
+# +--------+--------+ +-----------------+------------------+
+#          |                            |
+#          |                            v
+#          |                    +---------------+
+#          |                    | cRED          |
+#          |<-------------------| Preprocessor  |
+#          v                    | {o}           |
+#    +----------+               +---------------+
+#    |   cRED   |
+#    | Compiler |
+#    |    {o}   |
+#    +-----+----+
+#          |
+#          v
+# +--------------------+
+# |Assembly Source Code|
+# +--------+-----------+
+#          |
+#          v
+#    +-----------+
+#    | cRED      |
+#    | Assembler |
+#    | {o}       |
+#    +-----+-----+
+#          |
+#          v
+#   +-------------+ +-----------+
+#   | Object Code | | Libraries |
+#   +------+------+ +-----+-----+
+#          |              |
+#          v              |
+#     +--------+          |
+#     | cRED   |          |
+#     | Linker |<---------+
+#     | {o}    |
+#     +----+---+
+#          |
+#          v
+# +--------------------+
+# | Executable Program |
+# +--------------------+
+# #+END_ditaa
+
+#+results:
+# [[file:compilation.png]]
+  
+[[file:compilation.svg]]
+
+- Source code :: written by programmer in high-level language, in our case in *C*. We write c source
+                 code with a /text editor/, such as *emacs*, *vim*, etc.
+- Preprocessing :: is the first pass of any C compilation. It processes *include-files*,
+		   *conditional compilation instructions* and *macros*.
+		   - *cpp* --- The GNU C preprocessor
+                     : gcc -E hello.c
+- Compilation :: is the second pass. It takes the output of the preprocessor, and the *source
+		 code*, and generates *assembly source code*.
+                 - *gcc/g++* --- GNU project C and C++ compiler
+     		   : gcc -S hello.c
+- Assembly :: is the third stage of compilation. It takes the assembly source code and produces an
+	      assembly listing with offsets. The assembler output is stored in an *object file*.
+	      - *as* --- the portable GNU assembler
+                : gcc -c hello.c
+- Linking :: is the final stage of compilation. It combines object code with predefined routines
+	     from *libraries* and produces the *executable program*.
+	     - *ld* --- The GNU linker
+	       : gcc hello.c -lm  
+- Wrapper :: The whole compilation process is usually not done `by hand', but using a *wrapper*
+	     program that combines the functions of preprocessor(cpp), compiler(gcc/g++),
+	     assembler(as) and linker(ld).
+	     : gcc -Wall hello.c -lm -o hello
+*References:*
+   - [[http://www.tenouk.com/ModuleW.html][COMPILER, ASSEMBLER, LINKER AND LOADER: A BRIEF STORY]]
+   - [[http://www.tenouk.com/]]
+* Classic Linux IDE
+  - Best IDE :: Best Editor + Best Compiler + Best Debugger
+		  - Best Editor --- [[http://www.gnu.org/software/emacs/][emacs]], [[http://www.vim.org][vim]]
+		  - Best Compiler --- [[http://cs2.swfu.edu.cn/cgi-bin/dwww%3Fsearch%3Dgcc&programsubmit%3DSearch&searchtype%3Dm][gcc, g++]]
+		  - Best Debugger --- [[http://cs2.swfu.edu.cn/cgi-bin/info2www%3F(gdb)][gdb]], [[http://www.gnu.org/software/ddd/][ddd]]
+  - Project Management :: [[http://cs2.swfu.edu.cn/cgi-bin/info2www%3F(make)][Makefile]]
+  - Source Code Management :: [[http://cs2.swfu.edu.cn/cgi-bin/dwww%3Ftype%3Drunman&location%3Dgittutorial/7][git]], [[http://svnbook.red-bean.com/][subversion]]
+* Compiling C and C++ Programs
+  - From: [[http://pages.cs.wisc.edu/~beechung/ref/gcc-intro.html]]
+
+    gcc is the "GNU" C Compiler, and g++ is the "GNU C++ compiler. Below are several examples that
+    how to use g++ to compile C++ programs, although much of the information applies to C
+    programs as well as compiling with the other compilers.
+
+** Example 1: Compiling a simple program
+   Consider the following example: Let "hello.cpp" be a file that contains the following C++ code.
+#+INCLUDE: "./src/hello/hello.cpp" src c++
+   The standard way to compile this program is with the command
+   : g++ hello.cpp -o hello
+   This command compiles hello.cpp into an executable program named "hello" that you run by typing
+   'hello' at the command line. It does nothing more than print the word "hello" on the screen.
+
+   Alternatively, the above program could be compiled using the following two commands.
+   : g++ -c hello.cpp
+   : g++ hello.o -o hello
+   The end result is the same, but this two-step method first compiles hello.cpp into a machine code
+   file named "hello.o" and then links hello.o with some system libraries to produce the final
+   program "hello". In fact the first method also does this two-stage process of compiling and
+   linking, but the stages are done transparently, and the intermediate file "hello.o" is deleted in
+   the process.
+
+*** Frequently used compilation options
+    C and C++ compilers allow for many options for how to compile a program, and the examples below
+    demonstrate how to use many of the more commonly used options. In each example, "myprog.cpp"
+    contains C++ source code for the executable "myprog". In most cases options can be combined,
+    although it is generally not useful to use "debugging" and "optimization" options together.
+
+    Compile myprog.cpp so that myprog contains symbolic information that enables it to be debugged with the gdb debugger.
+    : g++ -g myprog.cpp -o myprog
+    Have the compiler generate many warnings about syntactically correct but questionable looking code. It is good practice to always use this option with gcc and g++.
+    : g++ -Wall myprog.cpp -o myprog
+    Generate symbolic information for gdb and many warning messages.
+    : g++ -g -Wall myprog.cpp -o myprog
+    Generate optimized code on a Solaris machine with warnings. The -O is a capital o and not the number 0!
+    : g++ -Wall -O -mv8 myprog.cpp -o myprog
+    Generate optimized code on a Linux machine.
+    : g++ -O myprog.cpp -o myprog
+    Compile myprog.cpp when it contains Xlib graphics routines.
+    : g++ myprog.cpp -o myprog -lX11
+    If "myprog.c" is a C program, then the above commands will all work by replacing g++ with gcc and
+    "myprog.cpp" with "myprog.c". Below are a few examples that apply only to C programs.  Compile a C
+    program that uses math functions such as "=sqrt=".
+    : gcc myprog.c -o myprog -lm
+    Compile a C program with the "electric fence" library. This library, available on all the Linux
+    machines, causes many incorrectly written programs to crash as soon as an error occurs. It is
+    useful for debugging as the error location can be quickly determined using gdb. However, it
+    should only be used for debugging as the executable myprog will be much slower and use much more
+    memory than usual.
+    : gcc -g myprog.c -o myprog -lefence
+
+** Example 2: Compiling a program with multiple source files
+   If the source code is in several files, say "file1.cpp" and "file2.cpp", then they can be compiled into an executable program named "myprog" using the following command:
+   : g++ file1.cpp file2.cpp -o myprog
+   The same result can be achieved using the following three command:
+   : g++ -c file1.cpp
+   : g++ -c file2.cpp
+   : g++ file1.o file2.o -o myprog
+   The advantage of the second method is that it compiles each of the source files separately. If,
+   for instance, the above commands were used to create "myprog", and "file1.cpp" was subsequently
+   modified, then the following commands would correctly update "myprog".
+   : g++ -c file1.cpp
+   : g++ file1.o file2.o -o myprog
+   Note that file2.cpp does not need to be recompiled, so the time required to rebuild myprog is
+   shorter than if the first method for compiling myprog were used. When there are numerous source
+   file, and a change is only made to one of them, the time savings can be significant. This process,
+   though somewhat complicated, is generally handled automatically by a makefile.
+
+* Finding errors in a simple program 
+** Check warnings (gcc =-Wall=)
+  - From: [[http://www.network-theory.co.uk/docs/gccintro/gccintro_10.html]]
+
+  As mentioned above, compiler warnings are an essential aid when programming in C and C++. To
+  demonstrate this, the program below contains a subtle error: it uses the function printf
+  incorrectly, by specifying a floating-point format ‘%f’ for an integer value:
+#+INCLUDE: "./src/wall/wall.c" src c
+  This error is not obvious at first sight, but can be detected by the compiler if the warning
+  option =-Wall= has been enabled.
+
+  Compiling the program above, =wall.c=, with the warning option =-Wall= produces the following message:
+  : $ gcc -Wall wall.c
+  : wall.c: In function `main':
+  : wall.c:6:3: warning: format ‘%f’ expects type ‘double’, but argument 2 has type ‘int’
+
+  This indicates that a format string has been used incorrectly in the file ‘wall.c’ at line 6. The
+  messages produced by GCC always have the form =file:line-number:message=. The compiler distinguishes
+  between error messages, which prevent successful compilation, and warning messages which indicate
+  possible problems (but do not stop the program from compiling).
+
+  In this case, the correct format specifier should be ‘%d’ for an integer argument. The allowed
+  format specifiers for printf can be found in any general book on C, such as the GNU C Library
+  Reference Manual (see section Further reading).
+
+  Without the warning option -Wall the program appears to compile cleanly, but produces incorrect results:
+
+  : $ gcc wall.c
+  : $ ./a.out
+  : Two plus two is 0.000000    (incorrect output)
+
+  The incorrect format specifier causes the output to be corrupted, because the function printf is
+  passed an integer instead of a floating-point number. Integers and floating-point numbers are stored
+  in different formats in memory, and generally occupy different numbers of bytes, leading to a
+  spurious result. The actual output shown above may differ, depending on the specific platform and
+  environment.
+
+  Clearly, it is very dangerous to develop a program without checking for compiler warnings. If there
+  are any functions which are not used correctly they can cause the program to crash or produce
+  incorrect results. Turning on the compiler warning option -Wall will catch many of the commonest
+  errors which occur in C programming.
+** Debuging macros (gcc =-E=)
+#+INCLUDE: "./src/macro/macro.c" src c
+   : gcc -E macro.c
+   
+** Verbose outputs (gcc =-D=)
+#+INCLUDE: "./src/debug/stackoverflow.c" src c
+   : gcc -DDEBUG stackoverflow.c
+   To see the difference of with/without =-DDEBUG=, try the following
+   : gcc -DDEBUG -E stackoverflow.c | tail
+   : gcc -E stackoverflow.c | tail
+   
+* Debug a C Program With GDB
+  : gcc -g myprog.c
+  - =info gdb=
+  - In emacs:
+    : C-h i m gdb
+  - [[file:gdb-tutorial-handout.pdf][gdb-tutorial-handout.pdf]]
+  - [[http://www.unknownroad.com/rtfm/gdbtut/gdbtoc.html][RMS's gdb Tutorial]]
+* Makefile
+  - ~sudo aptitude install make-doc~
+  - ~info make Makefiles~
+  - In emacs:
+    : C-h i m make i makefile
+  - [[https://www.google.com/search?btnG%3D1&pws%3D0&q%3Dmakefile%2Btutorial&qscrl%3D1][Makefile tutorials]]
+
+** A simple makefile
+   - Original: [[http://www.network-theory.co.uk/docs/gccintro/gccintro_16.html]]
+
+   For those unfamiliar with make, this section provides a simple demonstration of its use. *Make*
+   is a program in its own right and can be found on all Unix systems. To learn more about the GNU
+   version of make you will need to consult the GNU Make manual by Richard M. Stallman and Roland
+   McGrath (see section Further reading).
+
+   Make reads a description of a project from a makefile (by default, called ‘Makefile’ in the
+   current directory). A makefile specifies a set of compilation rules in terms of *targets* (such as
+   executables) and their *dependencies* (such as object files and source files) in the following
+   format:
+#+BEGIN_SRC GNUmakefile -n
+   target: dependencies
+        command
+#+END_SRC
+   For each target, make checks the modification time of the corresponding dependency files to
+   determine whether the target needs to be rebuilt using the corresponding command. Note that the
+   command lines in a makefile must be indented with a single *TAB* character, *NOT spaces*.
+
+   GNU Make contains many default rules, referred to as implicit rules, to simplify the construction
+   of makefiles. For example, these specify that ‘.o’ files can be obtained from ‘.c’ files by
+   compilation, and that an executable can be made by linking together ‘.o’ files. Implicit rules
+   are defined in terms of make variables, such as CC (the C compiler) and CFLAGS (the compilation
+   options for C programs), which can be set using VARIABLE=VALUE lines in the makefile. For C++ the
+   equivalent variables are CXX and CXXFLAGS, while the make variable CPPFLAGS sets the preprocessor
+   options. The implicit and user-defined rules are automatically chained together as necessary by
+   GNU Make.
+
+   A simple ‘Makefile’ for the project above can be written as follows:
+
+   : CC=gcc
+   : CFLAGS=-Wall
+   : main: main.o hello_fn.o
+   :
+   : clean:
+   :       rm -f main main.o hello_fn.o
+
+   The file can be read like this: using the C compiler gcc, with compilation option -Wall, build
+   the target executable main from the object files ‘main.o’ and ‘hello_fn.o’ (these, in turn, will
+   be built via implicit rules from ‘main.c’ and ‘hello_fn.c’). The target clean has no dependencies
+   and simply removes all the compiled files.(4) The option -f (force) on the rm command suppresses
+   any error messages if the files do not exist.
+
+   To use the makefile, type make. When called with no arguments, the first target in the makefile
+   is built, producing the executable ‘main’:
+
+   : $ make
+   : gcc -Wall   -c -o main.o main.c
+   : gcc -Wall   -c -o hello_fn.o hello_fn.c
+   : gcc   main.o hello_fn.o   -o main
+   : $ ./main
+   : Hello, world!
+
+   To rebuild the executable after modifying a source file, simply type make again. By checking the
+   timestamps of the target and dependency files, make identifies the files which have changed and
+   regenerates the corresponding intermediate files needed to update the targets:
+
+   : $ emacs main.c  (edit the file)
+   : $ make
+   : gcc -Wall   -c -o main.o main.c
+   : gcc    main.o hello_fn.o   -o main
+   : $ ./main
+   : Hello, everyone!
+
+   Finally, to remove the generated files, type make clean:
+
+   : $ make clean
+   : rm -f main main.o hello_fn.o
+
+   A more sophisticated makefile would usually contain additional targets for installation (make install) and testing (make check).
+
+** A not so simple Makefile
+
+  - Original: http://cs.acadiau.ca/~jdiamond/comp2103/beginner-tutorials/LinuxTutorialGcc.html#Makefiles:
+
+  *make* is a very useful utility program that can automate the process of compiling your
+  programs. You use "make" by creating a file named *Makefile* that describes the steps you want
+  done. You then run "make" to carry out the steps listed in your Makefile. Here is a
+  straightforward Makefile that describes the way an executable file called edit depends on eight
+  object files which, in turn, depend on eight C source and three header files.  In this example,
+  all the C files =#include defs.h=, but only those defining editing commands =#include command.h=,
+  and only low level files that change the editor buffer =#include buffer.h=.
+#+INCLUDE: "./src/make-prj/Makefile.1" src makefile
+
+  We split each long line into two lines using backslash-newline; this is like using one long line,
+  but is easier to read.
+  - *IMPORTANT:* the lines describing the "actions" for each "target" must start with a *tab* character,
+    NOT a bunch of spaces.
+
+    Simply executing make will use this Makefile to create the executable file called edit; simply type:
+    : $ make
+
+    The "clean" rule from this same Makefile could be used to delete the executable file and all the
+    object files from the directory. To do that, type:
+
+    : $ make clean
+
+    In the example Makefile, the targets include the executable file edit and the object files main.o
+    and kbd.o. The dependencies are files such as main.c and defs.h. In fact, each ".o" file is both a
+    target and a dependency (depending on which rule you are looking at). Commands include =gcc -c -Wall
+    main.c= and =gcc -c -Wall kbd.c=.
+
+    When a target is a file, it needs to be recompiled or re-linked if any of its dependencies
+    change. In addition, any dependencies that are themselves automatically generated should be updated
+    first. In this example, /edit/ depends on each of the eight object files; the object file main.o
+    depends on the source file main.c and on the header file defs.h.
+
+    A shell command follows each line that contains a target and dependencies. These shell commands say
+    how to update the target file. As mentioned above, a *tab* character must come at the beginning of
+    every command line to distinguish command lines from other lines in the Makefile. (Bear in mind that
+    /make does not know anything about how the commands work. It is up to you to supply commands that
+    will update the target file properly/. All make does is execute the commands in the rule you have
+    specified when the target file needs to be updated.)
+
+    The target *clean* is not a file, but merely the name of an action. Since you normally do not want to
+    carry out the actions in this rule, clean is not a dependency of any other rule. Consequently, make
+    never does anything with it unless you tell it specifically. Note that this rule not only is not a
+    dependency, it also does not have any dependencies, so the only purpose of the rule is to run the
+    specified commands. Targets that do not refer to files but are just actions are called phony
+    targets; do a web search on "phone targets" to learn more about them. Do a web search on "Errors in
+    commands" (and use quotes around those words!) to see how to cause make to ignore errors from rm or
+    any other command.
+
+** Case Study --- Managing Projects Using Makefiles
+   All the =.c=, =.h=, and =Makefiles= used in this case study are packed in [[./src/make-prj/src.tgz][*this tgz file*]]. After
+   downloading and extracting it, you can follow [[http://cs2.swfu.edu.cn/cgi-bin/info2www%3F(make)Introduction][An Introduction to Makefiles]] to learn how Makefiles
+   work.
+*** Source Files
+    The source files listed below are not seriously useful, except for showing how =make= works. We use
+    these =.c= and =.h= files to demonstrate how to manage a software project with Makefile.
+
+    - =main.c=
+#+INCLUDE: "src/make-prj/main.c" src c
+    - =command.c=
+#+INCLUDE: "src/make-prj/command.c" src c
+    - =display.c=
+#+INCLUDE: "src/make-prj/display.c" src c
+    - =files.c=
+#+INCLUDE: "src/make-prj/files.c" src c
+    - =insert.c=
+#+INCLUDE: "src/make-prj/insert.c" src c
+    - =kbd.c=
+#+INCLUDE: "src/make-prj/kbd.c" src c
+    - =search.c=
+#+INCLUDE: "src/make-prj/search.c" src c
+    - =utils.c=
+#+INCLUDE: "src/make-prj/utils.c" src c
+    - =buffer.h=
+#+INCLUDE: "src/make-prj/buffer.h" src c
+    - =command.h=
+#+INCLUDE: "src/make-prj/command.h" src c
+    - =defs.h=
+#+INCLUDE: "src/make-prj/defs.h" src c
+
+*** Makefiles
+    - Makefile.1 --- The Most Basic One
+#+INCLUDE: "src/make-prj/Makefile.1" src makefile
+      : make -f Makefile.1
+    - Makefile.2 --- A Simplier One With Varibles
+#+INCLUDE: "src/make-prj/Makefile.2" src makefile
+      : make -f Makefile.2
+    - Makefile.3 --- The Practical One
+#+INCLUDE: "src/make-prj/Makefile.3" src makefile
+      : make -f Makefile.3
+    - Makefile.4 --- Another Style
+#+INCLUDE: "src/make-prj/Makefile.4" src makefile
+      : make -f Makefile.4
+
+* Linking with external libraries
+  - Original: http://www.network-theory.co.uk/docs/gccintro/gccintro_17.html
+
+  A library is a collection of precompiled object files which can be linked into programs. The most
+  common use of libraries is to provide system functions, such as the square root function =sqrt=
+  found in the C math library.
+
+  Libraries are typically stored in special archive files with the extension '=.a=', referred to as
+  static libraries. They are created from object files with a separate tool, the GNU archiver =ar=,
+  and used by the linker to resolve references to functions at compile-time. We will see later how
+  to create libraries using the ar command (see section 10 Compiler-related tools). For simplicity,
+  only static libraries are covered in this section--dynamic linking at runtime using shared
+  libraries will be described in the next chapter.
+
+  The standard system libraries are usually found in the directories '=/usr/lib=' and '=/lib='. For
+  example, the C math library is typically stored in the file '=/usr/lib/libm.a=' on Unix-like
+  systems. The corresponding prototype declarations for the functions in this library are given in
+  the header file '=/usr/include/math.h='. The C standard library itself is stored in
+  '=/usr/lib/libc.a=' and contains functions specified in the ANSI/ISO C standard, such as
+  '=printf=' --- this library is linked by default for every C program.
+
+  Here is an example program which makes a call to the external function sqrt in the math library
+  '=libm.a=':
+  - =calc.c=
+#+INCLUDE: "./src/calc/calc.c" src c
+
+  Trying to create an executable from this source file alone causes the compiler to give an error at
+  the link stage:
+
+  : $ gcc -Wall calc.c -o calc
+  : /tmp/ccbR6Ojm.o: In function `main':
+  : /tmp/ccbR6Ojm.o(.text+0x19): undefined reference to `sqrt'
+
+  The problem is that the reference to the sqrt function cannot be resolved without the external
+  math library ‘libm.a’. The function sqrt is not defined in the program or the default library
+  ‘libc.a’, and the compiler does not link to the file ‘libm.a’ unless it is explicitly
+  selected. Incidentally, the file mentioned in the error message ‘/tmp/ccbR60jm.o’ is a temporary
+  object file created by the compiler from ‘calc.c’, in order to carry out the linking process.
+
+  To enable the compiler to link the sqrt function to the main program ‘calc.c’ we need to supply
+  the library ‘libm.a’. One obvious but cumbersome way to do this is to specify it explicitly on the
+  command line:
+
+  : $ gcc -Wall calc.c /usr/lib/libm.a -o calc
+
+  The library ‘libm.a’ contains object files for all the mathematical functions, such as sin, cos,
+  exp, log and sqrt. The linker searches through these to find the object file containing the sqrt
+  function.
+
+  Once the object file for the sqrt function has been found, the main program can be linked and a
+  complete executable produced:
+
+  : $ ./calc
+  : The square root of 2.0 is 1.414214
+
+  The executable file includes the machine code for the main function and the machine code for the
+  sqrt function, copied from the corresponding object file in the library ‘libm.a’.
+
+  To avoid the need to specify long paths on the command line, the compiler provides a short-cut
+  option ‘-l’ for linking against libraries. For example, the following command,
+
+  : $ gcc -Wall calc.c -lm -o calc
+
+  is equivalent to the original command above using the full library name ‘/usr/lib/libm.a’.
+
+  In general, the compiler option *-lNAME* will attempt to link object files with a library file
+  ‘libNAME.a’ in the standard library directories. Additional directories can specified with
+  command-line options and environment variables, to be discussed shortly. A large program will
+  typically use many -l options to link libraries such as the math library, graphics libraries and
+  networking libraries.
+
+  - Example: =hello-curses.c=
+#+INCLUDE: "./src/hello/hello-curses.c" src c
+  : gcc -Wall hello-curses.c -lcurses -o hello-curses
+  
+** Link order of libraries
+
+   The traditional behavior of linkers is to search for external functions from left to right in the
+   libraries specified on the command line. This means that *a library containing the definition of a
+   function should appear after any source files or object files which use it*. This includes
+   libraries specified with the short-cut -l option, as shown in the following command:
+
+   : $ gcc -Wall calc.c -lm -o calc   (correct order)
+
+   With some linkers the opposite ordering (placing the -lm option before the file which uses it)
+   would result in an error,
+
+   : $ cc -Wall -lm calc.c -o calc    (incorrect order)
+   : main.o: In function `main':
+   : main.o(.text+0xf): undefined reference to `sqrt'
+
+   because there is no library or object file containing sqrt after ‘calc.c’. The option -lm should
+   appear after the file ‘calc.c’.
+
+   When several libraries are being used, the same convention should be followed for the libraries
+   themselves. A library which calls an external function defined in another library should appear
+   before the library containing the function.
+
+   For example, a program ‘data.c’ using the GNU Linear Programming library ‘libglpk.a’, which in
+   turn uses the math library ‘libm.a’, should be compiled as,
+
+   : $ gcc -Wall data.c -lglpk -lm
+
+   since the object files in ‘libglpk.a’ use functions defined in ‘libm.a’.
+
+   Most current linkers will search all libraries, regardless of order, but since some do not do
+   this it is best to follow the convention of ordering libraries from left to right.
+
+   This is worth keeping in mind if you ever encounter unexpected problems with undefined
+   references, and all the necessary libraries appear to be present on the command line.
+
+   - Use =pkg-config= to ease your life
+
+     : gcc -Wall hello-gtk.c -o hello-gtk `pkg-config --cflags gtk+-2.0` `pkg-config --libs gtk+-2.0`
+     - =hello-gtk.c= 
+#+INCLUDE: "./src/hello/hello-gtk.c" src c
+  
+
+* Using library header files
+
+  When using a library it is essential to include the appropriate header files, in order to declare
+  the function arguments and return values with the correct types. Without declarations, the
+  arguments of a function can be passed with the wrong type, causing corrupted results.
+
+  The following example shows another program which makes a function call to the C math library. In
+  this case, the function pow is used to compute the cube of two (2 raised to the power of 3):
+  - =lm.c=
+#+INCLUDE: "./src/lm/lm.c" src c
+
+  However, the program contains an error -- *the #include statement for ‘math.h’ is missing*, so the
+  prototype =double pow (double x, double y)= given there will not be seen by the compiler.
+
+  Compiling the program without any warning options will produce an executable file which gives
+  incorrect results:
+
+  : $ gcc lm.c -lm
+  : $ ./a.out
+  : Two cubed is 2.851120    (incorrect result, should be 8)
+
+  The results are corrupted because the arguments and return value of the call to pow are passed
+  with incorrect types. This can be detected by turning on the warning option -Wall:
+
+  : $ gcc -Wall lm.c -lm
+  : lm.c: In function `main':
+  : lm.c:6: warning: implicit declaration of function `pow'
+
+  This example shows again the importance of using the warning option -Wall to detect serious
+  problems that could otherwise easily be overlooked.

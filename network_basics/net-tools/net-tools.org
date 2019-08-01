@@ -1,0 +1,640 @@
+#+TITLE:     Familiar With Linux Networking Command Line Tools
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:3 toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS:   author:t creator:t timestamp:t
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:
+#+LINK_HOME:
+
+* iproute2, =ifconfig=, =arp=, =route= --- Configure A Network Interface
+  - *References*
+    #+BEGIN_SRC sh
+    man ip
+    man ip-address
+    man ip-link
+    man ip-neighbour
+    man ip-route
+    man ifconfig
+    man arp
+    man route
+    #+END_SRC
+  - To *show* active network interfaces
+    #+BEGIN_SRC sh
+    ip addr
+    ip addr show eth0
+    ip addr show up
+    ip -s link
+    # or
+    ifconfig -a
+    ifconfig eth0
+    ifconfig
+    #+END_SRC
+  - To *assign* IP address 192.168.8.8 to /eth0/
+    #+BEGIN_SRC sh
+    ip addr add 192.168.8.8/24 dev eth0
+    ip addr add 192.168.8.9/24 dev eth0 label eth0:1
+    # or
+    ifconfig eth0 192.168.8.8 netmask 255.255.255.0
+    ifconfig eth0:1 192.168.8.9 netmask 255.255.255.0
+    #+END_SRC
+  - To *delete* IP address
+    #+BEGIN_SRC sh
+    ip addr del 192.168.8.9/24 dev eth0
+    #+END_SRC
+  - To bring /eth0/ up
+    #+BEGIN_SRC sh
+    ip link set eth0 up
+    # or
+    ifconfig eth0 up
+    #+END_SRC
+  - To bring /eth0/ down
+    #+BEGIN_SRC sh
+    ip link set eth0 down
+    # or
+    ifconfig eth0 down    
+    #+END_SRC
+  - ARP
+    #+BEGIN_SRC sh
+    ### Display the ARP cache
+    ip neigh show
+    # or
+    arp -an
+    # or
+    ip neigh show dev eth0
+    ip neigh show 192.168.1.1
+
+    ### Add a permanent ARP entry
+    ip neigh add 192.168.1.4 lladdr aa:bb:cc:dd:ee:ff dev eth0 nud permanent
+    # or
+    arp -i eth0 -s 192.168.1.4 aa:bb:cc:dd:ee:ff
+
+    ### Change an ARP entry
+    ip neigh change 192.168.1.4 lladdr aa:bb:cc:dd:ee:ff dev eth0
+
+    ### Delete an entry
+    ip neigh del 192.168.1.4 lladdr aa:bb:cc:dd:ee:ff dev eth0 nud permanent
+    # or
+    arp -d 192.168.1.4
+
+    ### Flush the ARP cache
+    ip neigh flush dev eth0
+    #+END_SRC      
+      
+* ping --- send ICMP ECHO_REQUEST to network hosts
+To check network availability to some host, e.g. /cs3.swfu.edu.cn/, do
+#+BEGIN_SRC sh
+ping cs3.swfu.edu.cn
+# ping 10 times
+ping -c 10 cs3.swfu.edu.cn
+# ping every 10 seconds
+ping -i 10 cs3.swfu.edu.cn
+#+END_SRC
+
+* route --- show / manipulate the IP routing table
+#+BEGIN_SRC sh
+### Check routing table
+ip route show
+ip route get 202.203.132.244
+# or
+netstat -rn
+# or
+route -n
+
+### Manually add a new route to a host (e.g. 192.168.1.5) through gateway 192.168.1.1, do
+ip route add 192.168.1.5/24 via 192.168.1.1
+# or
+route add 192.168.1.5 netmask 255.255.255.255 gw 192.168.1.1
+
+### Manually add a default route through gateway 192.168.1.1, do
+ip route add default via 192.168.1.1
+# or
+route add default gw 192.168.1.1
+  
+### To manually delete a route
+ip route del 192.168.1.5/24 via 192.168.1.1
+# or
+route del 192.168.1.5
+  
+### To manually delete a default route
+ip route del default
+# or
+route del default
+#+END_SRC  
+  
+- =man route= for more examples.
+* netstat --- Print network information
+=netstat= displays all open sockets by default
+#+BEGIN_SRC sh
+netstat
+### Display only TCP connections
+netstat --tcp --numeric
+
+### Show which program is listening on which port
+netstat --tcp --listening --programs
+
+### Show routing table
+netstat --route
+
+### Display network statistics
+netstat --statistics
+#+END_SRC
+
+* tcpdump --- dump traffic on a network
+You have to be /root/ (=sudo=) to execute most =tcpdump= functions.
+** Exercise --- Get a clear idea about the output
+#+BEGIN_SRC sh
+### 1. Open a CLI terminal *A*, type:
+tcpdump -XS -i lo host localhost
+
+### 2. Open another CLI terminal *B*, and type:
+nc -l 3333
+
+### 3. Open one more CLI terminal *C*, type:
+nc localhost 3333
+
+# Can you see the 3-way handshake in terminal *A*?
+
+### 4. Now, in terminal *B* or *C*, type any single letter to see what you get in terminal *A*.
+#      Try to explain what you have seen.
+#+END_SRC
+   
+** Basic examples
+#+BEGIN_SRC sh
+tcpdump -nS
+tcpdump -nnvvS
+tcpdump -nnvvXS
+tcpdump -nnvvXS -c2 icmp
+tcpdump ip6
+   
+### To capture packets that are above or below a certain size:
+tcpdump less 128
+tcpdump greater 256
+tcpdump > 256
+tcpdump <= 128
+#+END_SRC
+
+** host/src/dst
+#+BEGIN_SRC sh
+### To print all packets arriving at or departing from cs3:
+tcpdump host cs3.swfu.edu.cn
+
+### To print all packets departing from cs3:
+tcpdump src  cs3.swfu.edu.cn
+
+### To print all packets arriving at cs3:
+tcpdump dst  cs3.swfu.edu.cn
+#+END_SRC
+   
+** proto
+
+#+BEGIN_SRC sh
+### works for 'tcp', 'udp', and 'icmp'. Note that you don't have to type 'proto'
+tcpdump icmp
+tcpdump udp
+tcpdump tcp
+#+END_SRC
+
+#+RESULTS:
+
+** port 
+#+BEGIN_SRC sh
+### see only traffic to or from a certain port
+tcpdump port 80
+#+END_SRC
+
+** src port, dst port
+#+BEGIN_SRC sh
+tcpdump src port 1025
+tcpdump dst port 80
+#+END_SRC
+
+** portrange
+#+BEGIN_SRC sh
+### see traffic to any port in a range
+tcpdump portrange 21-23
+#+END_SRC
+
+** src/dst, port, protocol
+#+BEGIN_SRC sh
+### combine all three
+tcpdump tcp and dst port 80
+tcpdump tcp dst port 80
+tcpdump tcp port 80
+
+### Capture both DNS packets and TCP packets to/from cs3.swfu.edu.cn
+tcpdump "(tcp and host cs3.swfu.edu.cn) or udp port 53"
+#+END_SRC
+  
+** read/write
+#+BEGIN_SRC sh
+### write output to a file, or read a data file
+tcpdump -s 1514 port 80 -w capture_file
+tcpdump -r capture_file
+#+END_SRC
+
+** grouping --- for complex queries
+#+BEGIN_SRC sh
+tcpdump src 10.0.2.4 and (dst port 3389 or 22)
+# Error? try this:
+tcpdump 'src 10.0.2.4 and (dst port 3389 or 22)'
+#+END_SRC
+
+** References 
+- [[http://danielmiessler.com/study/tcpdump/][A tcpdump Tutorial and Primer]]
+- =man tcpdump=
+- [[http://www.ietf.org/rfc/rfc793.txt][RFC793]]
+- [[http://www.ietf.org/rfc/rfc791.txt][RFC791]]  
+- [[http://tutorial.msamir.net/tcpdump.htm][tcpdump video tutorial]]
+
+* iptables --- administration tool for IPv4 packet filtering and NAT
+** References
+- [[http://www.netfilter.org/documentation/]]
+- [[http://www.frozentux.net/iptables-tutorial/chunkyhtml/][Iptables Tutorial]]
+- =man iptables=
+- [[http://tldp.org/LDP/nag/nag.html][Linux Network Administrators Guide]], chapter 9.
+- [[http://cs3.swfu.edu.cn/pub/Books/network/OReilly-TCPIPNetworkAdministration3rdEdition.chm][TCP/IP Network Administration]], 3rd Edition, Apr 2002, O´REILLY.
+- [[http://en.wikipedia.org/wiki/iptables][Wikipedia -- iptables]]
+- [[http://www.faqs.org/rfcs/rfc2663.html][RFC2663 -- NAT Terminology and Considerations]]
+- [[http://www.faqs.org/rfcs/rfc3022.html][RFC3022 -- Traditional NAT]]
+- [[http://www.faqs.org/rfcs/rfc2827.html][RFC2827 -- Network Ingress Filtering]]
+- [[http://www.faqs.org/rfcs/rfc1858.html][RFC1858 -- Security Considerations - IP Fragment Filtering]]
+- [[http://www.faqs.org/rfcs/rfc3128.html][RFC3128 -- Protection Against a Tiny Fragment Attack]]
+** Big picture
+# uncomment the ditaa source to regenerate the fig.
+#+BEGIN_SRC ditaa :file ./chains.png :cmdline -r -s2 :exports results :results output
+          +--------+    +-------+
+Incoming  |Routing |    | cRED  |          Outgoing
+     ---->|Decision|--->|FORWARD|------------>
+          |        |    |  {o}  |       ^
+          +----+---+    +-------+       |
+               |                        |
+               v                        |
+            +-----+                 +---+----+
+            |cRED |                 | cRED   |
+            |INPUT|                 | OUTPUT |
+            | {o} |                 |  {o}   |
+            +--+--+                 +--------+
+               |                        ^
+               |     +-------------+    |
+               +---->|Local Process|----+
+                     +-------------+
+#+END_SRC
+
+#+results:
+[[file:./chains.png]]
+
+** Basic Examples
+You have to be *root* (=sudo=) to execute iptables functions.
+#+BEGIN_SRC sh
+### Add a rule into the INPUT chain, to drop all packets from 147.8.212.123, do
+iptables -A INPUT -s 147.8.212.123 -p all -j DROP
+
+### To delete this rule, do
+iptables -D INPUT -s 147.8.212.123 -p all -j DROP
+
+### Drop ICMP packets from localhost, do
+iptables -A INPUT -s 127.0.0.1 -p icmp -j DROP
+
+### Drop ping packets from anywhere except localhost, do
+iptables -A INPUT -s ! 127.0.0.1 -p all -j DROP
+
+### Filter a network segment, do
+iptables -A INPUT -s 192.168.1.0/24 -p all -j DROP
+#+END_SRC
+
+** More Examples
+#+BEGIN_SRC sh
+### Syn-flood protection
+iptables -A FORWARD -p tcp --syn -m limit --limit 1/s -j ACCEPT
+
+### Furtive port scanner proctetion
+iptables -A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT
+
+### Ping of death proctetion
+iptables -A FORWARD -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
+#+END_SRC
+
+* netcat --- TCP/IP swiss army knife
+- From [[http://www.g-loaded.eu/2006/11/06/netcat-a-couple-of-useful-examples/]]
+** Setup a simple C/S chat session
+Suppose the server IP is =202.203.132.244=
+#+BEGIN_SRC sh
+### At the server side, do
+nc -l 3333
+
+### At the client side, do
+nc 202.203.132.244 3333
+# Start chatting
+#+END_SRC
+
+** Transferring Files
+#+BEGIN_SRC sh
+### 1. Similar to the chat example above, at the server side, do
+cat backup.iso | nc -l 3333
+
+### 2. At the client side, do
+nc 202.203.132.242 3333 > backup.iso
+
+### As you may have noticed, netcat does not show any info about the progress of the
+#   data transfer. This is inconvenient when dealing with large files. In such cases, a
+#   pipe-monitoring utility like =pv= can be used to show a progress indicator. For
+#   example, the following shows the total amount of data that has been transfered in
+#   real-time on the server side:
+cat backup.iso | pv -b | nc -l 3333
+
+### Of course, the same can be implemented on the client side by piping netcat's output through =pv=:
+nc 202.203.132.242 3333 | pv -b > backup.iso
+#+END_SRC
+
+** Other Examples
+#+BEGIN_SRC sh
+### 1. Netcat is extremely useful for creating a partition image and sending it to a remote machine on-the-fly:
+dd if=/dev/hdb5 | gzip -9 | nc -l 3333
+
+# On the remote machine, connect to the server and receive the partition image with the following command:
+nc 202.203.132.242 3333 | pv -b > myhdb5partition.img.gz
+# This might not be as classy as the partition backups using =partimage=, but it is efficient.
+
+### 2. Another useful thing is to compress the critical files on the server machine with =tar=
+#      and have them pulled by a remote machine:
+tar -czf - /etc/ | nc -l 3333
+# As you can see, there is a dash in the tar options instead of a filename. This is because
+# tar's output needs to be passed to netcat.
+
+# On the remote machine, the backup is pulled in the same way as before:
+nc 202.203.132.242 3333 | pv -b > mybackup.tar.gz
+
+### 3. IPv6
+# In terminal A:
+nc -6 -l 3333
+
+# In terminal B:
+nc -6 ::1 3333
+#+END_SRC
+
+** Telnet-like Usage
+Netcat can be used in order to talk to servers like telnet does. For example, in order
+to get the definition of the word “server” from the “WordNet” database at the dict.org
+dictionary server, I’d do:
+#+BEGIN_SRC sh
+nc dict.org 2628
+DEFINE wn server
+#+END_SRC
+
+** Works as a Port Scanner too
+A useful command line flag is =-z=. When it is used, netcat does not initiate a
+connection to the server, but just informs about the open port it has found. Also,
+instead of a single port, it can accept a port-range to scan. For example:
+#+BEGIN_SRC sh
+nc -z cs3.swfu.edu.cn 80-90
+#+END_SRC
+
+In this example, netcat scanned the 80-90 range of ports.
+** Grab Port Banners
+So we're interested in knowing what's running behind port 80 and 21. We can use netcat to grab
+port banners in the following way:
+#+BEGIN_SRC sh
+nc -v -n 202.203.132.242 80
+nc -v -n 202.203.132.242 21
+#+END_SRC
+- more examples:
+  - [[http://en.wikipedia.org/wiki/Netcat]]
+  - The man page contains some more interesting examples, so take the time to read it.
+
+* nmap --- Network exploration tool and security / port scanner
+  You have to be *root* to execute most nmap functions.
+  - *References*
+    - [[http://www.gnulinuxclub.org/index.php%3Foption%3Dcom_content&task%3Dview&id%3D350&Itemid%3D31][NMap tutorial for beginners]]
+    - [[http://nmap.org/bennieston-tutorial/][NMAP - A Stealth Port Scanner]]
+** Simple Examples
+#+BEGIN_SRC sh
+nmap 202.203.132.244
+
+### no reverse DNS lookup:
+nmap -n 202.203.132.244
+
+### verbose:
+nmap -n -v 202.203.132.244
+
+### even more:
+nmap -n -vv 202.203.132.244
+#+END_SRC
+
+** Scanning more than one machine
+
+#+BEGIN_SRC sh
+nmap -n -vv 202.203.132.242,244
+nmap -n -vv 202.203.132.241-244
+nmap -n -vv 202.203.132.241-242,244
+nmap -n -vv 202.203.132.*
+nmap -n -vv 202.203.132.192-255
+nmap -n -vv 202.203.132.192/26
+
+nmap -vv -n 192.168.0-2.*
+nmap -vv -n 192.168.0,1,2.0-255
+#+END_SRC
+
+** Scanning specific ports:
+
+#+BEGIN_SRC sh
+nmap -vv -n -p 80 202.203.132.244
+nmap -vv -n -p 21,23,25,80-120 202.203.132.244
+nmap -vv -n -p 21,23,25,80-120 202.203.132.241-244
+#+END_SRC
+
+** Various Scanning options:
+There are many scanning options available with Nmap. All have their advantages and
+disadvantages. You should use them according to your requirements.
+
+*** =-sS=
+#+BEGIN_SRC sh
+### SYN scanning (this is the default option)
+nmap -vv -n -sS 202.203.132.244
+#+END_SRC
+
+TCP SYN scan gather information about open ports without completing the TCP handshake
+process. When an open port is identified, the TCP handshake is reset before it can be
+completed. This technique is often referred to as “half open” scanning.
+
+It's the default scanning technique if you are *root*. It's the most common scan to
+use because it works on all networks, across all operating systems.
+
+- ADV :: The TCP SYN scan never actually creates a TCP session so isn't logged by the
+         destination host's applications. And hence it's a quiet scan.
+- DISADV :: You need privileged access to the system.
+
+*** =-sT=
+#+BEGIN_SRC sh
+### TCP connect scanning
+nmap -vv -n -sT 202.203.132.244
+#+END_SRC
+It performs the 3-way handshake.
+- ADV :: You don't need to have privileged access.
+- DISADV :: Since it completes a TCP connection so apparent when application
+            connection logs are examined.
+
+*I would suggest you to never ever use this scan*.
+
+*** =-sF=, =-sX=, =-sN=
+#+BEGIN_SRC sh
+### FIN scan
+nmap –vv –n –sF 218.194.106.91
+
+### Xmas tree scan
+nmap –vv –n –sX 192.168.0.1
+
+### NULL scan
+nmap –vv –n –sN 192.168.0.1
+#+END_SRC
+
+These are called “stealth” scans. They send a single frame to a TCP port without any TCP
+handshaking or additional packet transfers. They are more “stealth” than SYN scan and must be
+used if the remote machine is not a Windows-based machine. I’ll tell you why.
+
+These scans operate by manipulating the bits of the TCP header. Nmap creates TCP headers that
+combine bit options that should never occur in the real world. These purposely mangled TCP
+header packets are thrown at a remote device, and nmap watches for the responses.
+
+Window-based systems will reply with a RST frame for all queries, regardless of the status of
+the specific port that was queried.
+
+- ADV :: Since no TCP sessions are established, they are quiet stealthy.
+- DISADV :: Can't be used against windows-based machine.
+
+*** =-sU=
+#+BEGIN_SRC sh
+### UDP scan
+nmap -vv -n -sU 202.203.132.244
+#+END_SRC
+The only scan in the arsenal of Nmap to identify UDP ports.
+*** =-sO=
+#+BEGIN_SRC sh
+### Protocol scan
+nmap -vv -n -sO 202.203.132.244
+#+END_SRC
+Sometimes it has to be checked that what protocols the remote machine is running. It locates
+uncommon IP protocols that may be in use on the remote system. Hence it helps determining the
+type of remote device, i.e. is that router or printer or workstation etc.
+
+- DISADV :: This scan will appear on any network monitoring application that identifies the IP
+            protocol types in use.
+
+*** =-sR=
+#+BEGIN_SRC sh
+### RPC scan
+nmap -vv -sR 202.203.132.244
+#+END_SRC
+It's used to locate and identify RPC applications. It runs automatically during a version scan
+(-sV, explained later)
+
+- DISADV :: RPC scan opens application sessions and hence it will be logged.
+
+*** =-sV=
+#+BEGIN_SRC sh
+### Version scan
+nmap –vv –sV 202.203.132.244
+#+END_SRC
+The scans which we have seen by now give you the status of the port and the service running on
+them. For exploiting the service you need the exact version number of the service. Version scan
+gives you this.
+
+- DISADV :: It opens sessions with the remote applications, which will often display in an
+            application's log file. 
+
+*** =-sA=
+#+BEGIN_SRC sh
+### ACK scan
+nmap –vv –sA 218.194.106.91
+#+END_SRC
+It's quite useful when there is some packet filtering device or firewall. It never locates an
+open port. It does the job of identifying ports that are filtered through a firewall. It doesn't
+open any application sessions and hence the conversation between nmap and the remote device is
+relatively simple.
+- DISADV :: It can only tell whether port is filtered or unfiltered.  But can never definitively
+            identify an open port.
+
+*** =-sI=
+#+BEGIN_SRC sh
+### Idle scan
+nmap –vv –sI 218.194.106.91
+#+END_SRC
+It's the stealthy most scan you can have. Tough to launch because you need a zombie for it. It
+would not be justice with this great scan to be described in just few lines. I would recommend
+you to read it in detail.
+- ADV :: You will never be caught.
+- DISADV :: Tough to launch as it's not easy to find some zombie machine.
+
+*** =-sP=: Ping scan
+
+You must have heard of /ping sweep/. It's Nmap's ping sweep.
+#+BEGIN_SRC sh
+# To check whether this machine is up or not, do
+nmap –vv –sP 192.168.0.10
+
+# To check the whole subnet (254) machines and will tell you which are up.
+nmap –vv –sP 192.168.0.*
+#+END_SRC
+- DISADV :: Ping scan will not interoperate with any other type of scan.
+
+*** =-sW=: Window scan
+
+Forget it. As the number of operating systems vulnerable to its methodology is dwindling as
+operating systems are upgraded and patched.
+
+*** =-sL=: List scan
+
+Would like to say only one line about it that you must use it if a separate application provides
+nmap with a list of IP addresses. Rest read yourself.
+
+** O/S fingerprinting and version detection
+
+Ok, now you can use various scanning techniques to look for open/closed or filtered/unfiltered
+TCP as well as UDP ports. Don't you want to know the remote operating system running?
+
+*** =-O=
+#+BEGIN_SRC sh
+### Operating system fingerprinting
+nmap -vv -O 202.203.132.241,244
+#+END_SRC
+
+It will tell you or at least tries its best to tell you the remote operating system along with
+the version it's using. It at least need one open and one close TCP port. In case it doesn't, it
+won't be able to give the accurate result. In that case you should use some third party tool.
+
+- DISADV :: A trained eye will quickly identify that someone is watching the network.
+
+*** =-sV=
+#+BEGIN_SRC sh
+### Version detection
+nmap -vv -sV 202.203.132.244
+#+END_SRC
+As has been explained it will help you know the version of the service running on the remote
+machine.
+
+*** =-A=: Additional, Advanced, Aggressive option
+
+Its comprises of both the operating system fingerprinting process (=-O=) and the version scanning
+process (=-sV=). i.e following two are same:
+#+BEGIN_SRC sh
+nmap -vv -sV -O 202.203.132.244
+nmap -vv -A 202.203.132.244
+#+END_SRC
+
+** Typical scenario
+1. First, we’ll sweep the network with a simple Ping scan to determine which hosts are online.
+   #+BEGIN_SRC sh
+   nmap -sP 202.203.132.192/26
+   #+END_SRC
+   Tell me how many hosts are up?
+2. Now we’re going to take a look at 202.203.132.240-242,244. These IPs belong to School of CIS.
+   We’ll scan 202.203.132.240-242,244 using a SYN scan [-sS] and -A to enable OS fingerprinting
+   and version detection.
+   #+BEGIN_SRC sh
+   nmap -sS -A -n -vv 202.203.132.240-242,244
+   #+END_SRC
+   Tell me what OS they are running? What services are they running?

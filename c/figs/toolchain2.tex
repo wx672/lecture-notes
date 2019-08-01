@@ -1,0 +1,86 @@
+\documentclass[tikz, svgnames]{standalone}
+
+\usepackage{wx672tikz}
+\setmainfont{Purisa}
+
+\begin{document}
+
+\tikzstyle{arrow} = [thick,->]%,decorate
+\tikzstyle{roundbox} += [ellipse,fill=orange!20,align=center]
+\tikzstyle{squarebox} += [fill=blue!10,align=center]
+
+\begin{tikzpicture}[thick,
+  % decoration={random steps,segment length=7pt,amplitude=.7pt}  
+  ]
+  
+  \node (man) at (0,0) [scale=.05] {\includegraphics{programmer}};
+  
+  \node (ed) [below=of man.south,anchor=north,yshift=1cm,draw,roundbox] {Editor\\(emacs)};
+
+  \node (ed1) [right=5mm of ed] {\$ emacs hello.c};
+  
+  \node (src) [below=of ed.south,anchor=north,yshift=.5cm,draw,squarebox] {C source
+    code\\(hello.c)};
+  
+  \node (incl) [right=1pt of src.east,anchor=west,draw,squarebox] {Include files,
+    macros\\(stdio.h)};
+
+  \node (cpp) [below=of src.east,anchor=north,draw,roundbox,scale=.8] {C
+    Preprocessor\\(cpp)};
+
+  \node (cpp1) [right=3mm of cpp,align=left] {\$ cpp hello.c\\\$ gcc -E hello.c};
+
+  \node (extsrc) [below=of cpp,anchor=north,yshift=5mm,draw,squarebox] {Extended
+  C source code\\(hello.c)};
+  
+  \node (compiler) [below=of extsrc.south,anchor=north,yshift=5mm,draw,roundbox]
+  {Compiler\\(gcc)};
+
+  \node (compiler1) [right=5mm of compiler,align=left] {\$ cc1 hello.i -o hello.s\\\$ gcc -S hello.c};
+  
+  % \node (point1) [above= of compiler.north,anchor=south,yshift=-20pt] {};
+  
+  \node (asm) [below=of compiler.south,anchor=north,yshift=.5cm,draw,squarebox] {ASM source
+    code\\(hello.s)};
+  
+  \node (assembler) [right=3.5cm of ed1.east,anchor=west,draw,roundbox]
+  {Assembler\\(gas)};
+
+  \node (assembler1) [right=5mm of assembler,align=left] {\$ as hello.s -o hello.o\\\$ gcc -c hello.c};
+  
+  \node (obj) [below=of assembler.south,anchor=north,yshift=.5cm,draw,squarebox] {Object
+    code\\(hello.o)};
+  
+  \node (lib) [right=of obj.east,anchor=west,draw,squarebox] {Libraries\\(printf)};  
+  
+  \node (linker) [below=of obj.south,anchor=north,yshift=.5cm,draw,roundbox]
+  {Linker\\(ld)};
+
+  \node (linker1) [right=5mm of linker,align=left] {\$ ld hello.o LIBs\\\$ gcc -o hello hello.c};
+  
+  \node (exe) [below=of linker.south,anchor=north,yshift=.5cm,draw,squarebox]
+  {Executable program\\(hello)};
+  
+  \node (dbg) [below=of exe.south,anchor=north,yshift=.5cm,draw,roundbox]
+  {Debugger\\(gdb)};
+
+  \node (dbg1) [right=3mm of dbg,align=left] {\$ gcc -g hello.c -o hello\\\$ gdb hello};
+  
+  \draw[arrow] (ed)--(src);
+  \draw[arrow] (src)--(cpp);
+  \draw[arrow] (incl)--(cpp);
+  \draw[arrow] (cpp)--(extsrc);
+  \draw[arrow] (extsrc)--(compiler);
+  \draw[arrow] (compiler)--(asm);
+  \draw[arrow] (asm.east)-| ($(assembler.west) + (-1cm,0)$) -- (assembler.west);
+  \draw[arrow] (assembler)--(obj);
+  \draw[arrow] (obj)--(linker);
+  \draw[arrow] (linker)--(exe);
+  \draw[arrow] (exe)--(dbg);
+  \draw[arrow] (lib)--(linker);
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

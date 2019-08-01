@@ -1,0 +1,3 @@
+lsof -n -i -P
+sudo netstat -tulpen
+sudo lsof -i :1080

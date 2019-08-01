@@ -1,0 +1,26 @@
+\documentclass[varwidth=16em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+\usemintedstyle{bw}
+
+\begin{document}
+\begin{ccode}
+#define N 5
+semaphore mutex=1;
+  
+void philosopher(int i)
+{
+    while (TRUE) {
+      think();
+      wait(&mutex);
+         take_fork(i);
+         take_fork((i+1) % N);
+         eat();
+         put_fork(i);
+         put_fork((i+1) % N);
+      signal(&mutex);
+    }
+}        
+\end{ccode}
+\end{document}

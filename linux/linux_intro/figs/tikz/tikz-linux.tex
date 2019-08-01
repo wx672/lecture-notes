@@ -1,0 +1,134 @@
+\documentclass{article}
+
+\usepackage{opts}
+
+\begin{document}
+
+% \listoffigures
+% \clearpage
+
+\tikzsetnextfilename{os}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    %%% background image
+    \node[anchor=south west] (image) at (0,0)%
+    {\includegraphics[width=.8\textwidth]{os-placement}};
+
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+      % %%% grid
+      % \draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);%
+      % \foreach \x in {0,1,...,9} { \node [xy,anchor=north] at (\x/10,0) {0.\x}; }%
+      % \foreach \y in {0,1,...,9} { \node [xy,anchor=east] at (0,\y/10) {0.\y}; }%
+
+      %%% start annotating here %%%
+      \node [scale=7,gray] at (.82,.11) {\nerd };
+      \node [scale=9,opacity=.9] at (.8,.37) {\nerd };
+      \node [scale=12,black] at (.83,.62) {\nerd };
+      \node [scale=8,gray] at (.75,.88) {\nerd };
+      
+    \end{scope}
+  \end{tikzpicture}
+  \caption{OS placement}
+  \label{fig:os-placement}
+\end{figure}
+
+\tikzsetnextfilename{2014}
+\begin{figure}
+  \centering\resizebox{.7\textwidth}{!}{
+  \begin{tikzpicture}
+    %%% background image
+    \node[anchor=south west] (image) at (0,0)%
+    {\includegraphics[width=\paperwidth]{opensourceweb2014}};
+
+    \begin{scope}[x={(image.south east)},y={(image.north west)}]%
+      % %%% grid
+      % \draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);%
+      % \foreach \x in {0,1,...,9} { \node [xy,anchor=north] at (\x/10,0) {0.\x}; }%
+      % \foreach \y in {0,1,...,9} { \node [xy,anchor=east] at (0,\y/10) {0.\y}; }%
+
+      %%% start annotating here %%%
+      \node [scale=6,rotate=30,violet] at (.1,.9) {2014};
+    \end{scope}
+  \end{tikzpicture}}
+  \caption{Open source owns the web}
+  \label{fig:opensourceweb}
+\end{figure}
+\tikzsetnextfilename{company}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[mindmap,%
+    concept color=gray!10,%
+    level 1 concept/.append style={concept color=gray!20},%
+    grow cyclic,level 1/.style={sibling angle=45,level distance=7cm}]
+  
+    \node [concept] {\scalebox{9}{\linux\hspace{-1.07ex}\scriptsize\gnu}}%
+    child {node [concept] {\includegraphics[height=4em]{intel}} }%
+    child {node [concept] {\includegraphics[height=2em]{AMD}}}%
+    child {node [concept] {\includegraphics[height=3em]{cisco}}}%
+    child {node [concept] {\includegraphics[height=2em]{google}}}%
+    child {node [concept] {\includegraphics[height=2em]{IBM}}}%
+    child {node [concept] {\includegraphics[height=5em]{apple}}}%
+    child {node [concept] {{\Huge \ldots}}}%
+    child {node [concept] {\includegraphics[height=5em]{Win_logo}}};%
+  \end{tikzpicture}
+  \caption{Companies who are supporting open source}
+  \label{fig:company}
+\end{figure}
+
+\tikzsetnextfilename{map}
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[small mindmap,%inner sep=0pt,
+    grow cyclic,% concept color=black!10, 
+    every node/.style={concept},%
+    concept color=black!20,
+    level 1/.append style={level distance=4.5cm,sibling angle=120},%
+    level 2/.append style={level distance=2.3cm},
+    level 3/.append style={level distance=1.8cm, sibling angle=40},
+    level 3 concept/.append style={sibling angle=60}
+    ]
+    
+    \node [root concept] {\scalebox{7}{{\Large\linux}\hspace{-2.3ex}\scriptsize\gnu}}%
+    child {node {\Huge\ldots}}%
+    child [red!90!black,concept color=red!30] {node {\scalebox{6}{\debian}}%
+      child [orange!90!red,concept color=orange!20] {node {\scalebox{5}{\ubuntu}}%
+        child [green!80!black] {node {\scalebox{3}{\linuxmint}}}%
+        child {node {\Large\ldots}} child {node {\Large\ldots}} child {node {\Large\ldots}}}%
+      child {node {\LARGE\ldots}} child {node {\LARGE\ldots}} child {node {\LARGE\ldots}}}%
+    child [red!90!black,concept color=blue!30] {node {\scalebox{6}{\redhat}}%
+      child {node {\LARGE\ldots}}%
+      child [blue!90!black] {node {\scalebox{4}{\fedora}}}%
+      child [blue!90!black] {node {\scalebox{4}{\centos}}}};
+\end{tikzpicture}
+\caption{Linux distributions}
+\label{fig:distribution}
+\end{figure}
+
+\tikzsetnextfilename{pros}
+\begin{figure}
+  \centering\resizebox{.6\textwidth}{!}{
+    \begin{tikzpicture}[large mindmap,%
+      concept color=black!5!white,
+      % root concept/.append style={text=gray},
+      level 1 concept/.append style={font=\fontspec{Humor Sans}\large},%
+      grow cyclic]%
+  
+    \node [concept] {\scalebox{10}{\linux\hspace{-1.07ex}\scriptsize\gnu}}%
+    child [concept color=red!80] {node [concept] {Network friendly} }%
+    child [concept color=orange] {node [concept] {Multi-user}}%
+    child [concept color=yellow!80!orange] {node [concept] {Reliable}}%
+    child [concept color=green!95!blue] {node [concept] {Open source}}%
+    child [concept color=blue!50] {node [concept] {Free of charge}}%
+    child [concept color=violet!70] {node [concept] {Backward compatible}};
+  \end{tikzpicture}}
+  \caption{Linux is great}
+  \label{fig:pros}
+\end{figure}
+%\tikzsetnextfilename{whylinux}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

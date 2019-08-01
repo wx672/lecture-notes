@@ -1,0 +1,36 @@
+\documentclass[varwidth,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+  File inode (128B)
+┌─────────┬─────────┐
+│  Type   │  Mode   │
+├─────────┼─────────┤
+│ User ID │Group ID │
+├─────────┼─────────┤
+│File size│# blocks │
+├─────────┼─────────┤
+│ # links │  Flags  │
+├─────────┴─────────┤
+│  Timestamps (×3)  │   
+├───────────────────┤   
+│                   │   ┌────┐
+│Direct blocks (×12)├──>│Data│
+│                   │   └────┘
+├───────────────────┤   ┌───┐  ┌────┐
+│  Single indirect  ├──>│Ptr├─>│Data│
+├───────────────────┤   └───┘  └────┘
+│  Double indirect  ├──> Ptr ─> Ptr ─> Data
+├───────────────────┤ 
+│  Triple indirect  ├──> Ptr ─> Ptr ─> Ptr ─> Data
+└───────────────────┘ 
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% End:

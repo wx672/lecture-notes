@@ -1,0 +1,40 @@
+* Answer why
+- why networking?
+- why standard? need potocol
+- why layered design?
+- 
+
+* RFC1180 - TCP/IP tutorial
+* IP, Subnetting, CIDR
+* IPv6
+* TCP, UDP
+* App layer services
+** web
+   - HTTP
+     - Client/Server
+   - SSL/TLS
+   - LAMP
+** ftp
+** email
+* Lab work
+** Google
+** Network tools
+** Network devices
+* WLAN
+  - supplement to wired LANs
+  - BSSID - the MAC address of the AP 
+  - Speed: usually 10-100 Mbps, up to 300 Mbps
+  - Distance (AP to computer) 30-100m
+  - ESS, a set of connected APs
+    - ESSID - 32B (max) string
+  - WLAN Channels
+  - WLAN hotspot
+  - CSMA/CA
+    - RTS/CTS partially solve the hidden node problem
+  - Modulation is defined as the process of manipulating a carrier signal so
+    that it can represent intelligent information.
+    - FHSS: Frequency shift keying (FSK)
+    - DSSS: Differential binary phase shift keying (DBPSK)
+    - OFDM: 
+  - Coding: mainly for error correction
+

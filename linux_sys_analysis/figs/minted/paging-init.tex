@@ -1,0 +1,25 @@
+\documentclass[varwidth=15.3em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+void __init paging_init(void)
+{
+#ifdef CONFIG_X86_PAE
+  /* ... */
+#endif
+  
+  pagetable_init();
+  load_cr3(swapper_pg_dir);
+
+#ifdef CONFIG_X86_PAE
+  /* ... */
+#endif
+
+  __flush_tlb_all();
+  kmap_init();
+  zone_sizes_init();
+}  
+\end{ccode}
+\end{document}

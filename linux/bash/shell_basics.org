@@ -1,0 +1,810 @@
+#+TITLE:     Play With Bash
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION: A basic bash tutorial by examples
+#+KEYWORDS: bash, shell-scripting, linux
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:1 \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS:   author:t creator:t timestamp:t
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:
+#+LINK_HOME:
+# (setq org-export-html-use-infojs nil)
+
+* Basic Commands and Concepts
+** Understanding The File System
+#+BEGIN_SRC dot :file cs2.png :cmdline -Kdot -Tpng :exports results :results output
+digraph cs2 {
+//	ROOT [style=filled, color=red];
+	ROOT -> { bin; boot; dev; etc; home; var; usr}
+	bin -> {ls [shape=box]}
+	boot -> grub;
+	dev -> {tty [shape=box]}
+	etc -> {passwd [shape=box]}
+	home -> {staff; student }
+	staff -> wx672 -> public_html -> {00 [label="index.html", shape=box]};
+	wx672 -> mail;
+	student -> 20101152001 -> {public_html2 [label="public_html"]} -> {000 [label="index.html", shape=box]}
+	var -> {varmail [label="mail"]} -> {wx672mail [label="wx672", shape=box]}
+	usr -> {usrbin [label="bin"]} -> {binemacs [label="emacs", shape=box]}
+	usr -> {usrshare [label="share"]} -> doc -> emacs -> {copyright [shape=box]}
+	node [shape=point];
+	ROOT -> {r1;r2}
+	bin -> {bin0;bin1}
+	boot -> {bt1;bt2}
+	grub -> {g1;g2}
+	dev -> {d1;d2}
+	etc -> {etc1;etc2}
+	home -> {h1;h2}
+	staff -> {staff1;staff2}
+	student -> {stud1;stud2}
+	20101152001 -> {20101;20102}
+	wx672 -> {w1;w2}
+	mail -> {mail1;mail2}
+	public_html -> {pub1;pub2}
+	var -> {v1;v2}
+	usr -> {u1; u2}
+	public_html2 -> {pub21;pub22}
+	varmail -> {vm1;vm2}
+	usrbin -> {ub1;ub2}
+	usrshare -> {us1;us2}
+	doc -> {usdoc1;usdoc2}
+	emacs -> {e1;e2}
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:cs2.png]]
+
+** Must Known Commands
+#+BEGIN_SRC sh
+## Where I am?
+pwd
+
+## What's in current directory?
+ls
+
+## Get into some other directory
+cd /usr/share/doc
+# and see what's in it:
+ls
+# Now, go home
+cd
+
+## I want to have a new folder for my homework
+mkdir homework; ls
+# Now, get into this newly created directory
+cd homework; ls
+
+## Write a c program:
+cat > hello.c
+#include<stdio.h>
+int main(){
+  printf("Hello, world!\n");
+  return 0;
+}
+
+# Now, type "Ctrl-d" to quit. Then...
+ls
+# Compile it
+gcc hello.c -o my-hello
+ls
+# run it
+./my-hello
+
+### Here is a more easy way to say "Hello, world":
+echo Hello, world
+#+END_SRC
+
+The commands you've learnt so far
+: pwd, ls, cd, mkdir, cat, gcc, echo
+  
+Now let's have some more...
+#+BEGIN_SRC sh
+## To change a file name
+mv hello.c hello1.c
+ls
+
+## To make a copy
+cp hello1.c hello2.c
+ls
+
+## To remove a file
+rm hello1.c
+ls
+
+## To see what's in a file
+cat hello2.c
+# or
+less hello2.c
+# or
+more hello2.c
+
+## To edit a file
+nano hello2.c
+# or
+vim hello2.c
+# or
+emacsclient hello2.c
+#+END_SRC
+
+~nano~, ~vim~, and ~emacs~ are the most commonly used editors in Linux.
+
+To read the manual of a command
+#+BEGIN_SRC sh
+man ls
+man mv
+man rm
+man cp
+man man
+#+END_SRC
+
+To find out something about ~music player~
+#+BEGIN_SRC sh
+man -k music player
+#+END_SRC
+
+The commands you have seen
+#+BEGIN_EXAMPLE
+pwd, ls, cd, mkdir, cat, gcc, echo
+mv, cp, rm, less, more
+nano, vim, emacs
+man
+#+END_EXAMPLE
+
+If you want to survive in the terminal, you have to be happy with all the above
+commands.
+
+And there are a lot more to know if you want to be a hacker.
+#+BEGIN_EXAMPLE
+chmod, chown
+info, help
+file, type, which, whereis
+ln, wc, sort, uniq
+ps, w, top, free, du, df
+ssh, scp
+grep, find, pipe
+tar, gzip, 7z
+diff, patch
+#+END_EXAMPLE
+
+and still more...
+
+** CLI shortcuts
+   - *Ctrl-a*: beginning of line
+   - *Ctrl-e*: end of line
+   - *Ctrl-f*: forward
+   - *Ctrl-b*: backward
+   - *Ctrl-n*: next
+   - *Ctrl-p*: previous
+   - *Ctrl-r*: reverse search
+   - *Ctrl-u*: cut to beginning
+   - *Ctrl-k*: kill (cut to end)
+   - *Ctrl-y*: yank (paste)
+   - *Ctrl-d*: delete a character
+   - *TAB*: magic key
+
+** ">", ">>" --- Output to a file
+#+BEGIN_SRC sh
+## To show the current time and date on the screen, you can do:
+date
+# What if you do:
+date > file1
+# See nothing on screen? Check what's in 'file1':
+cat file1
+# Now you see '>' is for outputting to a file
+
+## To show a string on the screen, you can do:
+echo Hello, world
+# See "Hello, world"? Now, do:
+echo 'Hello, world!' >> file1
+cat file1
+# Now you see '>>' is for appending to the end of a file
+echo 'Hello again, world!' >> file1
+cat file1
+#+END_SRC
+
+** ~cat~ --- concatenate files
+#+BEGIN_SRC sh
+## To see what's in a file:
+cat file1
+
+## To output to a file:
+cat file1 > file2
+cat file2
+
+## What does the following command do?
+cat file1 file2
+
+## To append to a file:
+cat file1 >> file2
+cat file2
+
+## To write into a file:
+cat > file2
+# type 'Ctrl-d' on a new line to quit.
+cat file2
+
+## What does the following command do?
+cat >> file2
+#+END_SRC
+
+** Wildcard characters
+#+BEGIN_SRC sh
+## Still following me? If so, you should have 4 files in your 'homework' directory right now
+ls
+# you should see
+# file1  file2  hello  hello2.c
+# Right?
+## Now, do...
+mkdir f h
+ls
+# Now, you should see 2 newly created directories 'f' and 'h', right?
+mv fi* f; mv he* h
+ls
+ls f
+ls h
+ls -R
+#+END_SRC
+   
+See what's happened?
+- "~*~" is a special character means "any number of any characters"
+- "~fi*~" means every file starting with "~fi~" in its name. For example,
+  - ~file~, ~file1~, ~file2~, ~fileanything~, they all match "~fi*~"
+
+  Now you don't have problem with the "~he*~", right?
+
+- "~?~" is another wildcard char means "any /one/ character". For example, still in
+  your ~homework~ directory, you can create some more files with the following command,
+#+BEGIN_SRC sh
+touch fa fb fc faa fbb fcc faaa fbbb fccc
+# Now, you have 9 new empty files created. If you do
+ls f?
+# you can only see 'fa', 'fb', and 'fc'. If you do
+ls f??
+# you can only see 'faa', 'fbb', and 'fcc'.
+# Got the idea? Now, tell me what the following commands do
+mkdir f-test
+mv f? f?? f??? f-test
+#+END_SRC
+
+** Understanding ~ls -l~
+#+BEGIN_EXAMPLE
+-rw------- 1 sam sam    57 Apr 17  1998 weather.txt
+drwxr-xr-x 6 sam sam   102 Oct  9  1999 web_page
+-rw-rw-r-- 1 sam sam 27648 Feb 11 20:41 web_site.tar
+-rw------- 1 sam sam   574 Dec 16  1998 xmas_file.txt
+╷────┬──── ╷ ─┬─ ─┬─ ──┬── ─────┬────── ──────┬──────
+│    │     │  │   │    │        │             │
+│    │     │  │   │    │        │         File Name
+│    │     │  │   │    │        │
+│    │     │  │   │    │        └─── Modification Time
+│    │     │  │   │    │
+│    │     │  │   │    └──────────── Size (in bytes)
+│    │     │  │   │
+│    │     │  │   └───────────────── Group
+│    │     │  │
+│    │     │  └───────────────────── Owner
+│    │     │
+│    │     └──────────────────────── Number of hard links
+│    │
+│    └────────────────────────────── File Permissions
+│
+└─────────────────────────────────── File types
+#+END_EXAMPLE
+
+*** File types
+    - "~d~" --- directory
+    - "~-~" --- regular file
+    - "~l~" --- soft link
+    - "~c~" --- character device
+    - "~b~" --- block device
+    - "~s~" --- socket
+    - "~p~" --- named pipe (FIFO)
+
+*** File modes
+    #+BEGIN_EXAMPLE
+    drwxr-xr-x 2 wx672 wx672 4096 Sep 26 17:59 f/
+    drwxr-xr-x 2 wx672 wx672 4096 Sep 26 20:49 f-test/
+    drwxr-xr-x 2 wx672 wx672 4096 Sep 26 18:00 h/
+     └┼┘└┼┘└┼┘
+      │  │  │
+      │  │  │
+      │  │  └─── Other's permission
+      │  └────── Group's permission
+      └───────── Owner's permission
+    #+END_EXAMPLE
+    - "~rwx~" --- readable, writable, executable
+    - "~r-x~" --- readable, not writable, executable
+    - "~r--~" --- readable, not writable, not executable
+    - "~---~" --- not readable, not writable, not executable
+
+#+REVEAL: split
+   - =chmod= --- change /file modes/
+     : chmod 777 f && ls -l f
+     : chmod 700 f && ls -l f
+     : chmod 600 f && ls -l f
+     : chmod 000 f && ls -l f
+     : chmod 755 f && ls -l f
+     : chmod a+rwx f && ls -l f
+     : chmod a-rwx f && ls -l f
+     : chmod go-rwx f  && ls -l f
+     : chmod u+x f && ls -l f
+   - Know the meanings of the numbers
+     #+BEGIN_EXAMPLE
+     rwx rwx rwx   rwx --- ---   rwx r-x r-x   rw- r-- r--
+     111 111 111   111 000 000   111 101 101   110 100 100 ─ binary
+     ─── ─── ─── ┃ ─── ─── ─── ┃ ─── ─── ─── ┃ ─── ─── ───
+      7   7   7     7   0   0     7   5   5     6   4   4  ─ decimal
+     #+END_EXAMPLE
+
+** Shell variables
+#+BEGIN_SRC sh
+echo $PATH
+echo $PWD
+echo $HOME
+echo $USER
+#+END_SRC
+"~$~" --- Get the value of the variable. For example,
+- "~$a~" is to get the value of variable "~a~";
+- "~$PATH~" is to get the value of variable "~PATH~".
+
+*** PATH
+#+BEGIN_SRC sh
+echo $PATH
+# Assign a new value to PATH
+PATH="./:$PATH" 
+echo $PATH
+#+END_SRC
+
+** Background and foreground jobs
+#+BEGIN_SRC 
+## To run a command in the background
+emacs &
+google-chrome &
+
+## Show background jobs:
+jobs
+
+## To push a foreground process into background
+# 1. type 'Ctrl-z' to put it into sleep. Then,
+# 2. bg jobnumber. For example,
+bg 1
+#+END_SRC
+
+** Special files
+*** =/dev/null= --- A black hole!
+#+BEGIN_SRC sh
+ls  >  /dev/null
+echo hello > /dev/null
+
+## You can output error messages into '/dev/null'.
+## For example, if you do
+cat no-this-file
+# you will see an error message saying:
+#   cat: no-this-file: No such file or directory
+# If you do
+cat no-this-file 2>  /dev/null
+# the error message will go into the black hole --- /dev/null.
+
+# learn more about /dev/null
+man null
+#+END_SRC
+
+*** =/dev/zero= --- A zero generator
+#+BEGIN_SRC sh
+## To create a 1000KiB-sized empty file
+dd if=/dev/zero of=/tmp/testfile bs=1k count=1000
+
+## learn more about dd
+man dd
+#+END_SRC
+
+*** =/dev/random= --- A random number generator
+#+BEGIN_SRC sh
+## to generate a random decimal number which is smaller than 1000.
+echo $(( `od -An -N2 -i /dev/random` % 1000 ))
+
+# learn more about /dev/random
+man 4 random
+#+END_SRC
+- "~$((...))~" --- is for math calculation. For example,
+  #+BEGIN_SRC sh
+  echo $((1+2))
+  #+END_SRC
+  will give you "3".
+- "~`...`~" --- The things between the quote (~`~) pair must be commands. For
+  example,
+  #+BEGIN_SRC sh
+  echo `ls`
+  #+END_SRC
+  The output of "~ls~" will be passed to ~echo~.
+** Pipe --- Chaining commands together
+#+BEGIN_SRC sh
+man ls | head
+man ls | head | tail -3
+cat file1 | head -20 | tee file5
+#+END_SRC
+
+** Single-quotes and double-quotes
+#+BEGIN_SRC sh
+a=alpha;  b="$a";  c='$a'
+echo  a  b  c
+echo  $a $b $c
+echo '$a $b $c'
+echo "$a $b $c"
+#+END_SRC
+- The special character between single quotes ('...') will be printed as it is.
+- The special character between double quotes ("...") will be expended by bash. 
+
+** Soft links and hard links
+   Still in your ~homework~ directory, do:
+   #+BEGIN_SRC sh
+   cd f-test; ls
+   #+END_SRC
+   You should see the 9 useless files sitting there, right?
+
+   Now, let's make a symbolic link of file ~fa~, do:
+   #+BEGIN_SRC sh
+   ln -s fa fA && ls -l f?
+   #+END_SRC
+   You should see something like this:
+   : -rw-r--r-- 1 wx672 wx672 0 Sep 26 20:49 fa
+   : lrwxrwxrwx 1 wx672 wx672 2 Sep 27 18:45 fA -> fa
+   This means ~fA~ is a symbolic link of ~fa~. Now do:
+   : echo I am fa > fa  # write something into 'fa'
+   : cat fA
+   Got the idea? A symbolic link (or soft link) is just like another name of a file.
+
+   Now, let's try a hard link
+   #+BEGIN_SRC sh
+   ln fa fAA; ls -li fa fA fAA
+   #+END_SRC
+   You should see:
+   #+BEGIN_EXAMPLE
+   8916937 -rw-r--r-- 2 wx672 wx672 8 Sep 26 20:49 fa
+   8916955 lrwxrwxrwx 1 wx672 wx672 2 Sep 27 18:45 fA -> fa
+   8916937 -rw-r--r-- 2 wx672 wx672 8 Sep 26 20:49 fAA
+   ───┬───            ┬             ┬
+      │               │             │
+      │               │             └─── File size
+      │               └───────────────── Number of hard links
+      └───────────────────────────────── Inode number
+   #+END_EXAMPLE
+   A file is like a person
+   - Every people can have a lot of names, but he can have only one unique ID number.
+   - Every file can have a lot of names, but it can have only one unique ID number.
+     - ~fa~ and ~fAA~ are the same file, while
+     - ~fA~ is another file linking to ~fa~.
+
+** finding a file
+#+BEGIN_SRC sh
+## Within your HOME directory (~), find a file named 'fa':
+find ~ -name fa
+
+## In /etc directory, find all the directories that named "rc*"
+find  /etc  -type d -name "rc*"
+
+## In your HOME, find all the files that named "*~", and delete them
+find ~ -name "*~" | xargs rm
+#+END_SRC
+
+   
+** grep --- finding matching lines in files
+#+BEGIN_SRC sh
+## In file /etc/passwd, to find out the lines that have the string "stud" in it
+grep stud /etc/passwd
+
+## What the following command do?
+man cp | grep -B2 -A2 recur
+
+# you can "man grep" to find out the answer.
+#+END_SRC
+
+
+** Command alias
+#+BEGIN_SRC sh
+alias
+alias la='ls -a'
+alias rm='rm -i'
+which rm
+#+END_SRC
+
+
+** ~STDIN~, ~STDOUT~, ~STDERR~, and redirection (~>~, ~>>~, ~<~)
+- ~STDIN~: keyboard input
+- ~STDOUT~: screen output
+- ~STDERR~: standard error, also output to screen
+
+*** Redirect ~STDOUT~ to a file
+#+BEGIN_SRC sh
+## Rather than output to screen (~STDOUT~), you can output to a file.
+## For example
+ls  >  listing
+
+## In this case, the output of 'ls' is redirected to a file 'listing'.
+## This is called "output redirection".
+
+## More examples:
+cat  listing  >  listing2
+cat  listing*  >  listing3
+cat  listing* >> listing3
+#+END_SRC
+
+*** Redirect ~STDIN~ from a file
+Have you ever tried:
+#+BEGIN_SRC sh
+cat
+Hello, world!
+Ctrl-d
+#+END_SRC
+What happened is:
+1. After typing "~cat~" followed by ~ENTER~, ~cat~ starts running, and expects your
+   keyboard input (standard input);
+2. You key in "~Hello, world!~" (standard input);
+3. ~cat~ reads from standard input (~STDIN~), and display it to ~STDOUT~;
+4. You see another line of ~Hello, world!~ on the screen (standard output);
+5. You type "~Ctrl-d~" to quit from input.
+
+You don't have to always input from keyboard. For example,
+#+BEGIN_SRC sh
+cat < listing
+#+END_SRC
+In this case, rather than gets input from ~STDIN~, ~cat~ gets input from a file
+"~listing~". This is called "input redirection".
+
+#+BEGIN_SRC sh -n
+#!/bin/bash
+while  read  LINE
+do
+  case  $LINE  in
+  *root*)  echo  $LINE ;;
+  *stud*)  echo  $LINE ;;
+       *)  echo  "I don't care." ;;
+  esac
+done < /etc/passwd
+#+END_SRC
+
+See "~< /etc/passwd~"? This means the small ~while~ loop gets input from the file
+~/etc/passwd~.
+     
+*** Redirect ~STDERR~ into a file
+If you do:
+#+BEGIN_SRC sh
+ls asfdsadsdasfdf
+#+END_SRC
+Most probably you will see an error message like this:
+: /bin/ls: cannot access 'asfdsadsdasfdf': No such file or directory
+If you don't want the error message is displayed on the screen, you can save it to a
+file. For example,
+#+BEGIN_SRC sh
+ls asfdsadsdasfdf 2> errorlog
+cat errorlog
+#+END_SRC
+
+Usually, both ~STDERR~ and ~STDOUT~ are output to the screen.
+
+- If you do, for example,
+  #+BEGIN_SRC sh
+  ls sdadsdssdf / > log
+  #+END_SRC
+  - The content of the root directory (~/~) will go into the file "~log~", while
+  - The error message will be displayed on the screen.
+- If you want both ~STDERR~ and ~STDOUT~ go into "~log~" file, you can do:
+  #+BEGIN_SRC sh
+  ls sdadsdssdf / &> log
+  #+END_SRC
+- If you want only ~STDERR~ goes into ~log~ file, you should do:
+  #+BEGIN_SRC sh
+  ls sdadsdssdf / 2> log
+  #+END_SRC
+
+** Initial files (~.bashrc~, ~.bash_profile~, ~.profile~)
+#+BEGIN_SRC sh
+## to edit a initial file
+vim .bashrc
+
+## to active the change
+source .bashrc
+# or
+. .bashrc
+#+END_SRC
+
+** tar
+~tar~ is for archiving files
+#+BEGIN_SRC sh
+tar  cvf  myarchive.tar  /etc/termcap  /etc/passwd
+tar  tvf  myarchive.tar
+tar  xvf  myarchive.tar
+## With compression:
+tar  zcvf  myarchive.tgz  /etc/termcap  /etc/passwd
+tar  zxvf  myarchive.tgz
+tar  ztvf  myarchive.tgz
+#+END_SRC
+
+** gzip
+~gzip~ is for compressing files
+#+BEGIN_SRC sh
+gzip file1
+zcat file1.gz
+gunzip file1.gz
+#+END_SRC
+
+** Process info
+#+BEGIN_SRC sh
+ps
+ps aux
+top
+top -b -n1 | grep bash
+w
+kill
+#+END_SRC
+
+** System info
+#+BEGIN_SRC sh
+mount
+uname -a
+dmesg
+lspci
+lsusb
+lsmod
+#+END_SRC
+
+** Job scheduling
+#+BEGIN_SRC sh
+# examples:
+at  11:00
+at>  date >> $HOME/date.out
+at>  type CTRL-D to quit
+at -l
+man at
+
+crontab -e
+*/2 * * * * date  >>  $HOME/date.out
+crontab -l
+man crontab
+#+END_SRC
+
+** Networking
+   - ~ifconfig~, ~dhclient~, ~ifup/down~, ~ping~, ~route~, ~arp~, ~netstat~
+   - ~ip~ 
+   - ~ssh~, ~scp~, ~rsync~, ~nc~, ~aria2c~
+   - ~tcpdump~, ~nmap~
+   - ~iptables~
+
+* Bash Programming Examples
+** Shabang
+: #!/bin/sh
+: #!/bin/bash
+: #!/usr/bin/python
+: #!/usr/bin/php
+
+** ~for~ VAR ~in~ LIST; ~do~ SOMETHING; ~done~
+#+BEGIN_SRC sh
+## Example 1:
+for ((i=1;i<6;i++)); do echo $i; done
+# or
+for i in 1 2 3 4 5; do echo $i; done
+# or
+for i in `seq 5`; do echo $i; done
+
+## Example 2:
+for i in 1 2 3 4 5; do echo $((i*i)); done
+# or
+for ((i=1;i<6;i++)); do echo $((i*i)); done
+
+## Example 3:
+for i in 1 2 3 4 5; do j=$((i*i)); echo $i $j; done
+# or
+for ((i=1;i<6;i++)); do j=$((i*i)); echo $i $j; done
+
+## Example 4:
+#!/bin/bash
+for f in /home/students/*
+do
+  du -cks $f | grep -v total
+done | sort -n | tail -10
+
+## Example 5:
+for f in *jpg
+do
+  convert $f -resize 1280x \
+           -gravity center \
+           -crop 1280x768+0+0 \
+           `basename $f .jpg`-1280x768.jpg
+done
+#+END_SRC
+
+** =if= TEST; =then= COMMANDS; =else= OTHERCOMMANDS; =fi=
+*** Comparisons
+#+BEGIN_SRC sh
+## Example 1:
+if [ $a -lt 10 ];   then a=$(($a+1)); echo $a; else echo "a is too large."; fi
+# or
+if [[ $a -lt 10 ]]; then a=$(($a+1)); echo $a; else echo "a is too large."; fi
+# or
+if (("$a" < 10));   then a=$(($a+1)); echo $a; else echo "a is too large."; fi
+
+## Example 2:
+#!/bin/bash
+# This is a simple string comparision script.
+#
+# 1. Use '[[' instead of '[' whenever possible.
+# 2. Don't use '[  ]' with '<', '>'.
+# 3. '-eq -le -ge -lt -gt' are for arithmetic comparisons
+# 4. '< >' for string comparisons
+#
+if [ -z "$2" ]; then
+    echo Usage: $0 '<string1> <string2>'
+elif [[ "$1" > "$2" ]]; then
+    echo $1 is bigger than $2.
+elif [[ "$1" = "$2" ]]; then
+    echo $1 is equal to $2.
+else
+    echo $1 is smaller than $2.
+fi
+
+## Example 3:
+if [[ $(ls | wc -l) -gt 10 ]]; then echo "messy!"; else echo "clean!"; fi
+#+END_SRC
+- [[http://www.tldp.org/LDP/abs/html/comparison-ops.html][Other Comparison Operators]]
+
+*** Test exit status
+
+#+INCLUDE: "./scripts/grep.sh" src sh
+
+*** See your =.bash_profile=
+#+BEGIN_SRC sh
+# include .bashrc if it exists
+if [ -f ~/.bashrc ]; then
+   . ~/.bashrc
+fi
+# set PATH so it includes user's private bin if it exists
+if [ -d ~/bin ] ; then
+   PATH=~/bin:"${PATH}"
+fi
+#+END_SRC
+** =while= CONDITION; =do= SOMETHING; =done=
+#+BEGIN_SRC sh
+while true; do mpg123 song.mp3; done
+# or
+while true; do mpg123 `find ~/ -iname "*.mp3"`; done
+#+END_SRC
+
+#+INCLUDE: "./scripts/while.sh" src sh
+
+*** =read= --- Read a line from STDIN
+#+BEGIN_SRC sh
+while read LINE; do echo "what I typed is: $LINE"; done
+#+END_SRC
+
+#+INCLUDE: "./scripts/read.sh" src sh
+** =case= VAR =in= PATTERN) COMMANDS ;; =esac=
+#+INCLUDE: "./scripts/case2.sh" src sh
+
+#+INCLUDE: "./scripts/case1.sh" src sh
+** Command line arguments (=$0, $1, $2...=, =$#, $@=)
+
+An example C program:
+#+include: "../c/src/isay.c" src c
+
+An equivalent bash script:
+#+include: "./scripts/isay.sh" src sh
+
+** Arrays
+Set random wallpaper:
+#+INCLUDE: "./scripts/wallpaper.sh" src sh
+
+** GUI
+#+include: "./scripts/zenity.sh" src sh
+
+** =/etc/init.d/*=
+Check files in =/etc/init.d/= directory to see how shell scripts can be used seriously.
+
+** TODO sed, awk						   :noexport:
+
+   - [[http://www.grymoire.com/Unix/Sed.html][Sed --- An Introduction and Tutorial]]
+
+   - [[http://www.grymoire.com/Unix/Awk.html][Awk --- An Introduction and Tutorial]]

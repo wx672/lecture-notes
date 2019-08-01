@@ -1,0 +1,43 @@
+\documentclass[varwidth=28em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+\usemintedstyle{bw}
+
+\begin{document}
+\begin{ccode}
+semaphore mutex = 1; //controls access to c.r.
+semaphore items = 0;
+semaphore spaces = BUFFER_SIZE;        
+\end{ccode}
+\begin{minipage}{.42\linewidth}
+\vspace{1em}
+\begin{ccode}
+void producer() {
+  while (true) {
+    item = produceItem();
+    down(spaces);
+    down(mutex);
+    putIntoBuffer(item);
+    up(mutex);
+    up(items);
+  }
+}      
+\end{ccode}
+\end{minipage}\qquad
+\begin{minipage}{.48\linewidth}
+\vspace{1em}
+\begin{ccode}
+void consumer() {
+  while (true) {
+    down(items);
+    down(mutex);
+    item = rmFromBuffer();
+    up(mutex);
+    up(spaces);
+    consumeItem(item);
+  }
+}      
+\end{ccode}
+\end{minipage}
+\end{document}

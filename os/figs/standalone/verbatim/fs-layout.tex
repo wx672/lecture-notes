@@ -1,0 +1,17 @@
+\documentclass[varwidth=50em,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+│<────────────────────── Entire disk ────────────────────────>│
+├─────┬─────────────┬─────────────┬─────────────┬─────────────┤
+│ MBR │ Partition 1 │ Partition 2 │ Partition 3 │ Partition 4 │
+└─────┴─────────────┴─────────────┴─────────────┴─────────────┘
+  _______________________________/               \____________
+ /                                                            \
+┌───────────────┬─────────────────┬────────────────────┬───//──┐
+│ Boot Ctrl Blk │ Volume Ctrl Blk │   Dir Structure    │ Files │
+│  (MBR copy)   │   (Super Blk)   │ (inodes, root dir) │ dirs  │
+└───────────────┴─────────────────┴────────────────────┴───//──┘
+\end{verbatim}
+\end{document}

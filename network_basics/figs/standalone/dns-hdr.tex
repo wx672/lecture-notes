@@ -1,0 +1,26 @@
+\documentclass[varwidth=30cm,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15     
+┌──┬──┬──┬──┬──┬──┬──┬──┼──┬──┬──┬──┬──┬──┬──┬──┐       DNS
+│                      ID                       │     message
+├──┬───────────┬──┬──┬──┬──┬────────┬───────────┤  ┌────────────┐
+│QR│   OPCODE  │AA│TC│RD│RA│0  0  0 │   RCODE   │  │ Header     │
+├──┴───────────┴──┴──┴──┴──┴────────┴───────────┤  ├────────────┤
+│                    QDCOUNT                    │  │ Question   │
+├───────────────────────────────────────────────┤  ├────────────┤
+│                    ANCOUNT                    │  │ Answer     │
+├───────────────────────────────────────────────┤  ├────────────┤
+│                    NSCOUNT                    │  │ Authority  │
+├───────────────────────────────────────────────┤  ├────────────┤
+│                    ARCOUNT                    │  │ Additional │
+└──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┴──┘  └────────────┘
+                   DNS Header
+\end{verbatim}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

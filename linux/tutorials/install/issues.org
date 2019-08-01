@@ -1,0 +1,12 @@
+- apt-get dist-upgrade
+- get package list
+- install full system
+- sudo
+- dotfile (fcitx, keys.png, help)
+- google-chrome
+- goagent, switchysharp
+- autologin
+- keyboard
+- touchpad
+- msfonts
+- wlan (firmware, interfaces)

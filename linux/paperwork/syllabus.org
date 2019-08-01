@@ -1,0 +1,69 @@
+#+TITLE:     Linux Basics Syllabus
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION: 
+#+KEYWORDS: Linux, Debian, Ubuntu, Shell
+#+LANGUAGE:  en
+#+OPTIONS:   H:6 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:info toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:
+#+LINK_HOME:
+#+LaTeX_CLASS: article
+
+* GNU/Linux and Opensource
+  - In The Beginning
+    1969: UNIX, C
+  - What's GNU?
+    1983: [[http://en.wikipedia.org/wiki/GNU][GNU]] - the apps
+  - What's Linux?
+    1991: [[http://en.wikipedia.org/wiki/Linux][Linux]] - the kernel
+  - What's opensource?
+    1998: [[http://en.wikipedia.org/wiki/Open_Source_Initiative][Open Source Initiative]]
+  - What opensource software can do?
+  - How to learn Linux?
+* Debian/Ubuntu
+  - [[http://www.google.com/trends%3Fq%3Ddebian,%2Bubuntu,%2Bfedora,%2Bredhat,%2Bredflag][google trends]]
+* Shell Basics
+  :LOGBOOK:
+  - State "STARTED"    from "TODO"       [2009-12-13 Sun 23:29]
+  :END:
+  - File system
+    - [[filesys.ditaa]]
+    - [[cs2.dot]]
+  - Path, directory, special files
+  - Basic shell commands
+    - cd, ls, cp, rm, mv, ln, cat, less, 
+    - w, free, df, du, uname, top, ps, kill, 
+    - dd, mount, 
+  - Shell programming
+* Software Tools
+  - Editor: emacs, vim, gedit
+  - Networking:
+    - chrome/firefox/plugins,
+    - ssh
+    - lftp, wget/aria2c,
+    - mutt/gmail,
+    - pidgin/meebo/webQQ
+    - wireshark, tcpdump, netcat
+  - Office automation: openoffice.org, google docs
+  - Image processing: gimp, imagemagick, dia, xfig, inkscape
+  - mplayer, vlc, rhythmbox, mpg123, verbos, ffmpeg, lame ...
+* Software Development Environments
+  :LOGBOOK:
+  - State "STARTED"    from "TODO"       [2009-12-13 Sun 23:29]
+  :END:
+  - GCC
+  - make
+  - gdb
+  - Visual programming: Qt4, glade, gambas, Tcl/Tk, eclipse, netbeans
+  - examples
+* Debian GNU/Linux System Management
+  - Minimum system installation
+    - i386/amd64
+    - ext2/3/4
+    - apt
+      - sources.list
+  - Debian management tools

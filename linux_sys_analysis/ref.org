@@ -1,0 +1,137 @@
+#+TITLE:     《Linux系统分析》教材及参考资料
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+# (setq org-export-html-use-infojs t)
+
+* 教材
+  - D.P. Bovet and M. Cesatí. [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/kernel/OREILLY-Understanding_The_Linux_Kernel_3e/][/Understanding The Linux Kernel. O'Reilly/]], 3^{rd}
+    edition, 2005. (《理解Linux内核》第三版)
+* 参考资料
+** 书籍
+*** Linux Kernel
+    - R. Love. [[http://cs2.swfu.edu.cn/pub/resources/Books/Linux/kernel/Addison-Wesley-Linux_kernel_development-3e.pdf][/Linux Kernel Development/]]. Developer's Library. Addison-Wesley, 2010.
+    - W. Mauerer. [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/kernel/Professional_Linux_Kernel_Architecture.pdf][/Professional Linux Kernel Architecture/]]. John Wiley & Sons, 2008.
+    - C.S. Rodriguez, G. Fischer, and S. Smolski. [[http://cs2.swfu.edu.cn/pub/resources/Books/Linux/kernel/The-Linux-Kernel-Primer][The Linux kernel primer: a top-down
+      approach for x86 and PowerPC architectures]]. Prentice Hall Professional Technical
+      Reference, 2005.
+*** 操作系统基础
+    1. Silberschatz, Galvin, and Gagne. [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/os-concepts-8e/Operating_System_Concepts_Essential-8e.pdf][/Operating System Concepts Essentials/]]. John Wiley &
+       Sons, 2011.
+       - 图书馆[[http://202.203.132.134:8080/opac/openlink.php?strText%3D操作系统概念&doctype%3DALL&strSearchType%3Dtitle&match_flag%3Dforward&displaypg%3D20&sort%3DCATA_DATE&orderby%3Ddesc&showmode%3Dlist&location%3DALL][中英文版]]都有;
+       - [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/os-concepts-8e/Operating_System_Concepts-7e-Instructors_Manual.pdf][Instructor's Manual To Accompany Operating System Concepts, 7e]]；
+       - [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/os-concepts-8e/][配套英文讲义、幻灯片]]；
+       - 这本也可以: Silberschatz, Galvin, and Gagne. [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/os-concepts-8e/Operating_System_Concepts_With_Java-8e.pdf][/Operating System Concepts With
+	 Java/]]. John Wiley & Sons, 8^{th} edition, 2010.
+    2. A.S. Tanenbaum. [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/moss/Modern_Operating_Systems-3e.pdf][/Modern Operating Systems/]]. Pearson Prentice Hall, 3^{rd} edition, 2008.
+       - 图书馆[[http://202.203.132.134:8080/opac/openlink.php?strText%3D现代操作系统&doctype%3DALL&strSearchType%3Dtitle&match_flag%3Dforward&displaypg%3D20&sort%3DCATA_DATE&orderby%3Ddesc&showmode%3Dlist&location%3DALL][中英文版]]都有；
+       - [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/moss/][配套英文讲义、幻灯片]];
+    3. Bryant, Randal E. and O'Hallaron, David R. [[http://cs2.swfu.edu.cn/pub/resources/Books/programming/Computer_Systems-A_Programmers_Perspective-2e.pdf][/Computer Systems: A Programmer's
+       Perspective/]]. Addison-Wesley, 2^{nd} edition, 2010.
+    4. M.J. Bach. [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/The_Design_of_the_UNIX_Operating_System-Bach.djvu][/The design of the UNIX operating system/]]. Prentice-Hall software
+       series. Prentice-Hall, 1986.
+    5. 邹恒明. [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/zouhengming09.pdf][/计算机的心智：操作系统之哲学原理/]]. 机械工业出版社, 2009.
+    
+*** 实验指导
+    - Kernel Projects For Linux (《Linux操作系统内核实习》)
+      - 图书馆有[[http://202.203.132.134:8080/opac/openlink.php?strText%3DLinux操作系统内核实习&doctype%3DALL&strSearchType%3Dtitle&match_flag%3Dforward&displaypg%3D20&sort%3DCATA_DATE&orderby%3Ddesc&showmode%3Dlist&location%3DALL][英文版]], 但没有中文版;
+      - cs2上有该书第一部分(Overview of Linux)的[[http://cs2.swfu.edu.cn/pub/resources/Books/OS/KPFL_Part1-1e.pdf][英文电子版]];
+    - Greg Kroah-Hartman. [[http://cs2.swfu.edu.cn/pub/resources/Books/Linux/kernel/Linux-Kernel-in-a-Nutshell.pdf][/Linux Kernel in a Nutshell/]]. O'Reilly, 2007.
+    - 于渊. [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/OrangeS/][/Orange'S：一个操作系统的实现/]]. 电子工业出版社, 2009.
+      - 本书最大的好处是能帮你挣脱理论书的催眠效果. 它是[[http://www.osfromscratch.org][《自己动手写操作系统》的第二版]], 写得相当不错, 文字活泼, 顺畅, 内容易懂, 操作细节描述清晰, 实践性强, 边看边练, 不会犯困. 个人感觉唯一的缺憾是对理论概念的解释不够详尽, 但毕竟这是一个实验教程, 理论概念不是本书的重点. 遇到理论问题,可以直接查阅上面列出的三本理论教材.
+    - 《使用开源软件-自己动手写操作系统》 [[http://share.solrex.org/WriteOS/index_chs.html][免费电子版]]
+*** 其它
+    - [[http://202.203.132.134:8080/opac/openlink.php?strText%3D操作系统&doctype%3DALL&strSearchType%3Dtitle&match_flag%3Dforward&displaypg%3D20&sort%3DCATA_DATE&orderby%3Ddesc&showmode%3Dlist&location%3DALL][图书馆藏书]]
+    - [[http://cs2.swfu.edu.cn/pub/resources/Books/OS/]]
+** 开放课程
+   - [[http://www.cs.usfca.edu/~cruse/cs635f07/][USFCA - CS 635: Advanced Systems Programming (Fall 2007)]]
+   - [[http://pdos.csail.mit.edu/6.828][MIT - 6.828: Operating System Engineering]]
+   - [[http://staff.ustc.edu.cn/~xlanchen/2011FallULK/ULK2011Fall.html][中科大 - Linux操作系统分析]]
+   - [[http://www.ss.pku.edu.cn/linux/index.php?option%3Dcom_content&task%3Dsection&id%3D1&Itemid%3D2][北大 - Linux操作系统分析与实践]]
+   - [[http://bm.gduf.edu.cn/kcpt/Linuxczxtfx/Linux%25E6%2593%258D%25E4%25BD%259C%25E7%25B3%25BB%25E7%25BB%259F1.htm][GDUF - Linux操作系统分析]]
+** Wikipedia
+*** Operating System Structures
+    - [[http://en.wikipedia.org/wiki/Von_Neumann_architecture][Von Neumann architecture]]
+    - [[http://en.wikipedia.org/wiki/BIOS][BIOS]], [[http://en.wikipedia.org/wiki/Extensible_Firmware_Interface][EFI]], [[http://en.wikipedia.org/wiki/Coreboot][Coreboot(LinuxBIOS)]]
+    - [[http://en.wikipedia.org/wiki/Firmware][Firmware]]
+    - [[http://en.wikipedia.org/wiki/Master_boot_record][MBR]] and [[http://en.wikipedia.org/wiki/GUID_Partition_Table][GPT]]
+    - [[http://en.wikipedia.org/wiki/Bootstrap_loader][Bootstrapping]], [[http://en.wikipedia.org/wiki/GNU_GRUB][GRUB]], [[http://en.wikipedia.org/wiki/Chain_loading][Chain loading]]
+    - [[http://en.wikipedia.org/wiki/Operating_system][Operating system]]
+    - [[http://en.wikipedia.org/wiki/Interrupt][Interrupt]]
+    - [[http://en.wikipedia.org/wiki/Trap_(computing)][Trap]]
+    - [[http://en.wikipedia.org/wiki/Microkernel][Microkernel]]
+*** Process Management
+    - [[http://en.wikipedia.org/wiki/Computer_multitasking][Multitasking]]
+    - [[http://en.wikipedia.org/wiki/Multiprogramming][Multiprogramming]]
+    - [[http://en.wikipedia.org/wiki/Fork_(operating_system)][Fork]]
+    - [[http://en.wikipedia.org/wiki/Zombie_process][Zombie process]]
+    - [[http://en.wikipedia.org/wiki/Exec_(operating_system)][Exec]]
+    - [[http://en.wikipedia.org/wiki/Fork-exec][Fork-exec]]
+    - [[http://en.wikipedia.org/wiki/Interprocess_communication][Inter-process communication]]
+    - [[http://en.wikipedia.org/wiki/Signal_(computing)][Signal]]
+    - [[http://en.wikipedia.org/wiki/Remote_procedure_call][Remote procedure call]]
+    - [[http://en.wikipedia.org/wiki/Thread_(computer_science)][Thread]]
+    - [[http://en.wikipedia.org/wiki/Scheduling_(computing)][Scheduling]]
+    - [[http://en.wikipedia.org/wiki/Scheduling_algorithm][Scheduling algorithm]]
+    - [[http://en.wikipedia.org/wiki/Mutex][Mutual exclusion]]
+    - [[http://en.wikipedia.org/wiki/Producers-consumers_problem][Producer-consumer problem]]
+    - [[http://en.wikipedia.org/wiki/Preemption_(computing)][Preemption]]
+    - [[http://en.wikipedia.org/wiki/Critical_section][Critical section]]
+    - [[http://en.wikipedia.org/wiki/Busy_waiting][Busy waiting]]
+    - [[http://en.wikipedia.org/wiki/Spinlock][Spinlock]]
+    - [[http://en.wikipedia.org/wiki/Lamport's_bakery_algorithm][Bakery algorithm]]
+    - [[http://en.wikipedia.org/wiki/Peterson's_algorithm][Peterson's algorithm]]
+    - [[http://en.wikipedia.org/wiki/Lock_(computer_science)][Lock]]
+    - [[http://en.wikipedia.org/wiki/Test%26set][Test and set]]
+    - [[http://en.wikipedia.org/wiki/Semaphore_(programming)][Semaphore]]
+    - [[http://en.wikipedia.org/wiki/Deadlock][Deadlock]]
+    - [[http://en.wikipedia.org/wiki/Resource_starvation][Starvation]]
+    - [[http://en.wikipedia.org/wiki/Readers-writers_problem][Readers-writers problem]]
+    - [[http://en.wikipedia.org/wiki/Dining_philosophers_problem][Dining philosophers problem]]
+    - [[http://en.wikipedia.org/wiki/Monitor_(synchronization)][Monitor]]
+    - [[http://en.wikipedia.org/wiki/Banker's_algorithm][Banker's algorithm]]
+
+*** Memory Management
+    - [[http://en.wikipedia.org/wiki/Memory_management][Memory Management]]
+    - [[http://en.wikipedia.org/wiki/Random-access_memory][RAM]]
+    - [[http://en.wikipedia.org/wiki/Physical_memory][Physical memory]]
+    - [[http://en.wikipedia.org/wiki/Virtual_memory][Virtual memory]]
+    - [[http://en.wikipedia.org/wiki/Shared_library#Shared_libraries][Shared libraries]]
+    - [[http://en.wikipedia.org/wiki/Memory_management_unit][MMU]]
+    - [[http://en.wikipedia.org/wiki/Paging][Paging]]
+    - [[http://en.wikipedia.org/wiki/Page_fault][Page fault]]
+    - [[http://en.wikipedia.org/wiki/Page_table][Page table]]
+    - [[http://en.wikipedia.org/wiki/Memory_address][Memory address]]
+    - [[http://en.wikipedia.org/wiki/Thrashing_(computer_science)][Thrashing]]
+*** File Management
+    - [[http://en.wikipedia.org/wiki/File_system][File system]]
+    - [[http://en.wikipedia.org/wiki/File_Allocation_Table][FAT]]
+    - [[http://en.wikipedia.org/wiki/Inode][Inode]]
+    - [[http://en.wikipedia.org/wiki/NTFS][NTFS]]
+    - [[http://en.wikipedia.org/wiki/Ext3][Ext3]]
+    - [[http://en.wikipedia.org/wiki/Comparison_of_file_systems][Comparison of file systems]]
+
+*** I/O Systems
+    - [[http://en.wikipedia.org/wiki/Memory-mapped_IO][Memory-mapped I/O]]
+** More Web Resources
+   - [[http://www.ibm.com/developerworks/]]
+     - [[http://www.ibm.com/developerworks/linux/library/l-linuxboot/][Inside the Linux boot process]]
+     - [[http://www.ibm.com/developerworks/linux/library/l-system-calls/][Kernel command using Linux system calls]]
+     - [[http://www.ibm.com/developerworks/linux/library/l-linux-filesystem/][Anatomy of the Linux file system]]
+     - [[http://www.ibm.com/developerworks/linux/library/l-proc.html][Access the Linux kernel using the /proc filesystem]]
+   - [[http://duartes.org/gustavo/blog/]]
+     - [[http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map][Motherboard Chipsets and the Memory Map]]
+     - [[http://duartes.org/gustavo/blog/category/software-illustrated/page/2][How Computers Boot Up]]
+     - [[http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory][Anatomy of a Program in Memory]]
+     - [[http://duartes.org/gustavo/blog/post/how-the-kernel-manages-your-memory][How The Kernel Manages Your Memory]]
+     - [[http://duartes.org/gustavo/blog/post/getting-physical-with-memory][Getting Physical With Memory]]
+     - [[http://duartes.org/gustavo/blog/post/intel-cpu-caches][Cache: a place for concealment and safekeeping]]
+   - [[http://people.redhat.com/drepper/cpumemory.pdf][What every programmer should know about memory]]
+

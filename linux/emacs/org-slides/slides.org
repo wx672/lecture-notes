@@ -1,0 +1,119 @@
+#+STARTUP: align fold nodlcheck hidestars oddeven lognotestate
+#+TITLE: Slides with Org-Mode and JavaScript
+#+AUTHOR: Sebastian Rose
+#+EMAIL: sebastian_rose@gmx.de
+#+LANGUAGE: en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t TeX:t LaTeX:nil skip:nil d:t tags:not-in-toc
+#+INFOJS_OPT: path:./org-info.js
+#+INFOJS_OPT: toc:nil ltoc:nil view:slide mouse:underline
+#+INFOJS_OPT: up:http://orgmode.org/worg/
+#+INFOJS_OPT: home:http://orgmode.org buttons:nil
+
+
+* Welcome to Org-mode and Slides
+
+  + Navigate back and and forth on doubleclick and click.
+  + Use all the navigation and text facilities of org-info.js in your
+    presentations.
+  + Remove warnings on click.
+  + No warnings when navigating with the mouse.
+  + Simple lists are shown item by item automatically.
+
+* Overview
+
+  + Create the Org-mode file
+  + Export the Org-mode file to XHTML
+  + Create a stylesheet for slides
+
+* Create the Org-mode file
+
+  *Structure for slides*
+
+  : * Overview
+  :
+  :   + Create the Org-mode file
+  :
+  : * Overview
+  :
+  :   + Create the Org-mode file
+  :   + Export the Org-mode file to XHTML
+
+* Export the Org-mode file to XHTML
+
+  =view:slide=
+
+  :#+INFOJS_OPT: toc:nil ltoc:nil view:slide mouse:underline
+  :
+  :
+  :* COMMENT html style specifications
+  :# Local Variables:
+  :# org-export-html-style: "<link rel=\"stylesheet\" \
+  :#                type=\"text/css\" href=\"slides.css\" />"
+  :# End:
+
+
+* Create a stylesheet for slides
+
+  + Stylesheets for slides are different.
+  + The body uses the whole width.
+  + Use the same style for all headlines.
+  + The postamble will be hidden automatically.
+  + Position org-info.js's window.
+
+** CSS - body
+
+   Choose a big font!
+
+   :body
+   :{
+   :  width:100%;
+   :  padding:0px 0px 0px 0px;
+   :  margin:0px 0px 0px 0px;
+   :  background-image:url(img/bg.gif);
+   :  background-attachment:fixed;
+   :  background-repeat:repeat-x;
+   :  /* ... etc. */
+   :}
+
+** CSS - headlines
+
+   Set all headlines to the same size:
+
+   :h1,h2,h3,h4,h5,h6
+   :{
+   :  font-size: 18pt;
+   :  font-weight:bold;
+   :  color:#104d8c;
+   :  /* ... etc. */
+   :}
+
+** CSS - org-info-js
+
+   Position the org-info.js window.
+
+   :#org-info-js-window
+   :{
+   :  position:absolute;
+   :  top:140px;
+   :  left:20%;
+   :}
+
+
+* TODOS
+
+**** TODO More features.
+**** TODO Load stylsheets dynamically.
+**** TODO Drop lot's of mails with bugs and wishes.
+
+     ------
+
+**** TODO Have Fun with Org-mode and all the tools around.
+
+* DONE
+
+  That's all folks.
+
+* COMMENT html style specifications
+# Local Variables:
+# org-export-html-style: "<link rel=\"stylesheet\" type=\"text/css\" href=\"slides.css\" />"
+# End:

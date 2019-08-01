@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage[paperwidth=14.3cm,paperheight=13.6cm,top=.3mm,bottom=0mm,left=-4.8mm,right=0mm]{geometry}
+\usepackage{latexsym,pifont,units,amsmath,amsfonts,amssymb}
+\usepackage{xltxtra} %fontspec,xunicode are loaded here.
+\setsansfont{DejaVu Sans Mono}
+\setmainfont{DejaVu Sans Mono}
+\setmonofont{DejaVu Sans Mono}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shadows,trees,mindmap,backgrounds}
+\pagestyle{empty}
+\begin{document}
+\begin{tikzpicture}[mindmap]
+  % \begin{pgfonlayer}{background}
+  %   \node [inner sep=0] at (current page.south) {
+  %     \includegraphics[width=5\textwidth]{Gldt}
+  %   };
+  % \end{pgfonlayer}
+  \begin{scope}[
+    concept color=black!20,
+    grow cyclic,
+    every node/.style={concept, circular drop shadow},
+    root concept/.append style={ concept color=black, fill=white, line width=1ex,text=black},
+    redhat/.style = {concept color=Green!50,faded/.style={concept color=Green!20}},
+    debian/.style = {concept color=Blue!50,faded/.style={concept color=Blue!20}},
+    other/.style =  {concept color=black!30,faded/.style={concept color=black!20}},
+    level 1/.append style={level distance=4.5cm,sibling angle=120},
+    level 2/.append style={level distance=3cm}]
+  
+    \node [root concept] {\includegraphics[width=2.5cm]{linux_logo}}
+    child [other] { node {...}}
+    child [debian] {
+      node {\includegraphics[width=1cm]{debian}}
+      child {
+        node {\includegraphics[width=1cm]{ubuntu}}
+        child { node {\includegraphics[width=1cm]{mint}}}
+        child [faded] { node {...}}
+        child [faded] { node {...}}
+        child [faded] { node {...}}
+      }
+      child [faded] { node {...}}
+      child [faded] { node {...}}
+      child [faded] { node {...}}
+    }
+    child [redhat] {
+      node {\includegraphics[width=2cm]{redhat}}
+      child [faded] { node {...}}
+      child { node {\includegraphics[width=1cm]{fedora} Fedora} }
+      child { node {\includegraphics[width=1.5cm]{centos}} }
+    };
+  \end{scope}
+\end{tikzpicture}
+\end{document}

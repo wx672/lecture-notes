@@ -1,0 +1,38 @@
+\documentclass[varwidth=26em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{minipage}{.46\linewidth}
+\vspace{1em}
+\begin{pythoncode}
+specific_task();
+mutex.wait();
+   count++;
+mutex.signal();
+if (count < n)
+   barrier.wait();
+barrier.signal();
+critical_point();      
+\end{pythoncode}
+\end{minipage}\qquad
+\begin{minipage}{.45\linewidth}
+\vspace{1em}
+\begin{pythoncode}
+specific_task();
+mutex.wait();
+   count++;
+mutex.signal();
+if (count == n)
+   barrier.signal();
+barrier.wait();
+critical_point();
+\end{pythoncode}
+\end{minipage}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

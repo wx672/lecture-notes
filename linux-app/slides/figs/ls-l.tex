@@ -1,0 +1,27 @@
+\documentclass[varwidth,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+-rw------- 1 sam sam   57 Apr 17  1998 weather.txt
+drwxr-xr-x 6 sam sam  102 Oct  9  1999 web_page
+-rw-rw-r-- 1 sam sam 7648 Feb 11 20:41 web_site.tar
+-rw------- 1 sam sam  574 Dec 16  1998 file.txt
+╷────┬──── ╷ ─┬─ ─┬─ ──┬─ ─────┬────── ───┬────
+│    │     │  │   │    │       │          └─ File Name
+│    │     │  │   │    │       └─ Modification Time
+│    │     │  │   │    └───────── Size (in bytes)
+│    │     │  │   └────────────── Group
+│    │     │  └────────────────── Owner
+│    │     └───────────────────── Number of hard links
+│    └─────────────────────────── File Permissions
+└──────────────────────────────── File types
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

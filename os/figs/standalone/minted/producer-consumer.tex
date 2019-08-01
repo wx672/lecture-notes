@@ -1,0 +1,27 @@
+\documentclass[varwidth=30em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{minipage}{.46\linewidth}
+\vspace{1em}
+\begin{ccode}
+while(TRUE){
+    while(FULL);
+    item = produceItem();
+    insertItem(item);
+}
+\end{ccode}
+\end{minipage}\qquad
+\begin{minipage}{.45\linewidth}
+\vspace{1em}
+\begin{ccode}
+while(TRUE){
+    while(EMPTY);
+    item = removeItem();
+    consumeItem(item);
+}
+\end{ccode}  
+\end{minipage}
+\end{document}

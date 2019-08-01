@@ -1,0 +1,24 @@
+\documentclass[varwidth=40em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+0xC15FBFFF┌───────────┐
+          │   stack   │
+          │     │     │               task_struct 
+          │     │     │               ┌─────────┐
+0xC15FB000├     │     ┤   thread_info │         │
+          │     v     │           ┌───┤         │
+0xC15FA878│   ─────   │⬅esp       │   │   ...   │
+          │           │           │   │         │
+0xC15FA034├───────────┤   task    │   │         │
+          │thread_info├──────────────>└─────────┘
+          │ structure │⬅current   │
+0xC15FA000└───────────┘<──────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% End:

@@ -1,0 +1,167 @@
+% Created 2013-03-06 Wed 20:13
+\documentclass[12pt,a4paper]{article}
+\usepackage[top=2cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+\usepackage{listings}
+\usepackage{graphicx}
+\graphicspath{{./figs/}{../figs/}{./}{../}} %note that the trailing / is required
+\usepackage{indentfirst}
+\usepackage[indentafter,pagestyles]{titlesec}
+\usepackage{xltxtra}
+\usepackage{xeCJK}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{fixltx2e}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+%\usepackage{amsmath,amsfonts,amssymb}
+\tolerance=1000
+\setlength{\parindent}{2.5em}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\setCJKmainfont[BoldFont={WenQuanYi Zen Hei}]{SimSun}
+\setCJKfamilyfont{hei}{WenQuanYi Zen Hei}
+\setCJKfamilyfont{song}{SimSun}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\renewcommand{\contentsname}{目录}
+\renewcommand{\listfigurename}{插图目录}
+\renewcommand{\listtablename}{表格目录}
+\renewcommand{\abstractname}{摘要}
+\renewcommand{\appendixname}{附录}
+\renewcommand{\indexname}{索引}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{参考文献} % article.cls 
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{《Linux应用基础》考核大纲}
+\author{王晓林}
+\date{2015年9月6日}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+\item 课程编号：A05010, A05011  
+\item 课程名称：Linux应用基础
+\item 任课教师：王晓林
+\item 适应专业：电信、信计、计算机等本科专业
+\item 授课学时：32/48
+\item 考试方式：闭卷机试
+\item 命题规则：按《西南林学院考试命题规则》(试行)(1996年10月修订)执行
+\item 考试时间：120分钟
+\item 推荐教材：《Advanced Bash Scripting Guide》
+\item 课程性质及教学目的：本课为通信和计算机专业的选修课. 通过学习, 要求学生全面了解Linux系
+  统的工作环境，学会在Linux下完成日常工作和开发工作。
+\end{itemize}
+  
+各章节考核目标如下：
+\clearpage
+
+\section{GNU/Linux简介}
+
+\subsection{考核知识点}
+
+\begin{itemize}
+\item UNIX, GNU, Linux的诞生、创始人
+\item 开源软件
+\end{itemize}
+
+\subsection{考核要求}
+
+\begin{itemize}
+\item 了解UNIX, GNU, Linux的基本历史常识
+\item 了解开源软件
+\end{itemize}
+
+\section{Shell基础}
+
+\subsection{考核知识点}
+
+\begin{itemize}
+\item UNIX文件系统基本结构
+\item 路径、目录、特殊文件
+\item 常用的命令行命令
+\item Shell编程
+\end{itemize}
+
+\subsection{考核要求}
+
+\begin{itemize}
+\item 理解UNIX文件系统目录结构
+\item 熟悉常用命令：ls, cd, pwd, cp, rm, man, help, ln, cat, less, mkdir\ldots{}
+\item 会编简单的程序
+\item 能看懂复杂的程序
+\end{itemize}
+
+\section{常用软件工具}
+
+\subsection{考核知识点}
+
+\begin{itemize}
+\item 编辑器: emacs, vim
+\item 网络工具: firefox, lftp, wget, mutt, pidgin \ldots{}
+\item 办公自动化: openoffice.org
+\item 图像处理: gimp, imagemagick, dia, xfig, inkscape, hugin
+\end{itemize}
+
+\subsection{考核要求}
+
+\begin{itemize}
+\item 能熟练使用emacs和vim
+\end{itemize}
+
+\section{软件开发环境}
+
+\subsection{考核知识点}
+
+\begin{itemize}
+\item GCC
+\item make
+\item gdb
+\item 可视化编程: Qt4, glade, gambas, Tcl/Tk
+\end{itemize}
+
+\subsection{考核要求}
+
+\begin{itemize}
+\item 了解GCC, Makefile, GDB的使用
+\end{itemize}
+
+\section{Debian GNU/Linux系统管理}
+
+\subsection{考核知识点}
+
+\begin{itemize}
+\item 最小系统的安装
+\item apt
+\item Debian 管理工具
+\end{itemize}
+
+\subsection{考核要求}
+
+\begin{itemize}
+\item 会安装系统
+\item 会安装、卸载软件
+\item 会更新系统和软件
+\end{itemize}
+
+\vspace{10em}
+\begin{table}[h]
+  \begin{tabular}{p{20em}ll}
+    &撰稿人（职称）：&王晓林（讲师）\\
+    &审核人（职称）：&\\
+    &审定人（职称）：&\\
+    &&\\
+    &制定日期：&2015年9月6日\\
+  \end{tabular}
+\end{table}
+
+\end{document}

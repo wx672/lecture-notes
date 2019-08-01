@@ -1,0 +1,34 @@
+\documentclass[varwidth=35em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+               GDT or LDT
+             ┌────────────┐
+             │    ...     │         ┌─────────┐
+             ├────────────┤         │ Linear  │
+  ┌─────────>│ Descriptor ├────⊕───>│ Address │
+  │          ├────────────┤    ↑    └─────────┘
+  │          │    ...     │    │
+  │    ┌────>└────────────┘    │
+  │    │base                   │
+  │    │                       │
+  │    │  ┌──────────────┐     │
+  ⊕ <──┴──┤ GDTR or LDTR │     │
+  ↑       └──────────────┘     │
+  │         ↑                  │
+  │         │                  │
+ (×8)       │                  │
+  ↑         │                  │
+  │         │                  │
+┌─┴────────┬┴┬─┬─┬─────────────┴──────────────┐
+│  Index   │g│ p │          offset            │
+└──────────┴─┴─┴─┴────────────────────────────┘
+              Logical Address
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

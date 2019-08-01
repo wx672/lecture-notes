@@ -1,0 +1,18 @@
+\documentclass[varwidth=29em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+/* Note: they use dummy do {} while construct so that
+   it can be used syntactically as a single statement. */
+#define INIT_LIST_HEAD(ptr) do {             \
+    (ptr)->next = (ptr);(ptr)->prev= (ptr);  \
+} while(0)  
+\end{ccode}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

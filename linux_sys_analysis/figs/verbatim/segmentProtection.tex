@@ -1,0 +1,30 @@
+\documentclass[varwidth=55em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+      Current code
+      segment register
+      ┌─────────┬───┐               
+      │         │CPL├───────────────┐
+      └─────────┴───┘               │                   ┌────────────────────┐
+                                    │                ┌─➤│  Segment load OK   │
+      Data segment selector         │                │  └────────────────────┘
+      being loaded                  v               Y│
+      ┌───────┬─┬───┐    ┌────────────────────────┐  │
+   ┌──┤ Index │G│RPL├───➤│ MAX(CPL, RPL) <= DPL ? ├──┤
+   │  └───────┴─┴───┘    └────────────────────────┘  │
+   │                                ^               N│
+Selects                             │                │  ┌────────────────────┐
+   │                                │                └─➤│ General protection │
+   │  Segment descriptor            │                   │     exception      │
+   │  ┌─────────┬───┐               │                   └────────────────────┘
+   └─➤│         │DPL├───────────────┘
+      └─────────┴───┘ 
+\end{verbatim}         
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% End:

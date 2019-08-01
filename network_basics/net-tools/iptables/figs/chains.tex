@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[paperwidth=24.5em,paperheight=16em,top=0cm,bottom=0cm,left=0cm,right=0cm]{geometry}
+%\usepackage{fancyvrb}
+%\usepackage{color}
+\begin{document}
+\pagestyle{empty}
+
+\begin{verbatim}
+                          _____
+Incoming  [Routing ]     /     \      Outgoing
+     ---->[Decision]--->|FORWARD|---------->
+              |          \_____/       ^
+              v                        |
+            _____                    ______
+           /     \                  /      \
+           |INPUT|                  |OUTPUT|
+           \_____/                  \______/
+              |                        ^
+              v                        |
+            Local                    Local
+           Process                  Process
+\end{verbatim}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

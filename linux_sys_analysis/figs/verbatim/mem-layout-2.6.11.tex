@@ -1,0 +1,36 @@
+\documentclass[varwidth=48em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+         │                        │
+         │  Protected─mode kernel │ <─ Load high
+ 100000  ├────────────────────────┤ 1M
+         │                        │
+         ~                        ~
+         │                        │
+ 0A0000  ├────────────────────────┤ 640K
+         │  Reserved for BIOS     │    Leave as much as possible unused
+         ~                        ~
+         │  Boot command line     │
+X+10000  ├────────────────────────┼───
+         │  Stack/heap            │  ^
+X+08000  ├────────────────────────┤  │ Kernel real mode block
+         │  Kernel setup          │  │
+         │  Kernel boot sector    │  v
+      X  ├────────────────────────┤ <─ Memory ceiling
+         │  Boot loader           │ <─ Boot sector entry point 0000:7C00
+ 001000  ├────────────────────────┤
+         │  Reserved for MBR/BIOS │
+ 000800  ├────────────────────────┤
+         │  Typically used by MBR │
+ 000600  ├────────────────────────┤
+         │  BIOS use only         │
+ 000000  └────────────────────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% End:

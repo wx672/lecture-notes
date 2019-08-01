@@ -1,0 +1,11 @@
+\documentclass[varwidth=19.2em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{gascode}
+movl %cr0, %edx
+orb $X86_CR0_PE, %dl # Protected mode
+movl %edx, %cr0
+\end{gascode}
+\end{document}

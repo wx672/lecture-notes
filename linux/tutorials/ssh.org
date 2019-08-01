@@ -1,0 +1,26 @@
+#+TITLE: SSH Tips and Tricks
+#+DATE: <2015-03-26 Thu>
+#+AUTHOR: Xiaolin Wang
+#+EMAIL: wx672ster@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:comment d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil stat:t tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 24.4.1 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: cn
+#+SELECT_TAGS: export
+
+* ssh without password
+  1. Generate a new keypair
+     : ssk-keygen -t rsa
+  2. Copy the keyfile to remote machine. For example
+     : ssh-copy-id username@cs3.swfu.edu.cn
+
+* Excuting remote commands
+  1. output your microphone to a remote computer's speaker
+     : dd if=/dev/dsp | ssh -C user@host dd of=/dev/dsp
+* Port forwarding, tunneling
+  - http://matt.might.net/articles/ssh-hacks/
+  - https://serversforhackers.com/ssh-tricks

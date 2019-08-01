@@ -1,0 +1,28 @@
+\documentclass[varwidth=30cm,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+                                   Local Host  ┃  Foreign
+                                               ┃
+┌─────────┐               ┌──────────┐         ┃  ┌────────┐
+│         │ user queries  │          │queries  ┃  │        │
+│  User   │──────────────▶│          │─────────┃─▶│Foreign │
+│ Program │               │ Resolver │         ┃  │  Name  │
+│         │◀──────────────│          │◀────────┃──│ Server │
+│         │ user responses│          │responses┃  │        │
+└─────────┘               └──────────┘         ┃  └────────┘
+                            │     ▲            ┃
+            cache additions │     │ references ┃
+                            ▼     │            ┃
+                          ┌──────────┐         ┃
+                          │  cache   │         ┃
+                          └──────────┘         ┃
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

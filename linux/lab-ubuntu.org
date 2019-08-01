@@ -1,0 +1,62 @@
+#+TITLE:     Software Configuration Of Ubuntu Lab PCs
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:info toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+
+* IDEs
+  - [X] eclipse
+  - [X] netbeans
+  - [X] Qt4-designer
+  - [X] gambas
+* Editors
+  - [X] Emacs
+  - [X] Vim
+  - [X] gedit
+  - [X] nano
+* TODO C development tools
+  - [X] GCC
+  - [X] GDB
+  - [X] make
+  - [X] apt-src
+	read hello source code, and compile it.
+  - [X] git
+  - [ ] examples
+* TODO Utilities
+  - [X] screen
+  - [X] catdoc
+  - [X] imagemagick
+  - [ ] controlaula
+  - [ ] umbrello
+** Networking
+  - [X] ssh
+  - [X] lynx
+  - [X] lftp
+  - [X] rdesktop
+  - [X] mutt
+  - [X] wireshark, tcpdump, netcat, socat, nmap
+** Multimedia
+  - [X] mplayer
+  - [X] recordmydesktop
+** Web Browsers
+   - [ ] Google Chrome/Firefox
+     - [-] extensions
+       - [X] gmail checker/notifier
+       - [X] google bookmarks
+       - [X] AdBlock+
+       - [X] Google reader RSS subscriber
+       - [X] downthemall
+       - [X] flashgot
+       - [ ] cleeki
+     - [-] Bookmarklets
+       - [X] GmailThis
+       - [ ] meebo/ebuddy
+       - [X] web QQ
+       - [X] Tasks
+       - [X] translate
+       - [X] dictionary
+       - [X] Note in Reader

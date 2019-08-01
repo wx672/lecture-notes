@@ -1,0 +1,24 @@
+\documentclass[varwidth,crop]{standalone}
+
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+        active          passive
+        close            close
+          ╟─────FIN x─────>║
+FIN_WAIT_1║                ║CLOSE_WAIT 
+          ║<────ACK x+1────╢
+FIN_WAIT_2║                ║
+          ║<────FIN y──────╢
+          ║                ║LAST_ACK 
+          ╟─────ACK y+1───>║
+ TIME_WAIT║                ║CLOSED
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

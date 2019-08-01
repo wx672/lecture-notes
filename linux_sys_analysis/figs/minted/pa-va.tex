@@ -1,0 +1,10 @@
+\documentclass[varwidth=29em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+#define __pa(x) ((unsigned long)(x)-PAGE_OFFSET)
+#define __va(x) ((void *)((unsigned long)(x)+PAGE_OFFSET))  
+\end{ccode}
+\end{document}

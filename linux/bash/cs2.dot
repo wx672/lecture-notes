@@ -1,0 +1,41 @@
+digraph cs2 {
+//	ROOT [style=filled, color=red];
+	ROOT -> { bin; boot; dev; etc; home; var; usr}
+	bin -> {ls [shape=box]}
+	boot -> grub;
+	dev -> {tty [shape=box]}
+	etc -> {passwd [shape=box]}
+	home -> {staff; student }
+//	wx672 [style=filled, color=red];
+//	staff [style=filled, color=red];
+	staff -> wx672 -> public_html -> {00 [label="index.html", shape=box]};
+	wx672 -> mail;
+	student -> 20101152001 -> {public_html2 [label="public_html"]} -> {000 [label="index.html", shape=box]}
+//	var -> {varmail [label="mail"]} -> {wx672mail [label="wx672", shape=box, style=filled, color=red]}
+	var -> {varmail [label="mail"]} -> {wx672mail [label="wx672", shape=box]}
+	usr -> {usrbin [label="bin"]} -> {binemacs [label="emacs", shape=box]}
+	usr -> {usrshare [label="share"]} -> doc -> emacs -> {copyright [shape=box]}
+	node [shape=point];
+	ROOT -> {r1;r2}
+	bin -> {bin0;bin1}
+	boot -> {bt1;bt2}
+	grub -> {g1;g2}
+	dev -> {d1;d2}
+	etc -> {etc1;etc2}
+	home -> {h1;h2}
+	staff -> {staff1;staff2}
+	student -> {stud1;stud2}
+	20101152001 -> {20101;20102}
+	wx672 -> {w1;w2}
+	mail -> {mail1;mail2}
+	public_html -> {pub1;pub2}
+	var -> {v1;v2}
+	usr -> {u1; u2}
+	public_html2 -> {pub21;pub22}
+	varmail -> {vm1;vm2}
+	usrbin -> {ub1;ub2}
+	usrshare -> {us1;us2}
+	doc -> {usdoc1;usdoc2}
+	emacs -> {e1;e2}
+/*	wx672mail -> mail [style=dotted, color=blue]; */
+}

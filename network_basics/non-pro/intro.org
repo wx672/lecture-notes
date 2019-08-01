@@ -1,0 +1,59 @@
+#+TITLE:     Using The Internet
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DATE:      2010-09-01 Wed
+#+KEYWORDS: internet, web design, web search
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT: 
+
+* What's Internet?
+  - library
+  - How it works?
+* Internet Resources
+  - Google reader
+    - real-time news
+    - RSS
+  - Wikipedia
+  - Google search tips
+    - [[http://www.googleguide.com/][Google Guide]]
+  - file downloading
+    - ff + downthemall
+    - cache
+* LAN
+  - network configuration
+  - resource sharing
+  - home networking
+  - troubleshooting
+* Security
+  - malware
+  - password protection
+* Web 
+  - Web client/server
+  - Simple is beautiful
+  - Static web page
+    - HTML5 + CSS3
+  - Dynamic web page
+    - LAMP
+    - RubyOnRails
+    - JSP
+    - ASP.NET
+    - Dreamweaver
+    - Flash
+  - Free web hosting
+  - Blogging
+  - Web album
+  - Promoting
+    [[http://www.googleguide.com/google_works.html][How Google Works]]
+* Misc Questions
+    - accounting
+    - CAD, drawing
+    - programming
+    - packaging engineering
+

@@ -1,0 +1,32 @@
+\documentclass[varwidth=50em,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+directory entry in /dirA         directory entry in /dirB
+
+    inode   name                     inode   name
+  ┌───────┬───────┐                ┌───────┬───────┐
+┌─┤ 12345 │ name1 │<──┐          ┌─┤ 13579 │ name2 │
+│ └───────┴───────┘   │          │ └───────┴───────┘
+│                     └──────────│─────────────────────────────────┐
+│                                │                                 │
+│ inode 12345                    │ inode 13579                     │
+└─>┌───────┐                     └─>┌───────┐                      │
+   │       │                        │       │                      │
+   ├───────┤                        ├───────┤                      │
+   │   1   │        block 23567     │   1   │        block 15213   │
+   ├───────┤  ┌──>┌─────────────┐   ├───────┤  ┌──>┌─────────────┐ │
+   │       │  │   │ "text in    │   │       │  │   │"/dirA/name1"├─┘
+   ├───────┤  │   │  the file"  │   ├───────┤  │   │             │
+   │ 23567 ├──┘   │             │   │ 15213 ├──┘   │             │
+   ├───────┤      └─────────────┘   ├───────┤      └─────────────┘
+   │       │                        │       │
+   └───────┘                        └───────┘
+\end{verbatim}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% TeX-master: t
+%%% End:

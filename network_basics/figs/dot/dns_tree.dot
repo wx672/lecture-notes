@@ -1,0 +1,52 @@
+digraph dns {
+	node [shape=plaintext];
+	root [label="",width=0,height=0];
+	root -> {
+		int;
+		gov;
+		mil;
+		edu;
+		com;
+		org;
+		net;
+		us;
+		cn;
+		uk;
+		jp;
+		de;
+		more [label="..."];
+	}
+	com -> google -> {
+		mail;
+		calendar;
+		maps;
+		docs;
+		more1 [label="..."];
+	}
+	gov -> whitehouse;
+	org -> wikipedia;
+	edu -> mit -> ocw;
+	edu -> yale;
+	cn -> {
+		com1 [label="com"];
+		edu1 [label="edu"];
+		net1 [label="net"];
+		org1 [label="org"];
+		more2 [label="..."];
+	}
+	edu1 -> {
+		swfu;
+		ynu;
+		kmust;
+		pku;
+		tsinghua;
+		more3 [label="..."];
+	}
+	swfu -> {
+		lib;
+		jwc;
+		cs2;
+		cs3;
+		more4 [label="..."];
+	}
+}

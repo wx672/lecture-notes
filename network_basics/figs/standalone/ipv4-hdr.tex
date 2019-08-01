@@ -1,0 +1,26 @@
+\documentclass[varwidth=25cm,crop]{standalone}
+\usepackage{xltxtra}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+        0               1               2               3
+├───────┬───────┼───────────┬─┬─┼───────────────┴───────────────┤
+│Version│  IHL  │    DS     │ECN│          Total Length         │
+├───────┴───────┴───────────┴─┴─┼─┬─┬─┬─────────────────────────┤
+│         Identification        │▒│D│M│     Fragment Offset     │
+├───────────────┬───────────────┼─┴─┴─┴─────────┴───────────────┤
+│  Time to Live │    Protocol   │         Header Checksum       │
+├───────────────┴───────────────┴───────────────────────────────┤
+│                         Source Address                        │
+├───────────────────────────────────────────────────────────────┤
+│                      Destination Address                      │
+├─────────────────────────────────────────────────────┬─────────┤
+│             Options (variable)                      │ Padding │
+└─────────────────────────────────────────────────────┴─────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

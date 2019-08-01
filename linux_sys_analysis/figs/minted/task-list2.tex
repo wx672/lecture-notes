@@ -1,0 +1,16 @@
+\documentclass[varwidth=35.5em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+struct task_struct {
+  struct list_head run_list;
+  struct list_head tasks;
+  struct list_head ptrace_children;
+  struct list_head ptrace_list;
+  struct list_head children; /* list of my children */
+  struct list_head sibling;  /* linkage in my parent's children list */
+}  
+\end{ccode}
+\end{document}

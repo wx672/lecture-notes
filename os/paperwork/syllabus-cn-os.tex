@@ -1,0 +1,47 @@
+\documentclass{wx672article} % $HOME/texmf/tex/latex/wx672article.cls
+
+
+\usepackage{wx672ctex}
+\usepackage{wx672bib}
+\addbibresource{os.bib}
+
+\title{操作系统原理教学大纲}
+\author{}\date{}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{description}
+\item[操作系统原理]
+\item[每周课次: 4]
+\item[学分:] 4
+\item[前导课程:] C编程，Linux基础
+\item[课程简介:] 本课程涵盖操作系统设计与实现方面的重要问题。操作系统是用户应用程
+  序与计算机硬件之间的重要接口，它负责系统资源的分配与管理，为用户应用程序提供必要的服务，
+  并要防止进程间发生冲突。本课程从操作系统五十多年的历史演变开始，然后介绍它的重要组成部分，
+  包括进程管理，内存管理，文件系统，输入/输出等内容。
+\item[主要内容:] 课程主要内容包括：
+  \begin{itemize}
+  \item[第1周:] 操作系统简介
+  \item[第2周:] 硬件相关概念
+  \item[第3周:] 进程的概念
+  \item[第4周:] 进程的控制与管理
+  \item[第5周:] 进程间通信
+  \item[第6周:] 进程的调度
+  \item[第7 -- 10周:] 进程间通信
+  \item[第11周:] 死锁
+  \item[第12 -- 14周:] 内存管理
+  \item[第15、16周:] 文件系统
+  \end{itemize}
+\item[教材与参考书目:]\hfill
+  \nocite{silberschatz11essentials,tanenbaum2008modern,bovet2005understanding}
+  \printbibliography[heading=none]{}
+\end{description}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

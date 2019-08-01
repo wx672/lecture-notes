@@ -1,0 +1,44 @@
+\documentclass[varwidth]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+           ~                 ~ 
+           │    load high    │
+0x00100000 ├─────────────────┤ 1M
+           │    reserved     │
+0x000A0000 ├─────────────────┤ 640K
+           │                 │ 
+0x00098000 ├─────────────────┤
+           │ real mode stack │
+           │                 │
+           │   2nd part of   │
+           │      GRUB       │
+0x00096C00 ├─────────────────┤
+           │ new location of │
+           │    MBR (512B)   │
+0x00096A00 ├─────────────────┤
+           │                 │
+0x00090400 ├─────────────────┤ 577K
+           │  setup sector   │
+           │     (512B)      │
+0x00090200 ├─────────────────┤ 576.5K
+           │  1st 512 bytes  │
+           │ of kernel image │
+0x00090000 ├─────────────────┤ 576K
+           │                 │
+           │    load low     │
+0x00010000 ├─────────────────┤ 64K
+           │                 │ 
+           ├─────────────────┤
+           │    MBR (512B)   │
+0x00007C00 ├─────────────────┤ 31K
+           │                 │
+           │   compressed    │
+           │  kernel image   │
+           │ (if loaded low) │
+0x00001000 ├─────────────────┤ 4K
+           │                 │
+         0 └─────────────────┘ 0
+\end{verbatim}
+\end{document}

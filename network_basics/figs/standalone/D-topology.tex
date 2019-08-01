@@ -1,0 +1,36 @@
+\documentclass[varwidth=40cm,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+                            ┌─────────────────────┐
+                            │ SWFU Network Center │
+                            └─────────o───────────┘
+                                      │
+┌─────────────────────────────────────o──────────────────────────────────────┐
+│                          Main switch in D building                         │
+├──────────┬─────────────┬────────────────────┬──────────────────────────────┤
+│ VLAN 810 │  VLAN 956   │     VLAN 990       │                              │
+│          │ 218.194.x.x │   202.203.132.x    │           218.194.x.x        │
+└───o──────┴────o────────┴─────o───o───o──────┴──────────o─────o─────o───────┘
+    │           │             ╱    │    ╲               ╱      │      ╲
+    │           │            ╱     │     ╲             ╱       │       ╲
+┌───o────┐ ┌────o────┐      ╱      │      ╲           ╱        │        ╲
+│   AV   │ │   218   │  ┌──o──┐ ┌──o──┐ ┌──o──┐  ┌───o───┐ ┌───o───┐ ┌───o───┐
+│ Center │ │  Office │  │ cs2 │ │ cs3 │ │ ... │  │ LAB─1 │ │ LAB─2 │ │ LAB─3 │
+└─o─o─o──┘ │   192   │  └─────┘ └─────┘ └─────┘  │  192  │ │  192  │ │  192  │
+ ╱  │  ╲   └─o──o──o─┘                           └─o─o─o─┘ └─o─o─o─┘ └─o─o─o─┘
+          __╱   │   ╲__                           ╱  │  ╲   ╱  │  ╲   ╱  │  ╲
+         ╱      │      ╲
+     ┌──o──┐ ┌──o──┐ ┌──o──┐
+     │ sw1 │ │ sw2 │ │ sw3 │
+     └─o─o─┘ └─o─o─┘ └─o─o─┘
+      ╱   ╲   ╱   ╲   ╱   ╲
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

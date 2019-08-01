@@ -1,0 +1,244 @@
+#+TITLE:     Syllabus --- Network Basics
+#+AUTHOR:    Wang Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION: 
+#+KEYWORDS:  
+#+LANGUAGE: en
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:nil mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+# (setq org-export-html-use-infojs nil)
+
+- Course ID: 
+- Hours: 48 (lecture: 32; lab: 16)
+- Credits: 2.5
+- Practice: 0
+- Subjects: Computer Sciences, Electronics Engineering
+
+* Course Syllabus
+** Course Contents
+   1. Introduction to Network
+      - History and Evolution of Computer Networks
+      - The Definition of Computer Networks
+      - The Classification of Computer Networks
+      - Network Topologies
+      - Typical Computer Networks
+      - Data Communication Services
+      - The Application of Computer Networks
+   2. Data Communication And WAN Technology
+      - Basic Concepts of Data Communication
+      - Transmission Medium
+      - Wireless and Satellite Data Communication
+      - Data Encoding Technologies
+      - Baseband Transmission vs. Broadband Transmission
+      - Multiplexing
+      - Data Switching in WAN
+      - Error Control
+   3. Introduction to Network Infrastructure and Network Protocols
+      - What's Network Infrastructure
+      - ISO/OSI Reference Model
+      - TCP/IP Reference Model
+      - ISO/OSI vs. TCP/IP
+   4. LAN Technologies
+      - Technical Characteristics of LAN
+      - LAN Topologies
+      - IEEE 802 Model
+      - How Shared Medium Works
+      - Fast LAN
+      - Switched LAN
+      - Building a LAN
+      - LAN Structured Cabling
+      - VLAN
+   5. LAN Operating Systems
+      - Development and Classification of LAN OS
+      - Typical LAN OS
+      - Networking Features of UNIX
+   6. Client/Server Computing
+      - Basic Concepts of C/S Model
+      - Database Server in C/S Model
+      - Features of C/S Model
+      - Typical C/S Implementation
+      - Midware in C/S Model
+   7. Network Inter-connection
+      - Basic Concepts
+      - Types of Network Inter-connection
+      - Levels of Network Inter-connection
+      - Requirements of Network Inter-connection
+      - Network Inter-connection Devices
+      - Inter-connect LAN with Frame Relay
+      - ATM LANE
+      - IPoA, MPoA
+   8. Internet and Intranet
+      - TCP/IP Protocol Suite
+      - Typical Features of Internet
+      - WWW Service
+      - Internet News and Bullitin Board System
+      - Java
+      - Accessing the Internet
+      - Intranet
+   9. Network Security and Management
+      - The Importancy of Network Security
+      - Network Security Stratagy Design
+      - Detecting Security Problem
+      - Firewalling
+      - Backup/Restore
+      - Anti-Viruses
+      - Network Management
+** Lab tutorial
+   See /Network Basics Lab Tutorials Syllabus/.
+** Practice
+   None.
+** Assessment
+   - Examination: 80% (Closed book, written)
+   - Assignments: 20%
+** Textbook and references
+   - /Computer Networks/, Xie Xiren, Electronics Engineering Press.
+   - /Computer Networks Lab Tutorials/, Xie Qian, Electronics Engineering Press.
+   - /Computer Network Tutorials/, Du Yu, People's Post and
+     Telecommunication Press, 1st edition Jan 2002.
+   - /Computer Network Practical Tutorials/, Wang Li, Zhang Yuxiang,
+     Yang Lianghuai, Tsinghua University Press, 1st edition Dec 1999.
+* Course Description
+** Course nature and pre-requisites
+   This course introduces students comprehensive concepts of computer
+   networking. Upon finishing this course, students should have clear
+   understanding about
+   - Basic Concepts of Data Communication
+   - Network Infrastructure
+   - ISO/OSI RM
+   - TCP/IP Protocol Suite
+   - Network management
+   - Network Security
+** Focal Points
+   - Network Infrastructure
+   - ISO/OSI RM
+   - TCP/IP Protocol Suite
+   - Network management
+   - Network Security
+** Requirements on assignments, lab work and practice
+   Assignments must be handed in without delay.
+** Relations with other courses
+   - Pre-course: None.
+   - Post-course: Networking courses, Programming courses, Operating
+     system courses.
+** Time arrangements
+|-----------------------------------------+---------+-------|
+|                                         | Lecture |   Lab |
+| Outline                                 |   Hours | Hours |
+|-----------------------------------------+---------+-------|
+| Introduction to Computer Networks       |       2 |     0 |
+| Data Communication and WAN Technologies |       2 |     2 |
+| Network Infrastructure and Protocols    |       6 |     2 |
+| LAN Technologies                        |       4 |     2 |
+| LAN Operating Systems                   |       4 |     2 |
+| Client/Server Model                     |       4 |     2 |
+| Network Inter-connection                |       4 |     2 |
+| Internet and Intranet                   |       4 |     2 |
+| Network Security and Network Management |       2 |     2 |
+|-----------------------------------------+---------+-------|
+** Special Notes
+   None.
+* Course Syllabus for Lab Work
+  - Course ID: 
+  - Hours: 48 (lecture: 32; lab: 16)
+  - Credits: 2.5
+  - Practice: 0
+  - Subjects: Computer Sciences, Electronics Engineering
+** Objectives and Requirements of Lab Tutorials
+   This course introduces students comprehensive concepts of computer
+   networking. Upon finishing this course, students should have clear
+   understanding about
+   - Basic Concepts of Data Communication
+   - Network Infrastructure
+   - ISO/OSI RM
+   - TCP/IP Protocol Suite
+   - Network management
+   - Network Security
+
+   Lab tutorials provide students with hands-on opportunities, so that
+   they can have in depth understanding of networking concepts, as
+   well as basic skills of building, using and managing a small LAN. 
+** Lab Tutorials Outline
+   |-----+-----------------------------------------------------+-------|
+   | No. | Lab work                                            | Hours |
+   |-----+-----------------------------------------------------+-------|
+   |   1 | Get familar with the network environment in the lab |     1 |
+   |   2 | Get familar with common network devices             |     1 |
+   |   3 | Making an Ethernet cable                            |     2 |
+   |   4 | Building a LAN                                      |     4 |
+   |   5 | Peer network inter-connection with routers          |     4 |
+   |   6 | Internet applications                               |     4 |
+   |-----+-----------------------------------------------------+-------|
+** Required Lab Devices
+   - Bulk Ethernet cable (RJ45), RJ45 connectors, RJ45 crimper, wire cutters
+   - PCs with networking software installed
+   - Routers, Switches, Hubs
+** Lab Tutorials Contents
+   1. Get familar with the network environment of the lab
+      - Checkout the network topology in the lab.
+   2. Making an ethernet cable.
+      - Making a straight through cable
+      - Making a crossover cable
+   3. Get familar with common networking devices
+      - Connect two PCs with a hub. Try transmit a data file between the
+	PCs through the hub.
+      - Connect two PCs with a switch. Try transmit a data file
+	between the PCs through the switch.
+      - Connect two PCs with a router. Try transmit a data file
+	between the PCs through the router.
+      - Explain the deferences of using hub, switch, and router.
+   4. Building a LAN
+      - Building a LAN with 10 PCs, hubs, switches and routers provided.
+      - Subnetting the LAN into 5 subnets.
+   5. Peer network inter-connection with routers
+      - Build two LANs.
+      - Connect the two LANs with a router.
+      - Play with the arp tables and the routing tables.
+   6. Internet applications
+      - Install a FTP server software in one PC.
+      - Install a FTP client software in another PC.
+      - Transferring a data file between the two PC through FTP.
+      - Use wireshark to capture data packets while data transferring.
+      - Capturing the FTP username and password with wireshark.
+** Lab Report
+   Lab report must follow the report template provided, and must be
+   handed in without delay.
+** Assessment
+   - Based on your lab report, 100 points in maximum.
+   - reports got less than 60 points are considered as fail.
+** Lab Manual and References
+   - /Computer Networks/, Xie Xiren, Electronics Engineering Press.
+   - /Computer Networks Lab Tutorials/, Xie Qian, Electronics Engineering Press.
+   - /Computer Network Tutorials/, Du Yu, People's Post and
+     Telecommunication Press, 1st edition Jan 2002.
+   - /Computer Network Practical Tutorials/, Wang Li, Zhang Yuxiang,
+     Yang Lianghuai, Tsinghua University Press, 1st edition Dec 1999.
+** Special Notes
+   None.
+* Course Summary
+- Course ID: 
+- Hours: 48 (lecture: 32; lab: 16)
+- Credits: 2.5
+- Practice: 0
+- Subjects: Computer Sciences, Electronics Engineering
+- Pre-course: /Computer Basics/
+- Summary: This course introduces students comprehensive concepts of
+   computer networking. Upon finishing this course, students should
+   have clear understanding about
+   - Basic Concepts of Data Communication
+   - Network Infrastructure
+   - ISO/OSI RM
+   - TCP/IP Protocol Suite
+   - Network management
+   - Network Security
+- Textbook and References:
+  - /Computer Networks/, Xie Xiren, Electronics Engineering Press.
+  - /Computer Networks Lab Tutorials/, Xie Qian, Electronics Engineering Press.
+  - /Computer Network Tutorials/, Du Yu, People's Post and
+    Telecommunication Press, 1st edition Jan 2002.
+  - /Computer Network Practical Tutorials/, Wang Li, Zhang Yuxiang,
+    Yang Lianghuai, Tsinghua University Press, 1st edition Dec 1999.

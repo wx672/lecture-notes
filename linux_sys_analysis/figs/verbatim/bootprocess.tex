@@ -1,0 +1,16 @@
+\documentclass[varwidth=60em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+┌────┐  ┌──────────┐  ┌───────┐  ┌────────────┐  ┌────────────┐  ┌──────────────┐
+│BIOS├─➤│Bootloader├─➤│setup()├─➤│startup_32()├─➤│startup_32()├─➤│start_kernel()│
+└────┘  └──────────┘  └───────┘  └────────────┘  └────────────┘  └──────────────┘
+                      PE=1;PG=0                   PG=1
+\end{verbatim}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

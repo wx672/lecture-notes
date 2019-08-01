@@ -1,0 +1,17 @@
+\documentclass[varwidth=17em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+if(stub_is_executed){
+
+  if(routine_is_not_in_memory)
+    loads_into_memory(&routine);
+
+  stub_replaces_itself(&routine);
+  execute(routine);
+}    
+\end{ccode}
+\end{document}

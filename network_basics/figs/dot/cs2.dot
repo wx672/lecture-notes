@@ -1,0 +1,19 @@
+digraph cs2 {
+	node [shape=plaintext];
+	"/" ->
+	{"bin";"boot";"dev";"etc";"home";"lib";"mnt";"root";"sbin";"tmp";"var"}
+		"home" -> {"staff";"student"}
+	"staff" -> {csstaff [label="cs"];ncsstaff [label="ncs"]}
+	csstaff -> {"wx672";1 [shape=point];2 [shape=point]}
+	"wx672" -> {wx672pub [label="public_html"];wx672mail
+		[label="Mail"];3 [shape=point];4 [shape=point]}
+	"student" -> {csstudent [label="cs"];ncsstudent [label="ncs"]}
+	csstudent -> {"20040704001";5 [shape=point];6 [shape=point]}
+	"20040704001" -> {studpub
+		[label="public_html"];studmail [label="Mail"];7
+		[shape=point];8 [shape=point]}
+	"var" -> {varmail [label="mail"];11 [shape=point];12
+		[shape=point]}
+	varmail -> {wx672varmail [label="wx672"];studvarmail
+		[label="20040704001"];9 [shape=point];10 [shape=point]}
+}

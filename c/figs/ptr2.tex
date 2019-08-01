@@ -1,0 +1,21 @@
+\documentclass[varwidth=20cm,crop]{standalone}
+
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+  &p                int *p = &i;
+  ↓                          ↓
+  3bc0 3bc1 3bc2 3bc3        3bcc 3bcd 3bce 3bcf
+┈┬────┬────┬────┬────┬─┈//┈─┬────┬────┬────┬────┬┈
+┈│   3bcc            │      │   5 ➠ 6           │┈
+┈┴────┴────┴────┴────┴─┈//┈─┴────┴────┴────┴────┴┈
+  int *p = &i;               int i = 5;  *p = 6; 
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

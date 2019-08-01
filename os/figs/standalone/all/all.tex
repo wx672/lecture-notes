@@ -1,0 +1,405 @@
+% Problems:
+% 1. no names for pics
+% 2. image wider than \textwidth got cropped
+% 3. minted code pics are all \textwidth wide
+\documentclass[varwidth,crop,multi={verbatim}]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+\usemintedstyle{bw}
+
+\begin{document}
+
+\begin{verbatim}
+      page number     | page offset
++----------+----------+------------+
+|    p1    |    p2    |     d      |
++----------+----------+------------+
+    10         10           12
+     |          |
+     |          `-> pointing to 1k frames
+     `--> pointing to 1k page tables
+\end{verbatim}
+
+\begin{verbatim}
+                            +--------------+
+                            | Intel Core 2 |
+                            |  Processor   |
+                            |    (CPU)     |
+                            +--------------+
+                                   |
+                             Front Side Bus
+                                   |
+ +------------+    DDR2     +-------------+     +---------------+
+ | System RAM |<----------->| Northbridge |<--->| Graphics Card |
+ +------------+   Channel   |    Chip     |     +---------------+
+                            +-------------+
+                                   |
+                             DMI Interface
+                                   |
++---------------------+     +-------------+     +------------------+
+| BIOS (flash memory) |<--->|             |<--->| Power management |
++---------------------+     | Southbridge |     +------------------+
+| Serial ATA Ports    |<--->|    Chip     |<--->| Clock generation |
++---------------------+     |             |     +------------------+
+| USB Ports           |<--->|             |<--->|     PCI Bus      |
++---------------------+     +-------------+     +------------------+
+\end{verbatim}
+
+\begin{verbatim}
+     ,--------> inode number
+     |   ,---> record length
+     |   | ,---> name length
+     |   | | ,---> file type
+     |   | | |   ,----> name
+  +----+--+-+-+----+
+0 | 21 |12|1|2|.   |
+  +----+--+-+-+----+
+12| 22 |12|2|2|..  |
+  +----+--+-+-+----+----+
+24| 53 |16|5|2|hell|o   |
+  +----+--+-+-+----+----+
+40| 67 |28|3|2|usr |
+  +----+--+-+-+----+----+
+52| 0  |16|7|1|oldf|ile |
+  +----+--+-+-+----+----+
+68| 34 |12|4|2|sbin|
+  +----+--+-+-+----+
+\end{verbatim}
+
+\begin{verbatim}
++------------+---------------+---------------+--//--+---------------+
+| Boot Block | Block Group 0 | Block Group 1 |      | Block Group n |
++------------+---------------+---------------+--//--+---------------+
+  __________________________/                 \_____________
+ /                                                          \
++-------+-------------+------------+--------+-------+--------+
+| Super |    Group    | Data Block | inode  | inode | Data   |
+| Block | Descriptors |   Bitmap   | Bitmap | Table | Blocks |
++-------+-------------+------------+--------+-------+--------+
+  1 blk     n blks        1 blk      1 blk   n blks   n blks
+\end{verbatim}
+
+\begin{verbatim}
+  user FDT       file table            inode table
+ +--------+     +-----------+       +---------------+
+0| STDIN  |     |     :     |       |       :       |
+ +--------+     +-----------+       |       :       |
+1| STDOUT |     | count  R  |       |       :       |
+ +--------+  -->|   1       |\      +---------------+
+2| STDERR | /   +-----------+ `---->| (/etc/passwd) |
+ +--------+/    |     :     |   ,-->|    count 2    |
+3|        |     +-----------+   |   +---------------+
+ +--------+     | count  RW |   |   |       :       |
+4|        |---->|   1       |\  /   +---------------+
+ +--------+     +-----------+ \/    |    (local)    |
+5|        |     |     :     | /\--->|    count 1    |
+ +--------+\    +-----------+/      +---------------+
+ :   :    : \   | count  W  |       |       :       |
+ +--------+  -->|   1       |       +---------------+
+                +-----------+
+\end{verbatim}
+
+\begin{verbatim}
+  user FDT
+   proc A            file table
+ +--------+         +-----------+               inode table
+0| STDIN  |         |     :     |            +---------------+
+ +--------+         +-----------+            |       :       |
+1| STDOUT |         | count  R  |            |       :       |
+ +--------+  ------>|   1       |\           +---------------+
+2| STDERR | /       +-----------+ \--------->| (/etc/passwd) |
+ +--------+/        |     :     |      ----->|    count 3    |
+3|        |         +-----------+     /    ->|               |
+ +--------+         | count  RW |    /    /  +---------------+
+4|        |-------->|   1       |\  /    /   |       :       |
+ +--------+         +-----------+ \/    /    |       :       |
+5|        |         |     :     | /\   /     +---------------+
+ +--------+\        +-----------+/  -------->|    (local)    |
+ :   :    : \  ---->| count  R  |    /       |    count 1    |
+ +--------+  \/     |   1       |   /        +---------------+
+             /\     +-----------+  /         |       :       |
+   proc B    | \    |     :     | /          |       :       |
+ +--------+  |  \   +-----------+/           +---------------+
+0| STDIN  |  |   -->| count  W  |    ------->|   (private)   |
+ +--------+  |      |   1       |   /        |    count 1    |
+1| STDOUT |  |      +-----------+  /         +---------------+
+ +--------+  |      |     :     | /          |       :       |
+2| STDERR | /       +-----------+/           |       :       |
+ +--------+/        | count  R  |            +---------------+
+3|        | .------>|   1       |
+ +--------+/        +-----------+
+4|        |
+ +--------+
+ :   :    :
+ +--------+
+\end{verbatim}
+
+\begin{verbatim}
+  Per-process FDT
+     Process 1
++------------------+                System-wide
+|      ...         |              open-file table
++------------------+            +------------------+
+| Position pointer |            |      ...         |
+| Access rights    |            +------------------+
+|      ...         |\           |      ...         |
++------------------+ \          +------------------+
+|      ...         |  --------->| Location on disk |
++------------------+            | R/W              |
+                                | Access dates     |
+     Process 2                  | File size        |
++------------------+            | Pointer to inode |
+| Position pointer |            | File-open count  |
+| Access rights    |----------->|      ...         |
+|      ...         |            +------------------+
++------------------+            |      ...         |
+|      ...         |            +------------------+
++------------------+
+\end{verbatim}
+
+\begin{verbatim}
+ 0 1 2 3 4 5 6 7 8  ..  n-1
++-+-+-+-+-+-+-+-+-+-//-+-+
+|0|0|1|0|1|1|1|0|1| .. |0|
++-+-+-+-+-+-+-+-+-+-//-+-+
+\end{verbatim}
+
+\begin{verbatim}
+|<---------------------- Entire disk ------------------------>|
++-----+-------------+-------------+-------------+-------------+
+| MBR | Partition 1 | Partition 2 | Partition 3 | Partition 4 |
++-----+-------------+-------------+-------------+-------------+
+  _______________________________/               \____________
+ /                                                            \
++---------------+-----------------+--------------------+---//--+
+| Boot Ctrl Blk | Volume Ctrl Blk |   Dir Structure    | Files |
+|  (MBR copy)   |   (Super Blk)   | (inodes, root dir) | dirs  |
++---------------+-----------------+--------------------+---//--+
+\end{verbatim}
+
+\begin{verbatim}
+ 31                                  12 11                      0
++--------------------------------------+-------+---+-+-+---+-+-+-+
+|                                      |       |   | | |   |U|R| |
+|      PAGE FRAME ADDRESS 31..12       | AVAIL |0 0|D|A|0 0|/|/|P|
+|                                      |       |   | | |   |S|W| |
++--------------------------------------+-------+---+-+-+---+-+-+-+
+        P      - PRESENT
+        R/W    - READ/WRITE
+        U/S    - USER/SUPERVISOR
+        A      - ACCESSED
+        D      - DIRTY
+        AVAIL  - AVAILABLE FOR SYSTEMS PROGRAMMER USE
+
+        NOTE: 0 INDICATES INTEL RESERVED. DO NOT DEFINE.
+\end{verbatim}
+
+\begin{verbatim}
+  +----------------+
+0 |     4096       |
+  +----------------+              ---->+----------+  Byte 9000 in a file
+1 |     228        |             /     |   367    |          |
+  +----------------+            /      | Data blk |          v
+2 |     45423      |           /       +----------+  8th blk, 808th byte
+  +----------------+          /
+3 |      0         |         /              -->+------+
+  +----------------+        /              /  0|      |
+4 |      0         |       /              /    +------+
+  +----------------+      /              /     :  :   :
+5 |     11111      |     /              /      +------+       Byte 350,000
+  +----------------+    /     ->+-----+/     75| 3333 |        in a file
+6 |      0         |   /     / 0| 331 |        +------+\           |
+  +----------------+  /     /   +-----+        :  :   : \          v
+7 |     101        | /     /    |     |        +------+  \     816th byte
+  +----------------+/     /     |  :  |     255|      |   \-->+----------+
+8 |     367        |     /      |  :  |        +------+       |   3333   |
+  +----------------+    /       |  :  |          331          | Data blk |
+9 |      0         |   /        |     |    Single indirect    +----------+
+  +----------------+  /         +-----+
+S | 428 (10K+256K) | /       255|     |
+  +----------------+/           +-----+
+D |     9156       |             9156            /***********************
+  +----------------+        Double indirect        What about the ZEROs?
+T |     824        |                              ***********************/
+  +----------------+
+\end{verbatim}
+
+\begin{verbatim}
+|<-------------Master Boot Record (512 Bytes)------------>|
+0          439        443    445               509       511
++----//-----+----------+------+------//---------+---------+
+| code area | disk-sig | null | partition table | MBR-sig |  
+|    440    |     4    |  2   |     16x4=64     | 0xAA55  |
++----//-----+----------+------+------//---------+---------+
+\end{verbatim}
+
+\begin{verbatim}
+max +------------------+
+    |      Stack       | Stack segment
+    +--------+---------+    
+    |        |         |
+    |        v         |
+    |                  |
+    |        ^         |
+    |        |         |
+    +--------+---------+
+    | Dynamic storage  | Heap
+    |(from new, malloc)|
+    +------------------+
+    | Static variables | 
+    | (uninitialized,  | BSS  segment
+    |  initialized)    | Data segment
+    +------------------+
+    |      Code        | Text segment
+0   +------------------+
+\end{verbatim}
+
+\begin{verbatim}
+    0        1        2       3~8       9
++--------+--------|--------+---//---+--------+
+| Segment selector|  Micro program register  |
++--------+--------|--------+---//---+--------+
+   Programmable         Non-programmable
+\end{verbatim}
+
+\begin{verbatim}
+   selector | offset
+ +-----+-+--+--------+  s - segment number
+ |  s  |g|p |        |  g - 0-global; 1-local
+ +-----+-+--+--------+  p - protection use
+   13   1 2     32
+\end{verbatim}
+
+\begin{verbatim}
+   selector  | offset
++----+---+---+--------+
+| s  | g | p |        |
++----+---+---+--------+
+  13   1   2     32
+\end{verbatim}
+
+\begin{verbatim}
+      DESCRIPTOR TABLE              SEGMENT
+      +--------------+              +------+
+      |     ...      |     ,------->|      |<--.
+      +--------------+    |         |      |    |
+ .--->|   Segment    |____/         |      |    |
+|     |  Descriptor  |              +------+    |
+|     +--------------+                          |
+|     |     ...      |                          |
+|     +--------------+                          |
+|                        Nonprogrammable        |
+|    Segment Registor       Register            |
+\__+------------------+--------------------+____/
+   | Segment Selector | Segment Descriptor |
+   +------------------+--------------------+
+\end{verbatim}
+
+\begin{verbatim}
++-------------------+
+|   process state   |
++-------------------+
+|        PID        |
++-------------------+
+|  program counter  |
++-------------------+
+|     registers     |
++-------------------+
+|   memory limits   |
++-------------------+
+| list of open files|
++-------------------+
+|        ...        |
++-------------------+
+\end{verbatim}
+
+\begin{verbatim}
+ process 
++-------+
+| stack | 4M
++-------+
+|       |
+|  ...  | unused
+|       |
++-------+
+| data  | 4M
++-------+
+| code  | 4M
++-------+
+\end{verbatim}
+
+\begin{verbatim}
+  page frame address | info                                     
++--------------------+------+
+|        20          |  12  | 
++--------------------+------+
+\end{verbatim}
+
+\begin{verbatim}
+  pid | virtual page number | info
++-----+---------------------+------+
+| 16  |          52         |  12  |
++-----+---------------------+------+
+\end{verbatim}
+
+\begin{verbatim}
+  selector | offset
++-----+-+--+--------+  s - segment number
+|  s  |g|p |        |  g - 0-global; 1-local
++-----+-+--+--------+  p - protection use
+  13   1 2     32
+\end{verbatim}
+
+\begin{verbatim}
+ Program 1    Program 2    Program 3
++---------+ +---------+ +---------+
+| fork()  | | vfork() | | clone() |
++---------+ +---------+ +---------+
+     |           |           |
+  +--v-----------v-----------v--+
+  |          C Library          |
+  +--------------o--------------+          User space
+-----------------|------------------------------------
+  +--------------v--------------+        Kernel space
+  |         System call         |
+  +--------------o--------------+
+                 |       +---------+
+                 |       :   ...   :
+                 |     3 +---------+  sys_fork()
+                 o------>| fork()  |---------------.
+                 |       +---------+               |
+                 |       :   ...   :               |
+                 |   120 +---------+  sys_clone()  |
+                 o------>| clone() |---------------o
+                 |       +---------+               |
+                 |       :   ...   :               |
+                 |   289 +---------+  sys_vfork()  |
+                 o------>| vfork() |---------------o
+                         +---------+               |
+                         :   ...   :               v
+                         +---------+           do_fork()
+                      System Call Table
+\end{verbatim}
+
+\begin{verbatim}
++------------------------------------+
+| code, data, open files, signals... |
++-----------+-----------+------------+
+| thread ID | thread ID | thread ID  |
++-----------+-----------+------------+
+|  program  |  program  |  program   |
+|  counter  |  counter  |  counter   |
++-----------+-----------+------------+
+| register  | register  |  register  |
+|   set     |   set     |    set     |
++-----------+-----------+------------+
+|  stack    |  stack    |   stack    |
++-----------+-----------+------------+
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,26 @@
+\documentclass[varwidth=28.5em,crop]{standalone}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\begin{document}
+\pagestyle{empty}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+~$ \color{violet}{nc cs3.swfu.edu.cn smtp}
+220 cs3.swfu.edu.cn ESMTP Exim 4.72
+        Sun, 16 Oct 2011 22:18:22 +0800
+\color{violet}{helo debian}
+250 cs3.swfu.edu.cn Hello debian [192.168.128.5]
+\color{violet}{mail from:<wx672@debian>}
+250 OK
+\color{violet}{rcpt to:<wx672@cs3.swfu.edu.cn>}
+250 Accepted
+\color{violet}{data}
+354 Enter message, ending with "." on a line by itself
+\color{violet}{Hello, there!}
+\color{violet}{.}
+250 OK id=1DMJra-0007IR-01
+\color{violet}{quit}
+221 cs3.swfu.edu.cn closing connection
+wx672@debian:~$
+\end{Verbatim}
+\end{document}

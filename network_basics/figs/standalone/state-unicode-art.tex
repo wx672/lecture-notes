@@ -1,0 +1,56 @@
+\documentclass[varwidth=60em,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+                                         ┌──────────────────────────────────────────────────┐
+                                         v                                                  │
+                                     ┌────────┐ appl: active open                           │
+             ┌──────────────────────>│ CLOSED ┝━━━━━━━━━━━━━━━━━━━━━━━━━━┓                  │
+             │                       └───┰────┘ send SYN                 ┃                  │
+             │         appl: passive open┋                               ┃                  │
+             │             send <nothing>┋                               ┃                  │
+             │timeout                    ┋                               ┃                  │
+             │send RST                   v                               ┃                  │
+             │                       ┌────────┐ appl: send data          ┃                  │
+             │  ┌───────────────────>│ LISTEN ├─────────────────────┐    ┃                  │
+             │  │recv RST            └───┰────┘ send SYN            │    ┃                  │
+             │  │                        ┋                          │    ┃                  │
+             │  │            recv SYN    ┋                          │    ┃                  │
+             │  │            send SYN,ACK┋                          │    ┃                  │
+             │  │  ┏╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┛                          │    ┃                  │
+             │  │  v                                                v    v                  │
+           ┌─┴──┴─────┐         recv SYN; send SYN,ACK           ┌──────────┐ appl: close   │
+           │ SYN_RCVD │<─────────────────────────────────────────┤ SYN_SENT ├───────────────┧
+           └──┬───┰───┘                                          └────┰─────┘ or timeout    ┃
+   appl: close│   ┗╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┓   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┛                     ┃
+      send FIN│     recv ACK           ┋   ┃recv SYN,ACK                                    ┃
+              │     send <nothing>     ┋   ┃send ACK                                        ┃
+              │                        v   v                                                ┃
+              │    appl: close    ┌─────────────┐                                           ┃
+              │   ┏━━━━━━━━━━━━━━━┥ ESTABLISHED ┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍┓recv FIN              ┃
+              │   ┃send FIN       └─────────────┘                    ┋send ACK              ┃
+              │   ┃                                                  ┋                      ┃
+              v   v                                                  v                      ┃
+         ┌────────────┐ recv FIN      ┌─────────┐              ┌────────────┐               ┃
+         │ FIN_WAIT_1 ├──────────────>│ CLOSING │              │ CLOSE_WAIT │               ┃
+         └────┰───┬───┘ send ACK      └────┬────┘              └─────┰──────┘               ┃
+      recv ACK┃   │                        │recv ACK                 ┋appl: close           ┃
+send <nothing>┃   └──────────────────┐     │send <nothing>           ┋send FIN              ┃
+              ┃          recv SYN,ACK│     │                         v                      ┃
+              ┃              send ACK│     │                   ┌──────────┐ recv ACK        ┃
+              ┃                      │     │                   │ LAST_ACK ┝╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍>┃
+              v                      v     v                   └──────────┘ send <nothing>  ┃
+         ┌────────────┐recv FIN   ┌───────────┐                                             ┃
+         │ FIN_WAIT_2 ┝━━━━━━━━━━>│ TIME_WAIT ┝━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+         └────────────┘send ACK   └───────────┘
+                                   2MSL timeout
+\end{verbatim}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% End:

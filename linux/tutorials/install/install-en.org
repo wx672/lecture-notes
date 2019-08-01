@@ -1,0 +1,215 @@
+#+TITLE:     Debian Installation Quick Guide
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+
+* UEFI
+By the time I wrote this short installation guide <2018-09-09 Sun>,
+UEFI has already replaced the old BIOS in nearly all laptop models. More about UEFI and
+BIOS:
+- https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface
+- https://en.wikipedia.org/wiki/BIOS
+
+I am still using an old BIOS based laptop, Lenovo Thinkpad E40, so I really don't have much
+experiences with UEFI. I googled "/uefi linux install/", and got a basic idea. That is you
+have to disable all the Windows related UEFI settings, including:
+- Secure boot
+- QuickBoot/FastBoot
+- Intel Smart Response Technology (SRT)
+- FastStartup
+
+For more detailed instructions, you should read the [[https://www.debian.org/releases/stretch/amd64/ch03s05.html.en][/Debian GNU/Linux Installation Guide/]],
+especially [[https://www.debian.org/releases/stretch/amd64/ch03s06.html.en][Section 3.6 /Pre-Installation Hardware and Operating System Setup/]].
+  
+* Install a Debian minimal system
+1. Preparing a bootable USB stick.
+   1) Download the ISO file from [[http://mirrors.163.com/debian-cd/current/amd64/iso-cd/]]
+      - There are more than one ISO files in the above link. You just need the smallest
+        one which is usually suffixed by =netinst.iso=.
+        If you are still confused, you should read the [[http://mirrors.163.com/debian-cd/current/amd64/iso-cd/HEADER.html][=HEADER.html=]] file in that directory.
+   2) Preparing the bootable USB stick is quite simple with a Debian machine.
+      : sudo cp debian-9.5.0-amd64-netinst.iso /dev/sdX
+      : sudo sync
+      *Caution*
+      - Replace =debian-9.5.0-amd64-netinst.iso= with your iso file name;
+      - Replace =X= with your USB drive letter. It's probably =b= or =c=.  you can use
+        the command =lsblk= to check it for sure.
+2. Unplug the Ethernet cable, and then reboot your laptop from USB stick. Following the
+   screen instructions, it takes probably half an hour to get a /minimal/ Debian
+   system installed.
+   - The only tricky part of the installation is how to partition your hard
+     disk. Well, if you are installing a Debian only system like me, you can simply follow
+     the on screen instruction to do a /guided partitioning/. If you want to keep your
+     Windows so as to have a dual-boot system, you should consult the [[https://www.debian.org/releases/stretch/amd64/ch03s05.html.en][/Debian GNU/Linux
+     Installation Guide/]], especally the following sections:
+     - [[https://www.debian.org/releases/stretch/amd64/ch03s05.html.en][Section 3.5 /Pre-Partitioning for Multi-Boot Systems/]]
+     - [[https://www.debian.org/releases/stretch/amd64/ch06s03.html.en#di-partition][Section 6.3.3 /Partitioning and Mount Point Selection/]]
+3. Now, unplug the USB stick, and reboot.
+
+* More than minimal
+You can't expect too much from a minimal system, right? So, let there be more
+application programs.
+1. Login with your username and password. Now you should see a =$= sign on the screen
+   which indicates that the command line shell is ready at your service.
+2. Now, you need to be /root/ to install software. Just type at the prompt:
+   : su
+   followed by the /root password/ which was set during the minimal system
+   installation. If the password was inputted correctly, now the command line prompt
+   should have changed from =$= to =#=.
+3. Plug in the Ethernet cable, and check if the network is ok. Type at the =#= prompt:
+   : ip a
+   In the screen output, you should find a network card named =ethX= or =enpXsY= where =X=
+   and =Y= are small numbers. For example, on my Debian laptop I got something like the
+   following:
+   #+BEGIN_EXAMPLE
+   1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 ...
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+           valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host 
+           valid_lft forever preferred_lft forever
+   2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 ...
+        link/ether 04:7d:7b:43:0e:01 brd ff:ff:ff:ff:ff:ff
+        inet 192.168.1.112/24 brd 192.168.1.255 scope global dynamic noprefixroute eth0
+           valid_lft 86347sec preferred_lft 86347sec
+        inet6 fe80::6375:4264:c2a4:9e2b/64 scope link noprefixroute 
+           valid_lft forever preferred_lft forever
+   3: wlan0: <BROADCAST,MULTICAST> mtu 1500 ...
+        link/ether 60:d8:19:ce:44:f6 brd ff:ff:ff:ff:ff:ff
+        inet 192.168.1.107/24 brd 192.168.1.255 scope global dynamic noprefixroute wlan0
+           valid_lft 84322sec preferred_lft 84322sec
+   #+END_EXAMPLE
+   See? The 2nd network card listed above is named =eth0=, and its IP address is
+   =192.168.1.112=. 
+
+   If your network card doesn't have an IP address, you should:
+   1) Check whether the cable is plugged firmly in your laptop. If so,
+   2) Type the following command to request an IP address from the local DHCP server:
+      : dhclient enpXsY
+      *Caution:*  make sure you replace the =X= and =Y= with proper numbers.
+   3) Now, type command =ip a= again to check if your card got an IP address. If so,
+   4) Use =ping= command to make sure your netwrk is working well. For example,
+      : ping cs2.swfu.edu.cn
+
+4. Edit =/etc/apt/sources.list= file.
+   : nano /etc/apt/sources.list
+   You just need the following 3 lines in this file:
+   : deb http://mirrors.163.com/debian testing main non-free contrib
+   : deb http://mirrors.163.com/debian testing-updates main non-free contrib
+   : deb http://mirrors.163.com/debian testing-proposed-updates main non-free contrib
+   Use =Ctrl-o= to save, and =Ctrl-x= to quit nano.
+5. Now, type the following command to upgrade your still minimal Debian system:
+   : apt update && apt dist-upgrade
+   This step takes usually about 20 minutes if your network is not too slow.
+6. Big moment! "I want everything I saw in your Debian lab!". No problem.
+   1) Get the software list. *Caution:* /Do NOT be ROOT to do this step!/ That means you
+      should type =exit= to quit the root shell. When you see the =$= prompt, you can
+      now download the software list file using =wget=:      
+      : wget http://cs2.swfu.edu.cn/~wx672/debian-install/list.laptop
+   2) Install all the software packages listed in the file in batch.
+      : su
+      : apt install `cat list.laptop`
+      *Caution:* See the single quote mark? It's a =`= (around the uppper left corner on
+      your keyboard), not a ='= (the one next to the =Enter= key).
+
+      This step takes about an hour with a speedy network connection.
+
+      Somewhere in the installation process, you will be asked to answer [Yes/no], if
+      you are not sure, just type =Enter= to let it go.
+      
+** Configuration
+
+*** sudo
+If you don't want to be asked for password whenever using =sudo=, you can do the following:
+1. Working as /root/
+   : su
+   input root password.
+2. Create a new file in =/etc/sudoers.d/= directory.
+   : nano /etc/sudoers.d/your-user-name
+   *Caution:* Replace =your-user-name= with your real username.
+3. Add the following line into the file you are editing:
+   : your-user-name  ALL = NOPASSWD: ALL
+   *Caution:* Replace =your-user-name= with your real username.
+
+   Save and quit editing.
+4. Change the mode of that file to =0440=.
+   : chmod 0440 /etc/sudoers.d/your-user-name
+5. Quit root shell
+   : exit
+6. Now, try =sudo ls=, you shouldn't be asked for password any longer.
+*** dotfile
+Now, your Debian system is almost the same as the lab ones, except that you haven't done
+configurations for those software you just installed. To make the configuration easier,
+you can copy my ready-to-use config files via git. As a /non-root/ user, do:
+: cd
+: git clone http://cs2.swfu.edu.cn/~wx672/dotfile/.git
+: ls
+Now you should see a new directory =dotfile= sitting in your =$HOME= directory with all
+necessory config files in it. Still some more things to do...
+1) Make sure you are in your =$HOME=.
+   : cd
+2) Remove some old files.
+   : rm -f .bash*
+3) Link the config files in directory =dotfile= to your =$HOME=.
+   : ln -sf dotfile/dot.* ./
+   : ln -sf dotfile/help/dot.* ./
+   : ls
+   You should find that there are lots of =dot.= prefixed files in your =$HOME= directory.
+4) Rename these =dot.*= files.
+   : rename 's/dot//' dot.*
+   : ls -al
+   All the =dot.*= files should be replaced by =.= prefixed files now.
+5) Grab my wallpaper.
+   : $ wget -O .keys.png http://cs2.swfu.edu.cn/~wx672/tex-fun/keys/keys-1.png
+   After reboot (don't do it now) you should be able to bring up this wallpaper by typing
+   =Super-F1=. (=Super= key can be found at the lower left area of your keyboard. It's
+   usually marked as a =Win= key.)
+6) Grab my Emacs packages.
+   : wget http://cs2.swfu.edu.cn/~wx672/debian-install/elpa.tgz
+   : mv elpa.tgz ~/.emacs.d/
+   : cd ~/.emacs.d
+   : tar zxf elpa.tgz
+7) Emacs test run
+   : emacs --debug-init
+   If you see error messages, let me know (wx672ster@gmail.com).
+
+*** Auto login
+If you don't want to input username/password every time when you start your system, you
+can do like this:
+: sudo cp -r ~/dotfile/etc/systemd/system/getty@tty1.service.d/ /etc/systemd/system/
+: sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf
+There are just three lines in this file:
+: [Service]
+: ExecStart=
+: ExecStart=-/sbin/agetty --autologin wx672 --noclear %I $TERM
+*Caution:* Replace =wx672= with your own username.
+
+Now, it's time to reboot your system.
+: sudo reboot
+
+Now what? Well, it actually depends on what you want to do with your new
+system. A computer is just a tool for problem solving. If you don't have any problem, you
+don't need it.
+*** Backlight
+Usually there are function keys for changing screen backlight on laptops. If these keys
+don't work, you can try:
+1. whether these keys can be recognized by =xev=. If so,
+2. use =brightnessctl= to change backlight at the command line
+   : brightnessctl set 20%-
+   : brightnessctl set +20%
+   if the above commands work, now you can...
+3. enable the keys by modifying sawfish config file (=~/.sawfish/rc=). There are two lines
+   related to =brightnessctl= already in the file like the following:
+   : ;"XF86MonBrightnessDown" '(system "brightnessctl set 10%-")
+   : ;"XF86MonBrightnessUp" '(system "brightnessctl set +10%")
+   You just need to uncomment these two lines to make them effective. That's to say remove
+   the semicolon at the beginning of the lines so that they look like the following:
+   : "XF86MonBrightnessDown" '(system "brightnessctl set 10%-")
+   : "XF86MonBrightnessUp" '(system "brightnessctl set +10%")
+4. Press =Ctrl-Alt-Backspace= to restart X. These keys should function well now.

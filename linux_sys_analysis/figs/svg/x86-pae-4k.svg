@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: fig2dev Version 3.2 Patchlevel 5-alpha7 -->
+<!-- CreationDate: Thu Mar 20 12:23:55 2008 -->
+<!-- Magnification: 1.050 -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="6.9in"
+   height="4.4in"
+   viewBox="1262 2141 8262 5304"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="X86_Paging_PAE_4K.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <metadata
+     id="metadata257">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs255">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 198 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="621 : 198 : 1"
+       inkscape:persp3d-origin="310.5 : 132 : 1"
+       id="perspective259" />
+  </defs>
+  <sodipodi:namedview
+     inkscape:window-height="884"
+     inkscape:window-width="1280"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     showgrid="false"
+     inkscape:zoom="1.7993496"
+     inkscape:cx="407.84664"
+     inkscape:cy="217.19374"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:current-layer="svg2" />
+  <polyline
+     id="polyline6"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="9212,2598 9212,3070" />
+  <polyline
+     id="polyline8"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="8976,2598 8976,3070" />
+  <polyline
+     id="polyline10"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="8740,2598 8740,3070" />
+  <polyline
+     id="polyline12"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="8503,2598 8503,3070" />
+  <polyline
+     id="polyline14"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="8267,2598 8267,3070" />
+  <polyline
+     id="polyline16"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="8031,2598 8031,3070" />
+  <polyline
+     id="polyline18"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="7795,2598 7795,3070" />
+  <polyline
+     id="polyline20"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="7559,2456 7559,3070" />
+  <polyline
+     id="polyline22"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="7322,2598 7322,3070" />
+  <polyline
+     id="polyline24"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="7086,2598 7086,3070" />
+  <polyline
+     id="polyline26"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="6850,2598 6850,3070" />
+  <polyline
+     id="polyline28"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="6614,2598 6614,3070" />
+  <polyline
+     id="polyline30"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="6377,2598 6377,3070" />
+  <polyline
+     id="polyline32"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="6141,2598 6141,3070" />
+  <polyline
+     id="polyline34"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="5905,2598 5905,3070" />
+  <polyline
+     id="polyline36"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="5669,2456 5669,3070" />
+  <polyline
+     id="polyline38"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="5433,2598 5433,3070" />
+  <polyline
+     id="polyline40"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="5196,2598 5196,3070" />
+  <polyline
+     id="polyline42"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="4960,2598 4960,3070" />
+  <polyline
+     id="polyline44"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="4724,2598 4724,3070" />
+  <polyline
+     id="polyline46"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="4488,2598 4488,3070" />
+  <polyline
+     id="polyline48"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="4251,2598 4251,3070" />
+  <polyline
+     id="polyline50"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="4015,2598 4015,3070" />
+  <polyline
+     id="polyline52"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="3779,2409 3779,3070" />
+  <polyline
+     id="polyline54"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="3543,2598 3543,3070" />
+  <polyline
+     id="polyline56"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="3307,2598 3307,3070" />
+  <polyline
+     id="polyline58"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="3070,2598 3070,3070" />
+  <polyline
+     id="polyline60"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="2834,2598 2834,3070" />
+  <polyline
+     id="polyline62"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="2598,2598 2598,3070" />
+  <polyline
+     id="polyline64"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="2362,2598 2362,3070" />
+  <polyline
+     id="polyline66"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="2125,2598 2125,3070" />
+  <polyline
+     id="polyline68"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="1889,2409 1889,3070" />
+  <polyline
+     id="polyline70"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="9448,2456 9448,3070" />
+  <polyline
+     id="polyline72"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="1889,2598 9448,2598" />
+  <polyline
+     id="polyline74"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="9448,3070 2125,3070 1889,3070" />
+  <text
+     style="font-size: 152px; font-style: normal; font-weight: normal; text-anchor: end; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); stroke-width: 0.025in; font-family: Helvetica Narrow;"
+     id="text76"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="9401"
+     xml:space="preserve">0</text>
+  <text
+     style="font-size: 152px; font-style: normal; font-weight: normal; text-anchor: end; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); stroke-width: 0.025in; font-family: Helvetica Narrow;"
+     id="text78"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="7511"
+     xml:space="preserve">8</text>
+  <text
+     style="font-size: 152px; font-style: normal; font-weight: normal; text-anchor: end; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); stroke-width: 0.025in; font-family: Helvetica Narrow;"
+     id="text80"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="5622"
+     xml:space="preserve">16</text>
+  <text
+     style="font-size: 152px; font-style: normal; font-weight: normal; text-anchor: end; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); stroke-width: 0.025in; font-family: Helvetica Narrow;"
+     id="text82"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="3732"
+     xml:space="preserve">24</text>
+  <text
+     style="font-size: 152px; font-style: normal; font-weight: normal; text-anchor: start; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); stroke-width: 0.025in; font-family: Helvetica Narrow;"
+     id="text84"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="1937"
+     xml:space="preserve">31</text>
+  <text
+     style="font-size: 152px; font-style: normal; font-weight: normal; text-anchor: start; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); stroke-width: 0.025in; font-family: Helvetica Narrow;"
+     id="text86"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="5716"
+     xml:space="preserve">15</text>
+  <text
+     style="font-size: 152px; font-style: normal; font-weight: normal; text-anchor: start; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); stroke-width: 0.025in; font-family: Helvetica Narrow;"
+     id="text88"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="7606"
+     xml:space="preserve">7</text>
+  <text
+     style="font-size: 152px; font-style: normal; font-weight: normal; text-anchor: start; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); stroke-width: 0.025in; font-family: Helvetica Narrow;"
+     id="text90"
+     font-size="152"
+     font-weight="normal"
+     font-style="normal"
+     y="2551"
+     x="3826"
+     xml:space="preserve">23</text>
+  <rect
+     id="rect92"
+     style="fill: rgb(223, 223, 223); stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="3307"
+     width="708"
+     y="4015"
+     x="8503" />
+  <rect
+     id="rect94"
+     style="fill: rgb(223, 223, 223); stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="2362"
+     width="1417"
+     y="4724"
+     x="6377" />
+  <rect
+     id="rect96"
+     style="fill: rgb(223, 223, 223); stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="1889"
+     width="1417"
+     y="4251"
+     x="1889" />
+  <rect
+     id="rect98"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="472"
+     width="1417"
+     y="6614"
+     x="1889" />
+  <rect
+     id="rect100"
+     style="fill: rgb(223, 223, 223); stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="2362"
+     width="1417"
+     y="4251"
+     x="4015" />
+  <rect
+     id="rect102"
+     style="fill: rgb(223, 223, 223); stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="236"
+     width="708"
+     y="5433"
+     x="8503" />
+  <rect
+     id="rect104"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="472"
+     width="1417"
+     y="5905"
+     x="6377" />
+  <rect
+     id="rect106"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="472"
+     width="1417"
+     y="5669"
+     x="1889" />
+  <rect
+     id="rect108"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="472"
+     width="1417"
+     y="5196"
+     x="1889" />
+  <rect
+     id="rect110"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="472"
+     width="1417"
+     y="4724"
+     x="1889" />
+  <rect
+     id="rect112"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="472"
+     width="1417"
+     y="4251"
+     x="1889" />
+  <rect
+     id="rect114"
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="472"
+     width="1417"
+     y="4724"
+     x="4015" />
+  <g
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 0.025in;"
+     id="g118"
+     transform="matrix(-3.67322e-06, -1, 1, -3.67322e-06, 8976, 4724)">
+    <text
+       style="font-size: 404px; font-style: normal; font-weight: normal; text-anchor: middle; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); font-family: Helvetica;"
+       id="text120"
+       font-size="404"
+       font-weight="normal"
+       font-style="normal"
+       y="0"
+       x="0"
+       xml:space="preserve">...</text>
+  </g>
+  <g
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 0.025in;"
+     id="g122"
+     transform="matrix(-3.67322e-06, -1, 1, -3.67322e-06, 8976, 6614)">
+    <text
+       style="font-size: 404px; font-style: normal; font-weight: normal; text-anchor: middle; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); font-family: Helvetica;"
+       id="text124"
+       font-size="404"
+       font-weight="normal"
+       font-style="normal"
+       y="0"
+       x="0"
+       xml:space="preserve">...</text>
+  </g>
+  <circle
+     sodipodi:ry="47"
+     sodipodi:rx="47"
+     sodipodi:cy="6141"
+     sodipodi:cx="7559"
+     id="circle130"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 32;"
+     r="47"
+     cy="6141"
+     cx="7559" />
+  <rect
+     id="rect132"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 0pt; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="472"
+     width="472"
+     y="5905"
+     x="7322" />
+  <g
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 0.025in;"
+     id="g138"
+     transform="matrix(-3.67322e-06, -1, 1, -3.67322e-06, 7086, 6850)">
+    <text
+       style="font-size: 404px; font-style: normal; font-weight: normal; text-anchor: middle; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); font-family: Helvetica;"
+       id="text140"
+       font-size="404"
+       font-weight="normal"
+       font-style="normal"
+       y="0"
+       x="0"
+       xml:space="preserve">...</text>
+  </g>
+  <g
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 0.025in;"
+     id="g142"
+     transform="matrix(-3.67322e-06, -1, 1, -3.67322e-06, 7086, 5433)">
+    <text
+       style="font-size: 404px; font-style: normal; font-weight: normal; text-anchor: middle; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); font-family: Helvetica;"
+       id="text144"
+       font-size="404"
+       font-weight="normal"
+       font-style="normal"
+       y="0"
+       x="0"
+       xml:space="preserve">...</text>
+  </g>
+  <polyline
+     id="polyline148"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="3685,3685 3401,3874" />
+  <circle
+     sodipodi:ry="47"
+     sodipodi:rx="47"
+     sodipodi:cy="5433"
+     sodipodi:cx="3070"
+     id="circle152"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 32;"
+     r="47"
+     cy="5433"
+     cx="3070" />
+  <rect
+     id="rect154"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 0pt; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="472"
+     width="472"
+     y="5196"
+     x="2834" />
+  <polyline
+     id="polyline178"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="1559,6283 1275,6472" />
+  <circle
+     sodipodi:ry="47"
+     sodipodi:rx="47"
+     sodipodi:cy="4960"
+     sodipodi:cx="5196"
+     id="circle182"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 32;"
+     r="47"
+     cy="4960"
+     cx="5196" />
+  <rect
+     id="rect184"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 0pt; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="472"
+     width="472"
+     y="4724"
+     x="4960" />
+  <polyline
+     id="polyline190"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="6047,3685 5763,3874" />
+  <circle
+     sodipodi:ry="47"
+     sodipodi:rx="47"
+     sodipodi:cy="6850"
+     sodipodi:cx="2125"
+     id="circle194"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 32;"
+     r="47"
+     cy="6850"
+     cx="2125" />
+  <rect
+     id="rect196"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 0pt; stroke-linecap: butt; stroke-linejoin: miter;"
+     rx="0"
+     height="472"
+     width="472"
+     y="6614"
+     x="1889" />
+  <polyline
+     id="polyline198"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="9448,3070 9212,3307 8267,3307 8031,3543 7795,3307 6850,3307 6614,3070" />
+  <polyline
+     id="polyline200"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="8173,3685 7889,3874" />
+  <polyline
+     id="polyline202"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="3543,3543 3543,5196 3858,5196" />
+  <polygon
+     id="polygon204"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 8;"
+     points="3843,5244 4001,5196 3843,5149 3843,5244" />
+  <polyline
+     id="polyline206"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="2125,6850 1417,6850 1417,6141 1732,6141" />
+  <polygon
+     id="polygon208"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 8;"
+     points="1717,6188 1875,6141 1717,6094 1717,6188" />
+  <polyline
+     id="polyline210"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="5196,4960 5669,4960 5669,7086 6220,7086" />
+  <polygon
+     id="polygon212"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 8;"
+     points="6205,7133 6363,7086 6205,7039 6205,7133" />
+  <polyline
+     id="polyline214"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="7559,6141 8031,6141 8031,7322 8346,7322" />
+  <polygon
+     id="polygon216"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 8;"
+     points="8331,7370 8489,7322 8331,7275 8331,7370" />
+  <polyline
+     id="polyline218"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="8031,3543 8031,5669 8346,5669" />
+  <polygon
+     id="polygon220"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 8;"
+     points="8331,5716 8489,5669 8331,5622 8331,5716" />
+  <polyline
+     id="polyline222"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="4488,3070 4724,3307 5669,3307 5905,3543 6141,3307 6377,3307 6614,3070" />
+  <polyline
+     id="polyline224"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="2362,3070 2598,3307 3307,3307 3543,3543 3779,3307 4251,3307 4488,3070" />
+  <polyline
+     id="polyline226"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="1889,3070 2125,3307 2362,3070" />
+  <polyline
+     id="polyline228"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="2125,3307 2125,3543 1417,3543 1417,5669 1732,5669" />
+  <polygon
+     id="polygon230"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 8;"
+     points="1717,5716 1875,5669 1717,5622 1717,5716" />
+  <polyline
+     id="polyline232"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="3070,5433 3543,5433 3543,6614 3858,6614" />
+  <polygon
+     id="polygon234"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 8;"
+     points="3843,6661 4001,6614 3843,6566 3843,6661" />
+  <polyline
+     id="polyline236"
+     style="fill: none; stroke: rgb(0, 0, 255); stroke-width: 8; stroke-linecap: butt; stroke-linejoin: miter;"
+     points="5905,3543 5905,6377 6220,6377" />
+  <polygon
+     id="polygon238"
+     style="fill: rgb(0, 0, 255); stroke: rgb(0, 0, 255); stroke-width: 8;"
+     points="6205,6425 6363,6377 6205,6330 6205,6425" />
+  <g
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 0.025in;"
+     id="g244"
+     transform="matrix(-3.67322e-06, -1, 1, -3.67322e-06, 4724, 6141)">
+    <text
+       style="font-size: 404px; font-style: normal; font-weight: normal; text-anchor: middle; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); font-family: Helvetica;"
+       id="text246"
+       font-size="404"
+       font-weight="normal"
+       font-style="normal"
+       y="0"
+       x="0"
+       xml:space="preserve">...</text>
+  </g>
+  <g
+     style="fill: none; stroke: rgb(0, 0, 0); stroke-width: 0.025in;"
+     id="g250"
+     transform="matrix(-3.67322e-06, -1, 1, -3.67322e-06, 4724, 4488)">
+    <text
+       style="font-size: 328px; font-style: normal; font-weight: normal; text-anchor: middle; fill: rgb(0, 0, 0); stroke: rgb(0, 0, 0); font-family: Helvetica;"
+       id="text252"
+       font-size="328"
+       font-weight="normal"
+       font-style="normal"
+       y="0"
+       x="0"
+       xml:space="preserve">...</text>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="2594.16"
+     y="3986.12"
+     id="text2632"><tspan
+       sodipodi:role="line"
+       id="tspan2634"
+       x="2594.16"
+       y="3986.12"
+       style="text-align: center; text-anchor: middle;">page-directory-</tspan><tspan
+       sodipodi:role="line"
+       x="2594.16"
+       y="4187.03"
+       id="tspan2760"
+       style="text-align: center; text-anchor: middle;">pointer table</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="2429.7"
+     y="4430.89"
+     id="text2766"><tspan
+       sodipodi:role="line"
+       id="tspan2768"
+       x="2429.7"
+       y="4430.89"
+       style="text-align: center; text-anchor: middle;">Dir.Pointer</tspan><tspan
+       sodipodi:role="line"
+       x="2429.7"
+       y="4631.8"
+       id="tspan2770"
+       style="text-align: center; text-anchor: middle;">entry</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="2429.7"
+     y="4903.89"
+     id="text2772"><tspan
+       sodipodi:role="line"
+       id="tspan2774"
+       x="2429.7"
+       y="4903.89"
+       style="text-align: center; text-anchor: middle;">Dir.Pointer</tspan><tspan
+       sodipodi:role="line"
+       x="2429.7"
+       y="5104.8"
+       id="tspan2776"
+       style="text-align: center; text-anchor: middle;">entry</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="2429.7"
+     y="5375.89"
+     id="text2778"><tspan
+       sodipodi:role="line"
+       id="tspan2780"
+       x="2429.7"
+       y="5375.89"
+       style="text-align: center; text-anchor: middle;">Dir.Pointer</tspan><tspan
+       sodipodi:role="line"
+       x="2429.7"
+       y="5576.8"
+       id="tspan2782"
+       style="text-align: center; text-anchor: middle;">entry</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="2429.7"
+     y="5848.89"
+     id="text2784"><tspan
+       sodipodi:role="line"
+       id="tspan2786"
+       x="2429.7"
+       y="5848.89"
+       style="text-align: center; text-anchor: middle;">Dir.Pointer</tspan><tspan
+       sodipodi:role="line"
+       x="2429.7"
+       y="6049.8"
+       id="tspan2788"
+       style="text-align: center; text-anchor: middle;">entry</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="4718.6"
+     y="4187.03"
+     id="text2790"><tspan
+       sodipodi:role="line"
+       x="4718.6"
+       y="4187.03"
+       id="tspan2794"
+       style="text-align: center; text-anchor: middle;">page directory</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="4553.29"
+     y="4903.89"
+     id="text2798"><tspan
+       sodipodi:role="line"
+       x="4553.29"
+       y="4903.89"
+       id="tspan2800"
+       style="text-align: center; text-anchor: middle;">64 bit PD</tspan><tspan
+       sodipodi:role="line"
+       x="4553.29"
+       y="5104.8"
+       style="text-align: center; text-anchor: middle;"
+       id="tspan2802">entry</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="2505.6"
+     y="2315"
+     id="text2804"><tspan
+       sodipodi:role="line"
+       x="2505.6"
+       y="2315"
+       id="tspan2806"
+       style="text-align: center; text-anchor: middle;">Linear address:</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="7082.48"
+     y="4653.27"
+     id="text2808"><tspan
+       sodipodi:role="line"
+       x="7082.48"
+       y="4653.27"
+       id="tspan2810"
+       style="text-align: center; text-anchor: middle;">page table</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:160.727005px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Sans"
+     x="6927.3101"
+     y="6084.8901"
+     id="text2812"><tspan
+       sodipodi:role="line"
+       x="6927.3101"
+       y="6084.8901"
+       id="tspan2814"
+       style="text-align:center;text-anchor:middle">64 bit PT</tspan><tspan
+       sodipodi:role="line"
+       x="6927.3101"
+       y="6285.7988"
+       style="text-align:center;text-anchor:middle"
+       id="tspan2816">entry</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="1746.74"
+     y="6426"
+     id="text2818"><tspan
+       sodipodi:role="line"
+       x="1746.74"
+       y="6426"
+       id="tspan2820"
+       style="text-align: center; text-anchor: middle; fill: rgb(0, 0, 255); fill-opacity: 1;">32*</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="2841.25"
+     y="6930"
+     id="text3592"><tspan
+       sodipodi:role="line"
+       x="2841.25"
+       y="6930"
+       id="tspan3594"
+       style="text-align: center; text-anchor: middle;">CR3</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="3084.01"
+     y="7369.31"
+     id="text3596"><tspan
+       sodipodi:role="line"
+       x="3084.01"
+       y="7369.31"
+       id="tspan3598"
+       style="text-align: center; text-anchor: middle;">*) 32 bits aligned to a 32-Byte boundary</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="-5585.99"
+     y="9453.24"
+     id="text3600"
+     transform="matrix(0, -1, 1, 0, 0, 0)"><tspan
+       sodipodi:role="line"
+       x="-5585.99"
+       y="9453.24"
+       id="tspan3602"
+       style="text-align: center; text-anchor: middle;">4K memory page</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="3781.49"
+     y="3827"
+     id="text3604"><tspan
+       sodipodi:role="line"
+       x="3781.49"
+       y="3827"
+       id="tspan3606"
+       style="text-align: center; text-anchor: middle; fill: rgb(0, 0, 255); fill-opacity: 1;">9</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="6143.5"
+     y="3831.35"
+     id="text3608"><tspan
+       sodipodi:role="line"
+       x="6143.5"
+       y="3831.35"
+       id="tspan3610"
+       style="text-align: center; text-anchor: middle; fill: rgb(0, 0, 255); fill-opacity: 1;">9</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size: 160.727px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; fill: rgb(0, 0, 0); fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Sans;"
+     x="8320.25"
+     y="3831.35"
+     id="text3612"><tspan
+       sodipodi:role="line"
+       x="8320.25"
+       y="3831.35"
+       id="tspan3614"
+       style="text-align: center; text-anchor: middle; fill: rgb(0, 0, 255); fill-opacity: 1;">12</tspan></text>
+</svg>

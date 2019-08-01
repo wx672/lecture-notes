@@ -1,0 +1,20 @@
+\documentclass[varwidth=33em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+/* how to get the thread information struct from C */
+static inline struct thread_info *current_thread_info(void)
+{
+  struct thread_info *ti;
+  __asm__("andl %%esp, %0;" :"=r" (ti) :"0" (~(THREAD_SIZE - 1)));
+  return ti;
+}  
+\end{ccode}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

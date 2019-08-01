@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Linux平台的C开发环境介绍</title>
+<!-- 2016-07-26 Tue 20:52 -->
+<meta  charset="utf-8">
+<meta  name="generator" content="Org-mode">
+<meta  name="author" content="王晓林">
+<link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
+<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Linux平台的C开发环境介绍</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Linux平台的经典IDE</a></li>
+<li><a href="#sec-2">2. GCC使用入门</a>
+<ul>
+<li><a href="#sec-2-1">2.1. 从hello.c到hello.exe</a></li>
+<li><a href="#sec-2-2">2.2. 常用编译选项</a>
+<ul>
+<li><a href="#sec-2-2-1">2.2.1. <code>-Wall</code></a></li>
+<li><a href="#sec-2-2-2">2.2.2. <code>-E</code></a></li>
+<li><a href="#sec-2-2-3">2.2.3. <code>-D</code></a></li>
+<li><a href="#sec-2-2-4">2.2.4. 更多选项</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Linux平台的经典IDE</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+IDE这个词大家都不陌生吧，Integrated Development Environment, 集成开发环境。
+说到IDE，估计你会想到Windows平台的Visual Studio，或者Java开发常用的Eclipse。
+今天我向大家推荐一下世界上最好的IDE。最好的IDE？你一定开始怀疑我是在吹牛了吧。
+那么，好吧，我们先看看到底什么是IDE。很简单，一个IDE无非包括如下一些功能模块：
+</p>
+<ul class="org-ul">
+<li>一个编辑器；
+</li>
+<li>一个编译器；
+</li>
+<li>一个调试器；
+</li>
+<li>其它一些辅助功能，比如用鼠标拖控件。
+</li>
+</ul>
+
+<p>
+什么是最好的IDE？那肯定是：
+</p>
+<pre class="example">
+最好的IDE = 最好的编辑器 + 最好的编译器 + 最好的调试器
+</pre>
+
+<p>
+上面我们提到的VS和Eclipse都没能把最好的东西集成到一起，所以，我说它们不是最好的。
+有哪个IDE做到这一点了吗？只有Emacs。
+</p>
+
+<p>
+Emacs是一个有数十年悠久历史的开源编辑器。不折不扣地说，它也是世界上最强大的编辑器，
+因为它是模块化设计，你如果觉得它还缺少什么功能，那么你可以给它添加一个新的功能模块。
+如此日积月累几十年，凡是你能想到的功能都已经添加好了。
+</p>
+
+<p>
+Emacs可以很方便地调用世界上最牛的编译器（gcc）和调试器（gdb）。
+</p>
+<pre class="example">
+Emacs + gcc + gdb
+</pre>
+<p>
+这就是世界上最好的IDE。也许你会说「Emacs不能拖控件啊」。
+没错，但在我看，拖控件并不总是一个受人欢迎的功能，至少在系统编程的时候，它毫无用处。
+</p>
+
+<p>
+而且，从学习的角度来说，「用鼠标编程」绝对是一个非常恶劣的习惯，因为这根本就是在逃避学习。
+「鼠标化的IDE」隐藏了很多学生应该了解的技术细节。
+我们学院的绝大多数学生居然不知道C程序是要编译之后才能运行的。他们以为写好了程序，
+只要「按那个“感叹号”按钮」就可以了。这就是「鼠标教学」的成果。
+Emacs可以帮助你克服「鼠标依赖」，强迫你熟练地使用键盘。
+</p>
+
+<p>
+更重要的是，Emacs不只是个IDE，它是个ICE（Integrated Computing Environment，
+这名字是我刚编出来的）。Emacs的设计目标就是，你装了个Unix或者Linux系统，
+不需要装任何其它软件，只要装一个Emacs就够了，它能帮助你完成所有的任务。
+也就是说，除了编程，你还可以用它写论文、做幻灯片、浏览网页、收发邮件、聊天、听歌、
+看照片、玩游戏……目前，好像除了直接在Emacs里看电影还不行，其它的都实现了。
+</p>
+
+<p>
+Emacs如此「大一统」的设计目标显然有违Unix的设计原则，do one thing, and do it well
+（做一件事，并且把它真正做好）。
+但好在Emacs是模块化的，它的每一个功能模块都绝对遵循do one thing, and do it well原则。
+你不需要哪个功能，可以不装那个模块。
+</p>
+
+<p>
+另外，还是从学习的角度来说，Emacs的学习曲线貌似比其他IDE要长不少，但是你
+</p>
+<ul class="org-ul">
+<li>不必学习VC去写C/C++，
+</li>
+<li>不必学习eclipse去写Java，
+</li>
+<li>不必学习MS-Word去写报告、幻灯片，
+</li>
+<li>不必学习……
+</li>
+</ul>
+
+<p>
+一句话，“Everything Emacs”，你可以省下大量不必要的学习时间。
+人生苦短，何必让你的生活被VC/eclipse/MS-Word 搞得头昏脑胀呢？
+<b>简单而强大，本就是计科专业学生和非专业学生应有的不同。</b> 
+</p>
+
+<p>
+Emacs绝对强大，但是否「方便」就不好说了。因为「方便」是一个很主观的概念。
+反正，作为一个18年的老用户，我肯定觉得方便。其他IDE太无聊了，那么花哨而庞大的东西，
+却只适用于应用层编程。既不能用来写论文，又不能做幻灯片，更不能用来听歌、玩游戏。
+生活也太没有乐趣了。
+</p>
+
+<p>
+最后一点，Emacs还是一个巨大的开放社区，在这里你能结识到更酷一些的程序员。
+</p>
+
+<p>
+Emacs入门还是很简单的，它自带了一个基础教程。打开Emacs，按 <code>Ctrl-h t</code>,
+教程就出现在你面前了。照着它边看边练，英文不太困难的话，一个小时应该可以走一遍了。
+之后，
+</p>
+<ul class="org-ul">
+<li><code>Ctrl-h i m emacs</code> 就可以调出详细的Emacs使用手册;
+</li>
+<li><code>Ctrl-h i m emacs lisp intro</code> 可以调出Emacs Lisp入门教程；
+</li>
+<li><code>Ctrl-h i m elisp</code> 可以调出完整的elisp编程手册。
+</li>
+</ul>
+
+<p>
+当然，Google永远是你最好的帮手。Happy emacsing!
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> GCC使用入门</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+GNU Compiler Collection (GCC) 是GNU自由软件项目开发出的一整套编译器，包括
+</p>
+<ul class="org-ul">
+<li>gcc: c编译器
+</li>
+<li>g++: c++编译器
+</li>
+<li>gcj: java编译器
+</li>
+<li>gfortran: Fortran编译器
+</li>
+<li>GNAT: ada编译器
+</li>
+<li>gccgo: Go编译器
+</li>
+<li>更多其它语言的编译器
+</li>
+</ul>
+
+<p>
+注意GCC和gcc的区别。当我们说GCC的时候，是在说那一整套编译器；而当我们说gcc的时候，
+是在说c编译器。gcc的开发者就是GNU自由软件运动的创始人，大名鼎鼎的Richard Stallman。
+gcc于1987年问世，自诞生以来就广受推崇。现在，它仍然是诸多Unix-like操作系统的标准配置。
+Linux内核的数千万行源代码就是用gcc编译的。
+</p>
+
+<p>
+gcc很强大，它支持包括x86, ARM在内的数十种硬件架构，并且支持交叉编译，也就是说，
+你可以在x86平台上写程序，然后把它编译成能在ARM平台上运行的二进制文件。
+如果你的系统里已经装好了gcc，那么你可以用 <code>man gcc | wc -l</code> 命令来数一数gcc手册的长度。
+这一万六千多行的庞大手册从侧面说明了gcc功能的强大。
+</p>
+
+<p>
+不过，作为初学者，我们并不必关心gcc有多强大，少数几个简单的命令选项，
+就足以应付我们的c程序编译了。假设你有个c文件叫 <code>hello.c</code>,
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
+<span class="linenr">2: </span>
+<span class="linenr">3: </span><span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>(<span style="color: #7CB8BB;">void</span>)
+<span class="linenr">4: </span>{
+<span class="linenr">5: </span>  printf(<span style="color: #CC9393;">"Hello, world!\n"</span>);
+<span class="linenr">6: </span>  <span style="color: #F0DFAF; font-weight: bold;">return</span> 0;
+<span class="linenr">7: </span>}
+</pre>
+</div>
+
+<p>
+那么，在最通常的情况下，你只需要：
+</p>
+<pre class="example">
+gcc hello.c
+</pre>
+<p>
+就可以得到一个名叫 <code>a.out</code> 的可执行文件了。如果你不喜欢 <code>a.out</code> 这个名字，那么
+</p>
+<pre class="example">
+gcc hello.c -o hello
+</pre>
+<p>
+就可以得到一个名叫 <code>hello</code> 的可执行文件了。你应该猜到了，选项 "<code>-o</code>" 代表 <code>output</code>,
+“输出”的意思。要运行 <code>hello</code> 看看结果的话，
+</p>
+<pre class="example">
+./hello
+</pre>
+<p>
+就可以了。 <code>./</code> 代表当前目录，也就是你的 <code>hello.c</code> 所在的目录。
+</p>
+
+<p>
+当然，生活并不总是像Hello, world!这样简单。比如说，还是 <code>hello.c</code>,
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
+<span class="linenr">2: </span>
+<span class="linenr">3: </span><span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>(<span style="color: #7CB8BB;">void</span>)
+<span class="linenr">4: </span>{
+<span class="linenr">5: </span>  printf(<span style="color: #CC9393;">"Hello, world!\n"</span>)
+<span class="linenr">6: </span>  <span style="color: #F0DFAF; font-weight: bold;">return</span> 0;
+<span class="linenr">7: </span>}
+</pre>
+</div>
+
+<p>
+你敲完 <code>gcc hello.c</code>, 一回车，意外地看到了如下一些东西：
+</p>
+<pre class="example">
+<span class="linenr">1: </span>hello.c: In function ‘main’:
+<span class="linenr">2: </span>hello.c:6:3: error: expected ‘;’ before ‘return’
+<span class="linenr">3: </span>  return 0;
+<span class="linenr">4: </span>  ^
+</pre>
+
+<p>
+OMG! 怎么办？第一，别慌；第二，别懒。其实，上面这几行输出并没有几个单词，
+而且差不多都认识，静下心来仔细看看，还是很好理解的嘛。
+</p>
+<ol class="org-ol">
+<li>第一行意思是说，在函数 <code>main</code> 里面发现了点问题；
+</li>
+<li>第二行和第三行具体给你指出了出错的地方，在第6行，第3列，r的前面应该有个分号；
+</li>
+<li>第四行的 <code>^</code> 就是个向上的箭头，指向 <code>r</code>, 也就是问题点所在。
+</li>
+</ol>
+
+<p>
+怎么样，不太困难吧？重新编辑你的 <code>hello.c</code>, 在 <code>return</code> 与 <code>)</code> 之间加上分号，
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
+<span class="linenr">2: </span>
+<span class="linenr">3: </span><span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>(<span style="color: #7CB8BB;">void</span>)
+<span class="linenr">4: </span>{
+<span class="linenr">5: </span>  printf(<span style="color: #CC9393;">"Hello, world!\n"</span>)&#65307;
+<span class="linenr">6: </span>  <span style="color: #F0DFAF; font-weight: bold;">return</span> 0;
+<span class="linenr">7: </span>}
+</pre>
+</div>
+
+<p>
+然后再编译一下，
+</p>
+<pre class="example">
+<span class="linenr">1: </span>hello.c: In function ‘main’:
+<span class="linenr">2: </span>hello.c:5:3: error: stray ‘\357’ in program
+<span class="linenr">3: </span>    printf("Hello, world!\n")；
+<span class="linenr">4: </span>    ^
+<span class="linenr">5: </span>hello.c:5:3: error: stray ‘\274’ in program
+<span class="linenr">6: </span>hello.c:5:3: error: stray ‘\233’ in program
+<span class="linenr">7: </span>hello.c:6:3: error: expected ‘;’ before ‘return’
+<span class="linenr">8: </span>   return 0;
+<span class="linenr">9: </span>   ^
+</pre>
+
+<p>
+OMG!!! 怎么问题越来越多了？第一，别慌；第二，别懒；第三，别马虎。
+上面出错信息的最后三行你都见过了，显然，分号还是有问题。再仔细看看，那居然是个中文分号！
+你怎么可以这样马虎呢？
+</p>
+
+<p>
+在初学者当中，类似上面这样的小错误是屡见不鲜的。怎么办呢？别慌、别懒、别马虎，
+静下心来做事情，这就够了。
+</p>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 从hello.c到hello.exe</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+我们在命令行敲完 <code>gcc hello.c -o hello.exe</code>, 然后一回车，不出错误的话，一个可执行文件,
+<code>hello.exe</code>, 就诞生了。现在我们简要了解一下，敲完回车之后，电脑里到底发生了什么。
+换句话说，就是了解一下我们常说的「编译」到底是怎么回事。
+</p>
+
+
+<div class="figure">
+<p><img src="compilation.png" alt="compilation.png">
+</p>
+</div>
+
+<p>
+上图中，椭圆框里面放的都是工具，包括
+</p>
+<dl class="org-dl">
+<dt> 编辑器 </dt><dd>我们用的是Emacs，世界上最强大的编辑器。当然，你也可以用nano, vim,
+或者其它什么编辑器。毕竟写一个 <code>Hello, world!</code> 并不必非要用那么高大上的工具。
+但如果你以后想当个程序员，那么Emacs就应该是你的首选利器。
+</dd>
+
+<dt> C预处理器 </dt><dd>C预处理器(c preprocessor)负责处理程序中以 <code>#</code> 开头的程序语句，比如说：
+<ul class="org-ul">
+<li><code>#include&lt;stdio.h&gt;</code> 。怎么处理？你肯定知道 <code>include</code> 是「包含」的意思，
+也肯定知道 <code>stdio.h</code> 是一个文件的名字<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>。那么， <code>#include&lt;stdio.h&gt;</code>
+显然就是要把 <code>stdio.h</code> 文件的内容包含到你的程序中来。我们用的预处理器是cpp，
+在命令行敲：
+<pre class="example">
+cpp hello.c
+</pre>
+<p>
+看到了吗？原来程序中的第一行 <code>#include&lt;stdio.h&gt;</code> 被扩展成了800多行。再比如说，
+</p>
+</li>
+<li><code>#define SQR(x) (x * x)</code>, 这是一句「宏定义」，意思是说，在后面的程序里，凡是遇到
+<code>SQR(x)</code>, 就都给替换成 <code>(x * x)</code>. 这个替换工作，也是由 <code>cpp</code> 完成的。       
+</li>
+</ul>
+</dd>
+
+<dt> C编译器 </dt><dd>我们用的是gcc。编译器(Compiler)的工作是把 <code>cpp</code> 
+处理过的源程序翻译成一个汇编程序。
+如果你是头一次听说汇编语言，那么你应该立即去Google一下「汇编语言」。
+简而言之，汇编语言是一种比C更底层，也就是更靠近CPU，的编程语言。
+如果你想搞操作系统开发，或者硬件驱动开发，那么汇编就是你必须掌握的编程语言。
+
+<p>
+为什么我们不直接用汇编来写程序呢？两个原因，
+</p>
+<ol class="org-ol">
+<li>用汇编写程序比用C要累得多。和汇编相比，C是一门高级（或者说「高层」）语言。
+所谓「高级」，通过上面的大流程图来看，就是离上面的那个程序员更近。
+其实也就是对人更友好的意思。举个简单的例子，
+<pre class="example">
+i++
+</pre>
+<p>
+如果用汇编来写，大概就成了下面这样
+</p>
+<pre class="example">
+movl    $0, -4(%rbp)
+addl    $1, -4(%rbp)
+movl    -4(%rbp), %eax
+</pre>
+<p>
+显然，还是 <code>i++</code> 更友好些吧。通常来讲，用高级语言（比如C）
+写一条程序语句就相当于好几条，甚至几十条，汇编语句。
+而一条汇编语句通常就对应一条机器指令。所以，用汇编些程序要累得多。
+</p>
+
+<p>
+通过下面的命令，就可以把我们的 <code>hello.c</code> 翻译成一个汇编程序 <code>hello.s</code>:
+</p>
+<pre class="example">
+gcc -S hello.c
+</pre>
+<p>
+生成的 <code>hello.s</code> 就是下面这副样子：
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-asm">        <span style="color: #F0DFAF; font-weight: bold;">.file</span>   <span style="color: #CC9393;">"hello.c"</span>
+        <span style="color: #F0DFAF; font-weight: bold;">.section</span>        .rodata
+<span style="color: #93E0E3;">.LC0</span>:
+        <span style="color: #F0DFAF; font-weight: bold;">.string</span> <span style="color: #CC9393;">"Hello, world!"</span>
+        <span style="color: #F0DFAF; font-weight: bold;">.text</span>
+        <span style="color: #F0DFAF; font-weight: bold;">.globl</span>  main
+        <span style="color: #F0DFAF; font-weight: bold;">.type</span>   main, @function
+<span style="color: #93E0E3;">main</span>:
+<span style="color: #93E0E3;">.LFB0</span>:
+        <span style="color: #F0DFAF; font-weight: bold;">.cfi_startproc</span>
+        <span style="color: #F0DFAF; font-weight: bold;">pushq</span>   <span style="color: #DFAF8F;">%rbp</span>
+        <span style="color: #F0DFAF; font-weight: bold;">.cfi_def_cfa_offset</span> 16
+        <span style="color: #F0DFAF; font-weight: bold;">.cfi_offset</span> 6, -16
+        <span style="color: #F0DFAF; font-weight: bold;">movq</span>    <span style="color: #DFAF8F;">%rsp</span>, <span style="color: #DFAF8F;">%rbp</span>
+        <span style="color: #F0DFAF; font-weight: bold;">.cfi_def_cfa_register</span> 6
+        <span style="color: #F0DFAF; font-weight: bold;">movl</span>    $.LC0, <span style="color: #DFAF8F;">%edi</span>
+        <span style="color: #F0DFAF; font-weight: bold;">call</span>    puts
+        <span style="color: #F0DFAF; font-weight: bold;">movl</span>    $0, <span style="color: #DFAF8F;">%eax</span>
+        <span style="color: #F0DFAF; font-weight: bold;">popq</span>    <span style="color: #DFAF8F;">%rbp</span>
+        <span style="color: #F0DFAF; font-weight: bold;">.cfi_def_cfa</span> 7, 8
+        <span style="color: #F0DFAF; font-weight: bold;">ret</span>
+        <span style="color: #F0DFAF; font-weight: bold;">.cfi_endproc</span>
+<span style="color: #93E0E3;">.LFE0</span>:
+        <span style="color: #F0DFAF; font-weight: bold;">.size</span>   main, .-main
+        <span style="color: #F0DFAF; font-weight: bold;">.ident</span>  <span style="color: #CC9393;">"GCC: (Debian 5.4.0-6) 5.4.0 20160609"</span>
+        <span style="color: #F0DFAF; font-weight: bold;">.section</span>        .note.GNU-stack,<span style="color: #CC9393;">""</span>,@progbits
+</pre>
+</div>
+
+<p>
+和前面的 <code>hello.c</code> 相比，我想你肯定和我一样，更愿意用C来写程序吧。
+</p>
+</li>
+
+<li>用汇编语言写出的程序针对性很强，通常不能跨平台使用，可移植性差。
+针对x86机器写的汇编程序，在其他机器（比如ARM, PowerPC, M68000）上就不能用。
+因为一条汇编指令就对应一条机器指令，而各CPU架构所支持的机器指令集都不一样，
+那么对应的汇编程序当然就无法跨平台使用了。        
+反之，用高级语言写的程序就比较容易跨平台，可移植性比较好。
+
+<p>
+所以，基于上述原因，通常我们会尽可能地选用高级语言来编程。
+之后，再利用汇编器，把对人友好的高级程序语句翻译成对机器友好的底层程序语句。
+</p>
+</li>
+</ol>
+</dd>
+
+<dt> 汇编器 </dt><dd>汇编器(Assembler)是用来把人能看懂的汇编程序翻译成人读不懂，但机器能读懂的二进制程序，
+通常我们把它叫做目标文件（object file），通常以 <code>.o</code> 结尾。 
+我们用的汇编器是 GNU Assembler (gas)。
+
+<p>
+通常如果想要生成一个 <code>.o</code> 文件的话，我们用下面的命令：               
+</p>
+<pre class="example">
+gcc -c hello.c
+</pre>
+<p>
+这样，gcc会调用gas帮我们生成一个目标文件。
+这时，你的目录里应该多了一个 <code>hello.o</code> 文件了。好奇的话，你可以
+<code>cat hello.o</code> 来看看它的内容。我肯定你读不懂它，除非你是CPU。
+用 <code>hd hello.o</code> 来看看它的内容，感觉会稍好些，虽然还是看不懂。
+</p>
+</dd>
+
+<dt> 链接器 </dt><dd>链接器(Linker)是用来把若干个 <code>.o</code> 文件结合成一个可执行文件。
+我们用的链接器是ld。
+
+<p>
+也许你会问，「我只写了一个 <code>hello.c</code>, 经过编译和汇编之后，
+只产生了一个而不是多个 <code>.o</code> 文件，还需要链接吗」？的确，
+你只有一个 <code>.o</code> 文件，但在你的 <code>hello.c</code> 
+文件里还用到了别人的 <code>.o</code> 文件，比如说， <code>printf()</code> 函数并不是你写的吧？
+它存在于系统自带的函数库里。系统函数库里装的其实就是一大堆 <code>.o</code> 文件。
+这些 <code>.o</code> 文件里都是供我们调用的一个个函数，其中就包括 <code>printf()</code> 函数。
+所以，你自己的 <code>hello.o</code> 必须要和系统函数库中包含 <code>printf()</code> 的那个
+<code>.o</code> 文件<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>链接，然后才能得到最终的可执行文件。
+</p>
+</dd>
+
+<dt> 调试器 </dt><dd>调试器(Debugger)是用来帮助我们找出可执行文件中的bug。我们用的调试器是gdb，
+它可以
+<ul class="org-ul">
+<li>分步执行程序
+</li>
+<li>设置断点
+</li>
+<li>追踪变量的值
+</li>
+<li>查看堆栈
+</li>
+<li>还有很多高深的功能
+</li>
+</ul>
+<p>
+如果你的程序像 <code>Hello, world!</code> 那样简单，那么通常也就不会有什么bug，
+自然也就不需要调试器了。
+</p>
+</dd>
+</dl>
+
+<p>
+上面我们简单介绍了一下从 <code>hello.c</code> 到 <code>hello.exe</code> 的过程。了解这些基础知识，
+有助于我们加深对编程的理解，可以让我们在今后的学习中少走弯路。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> 常用编译选项</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+在上一节，我们看到在使用gcc编译C程序的时候，可以跟上一些选项，比如 <code>-o</code>,
+后面可以给出可执行文件的名字。下面我们再介绍几个常用的编译选项。
+</p>
+</div>
+
+<div id="outline-container-sec-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> <code>-Wall</code></h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+这个选项非常有用，应该随时都带着。大写的 <code>W</code> 代表warning, <code>all</code> 就代表all，那么 <code>-Warning</code>
+就代表打开所有的告警。也就是说，编译过程中发现的算不上是「错误」
+的小毛病也都会被提示出来。有的时候，这些小毛病还是挺要命的，比如下面这个小程序 <code>wall.c</code>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
+<span class="linenr">2: </span>
+<span class="linenr">3: </span><span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span> (<span style="color: #7CB8BB;">void</span>)
+<span class="linenr">4: </span>{
+<span class="linenr">5: </span>  printf (<span style="color: #CC9393;">"Two plus two is %f\n"</span>, 4);
+<span class="linenr">6: </span>  <span style="color: #F0DFAF; font-weight: bold;">return</span> 0;
+<span class="linenr">7: </span>}
+</pre>
+</div>
+
+<p>
+如果不带 <code>-Wall</code> 直接编译的话， <code>gcc wall.c</code>, 看不到任何错误提示。
+可是运行 <code>a.out</code> 的输出结果却是：
+</p>
+<pre class="example">
+Two plus two is 0.000000
+</pre>
+<p>
+这明显是错误的。如果编译时带上 <code>-Wall</code> 选项， <code>gcc -Wall wall.c</code>, 会看到如下输出：
+</p>
+<pre class="example">
+wall.c: In function ‘main’:
+wall.c:5:11: warning: format ‘%f’ expects argument of type ‘double’, but argument 2 has type ‘int’ [-Wformat=]
+printf ("Two plus two is %f\n", 4);
+        ^
+</pre>
+<p>
+问题被提示了出来，用 <code>%f</code> 的格式来输出整型数是不合情理的。记住，编译时永远带上
+<code>-Wall</code>, 而且 <code>W</code> 必须大写！
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> <code>-E</code></h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+<code>-E</code> 这个选项是告诉 <code>gcc</code>, 调用完 <code>cpp</code> 就停下来。也就是说 <code>gcc -E hello.c</code> 和 <code>cpp
+    hello.c</code> 是一回事。关于 <code>cpp</code> 我们前面已经提到过，它是一个c preprocessor,
+作用之一就是把源程序中的宏定义（Macro）扩展还原成它本来的字符串。
+宏定义是C编程中经常要用到的强大武器，而且编程大师们可以把它用得非常复杂。
+比如在Linux的内核源代码里就有下面这样的宏定义：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c"><span class="linenr">1: </span><span style="color: #94BFF3;">#define</span> <span style="color: #93E0E3;">INIT_LIST_HEAD</span>(<span style="color: #DFAF8F;">ptr</span>) <span style="color: #F0DFAF; font-weight: bold;">do</span> { \
+<span class="linenr">2: </span>           (ptr)-&gt;next = (ptr);(ptr)-&gt;prev= (ptr);  \
+<span class="linenr">3: </span>        } <span style="color: #F0DFAF; font-weight: bold;">while</span>(0)
+</pre>
+</div>
+<p>
+一个完整的 <code>do-while</code> 结构被 <code>INIT_LIST_HEAD(prt)</code> 代表了。你知道 <code>do {} while(0)</code>
+中的花括号里是可以放很多程序语句的，那么你肯定也想到了，宏定义可以用来代表非常非常复杂的东西。
+</p>
+
+<p>
+常识告诉我们，越复杂的东西越容易埋藏着bug。 <code>-E</code> 这个选项可以帮助我们排除宏定义中的bug。
+比如下面这个小程序 <code>macro.c</code> 里用到了一个很简单的宏定义 <code>SQR(x)</code>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
+<span class="linenr"> 2: </span><span style="color: #94BFF3;">#define</span> <span style="color: #93E0E3;">SQR</span>(<span style="color: #DFAF8F;">x</span>) (x * x)
+<span class="linenr"> 3: </span><span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>()
+<span class="linenr"> 4: </span>{
+<span class="linenr"> 5: </span>    <span style="color: #7CB8BB;">int</span> <span style="color: #DFAF8F;">counter</span>;    <span style="color: #5F7F5F;">/* </span><span style="color: #7F9F7F;">counter for loop </span><span style="color: #5F7F5F;">*/</span>
+<span class="linenr"> 6: </span>    <span style="color: #F0DFAF; font-weight: bold;">for</span> (counter = 0; counter &lt; 5; ++counter)
+<span class="linenr"> 7: </span>    {
+<span class="linenr"> 8: </span>        printf(<span style="color: #CC9393;">"x %d, x squared %d\n"</span>,
+<span class="linenr"> 9: </span>            counter+1, SQR(counter+1));
+<span class="linenr">10: </span>    }
+<span class="linenr">11: </span>    <span style="color: #F0DFAF; font-weight: bold;">return</span> (0);
+<span class="linenr">12: </span>}
+</pre>
+</div>
+
+<p>
+<code>SQR(x)</code> 显然是要对 <code>x</code> 做平方运算。编译一下， <code>gcc -Wall macro.c</code>, 很顺利，
+没有任何出错迹象。现在运行一下 <code>a.out</code>, 看看结果：
+</p>
+<pre class="example">
+x 1, x squared 1
+x 2, x squared 3
+x 3, x squared 5
+x 4, x squared 7
+x 5, x squared 9
+</pre>
+<p>
+显然是错误的！问题就出在 <code>SQR(x)</code> 。借助 <code>-E</code> 把它还原扩展开，程序变成了这样：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #5F7F5F;">/* </span><span style="color: #7F9F7F;">&#21069;&#38754;&#30465;&#30053;&#26080;&#25968;&#34892; </span><span style="color: #5F7F5F;">*/</span>
+<span class="linenr"> 2: </span><span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>()
+<span class="linenr"> 3: </span>{
+<span class="linenr"> 4: </span>    <span style="color: #7CB8BB;">int</span> <span style="color: #DFAF8F;">counter</span>;
+<span class="linenr"> 5: </span>    <span style="color: #F0DFAF; font-weight: bold;">for</span> (counter = 0; counter &lt; 5; ++counter)
+<span class="linenr"> 6: </span>    {
+<span class="linenr"> 7: </span>        printf(<span style="color: #CC9393;">"x %d, x squared %d\n"</span>,
+<span class="linenr"> 8: </span>            counter+1, (counter+1 * counter+1));
+<span class="linenr"> 9: </span>    }
+<span class="linenr">10: </span>    <span style="color: #F0DFAF; font-weight: bold;">return</span> (0);
+<span class="linenr">11: </span>}
+</pre>
+</div>
+<p>
+看明白了吗？在第8行， <code>SQR(counter+1)</code> 被扩展成了 <code>(counter+1 * counter+1)</code>,
+而我们真正想要的是 <code>((counter+1) * (counter+1))</code>, 所以程序中的宏定义不该是
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #94BFF3;">#define</span> <span style="color: #93E0E3;">SQR</span>(<span style="color: #DFAF8F;">x</span>) (x * x)
+</pre>
+</div>
+<p>
+而应该是
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #94BFF3;">#define</span> <span style="color: #93E0E3;">SQR</span>(<span style="color: #DFAF8F;">x</span>) ((x) * (x))
+</pre>
+</div>
+<p>
+如果你也喜欢宏定义，那么一定要记住 <code>-E</code> 这个编译选项。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2-3" class="outline-4">
+<h4 id="sec-2-2-3"><span class="section-number-4">2.2.3</span> <code>-D</code></h4>
+<div class="outline-text-4" id="text-2-2-3">
+<p>
+Debug的时候，我们经常会在程序里加入一些 <code>printf()</code> 语句，
+借助它输出某些关键变量的值，帮助我们思考。在bug被解决之后，这些 <code>printf()</code>
+语句也就没用了，如果要一个个地删除掉，实在是一件麻烦的事情。想省点事的话，你可以借助一
+下 <code>-D</code> 这个编译选项。比如，下面这个小程序 <code>stackoverflow.c</code>,
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c"><span class="linenr"> 1: </span><span style="color: #94BFF3;">#include</span><span style="color: #CC9393;">&lt;stdio.h&gt;</span>
+<span class="linenr"> 2: </span>
+<span class="linenr"> 3: </span><span style="color: #7CB8BB;">int</span> <span style="color: #DFAF8F;">i</span>=0;
+<span class="linenr"> 4: </span>
+<span class="linenr"> 5: </span><span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>(<span style="color: #7CB8BB;">void</span>)
+<span class="linenr"> 6: </span>{
+<span class="linenr"> 7: </span><span style="color: #94BFF3;">#ifdef</span> DEBUG     
+<span class="linenr"> 8: </span>  printf(<span style="color: #CC9393;">"%d\t"</span>,i++);
+<span class="linenr"> 9: </span><span style="color: #94BFF3;">#endif</span>   
+<span class="linenr">10: </span>  main();
+<span class="linenr">11: </span>  <span style="color: #F0DFAF; font-weight: bold;">return</span> 0;
+<span class="linenr">12: </span>}
+</pre>
+</div>
+
+<p>
+主函数递归地调用它自己，这实在不是件有意义的工作。
+但如果你想知道调用多少次之后栈才会溢出，那么可以像上面程序中的第8行那样，利用
+<code>printf()</code> 来输出计数器变量 <code>i</code> 的值。
+</p>
+
+<p>
+第7、9两行是干什么用的呢？如果你正常编译这个小程序
+</p>
+<pre class="example">
+gcc -Wall stackoverflow.c
+</pre>
+<p>
+然后运行 <code>./a.out</code>, 你只能看到如下一行输出，那就是著名的
+</p>
+<pre class="example">
+Segmentation fault
+</pre>
+<p>
+很显然，栈溢出，递归程序就结束了，而且 <code>printf()</code> 没有发挥作用。
+但是，如果你像下面这样编译：
+</p>
+<pre class="example">
+gcc -Wall -DDEBUG stackoverflow.c
+</pre>
+<p>
+之后再运行 <code>./a.out</code>, 怎么样？在我的电脑上，Segmentation fault之前，=i= 最后的值是
+523629。很显然，带上编译选项 <code>-DDEBUG</code> 之后， <code>printf()</code> 起作用了。现在，你该猜到
+<code>-D</code> 和程序中的
+</p>
+<pre class="example">
+#ifdef DEBUG
+...
+#endif
+</pre>
+<p>
+之间的关系了吧？ <code>DEBUG</code> 也是个Macro， <code>-DDEBUG</code> 就相当于在程序里写上
+</p>
+<pre class="example">
+#define DEBUG 1
+</pre>
+<p>
+程序中的 <code>#ifdef DEBUG</code> 就是说「如果 <code>DEBUG</code> 有定义的话」，那么就执行之后的程序语句，
+直到看见 <code>#endif</code> 为止。
+</p>
+
+<p>
+所以，编译时如果不带 <code>-D</code>, 那么 <code>DEBUG</code> 就没定义，于是 <code>#ifdef DEBUG</code>
+这句判断结果就是 <code>false</code>, 于是它后面的 <code>printf()</code> 就不会被执行。反之，编译时带上 <code>-DDEBUG</code>,
+那么 <code>DEBUG</code> 就有了定义，于是 <code>#ifdef DEBUG</code> 判断就返回 <code>true</code>, 于是 <code>printf()</code>
+就发挥作用了。
+</p>
+
+<p>
+如此一来，你再也不用为删除多余的 <code>printf()</code> 操心了，只需要操控 <code>-D</code>
+这个小开关就可以达到目的了。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2-4" class="outline-4">
+<h4 id="sec-2-2-4"><span class="section-number-4">2.2.4</span> 更多选项</h4>
+<div class="outline-text-4" id="text-2-2-4">
+<p>
+<code>gcc</code> 的编译选项多如牛毛，但做为初学者，知道上面这些就算是入门了。随着学习的深入，
+更多的选项也会逐渐变成我们的常用选项。比如，
+</p>
+<dl class="org-dl">
+<dt> <code>-g</code> </dt><dd>如果你想用gdb来debug程序的话，编译时一定要带上它。
+</dd>
+<dt> <code>-l</code> </dt><dd>如果你用到了外部函数库里的函数，那么编译时就要带上它， <code>l</code> 代表link，
+链接的意思。
+</dd>
+</dl>
+
+<p>
+「那么，我怎么知道我到底要链接哪个函数库呢」？答案很简单，「看手册」。比如说，
+我在程序里调用了 <code>pthread_create()</code> 函数用来产生一个新的线程，那么，
+显然你该看看 <code>pthread_create()</code> 的手册，具体了解一下这个函数的应用细节。
+</p>
+<pre class="example">
+man pthread_create
+</pre>
+<p>
+手册的前几行如下：
+</p>
+<pre class="example">
+NAME
+   pthread_create - create a new thread
+
+SYNOPSIS
+   #include &lt;pthread.h&gt;
+
+   int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
+                      void *(*start_routine) (void *), void *arg);
+
+   Compile and link with -pthread.
+</pre>
+<p>
+它告诉你
+</p>
+<ol class="org-ol">
+<li>在程序中一定要有 <code>#include &lt;pthread.h&gt;</code>;
+</li>
+<li>从函数原型你知道
+<ol class="org-ol">
+<li><code>pthread_create()</code> 一定要返回一个 <code>int</code>;
+</li>
+<li>调用这个函数必须提供4个指针类型的参数。
+</li>
+</ol>
+</li>
+<li>上面的最后一行 <code>Compile and link with -pthread</code>, 明确告诉你编译的时候要带上
+<code>pthread</code> 选项。
+</li>
+</ol>
+
+<p>
+养成看手册的习惯，这可是程序员的基本功。
+</p>
+
+<p>
+关于Linux平台上的C开发环境，我们简单介绍了编辑器Emacs，和编译器gcc。掌握了这两样神器，
+你就是个相当有前途的程序员了。另外还剩下一个调试神器gdb我们没有介绍。
+当年我的老师这样对我说，「像你这样两三百行的小程序，最好不要用调试器，静下心来，
+一行一行地读你自己的代码，用你自己的大脑来找出程序中的bug，这是对你最好的训练」。
+Happy hacking!
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p>在我们的Debian GNU/Linux系统中，
+       它的完整路径是 <code>/usr/include/stdio.h</code> 。</p></div>
+
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p>实际上是 <code>libc.so</code> 文件。 <code>so</code> 代表shared object，
+               是Unix平台通用的动态链接函数库。想了解更多？去Google一下"shared object"
+               就知道了。</p></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="author">Author: 王晓林</p>
+<p class="date">Created: 2016-07-26 Tue 20:52</p>
+<p class="creator">Emacs 24.5.1 (Org mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

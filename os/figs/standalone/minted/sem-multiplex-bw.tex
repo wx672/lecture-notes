@@ -1,0 +1,48 @@
+\documentclass[varwidth=26em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+\usemintedstyle{bw}
+
+\begin{document}
+    \begin{ccode}
+typedef struct{
+  int space;         //number of free resources
+  struct process *P; //a list of queueing producers
+  struct process *C; //a list of queueing consumers
+} semaphore;
+semaphore S;
+S.space = 5;        
+\end{ccode}
+\vspace{.5em}
+  \begin{minipage}{.4\linewidth}
+    \begin{ccode}
+void down(S){
+  S.space--;
+  if(S.space == 4){
+    rmFromQueue(S.C);
+    wakeup(S.C);
+  }
+  if(S.space < 0){
+    addToQueue(S.P);
+    sleep();
+  }
+}
+    \end{ccode}
+  \end{minipage}\qquad
+  \begin{minipage}{.4\linewidth}
+    \begin{ccode}
+void up(S){
+  S.space++;
+  if(S.space > 5){
+    addToQueue(S.C);
+    sleep();
+  }
+  if(S.space >= 0){
+    rmFromQueue(S.P);
+    wakeup(S.P);
+  }
+}
+    \end{ccode}
+  \end{minipage}
+\end{document}

@@ -1,0 +1,11 @@
+#!/usr/bin/php
+<?
+// Hello World in PHP + GD library
+header("Content-type: image/gif");
+$rscImage    = imagecreatetruecolor(80, 25);
+$intFontC    = imagecolorallocate($rscImage, 255, 255, 255);
+$intBGC        = imagecolorallocate($rscImage, 0, 0, 0);
+imagestring($rscImage, 2, 5, 5, "Hello World!", $intFontC);
+imagegif($rscImage);
+imagedestroy($rscImage);
+?>

@@ -1,0 +1,53 @@
+\startMPdefinitions
+  input mp-sketch;
+  input boxes;
+  input mp-tool;
+\stopMPdefinitions
+
+\definetypeface[Purisa][rm][Xserif][Purisa]
+\definetypeface[Purisa][rm][Xsans][Purisa]
+\definetypeface[Purisa][ss][Xserif][Purisa]
+\definetypeface[Purisa][ss][Xsans][Purisa]
+\setupbodyfont[Purisa, 12pt]
+
+\starttext
+% \usemodule[simplefonts]
+% \setmainfont[Purisa]
+% \setsansfont[Purisa]
+
+\startMPpage[offset=1mm]
+  sketchypaths;
+
+  boxit.start (btex Starting etex);
+  boxit.one   (btex Thread1 etex);
+  boxit.two   (btex Thread2 etex);
+  boxit.three (btex Thread3 etex);
+  boxit.release (btex release etex);
+  boxit.join (btex waiting etex);
+  boxit.theend (btex end etex);
+
+  start.c = (0,0);
+  one.c = (3cm,0);
+  two.c = (3cm,2cm);
+  three.c = (3cm,-2cm);
+  release.c = (6cm,2cm);
+  join.c = (6cm,-2cm);
+  theend.c = (6cm,0);
+
+  drawboxed (start, one, two, three, release, join, theend);
+
+  % three.w - two.e = two.w - one.e = (1cm,0);
+%  one.w - start.e = (1cm,0);
+%  start.c = origin;
+
+  drawarrow start.e -- lft one.w;
+  drawarrow start.ne -- lft two.w;
+  drawarrow start.se -- lft three.w;
+  drawarrow one.e -- lft theend.w;
+  drawarrow two.se -- lft theend.nw;
+  drawarrow three.ne -- lft theend.sw;
+  drawarrow two.e -- lft release.w;
+  drawarrow three.e -- lft join.w;
+
+\stopMPpage
+\stoptext

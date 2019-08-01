@@ -1,0 +1,92 @@
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t broken-links:nil
+#+OPTIONS: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t title:t toc:t
+#+OPTIONS: todo:t |:t
+#+TITLE: Shadowsocks in Debian
+#+DATE: <2018-08-31 Fri>
+#+AUTHOR:  
+#+EMAIL: 
+#+LANGUAGE: cn
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+CREATOR: Emacs 25.2.2 (Org mode 9.1.13)
+#+LATEX_CLASS: wx672ctexart
+
+* 基本工作原理图
+[[./ss.png]]
+
+要求：
+1. 客户端：自行安装；
+2. 服务器端：可以搜免费的；可以买现成的；也可以买墙外的云服务，自己安装服务器端；
+3. 浏览器插件：自行安装。
+
+* 客户端安装
+: sudo apt install shadowsocks-libev
+* 客户端配置
+Example: =/etc/shadowsocks-libev/config.json=
+#+BEGIN_SRC Javascript -n
+{
+    "server":"127.0.0.1",
+    "server_port":8388,
+    "local_port":1080,
+    "password":"fuPodNics",
+    "timeout":60,
+    "method":"chacha20-ietf-poly1305"
+}
+#+END_SRC
+简单注释：
+1. 左花括号
+2. 服务器的IP地址或域名；
+3. 服务器端的端口号。本地客户端将向服务器的这个端口发起服务请求；
+4. 客户端的端口号。本机的网络应用程序，比如浏览器，将向这个端口发起服务请求；
+5. 客户端连接服务器端所需的密码；
+6. 如果60秒还连不上服务器，就报错；
+7. 加密方式；
+8. 右花括号。
+
+补充说明：
+1. 以上八行中的第2、3、5、7行信息都是由服务器端决定的。比如说，如果你是花钱买的现成服务，那
+   么实际上你花钱买的（除了流量）就是这几条信息。第4行，客户端的端口号，默认都是1080，可以自
+   己改，但通常没必要；
+2. 如果是买的现成服务，那么通常服务器的数量不止一个。你应该为每个服务器都单写一个配置文件。
+   这样如果一个服务器连不上了，你可以迅速切换到另一个。比如说，你原来用的是
+   =/etc/shadowsocks-libev/a.json=:
+   : ss-local -v -c /etc/shadowsocks-libev/a.json
+   后来忽然连不上了，那么你可以按 =Ctrl-c= 终止这个进程。然后再另起一个：
+   : ss-local -v -c /etc/shadowsocks-libev/b.json
+3. 把你的所有配置文件都放在一个目录里，通常是 =/etc/shadowsocks-libev/= 。
+   
+* Chrome浏览器插件的安装配置
+插件的作用是让你的浏览器“该翻墙的时候翻墙，不该翻墙的时候就不翻墙”，所以严格讲，它不是必需
+的。在没有插件的情况下，使用下面这两条命令你就已经可以翻墙了：
+: ss-local -v -c /etc/shadowsocks-libev/b.json
+: google-chrome --proxy-server='socks5://127.0.0.1:1080'
+
+Chrome浏览器的插件通常只能从[[https://chrome.google.com/webstore/category/extensions?utm_source=chrome-ntp-icon][Chrome Web Store]]安装。很不幸，访问这个网站就要先能翻墙才行。办
+法就是利用上面两条命令。在命令行执行这条命令之后，如果网断了，而且看到较多的出错信息，比如：
+#+BEGIN_EXAMPLE
+2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
+2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
+2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
+2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
+2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
+#+END_EXAMPLE
+那么，就换c.json、d.json……试试。
+
+1. 安装插件Switchy Omega
+   - https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?utm_source=chrome-ntp-icon
+2. 如果上面三步都顺利完成了，那么现在可以关掉浏览器了，然后重新打开它，但不要添加代理选项：
+   : google-chrome
+3. 配置插件
+   在浏览器窗口的右上角找到Switchy Omega的图标，然后配置吧。
+
+   #+attr_html: :width 1024px
+   [[./switchyomega1.png]]
+   
+   如果你想让插件来判断什么时候该翻墙的话，就需要预先给它输入一系列的规则，这显然是很累人
+   的。所以，通常是去网上搜到人家[[https://github.com/shminer/SwitchyOmega-backup][现成的配置]]，然后把它import进来就行了。
+
+简单总结一下要点：
+ 1. 要先启动本地代理：
+    : ss-local -v -c /etc/shadowsocks-libev/b.json
+ 2. 要把浏览器插件配置好。

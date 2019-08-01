@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="cn" xml:lang="cn">
+<head>
+<title>学会用git</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-07-06 Wed"/>
+<meta name="author" content="王晓林"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style><link rel="stylesheet" href="http://cs3.swfu.edu.cn/org-info-js/stylesheet.css" type="text/css">
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+<div id="content">
+
+<h1 class="title">学会用git</h1>
+<p>git是Linus Torvalds开发的源代码管理工具(scm，source code management)，也就是版本控制工具(vcs, version control system)。Linus有两个广为人知的软件杰作，一个是Linux操作系统，另一个就是git。现在众多的开源软件项目，包括<a href="http://kernel.org/">kernel</a>, <a href="#kde.org">KDE</a>, <a href="http://git.gnome.org">GNOME</a>, 都用git来做代码管理。用它来管理配置文件也非常顺手。如果你做了<a href="http://cs3.swfu.edu.cn/~wx672/lecture_notes/linux/install.html">光盘弹出以后</a>的事情，那么你肯定已经用过git了。
+</p>
+<pre class="example">
+git clone http://cs3.swfu.edu.cn/~wx672/git/dotfile-d215.git
+</pre>
+
+
+<p>
+通过执行上面这行命令，你把远在 <code>http://cs3.swfu.edu.cn/~wx672/git/dotfile-d215.git</code> 的一个软件包clone(克隆)了过来。于是在你的当前目录下多了一个目录 <code>dotfile-d215</code> 。
+</p>
+<p>
+你也许会问，从远端去下载一个软件包，办法不是很多吗？干吗非要git呢？因为我们不止是要下载它，我们还要和远端的软件包保持同步更新。如果远端的软件包做了修改，那么我们只要简单地做一下：
+</p>
+<pre class="example">
+cd dotfile-d215
+git pull
+</pre>
+
+
+<p>
+本地的 <code>dotfile-d215</code> 就和远端的同步了。那么，你也许又要问，保持和远端同步，也可以采用其它方式啊，比如重新下载一次不就行了吗？没错，重新下载当然没问题，但git比重新下载更有效率，因为git只去下载被更新了的东西，而不会去下载没更新的东西。比如，在远端的 <code>dotfile-d215.git</code> 里有很多文件，但只有其中的 <code>dot.emacs</code> 文件做了极少量的改动，也许只是添加了一行而已。那么， <code>git pull</code> 就会很聪明地只把那新的一行下载过来，而不会去下载剩下的那些没改动的东西。
+</p>
+<p>
+git的好处远不止节省带宽而已，比如 <code>git log</code> 可以让你看到更新的记录。要了解更多，可以
+</p><pre class="example">
+man gittutorial
+man gittutorial-2
+sudo apt-get install gitmagic &amp;&amp; evince /usr/share/doc/gitmagic/gitmagic.pdf &amp;
+</pre>
+
+
+
+<div id="postamble">
+<p class="author">作者: 王晓林</p>
+<p class="creator">Org version 7.5 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+</div>
+</div>
+</body>
+</html>

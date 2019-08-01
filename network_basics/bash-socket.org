@@ -1,0 +1,26 @@
+1. In terminal =A=, create socket in bash
+   : exec 3<> /dev/udp/localhost/3333
+2. See it's working
+   In terminal =A=:
+   : lsof -p `pidof bash`
+   Or,
+   : netstat -up
+   As you can see, it's an IPv6 socket by default
+3. In terminal =B=, start a listening process on port 3333
+   : nc -6ul 3333
+   by default =nc= uses IPv4 to setup this socket, so you have to specify the =-6= option
+   explicitly.
+4. Capturing packets
+   In terminal =C=,
+   : sudo tcpdump -vv -i lo -X port 3333
+5. Sending data
+   In terminal =A=,
+   : echo hello >&3
+   the word =hello= should now appear in both terminal =B= and =C=.
+6. Try sending data from another =nc= process to port 3333
+   : for i in 1 2 3 4 5; do echo $i | nc -6u -q1 localhost 3333; done
+   the packets can be captured by tcpdump in terminal =C=, but cannot be shown in terminal
+   =B=. This means the listening =nc= process only accepts data from the first sender
+   process. All the packets from the following senders will be ignored silently.
+
+Try the TCP cases yourself.

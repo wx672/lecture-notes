@@ -1,0 +1,15 @@
+\documentclass[varwidth=28em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{gascode}
+code32_start: # here loaders can put a different
+              # start address for 32-bit code.
+#ifndef __BIG_KERNEL__
+      .long 0x1000   # 0x1000 = default for zImage
+#else
+      .long 0x100000 # 0x100000 = default for big kernel
+#endif
+\end{gascode}
+\end{document}

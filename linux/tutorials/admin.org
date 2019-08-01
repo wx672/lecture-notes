@@ -1,0 +1,69 @@
+#+TITLE:     Debian/Ubuntu Package Management Commands
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION: 
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+OPTIONS:   author:t creator:t timestamp:t
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs3.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME:
+
+  - Edit *sources.list* file
+    : sudo nano /etc/apt/sources.list
+    For example, if you are going to use *Ubuntu natty*, you should put the following lines into
+    your *sources.list* file:
+    : deb http://cs3.swfu.edu.cn/ubuntu/ natty main restricted universe multiverse
+    : deb http://cs3.swfu.edu.cn/ubuntu/ natty-backports restricted universe multiverse
+    : deb http://cs3.swfu.edu.cn/ubuntu/ natty-proposed main restricted universe multiverse
+    : deb http://cs3.swfu.edu.cn/ubuntu/ natty-security main restricted universe multiverse
+    : deb http://cs3.swfu.edu.cn/ubuntu/ natty-updates main restricted universe multiverse
+    : deb http://cs3.swfu.edu.cn/medibuntu/ natty free non-free
+  - Update the package index files
+    : sudo apt-get update
+    or
+    : sudo aptitude update
+  - Upgrade installed packages to newest version
+    : sudo apt-get upgrade
+    or
+    : sudo aptitude upgrade
+  - Search music related package in the package list
+    : apt-cache search music
+    or, search a package name matching "mpg"
+    : aptitude search mpg
+  - Install a package, e.g. emacs
+    : sudo apt-get install emacs
+    or
+    : sudo aptitude install emacs
+  - Install a downloaded =.deb= package, e.g. tor_0.2.1.25-2_i386.deb
+    : sudo dpkg -i tor_0.2.1.25-2_i386.deb
+  - Remove a package, e.g. emacs
+    : sudo apt-get remove emacs
+    : sudo apt-get purge emacs
+    or
+    : sudo aptitude remove emacs
+    : sudo aptitude purge emacs
+    or
+    : sudo dpkg -P emacs
+  - Get source code of a package, e.g. emacs
+    : apt-get source emacs
+  - List contents of an installed package, e.g. emacs
+    : dpkg -L emacs
+  - Check a file belongs to which package, e.g. ls
+    : dpkg -S /bin/ls
+  - Check a package information, e.g. yasnippet_0.6.1c-1_i386.deb
+    : dpkg -I yasnippet_0.6.1c-1_i386.deb
+  - List installed packages
+    : dpkg -l
+  - Package re-configuration, e.g. locales
+    : sudo dpkg-reconfigure locales
+  - Clone your Debian/Ubuntu installation from a PC in D215 lab to your home PC
+    1. List installed packages in the source PC in D215 into a file named 'installed-packages'
+       : dpkg --get-selections > installed-packages
+    2. Copy installed-pakcages file to your home PC, then
+       : cat installed-packages | sudo dpkg --set-selections
+    3. Upgrade the destination PC
+       : sudo apt-get dselect-upgrade

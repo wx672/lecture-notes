@@ -1,0 +1,32 @@
+\documentclass[varwidth=33.2em,crop]{standalone}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\begin{document}
+\pagestyle{empty}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+~$ \color{violet}{telnet cs3.swfu.edu.cn 80}
+Trying 202.203.132.245...
+Connected to cs3.swfu.edu.cn.
+Escape character is '^]'.
+\color{violet}{connect http://cs3.swfu.edu.cn:25/}
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>501 Method Not Implemented</title>
+</head><body>
+<h1>Method Not Implemented</h1>
+<p>connect to /index.html not supported.<br />
+</p>
+<hr>
+<address>Apache/2.0.53 (Debian GNU/Linux)
+DAV/2 SVN/1.1.4 PHP/4.3.10-12 mod_ssl/2.0.53
+OpenSSL/0.9.7e Server at cs3.swfu.edu.cn Port 25</address>
+</body></html>
+Connection closed by foreign host.
+\end{Verbatim}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

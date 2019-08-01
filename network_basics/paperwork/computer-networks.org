@@ -1,0 +1,157 @@
+#+TITLE:     Computer Networks Course Syllabus
+#+AUTHOR:    HU Kunrong
+#+EMAIL:     hukunrong@gmail.com
+#+DESCRIPTION: 
+#+KEYWORDS:  
+#+LANGUAGE: en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:nil ltoc:nil mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+# (setq org-export-html-use-infojs nil)
+
+- Course ID: A05055
+- Hours: 48 (lecture: 32; lab: 16)
+- Credits: 2.5
+- Practice: 1 week
+- Applicable: 
+  - Information Engineering
+  - Electronics and Information Engineering
+  - Electronic Science and Technology
+  - Computer Science and Technology 
+
+
+** Course nature and pre-requisites
+   This course introduces students comprehensive concepts of computer
+   networking. Upon finishing this course, students should have clear
+   understanding about
+   - Basic Concepts of Data Communication
+   - Network Infrastructure
+   - ISO/OSI RM
+   - TCP/IP Protocol Suite
+   - Network management
+   - Network Security
+** Chapters
+   1. Introduction to Networks
+      - History and Evolution of Computer Networks
+      - The Definition of Computer Networks
+      - The Classification of Computer Networks
+      - Network Topologies
+      - Typical Computer Networks
+      - Data Communication Services
+      - The Application of Computer Networks
+   2. Physical Layer
+      - Basic concepts in Physical Layer
+      - Basic concepts in Data Communication
+      - Transmission media
+      - Multiplexing
+      - Data Transmission Systems
+      - Broadband Access Technology
+   3. Data Link Layer
+      - PPP Based Data Link Layer
+      - PPP Protocol
+      - Broadcast Based Data Link Layer
+      - Broadcast Based Ethernet
+      - Extended Ethernet
+      - Fast Ethernet
+      - Other LAN Techniques
+   4. Network Layer
+      - The two services provided in Network Layer
+      - Internet Protocol
+      - Subnet and Supernet
+      - ICMP
+      - Routing Protocols
+      - IP Multicasting
+      - VPN and NAT
+   5. Transmission Layer
+      - Transmission Layer Protocols
+      - UDP
+      - TCP
+      - How TCP works
+      - TCP header
+      - Implementation of TCP transmission
+      - TCP Flow Control
+      - TCP Congestion Control
+      - TCP Connection Management
+   6. Application Layer
+      - DNS
+      - FTP
+      - TELNET
+      - WWW
+      - EMail
+      - DHCP
+      - SNMP 
+      - Process Communication over Networks
+   7. Network Security and Management
+      - The Importancy of Network Security
+      - Network Security Stratagy Design
+      - Detecting Security Problem
+      - Firewalling
+      - Backup/Restore
+      - Anti-Viruses
+      - Network Management
+   8. Audio/Video Services Over Internet
+      - Concepts
+      - Streaming
+      - Interactive Audio/Video
+      - Improve "Best Effort" Service
+   9. Wireless Networks
+      - WLAN
+      - WPAN
+      - WMAN
+   10. Next Generation Internet
+       - IPv6 (IPng)
+       - MPLS
+       - P2P File Sharing
+** Time Arrangement
+   1. Introduction: 2 hrs
+   2. Phy Layer: 6 hrs (lectures: 4, lab: 2)
+   3. Data Link Layer: 8 hrs (lectures: 6, lab: 2)
+   4. Network Layer: 12 hrs (lectures: 8, lab: 4)
+   5. Transport Layer: 10 hrs (lectures: 6, lab: 4)
+   6. App Layer: 6 hrs (lectures: 4, lab: 2)
+   7. Network Security 4 hrs (lectures: 2, lab: 2)
+** Lab tutorial
+   1. Data transmission media, 2 hrs
+   2. Data link layer device configuration, 2 hrs
+   3. Network layer device configuration, 4 hrs
+   4. Transport layer device configuration, 4 hrs
+   5. Application layer protocols, 2 hrs
+   6. Network security, 2 hrs
+** Practical
+   1 week campus network based network construction and configuration work, focus on
+   network layer and application layer.
+** Grading
+   - Examination: 50% (Closed book, written)
+   - Homework: 20%
+   - Lab: 20%
+   - Class: 10%
+** Textbook and references
+   - /Computer Networks/, Xie Xiren, Electronics Engineering Press.
+   - /Computer Networks/, Andrew S.Tanenbaum, Tsinghua Unversity Press.
+   - /Computer Networks Lab Tutorials/, Xie Qian, Electronics Engineering Press.
+   - /Computer Network Tutorials/, Du Yu, People's Post and
+     Telecommunication Press, 1st edition Jan 2002.
+   - /Computer Network Practical Tutorials/, Wang Li, Zhang Yuxiang,
+     Yang Lianghuai, Tsinghua University Press, 1st edition Dec 1999.
+
+** Focals
+   - Network Infrastructure
+   - ISO/OSI RM
+   - TCP/IP Protocol Suite
+   - Network management
+   - Network Security
+** Requirements on assignments, lab work and practice
+   There will be weekly homework assignments. The assignments are due at the beginning of
+   the class on the day specified on the assignment. In general, no extensions will be
+   granted.
+   
+** Relations with other courses
+   - Pre-course: Basic computer skills
+   - Post-course: Network Construction and Management, Network Programming, Network Security
+** Special Notes
+   None.
+   

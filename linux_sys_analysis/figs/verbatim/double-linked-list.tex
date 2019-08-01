@@ -1,0 +1,26 @@
+\documentclass[varwidth=45em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+   ┌──────────────────────────────────────────────┐
+   v                                              │
+list_head      data                               │
+┌──────┐<─┐  struct 1        data                 │
+│ next ├──│─>┌──────┐<─┐   struct 2       data    │
+├──────┤  │  │ next ├──│──>┌──────┐<─┐  struct 3  │
+│ prev │  │  ├──────┤  │   │ next ├──│─>┌──────┐<─│─┐
+└──┬───┘  └──┤ prev │  │   ├──────┤  │  │ next ├──┘ │
+   │         ├──────┤  └───┤ prev │  │  ├──────┤    │
+   │         │ ...  │      ├──────┤  └──┤ prev │    │
+   │         └──────┘      │ ...  │     ├──────┤    │
+   │                       └──────┘     │ ...  │    │
+   │                                    └──────┘    │
+   └────────────────────────────────────────────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% End:

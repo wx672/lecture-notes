@@ -1,0 +1,23 @@
+\documentclass[varwidth=37em]{standalone}
+
+\begin{document}
+\begin{verbatim}
+~$ ping -c 1 127.0.0.1
+~$ 
+~$ sudo iptables -A INPUT -s 127.0.0.1 -p icmp -j DROP
+~$
+~$ ping -c 1 127.0.0.1
+~$ 
+~$ sudo iptables -D INPUT -s 127.0.0.1 -p icmp -j DROP
+~$
+~$ sudo iptables -A INPUT -s ! 127.0.0.1 -p all -j DROP
+~$
+~$ sudo iptables -A INPUT -s 192.168.1.0/24 -p all -j DROP
+~$
+\end{verbatim}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

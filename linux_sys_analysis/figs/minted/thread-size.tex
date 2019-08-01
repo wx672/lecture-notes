@@ -1,0 +1,13 @@
+\documentclass[varwidth=14em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+#ifdef CONFIG_4KSTACKS
+#define THREAD_SIZE (4096)
+#else
+#define THREAD_SIZE (8192)
+#endif  
+\end{ccode}
+\end{document}

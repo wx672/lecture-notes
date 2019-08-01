@@ -1,0 +1,134 @@
+#+TITLE:    本科生毕业设计选题参考
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION: 本科生毕业设计项目
+#+KEYWORDS: 本科, 毕业设计, 课题
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs3.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+# (setq org-export-html-use-infojs nil)
+
+
+#+CAPTION: 一个坏主意的开始通常是“这个容易，我会做”；而一个好主意的开始通常是“这个有趣，我想做”。
+#+ATTR_HTML: align="center"
+[[./bad_good.jpg]]
+
+* Cloud-based installation system				   :noexport:
+  FAI
+* Tag Search							   :noexport:
+  - Add tags into files' metadata
+* 计信学院电子书库 						   :noexport:
+  我们希望同学能利用它为[[http://cs3.swfu.edu.cn][cs3]]服务器搭建一个检索系统，并为用户提供一个简单的Web访问界面，
+  以便于同学搜索cs3上的大量技术图书和资料。
+  - *界面*: http://l-lab.3322.org:81/loongson/books/
+  - *自动维护*: 
+    - auto-tagging
+    - ISBN -> Book info -> SQL
+    - Auto-book-url
+    - fam
+  - *搜索*: 
+    - 利用Swish-E搭建cs3服务器的文件检索系统
+      [[http://en.wikipedia.org/wiki/SWISH-E][Swish-E]]是一个基于UNIX的文件索引和搜索引擎，常用于网站的内容检索。
+    - tag search
+    
+** easy finding a file in http://cs2/office
+   - tag search
+   - swish-e
+* 利用OpenLDAP/Kerberos搭建认证服务器				   :noexport:
+* Corporate Intranet and Knowledge Management			   :noexport:
+  - [[http://en.wikipedia.org/wiki/Wiki][Wiki]]
+  - [[http://www.economist.com/surveys/displaystory.cfm%3Fstory_id%3D6794228][The wiki principle]]
+** Why?
+   校园网内的每一位教师和同学都是一个独立的知识源，
+   可以把这些独立的知识源组织成一个分布式的知识库，
+   如何实现方便、高效的知识分享
+** Outcome
+   - Idea sharing, 交流平台
+   - P2P file sharing, 文件共享
+   - searching, 网内搜索
+   - cooperative editing, 协作编辑
+   - PDF book generation, 整理成书
+   - easy typesetting, 自动排版
+   - distributed computing and storage, 分布式存储   
+** Brainstorming Ideas
+   - Every user is a contributor
+   - tag search
+   - controlling changes
+   - distributed file storage
+   - P2P file sharing
+   - vandalism free
+*** Quota of 20 ideas
+* Chrome Extension Development
+  Google Chrome现在是世界上最流行的浏览器了。2012年5月，它的市场占有率终于超过了IE，排名世界第一。
+
+  Chrome不仅是个浏览器，它还是一个开发平台，你可以为它增加各种各样的功能插件。在[[https://chrome.google.com/webstore/category/extensions][这里]]你可以看到爱好者开发的五花八门的插件。
+
+  插件的开发并不难，网上有很多相关教程：
+  - [[https://www.google.com.hk/search?sugexp%3Dchrome,mod%3D9&sourceid%3Dchrome&ie%3DUTF-8&q%3Dchrome%2Bextension%2Bdevelopment%2Btutorial&qscrl%3D1][https://www.google.com.hk/search?sugexp=chrome,mod=9&sourceid=chrome&ie=UTF-8&q=chrome+extension+development+tutorial&qscrl=1]]
+
+** no export							   :noexport:
+    - need javascript
+    - on line/off line
+    - offline annotation, highlighter
+      - can share to /google bookmarks/
+    - offline book reader
+      - can remember last position
+      - vim key support
+      - grey background
+
+* Google App Engine
+  Google App Engine是Google推出的一个Platform as a Service (PaaS) 云计算平台。在这个平台上，你可以用Python, Java, Go开发自己的Web应用。我们大家都喜欢的[[https://code.google.com/p/goagent/][GoAgent]]就是这样一个web应用。
+
+  用Google App Engine开发web应用也很简单。Google提供了足够多的教程：
+  - https://www.google.com.hk/search?aq=f&sugexp=chrome,mod=9&sourceid=chrome&ie=UTF-8&q=google+app+engine+tutorial&qscrl=1
+
+* Google education
+  [[http://www.google.com/edu/][Google Education]] 是Google提供的一个优秀教育平台。在这个平台上，Google为教师、学生、教育机构提供了丰富的服务。为学生提供的服务中就包括常年举办的各种竞赛。如果你拿了奖，Google会给你丰厚的奖励，包括奖学金和工作机会。
+  - http://www.google.com/edu/students/index.html
+  
+* blog without database
+  目前流行的blog系统通常都要用到后台数据库。数据库当然是个好东西，但也并不是事事处处都需要用到它。比如说我们的cs3教学服务器，每个同学都已经有了一个系统用户帐号，同时也就有了自己的主页空间。那么，blog的内容完全可以直接放到自己的 ~public_html~ 目录里，根本没必要再去建个数据库来存放数据。
+
+  哪位同学愿意为我们设计一个不需要数据库的Blog系统呢？
+  
+* cs3首页设计
+  [[http://cs3.swfu.edu.cn][cs3]] 是我们为本系学生提供的一个Linux教学服务器。我们希望本系同学能为它设计一个漂亮、大方、实用的首页。
+  - 设计当采用最新的和最流行的web技术，比如[[http://en.wikipedia.org/wiki/HTML5][HTML5]], [[http://en.wikipedia.org/wiki/Cascading_Style_Sheets][CSS3]], [[http://en.wikipedia.org/wiki/LAMP_(software_bundle)][LAMP]]。
+  - 可以采用现成的流行开发框架，比如[[http://en.wikipedia.org/wiki/Drupal][Drupal]], [[http://en.wikipedia.org/wiki/Zope][Zope]], [[http://en.wikipedia.org/wiki/Ruby_on_Rails][RubyOnRails]]。
+  - 可以参考现成的CMS，比如[[http://en.wikipedia.org/wiki/WordPress][WordPress]], [[http://en.wikipedia.org/wiki/MediaWiki][MediaWiki]], [[http://en.wikipedia.org/wiki/Moodle][Moodle]]。
+** no export							   :noexport:
+   - http://www.youtube.com/user/ZeitgeistYoungMinds/custom
+   - floating objects
+* 网上论文排版系统
+  同学们所熟知的MS-Word，是一款字处理软件，虽然具备部分排版功能，但它并不是严格意义上的排版软件，所以同学在用它写文章时不得不自己来应付字体、字型、段落格式等麻烦。即使花费了大量的时间按老师提供的模板来排版，最终的结果还经常是不尽人意。
+
+  [[http://en.wikipedia.org/wiki/LaTeX][LaTeX]]是一套优秀的开源排版系统，被广泛用于科技论文的排版。它的好处就是让大家能摆脱排版的烦恼，只要套用现成的模板，那么大家排版出来的作品格式肯定是规范一致的。但LaTeX诞生于UNIX命令行，令非专业人士望而生畏。所以，我们希望同学能为LaTeX提供一个方便的web界面，让大家能通过浏览器输入“标题”、“摘要”、“正文”等内容，然后用鼠标点一下“生成论文”按钮，就能得到一篇排版规范的论文。
+  - [[http://en.wikipedia.org/wiki/LaTeX][LaTeX]] + [[http://en.wikipedia.org/wiki/LAMP_(software_bundle)][LAMP]]
+* Moodle模块开发
+  [[http://en.wikipedia.org/wiki/Moodle][Moodle]]是一套应用广泛的开源的网上教学系统，它采用了便于扩展的模块化设计。
+  我们的[[http://cs3.swfu.edu.cn/moodle][网上教学]]网站就是用Moodle做的。但Moodle并非尽善尽美，
+  我们希望同学能参与到Moodle的[[http://moodle.org/course/view.php?id%3D27][开发讨论]]当中，发现问题并提出自己的解决方案。
+* 自己动手写操作系统
+  Linus Torvalds说过，“如果你想周游世界，想被邀请去到处演讲，那就写个Unix操作系统吧。”
+  
+  [[http://www.osfromscratch.org][《Orange'S：一个操作系统的实现》]]是一本不错的操作系统DIY教科书. 它是[[http://202.203.132.134:8080/opac/item.php?marc_no%3D0000116782][《自己动手写操作系统》]]一书的第二版, 比第一版有了较大的改进和补充。它还有一个[[http://code.google.com/p/writeos/downloads/list][开源版本]]。
+  希望同学能够利用学到的操作系统知识，跟着这本书一步步走，写出自己的操作系统作为毕业设计。
+  
+  别害怕，写一个操作系统也许并不象你想象的那么可怕。手把手地跟着人家走，写一个最最最基本的小东西，只需要十分钟！
+  当然，你别指望十分钟就交差你的毕业设计。
+
+
+* Debian FAI
+  很多同学对安装Linux系统感到头疼。
+  那么，是否有办法消除系统安装障碍，让整个安装配置工作自动完成呢？
+  - http://fai-project.org/
+  - https://wiki.debian.org/FAI
+
+------------
+- 教师简介 :: 王晓林，男，45岁，硕士，讲师，毕业于英国格林尼治大学，分布式计算系统专业。现任西南林业大学计信学院教师。执教Linux、操作系统、网络技术等方面的课程，有丰富的Linux教学和系统管理经验。
+

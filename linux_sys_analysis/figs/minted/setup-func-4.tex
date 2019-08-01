@@ -1,0 +1,14 @@
+\documentclass[varwidth=28em,crop]{standalone}
+
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{gascode}
+xorl %eax, %eax # Compute gdt_base
+movw %ds,  %ax  # (Convert %ds:gdt to a linear ptr)
+shll $4,   %eax
+addl $gdt, %eax
+movl %eax, (gdt_48 + 2)
+lgdt gdt_48     # load gdt with whatever is appropriate
+\end{gascode}
+\end{document}

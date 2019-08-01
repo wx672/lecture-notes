@@ -1,0 +1,30 @@
+\documentclass[varwidth]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+  0xFFFFFFFF ┌────────────────────┐ 4GB
+Reset vector │  JUMP to 0xF0000   │
+  0xFFFFFFF0 ├────────────────────┤ 4GB-16B
+             │   Unaddressable    │
+             │ memory, real mode  │
+             │ is limited to 1MB. │
+    0x100000 ├────────────────────┤ 1MB
+             │    System BIOS     │
+     0xF0000 ├────────────────────┤ 960KB
+             │  Ext. System BIOS  │
+     0xE0000 ├────────────────────┤ 896KB
+             │   Expansion Area   │
+             │ (maps ROMs for old │
+             │  peripheral cards) │
+     0xC0000 ├────────────────────┤ 768KB
+             │ Legacy Video Card  │
+             │   Memory Access    │
+     0xA0000 ├────────────────────┤ 640KB
+             │   Accessible RAM   │
+             │  (640KB is enough  │
+             │  for anyone ─ old  │
+             │      DOS area)     │
+           0 └────────────────────┘ 0
+\end{verbatim}
+\end{document}

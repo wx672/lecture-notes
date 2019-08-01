@@ -1,0 +1,343 @@
+body
+{
+  width:100%;
+  padding:0px 0px 0px 0px;
+  margin:0px 0px 0px 0px;
+  line-height:1.4em;
+  /* color:#333333; */ /* font color */
+  font-size:14pt;
+  font-family:"DejaVu Sans",Verdana,Arial,sans-serif; /*"Bitstream Vera Serif", serif;*/
+  /* background-image:url(img/bg.gif); */
+  /* background-attachment:fixed; */
+  /* background-repeat:repeat-x; */
+}
+
+code, pre
+{
+  font-family:"DejaVu Sans Mono","Bitstream Vera Sans Mono",mono-space;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+  font-family:"DejaVu Sans",Verdana,Arial,sans-serif;
+  font-size:18pt;
+  font-weight:bold;
+  color:#104d8c;
+  text-align:left;
+}
+
+div
+{
+  text-align:left;
+}
+
+a
+{
+  text-decoration:none;
+  cursor:pointer;
+  color:#0000AA;
+  font-style:italic;
+}
+
+a:hover
+{
+  text-decoration:underline;
+  cursor:pointer;
+  color:#0000AA;
+}
+
+a:visited
+{
+  text-decoration:none;
+  cursor:pointer;
+  color:#0000AA;
+}
+
+img, a img
+{
+  text-decoration:none;
+  border-style:none;
+}
+
+
+#title
+{
+  text-align: center;
+  vertical-align:middle;
+  height:90px;
+  width:100%;
+  line-height:2.8em;
+  background-image:url(img/LaTex_logo.svg);
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  background-position:30px 15px;
+  position:absolute;
+  top:0px;
+}
+
+#table-of-contents{ }
+
+.outline-1{}
+.outline-2{}
+.outline-3{}
+.outline-4{}
+
+ul, ol
+{
+  padding-left:0px;
+  margin-left:2em;
+  position:relative;
+  display:block;
+  top:0px;
+  left:0px;
+}
+
+li
+{
+  margin-right:5ex;
+  text-align:justify;
+}
+
+li img
+{
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+
+
+dt
+{
+  font-weight:bold;
+}
+
+dd
+{
+  margin-left:3em;
+}
+
+p
+{
+  text-align:justify;
+}
+
+.todo
+{
+  color: red;
+}
+
+.done
+{
+  color: green;
+}
+
+.timestamp
+{
+  color: grey;
+}
+
+.timestamp-kwd
+{
+  color: CadetBlue;
+}
+
+.tag
+{
+  font-size:12pt;
+  font-weight:normal;
+  font-style:italic;
+  color:orange;
+}
+
+table
+{
+  border-collapse: collapse;
+  border-bottom:1px solid black;
+}
+
+th
+{
+  white-space:nowrap;
+}
+
+td, th
+{
+  vertical-align: top;
+}
+
+pre, code.pre
+{
+  /* width:80%; */
+  margin-left:2%;
+  margin-top:1em;
+  margin-bottom:1em;
+  padding:0.3em;
+  background-color:#eeeeee;
+  border:1px solid #cccccc;
+  overflow:visible;
+}
+
+
+li pre, li code.pre
+{
+  /* width:90%; */
+  margin-left:0em;
+  margin-top:1em;
+  margin-bottom:1em;
+  padding:0.3em;
+  background-color:#eeeeee;
+  border:1px solid #cccccc;
+}
+
+
+p pre
+{
+  margin:0px;
+  padding:0px;
+}
+
+div.backlinks
+{
+  clear:both;
+  text-align:right;
+  margin-top:1em;
+}
+.backlinks a
+{
+  padding-top:0.1em;
+  padding-bottom:0.1em;
+  padding-left:0.3em;
+  padding-right:0.3em;
+  text-align:right;
+  background-color:#DDDDFF;
+  color:#6666CC;
+  font-family:sans-serif;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+div.zitat
+{
+  width:80%;
+  margin-left:3em;
+  margin-top:1em;
+  margin-bottom:1em;
+  padding:1em;
+  background-color:#ffeeee;
+  border:1px solid #cccccc;
+}
+
+div.leftColumn
+{
+  width:48%;
+  float:left;
+}
+
+div.rightColumn
+{
+  width:48%;
+  float:right;
+}
+
+
+li
+{
+}
+
+
+/* footer */
+
+div#postamble
+{
+  clear:both;
+  padding-top:0.6em;
+  padding-bottom:1em;
+  margin-top:3em;
+  border-top:1px solid #333333;
+}
+
+#postamble p
+{
+  width:100%;
+  text-align:center;
+  font-size:0.8em;
+  color:#666666;
+}
+
+#postamble p.date
+{
+  width:40%;
+  padding-left:2ex;
+  float:left;
+  text-align:left;
+  font-size:0.8em;
+  color:#999999;
+}
+#postamble p.author
+{
+  clear:both;
+  width:40%;
+  padding-right:2ex;
+  float:right;
+  font-size:0.8em;
+  color:#999999;
+  text-align:right;
+  white-space:nowrap;
+}
+
+/* Styles for org-info.js */
+
+
+
+#org-info-js-window
+{
+  position:absolute;
+  top:140px;
+  left:20%;
+}
+
+.org-info-js_info-navigation
+{
+  border-style:none;
+}
+
+#org-info-js_console
+{
+  color:#333333;
+  margin:0px;
+  background-color:#ffffff;
+}
+
+#org-info-js_console-input
+{
+  background-color:#ffffff;
+  border-style:none;
+  color:#333333;
+  padding-left:10px;
+  vertical-align:middle;
+}
+
+#org-info-js_console-label
+{
+  font-size:11px;
+  font-weight:bold;
+  padding-left:10px;
+  font-family:Verdana,Arial,sans-serif;
+  vertical-align:middle;
+}
+
+.org-info-js_console-label-warning
+{
+  color:#cc0000;
+}
+
+#org-info-js_console-container
+{
+  border:1px solid #cccccc;
+}
+
+.org-info-js_search-highlight
+{
+  background-color:#adefef; /* emacs default */
+  color:#000000;
+}

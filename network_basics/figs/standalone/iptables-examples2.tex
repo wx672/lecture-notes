@@ -1,0 +1,20 @@
+\documentclass[varwidth=51em]{standalone}
+
+\begin{document}
+\begin{verbatim}
+~$ # Syn-flood protection:
+~$ sudo iptables -A FORWARD -p tcp --syn -m limit --limit 1/s -j ACCEPT
+~$
+~$ # Furtive port scanner:
+~$ sudo iptables -A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT
+~$
+~$ # Ping of death:
+~$ sudo iptables -A FORWARD -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
+~$
+\end{verbatim}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

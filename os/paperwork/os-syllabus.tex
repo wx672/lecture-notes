@@ -1,0 +1,345 @@
+\documentclass{wx672article}
+
+\usepackage{wx672ctex,wx672bib}
+\addbibresource{os.bib}
+
+\author{王晓林}
+\date{2015-06-20}
+\title{《操作系统原理》课程大纲}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\clearpage
+
+\begin{itemize}
+\item 课程编号: 31100058
+\item 学时: 64 (理论: 48; 实验: 16)
+\item 学分: 3.5
+\item 实习: 0
+\item 面向专业: 计算机科学与技术，电子信息工程，信息与计算机技术
+\end{itemize}
+
+\section{课程大纲}
+\label{sec-1}
+
+\subsection{课程内容}
+\label{sec-1-1}
+
+\begin{enumerate}
+\item Introduction
+  \begin{itemize}
+  \item What's an OS?
+  \item OS services
+  \item Bootstrapping
+  \item Hardware
+  \item Interrupt
+  \item System calls
+  \end{itemize}
+\item Processes and Threads
+  \begin{itemize}
+  \item What's a process?
+  \item Process creation
+  \item Process state
+  \item Process Control Block (PCB)
+  \item CPU switch from process to process
+  \item Processes vs. threads
+  \item Why threads?
+  \item Thread characteristics
+  \item Thread operation and POSIX threads
+  \item User-level threads vs. kernel-level threads
+  \item Linux threads
+  \end{itemize}
+\item Process synchronization
+  \begin{itemize}
+  \item Concepts
+  \item Shared memory
+  \item Race condition and mutual exclusion
+  \item Semaphores
+  \item Monitors
+  \item Message passing
+  \item Classical IPC problems
+  \end{itemize}
+\item CPU Scheduling
+  \begin{itemize}
+  \item Scheduling introduction
+  \item Scheduling algorithms
+  \item Thread scheduling
+  \item Linux scheduling
+  \end{itemize}
+\item Deadlocks
+  \begin{itemize}
+  \item Resources
+  \item Introduction to deadlocks
+  \item Deadlock modeling
+  \item Dealing with deadlocks
+  \end{itemize}
+\item Memory Management
+  \begin{itemize}
+  \item Real-mode vs. protected-mode memory management
+  \item Contiguous memory allocation
+  \item Virtual memory
+  \end{itemize}
+\item File Systems
+  \begin{itemize}
+  \item Files
+  \item Directories
+  \item File system implementation
+  \item Ext2 file system
+  \item Virtual file system
+  \end{itemize}
+\end{enumerate}
+
+\subsection{实验内容}
+\label{sec-1-2}
+
+参见第\ref{sec:lab}节《操作系统原理实验教学大纲》。
+
+\subsection{实习}
+\label{sec-1-3}
+
+无
+
+\subsection{考核}
+\label{sec-1-4}
+
+\begin{itemize}
+\item 考试: 80\%
+\item 作业: 20\%
+\end{itemize}
+
+\subsection{参考教材}
+\label{sec-1-5}
+
+\nocite{silberschatz11essentials,tanenbaum2008modern,bovet2005understanding}
+\printbibliography[heading=none]{}
+
+% \begin{enumerate}
+% \item A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008.
+% \item Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley
+%   \& Sons, 2011.
+% \item D.P. Bovet and M. Cesatí. Understanding The Linux Kernel. O'Reilly, 2005.
+% \end{enumerate}
+
+\section{课程说明}
+\label{sec-2}
+
+\subsection{课程性质和要求}
+\label{sec-2-1}
+
+《操作系统原理》是一门重要的专业基础课。深入理解操作系统的工作原理对学生在软件编程、开发方
+面具有重大意义。 本课程介绍给同学如下内容：
+\begin{itemize}
+\item 操作系统简介
+\item 进程与线程
+\item 进程间通信
+\item CPU调度
+\item 死锁
+\item 内存管理
+\item 文件系统
+\end{itemize}
+
+\subsection{课程重点}
+\label{sec-2-2}
+
+\begin{itemize}
+\item 进程
+\item 内存管理
+\item 文件系统
+\end{itemize}
+
+\subsection{作业、实习要求}
+\label{sec-2-3}
+作业迟交一天扣分10\%。
+
+\subsection{与其它课程的关系}
+\label{sec-2-4}
+
+\begin{itemize}
+\item 前期课程：计算机组成原理，Linux应用基础，C编程，汇编编程
+\item 后期课程：Linux系统分析
+\end{itemize}
+
+\subsection{课时安排}
+\label{sec-2-5}
+
+\begin{center}
+  \begin{tabular}{lrr}
+    \hline
+    课程内容 & 理论学时 & 实验学时\\
+    \hline
+    简介 & 4 & 2\\
+    进程与线程 & 8 & 2.5\\
+    进程间同步 & 10 & 2.5\\
+    CPU调度 & 4 & 0.5\\
+    死锁 & 4 & 0.5\\
+    内存管理 & 9 & 4\\
+    文件系统 & 9 & 4\\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsection{特殊说明}
+\label{sec-2-6}
+
+无
+
+\section{实验教学大纲}
+\label{sec:lab}
+
+\begin{itemize}
+\item 课程编号: A05025, A05026
+\item 学时: 64 (理论: 48; 实验: 16)
+\item 学分: 3
+\item 实习: 0
+\item 授课对象: 计算机科学与技术，电子信息工程，信息与计算机技术
+\end{itemize}
+
+\subsection{实验教学的目的和要求}
+\label{sec-3-1}
+
+通过编程实践，让学生深入了解操作系统的工作原理。
+
+\subsection{实践教学大纲}
+\label{sec-3-2}
+
+\begin{center}
+  \begin{tabular}{lr}
+    \hline
+    实验安排 & 学时\\
+    \hline
+    了解Linux内核 & 4\\
+    进程管理 & 4\\
+    内存管理 & 4\\
+    文件系统 & 4\\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsection{实验设备要求}
+\label{sec-3-3}
+
+\begin{itemize}
+\item Debian/Ubuntu PC
+\end{itemize}
+
+\subsection{实验内容}
+\label{sec-3-4}
+
+\begin{itemize}
+\item 参见\href{http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html}{《操作系统原理实验
+    指导》}。
+\end{itemize}
+
+\subsubsection{Approaching to the Linux kernel (4h)}
+\label{sec-3-4-1}
+
+\begin{enumerate}
+\item proc file-system
+\item Play with the kernel
+\item Hello, kernel module!
+\item System calls
+\end{enumerate}
+
+\subsubsection{Process Management (4h)}
+\label{sec-3-4-2}
+
+\begin{enumerate}
+\item Process creation
+\item Thread
+\item IPC
+  \begin{enumerate}
+  \item Signals
+  \item Pipe
+  \item FIFO
+  \item File Locking
+  \item Message Queues
+  \item Semaphores
+  \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Memory management (4h)}
+\label{sec-3-4-3}
+
+\begin{enumerate}
+\item Basic commands
+\item Shared Memory Segments
+\item Memory Mapped Files
+\end{enumerate}
+
+\subsubsection{File System (4h)}
+\label{sec-3-4-4}
+
+\begin{enumerate}
+\item File system creation
+\item Finding a file with \texttt{hexdump}
+\end{enumerate}
+
+\subsection{实验报告要求}
+\label{sec-3-5}
+
+按规定格式完成，迟交报告每天扣分10\%。
+
+\subsection{成绩考核}
+\label{sec-3-6}
+
+\begin{itemize}
+\item 实验报告满分100，60分及格
+\end{itemize}
+
+\subsection{实验指导和参考书目}
+\label{sec-3-7}
+
+\begin{itemize}
+\item 自编\href{http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html}{《实验指导》}
+\end{itemize}
+
+\subsection{特别说明}
+\label{sec-3-8}
+
+无
+
+\section{课程简介}
+\label{sec-4}
+
+\begin{itemize}
+\item 课程编号: 31100058
+\item 学时: 64 (理论: 48; 实验: 16)
+\item 学分: 3.5
+\item 实习: 0
+\item 面向专业: 计算机科学与技术，电子信息工程，信息与计算机技术
+\item 前期课程：英语，计算机组成原理，Linux应用基础，C编程，汇编知识
+\item 课程性质和要求《操作系统原理》是一门重要的专业基础课。深入理解操作系统的工作原理对学
+  生在软件编程、开发方面具有重大意义。 本课程介绍给同学如下内容：
+  \begin{itemize}
+  \item 操作系统简介
+  \item 进程与线程
+  \item 进程间通信
+  \item CPU调度
+  \item 死锁
+  \item 内存管理
+  \item 文件系统
+  \end{itemize}
+\item 参考教材\hfill
+  \nocite{silberschatz11essentials,tanenbaum2008modern,bovet2005understanding}
+  \printbibliography[heading=none]{}
+  
+  % \begin{enumerate}
+  % \item A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008.
+  % \item Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley
+  %   \& Sons, 2011.
+  % \item D.P. Bovet and M. Cesatí. Understanding The Linux Kernel. O'Reilly, 2005.
+  % \end{enumerate}
+\end{itemize}
+
+
+
+% \bibliographystyle{plain} \bibliography{os}
+% % Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

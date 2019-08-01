@@ -1,0 +1,288 @@
+#+TITLE:     Ext2 File System Analysis
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+# (setq org-export-html-use-infojs nil)
+
+* FS Creation
+  To create a 1M ext2 file system:
+  - If you prefer =RAM disk=, do this:
+    : sudo mount -t tmpfs -o size=2M tmpfs /mnt
+    : cd /mnt
+    : dd if=/dev/zero of=fs.img bs=1k count=1000
+  - Or you can use a disk file directly
+    : dd if=/dev/zero of=fs.img bs=1k count=1000
+  - mke2fs
+    : losetup /dev/loop0 fs.img
+    : mke2fs /dev/loop0
+    Or you can =mke2fs fs.img= directly
+* Analysis
+  : dumpe2fs fs.img
+  : hexdump -C fs.img
+** Block 0: Boot block
+   - 00000000 - 000003ff
+     - empty
+** Block 1: Superblock
+   - 00000400 - 000007ff
+#+ATTR_HTML: border="2" rules="all" frame="border"   
+|------+-------+------+-------------------------------------------------+--------+------+---------------|
+| size | start |  end | Superblock                                      |    Hex |  Dec |               |
+|------+-------+------+-------------------------------------------------+--------+------+---------------|
+|    4 |     1 |    4 | =Total number of inodes=                        |   0x80 |  128 |               |
+|    4 |     5 |    8 | Filesystem size in blocks                       | 0x03e8 | 1000 |               |
+|    4 |     9 |   12 | Number of reserved blocks                       |   0x32 |   50 |               |
+|    4 |    13 |   16 | Free blocks counter                             | 0x03c2 |  962 |               |
+|    4 |    17 |   20 | Free inodes counter                             |   0x75 |  117 |               |
+|    4 |    21 |   24 | Number of first useful block (always 1)         |   0x01 |    1 |               |
+|    4 |    25 |   28 | =Block size=                                    |      0 |    0 | =1024 << 0=   |
+|    4 |    29 |   32 | Fragment size                                   |      0 |    0 |               |
+|    4 |    33 |   36 | Number of blocks per group                      | 0x2000 | 8192 |               |
+|    4 |    37 |   40 | Number of fragments per group                   | 0x2000 | 8192 |               |
+|    4 |    41 |   44 | Number of inodes per group                      |   0x80 |  128 |               |
+|    4 |    45 |   48 | Time of last mount operation                    |      0 |  n/a |               |
+|    4 |    49 |   52 | Time of last write operation                    |        |      |               |
+|    2 |    53 |   54 | Mount operations counter                        |      3 |    3 |               |
+|    2 |    55 |   56 | Number of mount operations before check         | 0xffff |   -1 |               |
+|    2 |    57 |   58 | Magic signature                                 | 0xef53 |      |               |
+|    2 |    59 |   60 | Status flag                                     |      0 |    0 | not clean     |
+|    2 |    61 |   62 | Behavior when detecting errors                  |      1 |      | continue      |
+|    2 |    63 |   64 | Minor revision level                            |      0 |    0 |               |
+|    4 |    65 |   68 | Time of last check                              |        |      |               |
+|    4 |    69 |   72 | Time between checks                             |      0 |    0 | none          |
+|    4 |    73 |   76 | OS where filesystem was created                 |      0 |    0 | linux         |
+|    4 |    77 |   80 | Revision level                                  |      1 |    1 |               |
+|    2 |    81 |   82 | Default user ID for reserved blocks             |      0 |    0 | root          |
+|    2 |    83 |   84 | Default group ID for reserved blocks            |      0 |    0 | root          |
+|    4 |    85 |   88 | Number of first nonreserved inode               |   0x0b |   11 |               |
+|    2 |    89 |   90 | =Size of on-disk inode structure=               |   0x80 |  128 |               |
+|    2 |    91 |   92 | Block group number of this superblock           |      0 |    0 |               |
+|    4 |    93 |   96 | Compatible features bitmap                      |        |      |               |
+|    4 |    97 |  100 | Incompatible features bitmap                    |        |      |               |
+|    4 |   101 |  104 | Read-only-compatible features bitmap            |        |      |               |
+|   16 |   105 |  120 | 128-bit filesystem identifier                   |        |      |               |
+|   16 |   121 |  136 | Volume name                                     |      0 |    0 | none          |
+|   64 |   137 |  200 | Path of last mount point                        |      0 |    0 | not available |
+|    4 |   201 |  204 | Used for compression                            |        |      |               |
+|    1 |   205 |  205 | Number of blocks to preallocate                 |      0 |    0 |               |
+|    1 |   206 |  206 | Number of blocks to preallocate for directories |      3 |    3 |               |
+|  818 |   207 | 1024 | Nulls to pad out 1024 bytes                     |        |      |               |
+|------+-------+------+-------------------------------------------------+--------+------+---------------|
+
+** Block 2: group descriptor
+   - 00000800 - 00000bff
+#+ATTR_HTML: border="2" rules="all" frame="border"        
+|------+-------+-----+-----------------------------------------+--------+-----|
+| size | start | end | Group Descriptor                        |    hex | dec |
+|------+-------+-----+-----------------------------------------+--------+-----|
+|    4 |     1 |   4 | Block number of block bitmap            |      6 |   6 |
+|    4 |     5 |   8 | Block number of inode bitmap            |      7 |   7 |
+|    4 |     9 |  12 | Block number of first inode table block |      8 |   8 |
+|    2 |    13 |  14 | Number of free blocks in the group      | 0x03c2 | 962 |
+|    2 |    15 |  16 | Number of free inodes in the group      |   0x75 | 117 |
+|    2 |    17 |  18 | Number of directories in the group      |      2 |   2 |
+|    2 |    19 |  20 | Alignment to word                       |        |     |
+|    4 |    21 |  24 | Nulls to pad out 24 bytes               |        |     |
+|------+-------+-----+-----------------------------------------+--------+-----|
+** Block 3-5: Reserved GDT blocks
+   - 00000c00 - 000017ff
+** Block 6: block bitmap
+   - 00001800 - 00001bff
+** Block 7: inode bitmap
+   - 00001c00 - 00001fff
+** Block 8-23: inode table
+   00002000 - 00005fff
+   - inode 0: deleted file
+     - nil
+   - inode 1: /proc, /sys...
+     - 00002000 - 0000207f
+   - inode 2: /
+     - 00002080 - 000020ff
+#+CAPTION: inode 2: root inode
+#+ATTR_HTML: border="2" rules="all" frame="border"   
+|------+-------+-----+---------------------------------------+--------+------+-----------|
+| size | start | end | Inode                                 |    Hex |  Dec |           |
+|------+-------+-----+---------------------------------------+--------+------+-----------|
+|    2 |     1 |   2 | File type and access rights           | 0x41ed |      |           |
+|    2 |     3 |   4 | Owner identification                  | 0x03e8 | 1000 | UID       |
+|    4 |     5 |   8 | =File length in bytes=                | 0x0400 | 1024 |           |
+|    4 |     9 |  12 | Time of last file access              |        |      |           |
+|    4 |    13 |  16 | Time that inode last changed          |        |      |           |
+|    4 |    17 |  20 | Time that file contents last changed  |        |      |           |
+|    4 |    21 |  24 | Time of file deletion                 |      0 |      |           |
+|    2 |    25 |  26 | Group identifier                      | 0x03e8 | 1000 | GID       |
+|    2 |    27 |  28 | Hard links counter                    |      3 |    3 |           |
+|    4 |    29 |  32 | =Number of data blocks of the file=   |      2 |    2 | 512-block |
+|    4 |    33 |  36 | File flags                            |      0 |      |           |
+|    4 |    37 |  40 | Specific operating system information |      0 |      |           |
+|    4 |    41 |  44 | =Pointer to first data block=         |   0x18 |   24 |           |
+|   56 |    45 | 100 | 14 more pointers to data blocks       |      0 |      |           |
+|    4 |   101 | 104 | File version (for NFS)                |        |      |           |
+|    4 |   105 | 108 | File access control list              |        |      |           |
+|    4 |   109 | 112 | Directory access control list         |        |      |           |
+|    4 |   113 | 116 | Fragment address                      |        |      |           |
+|    8 |   117 | 124 | Specific operating system information |        |      |           |
+|------+-------+-----+---------------------------------------+--------+------+-----------|
+   - inode 11: =/lost+found=
+     - 00002500 - 0000257f
+       
+#+CAPTION: inode 11: lost+found
+#+ATTR_HTML: border="2" rules="all" frame="border"   
+|------+-------+-----+---------------------------------------+--------+-------+-------------|
+| size | start | end | Inode                                 |    Hex |   Dec |             |
+|------+-------+-----+---------------------------------------+--------+-------+-------------|
+|    2 |     1 |   2 | File type and access rights           | 0x41c0 |       |             |
+|    2 |     3 |   4 | Owner identification                  |      0 |     0 | root        |
+|    4 |     5 |   8 | =File length in bytes=                | 0x3000 | 12288 |             |
+|    4 |     9 |  12 | Time of last file access              |        |       |             |
+|    4 |    13 |  16 | Time that inode last changed          |        |       |             |
+|    4 |    17 |  20 | Time that file contents last changed  |        |       |             |
+|    4 |    21 |  24 | Time of file deletion                 |      0 |       |             |
+|    2 |    25 |  26 | Group identifier                      |      0 |     0 | root        |
+|    2 |    27 |  28 | Hard links counter                    |      2 |     2 |             |
+|    4 |    29 |  32 | =Number of data blocks of the file=   |   0x18 |    24 | 512-block   |
+|    4 |    33 |  36 | File flags                            |      0 |       |             |
+|    4 |    37 |  40 | Specific operating system information |      0 |       |             |
+|    4 |    41 |  44 | =Pointer to first data block=         |   0x19 |    25 |             |
+|   56 |    45 | 100 | 14 more pointers to data blocks       |  1a-24 | 26-36 | 11 pointers |
+|    4 |   101 | 104 | File version (for NFS)                |        |       |             |
+|    4 |   105 | 108 | File access control list              |        |       |             |
+|    4 |   109 | 112 | Directory access control list         |        |       |             |
+|    4 |   113 | 116 | Fragment address                      |        |       |             |
+|    8 |   117 | 124 | Specific operating system information |        |       |             |
+|------+-------+-----+---------------------------------------+--------+-------+-------------|
+   - inode 12: =hello=
+     - 00002580 - 00002600
+#+CAPTION: inode 12: hello
+#+ATTR_HTML: border="2" rules="all" frame="border"   
+|------+-------+-----+---------------------------------------+--------+------+------------------|
+| size | start | end | Inode                                 |    Hex |  Dec |                  |
+|------+-------+-----+---------------------------------------+--------+------+------------------|
+|    2 |     1 |   2 | File type and access rights           | 0x81a4 |      |                  |
+|    2 |     3 |   4 | Owner identification                  |   03e8 | 1000 | wx672            |
+|    4 |     5 |   8 | File length in bytes                  |      a |   10 |                  |
+|    4 |     9 |  12 | Time of last file access              |        |      |                  |
+|    4 |    13 |  16 | Time that inode last changed          |        |      |                  |
+|    4 |    17 |  20 | Time that file contents last changed  |        |      |                  |
+|    4 |    21 |  24 | Time of file deletion                 |      0 |      |                  |
+|    2 |    25 |  26 | Group identifier                      |   03e8 | 1000 | wx672            |
+|    2 |    27 |  28 | Hard links counter                    |      1 |      |                  |
+|    4 |    29 |  32 | Number of data blocks of the file     |      2 |      | 512-block        |
+|    4 |    33 |  36 | File flags                            |      0 |      |                  |
+|    4 |    37 |  40 | Specific operating system information |      0 |      |                  |
+|    4 |    41 |  44 | Pointer to first data block           |   0x26 |   38 | 0x00009800       |
+|   56 |    45 | 100 | 14 more pointers to data blocks       |        |      |                  |
+|    4 |   101 | 104 | File version (for NFS)                |        |      |                  |
+|    4 |   105 | 108 | File access control list              |        |      |                  |
+|    4 |   109 | 112 | Directory access control list         |        |      | =for large file= |
+|    4 |   113 | 116 | Fragment address                      |        |      |                  |
+|    8 |   117 | 124 | Specific operating system information |        |      |                  |
+|------+-------+-----+---------------------------------------+--------+------+------------------|
+       
+** Block 24: data block for / dir
+   - 00006000 - 000063ff
+*** First entry in / dir: "."      
+#+ATTR_HTML: border="2" rules="all" frame="border"   
+|------+-------+-----+-------------------------------+-----+-----|
+| size | start | end | Directory Entry               | hex |     |
+|------+-------+-----+-------------------------------+-----+-----|
+|    4 |     1 |   4 | Inode number                  |   2 |     |
+|    2 |     5 |   6 | This directory entry's length |   c |     |
+|    1 |     7 |   7 | File name length              |   1 |     |
+|    1 |     8 |   8 | File type                     |   2 | dir |
+|    x |     9 |   x | File name                     |  2e | .   |
+|------+-------+-----+-------------------------------+-----+-----|
+*** Second entry in / dir: ".."    
+#+ATTR_HTML: border="2" rules="all" frame="border"   
+|------+-------+-----+-------------------------------+------+-----|
+| size | start | end | Directory Entry               |  hex |     |
+|------+-------+-----+-------------------------------+------+-----|
+|    4 |    12 |  15 | Inode number                  |    2 |     |
+|    2 |    16 |  17 | This directory entry's length |    c | 12  |
+|    1 |    18 |  18 | File name length              |    2 |     |
+|    1 |    19 |  19 | File type                     |    2 | dir |
+|    x |    21 |   x | File name                     | 2e2e | ..  |
+|------+-------+-----+-------------------------------+------+-----|
+*** Third entry in / dir: "lost+found"
+#+ATTR_HTML: border="2" rules="all" frame="border"   
+|------+-------+-----+-------------------------------+-----+------------|
+| size | start | end | Directory Entry               | hex |            |
+|------+-------+-----+-------------------------------+-----+------------|
+|    4 |    25 |  28 | Inode number                  | b   |         11 |
+|    2 |    29 |  30 | This directory entry's length | 14  |         20 |
+|    1 |    31 |  31 | File name length              | a   |         10 |
+|    1 |    32 |  32 | File type                     | 2   |        dir |
+|    x |    33 |   x | File name                     |     | lost+found |
+|------+-------+-----+-------------------------------+-----+------------|
+*** Fourth entry in / dir: "hello"
+#+ATTR_HTML: border="2" rules="all" frame="border"   
+|------+-------+-----+-------------------------------+------+---------|
+| size | start | end | Directory Entry               |  hex |         |
+|------+-------+-----+-------------------------------+------+---------|
+|    4 |    45 |  48 | Inode number                  |    c |      12 |
+|    2 |    49 |  50 | This directory entry's length | 03d4 |     980 |
+|    1 |    51 |  51 | File name length              |    5 |       5 |
+|    1 |    52 |  52 | File type                     |    1 | regular |
+|    x |    53 |   x | File name                     |      |   hello |
+|------+-------+-----+-------------------------------+------+---------|
+
+** Block 25-36: 12 data blocks for =/lost+found=
+   - 00006400 - 00008fff
+*** First entry in =/lost+found= dir: "."     
+#+ATTR_HTML: border="2" rules="all" frame="border"   
+|------+-------+-----+-------------------------------+-----+-----|
+| size | start | end | Directory Entry               | hex |     |
+|------+-------+-----+-------------------------------+-----+-----|
+|    4 |     1 |   4 | Inode number                  |   b |     |
+|    2 |     5 |   6 | This directory entry's length |   c |     |
+|    1 |     7 |   7 | File name length              |   1 |     |
+|    1 |     8 |   8 | File type                     |   2 | dir |
+|    x |     9 |   x | File name                     |  2e | .   |
+|------+-------+-----+-------------------------------+-----+-----|
+*** Second entry in =/lost+found= dir: ".."     
+#+ATTR_HTML: border="2" rules="all" frame="border"   
+|------+-------+-----+-------------------------------+------+------|
+| size | start | end | Directory Entry               |  hex |      |
+|------+-------+-----+-------------------------------+------+------|
+|    4 |    12 |  15 | Inode number                  |    2 |      |
+|    2 |    16 |  17 | This directory entry's length | 03f4 | 1012 |
+|    1 |    18 |  18 | File name length              |    2 |      |
+|    1 |    19 |  19 | File type                     |    2 | dir  |
+|    x |    21 |   x | File name                     | 2e2e | ..   |
+|------+-------+-----+-------------------------------+------+------|
+** Block 38: data block for =hello=
+   - 00009800 - 00009cff
+
+     helloworld
+     
+* Finding a file
+  First, let's create a small text file named 'hello':
+  1. Mount =fs.img= on =/mnt=
+     : sudo mount -o loop fs.img /mnt
+  2. Create a simple 10-byte text file named =hello= in =/mnt=
+     : echo -n "helloworld" > /mnt/hello
+  Now let's try finding it in =fs.img= by means of =hexdump=:
+  : hexdump -C fs.img
+  To find a file in ext2 file system, we need to go through the following steps:
+  - finding the inode table :: We already know that the inode table is located in block
+       8-23 (=00002000 - 00005fff=).
+  - finding the root inode :: We already know that the root inode is at =00002080 -
+       000020ff=
+  - finding the inode of =hello= :: At address =0000602c=, you can see the inode number
+       of file =hello= is =0x0c=, that's a decimal 12. Or you can use 
+       : ls -il /mnt/hello
+       to see it. In =fs.img= inode 12 is at =00002580 - 00002600=
+  - finding the data blocks of the file :: At address =000025a8= you can see the data
+       block number of the file is =0x26=, 38 in decimal. The 38th block in =fs.img= is at
+       =00009800=. You can find "helloworld" there!
+     
+     

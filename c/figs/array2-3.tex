@@ -1,0 +1,28 @@
+\documentclass[varwidth=20cm,crop]{standalone}
+
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+      &a                                      &pa
+      ↓                                       ↓
+addr: 1000 1004 1008 1012 ... ... ... ... ... 3456 3460 3464 3468 ...
+    ┈┬────┬────┬────┬────┬─┈//┈─┬────┬──┈//┈─┬────┬────┬────┬────┬┈
+    ┈│ 9  │ 8  │ 0  │ 1  │      │0➠2 │       │1000│1004│1008│1012│┈
+    ┈┴────┴────┴────┴────┴─┈//┈─┴────┴──┈//┈─┴────┴────┴────┴────┴┈
+      a[0] a[1] a[2] a[3]       int i;         pa  pa+1 pa+2 pa+3
+
+     int a[] = {9,8,0,1};                     int *pa = a;
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,65 @@
+\documentclass[tikz, svgnames]{standalone}
+
+\usepackage{wx672tikz}
+\setmainfont{Purisa}
+
+\begin{document}
+
+\tikzstyle{arrow} = [thick,->,decorate]
+%\tikzstyle{roundbox} += [ellipse,fill=orange!20,align=center]
+%\tikzstyle{squarebox} += [fill=blue!10,align=center]
+
+\begin{tikzpicture}[auto,%
+  decoration={random steps,segment length=7pt,amplitude=.7pt},
+  tool/.style = {draw,decorate,align=center,fill=orange!20,ellipse},
+  file/.style = {draw,decorate,align=center,fill=blue!10,rectangle},
+  line/.style = {draw,decorate,thick, -latex', shorten >=2pt}]
+
+  \matrix [row sep=5mm]%column sep=-1cm, 
+  {
+    \node (emacs)
+    [tool,label={\includegraphics[scale=.05]{programmer}},label={0:\textdollar emacs
+      hello.c}] {Editor\\(emacs)};\\%
+    \node (hello-c) [file] {C source code\\(hello.c)};\\
+    \node (cpp) [tool,label={0:\begin{tabular}{l}
+        \$ cpp hello.c\\
+        \$ gcc -E hello.c
+      \end{tabular}}] {C Preprocessor\\(cpp)};\\%
+    \node (helloext) [file] {Extended C source code\\(hello.c)};\\%
+    \node (gcc) [tool,label={0:\textdollar gcc -S hello.c}] {Compiler\\(gcc)};\\%
+    \node (hello-s) [file] {ASM source code\\(hello.s)};\\
+    \node (gas) [tool,label={0:\textdollar gcc -c hello.c}] {Assembler\\(gas)};\\%
+    \node (hello-o) [file] {Object code\\(hello.o)};\\
+    \node (ld) [tool,label={0:\begin{tabular}{l}
+        \$ ld hello.o LIBs\\
+        \$ gcc -o hello hello.c
+      \end{tabular}}] {Linker\\(ld)};\\
+    \node (hello) [file] {Executable program\\(hello)};\\
+    \node (gdb) [tool,label={0:\begin{tabular}{l}
+        \$ gcc -g hello.c -o hello\\
+        \$ gdb hello
+      \end{tabular}}] {Debugger\\(gdb)};\\
+  };
+ \node (stdio-h) [right=2mm of hello-c,file] {Include files, macros\\(stdio.h)};%
+ \node (printf) [right=2mm of hello-o,file] {Libraries\\(printf)};
+
+  \begin{scope}[every path/.style=line]
+    \path (emacs) -- (hello-c);
+    \path (hello-c) -- (cpp);
+    \path (stdio-h) -- (cpp);
+    \path (cpp) -- (helloext);
+    \path (helloext) -- (gcc);
+    \path (gcc) -- (hello-s);
+    \path (hello-s) -- (gas);
+    \path (gas) -- (hello-o);
+    \path (hello-o) -- (ld);
+    \path (printf) -- (ld);
+    \path (ld) -- (hello);
+    \path (hello) -- (gdb);
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

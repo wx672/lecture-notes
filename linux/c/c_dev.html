@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>C Programming Environment Tutorial</title>
+<!-- 2015-11-08 Sun 16:45 -->
+<meta  charset="utf-8">
+<meta  name="generator" content="Org-mode">
+<meta  name="author" content="WANG Xiaolin">
+<meta  name="description" content="a short introduction to C programming environment under Linux"
+>
+<meta  name="keywords" content="gcc, gdb, make, c, programming, tutorial, linux">
+<link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
+<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">C Programming Environment Tutorial</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. The Big Picture</a></li>
+<li><a href="#sec-2">2. Classic Linux IDE</a></li>
+<li><a href="#sec-3">3. Compiling C and C++ Programs</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Example 1: Compiling a simple program</a>
+<ul>
+<li><a href="#sec-3-1-1">3.1.1. Frequently used compilation options</a></li>
+</ul>
+</li>
+<li><a href="#sec-3-2">3.2. Example 2: Compiling a program with multiple source files</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. Finding errors in a simple program</a>
+<ul>
+<li><a href="#sec-4-1">4.1. Check warnings (gcc <code>-Wall</code>)</a></li>
+<li><a href="#sec-4-2">4.2. Debuging macros (gcc <code>-E</code>)</a></li>
+<li><a href="#sec-4-3">4.3. Verbose outputs (gcc <code>-D</code>)</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. Debug a C Program With GDB</a></li>
+<li><a href="#sec-6">6. Makefile</a>
+<ul>
+<li><a href="#sec-6-1">6.1. A simple makefile</a></li>
+<li><a href="#sec-6-2">6.2. A not so simple Makefile</a></li>
+<li><a href="#sec-6-3">6.3. Case Study &#x2014; Managing Projects Using Makefiles</a>
+<ul>
+<li><a href="#sec-6-3-1">6.3.1. Source Files</a></li>
+<li><a href="#sec-6-3-2">6.3.2. Makefiles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-7">7. Linking with external libraries</a>
+<ul>
+<li><a href="#sec-7-1">7.1. Link order of libraries</a></li>
+</ul>
+</li>
+<li><a href="#sec-8">8. Using library header files</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> The Big Picture</h2>
+<div class="outline-text-2" id="text-1">
+
+<div class="figure">
+<p><img src="compilation.svg" alt="compilation.svg">
+</p>
+</div>
+
+<dl class="org-dl">
+<dt> Source code </dt><dd>written by programmer in high-level language, in our case in <b>C</b>. We write c source
+code with a <i>text editor</i>, such as <b>emacs</b>, <b>vim</b>, etc.
+</dd>
+<dt> Preprocessing </dt><dd>is the first pass of any C compilation. It processes <b>include-files</b>,
+<b>conditional compilation instructions</b> and <b>macros</b>.
+<ul class="org-ul">
+<li><b>cpp</b> &#x2014; The GNU C preprocessor
+<pre class="example">
+gcc -E hello.c
+</pre>
+</li>
+</ul>
+</dd>
+<dt> Compilation </dt><dd>is the second pass. It takes the output of the preprocessor, and the <b>source
+code</b>, and generates <b>assembly source code</b>.
+<ul class="org-ul">
+<li><b>gcc/g++</b> &#x2014; GNU project C and C++ compiler
+<pre class="example">
+gcc -S hello.c
+</pre>
+</li>
+</ul>
+</dd>
+<dt> Assembly </dt><dd>is the third stage of compilation. It takes the assembly source code and produces an
+assembly listing with offsets. The assembler output is stored in an <b>object file</b>.
+<ul class="org-ul">
+<li><b>as</b> &#x2014; the portable GNU assembler
+<pre class="example">
+gcc -c hello.c
+</pre>
+</li>
+</ul>
+</dd>
+<dt> Linking </dt><dd>is the final stage of compilation. It combines object code with predefined routines
+from <b>libraries</b> and produces the <b>executable program</b>.
+<ul class="org-ul">
+<li><b>ld</b> &#x2014; The GNU linker
+<pre class="example">
+gcc hello.c -lm  
+</pre>
+</li>
+</ul>
+</dd>
+<dt> Wrapper </dt><dd>The whole compilation process is usually not done `by hand', but using a <b>wrapper</b>
+program that combines the functions of preprocessor(cpp), compiler(gcc/g++),
+assembler(as) and linker(ld).
+<pre class="example">
+gcc -Wall hello.c -lm -o hello
+</pre>
+</dd>
+</dl>
+<p>
+<b>References:</b>
+</p>
+<ul class="org-ul">
+<li><a href="http://www.tenouk.com/ModuleW.html">COMPILER, ASSEMBLER, LINKER AND LOADER: A BRIEF STORY</a>
+</li>
+<li><a href="http://www.tenouk.com/">http://www.tenouk.com/</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Classic Linux IDE</h2>
+<div class="outline-text-2" id="text-2">
+<dl class="org-dl">
+<dt> Best IDE </dt><dd>Best Editor + Best Compiler + Best Debugger
+<ul class="org-ul">
+<li>Best Editor &#x2014; <a href="http://www.gnu.org/software/emacs/">emacs</a>, <a href="http://www.vim.org">vim</a>
+</li>
+<li>Best Compiler &#x2014; <a href="http://cs2.swfu.edu.cn/cgi-bin/dwww?search=gcc&programsubmit=Search&searchtype=m">gcc, g++</a>
+</li>
+<li>Best Debugger &#x2014; <a href="http://cs2.swfu.edu.cn/cgi-bin/info2www?(gdb)">gdb</a>, <a href="http://www.gnu.org/software/ddd/">ddd</a>
+</li>
+</ul>
+</dd>
+<dt> Project Management </dt><dd><a href="http://cs2.swfu.edu.cn/cgi-bin/info2www?(make)">Makefile</a>
+</dd>
+<dt> Source Code Management </dt><dd><a href="http://cs2.swfu.edu.cn/cgi-bin/dwww?type=runman&location=gittutorial/7">git</a>, <a href="http://svnbook.red-bean.com/">subversion</a>
+</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Compiling C and C++ Programs</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>From: <a href="http://pages.cs.wisc.edu/~beechung/ref/gcc-intro.html">http://pages.cs.wisc.edu/~beechung/ref/gcc-intro.html</a>
+
+<p>
+gcc is the "GNU" C Compiler, and g++ is the "GNU C++ compiler. Below are several examples that
+how to use g++ to compile C++ programs, although much of the information applies to C
+programs as well as compiling with the other compilers.
+</p>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Example 1: Compiling a simple program</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Consider the following example: Let "hello.cpp" be a file that contains the following C++ code.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #b22222;">// </span><span style="color: #b22222;">my first program in C++</span>
+
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;iostream&gt;</span>
+<span style="color: #a020f0;">using</span> <span style="color: #a020f0;">namespace</span> <span style="color: #008b8b;">std</span>;
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">argc</span>, <span style="color: #228b22;">char</span> *<span style="color: #a0522d;">argv</span>[])
+{
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>;
+  <span style="color: #a020f0;">for</span> (i=0; i&lt;10 ; ++i)
+    {
+      cout &lt;&lt; <span style="color: #8b2252;">"Hello, world!\n"</span>;
+    }  
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+<p>
+The standard way to compile this program is with the command
+</p>
+<pre class="example">
+g++ hello.cpp -o hello
+</pre>
+<p>
+This command compiles hello.cpp into an executable program named "hello" that you run by typing
+'hello' at the command line. It does nothing more than print the word "hello" on the screen.
+</p>
+
+<p>
+Alternatively, the above program could be compiled using the following two commands.
+</p>
+<pre class="example">
+g++ -c hello.cpp
+g++ hello.o -o hello
+</pre>
+<p>
+The end result is the same, but this two-step method first compiles hello.cpp into a machine code
+file named "hello.o" and then links hello.o with some system libraries to produce the final
+program "hello". In fact the first method also does this two-stage process of compiling and
+linking, but the stages are done transparently, and the intermediate file "hello.o" is deleted in
+the process.
+</p>
+</div>
+
+<div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1"><span class="section-number-4">3.1.1</span> Frequently used compilation options</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+C and C++ compilers allow for many options for how to compile a program, and the examples below
+demonstrate how to use many of the more commonly used options. In each example, "myprog.cpp"
+contains C++ source code for the executable "myprog". In most cases options can be combined,
+although it is generally not useful to use "debugging" and "optimization" options together.
+</p>
+
+<p>
+Compile myprog.cpp so that myprog contains symbolic information that enables it to be debugged with the gdb debugger.
+</p>
+<pre class="example">
+g++ -g myprog.cpp -o myprog
+</pre>
+<p>
+Have the compiler generate many warnings about syntactically correct but questionable looking code. It is good practice to always use this option with gcc and g++.
+</p>
+<pre class="example">
+g++ -Wall myprog.cpp -o myprog
+</pre>
+<p>
+Generate symbolic information for gdb and many warning messages.
+</p>
+<pre class="example">
+g++ -g -Wall myprog.cpp -o myprog
+</pre>
+<p>
+Generate optimized code on a Solaris machine with warnings. The -O is a capital o and not the number 0!
+</p>
+<pre class="example">
+g++ -Wall -O -mv8 myprog.cpp -o myprog
+</pre>
+<p>
+Generate optimized code on a Linux machine.
+</p>
+<pre class="example">
+g++ -O myprog.cpp -o myprog
+</pre>
+<p>
+Compile myprog.cpp when it contains Xlib graphics routines.
+</p>
+<pre class="example">
+g++ myprog.cpp -o myprog -lX11
+</pre>
+<p>
+If "myprog.c" is a C program, then the above commands will all work by replacing g++ with gcc and
+"myprog.cpp" with "myprog.c". Below are a few examples that apply only to C programs.  Compile a C
+program that uses math functions such as "<code>sqrt</code>".
+</p>
+<pre class="example">
+gcc myprog.c -o myprog -lm
+</pre>
+<p>
+Compile a C program with the "electric fence" library. This library, available on all the Linux
+machines, causes many incorrectly written programs to crash as soon as an error occurs. It is
+useful for debugging as the error location can be quickly determined using gdb. However, it
+should only be used for debugging as the executable myprog will be much slower and use much more
+memory than usual.
+</p>
+<pre class="example">
+gcc -g myprog.c -o myprog -lefence
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Example 2: Compiling a program with multiple source files</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+If the source code is in several files, say "file1.cpp" and "file2.cpp", then they can be compiled into an executable program named "myprog" using the following command:
+</p>
+<pre class="example">
+g++ file1.cpp file2.cpp -o myprog
+</pre>
+<p>
+The same result can be achieved using the following three command:
+</p>
+<pre class="example">
+g++ -c file1.cpp
+g++ -c file2.cpp
+g++ file1.o file2.o -o myprog
+</pre>
+<p>
+The advantage of the second method is that it compiles each of the source files separately. If,
+for instance, the above commands were used to create "myprog", and "file1.cpp" was subsequently
+modified, then the following commands would correctly update "myprog".
+</p>
+<pre class="example">
+g++ -c file1.cpp
+g++ file1.o file2.o -o myprog
+</pre>
+<p>
+Note that file2.cpp does not need to be recompiled, so the time required to rebuild myprog is
+shorter than if the first method for compiling myprog were used. When there are numerous source
+file, and a change is only made to one of them, the time savings can be significant. This process,
+though somewhat complicated, is generally handled automatically by a makefile.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Finding errors in a simple program</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Check warnings (gcc <code>-Wall</code>)</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>From: <a href="http://www.network-theory.co.uk/docs/gccintro/gccintro_10.html">http://www.network-theory.co.uk/docs/gccintro/gccintro_10.html</a>
+</li>
+</ul>
+
+<p>
+As mentioned above, compiler warnings are an essential aid when programming in C and C++. To
+demonstrate this, the program below contains a subtle error: it uses the function printf
+incorrectly, by specifying a floating-point format ‘%f’ for an integer value:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #b22222;">/* </span><span style="color: #b22222;">gcc -Wall -o bad bad.c</span>
+<span style="color: #b22222;">       -Wall is important!</span>
+<span style="color: #b22222;"> </span><span style="color: #b22222;">*/</span>
+
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span> (<span style="color: #228b22;">void</span>)
+{
+  printf (<span style="color: #8b2252;">"Two plus two is %f\n"</span>, 4);
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+<p>
+This error is not obvious at first sight, but can be detected by the compiler if the warning
+option <code>-Wall</code> has been enabled.
+</p>
+
+<p>
+Compiling the program above, <code>wall.c</code>, with the warning option <code>-Wall</code> produces the following message:
+</p>
+<pre class="example">
+$ gcc -Wall wall.c
+wall.c: In function `main':
+wall.c:6:3: warning: format ‘%f’ expects type ‘double’, but argument 2 has type ‘int’
+</pre>
+
+<p>
+This indicates that a format string has been used incorrectly in the file ‘wall.c’ at line 6. The
+messages produced by GCC always have the form <code>file:line-number:message</code>. The compiler distinguishes
+between error messages, which prevent successful compilation, and warning messages which indicate
+possible problems (but do not stop the program from compiling).
+</p>
+
+<p>
+In this case, the correct format specifier should be ‘%d’ for an integer argument. The allowed
+format specifiers for printf can be found in any general book on C, such as the GNU C Library
+Reference Manual (see section Further reading).
+</p>
+
+<p>
+Without the warning option -Wall the program appears to compile cleanly, but produces incorrect results:
+</p>
+
+<pre class="example">
+$ gcc wall.c
+$ ./a.out
+Two plus two is 0.000000    (incorrect output)
+</pre>
+
+<p>
+The incorrect format specifier causes the output to be corrupted, because the function printf is
+passed an integer instead of a floating-point number. Integers and floating-point numbers are stored
+in different formats in memory, and generally occupy different numbers of bytes, leading to a
+spurious result. The actual output shown above may differ, depending on the specific platform and
+environment.
+</p>
+
+<p>
+Clearly, it is very dangerous to develop a program without checking for compiler warnings. If there
+are any functions which are not used correctly they can cause the program to crash or produce
+incorrect results. Turning on the compiler warning option -Wall will catch many of the commonest
+errors which occur in C programming.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Debuging macros (gcc <code>-E</code>)</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #b22222;">/* </span><span style="color: #b22222;">gcc -E macro.c | grep -A1 squared </span><span style="color: #b22222;">*/</span>
+
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+<span style="color: #483d8b;">#define</span> <span style="color: #0000ff;">SQR</span>(<span style="color: #a0522d;">x</span>) (x * x)  <span style="color: #b22222;">/* </span><span style="color: #b22222;">((x) * (x))  </span><span style="color: #b22222;">*/</span>
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span>()
+{
+    <span style="color: #228b22;">int</span> <span style="color: #a0522d;">counter</span>;    <span style="color: #b22222;">/* </span><span style="color: #b22222;">counter for loop </span><span style="color: #b22222;">*/</span>
+    <span style="color: #a020f0;">for</span> (counter = 0; counter &lt; 5; ++counter)
+    {
+        printf(<span style="color: #8b2252;">"x %d, x squared %d\n"</span>,
+            counter+1, SQR(counter+1));
+    }
+    <span style="color: #a020f0;">return</span> (0);
+}
+</pre>
+</div>
+<pre class="example">
+gcc -E macro.c
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Verbose outputs (gcc <code>-D</code>)</h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #b22222;">/* </span><span style="color: #b22222;">gcc -DDEBUG stackoverflow.c </span><span style="color: #b22222;">*/</span>
+
+<span style="color: #483d8b;">#include</span><span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+<span style="color: #228b22;">int</span> <span style="color: #a0522d;">i</span>=0;
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span>(<span style="color: #228b22;">void</span>)
+ {
+<span style="color: #483d8b;">#ifdef</span> DEBUG     
+   printf(<span style="color: #8b2252;">"%d\t"</span>,i++);
+<span style="color: #483d8b;">#endif</span>   
+   main();
+   <span style="color: #a020f0;">return</span> 0;
+ }
+</pre>
+</div>
+<pre class="example">
+gcc -DDEBUG stackoverflow.c
+</pre>
+<p>
+To see the difference of with/without <code>-DDEBUG</code>, try the following
+</p>
+<pre class="example">
+gcc -DDEBUG -E stackoverflow.c | tail
+gcc -E stackoverflow.c | tail
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Debug a C Program With GDB</h2>
+<div class="outline-text-2" id="text-5">
+<pre class="example">
+gcc -g myprog.c
+</pre>
+<ul class="org-ul">
+<li><code>info gdb</code>
+</li>
+<li>In emacs:
+<pre class="example">
+C-h i m gdb
+</pre>
+</li>
+<li><a href="gdb-tutorial-handout.pdf">gdb-tutorial-handout.pdf</a>
+</li>
+<li><a href="http://www.unknownroad.com/rtfm/gdbtut/gdbtoc.html">RMS's gdb Tutorial</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Makefile</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li><code>sudo aptitude install make-doc</code>
+</li>
+<li><code>info make Makefiles</code>
+</li>
+<li>In emacs:
+<pre class="example">
+C-h i m make i makefile
+</pre>
+</li>
+<li><a href="https://www.google.com/search?btnG=1&pws=0&q=makefile+tutorial&qscrl=1">Makefile tutorials</a>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> A simple makefile</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>Original: <a href="http://www.network-theory.co.uk/docs/gccintro/gccintro_16.html">http://www.network-theory.co.uk/docs/gccintro/gccintro_16.html</a>
+</li>
+</ul>
+
+<p>
+For those unfamiliar with make, this section provides a simple demonstration of its use. <b>Make</b>
+is a program in its own right and can be found on all Unix systems. To learn more about the GNU
+version of make you will need to consult the GNU Make manual by Richard M. Stallman and Roland
+McGrath (see section Further reading).
+</p>
+
+<p>
+Make reads a description of a project from a makefile (by default, called ‘Makefile’ in the
+current directory). A makefile specifies a set of compilation rules in terms of <b>targets</b> (such as
+executables) and their <b>dependencies</b> (such as object files and source files) in the following
+format:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-GNUmakefile"><span class="linenr">1: </span>target: dependencies
+<span class="linenr">2: </span>     command
+</pre>
+</div>
+<p>
+For each target, make checks the modification time of the corresponding dependency files to
+determine whether the target needs to be rebuilt using the corresponding command. Note that the
+command lines in a makefile must be indented with a single <b>TAB</b> character, <b>NOT spaces</b>.
+</p>
+
+<p>
+GNU Make contains many default rules, referred to as implicit rules, to simplify the construction
+of makefiles. For example, these specify that ‘.o’ files can be obtained from ‘.c’ files by
+compilation, and that an executable can be made by linking together ‘.o’ files. Implicit rules
+are defined in terms of make variables, such as CC (the C compiler) and CFLAGS (the compilation
+options for C programs), which can be set using VARIABLE=VALUE lines in the makefile. For C++ the
+equivalent variables are CXX and CXXFLAGS, while the make variable CPPFLAGS sets the preprocessor
+options. The implicit and user-defined rules are automatically chained together as necessary by
+GNU Make.
+</p>
+
+<p>
+A simple ‘Makefile’ for the project above can be written as follows:
+</p>
+
+<pre class="example">
+CC=gcc
+CFLAGS=-Wall
+main: main.o hello_fn.o
+
+clean:
+      rm -f main main.o hello_fn.o
+</pre>
+
+<p>
+The file can be read like this: using the C compiler gcc, with compilation option -Wall, build
+the target executable main from the object files ‘main.o’ and ‘hello_fn.o’ (these, in turn, will
+be built via implicit rules from ‘main.c’ and ‘hello_fn.c’). The target clean has no dependencies
+and simply removes all the compiled files.(4) The option -f (force) on the rm command suppresses
+any error messages if the files do not exist.
+</p>
+
+<p>
+To use the makefile, type make. When called with no arguments, the first target in the makefile
+is built, producing the executable ‘main’:
+</p>
+
+<pre class="example">
+$ make
+gcc -Wall   -c -o main.o main.c
+gcc -Wall   -c -o hello_fn.o hello_fn.c
+gcc   main.o hello_fn.o   -o main
+$ ./main
+Hello, world!
+</pre>
+
+<p>
+To rebuild the executable after modifying a source file, simply type make again. By checking the
+timestamps of the target and dependency files, make identifies the files which have changed and
+regenerates the corresponding intermediate files needed to update the targets:
+</p>
+
+<pre class="example">
+$ emacs main.c  (edit the file)
+$ make
+gcc -Wall   -c -o main.o main.c
+gcc    main.o hello_fn.o   -o main
+$ ./main
+Hello, everyone!
+</pre>
+
+<p>
+Finally, to remove the generated files, type make clean:
+</p>
+
+<pre class="example">
+$ make clean
+rm -f main main.o hello_fn.o
+</pre>
+
+<p>
+A more sophisticated makefile would usually contain additional targets for installation (make install) and testing (make check).
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> A not so simple Makefile</h3>
+<div class="outline-text-3" id="text-6-2">
+<ul class="org-ul">
+<li>Original: <a href="http://cs.acadiau.ca/~jdiamond/comp2103/beginner-tutorials/LinuxTutorialGcc.html#Makefiles">http://cs.acadiau.ca/~jdiamond/comp2103/beginner-tutorials/LinuxTutorialGcc.html#Makefiles</a>:
+</li>
+</ul>
+
+<p>
+<b>make</b> is a very useful utility program that can automate the process of compiling your
+programs. You use "make" by creating a file named <b>Makefile</b> that describes the steps you want
+done. You then run "make" to carry out the steps listed in your Makefile. Here is a
+straightforward Makefile that describes the way an executable file called edit depends on eight
+object files which, in turn, depend on eight C source and three header files.  In this example,
+all the C files <code>#include defs.h</code>, but only those defining editing commands <code>#include command.h</code>,
+and only low level files that change the editor buffer <code>#include buffer.h</code>.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-makefile"><span style="color: #0000ff;">edit</span>: main.o kbd.o command.o display.o \
+                insert.o search.o files.o utils.o
+        gcc -Wall -o edit main.o kbd.o command.o display.o \
+                insert.o search.o files.o utils.o
+
+<span style="color: #0000ff;">main.o</span>: main.c defs.h
+        gcc -c -Wall main.c
+
+<span style="color: #0000ff;">kbd.o</span> : kbd.c defs.h command.h
+        gcc -c -Wall kbd.c
+
+<span style="color: #0000ff;">command.o</span>: command.c defs.h command.h
+        gcc -c -Wall command.c
+
+<span style="color: #0000ff;">display.o</span> : display.c defs.h buffer.h
+        gcc -c -Wall display.c
+
+<span style="color: #0000ff;">insert.o</span>: insert.c defs.h buffer.h
+        gcc -c -Wall insert.c
+
+<span style="color: #0000ff;">search.o</span>: search.c defs.h buffer.h
+        gcc -c -Wall search.c
+
+<span style="color: #0000ff;">files.o</span>: files.c defs.h buffer.h command.h
+        gcc -c -Wall files.c
+
+<span style="color: #0000ff;">utils.o</span>: utils.c defs.h
+        gcc -c -Wall utils.c
+
+
+<span style="color: #0000ff;">clean</span>:
+        rm edit main.o kbd.o command.o display.o \
+           insert.o search.o files.o utils.o
+</pre>
+</div>
+
+<p>
+We split each long line into two lines using backslash-newline; this is like using one long line,
+but is easier to read.
+</p>
+<ul class="org-ul">
+<li><b>IMPORTANT:</b> the lines describing the "actions" for each "target" must start with a <b>tab</b> character,
+NOT a bunch of spaces.
+
+<p>
+Simply executing make will use this Makefile to create the executable file called edit; simply type:
+</p>
+<pre class="example">
+$ make
+</pre>
+
+<p>
+The "clean" rule from this same Makefile could be used to delete the executable file and all the
+object files from the directory. To do that, type:
+</p>
+
+<pre class="example">
+$ make clean
+</pre>
+
+<p>
+In the example Makefile, the targets include the executable file edit and the object files main.o
+and kbd.o. The dependencies are files such as main.c and defs.h. In fact, each ".o" file is both a
+target and a dependency (depending on which rule you are looking at). Commands include <code>gcc -c -Wall
+    main.c</code> and <code>gcc -c -Wall kbd.c</code>.
+</p>
+
+<p>
+When a target is a file, it needs to be recompiled or re-linked if any of its dependencies
+change. In addition, any dependencies that are themselves automatically generated should be updated
+first. In this example, <i>edit</i> depends on each of the eight object files; the object file main.o
+depends on the source file main.c and on the header file defs.h.
+</p>
+
+<p>
+A shell command follows each line that contains a target and dependencies. These shell commands say
+how to update the target file. As mentioned above, a <b>tab</b> character must come at the beginning of
+every command line to distinguish command lines from other lines in the Makefile. (Bear in mind that
+<i>make does not know anything about how the commands work. It is up to you to supply commands that
+will update the target file properly</i>. All make does is execute the commands in the rule you have
+specified when the target file needs to be updated.)
+</p>
+
+<p>
+The target <b>clean</b> is not a file, but merely the name of an action. Since you normally do not want to
+carry out the actions in this rule, clean is not a dependency of any other rule. Consequently, make
+never does anything with it unless you tell it specifically. Note that this rule not only is not a
+dependency, it also does not have any dependencies, so the only purpose of the rule is to run the
+specified commands. Targets that do not refer to files but are just actions are called phony
+targets; do a web search on "phone targets" to learn more about them. Do a web search on "Errors in
+commands" (and use quotes around those words!) to see how to cause make to ignore errors from rm or
+any other command.
+</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> Case Study &#x2014; Managing Projects Using Makefiles</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+All the <code>.c</code>, <code>.h</code>, and <code>Makefiles</code> used in this case study are packed in <a href="./src/make-prj/src.tgz"><b>this tgz file</b></a>. After
+downloading and extracting it, you can follow <a href="http://cs2.swfu.edu.cn/cgi-bin/info2www?(make)Introduction">An Introduction to Makefiles</a> to learn how Makefiles
+work.
+</p>
+</div>
+<div id="outline-container-sec-6-3-1" class="outline-4">
+<h4 id="sec-6-3-1"><span class="section-number-4">6.3.1</span> Source Files</h4>
+<div class="outline-text-4" id="text-6-3-1">
+<p>
+The source files listed below are not seriously useful, except for showing how <code>make</code> works. We use
+these <code>.c</code> and <code>.h</code> files to demonstrate how to manage a software project with Makefile.
+</p>
+
+<ul class="org-ul">
+<li><code>main.c</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"defs.h"</span>
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">command</span>();
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">search</span>();
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">insert</span>();
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">files</span>();
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">kbd</span>();
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">display</span>();
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">utils</span>();
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">argc</span>, <span style="color: #228b22;">char</span> *<span style="color: #a0522d;">argv</span>[])
+{
+  printf (<span style="color: #8b2252;">"Let's go...\n"</span>);
+  command();
+  search();
+  insert();
+  files();
+  kbd();
+  display();
+  utils();
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>command.c</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"defs.h"</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"command.h"</span>
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">command</span>()
+{
+  printf (<span style="color: #8b2252;">"Commands should be implemented in this file.\n"</span>);
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>display.c</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"defs.h"</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"buffer.h"</span>
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">display</span>()
+{
+  printf (<span style="color: #8b2252;">"display functions should be fulfilled in this file.\n"</span>);
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>files.c</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"defs.h"</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"command.h"</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"buffer.h"</span>
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">files</span>()
+{
+  printf (<span style="color: #8b2252;">"File operations should be done in this file.\n"</span>);
+
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>insert.c</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"defs.h"</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"buffer.h"</span>
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">insert</span>()
+{
+  printf (<span style="color: #8b2252;">"Insertion functions should be fulfilled here.\n"</span>);
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>kbd.c</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"defs.h"</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"command.h"</span>
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">kbd</span>()
+{
+  printf (<span style="color: #8b2252;">"Keyboard operations should be done here.\n"</span>);
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>search.c</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"defs.h"</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"buffer.h"</span>
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">search</span>()
+{
+  printf (<span style="color: #8b2252;">"Search function should be done here.\n"</span>);
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>utils.c</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">"defs.h"</span>
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">utils</span>()
+{
+  printf (<span style="color: #8b2252;">"Utility functions should go here.\n"</span>);
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>buffer.h</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #483d8b;">#if</span><span style="color: #483d8b;">n</span><span style="color: #483d8b;">def</span> _BUFFER_H_
+<span style="color: #483d8b;">#define</span> <span style="color: #a0522d;">_BUFFER_H_</span>
+
+
+
+<span style="color: #483d8b;">#endif</span> <span style="color: #b22222;">/* </span><span style="color: #b22222;">_BUFFER_H_ </span><span style="color: #b22222;">*/</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>command.h</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #483d8b;">#if</span><span style="color: #483d8b;">n</span><span style="color: #483d8b;">def</span> _COMMAND_H_
+<span style="color: #483d8b;">#define</span> <span style="color: #a0522d;">_COMMAND_H_</span>
+
+
+
+<span style="color: #483d8b;">#endif</span> <span style="color: #b22222;">/* </span><span style="color: #b22222;">_COMMAND_H_ </span><span style="color: #b22222;">*/</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>defs.h</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #483d8b;">#if</span><span style="color: #483d8b;">n</span><span style="color: #483d8b;">def</span> _DEFS_H_
+<span style="color: #483d8b;">#define</span> <span style="color: #a0522d;">_DEFS_H_</span>
+
+
+
+<span style="color: #483d8b;">#endif</span> <span style="color: #b22222;">/* </span><span style="color: #b22222;">_DEFS_H_ </span><span style="color: #b22222;">*/</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-3-2" class="outline-4">
+<h4 id="sec-6-3-2"><span class="section-number-4">6.3.2</span> Makefiles</h4>
+<div class="outline-text-4" id="text-6-3-2">
+<ul class="org-ul">
+<li>Makefile.1 &#x2014; The Most Basic One
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-makefile"><span style="color: #0000ff;">edit</span>: main.o kbd.o command.o display.o \
+                insert.o search.o files.o utils.o
+        gcc -Wall -o edit main.o kbd.o command.o display.o \
+                insert.o search.o files.o utils.o
+
+<span style="color: #0000ff;">main.o</span>: main.c defs.h
+        gcc -c -Wall main.c
+
+<span style="color: #0000ff;">kbd.o</span> : kbd.c defs.h command.h
+        gcc -c -Wall kbd.c
+
+<span style="color: #0000ff;">command.o</span>: command.c defs.h command.h
+        gcc -c -Wall command.c
+
+<span style="color: #0000ff;">display.o</span> : display.c defs.h buffer.h
+        gcc -c -Wall display.c
+
+<span style="color: #0000ff;">insert.o</span>: insert.c defs.h buffer.h
+        gcc -c -Wall insert.c
+
+<span style="color: #0000ff;">search.o</span>: search.c defs.h buffer.h
+        gcc -c -Wall search.c
+
+<span style="color: #0000ff;">files.o</span>: files.c defs.h buffer.h command.h
+        gcc -c -Wall files.c
+
+<span style="color: #0000ff;">utils.o</span>: utils.c defs.h
+        gcc -c -Wall utils.c
+
+
+<span style="color: #0000ff;">clean</span>:
+        rm edit main.o kbd.o command.o display.o \
+           insert.o search.o files.o utils.o
+</pre>
+</div>
+<pre class="example">
+make -f Makefile.1
+</pre>
+<ul class="org-ul">
+<li>Makefile.2 &#x2014; A Simplier One With Varibles
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-makefile"><span style="color: #a0522d;">objects</span> = main.o kbd.o command.o display.o \
+        insert.o search.o files.o utils.o
+
+<span style="color: #0000ff;">edit</span> : $(<span style="color: #a0522d;">objects</span>)
+        gcc -o edit $(<span style="color: #a0522d;">objects</span>)
+<span style="color: #0000ff;">main.o</span> : main.c defs.h
+        gcc -c main.c
+<span style="color: #0000ff;">kbd.o</span> : kbd.c defs.h command.h
+        gcc -c kbd.c
+<span style="color: #0000ff;">command.o</span> : command.c defs.h command.h
+        gcc -c command.c
+<span style="color: #0000ff;">display.o</span> : display.c defs.h buffer.h
+        gcc -c display.c
+<span style="color: #0000ff;">insert.o</span> : insert.c defs.h buffer.h
+        gcc -c insert.c
+<span style="color: #0000ff;">search.o</span> : search.c defs.h buffer.h
+        gcc -c search.c
+<span style="color: #0000ff;">files.o</span> : files.c defs.h buffer.h command.h
+        gcc -c files.c
+<span style="color: #0000ff;">utils.o</span> : utils.c defs.h
+        gcc -c utils.c
+<span style="color: #0000ff;">clean</span> :
+        rm edit $(<span style="color: #a0522d;">objects</span>)
+</pre>
+</div>
+<pre class="example">
+make -f Makefile.2
+</pre>
+<ul class="org-ul">
+<li>Makefile.3 &#x2014; The Practical One
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-makefile"><span style="color: #a0522d;">objects</span> = main.o kbd.o command.o display.o \
+               insert.o search.o files.o utils.o
+
+<span style="color: #0000ff;">edit</span> : $(<span style="color: #a0522d;">objects</span>)
+        gcc -o edit $(<span style="color: #a0522d;">objects</span>)
+
+<span style="color: #0000ff;">main.o</span> : defs.h
+<span style="color: #0000ff;">kbd.o</span> : defs.h command.h
+<span style="color: #0000ff;">command.o</span> : defs.h command.h
+<span style="color: #0000ff;">display.o</span> : defs.h buffer.h
+<span style="color: #0000ff;">insert.o</span> : defs.h buffer.h
+<span style="color: #0000ff;">search.o</span> : defs.h buffer.h
+<span style="color: #0000ff;">files.o</span> : defs.h buffer.h command.h
+<span style="color: #0000ff;">utils.o</span> : defs.h
+
+<span style="color: #0000ff;">.PHONY</span> : clean
+<span style="color: #0000ff;">clean</span> :
+        rm edit $(<span style="color: #a0522d;">objects</span>)
+</pre>
+</div>
+<pre class="example">
+make -f Makefile.3
+</pre>
+<ul class="org-ul">
+<li>Makefile.4 &#x2014; Another Style
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-makefile"><span style="color: #a0522d;">objects</span> = main.o kbd.o command.o display.o \
+               insert.o search.o files.o utils.o
+
+<span style="color: #0000ff;">edit</span> : $(<span style="color: #a0522d;">objects</span>)
+        gcc -o edit $(<span style="color: #a0522d;">objects</span>)
+
+<span style="color: #0000ff;">$(</span><span style="color: #0000ff;">objects</span><span style="color: #0000ff;">)</span> : defs.h
+<span style="color: #0000ff;">kbd.o command.o files.o</span> : command.h
+<span style="color: #0000ff;">display.o insert.o search.o files.o</span> : buffer.h
+</pre>
+</div>
+<pre class="example">
+make -f Makefile.4
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Linking with external libraries</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Original: <a href="http://www.network-theory.co.uk/docs/gccintro/gccintro_17.html">http://www.network-theory.co.uk/docs/gccintro/gccintro_17.html</a>
+</li>
+</ul>
+
+<p>
+A library is a collection of precompiled object files which can be linked into programs. The most
+common use of libraries is to provide system functions, such as the square root function <code>sqrt</code>
+found in the C math library.
+</p>
+
+<p>
+Libraries are typically stored in special archive files with the extension '<code>.a</code>', referred to as
+static libraries. They are created from object files with a separate tool, the GNU archiver <code>ar</code>,
+and used by the linker to resolve references to functions at compile-time. We will see later how
+to create libraries using the ar command (see section 10 Compiler-related tools). For simplicity,
+only static libraries are covered in this section&#x2013;dynamic linking at runtime using shared
+libraries will be described in the next chapter.
+</p>
+
+<p>
+The standard system libraries are usually found in the directories '<code>/usr/lib</code>' and '<code>/lib</code>'. For
+example, the C math library is typically stored in the file '<code>/usr/lib/libm.a</code>' on Unix-like
+systems. The corresponding prototype declarations for the functions in this library are given in
+the header file '<code>/usr/include/math.h</code>'. The C standard library itself is stored in
+'<code>/usr/lib/libc.a</code>' and contains functions specified in the ANSI/ISO C standard, such as
+'<code>printf</code>' &#x2014; this library is linked by default for every C program.
+</p>
+
+<p>
+Here is an example program which makes a call to the external function sqrt in the math library
+'<code>libm.a</code>':
+</p>
+<ul class="org-ul">
+<li><code>calc.c</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #b22222;">/* </span><span style="color: #b22222;">RIGHT: gcc -Wall calc.c -lm</span>
+<span style="color: #b22222;">   WRONG: gcc -Wall -lm calc.c</span>
+
+<span style="color: #b22222;">   ORDER is important! gcc cannot find sqrt() after calc.c</span>
+<span style="color: #b22222;"> </span><span style="color: #b22222;">*/</span>
+
+<span style="color: #483d8b;">#include</span><span style="color: #8b2252;">&lt;math.h&gt;</span>
+<span style="color: #483d8b;">#include</span><span style="color: #8b2252;">&lt;stdio.h&gt;</span>
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span> (<span style="color: #228b22;">void</span>)
+{
+  printf (<span style="color: #8b2252;">"The square root of 2.0 is %f\n"</span>, sqrt(2.0));
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+
+<p>
+Trying to create an executable from this source file alone causes the compiler to give an error at
+the link stage:
+</p>
+
+<pre class="example">
+$ gcc -Wall calc.c -o calc
+/tmp/ccbR6Ojm.o: In function `main':
+/tmp/ccbR6Ojm.o(.text+0x19): undefined reference to `sqrt'
+</pre>
+
+<p>
+The problem is that the reference to the sqrt function cannot be resolved without the external
+math library ‘libm.a’. The function sqrt is not defined in the program or the default library
+‘libc.a’, and the compiler does not link to the file ‘libm.a’ unless it is explicitly
+selected. Incidentally, the file mentioned in the error message ‘/tmp/ccbR60jm.o’ is a temporary
+object file created by the compiler from ‘calc.c’, in order to carry out the linking process.
+</p>
+
+<p>
+To enable the compiler to link the sqrt function to the main program ‘calc.c’ we need to supply
+the library ‘libm.a’. One obvious but cumbersome way to do this is to specify it explicitly on the
+command line:
+</p>
+
+<pre class="example">
+$ gcc -Wall calc.c /usr/lib/libm.a -o calc
+</pre>
+
+<p>
+The library ‘libm.a’ contains object files for all the mathematical functions, such as sin, cos,
+exp, log and sqrt. The linker searches through these to find the object file containing the sqrt
+function.
+</p>
+
+<p>
+Once the object file for the sqrt function has been found, the main program can be linked and a
+complete executable produced:
+</p>
+
+<pre class="example">
+$ ./calc
+The square root of 2.0 is 1.414214
+</pre>
+
+<p>
+The executable file includes the machine code for the main function and the machine code for the
+sqrt function, copied from the corresponding object file in the library ‘libm.a’.
+</p>
+
+<p>
+To avoid the need to specify long paths on the command line, the compiler provides a short-cut
+option ‘-l’ for linking against libraries. For example, the following command,
+</p>
+
+<pre class="example">
+$ gcc -Wall calc.c -lm -o calc
+</pre>
+
+<p>
+is equivalent to the original command above using the full library name ‘/usr/lib/libm.a’.
+</p>
+
+<p>
+In general, the compiler option <b>-lNAME</b> will attempt to link object files with a library file
+‘libNAME.a’ in the standard library directories. Additional directories can specified with
+command-line options and environment variables, to be discussed shortly. A large program will
+typically use many -l options to link libraries such as the math library, graphics libraries and
+networking libraries.
+</p>
+
+<ul class="org-ul">
+<li>Example: <code>hello-curses.c</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #b22222;">/*</span>
+<span style="color: #b22222;"> * http://viget.com/extend/game-programming-in-c-with-the-ncurses-library</span>
+<span style="color: #b22222;"> *</span>
+<span style="color: #b22222;"> * gcc hello-curses.c -lcurses</span>
+<span style="color: #b22222;"> </span><span style="color: #b22222;">*/</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;curses.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;unistd.h&gt;</span>
+
+<span style="color: #483d8b;">#define</span> <span style="color: #a0522d;">DELAY</span> 30000
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span>()
+{
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">x</span>=0, <span style="color: #a0522d;">y</span>=0;
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">max_y</span>=0, <span style="color: #a0522d;">max_x</span>=0;
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">next_x</span>=0;
+  <span style="color: #228b22;">int</span> <span style="color: #a0522d;">direction</span>=1;
+
+  initscr();
+  noecho();
+  curs_set(FALSE);
+
+  <span style="color: #a020f0;">while</span>(1)
+    {
+      getmaxyx(stdscr, max_y, max_x);
+
+      clear();
+      mvprintw(y,x,<span style="color: #8b2252;">"o"</span>);
+      refresh();
+
+      usleep(DELAY);
+
+      next_x = x + direction;
+
+      <span style="color: #a020f0;">if</span> (next_x &gt;= max_x || next_x &lt; 0)
+        {
+          direction*= -1;
+        }
+      <span style="color: #a020f0;">else</span>
+        {
+          x+= direction;
+        }
+    }
+  endwin();
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+<pre class="example">
+gcc -Wall hello-curses.c -lcurses -o hello-curses
+</pre>
+</div>
+
+<div id="outline-container-sec-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> Link order of libraries</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+The traditional behavior of linkers is to search for external functions from left to right in the
+libraries specified on the command line. This means that <b>a library containing the definition of a
+function should appear after any source files or object files which use it</b>. This includes
+libraries specified with the short-cut -l option, as shown in the following command:
+</p>
+
+<pre class="example">
+$ gcc -Wall calc.c -lm -o calc   (correct order)
+</pre>
+
+<p>
+With some linkers the opposite ordering (placing the -lm option before the file which uses it)
+would result in an error,
+</p>
+
+<pre class="example">
+$ cc -Wall -lm calc.c -o calc    (incorrect order)
+main.o: In function `main':
+main.o(.text+0xf): undefined reference to `sqrt'
+</pre>
+
+<p>
+because there is no library or object file containing sqrt after ‘calc.c’. The option -lm should
+appear after the file ‘calc.c’.
+</p>
+
+<p>
+When several libraries are being used, the same convention should be followed for the libraries
+themselves. A library which calls an external function defined in another library should appear
+before the library containing the function.
+</p>
+
+<p>
+For example, a program ‘data.c’ using the GNU Linear Programming library ‘libglpk.a’, which in
+turn uses the math library ‘libm.a’, should be compiled as,
+</p>
+
+<pre class="example">
+$ gcc -Wall data.c -lglpk -lm
+</pre>
+
+<p>
+since the object files in ‘libglpk.a’ use functions defined in ‘libm.a’.
+</p>
+
+<p>
+Most current linkers will search all libraries, regardless of order, but since some do not do
+this it is best to follow the convention of ordering libraries from left to right.
+</p>
+
+<p>
+This is worth keeping in mind if you ever encounter unexpected problems with undefined
+references, and all the necessary libraries appear to be present on the command line.
+</p>
+
+<ul class="org-ul">
+<li>Use <code>pkg-config</code> to ease your life
+
+<pre class="example">
+gcc -Wall hello-gtk.c -o hello-gtk `pkg-config --cflags gtk+-2.0` `pkg-config --libs gtk+-2.0`
+</pre>
+<ul class="org-ul">
+<li><code>hello-gtk.c</code> 
+</li>
+</ul>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #b22222;">/*</span>
+<span style="color: #b22222;"> * sudo aptitude install libgtk-3-dev libgtk2.0-dev</span>
+<span style="color: #b22222;"> </span><span style="color: #b22222;">*/</span>
+
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;gtk/gtk.h&gt;</span>
+
+<span style="color: #b22222;">/* </span><span style="color: #b22222;">This is a callback function. The data arguments are ignored</span>
+<span style="color: #b22222;"> * in this example. More on callbacks below. </span><span style="color: #b22222;">*/</span>
+<span style="color: #a020f0;">static</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">hello</span>( <span style="color: #228b22;">GtkWidget</span> *<span style="color: #a0522d;">widget</span>,
+                   <span style="color: #228b22;">gpointer</span>   <span style="color: #a0522d;">data</span> )
+{
+    g_print (<span style="color: #8b2252;">"Hello World\n"</span>);
+}
+
+<span style="color: #a020f0;">static</span> <span style="color: #228b22;">gboolean</span> <span style="color: #0000ff;">delete_event</span>( <span style="color: #228b22;">GtkWidget</span> *<span style="color: #a0522d;">widget</span>,
+                              <span style="color: #228b22;">GdkEvent</span>  *<span style="color: #a0522d;">event</span>,
+                              <span style="color: #228b22;">gpointer</span>   <span style="color: #a0522d;">data</span> )
+{
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">If you return FALSE in the "delete_event" signal handler,</span>
+<span style="color: #b22222;">     * GTK will emit the "destroy" signal. Returning TRUE means</span>
+<span style="color: #b22222;">     * you don't want the window to be destroyed.</span>
+<span style="color: #b22222;">     * This is useful for popping up 'are you sure you want to quit?'</span>
+<span style="color: #b22222;">     * type dialogs. </span><span style="color: #b22222;">*/</span>
+
+    g_print (<span style="color: #8b2252;">"delete event occurred\n"</span>);
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">Change TRUE to FALSE and the main window will be destroyed with</span>
+<span style="color: #b22222;">     * a "delete_event". </span><span style="color: #b22222;">*/</span>
+
+    <span style="color: #a020f0;">return</span> TRUE;
+}
+
+<span style="color: #b22222;">/* </span><span style="color: #b22222;">Another callback </span><span style="color: #b22222;">*/</span>
+<span style="color: #a020f0;">static</span> <span style="color: #228b22;">void</span> <span style="color: #0000ff;">destroy</span>( <span style="color: #228b22;">GtkWidget</span> *<span style="color: #a0522d;">widget</span>,
+                     <span style="color: #228b22;">gpointer</span>   <span style="color: #a0522d;">data</span> )
+{
+    gtk_main_quit ();
+}
+
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span>( <span style="color: #228b22;">int</span>   <span style="color: #a0522d;">argc</span>,
+          <span style="color: #228b22;">char</span> *<span style="color: #a0522d;">argv</span>[] )
+{
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">GtkWidget is the storage type for widgets </span><span style="color: #b22222;">*/</span>
+    <span style="color: #228b22;">GtkWidget</span> *<span style="color: #a0522d;">window</span>;
+    <span style="color: #228b22;">GtkWidget</span> *<span style="color: #a0522d;">button</span>;
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">This is called in all GTK applications. Arguments are parsed</span>
+<span style="color: #b22222;">     * from the command line and are returned to the application. </span><span style="color: #b22222;">*/</span>
+    gtk_init (&amp;argc, &amp;argv);
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">create a new window </span><span style="color: #b22222;">*/</span>
+    window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">When the window is given the "delete_event" signal (this is given</span>
+<span style="color: #b22222;">     * by the window manager, usually by the "close" option, or on the</span>
+<span style="color: #b22222;">     * titlebar), we ask it to call the delete_event () function</span>
+<span style="color: #b22222;">     * as defined above. The data passed to the callback</span>
+<span style="color: #b22222;">     * function is NULL and is ignored in the callback function. </span><span style="color: #b22222;">*/</span>
+    g_signal_connect (G_OBJECT (window), <span style="color: #8b2252;">"delete_event"</span>,
+                      G_CALLBACK (delete_event), <span style="color: #008b8b;">NULL</span>);
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">Here we connect the "destroy" event to a signal handler.  </span>
+<span style="color: #b22222;">     * This event occurs when we call gtk_widget_destroy() on the window,</span>
+<span style="color: #b22222;">     * or if we return FALSE in the "delete_event" callback. </span><span style="color: #b22222;">*/</span>
+    g_signal_connect (G_OBJECT (window), <span style="color: #8b2252;">"destroy"</span>,
+                      G_CALLBACK (destroy), <span style="color: #008b8b;">NULL</span>);
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">Sets the border width of the window. </span><span style="color: #b22222;">*/</span>
+    gtk_container_set_border_width (GTK_CONTAINER (window), 10);
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">Creates a new button with the label "Hello World". </span><span style="color: #b22222;">*/</span>
+    button = gtk_button_new_with_label (<span style="color: #8b2252;">"Hello World"</span>);
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">When the button receives the "clicked" signal, it will call the</span>
+<span style="color: #b22222;">     * function hello() passing it NULL as its argument.  The hello()</span>
+<span style="color: #b22222;">     * function is defined above. </span><span style="color: #b22222;">*/</span>
+    g_signal_connect (G_OBJECT (button), <span style="color: #8b2252;">"clicked"</span>,
+                      G_CALLBACK (hello), <span style="color: #008b8b;">NULL</span>);
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">This will cause the window to be destroyed by calling</span>
+<span style="color: #b22222;">     * gtk_widget_destroy(window) when "clicked".  Again, the destroy</span>
+<span style="color: #b22222;">     * signal could come from here, or the window manager. </span><span style="color: #b22222;">*/</span>
+    g_signal_connect_swapped (G_OBJECT (button), <span style="color: #8b2252;">"clicked"</span>,
+                              G_CALLBACK (gtk_widget_destroy),
+                              G_OBJECT (window));
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">This packs the button into the window (a gtk container). </span><span style="color: #b22222;">*/</span>
+    gtk_container_add (GTK_CONTAINER (window), button);
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">The final step is to display this newly created widget. </span><span style="color: #b22222;">*/</span>
+    gtk_widget_show (button);
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">and the window </span><span style="color: #b22222;">*/</span>
+    gtk_widget_show (window);
+
+    <span style="color: #b22222;">/* </span><span style="color: #b22222;">All GTK applications must have a gtk_main(). Control ends here</span>
+<span style="color: #b22222;">     * and waits for an event to occur (like a key press or</span>
+<span style="color: #b22222;">     * mouse event). </span><span style="color: #b22222;">*/</span>
+    gtk_main ();
+
+    <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Using library header files</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+When using a library it is essential to include the appropriate header files, in order to declare
+the function arguments and return values with the correct types. Without declarations, the
+arguments of a function can be passed with the wrong type, causing corrupted results.
+</p>
+
+<p>
+The following example shows another program which makes a function call to the C math library. In
+this case, the function pow is used to compute the cube of two (2 raised to the power of 3):
+</p>
+<ul class="org-ul">
+<li><code>lm.c</code>
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c"><span style="color: #b22222;">/* </span><span style="color: #b22222;">gcc -Wall badpow.c -lm </span><span style="color: #b22222;">*/</span>
+
+<span style="color: #483d8b;">#include</span> <span style="color: #8b2252;">&lt;stdio.h&gt;</span>  
+<span style="color: #b22222;">/* </span><span style="color: #b22222;">#include &lt;math.h&gt;</span>
+<span style="color: #b22222;">*/</span>
+<span style="color: #228b22;">int</span>
+<span style="color: #0000ff;">main</span> (<span style="color: #228b22;">void</span>)
+{
+  <span style="color: #228b22;">double</span> <span style="color: #a0522d;">x</span> = pow (2.0, 3.0);         <span style="color: #b22222;">/* </span><span style="color: #b22222;">need math.h </span><span style="color: #b22222;">*/</span>
+  printf (<span style="color: #8b2252;">"Two cubed is %f\n"</span>, x);
+  <span style="color: #a020f0;">return</span> 0;
+}
+</pre>
+</div>
+
+<p>
+However, the program contains an error &#x2013; <b>the #include statement for ‘math.h’ is missing</b>, so the
+prototype <code>double pow (double x, double y)</code> given there will not be seen by the compiler.
+</p>
+
+<p>
+Compiling the program without any warning options will produce an executable file which gives
+incorrect results:
+</p>
+
+<pre class="example">
+$ gcc lm.c -lm
+$ ./a.out
+Two cubed is 2.851120    (incorrect result, should be 8)
+</pre>
+
+<p>
+The results are corrupted because the arguments and return value of the call to pow are passed
+with incorrect types. This can be detected by turning on the warning option -Wall:
+</p>
+
+<pre class="example">
+$ gcc -Wall lm.c -lm
+lm.c: In function `main':
+lm.c:6: warning: implicit declaration of function `pow'
+</pre>
+
+<p>
+This example shows again the importance of using the warning option -Wall to detect serious
+problems that could otherwise easily be overlooked.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: WANG Xiaolin</p>
+<p class="date">Created: 2015-11-08 Sun 16:45</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

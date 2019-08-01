@@ -1,0 +1,41 @@
+#+TITLE: How to take the online quiz
+#+DATE: <2017-10-20 Fri>
+#+AUTHOR: WANG Xiaolin
+#+EMAIL: wx672ster@gmail.com
+#+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
+#+OPTIONS: creator:comment d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: p:nil pri:nil stat:t tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
+#+CREATOR: Emacs 25.2.2 (Org mode 8.2.10)
+#+DESCRIPTION:
+#+EXCLUDE_TAGS: noexport
+#+KEYWORDS:
+#+LANGUAGE: cn
+#+SELECT_TAGS: export
+
+- https://cs6.swfu.edu.cn/moodle
+- You must have an user account to login Moodle. Your user name and password is initially
+  set to your student ID. 
+
+#+ATTR_HTML: :width 800
+[[./01-login.png]]
+
+#+ATTR_HTML: :width 800
+[[./02-os.png]]
+
+#+ATTR_HTML: :width 800
+[[./03-linux.png]]
+
+#+ATTR_HTML: :width 800
+[[./04-enrol.png]]
+
+#+ATTR_HTML: :width 800
+[[./05-enrol.png]]
+
+#+ATTR_HTML: :width 800
+[[./06-quiz.png]]
+
+#+ATTR_HTML: :width 800
+[[./07-quiz.png]]
+
+#+ATTR_HTML: :width 800
+[[./08-pass.png]]

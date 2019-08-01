@@ -1,0 +1,23 @@
+#+TITLE: 关于学习
+#+AUTHOR: Your Name
+#+OPTIONS: toc:nil num:nil ^:nil
+#+STYLE: <script src="impress.js/js/impress.js"></script><link href="impress.js/css/impress-demo.css" rel="stylesheet" /><link href="mystyle.css" rel="stylesheet" />
+
+* 学生
+** 懂道理，并能按道理做事情
+** 懂道理，但不按道理做事情（自觉性差）
+** 自创一个伪道理，以便于心安理得地不按道理做事情
+* 克服懒惰，静下心来做事情
+* 学会学习
+** 心理
+*** 迷茫
+*** 偏不
+*** 注重过程
+** 方法
+*** 自救在先
+*** 捷径
+*** 提问
+* 学习什么？
+** 适应英文
+** 软件工具
+** 专业知识

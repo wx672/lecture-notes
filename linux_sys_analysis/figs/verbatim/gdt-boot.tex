@@ -1,0 +1,24 @@
+\documentclass[varwidth,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+                        ...         
+               │    startup_32()    │
+     code32 ─> ├────────────────────┤1M
+               │        ...         │
+               ├────────────────────┤
+  __BOOT_DS-24 │ 0x00CF92000000FFFF │
+               ├────────────────────┤
+  __BOOT_CS-16 │ 0x00CF9A000000FFFF │
+               ├────────────────────┤
+               │         0          │
+               ├────────────────────┤
+               │         0          │
+   GDT base ─> ├────────────────────┤
+               │       offset       │
+               │       ($gdt)       │
+%ds=%cs=0x9020 ├────────────────────┤
+               │        ...         │
+\end{verbatim}
+\end{document}

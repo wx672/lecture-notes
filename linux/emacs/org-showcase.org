@@ -1,0 +1,73 @@
+#+TITLE:     Emacs Org-mode Showcase
+#+AUTHOR:    WANG Xiaolin
+#+EMAIL:     wx672ster@gmail.com
+#+DATE:      2011-04-25 Mon
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc author:nil email:nil creator:nil
+#+INFOJS_OPT: view:slide toc:nil ltoc:nil mouse:underline buttons:0 path:http://cs3.swfu.edu.cn/org-info-js/org-info.js
+#+STYLE: <link rel="stylesheet" type="text/css" href="./org-slides/slides.css" />
+#+MATHJAX: align:"left" mathml:t path:"./MathJax/MathJax.js"
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+# (setq org-export-html-use-infojs nil)
+# (setq org-export-html-preamble nil)
+# (setq org-export-html-postamble nil)
+
+* MathJaX
+  - A simple one
+#+BEGIN_EXAMPLE   
+   \begin{equation}
+   x=\sqrt{\beta}
+   \end{equation}
+   
+   If $\alpha^2=\beta$ and \( \beta=2 \), then the solution must be
+   either $$ \alpha=+\sqrt{2} $$ or \[ \alpha=-\sqrt{2} \].
+#+END_EXAMPLE
+   \begin{equation}
+   x=\sqrt{\beta}
+   \end{equation}
+   
+   If $\alpha^2=\beta$ and \( \beta=2 \), then the solution must be
+   either $$ \alpha=+\sqrt{2} $$ or \[ \alpha=-\sqrt{2} \].
+  - A fancy one
+    : $$ \left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right) $$
+    $$ \left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right) $$
+  - More...
+    : \begin{equation}
+    : \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
+    : \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
+    : \frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\
+    : \frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0
+    : \end{vmatrix} 
+    : \end{equation}
+    \begin{equation}
+    \mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
+    \mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
+    \frac{\partial X}{\partial u} &amp;  \frac{\partial Y}{\partial u} &amp; 0 \\
+    \frac{\partial X}{\partial v} &amp;  \frac{\partial Y}{\partial v} &amp; 0
+    \end{vmatrix} 
+    \end{equation}
+    
+* Example Block
+  : #+BEGIN_EXAMPLE -t -w 40
+  : (defun org-xor (a b)
+  :    "Exclusive or."
+  :    (if a (not b) b))
+  : #+END_EXAMPLE
+  
+#+BEGIN_EXAMPLE -t -w 40
+(defun org-xor (a b)
+   "Exclusive or."
+   (if a (not b) b))
+#+END_EXAMPLE
+
+* Slides With MathJax
+  : #+INFOJS_OPT: view:slide toc:nil ltoc:nil mouse:underline buttons:0 path:http://cs3.swfu.edu.cn/org-info-js/org-info.js
+  : #+STYLE: <link rel="stylesheet" type="text/css" href="./org-slides/slides.css" />
+  : #+MATHJAX: align:"left" mathml:t path:"./MathJax/MathJax.js"

@@ -1,0 +1,21 @@
+\documentclass[varwidth=28em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{minipage}{.42\linewidth}
+\vspace{1em}
+\begin{pythoncode}
+event = waitForEvent()
+buffer.add(event)      
+\end{pythoncode}
+\end{minipage}\qquad
+\begin{minipage}{.4\linewidth}
+\vspace{1em}
+\begin{pythoncode}
+event = buffer.get()
+event.process()      
+\end{pythoncode}
+\end{minipage}
+\end{document}

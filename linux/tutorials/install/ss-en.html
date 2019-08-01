@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2018-09-08 Sat 11:35 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to setup Shadowsocks in Debian</title>
+<meta name="generator" content="Org mode">
+<link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
+<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">How to setup Shadowsocks in Debian</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org63f0142">1. The big picture</a></li>
+<li><a href="#orgf51db58">2. Shadowsocks client installation</a></li>
+<li><a href="#org470c236">3. Shadowsocks client configuration</a></li>
+<li><a href="#org730a96e">4. Google Chrome extension installation and configuration</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org63f0142" class="outline-2">
+<h2 id="org63f0142"><span class="section-number-2">1</span> The big picture</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+About Shadowsocks, please visit: <a href="http://shadowsocks.org/en/index.html">http://shadowsocks.org/en/index.html</a>. Basicly it's a kind
+of VPN service that can be used to bypass the great firewall built by YOU KNOW WHO.
+</p>
+
+
+<div class="figure">
+<p><img src="./ss.png" alt="ss.png">
+</p>
+</div>
+
+<p>
+There are Shadowsocks client software for all the main stream operating systems, including
+MS-Windows, all desktop Linux, Android, MAC OSX, iOS. Here I only give you a brief
+introduction on how to setup and use it in the Debian GNU/Linux system which is my
+favorite.
+</p>
+
+<p>
+What you need besides Debian:
+</p>
+<ol class="org-ol">
+<li>A Shadowsocks client software.</li>
+<li>A Google Chrome web browser with a proxy extension installed.</li>
+<li>A Shadowsocks server. There are some free (and usually not so stable) servers can be
+found on the web; There are also a lot of paid Shadowsocks services available for
+approximately 100RMB/year; And also you can buy cloud service, e.g. <a href="https://cloud.google.com">Google cloud</a>, and
+then install your own Shadowsocks server on your own cloud. Whatever, you have to
+manage to get a server yourself, otherwise you can't setup a working Shadowsocks link.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgf51db58" class="outline-2">
+<h2 id="orgf51db58"><span class="section-number-2">2</span> Shadowsocks client installation</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example">
+sudo apt update
+sudo apt install shadowsocks-libev
+
+</pre>
+<p>
+Easy, eh?
+</p>
+</div>
+</div>
+<div id="outline-container-org470c236" class="outline-2">
+<h2 id="org470c236"><span class="section-number-2">3</span> Shadowsocks client configuration</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Example config file: <code>/etc/shadowsocks-libev/config.json</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-Javascript"><span class="linenr">1: </span>{
+<span class="linenr">2: </span>	"server":"127.0.0.1",
+<span class="linenr">3: </span>	"server_port":8388,
+<span class="linenr">4: </span>	"local_port":1080,
+<span class="linenr">5: </span>	"password":"fuPodNics",
+<span class="linenr">6: </span>	"timeout":60,
+<span class="linenr">7: </span>	"method":"chacha20-ietf-poly1305"
+<span class="linenr">8: </span>}
+</pre>
+</div>
+<p>
+Line by line explanation：
+</p>
+<ol class="org-ol">
+<li>Left curly bracket indicates the beginning of the config file;</li>
+<li>The IP address, or the domain name, of the Shadowsocks server. Remember? You have to
+find a server yourself, either a free one or a paid service;</li>
+<li>The port number used by the server. A connection will be setup between your local port
+(usually port 1080) and this server port;</li>
+<li>The port number of the client you just installed. Usually it's 1080. Your web browser
+will pass all the data to this port of your client. Then your client will encrypt
+the data and send it to the server port through the ready-setup Shadowsocks
+connection;</li>
+<li>The password needed when your client accesses the server;</li>
+<li>Timeout if the client can't connect to the server in 60 seconds;</li>
+<li>The encryption method to be used by the server;</li>
+<li>Right curly bracket indicates the end of the configuration.</li>
+</ol>
+
+<p>
+If you have more than one server to use, you have to write a config file for each
+server. And you can only use one at a time. For example, assuming you have two config
+files (<code>a.json</code>, and <code>b.json</code>) in your <code>/etc/shadowsocks-libev/</code> directory, and 
+you started a Shadowsocks process by using the following command:
+</p>
+<pre class="example">
+ss-local -v -c /etc/shadowsocks-libev/a.json
+
+</pre>
+<p>
+Sometime later, you see a lot of screen output like the following:
+</p>
+<pre class="example">
+2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
+2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
+2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
+2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
+2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
+</pre>
+<p>
+This indicates the connection is gone. Then you can switch to <code>b.json</code> by:
+</p>
+<ol class="org-ol">
+<li>Typing <code>Ctrl-c</code> to stop the current Shadowsocks process;</li>
+<li><p>
+Starting a new process by:
+</p>
+<pre class="example">
+ss-local -v -c /etc/shadowsocks-libev/b.json
+
+</pre></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org730a96e" class="outline-2">
+<h2 id="org730a96e"><span class="section-number-2">4</span> Google Chrome extension installation and configuration</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+The extension we need is <a href="https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?utm_source=chrome-ntp-icon"><i>Proxy Switchy Omega</i></a>. It can help you easily switch on/off the
+proxy. It's not strictly mandatory. Without it, you can bypass the GFW like this:
+</p>
+<pre class="example">
+ss-local -v -c /etc/shadowsocks-libev/b.json
+google-chrome --proxy-server='socks5://127.0.0.1:1080'
+
+</pre>
+<p>
+But in this way, you cannot switch the proxy off even when you visit <a href="https://baidu.com">baidu.com</a>.
+</p>
+
+<p>
+Usually, the Chrome extensions can only be installed via <a href="https://chrome.google.com/webstore/category/extensions?utm_source=chrome-ntp-icon">Chrome Web Store</a>. Unluckily, it's
+blocked by YOU KNOW WHO. So you can use the above two commands to visit Chrome Web Store,
+and install the Proxy Switchy Omega extensions.
+</p>
+
+<p>
+After successfully installed <i>Proxy Switchy Omega</i>, you should close your Google Chrome
+window, and then re-open it, by typing just <code>google-chrome</code> without followed by any
+options. At the upper right corner of the browser window, you should find the circle
+logo of <i>Proxy Switchy Omega</i>. Now it's time to configure it.
+</p>
+
+<p>
+A picture is worth a thousand words, right?
+</p>
+
+<p width="1024px">
+<img src="./switchyomega1.png" alt="switchyomega1.png" width="1024px">
+And <i>Proxy Switchy Omega</i> needs a set of rule to decide when to trigger the Shadowsocks
+proxy on/off. You can find a ready-to-use rule set <a href="https://github.com/shminer/SwitchyOmega-backup">here</a>. 
+</p>
+
+<p>
+Summary:
+</p>
+<ol class="org-ol">
+<li><p>
+Start your local Shadowsocks agent first:
+</p>
+<pre class="example">
+ss-local -v -c /etc/shadowsocks-libev/b.json
+
+</pre></li>
+<li>configure <i>Proxy Switchy Omega</i>, and usually put it in <i>auto switch</i> mode.</li>
+</ol>
+
+
+<p>
+Enjoy hacking!
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2018-09-08 Sat 00:00</p>
+<p class="date">Created: 2018-09-08 Sat 11:35</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

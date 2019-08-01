@@ -1,0 +1,29 @@
+\documentclass[varwidth,crop]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+      ┌────────> inode number
+      │     ┌───> record length
+      │     │  ┌───> name length
+      │     │  │ ┌───> file type
+      │     │  │ │    ┌────> name
+  ┏━┯━┿━┯━┯━┿━┯┷┯┷┯━┯━┿━┯━┓
+0 ┃ 21    │12 │1│2│.      ┃
+  ┣━┿━┿━┿━┿━┿━┿━┿━┿━┿━┿━┿━┫
+12┃ 22    │12 │2│2│. .    ┃
+  ┣━┿━┿━┿━┿━┿━┿━┿━┿━┿━┿━┿━╇━┯━┯━┯━┓
+24┃ 53    │16 │5│2│h e l l o      ┃
+  ┣━┿━┿━┿━┿━┿━┿━┿━┿━┿━┿━┿━╈━┷━┷━┷━┛
+40┃ 67    │28 │3│2│u s r  ┃
+  ┣━┿━┿━┿━┿━┿━┿━┿━┿━┿━┿━┿━╇━━━━━━━┓
+52┃ 0     │16 │7│1│o l d f i l e  ┃
+  ┣━┿━┿━┿━┿━┿━┿━┿━┿━┿━┿━┿━╈━┷━┷━┷━┛
+68┃ 34    │12 │4│2│s b i n┃
+  ┗━┷━┷━┷━┷━┷━┷━┷━┷━┷━┷━┷━┛
+\end{verbatim}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

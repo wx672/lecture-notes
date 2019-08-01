@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Case Study: User Account Management</title>
+<!-- 2017-09-28 Thu 08:29 -->
+<meta  charset="utf-8">
+<meta  name="generator" content="Org-mode">
+<meta  name="author" content="WANG Xiaolin">
+<meta  name="keywords" content="linux management account case-study">
+<link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
+<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
+<script type="text/javascript" src="http://cs3.swfu.edu.cn/org-info-js/org-info.js">
+/**
+ *
+ * @source: http://cs3.swfu.edu.cn/org-info-js/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in http://cs3.swfu.edu.cn/org-info-js/org-info.js.
+ *
+ * Copyright (C) 2012-2013 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in http://cs3.swfu.edu.cn/org-info-js/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "plain");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Case Study: User Account Management</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Add/Remove Users</a>
+<ul>
+<li><a href="#sec-1-1">Add a single user</a></li>
+<li><a href="#sec-1-2">Add users in batch</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">quota &#x2014; Limit Space Usage For Each User</a>
+<ul>
+<li><a href="#sec-2-1">journaled quota set up</a></li>
+<li><a href="#sec-2-2">edquota</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+In this example, we do several things:
+</p>
+<ol class="org-ol">
+<li>add 141 users to the system
+<ol class="org-ol">
+<li>usernames are <b>20081152001, 20081152002, &#x2026;, 20081152141</b>. 
+</li>
+<li>All these users belong to the same group <b>stud</b>.
+</li>
+<li>Their home directories are in <b><i>home/stud</i></b>.
+</li>
+</ol>
+</li>
+<li>give each user 200M disk space with <b>quota</b>.
+</li>
+</ol>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Add/Remove Users</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Add a single user</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+e.g. add user 20081152001
+</p>
+<pre class="example">
+useradd -e 2012-12-31 -g stud -b /home/stud -m 20081152001
+</pre>
+<ul class="org-ul">
+<li>Show default settings of <b>useradd</b>
+<pre class="example">
+useradd -D
+</pre>
+</li>
+<li>Change password for 20081152001
+<pre class="example">
+passwd 20081152001
+</pre>
+</li>
+<li>Delete an user, and remove his home
+<pre class="example">
+userdel -r 20081152001
+</pre>
+<p>
+<b>useradd</b> and <b>userdel</b> can easily be used in a script.
+</p>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Add users in batch</h3>
+<div class="outline-text-3" id="text-1-2">
+<ol class="org-ol">
+<li>Put all userID in a file
+<pre class="example">
+seq 20081152001 20081152141 &gt; 20081152
+</pre>
+</li>
+<li>Add users
+<pre class="example">
+for user in `cat 20081152`; do useradd -e 2012-12-31 -g stud -b /home/stud -m $user; done
+</pre>
+</li>
+<li>Generate password with makepasswd, and put into file PASS
+<pre class="example">
+makepasswd --count `cat 20081152 | wc -l` &gt; PASS
+</pre>
+</li>
+<li>Join file 20081152 and PASS with 'paste' to get file 20081152.PASS
+<pre class="example">
+paste -d: 20081152 PASS &gt; 20081152.PASS
+</pre>
+</li>
+<li>Process file 20081152.PASS with chpasswd
+<pre class="example">
+cat 20081152.PASS | chpasswd
+</pre>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">quota &#x2014; Limit Space Usage For Each User</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1">journaled quota set up</h3>
+<div class="outline-text-3" id="text-2-1">
+<ol class="org-ol">
+<li>Edit <b>/etc/fstab</b>
+<pre class="example">
+/dev/sdb1 /home ext3 errors=remount-ro,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv 0 0 
+</pre>
+</li>
+<li>To enable quota, run these commands:
+<pre class="example">
+touch /home/aquota.user /home/aquota.group
+chmod 600 /home/aquota.*
+mount -o remount /home
+quotacheck -avugm
+quotaon -avug
+</pre>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2">edquota</h3>
+<div class="outline-text-3" id="text-2-2">
+<ol class="org-ol">
+<li>Edit quota for a single user
+<pre class="example">
+edquota -u `id -u 20081152001`
+</pre>
+</li>
+<li>Check quota
+<pre class="example">
+quota 20081152001
+repquota -a
+</pre>
+</li>
+<li>copy 20081152001's quota to all other users
+<ol class="org-ol">
+<li><b>edquota</b> treats an integer argument as UID. Unluckly, all our usernames are integer numbers,
+this can confuse <b>edquota</b>. So we have to get a real UID list, and feed it to <b>edquota</b>
+later. To get the UID list, do:
+</li>
+</ol>
+<pre class="example">
+cat /etc/passwd | grep ^20081152 | awk -F: '{print $3}' &gt; UID.list
+</pre>
+<ol class="org-ol">
+<li>Feed UIDs to <b>edquota</b> to edit quota for all users
+</li>
+</ol>
+<pre class="example">
+for UID in `cat UID.list`; do edquota -p `id -u 20081152001` -u $UID; done
+</pre>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: WANG Xiaolin</p>
+<p class="date">Created: 2017-09-28 Thu 08:29</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.2 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

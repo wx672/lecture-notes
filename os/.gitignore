@@ -1,0 +1,10 @@
+*
+!*/
+!*.*
+diy
+figs/fig
+figs/svg
+old
+src/hello-lkm
+src/mm/*.s
+ttyrec/20121152888/*.html

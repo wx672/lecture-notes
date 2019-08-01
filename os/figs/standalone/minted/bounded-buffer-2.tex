@@ -1,0 +1,16 @@
+\documentclass[varwidth=19em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{ccode}
+while (true) {
+  while (in == out); // do nothing
+  // remove an item from the buffer
+  item = buffer[out];
+  out = (out + 1) % BUFFER_SIZE;
+  return item;
+}
+\end{ccode}
+\end{document}

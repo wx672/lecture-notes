@@ -1,0 +1,13 @@
+\documentclass[varwidth=25em]{standalone}
+\usepackage{wx672fonts}
+\setmonofont{DejaVu Sans Mono}
+\begin{document}
+\begin{verbatim}
+    3─level paging for 4K─pages
+┌──┬─────────┬─────────┬────────────┐
+│PD│  Page   │  Page   │   Offset   │
+│PT│  DIR    │  Table  │            │
+└──┴─────────┴─────────┴────────────┘
+ 2      9         9          12
+\end{verbatim}
+\end{document}

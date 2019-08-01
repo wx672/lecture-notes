@@ -1,0 +1,30 @@
+\documentclass[varwidth=28.5em,crop]{standalone}
+\usepackage{fancyvrb}
+\usepackage{color}
+\begin{document}
+\pagestyle{empty}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+wx672@cs2:~$ \color{blue}nc wx672.3322.org smtp
+220 wx672.3322.org ESMTP Exim 4.50
+        Tue, 03 Oct 2006 10:13:04 +0800
+\color{blue}ehlo cs2.swfu.edu.cn
+250-wx672.3322.org Hello cs2.swfu.edu.cn
+        [202.203.132.242]
+250-SIZE 52428800
+250-PIPELINING
+250 HELP
+\color{blue}mail from:<wx672@cs2.swfu.edu.cn>
+250 OK
+\color{red}rcpt to:<@wx672.3322.org:wx672@yahoo.com>
+250 Accepted
+\color{blue}data
+354 Enter message, ending with "." on a line by itself
+\color{blue}Hello, this is a message to wx672@yahoo.com
+\color{blue}relayed by the smtp server at wx672.3322.org
+\color{blue}.
+250 OK id=1DSQRt-0000jC-T0
+\color{blue}quit
+221 wx672.3322.org closing connection
+\end{Verbatim}
+\end{document}

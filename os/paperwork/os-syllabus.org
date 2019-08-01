@@ -1,0 +1,207 @@
+#+TITLE:     《操作系统原理》课程大纲
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+DATE:      2012-08-15 Wed
+#+DESCRIPTION: 
+#+KEYWORDS:  
+#+LANGUAGE: cn
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LaTeX_CLASS: article
+# (setq org-export-html-use-infojs nil)
+
+#+LaTeX: \clearpage
+- 课程编号: A05025, A05026
+- 学时: 64 (理论: 48; 实验: 16)
+- 学分: 3
+- 实习: 0
+- 面向专业: 计算机科学与技术，电子信息工程，信息与计算机技术
+
+#+LaTeX: \clearpage
+* 课程大纲
+** 课程内容
+   1. Introduction
+      - What's an OS?
+      - OS services
+      - Bootstrapping
+      - Hardware
+      - Interrupt
+      - System calls
+   2. Processes and Threads
+      - What's a process?
+      - Process creation
+      - Process state
+      - Process Control Block (PCB)
+      - CPU switch from process to process
+      - Processes vs. threads
+      - Why threads?
+      - Thread characteristics
+      - Thread operation and POSIX threads
+      - User-level threads vs. kernel-level threads
+      - Linux threads
+   3. Process synchronization
+      - Concepts
+      - Shared memory
+      - Race condition and mutual exclusion
+      - Semaphores
+      - Monitors
+      - Message passing
+      - Classical IPC problems
+   4. CPU Scheduling
+      - Scheduling introduction
+      - Scheduling algorithms
+      - Thread scheduling
+      - Linux scheduling
+   5. Deadlocks
+      - Resources
+      - Introduction to deadlocks
+      - Deadlock modeling
+      - Dealing with deadlocks
+   6. Memory Management
+      - Real-mode vs. protected-mode memory management
+      - Contiguous memory allocation
+      - Virtual memory
+   7. File Systems
+      - Files
+      - Directories
+      - File system implementation
+      - Ext2 file system
+      - Virtual file system
+** 实验内容
+   参见《操作系统原理实验教学大纲》。
+** 实习
+   无
+** 考核
+   - 考试: 80%
+   - 作业: 20%
+** 参考教材
+   1. A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
+   2. Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley & Sons, 2011.
+   3. D.P. Bovet and M. Cesatí. Understanding The Linux Kernel. O'Reilly, 2005.
+
+#+LaTeX: \clearpage
+* 课程说明
+** 课程性质和要求
+   《操作系统原理》是一门重要的专业基础课。深入理解操作系统的工作原理对学生在软件编程、
+   开发方面具有重大意义。 本课程介绍给同学如下内容：
+   - 操作系统简介
+   - 进程与线程
+   - 进程间通信
+   - CPU调度
+   - 死锁
+   - 内存管理
+   - 文件系统
+** 课程重点
+   - 进程
+   - 内存管理
+   - 文件系统
+** 作业、实习要求
+   按时交作业。
+** 与其它课程的关系
+   - 前期课程：计算机组成原理，Linux应用基础，C编程，汇编编程
+   - 后期课程：Linux系统分析
+** 课时安排
+|------------+----------+----------|
+| 课程内容   | 理论学时 | 实验学时 |
+|------------+----------+----------|
+| 简介       |        4 |        2 |
+| 进程与线程 |        8 |      2.5 |
+| 进程间同步 |       10 |      2.5 |
+| CPU调度    |        4 |      0.5 |
+| 死锁       |        4 |      0.5 |
+| 内存管理   |        9 |        4 |
+| 文件系统   |        9 |        4 |
+|------------+----------+----------|
+** 特殊说明
+   无
+#+LaTeX: \clearpage
+* 实验教学大纲
+  - 课程编号: A05025, A05026
+  - 学时: 64 (理论: 48; 实验: 16)
+  - 学分: 3
+  - 实习: 0
+  - 授课对象: 计算机科学与技术，电子信息工程，信息与计算机技术
+** 实验教学的目的和要求
+   通过编程实践，让学生深入了解操作系统的工作原理。
+** 实践教学大纲
+   |---------------+------|
+   | 实验安排      | 学时 |
+   |---------------+------|
+   | 了解Linux内核 |    4 |
+   | 进程管理      |    4 |
+   | 内存管理      |    4 |
+   | 文件系统      | 4 |
+   |---------------+------|
+
+** 实验设备要求
+   - Debian/Ubuntu PC
+** 实验内容
+   - 参见[[http://cs3.swfu.edu.cn/moodle/mod/url/view.php?id%3D1046][《操作系统原理实验指导》]]。
+*** Approaching to the Linux kernel (4h)
+**** proc file-system
+**** Play with the kernel
+**** Hello, kernel module!
+**** System calls
+*** Process Management (4h)
+**** Process creation
+**** Thread
+**** IPC
+***** Signals
+***** Pipe
+***** FIFO
+***** File Locking
+***** Message Queues
+***** Semaphores
+*** Memory management (4h)
+**** Basic commands
+**** Shared Memory Segments
+**** Memory Mapped Files
+*** File System (4h) 
+**** File system creation
+**** Finding a file with =hexdump=
+
+** 实验报告要求
+   按规定格式完成，不得延误。
+** 成绩考核
+   - 实验报告满分100，60分及格
+** 实验指导和参考书目
+   1. 自编[[http://cs3.swfu.edu.cn/moodle/mod/url/view.php?id%3D1046][《实验指导》]]
+   2. A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
+   3. Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley & Sons, 2011.
+   4. D.P. Bovet and M. Cesatí. Understanding The Linux Kernel. O'Reilly, 2005.
+
+** 特别说明
+   无
+  
+#+LaTeX: \clearpage
+* 课程简介
+- 课程编号: A05025, A05026
+- 学时: 64 (理论: 48; 实验: 16)
+- 学分: 3
+- 实习: 0
+- 面向专业: 计算机科学与技术，电子信息工程，信息与计算机技术
+- 前期课程：英语，计算机组成原理，Linux应用基础，C编程，汇编知识
+- 课程性质和要求
+   《操作系统原理》是一门重要的专业基础课。深入理解操作系统的工作原理对学生在软件编程、
+   开发方面具有重大意义。 本课程介绍给同学如下内容：
+  - 操作系统简介
+  - 进程与线程
+  - 进程间通信
+  - CPU调度
+  - 死锁
+  - 内存管理
+  - 文件系统
+- 参考教材
+  1. A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
+  2. Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley & Sons, 2011.
+  3. D.P. Bovet and M. Cesatí. Understanding The Linux Kernel. O'Reilly, 2005.
+
+    
+# +BIBLIOGRAPHY: os plain limit:t option:-u
+   
+#+BEGIN_LaTeX
+\bibliographystyle{plain}
+\bibliography{os}
+#+END_LaTeX

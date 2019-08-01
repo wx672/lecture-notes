@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage[paperwidth=34em,paperheight=18em,top=0cm,bottom=0cm,left=0cm,right=0cm]{geometry}
+\usepackage{fancyvrb}
+%\usepackage{color}
+
+\begin{document}
+\pagestyle{empty}
+
+\begin{Verbatim}
+|--------+--------|
+|00010110|00101110| <- int num = 5678;
+|--------+--------|
+ 
+|--------+--------+--------+--------|
+|   '5'  |  '6'   |  '7'   |  '8'   | <- characters
+|--------+--------+--------+--------|
+|00110101|00110110|00110111|00111000| <- fprintf(fp, "%d", num);
+|--------+--------+--------+--------|
+
+|--------+--------|
+|      5678       | <- decimal number
+|--------+--------|
+|00010110|00101110| <- fwrite(&num, sizeof(int), 1, fp);
+|--------+--------|
+\end{Verbatim}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

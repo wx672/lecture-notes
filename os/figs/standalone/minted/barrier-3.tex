@@ -1,0 +1,43 @@
+\documentclass[varwidth=28em,crop]{standalone}
+
+\usepackage{wx672fonts}
+\usepackage{wx672minted}
+
+\begin{document}
+\begin{minipage}{.46\linewidth}
+\vspace{1em}
+\begin{ccode}
+specific_task();
+
+mutex.wait();
+   count++;
+mutex.signal();
+
+if (count == n)
+   barrier.signal();
+
+barrier.wait();
+barrier.signal();
+
+critical_point();      
+\end{ccode}
+\end{minipage}\qquad
+\begin{minipage}{.45\linewidth}
+\vspace{1em}
+\begin{ccode}
+specific_task();
+
+mutex.wait();
+   count++;
+
+   if (count == n)
+      barrier.signal();
+   
+   barrier.wait();
+   barrier.signal();
+mutex.signal();
+
+critical_point();      
+\end{ccode} 
+\end{minipage}
+\end{document}

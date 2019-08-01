@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>How To Write Your Lab Report With Emacs Org-mode</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="How To Write Your Lab Report With Emacs Org-mode"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-05-21 13:23:26 CST"/>
+<meta name="author" content="WANG Xiaolin"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style><link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css"><style>code {font-weight:bold; font-size:100%; color:darkblue} body {font-size:14pt}</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">How To Write Your Lab Report With Emacs Org-mode</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Make a directory named with your student ID, and get into it</a></li>
+<li><a href="#sec-2">2 Get the <i>report template org file</i> into this directory</a></li>
+<li><a href="#sec-3">3 Open this file with emacs, and edit it</a></li>
+<li><a href="#sec-4">4 Save your org file, and Export it to a HTML file</a></li>
+<li><a href="#sec-5">5 Open the HTML file in your web browser</a></li>
+<li><a href="#sec-6">6 If everything looks good, you can now make a tar ball of your current directory</a></li>
+<li><a href="#sec-7">7 Send this <b>tgz</b> file to me via email</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Make a directory named with your student ID, and get into it</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>  For example:
+</p><pre class="example">
+mkdir 20091152888 &amp;&amp; cd 20091152888
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Get the <i>report template org file</i> into this directory</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>  For example:
+</p><pre class="example">
+wget http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/sample-report/20081152xxx.org -O 20091152888.org
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Open this file with emacs, and edit it</h2>
+<div class="outline-text-2" id="text-3">
+
+<pre class="example">
+emacs 20091152888.org&amp;
+</pre>
+
+<ul>
+<li id="sec-3-1">Don't know how to use emacs?<br/>
+<pre class="example">
+C-h t
+</pre>
+
+<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="all">
+<caption>Frequently used emacs shortcut keys</caption>
+<colgroup><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">C-x C-f</td><td class="left">C-x C-s</td><td class="left">C-x C-c</td><td class="left"></td><td class="left"></td></tr>
+<tr><td class="left">C-g</td><td class="left">C-j</td><td class="left">C-i</td><td class="left">C-/</td><td class="left"></td></tr>
+<tr><td class="left">C-k</td><td class="left">C-y</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
+<tr><td class="left">C-d</td><td class="left">M-d</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
+<tr><td class="left">C-@</td><td class="left">C-SPACE</td><td class="left">C-x h</td><td class="left">C-w</td><td class="left">C-INSERT</td></tr>
+<tr><td class="left">C-a</td><td class="left">C-e</td><td class="left">C-f</td><td class="left">C-b</td><td class="left"></td></tr>
+<tr><td class="left">C-n</td><td class="left">C-p</td><td class="left">C-v</td><td class="left"></td><td class="left"></td></tr>
+<tr><td class="left">C-x 2</td><td class="left">C-x 3</td><td class="left">C-x 0</td><td class="left">C-x 1</td><td class="left">C-x o</td></tr>
+<tr><td class="left">C-h i</td><td class="left">C-h t</td><td class="left">C-h k</td><td class="left">C-h f</td><td class="left">C-h v</td></tr>
+</tbody>
+</table>
+
+
+</li>
+</ul>
+<ul>
+<li id="sec-3-2">Don't know how to use Org-mode?<br/>
+<pre class="example">
+C-h i
+m org
+</pre>
+
+<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="all">
+<caption>Frequently used Org-mode shortcut keys</caption>
+<colgroup><col class="left" /><col class="left" /><col class="left" />
+</colgroup>
+<tbody>
+<tr><td class="left">TAB</td><td class="left">C-return</td><td class="left">M-return</td></tr>
+<tr><td class="left">C-c C-n</td><td class="left">C-c C-p</td><td class="left">C-c C-l</td></tr>
+<tr><td class="left">&lt;e[TAB]</td><td class="left">&lt;I[TAB]</td><td class="left">C-c '</td></tr>
+<tr><td class="left">S-arrow</td><td class="left">M-arrow</td><td class="left">S-M-arrow</td></tr>
+</tbody>
+</table>
+
+
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Save your org file, and Export it to a HTML file</h2>
+<div class="outline-text-2" id="text-4">
+
+<pre class="example">
+C-x C-s
+C-c C-e h
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Open the HTML file in your web browser</h2>
+<div class="outline-text-2" id="text-5">
+
+<ol>
+<li>Switch to your newly generated HTML file
+<pre class="example">
+C-x C-b
+</pre>
+
+<p>      Select the <code>20091152888.html</code> buffer
+</p></li>
+<li>Open it
+<pre class="example">
+C-c C-z v
+</pre>
+
+</li>
+</ol>
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> If everything looks good, you can now make a tar ball of your current directory</h2>
+<div class="outline-text-2" id="text-6">
+
+<pre class="example">
+cd ..
+tar zcf 20091152888.tgz 20091152888/
+ls
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Send this <b>tgz</b> file to me via email</h2>
+<div class="outline-text-2" id="text-7">
+
+<p>  All done!
+</p></div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="author">Author: WANG Xiaolin (<a href="mailto:wx672ster@gmail.com">wx672ster@gmail.com</a>)</p>
+<p class="date">Date: 2013-05-21 13:23:26 CST</p>
+
+</div>
+</body>
+</html>
