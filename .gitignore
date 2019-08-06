@@ -4,6 +4,7 @@
 *.[aosi]
 *.md5
 *.ppm
+**/auto/
 **/_minted*/
 *.aux
 *.fdb_latexmk
@@ -16,6 +17,7 @@
 *.bcf
 *.blg
 *.lof
+*.log
 *.nav
 *.snm
 *.toc

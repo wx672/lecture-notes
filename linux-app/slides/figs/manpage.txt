@@ -1,0 +1,17 @@
+NAME
+    A one-line description of the command.
+SYNOPSIS
+    A formal description of how to run it and what
+    command line options it takes.
+DESCRIPTION
+    A description of the functioning of the command.
+EXAMPLES
+    Some examples of common usage.
+SEE ALSO
+    A list of related commands or functions.
+BUGS
+    List known bugs.
+AUTHOR
+   Specify your contact information.
+COPYRIGHT
+    Specify your copyright information.

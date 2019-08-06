@@ -1,3 +1,5 @@
+\usepackage{wx672tut}
+
 \newcommand{\unix}{{\fontspec{Purisa}{UNIX}}}
 \newcommand{\emacs}{\includegraphics[width=1.2em]{emacs}}
 \newcommand{\google}{\raisebox{-.2em}{\includegraphics[width=3em]{google}}}
@@ -6,6 +8,7 @@
 \newcommand{\pdf}{\textcolor{red}{\nerd }}%
 \newcommand{\folder}{{\nerd }}%e5fe,e61e,e7a3,f07c
 \newcommand{\git}{{\nerd }}%f1d2,f1d3
+\newcommand{\github}{\nerd }
 \newcommand{\moodle}{\includegraphics[width=1em]{moodle}}
 \newcommand{\obook}{{\nerd }}%f212,f401,f405
 \newcommand{\shell}{{\nerd }}%e795
@@ -23,7 +26,10 @@
 \addbibresource{ref.bib}
 
 %\AtBeginPart{\frame{\partpage}}
-\mode<beamer>{\AtBeginSection{\frame{\sectionpage}}}
+\mode<beamer>{
+  \AtBeginSection{\frame{\sectionpage}}
+  \AtBeginSubsection{\frame{\subsectionpage}}
+}
 
 % \includeonlylecture{intro}
 % \includeonlylecture{bash}
@@ -38,8 +44,8 @@
   \subtitle{Lecture Handouts}
   \maketitle
   \tableofcontents
-  \nocite{matthew2008beginning, cooper10bash, raymond2003art,stevens2013advanced,
-    Bryant2010computersystems}%
+    \nocite{matthew2008beginning, cooper10bash, raymond2003art, stevens2013advanced,
+      Love:2007:LSP:1205435, Kerrisk:2010:LPI:1869911, Bryant2010computersystems}%
   \printbibliography[title={References}]}
 
 \mode<beamer>{\frame{\titlepage}}
@@ -89,11 +95,11 @@
   \end{itemize}  
 \end{frame}
 
-\lecture{start}{start}% [short name]<name><label>
+\lecture{start}{start}% \lecture[short name]{name}{label}
 \section{Getting Started}
 \label{sec:start}
 
-\begin{frame}{Linux Programs}
+\begin{frame}{Linux Commands}
   \begin{description}
   \item[Where to find them?] {\ttfamily /bin, /usr/bin, /usr/local/bin,\\\symbol{`~}/bin,
       \ldots}
@@ -118,8 +124,13 @@
 \end{frame}
 
 \begin{frame}{Text Editors}
-  \begin{block}{{\Huge\vim}\,\quad{}vs.\quad{}{\LARGE\emacs}}
-    \includegraphics[width=\textwidth]{vivsemacs}
+  \begin{block}
+    {\mode<beamer>{{{\Huge\vim}\,\quad{}vs.\quad{}{\LARGE\emacs}}}
+    \mode<article>{{\vim\,\quad{}vs.\quad{}\emacs}}}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{vivsemacs} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{vivsemacs} }
+    \end{center}
   \end{block}
 \end{frame}
 
@@ -127,9 +138,11 @@
   \begin{block}{Suffix matters}\ttfamily
     \begin{itemize}
     \item[\$] vim \wrong
+    \item[\$] vim hello \wrong
     \item[\$] vim hello.c  \correct
     \item[\$] vim hello.py \correct
     \item[\$] emacs \wrong
+    \item[\$] emacs hello \wrong
     \item[\$] emacsclient hello.c  \correct
     \item[\$] emacsclient hello.py \correct
     \end{itemize}
@@ -142,242 +155,7 @@
   \end{center}
   \begin{itemize}
   \item[\vim] vimtutor
-  \item[\emacs] C-h t
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Compiler vs. Interpreter}
-  \begin{block}{\texttt{hello.c}}
-    \begin{minipage}{.5\linewidth}
-\begin{ccode}
-#include <stdio.h>
-int main()
-{
-  printf("Hello, world!\n");
-  return 0;
-}
-\end{ccode}
-    \end{minipage}
-    \begin{minipage}{.45\linewidth}
-    \begin{itemize}
-    \item[\$] \texttt{gcc -o hello hello.c}
-    \item[\$] \texttt{./hello}
-    \end{itemize}
-    \end{minipage}
-    %\textcolor{LightGray}{\rule{.3\textwidth}{1pt}}
-  \end{block}
-  \begin{block}{\texttt{hello.sh}}
-    \begin{minipage}{.5\linewidth}
-      \begin{shellcode}
-        #!/bin/bash
-        echo 'Hello, world!'
-      \end{shellcode}
-    \end{minipage}
-    \begin{minipage}{.45\linewidth}
-      \begin{enumerate}
-      \item[\$] \texttt{chmod +x hello.sh}
-      \item[\$] \texttt{./hello.sh}
-      \end{enumerate}
-    \end{minipage}
-  \end{block}
-  \begin{block}{\texttt{hello.py}}
-    \begin{minipage}{.5\linewidth}
-\begin{pythoncode}
-#!/usr/bin/python
-print "Hello, world!"
-\end{pythoncode}      
-    \end{minipage}
-    \begin{minipage}{.45\linewidth}
-      \begin{enumerate}
-      \item[\$] \texttt{chmod +x hello.py}
-      \item[\$] \texttt{./hello.py}
-      \end{enumerate}
-    \end{minipage}
-  \end{block}
-\end{frame}
-
-\begin{frame}{Compilation}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{tool-chain} }%
-    \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain} }
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]{Header Files}
-  \begin{minipage}{.45\linewidth}
-    \begin{block}{Why?}
-\begin{ccode}
-#include "add.h"
-
-int triple(int x)
-{
-  return add(x, add(x,x));
-}
-\end{ccode}
-    \end{block}
-  \end{minipage}\qquad
-  \begin{minipage}{.45\linewidth}
-    \begin{block}{Why not?}
-\begin{ccode}
-int add(int, int);
-
-int triple(int x)
-{
-  return add(x, add(x, x));
-}
-\end{ccode}
-    \end{block}
-  \end{minipage}\\[1ex]
-  \begin{itemize}
-  \item Ensure everyone use the same code
-  \item Easy to share, upgrade, reuse
-  \end{itemize}
-  \begin{block}{In the header files\ldots}
-    \begin{multicols}{2}
-      \begin{itemize}
-      \item function declarations
-      \item macro definitions
-      \item contants
-      \item system wide global variables
-      \end{itemize}
-    \end{multicols}
-  \end{block}
-  \begin{itemize}
-  \item[\$] \texttt{ls /usr/include/}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Library Files}
-  \begin{description}
-  \item[Static libraries] \alert{\texttt{.a}} files. Very old ones, but still alive.
-    \begin{itemize}
-    \item[\$] \texttt{find /usr/lib -name "*.a"}
-    \end{itemize}
-  \item[Shared libraries] \alert{\texttt{.so}} files. The preferred ones.
-    \begin{itemize}
-    \item[\$] \texttt{find /usr/lib -name "*.so.*"}
-    \end{itemize}
-  \end{description}
-  Examples:
-  \begin{itemize}
-  \item[\$] \texttt{gcc -o hello hello.c /usr/lib/libm.a}
-  \item[\$] \texttt{gcc -o hello hello.c -lm}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \begin{block}{Static Linking}
-    \begin{itemize}
-    \item The entire program and all data of a process must be in physical memory for the
-      process to execute
-    \item The size of a process is thus limited to the size of physical memory
-    \end{itemize}
-  \end{block}
-    \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{static-linking} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{static-linking} }
-  \end{center}
-\end{frame}
-
-\begin{frame}
-  \begin{block}{Dynamic Linking}
-    \begin{itemize}
-    \item Only one copy in memory
-    \item Don't have to re-link after a library update
-    \end{itemize}
-  \end{block}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{dynamic-linking} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{dynamic-linking} }
-  \end{center}
-\end{frame}
-
-\begin{frame}{Build A Static Library}{Source codes}
-  \begin{minipage}[t]{.47\linewidth}
-    \begin{block}{\texttt{main.c}}
-      \includegraphics[width=\textwidth]{main-c}
-    \end{block}
-    \begin{block}{\texttt{lib.h}}
-      \includegraphics[width=.5\textwidth]{lib-h}
-    \end{block}
-  \end{minipage}\qquad
-  \begin{minipage}[t]{.43\linewidth}
-    \begin{block}{\texttt{hello.c}}
-      \includegraphics[width=\textwidth]{hello-c}
-    \end{block}
-    \begin{block}{\texttt{hi.c}}
-      \includegraphics[width=\textwidth]{hi-c}
-    \end{block}
-  \end{minipage}
-\end{frame}
-
-\begin{frame}{Build A Static Library}{Step by step}
-  \begin{enumerate}
-  \item Get \alert{\texttt{hello.o}} and \alert{\texttt{hi.o}}
-    \begin{itemize}
-    \item[\$] \texttt{gcc -c hello.c hi.c}
-    \end{itemize}
-  \item Put \alert{\texttt{*.o}} into \alert{\texttt{libhi.a}}
-    \begin{itemize}
-    \item[\$] \texttt{ar crv libhi.a hello.o hi.o}
-    \end{itemize}
-  \item Use \alert{\texttt{libhi.a}}
-    \begin{itemize}
-    \item[\$] \texttt{gcc main.c libhi.a}
-    \end{itemize}
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}{Build A Static Library}{Makefile}
-  \includegraphics[width=.8\textwidth]{makefile-a}
-\end{frame}
-
-\begin{frame}{Build A Shared Library}{Source codes}
-  \begin{block}{\texttt{hello.c}}
-    \includegraphics[width=.8\textwidth]{hello-c-so}
-  \end{block}
-  \begin{minipage}{.35\linewidth}
-    \begin{block}{\texttt{hello.h}}
-      \includegraphics[width=\textwidth]{hello-h-so}
-    \end{block}
-  \end{minipage}\qquad
-  \begin{minipage}{.36\linewidth}
-    \begin{block}{\texttt{hi.c}}
-      \includegraphics[width=\textwidth]{hi-c-so}
-    \end{block}
-  \end{minipage}
-\end{frame}
-
-\begin{frame}{Build A Shared Library}{Step by step}
-  \begin{enumerate}
-  \item Get \alert{\texttt{hi.o}}
-    \begin{itemize}
-    \item[\$] \texttt{gcc -fPIC -c hi.c}
-    \end{itemize}
-  \item Get \alert{\texttt{libhi.so}}
-    \begin{itemize}
-    \item[\$] \texttt{gcc -shared -o libhi.so hi.o}
-    \end{itemize}
-  \item Use \alert{\texttt{libhi.so}}
-    \begin{itemize}
-    \item[\$] \texttt{gcc -L. -Wl,-rpath=. hello.c -lhi}
-    \end{itemize}
-  \item Check it
-    \begin{itemize}
-    \item[\$] \texttt{ldd a.out}
-    \end{itemize}
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}{Build A Shared Library}{Makefile}
-  \includegraphics[width=\textwidth]{makefile-so}
-\end{frame}
-
-\begin{frame}{Getting Help}
-  \begin{itemize}
-  \item[\debian] \texttt{sudo apt install gcc-doc}
-  \item[\$] \texttt{man gcc}
-  \item[\$] \texttt{info gcc}
+  \item[\emacs] \Ch{} {\kbd t}
   \end{itemize}
 \end{frame}
 
@@ -390,32 +168,15 @@ int triple(int x)
   \item[\shell] A programming language
   \end{itemize}
   \begin{center}
-    \includegraphics[width=.5\textwidth]{sys-arch}
+    \mode<beamer>{ \includegraphics[width=.5\textwidth]{sys-arch} }%
+    \mode<article>{ \includegraphics[width=.3\textwidth]{sys-arch} }
   \end{center}
-\end{frame}
-
-\begin{frame}{Redirection}
-  \begin{block}{Redirecting output}\ttfamily
-    \begin{itemize}
-    \item[\$] ls -l > output.txt
-    \item[\$] ps aux >> output.txt
-    \end{itemize}
-  \end{block}
-  \begin{block}{Redirecting input}\ttfamily
-    \begin{itemize}
-    \item[\$] more < output.txt
-    \end{itemize}
-  \end{block}
-\end{frame}
-
-\begin{frame}{Pipe}{Chain processes together}
-  \CMD{ps aux | sort | less}
 \end{frame}
 
 \begin{frame}{Directory Structure}
   \includegraphics[width=\linewidth]{cs2}
   
-  \begin{center}
+  \begin{center}\small
     \begin{tabular}{r@{\qquad}>{\ttfamily}l}
       \hline
       \thead{Todo}  & \thead{How}  \\\hline
@@ -495,28 +256,33 @@ int triple(int x)
 \begin{frame}{CLI Shortcuts}
   \begin{center}
     \begin{tabular}{>{\ttfamily}r@{\quad}l|>{\ttfamily}r@{\quad}l}
-      Ctrl-a: & beginning of line  & Ctrl-e:  & end of line      \\
-      Ctrl-f: & forward            & Ctrl-b:  & backward         \\
-      Ctrl-n: & next               & Ctrl-p:  & previous         \\
-      Ctrl-r: & reverse search     & Ctrl-u:  & cut to beginning \\
-      Ctrl-k: & kill (cut to end)  & Ctrl-y:  & yank (paste)     \\
-      Ctrl-d: & delete a character & TAB:     & completion       \\
+      \Ca: & beginning of line  & \Ce:  & end of line      \\
+      \Cf: & forward            & \Cb:  & backward         \\
+      \Cn: & next               & \Cp:  & previous         \\
+      \Cr: & reverse search     & \Cu:  & cut to beginning \\
+      \Ck: & kill (cut to end)  & \Cy:  & yank (paste)     \\
+      \Cd: & delete a character & \Tab: & completion       \\
     \end{tabular}
   \end{center}
   \begin{block}{Tmux}
+    \begin{center}
     \begin{tabular}{>{\ttfamily}r@{\quad}l|>{\ttfamily}r@{\quad}l}
-      C-a c:  & create window      & C-a C-a: & switch window    \\
-      C-a n:  & next window        & C-a p:   & previous window  \\
-      C-a -:  & split window       & C-a |:   & split widnow     \\
-      C-a j:  & go down            & C-a k:   & go up            \\
-      C-a l:  & go right           & C-a h:   & go left          \\
+      \Ca {\kbd c}:  & create window      & \Ca \Ca: & switch window    \\
+      \Ca {\kbd n}:  & next window        & \Ca {\kbd p}:   & previous window  \\
+      \Ca {\kbd -}:  & split window       & \Ca {\kbd |}:   & split widnow     \\
+      \Ca {\kbd j}:  & go down            & \Ca {\kbd k}:   & go up            \\
+      \Ca {\kbd l}:  & go right           & \Ca {\kbd h}:   & go left          \\
     \end{tabular}
+    \end{center}
   \end{block}
 \end{frame}
 
 \begin{frame}{Understanding ``\texttt{ls -l}''}
   \begin{minipage}{.71\linewidth}
-    \includegraphics[width=\linewidth]{ls-l}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{ls-l} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{ls-l} }
+    \end{center}
   \end{minipage}\quad
   \begin{minipage}{.25\linewidth}\scriptsize
     \begin{tabular}{c@{\;-\;}l}
@@ -532,7 +298,10 @@ int triple(int x)
 
   \begin{block}{9-bit permission}
     \begin{minipage}{.27\linewidth}
-      \includegraphics[width=\linewidth]{9bit}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{9bit} }%
+        \mode<article>{ \includegraphics[width=.6\textwidth]{9bit} }
+      \end{center}
     \end{minipage}\quad
     \begin{minipage}{.5\linewidth}\small
       \begin{tabular}{l@{\qquad}l}
@@ -546,14 +315,16 @@ int triple(int x)
 \end{frame}
 
 \begin{frame}{Wildcard Expansion}
-  \begin{tabular}{>{\ttfamily}rl>{\ttfamily}l}
-    \hline
-    \thead{Character}&\thead{Meaning}&\thead{Example}\\\hline
-    ?&any one&\CMD{ls ???.txt}\\
-    *&zero or more&\CMD{ls *.c}\\
-    {[]}&or&\CMD{ls *.[ch]}\\
-    \{\}&and&\CMD{ls *.\{c,h,cpp\}}\\\hline    
-  \end{tabular}
+  \begin{center}
+    \begin{tabular}{>{\ttfamily}rl>{\ttfamily}l}
+      \hline
+      \thead{Character}&\thead{Meaning}&\thead{Example}\\\hline
+      ?&any one&\CMD{ls ???.txt}\\
+      *&zero or more&\CMD{ls *.c}\\
+      {[]}&or&\CMD{ls *.[ch]}\\
+      \{\}&and&\CMD{ls *.\{c,h,cpp\}}\\\hline    
+    \end{tabular}
+  \end{center}
   \begin{block}{Example}
     \CMD{touch \{2,3,4,234\}.\{jpg,png\} \&\& ls}\\[1ex]
     \begin{description}
@@ -589,16 +360,33 @@ int triple(int x)
   \end{itemize}
 \end{frame}
 
-\lecture{Shell Programming}{Bash}
+\begin{frame}{Redirection}
+  \begin{block}{Redirecting output}\ttfamily
+    \begin{itemize}
+    \item[\$] ls -l > output.txt
+    \item[\$] ps aux >> output.txt
+    \end{itemize}
+  \end{block}
+  \begin{block}{Redirecting input}\ttfamily
+    \begin{itemize}
+    \item[\$] more < output.txt
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Pipe}{Chain processes together}
+  \CMD{ps aux | sort | less}
+\end{frame}
+
 \section{Shell Programming}
 \label{sec:shell-programming}
 
-\begin{frame}{Shell Programming}
-  \begin{description}
-  \item[why?] handy, powerful 
-  \item[which?] bash
-  \end{description}
-\end{frame}
+% \begin{frame}{Shell Programming}
+%   \begin{description}
+%   \item[why?] handy, powerful 
+%   \item[which?] bash
+%   \end{description}
+% \end{frame}
 
 \begin{frame}{Variables}\ttfamily\small
   \begin{itemize}
@@ -619,10 +407,16 @@ int triple(int x)
 
 \begin{frame}{Positional Parameters}{\cmd{\$0, \$1, \$2, \ldots, \$@, \$\#}}
   \begin{minipage}{.44\linewidth}
-    \includegraphics[width=\linewidth]{isay-sh}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{isay-sh} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{isay-sh} }
+    \end{center}
   \end{minipage}\quad
   \begin{minipage}{.52\linewidth}
-    \includegraphics[width=\linewidth]{isay-c}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{isay-c} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{isay-c} }
+    \end{center}
   \end{minipage}
 \end{frame}
 
@@ -639,7 +433,10 @@ int triple(int x)
   \end{block}
   \begin{block}{Example}
     \begin{center}
-      \includegraphics[width=.6\linewidth]{para-substitution-sh}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=.6\textwidth]{para-substitution-sh} }%
+        \mode<article>{ \includegraphics[width=.4\textwidth]{para-substitution-sh} }
+      \end{center}
     \end{center}
   \end{block}
 \end{frame}
@@ -703,7 +500,8 @@ int triple(int x)
   \end{itemize}
   \begin{block}{}
     \begin{center}
-      \includegraphics[width=.7\linewidth]{if-then-else-sh}
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{if-then-else-sh} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{if-then-else-sh} }
     \end{center}
   \end{block}
 \end{frame}
@@ -714,11 +512,11 @@ int triple(int x)
 \item[\$] for i in \{1..10\}; do echo \$i; done
 \item[\$] for i in \$(seq 10); do echo \$i; done
 \item[\$] for ((i=1; i<=10; i++)); do echo \$i; done
-\item[\$] for ((i=1, j=1; i<=0; i++, j++)); do\\
-  echo \$i-\$j\\
-  echo \$((\$i-\$j))\\
+\item[\$] for ((i=1, j=1; i<=10; i++, j++)); do\\
+  \quad{}echo \$i-\$j \Bad\\
+  \quad{}echo \$((\$i-\$j)) \Good\\
   done
-\item[\$] for ((i=1; i<=10; i++)) \{ echo \$i; \}
+\item[\$] for ((i=1; i<=10; i++)) \{ echo \$i; \} \# C style
 \item[\$] for i in hello world; do echo -n "\$i "; done
 \end{itemize}
 \end{frame}
@@ -746,19 +544,524 @@ int triple(int x)
 
 \begin{frame}{\texttt{select}}
   \begin{center}
-    \includegraphics[width=\linewidth]{select-sh}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{select-sh} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{select-sh} }
   \end{center}
 \end{frame}
 
 \begin{frame}{Functions}
-  \includegraphics[width=\linewidth]{func-sh}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{func-sh} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{func-sh} }
+  \end{center}
 \end{frame}
 
-\lecture{OS Basics}{os}
-\section{OS Basics}
+\lecture{C Programming Basics}{C basics}
+\section{C Programming Basics}
+\label{sec:c-programming-basics}
+
+\subsection{Programming Environment}
+\label{sec:progr-envir}
+
+\begin{frame}{Program Languages}
+  \begin{block}{Machine code}
+    The \alert{binary numbers} that the CPUs can understand.
+    \begin{center}{\ttfamily
+      100111000011101111001111 ... and so on ...}
+    \end{center}
+  \end{block}
+  \begin{block}{Assembly language --- friendly to humans}
+    People don't think in numbers.
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.5\textwidth]{asm-sample-asm} }%
+      \mode<article>{ \includegraphics[width=.2\textwidth]{asm-sample-asm} }
+    \end{center}
+    The ASM programs are translated to machine code by \alert{assemblers}.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{High level languages}
+    Even easier to understand for humans. Examples:
+    \begin{itemize}
+    \item C\tikzmark{clang}
+    \item FORTRAN\tikzmark{fortran}
+    \item Java\tikzmark{java}
+    \item C++\tikzmark{cpp}
+    \item ...\tikzmark{more}
+    \end{itemize}\pause
+    \alert{Compilers} do the translation work.    
+  \end{block}
+  \begin{tikzpicture}[remember picture,overlay,
+    every node/.style={ellipse,red,opacity=.4,draw},
+    every to/.style={append after command={[->,black!30,thick]}}
+    ]
+    \node (asm) at ($(pic cs:java) + (3,0)$) {Assembly};
+    \node (bin) [right=of asm] {Binary};
+    \draw ($(pic cs:clang)+(0,.5ex)$) to [bend left=20] (asm);
+    \draw ($(pic cs:fortran)+(0,.5ex)$) to [bend left=15] (asm);
+    \draw ($(pic cs:java)+(0,.5ex)$) to (asm);
+    \draw ($(pic cs:cpp)+(0,.5ex)$) to [bend right=15] (asm);
+    \draw ($(pic cs:more)+(0,.5ex)$) to [bend right=20] (asm);
+    \draw (asm) to (bin);
+    \end{tikzpicture}
+\end{frame}
+
+\subsubsection{The Tool Chain}
+\label{sec:tool-chain}
+
+\begin{frame}{Compilation}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{tool-chain} }%
+    \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain} }
+  \end{center}
+\end{frame}
+
+\begin{description}
+\item[Source code] written by programmer in high-level language, in our case in
+  \texttt{C}. We write c source code with a \emph{text editor}, such as \texttt{emacs},
+  \texttt{vim}, etc.
+\item[Preprocessing] is the first pass of any C compilation. It processes
+  \texttt{include-files}, \texttt{conditional compilation instructions} and
+  \texttt{macros}.
+  \begin{description}
+  \item[cpp] The GNU C preprocessor
+    \begin{itemize}
+    \item[\$] \texttt{gcc -E hello.c}
+    \end{itemize}
+  \end{description}
+\item[{Compilation}] is the second pass. It takes the output of the preprocessor, and the
+  \texttt{source code}, and generates \texttt{assembly source code}.
+  \begin{description}
+  \item[gcc/g++] GNU C/C++ compiler
+    \begin{itemize}
+    \item[\$] \texttt{gcc -S hello.c}
+    \end{itemize}
+  \end{description}
+\item[Assembly] is the third stage of compilation. It takes the assembly source code and
+  produces an assembly listing with offsets. The assembler output is stored in an
+  \texttt{object file}.
+  \begin{description}
+  \item[as] the portable GNU assembler
+    \begin{itemize}
+    \item[\$] \texttt{gcc -c hello.c}
+    \end{itemize}
+  \end{description}
+\item[Linking] is the final stage of compilation. It combines object code with predefined
+  routines from \texttt{libraries} and produces the \texttt{executable program}.
+  \begin{description}
+  \item[ld] The GNU linker
+    \begin{itemize}
+    \item[\$] \texttt{gcc hello.c -lm}
+    \end{itemize}
+  \end{description}
+\item[{Wrapper}] The whole compilation process is usually not done `by hand', but using a
+  \texttt{wrapper} program that combines the functions of preprocessor(cpp),
+  compiler(gcc/g++), assembler(as) and linker(ld).
+  \begin{itemize}
+  \item[\$] \texttt{gcc -Wall hello.c -lm -o hello}
+  \end{itemize}
+\end{description}
+
+\begin{frame}[fragile]{Compiler vs. Interpreter}
+  \begin{block}{\texttt{hello.c}}
+    \begin{minipage}{.5\linewidth}
+\begin{ccode}
+#include <stdio.h>
+int main()
+{
+  printf("Hello, world!\n");
+  return 0;
+}
+\end{ccode}
+    \end{minipage}
+    \begin{minipage}{.45\linewidth}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -o hello hello.c}
+    \item[\$] \texttt{./hello}
+    \end{itemize}
+    \end{minipage}
+    %\textcolor{LightGray}{\rule{.3\textwidth}{1pt}}
+  \end{block}
+  \begin{block}{\texttt{hello.sh}}
+    \begin{minipage}{.5\linewidth}
+      \begin{shellcode}
+        #!/bin/bash
+        echo 'Hello, world!'
+      \end{shellcode}
+    \end{minipage}
+    \begin{minipage}{.45\linewidth}
+      \begin{enumerate}
+      \item[\$] \texttt{chmod +x hello.sh}
+      \item[\$] \texttt{./hello.sh}
+      \end{enumerate}
+    \end{minipage}
+  \end{block}
+  \begin{block}{\texttt{hello.py}}
+    \begin{minipage}{.5\linewidth}
+\begin{pythoncode}
+#!/usr/bin/python
+print "Hello, world!"
+\end{pythoncode}      
+    \end{minipage}
+    \begin{minipage}{.45\linewidth}
+      \begin{enumerate}
+      \item[\$] \texttt{chmod +x hello.py}
+      \item[\$] \texttt{./hello.py}
+      \end{enumerate}
+    \end{minipage}
+  \end{block}
+\end{frame}
+
+\subsubsection{Header Files}
+\label{sec:header-files}
+
+\begin{frame}[fragile]{Header Files}
+  \begin{minipage}{.45\linewidth}
+    \begin{block}{Why?}
+\begin{ccode}
+#include "add.h"
+
+int triple(int x)
+{
+  return add(x, add(x,x));
+}
+\end{ccode}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}{.45\linewidth}
+    \begin{block}{Why not?}
+\begin{ccode}
+int add(int, int);
+
+int triple(int x)
+{
+  return add(x, add(x, x));
+}
+\end{ccode}
+    \end{block}
+  \end{minipage}\\[1ex]
+  \begin{itemize}
+  \item Ensure everyone use the same code
+  \item Easy to share, upgrade, reuse
+  \end{itemize}
+  \begin{block}{In the header files\ldots}
+    \begin{multicols}{2}
+      \begin{itemize}
+      \item function declarations
+      \item macro definitions
+      \item contants
+      \item system wide global variables
+      \end{itemize}
+    \end{multicols}
+  \end{block}
+  \begin{itemize}
+  \item[\$] \texttt{ls /usr/include/}
+  \end{itemize}
+\end{frame}
+
+\subsubsection{Library Files}
+\label{sec:library-files}
+
+\begin{frame}{Library Files}
+  \begin{description}
+  \item[Static libraries] \alert{\texttt{.a}} files. Very old ones, but still alive.
+    \begin{itemize}
+    \item[\$] \texttt{find /usr/lib -name "*.a"}
+    \end{itemize}
+  \item[Shared libraries] \alert{\texttt{.so}} files. The preferred ones.
+    \begin{itemize}
+    \item[\$] \texttt{find /usr/lib -name "*.so.*"}
+    \end{itemize}
+  \end{description}
+  Examples:
+  \begin{itemize}
+  \item[\$] \texttt{gcc -o hello hello.c /usr/lib/libm.a}
+  \item[\$] \texttt{gcc -o hello hello.c -lm}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Static Linking}
+    \begin{itemize}
+    \item The entire program and all data of a process must be in physical memory for the
+      process to execute
+    \item The size of a process is thus limited to the size of physical memory
+    \end{itemize}
+  \end{block}
+    \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{static-linking} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{static-linking} }
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Dynamic Linking}
+    \begin{itemize}
+    \item Only one copy in memory
+    \item Don't have to re-link after a library update
+    \end{itemize}
+  \end{block}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{dynamic-linking} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{dynamic-linking} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Build A Static Library}{Source codes}
+  \begin{minipage}[t]{.47\linewidth}
+    \begin{block}{\texttt{main.c}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{main-c} }%
+        \mode<article>{ \includegraphics[width=.7\textwidth]{main-c} }
+      \end{center}
+    \end{block}
+    \begin{block}{\texttt{lib.h}}
+      \includegraphics[width=.5\textwidth]{lib-h}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}[t]{.43\linewidth}
+    \begin{block}{\texttt{hello.c}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{hello-c} }%
+        \mode<article>{ \includegraphics[width=.7\textwidth]{hello-c} }
+      \end{center}
+    \end{block}
+    \begin{block}{\texttt{hi.c}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c} }%
+        \mode<article>{ \includegraphics[width=.7\textwidth]{hi-c} }
+      \end{center}
+    \end{block}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Build A Static Library}{Step by step}
+  \begin{enumerate}
+  \item Get \alert{\texttt{hello.o}} and \alert{\texttt{hi.o}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -c hello.c hi.c}
+    \end{itemize}
+  \item Put \alert{\texttt{*.o}} into \alert{\texttt{libhi.a}}
+    \begin{itemize}
+    \item[\$] \texttt{ar crv libhi.a hello.o hi.o}
+    \end{itemize}
+  \item Use \alert{\texttt{libhi.a}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc main.c libhi.a}
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Build A Static Library}{Makefile}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{makefile-a} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{makefile-a} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Build A Shared Library}{Source codes}
+  \begin{block}{\texttt{hello.c}}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello-c-so} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{hello-c-so} }
+    \end{center}
+  \end{block}
+  \begin{minipage}{.35\linewidth}
+    \begin{block}{\texttt{hello.h}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{hello-h-so} }%
+        \mode<article>{ \includegraphics[width=.6\textwidth]{hello-h-so} }
+      \end{center}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}{.36\linewidth}
+    \begin{block}{\texttt{hi.c}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c-so} }%
+        \mode<article>{ \includegraphics[width=.6\textwidth]{hi-c-so} }
+      \end{center}
+    \end{block}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Build A Shared Library}{Step by step}
+  \begin{enumerate}
+  \item Get \alert{\texttt{hi.o}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -fPIC -c hi.c}
+    \end{itemize}
+  \item Get \alert{\texttt{libhi.so}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -shared -o libhi.so hi.o}
+    \end{itemize}
+  \item Use \alert{\texttt{libhi.so}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -L. -Wl,-rpath=. hello.c -lhi}
+    \end{itemize}
+  \item Check it
+    \begin{itemize}
+    \item[\$] \texttt{ldd a.out}
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Build A Shared Library}{Makefile}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{makefile-so} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{makefile-so} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{GNU C Library}
+  \begin{minipage}{.55\linewidth}
+    Linux API > POSIX API
+    \begin{itemize}
+    \item[\$] \cmd{man 7 libc}
+    \item[\$] \cmd{man 3 intro}
+    \item[\$] \cmd{man gcc}
+    \item[\$] \cmd{info gcc}
+    \item[\debian] \cmd{sudo apt install gcc-doc}
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}{.4\linewidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{api} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{api} }
+    \end{center}
+  \end{minipage}
+\end{frame}
+
+
+\subsubsection{The Make Utility}
+
+\begin{frame}{The Make Utility}
+  To compile a single C program:
+  \begin{itemize}
+  \item[\$] \cmd{gcc hello.c -o hello}\quad{\Huge \correct}\textsubscript{{\tiny OK. But\ldots}}
+    % \tikz \node [opacity=.4,red,scale=3,inner
+    % sep=0pt,label={[below=2.5ex,right]{\tiny OK. But...}}] {\Checked};
+  \end{itemize}
+  \begin{block}{What if you have a large project with 1000+ files?}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{tree} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{tree} }
+    \end{center}
+    \begin{description}
+    \item[Linux 4.9 source tree:] 3799 directories, 55877 files
+    \end{description}
+  \end{block}
+  \begin{description}
+  \item[make:] help you maintain your programs.
+  \end{description}
+\end{frame}
+
+\begin{frame}{Makefile}
+  \begin{block}{}
+      \mode<beamer>{ \includegraphics[width=.5\textwidth]{mktab1} }%
+      \mode<article>{ \includegraphics[width=.3\textwidth]{mktab1-bw} }
+  \end{block}
+  \begin{block}{Example}
+      \mode<beamer>{ \includegraphics[width=.6\textwidth]{mktab2} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{mktab2-bw} }
+  \end{block}
+  \begin{itemize}
+  \item[\$] \cmd{info make makefiles}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Makefile}
+  \begin{minipage}{.75\linewidth}
+    \mode<beamer>{ \includegraphics[width=1.1\textwidth]{Makefile2-mk} }%
+    \mode<article>{
+      \begin{center}
+        \includegraphics[width=.8\textwidth]{Makefile2-mk}
+      \end{center}}
+  \end{minipage}
+  \begin{minipage}{.2\linewidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{make-dir-tree} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{make-dir-tree} }
+    \end{center}
+  \end{minipage}
+\end{frame}
+
+\subsubsection{Version Control}
+\label{sec:version-control}
+
+\begin{frame}{git}
+  \begin{block}{To create a new local git repo}
+    In your source code directory, do:\ttfamily
+    \begin{itemize}
+    \item[\$] git init
+    \item[\$] git add .
+    \item[\$] git commit -m "something to say\ldots"
+    \end{itemize}
+  \end{block}
+  \begin{block}{To clone a remote repo}
+    Example:\ttfamily
+    \begin{itemize}
+    \item[\$] git clone https://github.com/wx672/lecture-notes.git
+    \item[\$] git clone https://github.com/wx672/dotfile.git
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Most commonly used git Commands}\ttfamily
+    \begin{itemize}
+    \item[\$] git add filename[s]
+    \item[\$] git rm filename[s]
+    \item[\$] git commit
+    \item[\$] git status
+    \item[\$] git log
+    \item[\$] git diff
+    \item[\$] git push
+    \item[\$] git pull
+    \item[\$] git help \{add,rm,commit,\ldots\}
+    \end{itemize}
+  \end{block}
+  \begin{multicols}{2}
+    \begin{itemize}
+    \item[\$] man gittutorial
+    \item[\$] man gittutorial-2
+    \item[\debian] sudo apt install git
+    \item[\github] \url{https://github.com}
+    \end{itemize}
+  \end{multicols}
+\end{frame}
+
+\subsubsection{Manual Pages}
+\label{sec:manual-pages}
+
+\begin{frame}{Man page}{Layout}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{manpage-txt} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{manpage-txt} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Man Page}{Groff source code}
+  \begin{minipage}[b]{.6\linewidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=1.6\textwidth]{manpage-1} }%
+      \mode<article>{ \includegraphics[width=1.2\textwidth]{manpage-1} }
+    \end{center}
+  \end{minipage}
+  \begin{minipage}[b]{.35\linewidth}\ttfamily
+    \begin{itemize}
+    \item[\$] man 7 groff
+    \item[\$] man txt2man
+    \item[\$] man a2x
+    \item[\$] ls /usr/share/man
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+\subsection{OS Basics}
 \label{sec:os-basics}
 
-\begin{frame}<beamer>{What's in the OS?}
+\begin{frame}<beamer>{Operating System}
   \centering
   \includegraphics[height=.85\textheight]{kernel-block}
 \end{frame}
@@ -780,7 +1083,7 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
   \end{center}
 \end{frame}
 
-\subsection{Hardware}
+\subsubsection{Hardware}
 \label{sec:cpu}
 
 \begin{frame}{CPU Working Cycle}
@@ -931,7 +1234,7 @@ See also:
 \item When is the memory address map built? \texttt{setup()}.
 \end{itemize}
 
-\subsection{Bootstrapping}
+\subsubsection{Bootstrapping}
 \label{sec:bootstrapping}
 
 \begin{frame}{Bootstrapping}
@@ -975,7 +1278,7 @@ See also:
 
 
 \lecture{Interrupt}{int}
-\subsection{Interrupt}
+\subsubsection{Interrupt}
 \label{sec:interrupt}
 
 \begin{frame}{Why Interrupt?}
@@ -1028,7 +1331,7 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
 
 
 \lecture{System Calls}{syscall}
-\subsection{System Calls}
+\subsubsection{System Calls}
 \label{sec:system-calls}
 
 \begin{frame}{System Calls}
@@ -1047,7 +1350,7 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
 \begin{frame}
   \begin{center}
     \mode<beamer>{ \includegraphics[height=\textheight]{syscall} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{syscall} }
+    \mode<article>{ \includegraphics[width=.45\textwidth]{syscall} }
   \end{center}
 \end{frame}
 
@@ -1072,7 +1375,8 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
 
 \begin{frame}{Example}
   \begin{center}
-    \includegraphics[width=.8\linewidth]{h-asm}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{h-asm} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{h-asm} }
   \end{center}
   \begin{block}{}
     \ttfamily
@@ -1136,28 +1440,106 @@ Quoted from
   \end{itemize}
 \end{quote}
 
-\lecture{GNU C Library}{glibc}
-\subsection{GNU C Library}
-\label{sec:gnu-c-library}
+\section{The Linux Environment}
+\label{sec:linux-environment}
 
-\begin{frame}{GNU C Library}
-  \begin{minipage}{.55\linewidth}
-    Linux API > POSIX API
-    \begin{itemize}
-    \item[\$] \cmd{man 7 libc}
-    \item[\$] \cmd{man 3 intro}
-    \item[\$] \cmd{}
-    \item[\$] \cmd{}
-    \item[\$] \cmd{}
-    \end{itemize}
-  \end{minipage}
-  \begin{minipage}{.4\linewidth}
-    \includegraphics[width=\linewidth]{api}
+\begin{frame}{Command Line Options}{\texttt{getopt.c}}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{getopt-c} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{getopt-c} }
+  \end{center}
+  \qquad\qquad\CMD{man 3 getopt}
+\end{frame}
+
+\begin{frame}{Command Line Options}{\texttt{getopt.sh}}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{getopt-sh} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{getopt-sh} }
+  \end{center}
+  \ttfamily
+  \begin{itemize}
+  \item[\$] ./getopt.sh -h
+  \item[\$] ./getopt.sh -lf filename
+  \item[\$] ./getopt.sh -l -f filename
+  \item[\$] ./getopt.sh -f filename -l
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Environment Variable}
+  \begin{minipage}{.5\linewidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{env-c} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{env-c} }
+    \end{center}
+  \end{minipage}\quad
+  \begin{minipage}{.45\linewidth}
+  \ttfamily
+  \begin{itemize}
+  \item[\$] env
+  \item[\$] man 3 getenv
+  \item[\$] man 3 putenv
+  \end{itemize}  
   \end{minipage}
 \end{frame}
 
+\begin{frame}{Time and Date}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{time-c} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{time-c} }
+  \end{center}
+  \begin{itemize}
+  \item January 1 1970 --- start of the Unix epoch
+  \item[\$] \cmd{man 3 time}
+  \item[\$] \cmd{man 3 ctime}
+  % \item[\$] \cmd{man 3 strftime} (\texttt{sprintf()} for time and date)
+  \end{itemize}
+\end{frame}
 
-\lecture{Working with files}{file}
+\begin{frame}{Temporary Files}
+  \ttfamily
+  \begin{minipage}[t]{.55\linewidth}
+    \begin{block}{\texttt{mkstemp.c}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{mkstemp-c} }%
+        \mode<article>{ \includegraphics[width=.8\textwidth]{mkstemp-c} }
+      \end{center}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}[t]{.35\linewidth}
+    \begin{block}{\texttt{mktemp.sh}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{mktemp-sh} }%
+        \mode<article>{ \includegraphics[width=.7\textwidth]{mktemp-sh} }
+      \end{center}
+    \end{block}
+    \begin{itemize}
+    \item[\$] man 3 mkstemp
+    \item[\$] man 3 tmpfile
+    \item[\$] man 3 asprintf
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Logging}
+  \begin{block}{\ttfamily syslog.c}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{syslog-c} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{syslog-c} }
+    \end{center}
+  \end{block}
+  \begin{block}{\ttfamily logger.sh}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{logger-sh} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{logger-sh} }
+    \end{center}
+  \end{block}
+  % \ttfamily
+  % \begin{itemize}
+  % \item[\$] man 3 syslog
+  % \item[\$] man logger
+  % \end{itemize}
+\end{frame}
+
 \section{Working With Files}
 \label{sec:working-with-files}
 
@@ -1275,37 +1657,36 @@ Quoted from
 \end{frame}
 
 \begin{frame}{Implementing Files}
-  \begin{description}
-  \item[Contiguous Allocation] 
-  \end{description}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{file-alloc-contiguous} }%
-      \mode<article>{ \includegraphics[width=.5\textwidth]{file-alloc-contiguous} }
-    \end{center}
-  \begin{multicols}{2}
-    \begin{itemize}
-    \item[-] simple;
-    \item[-] good for read only;
-    \item[-] fragmentation
-    \end{itemize}
-  \end{multicols}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-alloc-contiguous} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{file-alloc-contiguous} }
+  \end{center}
+  \begin{block}{Contiguous Allocation}
+    \begin{multicols}{2}
+      \begin{itemize}
+      \item[\Good] simple
+      \item[\Good] good for read only
+      \item[\Bad] fragmentation
+      \end{itemize}
+    \end{multicols}
+  \end{block}
 \end{frame}
 
 \begin{frame}
-  \begin{description}
-  \item[Linked List (Chained) Allocation] A pointer in each disk block
-  \end{description}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{file-alloc-chained} }%
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-alloc-chained} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{file-alloc-chained} }
   \end{center}
-  \begin{multicols}{3}
-    \begin{itemize}
-    \item[-] no waste block;
-    \item[-] slow random access;
-    \item[-] not $2^n$
-    \end{itemize}
-  \end{multicols}
+  \begin{block}{Linked List (Chained) Allocation}
+    A pointer in each disk block
+    \begin{multicols}{2}
+      \begin{itemize}
+      \item[\Good] no waste block
+      \item[\Bad] slow random access
+      \item[\Bad] not $2^n$
+      \end{itemize}
+    \end{multicols}
+  \end{block}
 \end{frame}
 
 \begin{frame}
@@ -1343,12 +1724,9 @@ Quoted from
 
 See also: \citetitle[\emph{Wikipedia:FAT}]{wiki:fat}.
 
-\begin{frame}
-  \begin{description}
-  \item[Indexed Allocation]
-  \end{description}
+\begin{frame}{Indexed Allocation}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{file-alloc-idx} }%
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-alloc-idx} }%
     \mode<article>{ \includegraphics[width=.4\textwidth]{file-alloc-idx} }
   \end{center}
   \begin{description}
@@ -1445,7 +1823,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \end{block}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.6\textwidth]{file-tables2} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{file-tables2} }
+    \mode<article>{ \includegraphics[width=.4\textwidth]{file-tables2} }
   \end{center}
 \end{frame}
 
@@ -1458,14 +1836,17 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \end{block}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-tables3} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{file-tables3} }
+    \mode<article>{ \includegraphics[width=.5\textwidth]{file-tables3} }
   \end{center}
 \end{frame}
 
 \begin{frame}
   \begin{minipage}[t]{.53\linewidth}
     \begin{block}{\texttt{write()}}
-      \includegraphics[width=\linewidth]{write-c}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
+        \mode<article>{ \includegraphics[width=.7\textwidth]{write-c} }
+      \end{center}
     \end{block}
     \ttfamily
     \begin{itemize}
@@ -1475,7 +1856,10 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \end{minipage}\qquad
   \begin{minipage}[t]{.37\linewidth}
     \begin{block}{\texttt{read()}}
-      \includegraphics[width=\linewidth]{read-c}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{read-c} }%
+        \mode<article>{ \includegraphics[width=.7\textwidth]{read-c} }
+      \end{center}
     \end{block}
     \ttfamily
     \begin{itemize}
@@ -1487,7 +1871,10 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 
 \begin{frame}{\cmd{cp}}
   \begin{center}
-    \includegraphics[width=.95\textwidth]{cp-syscall-c}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.95\textwidth]{cp-syscall-c} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{cp-syscall-c} }
+    \end{center}
   \end{center}
 \end{frame}
 
@@ -1504,7 +1891,10 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
       \end{itemize}
     \end{minipage}\qquad
     \begin{minipage}{.4\linewidth}
-      \includegraphics[width=\linewidth]{api}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{api} }%
+        \mode<article>{ \includegraphics[width=.5\textwidth]{api} }
+      \end{center}
     \end{minipage}
   \end{block}  
 \end{frame}
@@ -1531,7 +1921,8 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 
 \begin{frame}{\texttt{cp} --- {\small With} \texttt{stdio}}
   \begin{center}
-    \includegraphics[width=.6\linewidth]{cp-libc-c}
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{cp-libc-c} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{cp-libc-c} }
   \end{center}
   \begin{description}
   \item[Homework:] Try \texttt{fread()/fwrite()} instead.
@@ -1562,7 +1953,8 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \begin{frame}%{Directory}
   \begin{block}{Directory entry in \texttt{glibc}}
     \begin{center}
-      \includegraphics[width=\textwidth]{dirent-c}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{dirent-c} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{dirent-c} }
     \end{center}
   \end{block}
   \begin{itemize}
@@ -1600,12 +1992,16 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \end{tikzpicture}}
   
   \begin{minipage}{.6\linewidth}
-    \includegraphics[width=\linewidth]{ls-c}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{ls-c} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{ls-c} }
+    \end{center}
   \end{minipage}\quad
   \begin{minipage}{.35\linewidth}
     \begin{description}
     \item[The real \texttt{ls.c}?] 
     \end{description}
+    \mode<beamer>{
     \begin{flushright}
       \begin{large}
         116 A4 pages\\
@@ -1613,13 +2009,23 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
         Do one thing, and do it really well.\\[2em]
       \end{large}
     \end{flushright}
-    {\small \CMD{apt source coreutils}}
+    {\small \CMD{apt source coreutils}}}
+  \mode<article>{
+    \begin{itemize}
+    \item 116 A4 pages
+    \item 5308 lines
+    \end{itemize}
+    Do one thing, and do it really well.
+    \begin{itemize}
+    \item[\$] \cmd{apt source coreutils}
+    \end{itemize}}
   \end{minipage}  
 \end{frame}
 
 \begin{frame}{\ttfamily mkdir(), chdir(), rmdir(), getcwd()}
   \begin{center}
-    \includegraphics[width=.9\linewidth]{mkdir-c}
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{mkdir-c} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mkdir-c} }
   \end{center}
 \end{frame}
 
@@ -1656,7 +2062,8 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 
 \begin{frame}{\ttfamily link(), unlink(), symlink()}
   \begin{center}
-    \includegraphics[width=.7\textwidth]{link-c}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{link-c} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{link-c} }
   \end{center}
 \end{frame}
 
@@ -1669,100 +2076,281 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 % \end{frame}
 
 \lecture{The Linux Environment}{Linux Environment}
-\section{The Linux Environment}
-\label{sec:linux-environment}
-
-\begin{frame}{Command Line Options}{\texttt{getopt.c}}
-  \begin{center}
-    \includegraphics[width=.7\linewidth]{getopt-c}
-  \end{center}
-  \qquad\qquad\CMD{man 3 getopt}
-\end{frame}
-
-\begin{frame}{Command Line Options}{\texttt{getopt.sh}}
-  \begin{center}
-    \includegraphics[width=.9\linewidth]{getopt-sh}    
-  \end{center}
-  \ttfamily
-  \begin{itemize}
-  \item[\$] ./getopt.sh -h
-  \item[\$] ./getopt.sh -lf filename
-  \item[\$] ./getopt.sh -l -f filename
-  \item[\$] ./getopt.sh -f filename -l
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Environment Variable}
-  \begin{minipage}{.5\linewidth}
-    \includegraphics[width=\linewidth]{env-c}
-  \end{minipage}\quad
-  \begin{minipage}{.45\linewidth}
-  \ttfamily
-  \begin{itemize}
-  \item[\$] env
-  \item[\$] man 3 getenv
-  \item[\$] man 3 putenv
-  \end{itemize}  
-  \end{minipage}
-\end{frame}
-
-\begin{frame}{Time and Date}
-  \begin{center}
-    \includegraphics[width=.7\textwidth]{time-c}
-  \end{center}
-  \begin{itemize}
-  \item January 1 1970 --- start of the Unix epoch
-  \item[\$] \cmd{man 3 time}
-  \item[\$] \cmd{man 3 ctime}
-  % \item[\$] \cmd{man 3 strftime} (\texttt{sprintf()} for time and date)
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Temporary Files}
-  \ttfamily
-  \begin{minipage}[t]{.55\linewidth}
-    \begin{block}{\texttt{mkstemp.c}}
-      \includegraphics[width=\linewidth]{mkstemp-c}
-    \end{block}
-  \end{minipage}\qquad
-  \begin{minipage}[t]{.35\linewidth}
-    \begin{block}{\texttt{mktemp.sh}}
-      \includegraphics[width=\linewidth]{mktemp-sh}
-    \end{block}
-    \begin{itemize}
-    \item[\$] man 3 mkstemp
-    \item[\$] man 3 tmpfile
-    \item[\$] man 3 asprintf
-    \end{itemize}
-  \end{minipage}
-\end{frame}
-
-\begin{frame}{Logging}
-  \begin{block}{\ttfamily syslog.c}
-    \includegraphics[width=.8\linewidth]{syslog-c}
-  \end{block}
-  \begin{block}{\ttfamily logger.sh}
-    \includegraphics[width=\linewidth]{logger-sh}
-  \end{block}
-  % \ttfamily
-  % \begin{itemize}
-  % \item[\$] man 3 syslog
-  % \item[\$] man logger
-  % \end{itemize}
-\end{frame}
-
-\lecture{Terminal}{term}
-\section{Terminal}
-\label{sec:terminal}
-
-\lecture{IDE}{ide}
-\section{IDE}
-\label{sec:ide}
 
 
 \lecture{Process}{proc}
 \section{Processes and signals}
 \label{sec:processes-signals}
+
+\begin{frame}{Process}
+  \begin{description}
+  \item[A process] is an instance of a program in execution
+  \end{description}
+  \begin{minipage}{.65\linewidth}
+    \begin{block}{\mbox{Processes are like human beings:}}
+        \begin{itemize}
+        \item[\Symbol{➠}] they are generated
+        \item[\Symbol{➠}] they have a life
+        \item[\Symbol{➠}] they optionally generate one or more child processes, and
+        \item[\Symbol{➠}] eventually they die
+        \end{itemize}
+        A small difference:
+        \begin{itemize}
+        \item sex is not really common among processes
+        \item each process has just one parent
+        \end{itemize}
+      \end{block}
+  \end{minipage}\quad
+  \begin{minipage}{.3\linewidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-20} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-1-20} }
+    \end{center}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Process Control Block (PCB)}
+  \begin{varwidth}{.7\textwidth}
+    \begin{block}{Implementation}
+        A process is \alert{the collection of data structures} that fully describes how far
+        the execution of the program has progressed.
+        \begin{itemize}
+        \item Each process is represented by a \alert{PCB}
+        \item \texttt{task\_struct} in \linux{}
+        \end{itemize}
+      \end{block}
+    \end{varwidth}\quad
+    \begin{varwidth}{.2\textwidth}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=1.5\textwidth]{pcb} }%
+        \mode<article>{ \includegraphics[width=\textwidth]{pcb} }
+      \end{center}      
+    \end{varwidth}
+\end{frame}
+
+\begin{frame}{Process Creation}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{process-creation} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{process-creation} }
+  \end{center}
+  \begin{itemize}
+  \item When a process is created, it is almost identical to its parent
+    \begin{itemize}
+    \item It receives a (logical) copy of the parent's address space, and
+    \item executes the same code as the parent
+    \end{itemize}
+  \item The parent and child have separate copies of the data (stack and heap)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Forking in C}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-bw} }
+  \end{center}
+  \begin{itemize}
+  \item[\$] \texttt{man fork}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{exec()}}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork-exec-osc} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-exec-osc-bw} }
+  \end{center}
+  \begin{itemize}
+  \item[\$] \texttt{man 3 exec}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Process State Transition}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-2} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-2-2} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{CPU Switch From Process To Process}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{cpu-switch} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{cpu-switch} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Process vs. Thread}
+    \begin{tabular}{r@{\quad{}=\quad}l}
+      a single-threaded process&resource + execution\\
+      a  multi-threaded process&resource + executions\\
+    \end{tabular}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-2-6} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-2-6} }
+    \end{center}
+  \begin{description}
+  \item[A process] = a unit of resource ownership, used to group resources together;
+  \item[A thread] = a unit of scheduling, scheduled for execution on the CPU.
+  \end{description}  
+\end{frame}
+
+\begin{frame}{Threads}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{thread-components} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{thread-components} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{POSIX Threads}
+  \begin{description}
+  \item[IEEE 1003.1c] The standard for writing portable threaded programs. The threads package it
+    defines is called \alert{Pthreads}, including over 60 function calls, supported by most UNIX
+    systems.
+  \end{description}
+  \begin{block}{Some of the Pthreads function calls}
+    \begin{center}
+      \begin{small}
+        \begin{tabularx}{\textwidth}{>{\ttfamily}lX}
+          \hline
+          \thead{Thread call}&\thead{Description}\\\hline
+          pthread\_create&Create a new thread\\
+          pthread\_exit&Terminate the calling thread\\
+          pthread\_join&Wait for a specific thread to exit\\
+          pthread\_yield&Release the CPU to let another thread run\\
+          pthread\_attr\_init&Create and initialize a thread's attribute structure\\
+          pthread\_attr\_destroy&Remove a thread's attribute structure\\\hline
+        \end{tabularx}
+      \end{small}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Pthreads}{Example 1}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{thread1} }%
+    \mode<article>{ \includegraphics[width=\textwidth]{thread1-bw} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Pthreads}
+  \begin{description}
+  \item[\texttt{pthread\_t}] defined in \texttt{pthread.h}, is often called a "thread id"
+    (\texttt{tid});
+  \item[\texttt{pthread\_create()}] returns zero on success and a non-zero value on failure;
+  \item[\texttt{pthread\_join()}] returns zero on success and a non-zero value on failure;
+  \end{description}
+  \begin{block}{How to use pthread?}
+    \begin{itemize}
+    \item \texttt{\#include<pthread.h>}
+    \item[\$] \texttt{gcc thread1.c -o thread1 -pthread}
+    \item[\$] \texttt{./thread1}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Pthreads}{Example 2}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{thread2} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{thread2-bw} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Linux Threads}
+  \begin{block}{To the Linux kernel, there is no concept of a thread}
+    \begin{itemize}
+    \item Linux implements all threads as standard processes
+    \item To Linux, a thread is merely a process that shares certain resources with other
+      processes
+    \item Some OS (MS Windows, Sun Solaris) have cheap threads and expensive processes.
+    \item Linux processes are already quite lightweight
+      \begin{itemize}
+      \item[] On a 75MHz Pentium
+        \begin{tabular}{r}
+          thread: $1.7\mu{}s$\\
+          fork: $1.8\mu{}s$
+        \end{tabular}
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Linux Threads}
+  \begin{description}
+  \item[\texttt{clone()}] creates a separate process that shares the address space of the
+    calling process. The cloned task behaves \emph{much like} a separate thread.
+  \end{description}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.55\textwidth]{syscall} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{syscall} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{\texttt{clone()}}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{clone-prototype} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{clone-prototype-bw} }
+  \end{center}
+  \begin{small}
+    \begin{description}
+    \item[arg 1] the function to be executed, i.e. \texttt{fn(arg)}, which returns an \texttt{int};
+    \item[arg 2] a pointer {\pright} a (usually malloced) memory space to be used as
+      the stack for the new thread;
+    \item[arg 3] a set of flags used to indicate how much the calling process is to be
+      shared. In fact,
+      \begin{itemize}
+      \item[]  \texttt{clone(0) == fork()}
+      \end{itemize}
+    \item[arg 4] the arguments passed to the function.
+    \end{description}
+    It returns the PID of the child process or -1 on failure.
+  \end{small}
+  \begin{itemize}
+    \item[\$] \texttt{man clone}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The \texttt{clone()} System Call}
+  \begin{block}{Some flags:}
+    \begin{center}
+      \begin{tabular}{>{\ttfamily}ll}
+        \hline
+        \thead{flag}&\thead{Shared}\\\hline
+        CLONE\_FS&File-system info\\
+        CLONE\_VM&Same memory space\\
+        CLONE\_SIGHAND&Signal handlers\\
+        CLONE\_FILES&The set of open files\\\hline
+      \end{tabular}
+    \end{center}
+  \end{block}
+  \begin{block}{In practice, one should try to avoid calling \texttt{clone()} directly}
+    \begin{itemize}
+    \item[] Instead, use a threading library (such as pthreads) which use \texttt{clone()}
+      when starting a thread (such as during a call to \texttt{pthread\_create()})
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{\texttt{clone()} Example}
+  \begin{center}
+    \mode<beamer>{
+      \includegraphics[width=\textwidth]{clone2}
+      \pause
+      \begin{tikzpicture}[remember picture, overlay]
+        \node [yshift=-7em,xshift=5em,rotate=-20,scale=6,text opacity=0.7,color=red] at
+        (current page.center) {\Symbol{✘}};
+      \end{tikzpicture}
+    } \mode<article>{ \includegraphics[width=.45\textwidth]{clone2-bw-crop} }
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Stack Grows Downwards}
+\begin{ccode}
+child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
+\end{ccode}
+  \mode<beamer>{
+    \begin{tikzpicture}[remember picture, overlay]
+      \node [yshift=-0.1em,xshift=9em,rotate=0,scale=12,text opacity=0.7,color=red] at
+      (current page.center) {\Symbol{✔}};
+    \end{tikzpicture}}
+\end{frame}
 
 \lecture{IPC}{ipc}
 \section{IPC}
@@ -1784,6 +2372,21 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \subsection{Qt}
 \label{sec:qt}
 
+\section{Terminal}
+\label{sec:terminal}
+
+\begin{itemize}
+\item chap 62 of \citetitle{Kerrisk:2010:LPI:1869911}
+\item \url|http://tldp.org/HOWTO/Text-Terminal-HOWTO-16.html|
+\item \url{http://pubs.opengroup.org/onlinepubs/9699919799/}
+\item[\$] \cmd{man infocmp}
+\end{itemize}
+
+
+\lecture{IDE}{ide}
+\section{IDE}
+\label{sec:ide}
+Makefile, git
 
 \end{document}
 %%% Local Variables:
