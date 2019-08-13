@@ -1,0 +1,21 @@
+\documentclass[varwidth,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+┌────┐ pipe  ┌─────┐   ┌────────┐
+│ ls ├─════─>│ tee ├──>│ STDOUT │
+└────┘       └──┬──┘   └────────┘
+                v
+            ┌────────┐
+            │ ls.out │
+            └────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

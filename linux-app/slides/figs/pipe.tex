@@ -1,0 +1,23 @@
+\documentclass[varwidth,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+┌───────────┐        ┌───────────┐
+│ Process A │        │ Process B │
+│  buffer   │        │  buffer   │
+└─────┬─────┘        └─────^─────┘ User
+      │write()       read()│       space
+──────│────────────────────│──────────────
+      │   ┌─────────────┐  │       Kernel
+      └──>│ pipe buffer ├──┘       space
+          └─────────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX─master: t
+%%% End:
