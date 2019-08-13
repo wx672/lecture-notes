@@ -215,6 +215,20 @@
   \end{center}
 \end{frame}
 
+\begin{frame}{Redirection}
+  \begin{block}{Redirecting output}\ttfamily
+    \begin{itemize}
+    \item[\$] ls -l > output.txt
+    \item[\$] ps aux >> output.txt
+    \end{itemize}
+  \end{block}
+  \begin{block}{Redirecting input}\ttfamily
+    \begin{itemize}
+    \item[\$] more < output.txt
+    \end{itemize}
+  \end{block}
+\end{frame}
+
 \begin{frame}{Process Operations}
   \begin{center}\small
     \begin{tabular}{r@{\quad}>{\ttfamily}l|r@{\quad}>{\ttfamily}l}
@@ -360,33 +374,51 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Redirection}
-  \begin{block}{Redirecting output}\ttfamily
-    \begin{itemize}
-    \item[\$] ls -l > output.txt
-    \item[\$] ps aux >> output.txt
-    \end{itemize}
-  \end{block}
-  \begin{block}{Redirecting input}\ttfamily
-    \begin{itemize}
-    \item[\$] more < output.txt
-    \end{itemize}
-  \end{block}
+\begin{frame}{\texttt{/proc}}
+  Allow higher-level access to driver and kernel information
+  \ttfamily
+  \begin{itemize}
+  \item[\$] cat /proc/cpuinfo
+  \item[\$] cat /proc/meminfo
+  \item[\$] cat /proc/version
+  \item[\$] cat /proc/1/status
+  \item[\#] echo 100000 > /proc/sys/kernel/pid\_max
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Pipe}{Chain processes together}
-  \CMD{ps aux | sort | less}
+  \begin{block}{Unnamed pipe}\ttfamily
+    \begin{itemize}
+    \item[\$] ps aux | sort | less
+    \end{itemize}
+  \end{block}
+  \begin{block}{Named pipe}\ttfamily
+    \begin{enumerate}
+    \item \alert{\$} mkfifo mypipe
+    \item \alert{\$} gzip -9 -c < mypipe > out.gz
+    \item \alert{\$} cat file > mypipe
+    \end{enumerate}
+  \end{block}  
 \end{frame}
+
+\begin{itemize}
+\item \url{https://en.wikipedia.org/wiki/Named_pipe}
+\end{itemize}
 
 \section{Shell Programming}
 \label{sec:shell-programming}
 
-% \begin{frame}{Shell Programming}
-%   \begin{description}
-%   \item[why?] handy, powerful 
-%   \item[which?] bash
-%   \end{description}
-% \end{frame}
+\begin{frame}{\$ --- Give Me The Value Of \ldots}
+  \begin{description}
+  \item[\texttt{\$var}] Give me the value of variable ``\texttt{var}''
+  \item[\texttt{\$(echo hello)}] Give me the value (output) of command ``\cmd{echo hello}''
+  \item[\texttt{\$((1+1))}] Give me the value (result) of ``1+1''
+  \item[\texttt{\$\$}] Give me the value of special variable ``\texttt{\$}''
+  \item[\texttt{\$?}] Give me the value of special variable ``\texttt{?}''
+  \item[\texttt{\$0}] Give me the value of special variable ``\texttt{0}''
+  \item[\texttt{\$@}] Give me the value of special variable ``\texttt{@}''
+  \end{description}
+\end{frame}
 
 \begin{frame}{Variables}\ttfamily\small
   \begin{itemize}
@@ -409,13 +441,13 @@
   \begin{minipage}{.44\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{isay-sh} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{isay-sh} }
+      \mode<article>{ \includegraphics[width=.7\textwidth]{isay-sh-bw} }
     \end{center}
   \end{minipage}\quad
   \begin{minipage}{.52\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{isay-c} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{isay-c} }
+      \mode<article>{ \includegraphics[width=.8\textwidth]{isay-c-bw} }
     \end{center}
   \end{minipage}
 \end{frame}
@@ -435,7 +467,7 @@
     \begin{center}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=.6\textwidth]{para-substitution-sh} }%
-        \mode<article>{ \includegraphics[width=.4\textwidth]{para-substitution-sh} }
+        \mode<article>{ \includegraphics[width=.4\textwidth]{para-substitution-sh-bw} }
       \end{center}
     \end{center}
   \end{block}
@@ -501,7 +533,7 @@
   \begin{block}{}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.7\textwidth]{if-then-else-sh} }%
-      \mode<article>{ \includegraphics[width=.4\textwidth]{if-then-else-sh} }
+      \mode<article>{ \includegraphics[width=.4\textwidth]{if-then-else-sh-bw} }
     \end{center}
   \end{block}
 \end{frame}
@@ -538,22 +570,28 @@
 
 \begin{frame}{\texttt{case}}
   \begin{center}
-    \includegraphics[width=.8\linewidth]{n2-sh}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{n2-sh} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{n2-sh-bw} }
   \end{center}
 \end{frame}
 
 \begin{frame}{\texttt{select}}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{select-sh} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{select-sh} }
+    \mode<article>{ \includegraphics[width=.5\textwidth]{select-sh-bw} }
   \end{center}
 \end{frame}
 
 \begin{frame}{Functions}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{func-sh} }%
-    \mode<article>{ \includegraphics[width=.8\textwidth]{func-sh} }
+    \mode<article>{ \includegraphics[width=.8\textwidth]{func-sh-bw} }
   \end{center}
+\end{frame}
+
+\begin{frame}{Array}
+  \url{https://www.tutorialspoint.com/unix/unix-using-arrays.htm}
+  
 \end{frame}
 
 \lecture{C Programming Basics}{C basics}
@@ -813,24 +851,25 @@ int triple(int x)
     \begin{block}{\texttt{main.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{main-c} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{main-c} }
+        \mode<article>{ \includegraphics[width=.7\textwidth]{main-c-bw} }
       \end{center}
     \end{block}
     \begin{block}{\texttt{lib.h}}
-      \includegraphics[width=.5\textwidth]{lib-h}
+      \mode<beamer>{\includegraphics[width=.5\textwidth]{lib-h}}%
+      \mode<article>{\includegraphics[width=.5\textwidth]{lib-h-bw}}%
     \end{block}
   \end{minipage}\qquad
   \begin{minipage}[t]{.43\linewidth}
     \begin{block}{\texttt{hello.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{hello-c} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{hello-c} }
+        \mode<article>{ \includegraphics[width=.7\textwidth]{hello-c-bw} }
       \end{center}
     \end{block}
     \begin{block}{\texttt{hi.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{hi-c} }
+        \mode<article>{ \includegraphics[width=.7\textwidth]{hi-c-bw} }
       \end{center}
     \end{block}
   \end{minipage}
@@ -856,7 +895,7 @@ int triple(int x)
 \begin{frame}{Build A Static Library}{Makefile}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{makefile-a} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{makefile-a} }
+    \mode<article>{ \includegraphics[width=.5\textwidth]{makefile-a-bw} }
   \end{center}
 \end{frame}
 
@@ -864,14 +903,14 @@ int triple(int x)
   \begin{block}{\texttt{hello.c}}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello-c-so} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{hello-c-so} }
+      \mode<article>{ \includegraphics[width=.6\textwidth]{hello-c-so-bw} }
     \end{center}
   \end{block}
   \begin{minipage}{.35\linewidth}
     \begin{block}{\texttt{hello.h}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{hello-h-so} }%
-        \mode<article>{ \includegraphics[width=.6\textwidth]{hello-h-so} }
+        \mode<article>{ \includegraphics[width=.6\textwidth]{hello-h-so-bw} }
       \end{center}
     \end{block}
   \end{minipage}\qquad
@@ -879,7 +918,7 @@ int triple(int x)
     \begin{block}{\texttt{hi.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c-so} }%
-        \mode<article>{ \includegraphics[width=.6\textwidth]{hi-c-so} }
+        \mode<article>{ \includegraphics[width=.6\textwidth]{hi-c-so-bw} }
       \end{center}
     \end{block}
   \end{minipage}
@@ -909,7 +948,7 @@ int triple(int x)
 \begin{frame}{Build A Shared Library}{Makefile}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{makefile-so} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{makefile-so} }
+    \mode<article>{ \includegraphics[width=.7\textwidth]{makefile-so-bw} }
   \end{center}
 \end{frame}
 
@@ -932,6 +971,25 @@ int triple(int x)
   \end{minipage}
 \end{frame}
 
+\subsubsection{Error Handling}
+\label{sec:error-handling}
+
+\begin{frame}{\texttt{errno.h}}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{perror-c} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{perror-c-bw} }
+  \end{center}\ttfamily
+  \begin{itemize}
+  \item[\$] man errno
+  \item[\$] man errno.h
+  \item[\$] man perror
+  \end{itemize}
+\end{frame}
+
+\begin{itemize}
+\item \citetitle[Sec.~1.7]{stevens2013advanced}
+\item \url{https://stackoverflow.com/questions/30078281/raise-error-in-a-bash-script}
+\end{itemize}
 
 \subsubsection{The Make Utility}
 
@@ -1045,7 +1103,7 @@ int triple(int x)
   \begin{minipage}[b]{.6\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=1.6\textwidth]{manpage-1} }%
-      \mode<article>{ \includegraphics[width=1.2\textwidth]{manpage-1} }
+      \mode<article>{ \includegraphics[width=1.2\textwidth]{manpage-1-bw} }
     \end{center}
   \end{minipage}
   \begin{minipage}[b]{.35\linewidth}\ttfamily
@@ -1056,6 +1114,15 @@ int triple(int x)
     \item[\$] ls /usr/share/man
     \end{itemize}
   \end{minipage}
+\end{frame}
+
+\subsubsection{A Sample GNU Package}
+\label{sec:sample-gnu-package}
+
+\begin{frame}{How to ``Do one thing, and do it well''?}  
+  \begin{itemize}
+  \item[\$] \cmd{apt source hello}
+  \end{itemize}
 \end{frame}
 
 \subsection{OS Basics}
@@ -1320,7 +1387,7 @@ See also:
   \end{center}
 \end{frame}
 
-Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2008modern}.
+Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2015modern}.
 
 \begin{frame}{Interrupt Timeline}
   \begin{center}
@@ -1376,7 +1443,7 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
 \begin{frame}{Example}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{h-asm} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{h-asm} }
+    \mode<article>{ \includegraphics[width=.4\textwidth]{h-asm-bw} }
   \end{center}
   \begin{block}{}
     \ttfamily
@@ -1406,13 +1473,16 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
 \end{frame}
 
 \begin{frame}
-  \begin{block}{\cmd{exec()}}
+  \begin{block}{\cmd{execve()}}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{fork-exec} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{fork-exec-bw} }
     \end{center}
-  \end{block}
-  \qquad\CMD{man 3 exec}
+  \end{block}\ttfamily
+  \begin{itemize}
+  \item[\$] man 2 execve
+  \item[\$] man 3 exec
+  \end{itemize}
 \end{frame}
 
 Quoted from
@@ -1446,7 +1516,7 @@ Quoted from
 \begin{frame}{Command Line Options}{\texttt{getopt.c}}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{getopt-c} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{getopt-c} }
+    \mode<article>{ \includegraphics[width=.6\textwidth]{getopt-c-bw} }
   \end{center}
   \qquad\qquad\CMD{man 3 getopt}
 \end{frame}
@@ -1454,7 +1524,7 @@ Quoted from
 \begin{frame}{Command Line Options}{\texttt{getopt.sh}}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.9\textwidth]{getopt-sh} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{getopt-sh} }
+    \mode<article>{ \includegraphics[width=.6\textwidth]{getopt-sh-bw} }
   \end{center}
   \ttfamily
   \begin{itemize}
@@ -1469,7 +1539,7 @@ Quoted from
   \begin{minipage}{.5\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{env-c} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{env-c} }
+      \mode<article>{ \includegraphics[width=.6\textwidth]{env-c-bw} }
     \end{center}
   \end{minipage}\quad
   \begin{minipage}{.45\linewidth}
@@ -1482,10 +1552,12 @@ Quoted from
   \end{minipage}
 \end{frame}
 
+\citetitle[p.147, Sec. The \texttt{environ} Variable]{matthew2008beginning}
+
 \begin{frame}{Time and Date}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{time-c} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{time-c} }
+    \mode<article>{ \includegraphics[width=.5\textwidth]{time-c-bw} }
   \end{center}
   \begin{itemize}
   \item January 1 1970 --- start of the Unix epoch
@@ -1501,7 +1573,7 @@ Quoted from
     \begin{block}{\texttt{mkstemp.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{mkstemp-c} }%
-        \mode<article>{ \includegraphics[width=.8\textwidth]{mkstemp-c} }
+        \mode<article>{ \includegraphics[width=.8\textwidth]{mkstemp-c-bw} }
       \end{center}
     \end{block}
   \end{minipage}\qquad
@@ -1509,7 +1581,7 @@ Quoted from
     \begin{block}{\texttt{mktemp.sh}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{mktemp-sh} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{mktemp-sh} }
+        \mode<article>{ \includegraphics[width=.7\textwidth]{mktemp-sh-bw} }
       \end{center}
     \end{block}
     \begin{itemize}
@@ -1524,13 +1596,13 @@ Quoted from
   \begin{block}{\ttfamily syslog.c}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{syslog-c} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{syslog-c} }
+      \mode<article>{ \includegraphics[width=.6\textwidth]{syslog-c-bw} }
     \end{center}
   \end{block}
   \begin{block}{\ttfamily logger.sh}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{logger-sh} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{logger-sh} }
+      \mode<article>{ \includegraphics[width=.7\textwidth]{logger-sh-bw} }
     \end{center}
   \end{block}
   % \ttfamily
@@ -1845,7 +1917,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \begin{block}{\texttt{write()}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{write-c} }
+        \mode<article>{ \includegraphics[width=.7\textwidth]{write-c-bw} }
       \end{center}
     \end{block}
     \ttfamily
@@ -1858,7 +1930,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \begin{block}{\texttt{read()}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{read-c} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{read-c} }
+        \mode<article>{ \includegraphics[width=.7\textwidth]{read-c-bw} }
       \end{center}
     \end{block}
     \ttfamily
@@ -1873,7 +1945,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \begin{center}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.95\textwidth]{cp-syscall-c} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{cp-syscall-c} }
+      \mode<article>{ \includegraphics[width=.8\textwidth]{cp-syscall-c-bw} }
     \end{center}
   \end{center}
 \end{frame}
@@ -1903,18 +1975,20 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \begin{center}
     \begin{minipage}{.48\linewidth}
       \cmd{open()}\\[1ex]
-      \includegraphics[width=\linewidth]{open-c}\\[1ex]
+      \mode<beamer>{\includegraphics[width=\linewidth]{open-c}\\[1ex]}%
+      \mode<article>{\includegraphics[width=\linewidth]{open-c-bw}\\[1ex]}
       \CMD{strace -c ./open}
     \end{minipage}\quad
     \begin{minipage}{.48\linewidth}
       \cmd{fopen()} --- Buffered I/O\\[1ex]
-      \includegraphics[width=\linewidth]{fopen-c}\\[1ex]
+      \mode<beamer>{\includegraphics[width=\linewidth]{fopen-c}\\[1ex]}%
+      \mode<article>{\includegraphics[width=\linewidth]{fopen-c-bw}\\[1ex]}
       \CMD{strace -c ./fopen}
     \end{minipage}
-  \end{center}
+  \end{center}{\footnotesize
   \begin{itemize}
   \item[\$] \cmd{dd if=/dev/zero of=/tmp/1m.test bs=1k count=1024}
-  \end{itemize}
+  \end{itemize}}
 \end{frame}
 
 \url|https://stackoverflow.com/questions/1658476/c-fopen-vs-open|
@@ -1922,7 +1996,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \begin{frame}{\texttt{cp} --- {\small With} \texttt{stdio}}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.6\textwidth]{cp-libc-c} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{cp-libc-c} }
+    \mode<article>{ \includegraphics[width=.4\textwidth]{cp-libc-c-bw} }
   \end{center}
   \begin{description}
   \item[Homework:] Try \texttt{fread()/fwrite()} instead.
@@ -1954,7 +2028,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \begin{block}{Directory entry in \texttt{glibc}}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{dirent-c} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{dirent-c} }
+      \mode<article>{ \includegraphics[width=.6\textwidth]{dirent-c-bw} }
     \end{center}
   \end{block}
   \begin{itemize}
@@ -1994,7 +2068,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \begin{minipage}{.6\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{ls-c} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{ls-c} }
+      \mode<article>{ \includegraphics[width=.7\textwidth]{ls-c-bw} }
     \end{center}
   \end{minipage}\quad
   \begin{minipage}{.35\linewidth}
@@ -2025,7 +2099,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \begin{frame}{\ttfamily mkdir(), chdir(), rmdir(), getcwd()}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.9\textwidth]{mkdir-c} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mkdir-c} }
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mkdir-c-bw} }
   \end{center}
 \end{frame}
 
@@ -2063,7 +2137,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \begin{frame}{\ttfamily link(), unlink(), symlink()}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{link-c} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{link-c} }
+    \mode<article>{ \includegraphics[width=.4\textwidth]{link-c-bw} }
   \end{center}
 \end{frame}
 
@@ -2079,8 +2153,11 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 
 
 \lecture{Process}{proc}
-\section{Processes and signals}
-\label{sec:processes-signals}
+\section{Processes and Threads}
+\label{sec:processes-threads}
+
+\subsection{Process}
+\label{sec:process}
 
 \begin{frame}{Process}
   \begin{description}
@@ -2143,26 +2220,6 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Forking in C}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-bw} }
-  \end{center}
-  \begin{itemize}
-  \item[\$] \texttt{man fork}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{\texttt{exec()}}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork-exec-osc} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-exec-osc-bw} }
-  \end{center}
-  \begin{itemize}
-  \item[\$] \texttt{man 3 exec}
-  \end{itemize}
-\end{frame}
-
 \begin{frame}{Process State Transition}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-2} }%
@@ -2176,6 +2233,68 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \mode<article>{ \includegraphics[width=.7\textwidth]{cpu-switch} }
   \end{center}
 \end{frame}
+
+\begin{frame}{Forking in C}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-bw} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{\texttt{exec()}}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork-exec-osc} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-exec-osc-bw} }
+  \end{center}
+\end{frame}
+
+\paragraph{More about \texttt{argv[0]}}
+
+\texttt{int execve(const char *pathname, char *const argv[], char *const envp[]);}
+\begin{itemize}
+\item \texttt{pathname} should be the binary image of a program. Or it can be a script
+  (\cmd{man 2 execve});
+\item \texttt{argv[0]} is the new process name, usually the same as the basename of
+  \texttt{pathname}, though it can be any other string. It can even be NULL (see
+  Figure~\ref{fig:argv0} for example).
+
+  The fact that \texttt{argv[0]} contains the name used to invoke the program can be
+  employed to perform a useful trick. We can create multiple links to (i.e., names for)
+  the same program, and then have the program look at \texttt{argv[0]} and take different
+  actions depending on the name used to invoke it. An example of this technique is
+  provided by the \emph{gzip(1)}, \emph{gunzip(1)}, and \emph{zcat(1)} commands, all of
+  which are links to the same executable
+  file. \citetitle[Sec.~6.6]{Kerrisk:2010:LPI:1869911}
+\item \url{https://stackoverflow.com/questions/2794150/when-can-argv0-have-null}
+\item \url{https://stackoverflow.com/questions/36673765/why-can-the-execve-system-call-run-bin-sh-without-any-argv-arguments-but-not}
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \begin{minipage}{.4\linewidth}
+    \begin{center}
+      \includegraphics[width=\textwidth]{caller-c-bw}
+      \caption{\texttt{caller.c}}
+    \end{center}
+  \end{minipage}\qquad
+  \begin{minipage}{.4\linewidth}
+    \begin{center}
+      \includegraphics[width=\textwidth]{callee-c-bw}
+      \caption{\texttt{callee.c}}
+    \end{center}
+  \end{minipage}\\[1em]
+  \ttfamily
+  \begin{itemize}
+  \item[\$] gcc -Wall caller.c -o caller.out
+  \item[\$] gcc -Wall callee.c -o callee.out
+  \item[\$] ./caller.out ./callee.out
+  \end{itemize}
+  \caption{\texttt{argv[0]} can be NULL}
+  \label{fig:argv0}
+\end{figure}
+
+\subsection{Thread}
+\label{sec:thread}
 
 \begin{frame}{Process vs. Thread}
     \begin{tabular}{r@{\quad{}=\quad}l}
@@ -2352,9 +2471,430 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
     \end{tikzpicture}}
 \end{frame}
 
+\subsection{Signals}
+\label{sec:signals}
+
+\begin{itemize}
+\item Singals are software interrupts. Every signal has a name (SIGXXXX). Signals are
+  classic examples of asynchronous events. They occur at what appear to be random times to
+  the process. The process can't simply test a variable (such as \texttt{errno}) to see
+  whether a signal has occurred; instead, the process has to tell the kernel ``if and when
+  this signal occurs, do the following.'' \citetitle[chap. 10]{stevens2013advanced}
+\item Signals are software interrupts sent to a program to indicate that an important
+  event has occurred. The events can vary from user requests to illegal memory access
+  errors. Some signals, such as the interrupt signal, indicate that a user has asked the
+  program to do something that is not in the usual flow of
+  control. (\url{https://www.tutorialspoint.com/unix/unix-signals-traps})
+\item Signals are similar to interrupts, the difference being that interrupts are mediated
+  by the processor and handled by the kernel while signals are mediated by the kernel
+  (possibly via system calls) and handled by processes. The kernel may pass an interrupt
+  as a signal to the process that caused it (typical examples are SIGSEGV, SIGBUS, SIGILL
+  and SIGFPE). (\url{https://en.wikipedia.org/wiki/Signal_(IPC)})
+\item signal(7)
+\item[\$] \cmd{trap -l}
+\end{itemize}
+
+\begin{frame}{Signals}
+  \begin{itemize}
+  \item Singals are software interrupts
+  \item Every signal has a name (SIGXXXX)
+  \item One process can send a signal to another process
+  \end{itemize}
+  \begin{block}{Sending signals}
+    \begin{itemize}
+    \item[\$] \Cc, \Cz, \ldots
+    \item[\$] \cmd{kill -signal <pid>}
+    \end{itemize}
+  \end{block}
+  \begin{block}{Trapping signals}
+    \begin{itemize}
+    \item[\#!] \cmd{trap <command> <signals>}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Trap}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.5\textwidth]{trap1-sh} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{trap1-sh-bw} }
+  \end{center}\ttfamily
+  \begin{itemize}
+  \item[\#!] trap "rm -rf \$tmpfiles" EXIT
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Example}{SIGINT}
+\begin{center}
+  \mode<beamer>{ \includegraphics[trim={0 0 0 12em},width=.6\textwidth]{shell2-c} }%
+  \mode<article>{ \includegraphics[width=.7\textwidth]{shell2-c-bw} }
+\end{center}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://stackoverflow.com/questions/840501/how-do-function-pointers-in-c-work}
+\end{itemize}
+
+\begin{frame}{Example}{SIGUSR1}
+  \begin{minipage}{.5\linewidth}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{sigusr-c} }%
+  \mode<article>{ \includegraphics[width=\textwidth]{sigusr-c-bw} }    
+  \end{minipage}\quad
+  \begin{minipage}{.4\linewidth}\ttfamily
+    \begin{itemize}
+    \item[\$] kill -USR1 <PID>
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Example}{SIGALRM}
+  \begin{minipage}{.45\linewidth}
+  \mode<beamer>{  \includegraphics[clip,trim={0 13em 0 0},width=\textwidth]{alarm-c} }%
+  \mode<article>{ \includegraphics[clip,trim={0 13em 0 0},width=\textwidth]{alarm-c-bw} }    
+  \end{minipage}\quad
+  \begin{minipage}{.45\linewidth}
+  \mode<beamer>{  \includegraphics[clip,trim={0 0 0 17.5em},width=\textwidth]{alarm-c} }%
+  \mode<article>{ \includegraphics[clip,trim={0 0 0 17.5em},width=\textwidth]{alarm-c-bw} }    
+  \end{minipage}
+\end{frame}
+
+
 \lecture{IPC}{ipc}
 \section{IPC}
 \label{sec:ipc}
+
+\subsection{Pipes and FIFOs}
+\label{sec:pipes-fifos}
+
+\begin{itemize}
+\item \citetitle[chap.~44]{Kerrisk:2010:LPI:1869911}
+\end{itemize}
+
+\begin{frame}{Pipe}
+  \begin{itemize}
+  \item[\$] \cmd{ls | wc -l}
+  \end{itemize}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{pipe-ls-wc} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{pipe-ls-wc} }
+  \end{center}
+  \begin{itemize}
+  \item A pipe is a byte stream
+  \item Unidirectional
+  \item \texttt{read()} would be blocked if nothing written at the other end
+  \end{itemize}
+  \ttfamily
+  \begin{block}{tee}
+    \begin{center}
+      \begin{minipage}{.35\linewidth}
+        \begin{itemize}
+        \item[\$] ls | tee ls.out
+        \end{itemize}
+      \end{minipage}\quad
+      \begin{minipage}{.55\linewidth}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{tee} }%
+        \mode<article>{ \includegraphics[width=.6\textwidth]{tee} }
+      \end{minipage}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item When we say that a pipe is a byte stream, we mean that there is no concept of
+  messages or message boundaries when using a pipe. The process reading from a pipe can
+  read blocks of data of any size, regardless of the size of blocks written by the writing
+  process. Furthermore, the data passes through the pipe sequentially --- bytes are read from
+  a pipe in exactly the order they were written. It is not possible to randomly access the
+  data in a pipe using \texttt{lseek()}. \citetitle[chap.~44]{Kerrisk:2010:LPI:1869911}
+\end{itemize}
+
+
+\begin{frame}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{pipe} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{pipe} }
+\end{center}
+\begin{itemize}
+\item No direct link between A and B
+\item A pipe is simply a buffer maintained in kernel memory
+  \begin{itemize}
+  \item[\$] \cmd{cat /proc/sys/fs/pipe-max-size}
+  \end{itemize}
+\item Need system calls
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{pipe()}}
+  \begin{center}
+    \begin{minipage}{.35\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{pipe-prototype-c} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{pipe-prototype-c-bw} }
+    \end{minipage}\quad
+    \begin{minipage}{.35\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{pipe1} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{pipe1} }
+    \end{minipage}
+  \end{center}
+  \begin{description}
+  \item[\texttt{pipe()} + \texttt{fork()}]
+  \end{description}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{pipe2} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{pipe2} }
+  \end{center}
+\end{frame}
+
+\begin{itemize}
+\item Pipes must have a reader and a writer. If a process tries to write to a pipe that
+  has no reader, it will be sent the SIGPIPE signal from the kernel. This is imperative
+  when more than two processes are involved in a
+  pipeline. (\url{http://www.tldp.org/LDP/lpg/node20.html})
+\item While it is possible for the parent and child to both read from and write to the
+  pipe, this is not usual. Therefore, immediately after the \texttt{fork()}, one process
+  closes its descriptor for the write end of the pipe, and the other closes its descriptor
+  for the read end. For example, if the parent is to send data to the child, then it would
+  close its read descriptor for the pipe, \texttt{filedes[0]}, while the child would close
+  its write descriptor for the pipe, \texttt{filedes[1]}.
+  
+  One reason that it is not usual to have both the parent and child reading from a single
+  pipe is that if two processes try to simultaneously read from a pipe, we can't be sure
+  which process will be the first to succeed—the two processes race for data.  Preventing
+  such races would require the use of some synchronization mechanism.  However, if we
+  require bidirectional communication, there is a simpler way: just create two pipes, one
+  for sending data in each direction between the two processes.  (If employing this
+  technique, then we need to be wary of deadlocks that may occur if both processes block
+  while trying to read from empty pipes or while trying to write to pipes that are already
+  full.) \citetitle[chap.~44, p.~893]{Kerrisk:2010:LPI:1869911}
+\item Pipes can be used for communication between any two (or more) related processes, as
+  long as the pipe was created by a common ancestor before the series of \texttt{fork()}
+  calls that led to the existence of the processes. For example, a pipe could be used for
+  communication between a process and its grandchild. The first process creates the pipe,
+  and then forks a child that in turn forks to yield the grandchild. A common scenario is
+  that a pipe is used for communication between two siblings --- their parent creates the
+  pipe, and then creates the two children. This is what the shell does when building a
+  pipeline.
+\item \textbf{Closing unused pipe file descriptors}. The process reading from the pipe
+  closes its write descriptor for the pipe, so that, when the other process completes its
+  output and closes its write descriptor, the reader sees end-of-file (once it has read
+  any outstanding data in the pipe).  If the reading process doesn't close the write end
+  of the pipe, then, after the other process closes its write descriptor, the reader won't
+  see end-of-file, even after it has read all data from the pipe. Instead, a
+  \texttt{read()} would block waiting for data, because the kernel knows that there is
+  still at least one write descriptor open for the pipe. That this descriptor is held open
+  by the reading process itself is irrelevant; in theory, that process could still write
+  to the pipe, even if it is blocked trying to read.  For example, the \texttt{read()}
+  might be interrupted by a signal handler that writes data to the pipe.
+
+  The writing process closes its read descriptor for the pipe for a different reason.
+  When a process tries to write to a pipe for which no process has an open read
+  descriptor, the kernel sends the SIGPIPE signal to the writing process. By default, this
+  signal kills a process. A process can instead arrange to catch or ignore this signal, in
+  which case the \texttt{write()} on the pipe fails with the error EPIPE (broken
+  pipe). Receiving the SIGPIPE signal or getting the EPIPE error is a useful indication
+  about the status of the pipe, and this is why unused read descriptors for the pipe
+  should be closed.
+
+  If the writing process doesn't close the read end of the pipe, then, even after the
+  other process closes the read end of the pipe, the writing process will still be able to
+  write to the pipe. Eventually, the writing process will fill the pipe, and a further
+  attempt to write will block indefinitely.
+
+  One final reason for closing unused file descriptors is that it is only after all file
+  descriptors in all processes that refer to a pipe are closed that the pipe is destroyed
+  and its resources released for reuse by other processes. At this point, any unread data
+  in the pipe is lost.
+\end{itemize}
+
+\begin{frame}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[clip,trim={0 0 0 8.5em},width=.65\textwidth]{simple_pipe-c} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{simple_pipe-c-bw} }
+  \end{center}
+\end{frame}
+
+\begin{itemize}
+\item
+  \url{https://stackoverflow.com/questions/5422831/what-is-the-difference-between-using-exit-exit-in-a-conventional-linux-fo}
+\item \texttt{\_exit(2)}
+\end{itemize}
+
+\begin{frame}{\texttt{popen()}}
+
+\end{frame}
+
+\begin{frame}{Named Pipe (FIFO)}
+  \begin{description}
+  \item[PIPEs] pass data between related processes.
+  \item[FIFOs] pass data between any processes.
+  \end{description}
+  \begin{block}{\CMD{mkfifo myfifo}}
+    \begin{center}
+      \begin{minipage}{.45\linewidth}\ttfamily
+        \begin{itemize}
+        \item[\$] echo hello > myfifo
+        \item[\$] cat myfifo
+        \end{itemize}
+      \end{minipage}\quad
+      \begin{minipage}{.5\linewidth}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{fifo} }%
+        \mode<article>{ \includegraphics[width=.6\textwidth]{fifo} }
+      \end{minipage}
+    \end{center}
+  \end{block}
+  \ttfamily
+  \begin{block}{tee}
+    \begin{minipage}{.5\linewidth}
+      \begin{itemize}
+      \item[\$] echo hello | tee myfifo
+      \item[\$] wc myfifo
+      \end{itemize}
+    \end{minipage}\quad
+    \begin{minipage}{.45\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{fifo-tee} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{fifo-tee} }
+    \end{minipage}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://en.wikipedia.org/wiki/Named_pipe}
+\end{itemize}
+
+\begin{frame}{IPC With FIFO}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{fifo2-ipc} }%
+  \mode<article>{ \includegraphics[width=\textwidth]{fifo2-c-bw} }
+\end{frame}
+
+\begin{frame}{}{}
+  {\ttfamily
+    \begin{itemize}
+    \item[\$] watch 'lsof -n.1 /tmp/myfifo'
+    \item[\$] ./a.out O\_RDONLY
+    \item[\$] ./a.out O\_WRONLY
+    \item[\$] ./a.out O\_RDONLY O\_NONBLOCK
+    \item[\$] ./a.out O\_WRONLY O\_NONBLOCK
+    \end{itemize}}
+  \begin{block}{\texttt{O\_NONBLOCK}}
+    \begin{itemize}
+    \item A \texttt{read()/write()} will wait on an empty blocking FIFO
+    \item A \texttt{read()} on an empty nonblocking FIFO will return 0 bytes
+    \item \cmd{open(const char *path, O\_WRONLY | O\_NONBLOCK);}
+      \begin{itemize}
+      \item Returns an error (-1) if FIFO not open
+      \item Okay if someone's reading the FIFO
+      \end{itemize}
+    \item If opened with \texttt{O\_RDWR}, the result is undefined
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item If opened with \texttt{O\_RDWR}, the result is undefined. If you do want to pass
+  data in both directions, it's much better to use a pair of FIFOs or pipes, one for each
+  direction.
+\item There are four legal combinations of \texttt{O\_RDONLY}, \texttt{O\_WRONLY}, and the
+  \texttt{O\_NONBLOCK} flag. 
+  \begin{center}
+    \includegraphics[width=\textwidth]{o_nonblock-c-bw}
+  \end{center}
+\end{itemize}
+
+\subsection{Semaphores}
+\label{sec:semaphores}
+
+\begin{frame}{Race Conditions}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-2-18} }%
+    \mode<article>{ \includegraphics[width=.45\textwidth]{mos-figs-2-18} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Mutual Exclusion}
+  \begin{description}
+  \item[Critical Region] is a piece of code accessing a common resource.
+  \end{description}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-19} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-2-19} }
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{A solution to the critical region problem must satisfy three conditions}
+    \begin{description}
+    \item[Mutual Exclusion:] No two processes may be simultaneously inside their critical
+      regions.
+    \item[Progress:] No process running outside its critical region may block other
+      processes.
+    \item[Bounded Waiting:] No process should have to wait forever to enter its critical
+      region.
+    \end{description}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Mutual Exclusion With Busy Waiting}{Strict Alternation}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{strict-alternation} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{strict-alternation-bw} }
+  \end{center}
+  \begin{itemize}
+  \item[\Bad] One process can be blocked by another not in its critical region
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Mutual Exclusion With Busy Waiting}{Peterson's Solution}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{peterson} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{peterson-bw} }
+  \end{center}
+  \begin{refsection}
+    \nocite{wiki:peterson}
+    \printbibliography[heading=none]
+  \end{refsection}
+\end{frame}
+
+\begin{frame}{Mutual Exclusion With Busy Waiting}{Lock file}
+  \mode<beamer>{ \includegraphics[clip,trim={0 0 0 6.5em},width=\textwidth]{lock2-c} }%
+  \mode<article>{ \includegraphics[width=.8\textwidth]{lock2-c-bw} }
+  \begin{itemize}
+  \item[\Bad] Lock file could be left in system after \Cc
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\wrong}
+  \mode<beamer>{ \includegraphics[clip,trim={0 0 0 9.5em},width=\textwidth]{lock2-sigint-c} }%
+  \mode<article>{ \includegraphics[width=\textwidth]{lock2-sigint-c-bw} }
+\end{frame}
+
+\begin{frame}{What is a Semaphore?\,\includegraphics[width=1em]{semaphore-papa}}
+  \begin{center}
+    \begin{minipage}{.4\linewidth}
+      \begin{itemize}
+      \item A locking mechanism
+      \item An integer or ADT
+      \end{itemize}
+    \end{minipage}\quad
+    \begin{minipage}{.45\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{down-up} }%
+      \mode<article>{ \includegraphics[width=\textwidth]{down-up-bw} }
+    \end{minipage}
+  \end{center}
+  \begin{center}\ttfamily\small
+    \begin{tabular}{ll}\hline
+      \multicolumn2{c}{\emph{Atomic} Operations}\\\hline
+      P()         &V()\\
+      Wait()      &Signal()\\
+      Down()      &Up()\\
+      Decrement() &Increment()\\
+      ...         &...\\\hline
+    \end{tabular}
+  \end{center}
+  More meaningful names:
+  \begin{itemize}
+  \item \texttt{increment\_and\_wake\_a\_waiting\_process\_if\_any()}
+  \item \texttt{decrement\_and\_block\_if\_the\_result\_is\_negative()}
+  \end{itemize}
+\end{frame}
+
 
 \lecture{User Interface}{ui}
 \section{User Interface}
@@ -2390,6 +2930,7 @@ Makefile, git
 
 \end{document}
 %%% Local Variables:
+%%% reftex-default-bibliography: "ref.bib"
 %%% mode: latex
 %%% TeX-master: "lap-b"
 %%% End:
