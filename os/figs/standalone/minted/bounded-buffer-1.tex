@@ -1,6 +1,6 @@
 \documentclass[varwidth=22em,crop]{standalone}
 
-\usepackage{wx672fonts}
+\usepackage{fontspec}
 \usepackage{wx672minted}
 
 \begin{document}
@@ -8,9 +8,15 @@
 while (true) {
   /* do nothing -- no free buffers */
   while (((in + 1) % BUFFER_SIZE) == out);
-  
-  buffer[in] = item;
+
+  produce(buffer[in]);
+
   in = (in + 1) % BUFFER_SIZE;
 }
 \end{ccode}
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
