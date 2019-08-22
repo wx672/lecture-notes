@@ -13,3 +13,7 @@ int main() {
 
   return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra env.c -o env" */
+/* End: */

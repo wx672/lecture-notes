@@ -19,6 +19,56 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
+    \entry{cs241}{book}{}
+      \name{author}{3}{}{%
+        {{hash=498dec3700eda62744cbc7a0831ea0f4}{%
+           family={Venkatesh},
+           familyi={V\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=60cb0608a8a68c1db48af9052bdb6d7e}{%
+           family={Angrave},
+           familyi={A\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=d3f8963590e1babe53e335a3c6da25e0}{%
+           family={Al.},
+           familyi={A\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {University of Illinois}%
+      }
+      \strng{namehash}{86038ebedc34a61f7fb0fa7c20088f0a}
+      \strng{fullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{bibnamehash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{authorbibnamehash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{authornamehash}{86038ebedc34a61f7fb0fa7c20088f0a}
+      \strng{authorfullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{CS241 System Programming Coursebook}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://cs241.cs.illinois.edu/coursebook/index.html
+      \endverb
+      \verb{url}
+      \verb http://cs241.cs.illinois.edu/coursebook/index.html
+      \endverb
+      \keyw{cs241}
+    \endentry
     \entry{matthew2008beginning}{book}{}
       \name{author}{2}{}{%
         {{hash=71b0550cc21f34d5270381c62bec8e49}{%
@@ -44,10 +94,11 @@
       \strng{authorbibnamehash}{c2388d8b76c1d7a119e8863298934f79}
       \strng{authornamehash}{2b017aa24f11f2abd1235a5dd1f850e5}
       \strng{authorfullhash}{c2388d8b76c1d7a119e8863298934f79}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{edition}{4}
       \field{langid}{english}
       \field{title}{Beginning linux programming}
       \field{usera}{M}
@@ -84,8 +135,8 @@
       \strng{authorbibnamehash}{a68d43464fc7c618bd8459c842e940a5}
       \strng{authornamehash}{a68d43464fc7c618bd8459c842e940a5}
       \strng{authorfullhash}{a68d43464fc7c618bd8459c842e940a5}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -96,6 +147,12 @@
       \field{year}{2010}
       \field{dateera}{ce}
       \true{nocite}
+      \verb{urlraw}
+      \verb https://www.tldp.org/LDP/abs/html/
+      \endverb
+      \verb{url}
+      \verb https://www.tldp.org/LDP/abs/html/
+      \endverb
       \keyw{cooper10bash}
     \endentry
     \entry{raymond2003art}{book}{}
@@ -118,8 +175,8 @@
       \strng{authorbibnamehash}{54a2a72b576ed340cbad4320514b664e}
       \strng{authornamehash}{54a2a72b576ed340cbad4320514b664e}
       \strng{authorfullhash}{54a2a72b576ed340cbad4320514b664e}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -163,8 +220,8 @@
       \strng{authorbibnamehash}{e1035e68493cb6f18a15deca2831c327}
       \strng{authornamehash}{10b56c37a55dc02b77229da337d43e3b}
       \strng{authorfullhash}{e1035e68493cb6f18a15deca2831c327}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -203,8 +260,8 @@
       \strng{authorbibnamehash}{3262f21e1ec854d54444577e29125b8e}
       \strng{authornamehash}{3262f21e1ec854d54444577e29125b8e}
       \strng{authorfullhash}{3262f21e1ec854d54444577e29125b8e}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -215,6 +272,12 @@
       \field{year}{2007}
       \field{dateera}{ce}
       \true{nocite}
+      \verb{urlraw}
+      \verb http://cs3.swfu.edu.cn:8080/get/PDF/13/Calibre1
+      \endverb
+      \verb{url}
+      \verb http://cs3.swfu.edu.cn:8080/get/PDF/13/Calibre1
+      \endverb
       \keyw{Love:2007:LSP:1205435}
     \endentry
     \entry{Kerrisk:2010:LPI:1869911}{book}{}
@@ -237,8 +300,8 @@
       \strng{authorbibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
       \strng{authornamehash}{7f32f61adec784489cc0fa2cefa610a3}
       \strng{authorfullhash}{7f32f61adec784489cc0fa2cefa610a3}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -249,6 +312,12 @@
       \field{year}{2010}
       \field{dateera}{ce}
       \true{nocite}
+      \verb{urlraw}
+      \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
+      \endverb
+      \verb{url}
+      \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
+      \endverb
       \keyw{Kerrisk:2010:LPI:1869911}
     \endentry
     \entry{Bryant2010computersystems}{book}{}
@@ -276,8 +345,8 @@
       \strng{authorbibnamehash}{99ed312673b400f19abd1a866ed72f7f}
       \strng{authornamehash}{12c464c429f28e45c2e790f1ab8f7f5b}
       \strng{authorfullhash}{99ed312673b400f19abd1a866ed72f7f}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2}
@@ -407,11 +476,277 @@
       \endverb
       \keyw{wiki:inode}
     \endentry
+    \entry{wiki:compiler}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{3}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Compiler --- Wikipedia{,} The Free Encyclopedia}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Compiler&oldid=661266598
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Compiler&oldid=661266598
+      \endverb
+      \keyw{wiki:compiler}
+    \endentry
+    \entry{wiki:assembler}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{4}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Assembly language --- Wikipedia{,} The Free Encyclopedia}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Assembly_language&oldid=661185928
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Assembly_language&oldid=661185928
+      \endverb
+      \keyw{wiki:assembler}
+    \endentry
+    \entry{wiki:linker}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{5}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Linker (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Linker_(computing)&oldid=652892136
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Linker_(computing)&oldid=652892136
+      \endverb
+      \keyw{wiki:linker}
+    \endentry
+    \entry{wiki:loader}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{6}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Loader (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Loader_(computing)&oldid=520743198
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Loader_(computing)&oldid=520743198
+      \endverb
+      \keyw{wiki:loader}
+    \endentry
+    \entry{wiki:dynamic-linker}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{7}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Dynamic linker --- Wikipedia{,} The Free Encyclopedia}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Dynamic_linker&oldid=517400345
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Dynamic_linker&oldid=517400345
+      \endverb
+      \keyw{wiki:dynamic-linker}
+    \endentry
+    \entry{levine2000linkers}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2d19afa203c5f71c4e6502f1f04bd951}{%
+           family={Levine},
+           familyi={L\bibinitperiod},
+           given={J.R.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann}%
+      }
+      \strng{namehash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{fullhash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{bibnamehash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{authorbibnamehash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{authornamehash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{authorfullhash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781558604964}
+      \field{langid}{english}
+      \field{series}{Operating Systems Series}
+      \field{title}{Linkers and Loaders}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/36/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/36/Calibre1
+      \endverb
+      \keyw{levine2000linkers}
+    \endentry
   \enddatalist
 \endrefsection
 
 \refsection{1}
   \datalist[entry]{none/global//global/global}
+    \entry{cs241}{book}{}
+      \name{author}{3}{}{%
+        {{hash=498dec3700eda62744cbc7a0831ea0f4}{%
+           family={Venkatesh},
+           familyi={V\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=60cb0608a8a68c1db48af9052bdb6d7e}{%
+           family={Angrave},
+           familyi={A\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=d3f8963590e1babe53e335a3c6da25e0}{%
+           family={Al.},
+           familyi={A\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {University of Illinois}%
+      }
+      \strng{namehash}{86038ebedc34a61f7fb0fa7c20088f0a}
+      \strng{fullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{bibnamehash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{authorbibnamehash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{authornamehash}{86038ebedc34a61f7fb0fa7c20088f0a}
+      \strng{authorfullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{CS241 System Programming Coursebook}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://cs241.cs.illinois.edu/coursebook/index.html
+      \endverb
+      \verb{url}
+      \verb http://cs241.cs.illinois.edu/coursebook/index.html
+      \endverb
+      \keyw{cs241}
+    \endentry
     \entry{matthew2008beginning}{book}{}
       \name{author}{2}{}{%
         {{hash=71b0550cc21f34d5270381c62bec8e49}{%
@@ -437,10 +772,11 @@
       \strng{authorbibnamehash}{c2388d8b76c1d7a119e8863298934f79}
       \strng{authornamehash}{2b017aa24f11f2abd1235a5dd1f850e5}
       \strng{authorfullhash}{c2388d8b76c1d7a119e8863298934f79}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{edition}{4}
       \field{langid}{english}
       \field{title}{Beginning linux programming}
       \field{usera}{M}
@@ -477,8 +813,8 @@
       \strng{authorbibnamehash}{a68d43464fc7c618bd8459c842e940a5}
       \strng{authornamehash}{a68d43464fc7c618bd8459c842e940a5}
       \strng{authorfullhash}{a68d43464fc7c618bd8459c842e940a5}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -489,6 +825,12 @@
       \field{year}{2010}
       \field{dateera}{ce}
       \true{nocite}
+      \verb{urlraw}
+      \verb https://www.tldp.org/LDP/abs/html/
+      \endverb
+      \verb{url}
+      \verb https://www.tldp.org/LDP/abs/html/
+      \endverb
       \keyw{cooper10bash}
     \endentry
     \entry{raymond2003art}{book}{}
@@ -511,8 +853,8 @@
       \strng{authorbibnamehash}{54a2a72b576ed340cbad4320514b664e}
       \strng{authornamehash}{54a2a72b576ed340cbad4320514b664e}
       \strng{authorfullhash}{54a2a72b576ed340cbad4320514b664e}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -556,8 +898,8 @@
       \strng{authorbibnamehash}{e1035e68493cb6f18a15deca2831c327}
       \strng{authornamehash}{10b56c37a55dc02b77229da337d43e3b}
       \strng{authorfullhash}{e1035e68493cb6f18a15deca2831c327}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -596,8 +938,8 @@
       \strng{authorbibnamehash}{3262f21e1ec854d54444577e29125b8e}
       \strng{authornamehash}{3262f21e1ec854d54444577e29125b8e}
       \strng{authorfullhash}{3262f21e1ec854d54444577e29125b8e}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -608,6 +950,12 @@
       \field{year}{2007}
       \field{dateera}{ce}
       \true{nocite}
+      \verb{urlraw}
+      \verb http://cs3.swfu.edu.cn:8080/get/PDF/13/Calibre1
+      \endverb
+      \verb{url}
+      \verb http://cs3.swfu.edu.cn:8080/get/PDF/13/Calibre1
+      \endverb
       \keyw{Love:2007:LSP:1205435}
     \endentry
     \entry{Kerrisk:2010:LPI:1869911}{book}{}
@@ -630,8 +978,8 @@
       \strng{authorbibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
       \strng{authornamehash}{7f32f61adec784489cc0fa2cefa610a3}
       \strng{authorfullhash}{7f32f61adec784489cc0fa2cefa610a3}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -642,6 +990,12 @@
       \field{year}{2010}
       \field{dateera}{ce}
       \true{nocite}
+      \verb{urlraw}
+      \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
+      \endverb
+      \verb{url}
+      \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
+      \endverb
       \keyw{Kerrisk:2010:LPI:1869911}
     \endentry
     \entry{Bryant2010computersystems}{book}{}
@@ -669,8 +1023,8 @@
       \strng{authorbibnamehash}{99ed312673b400f19abd1a866ed72f7f}
       \strng{authornamehash}{12c464c429f28e45c2e790f1ab8f7f5b}
       \strng{authorfullhash}{99ed312673b400f19abd1a866ed72f7f}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2}
@@ -689,6 +1043,40 @@
       \verb https://cs3.swfu.edu.cn/tech/get/PDF/33/Calibre1
       \endverb
       \keyw{Bryant2010computersystems}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{2}
+  \datalist[entry]{none/global//global/global}
+    \entry{wiki:peterson}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Peterson's algorithm --- Wikipedia{,} The Free Encyclopedia}
+      \field{usera}{Z}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{wiki:peterson}
     \endentry
   \enddatalist
 \endrefsection

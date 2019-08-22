@@ -19,12 +19,9 @@ int main(int argc, char *argv[]) /* Oversimplified */
   }
 
   for(i = 1; i < argc; i++) {
-    if (strncmp(*++argv, "O_RDONLY", 8) == 0)
-        mode |= O_RDONLY;
-    if (strncmp(*argv, "O_WRONLY", 8) == 0)
-		mode |= O_WRONLY;
-    if (strncmp(*argv, "O_NONBLOCK", 10) == 0)
-		mode |= O_NONBLOCK;
+    if (strncmp(*++argv, "O_RDONLY", 8) == 0)  mode |= O_RDONLY;
+    if (strncmp(*argv, "O_WRONLY", 8) == 0)    mode |= O_WRONLY;
+    if (strncmp(*argv, "O_NONBLOCK", 10) == 0) mode |= O_NONBLOCK;
   }
 
   if (access(FIFO_NAME, F_OK) == -1) mkfifo(FIFO_NAME, 0777);
@@ -40,3 +37,7 @@ int main(int argc, char *argv[]) /* Oversimplified */
   
   exit(EXIT_SUCCESS);
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra fifo2.c -o fifo2" */
+/* End: */

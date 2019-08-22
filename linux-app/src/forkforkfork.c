@@ -4,11 +4,15 @@
 
 int main()
 {
-    signal(SIGCHLD, SIG_IGN);  /* now I don't have to wait()! */
+    signal(SIGCHLD, SIG_IGN);  /* no wait()! */
 
-    fork();fork();fork();  /* Rabbits, rabbits, rabbits! */
+    fork();fork();fork();
 
 	printf("PPID: %d; PID: %d\n", getppid(), getpid());
 	
 	return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra forkforkfork.c -o fff" */
+/* End: */

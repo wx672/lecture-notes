@@ -47,3 +47,7 @@ int main(int argc, char **argv)
     putchar(msg_ptr[i]);
   puts("");
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra mq-recv.c -o mq-recv -lrt" */
+/* End: */

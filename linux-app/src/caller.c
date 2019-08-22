@@ -5,3 +5,7 @@ int main(void) {
   char *envp[] = {NULL};
   execve("callee.out", argv, envp);
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra caller.c -o caller" */
+/* End: */

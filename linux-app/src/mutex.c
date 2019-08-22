@@ -53,3 +53,7 @@ int main(int argc, char *argv[])
   printf("glob = %d\n", glob);
   exit(EXIT_SUCCESS);
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra mutex.c -o mutex -pthread" */
+/* End: */

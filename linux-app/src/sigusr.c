@@ -22,3 +22,7 @@ void sig_usr(int signo)
   else
     perror("sig_usr");
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra sigusr.c -o sigusr" */
+/* End: */

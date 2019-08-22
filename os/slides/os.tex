@@ -1,3 +1,31 @@
+\usepackage{wx672tut}
+
+\newcommand{\unix}{{\fontspec{Purisa}{UNIX}}}
+\newcommand{\emacs}{\includegraphics[width=1.2em]{emacs}}
+\newcommand{\google}{\raisebox{-.2em}{\includegraphics[width=3em]{google}}}
+\newcommand{\GG}{\textcolor{SkyBlue}{\nerd }}
+\newcommand{\world}{\textcolor{SkyBlue}{\nerd }}
+\newcommand{\pdf}{\textcolor{red}{\nerd }}%
+\newcommand{\folder}{{\nerd }}%e5fe,e61e,e7a3,f07c
+\newcommand{\git}{{\nerd }}%f1d2,f1d3
+\newcommand{\github}{\nerd }
+\newcommand{\moodle}{\includegraphics[width=1em]{moodle}}
+\newcommand{\obook}{{\nerd }}%f212,f401,f405
+\newcommand{\shell}{{\nerd }}%e795
+\newcommand{\CMD}[1]{\texttt{\textcolor{Green}{\$} #1}}
+\newcommand{\cmd}[1]{\texttt{#1}}
+\newcommand{\vim}{{\nerd }}
+\newcommand{\stackoverflow}{{\nerd }}%f16c, e710
+\newcommand{\correct}{{\Large\textcolor{Green}{\nerd ✔}}}
+\newcommand{\wrong}{\textcolor{red}{\nerd ✘}}
+\newcommand{\Bad}{{\Large \textcolor{red}{\bad}}}
+\newcommand{\Good}{{\Large \textcolor{Green}{\good}}}
+\newcommand{\phone}{\nerd ﬁ} % 260e☎ fb01ﬁ
+\newcommand{\mail}{\nerd } %f42f f6ef f6ed faee﫮 faef﫯 f430 
+\newcommand{\hw}{\nerd } %f8ec f8ea f420 f26d f14b f0e7 e30e e315 e305
+
+% f421,f46e,f536 f1e6 
+
 \addbibresource{bib/os.bib}
 \addbibresource{bib/wikipedia.bib}
 
@@ -29,7 +57,7 @@
 \begin{frame}<beamer>{Textbooks}
   \begin{refsection}
     \nocite{tanenbaum2008modern, silberschatz11essentials, bovet2005understanding,
-      zhenggang2016, linuxkernelart13, yuyuan2009orange}%
+      cs241, zhenggang2016, linuxkernelart13, yuyuan2009orange}%
     \printbibliography[heading=none]
   \end{refsection}
 \end{frame}
@@ -42,6 +70,40 @@
   \item[Lab instructions] \url{https://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html}
   \item[Sample lab report:] \url{https://cs2.swfu.edu.cn/~wx672/lecture_notes/os/sample-report/}
   \end{description}
+    \begin{block}{\texttt{/etc/hosts}}
+    \ttfamily
+    \begin{tabular}{ll}
+      202.203.132.241&cs6.swfu.edu.cn\\      
+      202.203.132.242&cs2.swfu.edu.cn\\
+      202.203.132.245&cs3.swfu.edu.cn\\      
+    \end{tabular}
+  \end{block}\footnotesize
+  \begin{description}
+  \item[System Programming] \url{https://github.com/angrave/SystemProgramming/wiki}
+  \item[Beej's Guides] \url{http://beej.us/guide/}
+  % \item[BLP4e] \url{http://www.wrox.com/WileyCDA/WroxTitle/productCd-0470147628,descCd-DOWNLOAD.html}
+  % \item[TLPI] \url{http://www.man7.org/tlpi/}
+  \end{description}
+\end{frame}
+
+\begin{frame}{Homework}
+  \begin{block}{Weekly tech question}
+    \begin{enumerate}
+    \item What was I trying to do?
+    \item How did I do it? (steps)
+    \item The expected output? The real output?
+    \item How did I try to solve it? (steps, books, web links)
+    \item How many hours did I struggle?
+    \end{enumerate}
+  \end{block}
+  \begin{itemize}
+  \item[\Large\dejavu ✉] \alert{\ttfamily wx672ster+linux@gmail.com}
+  \item[$\mathbb{E}$] Preferably in English
+  \item[\stackoverflow] in
+    \href{https://stackoverflow.com/questions/39199299/what-is-the-essential-difference-between-compound-command-and-normal-command-inlink}{stackoverflow}
+    style
+  \item[OR] simply show me the tech questions you asked on any website
+  \end{itemize}  
 \end{frame}
 
 \part{Introduction}
@@ -530,23 +592,16 @@ int 80H        ; Make syscall to output the text to STDOUT
 
 \begin{frame}%{System Calls}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.85\textwidth]{mos-figs-1-19}
-    }
-    \mode<article>{
-      \includegraphics[width=.7\textwidth]{mos-figs-1-19}
-    }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }
   \end{center}
 \end{frame}
 
 \begin{frame}{System Call Examples}
   \begin{block}{\texttt{fork()}}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.8\textwidth]{fork}
-      } \mode<article>{
-        \includegraphics[width=.4\textwidth]{fork-bw}
-      }
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{fork} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{fork-bw} }
     \end{center}
   \end{block}
   \begin{itemize}
@@ -557,11 +612,8 @@ int 80H        ; Make syscall to output the text to STDOUT
 \begin{frame}
   \begin{block}{\texttt{exec()}}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{fork-exec}
-      } \mode<article>{
-        \includegraphics[width=.7\textwidth]{fork-exec-bw}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{fork-exec} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{fork-exec-bw} }
     \end{center}
   \end{block}
   \begin{itemize}
@@ -596,12 +648,8 @@ Quoted from
 
 \begin{frame}{Hardware INT vs. Software INT}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{int-osdi-35}
-    }
-    \mode<article>{
-      \includegraphics[width=.7\textwidth]{int-osdi-35}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{int-osdi-35} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{int-osdi-35} }
   \end{center}
 \end{frame}
 
@@ -712,12 +760,8 @@ communication to enable processes to interact in safe and predictable ways.
     \end{varwidth}\quad
     \begin{varwidth}{.2\textwidth}
       \begin{center}
-        \mode<beamer>{
-          \includegraphics[width=1.5\textwidth]{pcb}
-        }
-        \mode<article>{
-          \includegraphics[width=\textwidth]{pcb}
-        }
+        \mode<beamer>{ \includegraphics[width=1.5\textwidth]{pcb} }%
+        \mode<article>{ \includegraphics[width=\textwidth]{pcb} }
       \end{center}      
     \end{varwidth}
 \end{frame}
@@ -786,11 +830,8 @@ Modern Unix kernels solve this problem by introducing three different mechanisms
 
 \begin{frame}{Forking in C}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.7\textwidth]{fork}
-    } \mode<article>{
-      \includegraphics[width=.4\textwidth]{fork-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-bw} }
   \end{center}
   \begin{itemize}
   \item[\$] \texttt{man fork}
@@ -799,11 +840,8 @@ Modern Unix kernels solve this problem by introducing three different mechanisms
 
 \begin{frame}{\texttt{exec()}}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.7\textwidth]{fork-exec-osc}
-    } \mode<article>{
-      \includegraphics[width=.4\textwidth]{fork-exec-osc-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork-exec-osc} }
+    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-exec-osc-bw} }
   \end{center}
   \begin{itemize}
   \item[\$] \texttt{man 3 exec}
@@ -814,11 +852,8 @@ Modern Unix kernels solve this problem by introducing three different mechanisms
 
 \begin{frame}{Process State Transition}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{mos-figs-2-2}
-    } \mode<article>{
-      \includegraphics[width=.7\textwidth]{mos-figs-2-2}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-2} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-2-2} }
   \end{center}
 \end{frame}
 
@@ -829,12 +864,8 @@ See also: \citetitle[Sec.~3.2.1, \emph{Process State}]{bovet2005understanding}.
 
 \begin{frame}{CPU Switch From Process To Process}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{cpu-switch}
-    }
-    \mode<article>{
-      \includegraphics[width=.7\textwidth]{cpu-switch}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{cpu-switch} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{cpu-switch} }
   \end{center}
 \end{frame}
 
@@ -988,7 +1019,7 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
 
 \begin{frame}{Pthreads}{Example 1}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.75\textwidth]{thread1} }%
+    \mode<beamer>{ \includegraphics[width=.65\textwidth]{thread1} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{thread1-bw} }
   \end{center}
 \end{frame}
@@ -1019,11 +1050,8 @@ See also:
 
 \begin{frame}{Pthreads}{Example 2}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.9\textwidth]{thread2}
-    } \mode<article>{
-      \includegraphics[width=.9\textwidth]{thread2-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{thread2} }%
+    \mode<article>{ \includegraphics[width=.9\textwidth]{thread2-bw} }
   \end{center}
 \end{frame}
 
@@ -1036,12 +1064,8 @@ See also:
 
 \begin{frame}{User-Level Threads vs. Kernel-Level Threads}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{mos-figs-2-13}
-    }
-    \mode<article>{
-      \includegraphics[width=.6\textwidth]{mos-figs-2-13}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-13} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-2-13} }
   \end{center}
 \end{frame}
 
@@ -1221,22 +1245,19 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 
 
 \begin{frame}{Linux Threads}
-  \begin{itemize}
+  \begin{description}
   \item[\texttt{clone()}] creates a separate process that shares the address space of the
     calling process. The cloned task behaves \emph{much like} a separate thread.
-  \end{itemize}
+  \end{description}
   \begin{center}
-    \includegraphics[width=.6\textwidth]{syscall}
+    \includegraphics[width=.5\textwidth]{syscall}
   \end{center}
 \end{frame}
 
 \begin{frame}{\texttt{clone()}}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{clone-prototype}
-    } \mode<article>{
-      \includegraphics[width=.8\textwidth]{clone-prototype-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{clone-prototype} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{clone-prototype-bw} }
   \end{center}
   \begin{small}
     \begin{description}
@@ -1261,12 +1282,12 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \begin{block}{Some flags:}
     \begin{center}
       \begin{tabular}{>{\ttfamily}ll}
-        \toprule
-        \textbf{flag}&\textbf{Shared}\\\midrule
+        \hline
+        \thead{flag}&\thead{Shared}\\\hline
         CLONE\_FS&File-system info\\
         CLONE\_VM&Same memory space\\
         CLONE\_SIGHAND&Signal handlers\\
-        CLONE\_FILES&The set of open files\\\bottomrule
+        CLONE\_FILES&The set of open files\\\hline
       \end{tabular}
     \end{center}
   \end{block}
@@ -1286,10 +1307,8 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
       \begin{tikzpicture}[remember picture, overlay]
         \node [yshift=-7em,xshift=5em,rotate=-20,scale=6,text opacity=0.7,color=red] at
         (current page.center) {\Symbol{✘}};
-      \end{tikzpicture}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{clone2-bw-crop}
-    }
+      \end{tikzpicture}}%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{clone2-bw-crop} }
   \end{center}
 \end{frame}
 
@@ -1880,14 +1899,11 @@ statement b2
 
 \begin{frame}[label=comp,fragile]{Multiplex --- Without Busy Waiting}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.7\textwidth]{sem-multiplex}
-    } \mode<article>{
-      \includegraphics[width=.5\textwidth]{sem-multiplex-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{sem-multiplex} }
+    \mode<article>{ \includegraphics[width=.5\textwidth]{sem-multiplex-bw} }
   \end{center}
   \vskip -1ex
-  {\ttfamily
+  {\ttfamily\footnotesize
     \begin{itemize}
     \item[if] S.space < 0,\\
       S.space == Number of queuing producers
@@ -1948,30 +1964,24 @@ access some common resources.
 
 \begin{frame}{Barrier Solution}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.45\textwidth]{barrier-1}
-    } \mode<article>{
-      \includegraphics[width=.4\textwidth]{barrier-1}
-    }
+    \mode<beamer>{ \includegraphics[width=.4\textwidth]{barrier-1} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{barrier-1} }
   \end{center}
-  \begin{small}
-    \begin{itemize}
+  \begin{footnotesize}
+    \begin{description}
     \item[count:] keeps track of how many threads have arrived
     \item[mutex:] provides exclusive access to \texttt{count}
     \item[barrier:] is locked ($\le 0$) until all threads arrive%; then it should be
       %unlocked ($\ge 1$)
-    \end{itemize}
+    \end{description}
     When \texttt{barrier.value<0},
-    \begin{center}
-      \texttt{barrier.value == Number of queueing processes}
-    \end{center}
-  \end{small}
+    \begin{itemize}
+    \item[] \texttt{barrier.value == Number of queueing processes}
+    \end{itemize}
+  \end{footnotesize}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{barrier-2}
-    } \mode<article>{
-      \includegraphics[width=.5\textwidth]{barrier-2-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{barrier-2} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{barrier-2-bw} }
   \end{center}
   \pause
   \begin{center}
@@ -2309,22 +2319,15 @@ user process to use it directly.
 
 \begin{frame}{Message Passing}{TCP Header Format}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{tcp}
-    }
-    \mode<article>{
-      \includegraphics[width=.7\textwidth]{tcp}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{tcp} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{tcp} }
   \end{center}
 \end{frame}
 
 \begin{frame}{Message Passing}{The producer-consumer problem}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{msg-passing}
-    } \mode<article>{
-      \includegraphics[width=.7\textwidth]{msg-passing-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{msg-passing} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{msg-passing-bw} }
   \end{center}
 \end{frame}
 
@@ -2337,20 +2340,14 @@ user process to use it directly.
 \begin{frame}{The Dining Philosophers Problem}
   \begin{minipage}{.49\linewidth}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{dining}
-      } \mode<article>{
-        \includegraphics[width=.5\textwidth]{dining-bw}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{dining} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{dining-bw} }
     \end{center}
   \end{minipage} \hfill
   \begin{minipage}{.49\linewidth}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.7\textwidth]{dphil-0}
-      } \mode<article>{
-        \includegraphics[width=.4\textwidth]{dphil-0}
-      }
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{dphil-0} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{dphil-0} }
     \end{center}
   \end{minipage}
   
@@ -2364,11 +2361,8 @@ user process to use it directly.
 
 \begin{frame}{The Dining Philosophers Problem}{Deadlock}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{mos-figs-2-32}
-    } \mode<article>{
-      \includegraphics[width=.7\textwidth]{mos-figs-2-32}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-32} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-2-32} }
   \end{center}
   \begin{itemize}
   \item Put down the left fork and wait for a while if the right one is not available?
@@ -2379,20 +2373,14 @@ user process to use it directly.
 \begin{frame}{The Dining Philosophers Problem}{With One Mutex}
   \begin{minipage}{.49\linewidth}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{dining-mutex}
-      } \mode<article>{
-        \includegraphics[width=.7\textwidth]{dining-mutex-bw}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{dining-mutex} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{dining-mutex-bw} }
     \end{center}
   \end{minipage} \hfill
   \begin{minipage}{.49\linewidth}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.7\textwidth]{dphil-0}
-      } \mode<article>{
-        \includegraphics[width=.5\textwidth]{dphil-0}
-      }
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{dphil-0} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{dphil-0} }
     \end{center}
   \end{minipage}
   \pause
@@ -2433,31 +2421,22 @@ user process to use it directly.
 \begin{block}{A philosopher may only move into eating state if neither neighbor is
     eating}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.95\textwidth]{dphil-1}
-    }
-    \mode<article>{
-      \includegraphics[width=.8\textwidth]{dphil-1-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=.85\textwidth]{dphil-1} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{dphil-1-bw} }
   \end{center}
 \end{block}
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{AST Solution (Part 2)}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{dphil-2}
-    }
-    \mode<article>{
-      \includegraphics[width=.9\textwidth]{dphil-2-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{dphil-2} }%
+    \mode<article>{ \includegraphics[width=.9\textwidth]{dphil-2-bw} }
   \end{center}\pause
 \mode<beamer>{
-\begin{tikzpicture}[remember picture, overlay]
-  \node [rotate=15,scale=5,text opacity=0.4,color=red,xshift=-.4]
-  at (current page.center) {Starvation!};
-\end{tikzpicture}
-}
+  \begin{tikzpicture}[remember picture, overlay]%
+    \node [rotate=15,scale=5,text opacity=0.4,color=red,xshift=-.4]
+    at (current page.center) {Starvation!};
+  \end{tikzpicture}}
 \end{frame}
 
 \begin{itemize}
@@ -2526,11 +2505,8 @@ user process to use it directly.
     another process is writing to it.
   \end{description}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.9\textwidth]{reader-writer-1}
-    } \mode<article>{
-      \includegraphics[width=.7\textwidth]{reader-writer-1-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{reader-writer-1} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{reader-writer-1-bw} }
   \end{center}
   \pause
   \begin{description}
@@ -2547,11 +2523,8 @@ user process to use it directly.
 
 \begin{frame}{The Readers-Writers Problem}{No starvation}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.85\textwidth]{reader-writer-2}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{reader-writer-2-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{reader-writer-2} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{reader-writer-2-bw} }
   \end{center}
 \end{frame}
 
@@ -2615,12 +2588,8 @@ user process to use it directly.
 
 \begin{frame}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{queues}
-    }
-    \mode<article>{
-      \includegraphics[width=.6\textwidth]{queues}
-    }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{queues} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{queues} }
   \end{center}
 \end{frame}
 
@@ -2631,12 +2600,8 @@ user process to use it directly.
 
 \begin{frame}{Queueing Diagram}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.95\textwidth]{queueing-dia}
-    }
-    \mode<article>{
-      \includegraphics[width=.6\textwidth]{queueing-dia}
-    }
+    \mode<beamer>{ \includegraphics[width=.95\textwidth]{queueing-dia} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{queueing-dia} }
   \end{center}
 \end{frame}
 
@@ -3099,11 +3064,8 @@ See also: \emph{Discussing the Completely Fair
 
 \begin{frame}{Resources}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{deadlock-resource}
-    } \mode<article>{
-      \includegraphics[width=.7\textwidth]{deadlock-resource}
-    }
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{deadlock-resource} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{deadlock-resource} }
   \end{center}
 \end{frame}
 
@@ -3424,12 +3386,8 @@ See also: \emph{Discussing the Completely Fair
 
 \begin{frame}{Deadlock Avoidance}{Resource Trajectories}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.95\textwidth]{deadlock-avoidance}
-    }
-    \mode<article>{
-      \includegraphics[width=.6\textwidth]{deadlock-avoidance}
-    }
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{deadlock-avoidance} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{deadlock-avoidance} }
   \end{center}
   \begin{itemize}
   \item $B$ is requesting a resource at point \texttt{t}. The system must decide whether
@@ -3712,7 +3670,7 @@ p.~452]{tanenbaum2008modern} for the \emph{printer daemon} example.
 
 \begin{frame}{Basic Memory Management}{Relocation Problem}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mm-relocation} }%
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mm-relocation} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{mm-relocation} }
   \end{center}
 \end{frame}
@@ -3799,13 +3757,13 @@ p.~452]{tanenbaum2008modern} for the \emph{printer daemon} example.
 
 \begin{frame}{Stack vs. Heap}
   \begin{center}
-    \begin{tabular}{ll}\toprule
-      \textbf{Stack}           &\textbf{Heap}\\\midrule
+    \begin{tabular}{ll}\hline
+      \thead{Stack}           &\thead{Heap}\\\hline
       compile-time allocation &run-time allocation\\
       auto clean-up           &you clean-up\\
       inflexible              &flexible\\
       smaller                 &bigger\\
-      quicker                 &slower\\\bottomrule
+      quicker                 &slower\\\hline
     \end{tabular}
   \end{center}
   \begin{block}{How large is the ...}
@@ -3983,21 +3941,15 @@ See also:
   \item Don't have to re-link after a library update
   \end{itemize}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{mm-dynamic-linking}
-    } \mode<article>{
-      \includegraphics[width=.4\textwidth]{mm-dynamic-linking}
-    }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mm-dynamic-linking} }
+    \mode<article>{ \includegraphics[width=.4\textwidth]{mm-dynamic-linking} }
   \end{center}
 \end{frame}
 
 \begin{frame}{Dynamic Linking}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.85\textwidth]{dynamic-linking2}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{dynamic-linking2}
-    }
+    \mode<beamer>{ \includegraphics[width=.75\textwidth]{dynamic-linking2} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{dynamic-linking2} }
   \end{center}
 \end{frame}
 
@@ -4308,14 +4260,12 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}{Translation Lookaside Buffer (TLB)}
-  \begin{block}{Fact: 80-20 rule}
-    \begin{itemize}
-    \item Only a small fraction of the PTEs are heavily read; the rest are barely used at
-      all
-    \end{itemize}
-  \end{block}
+  \begin{description}
+  \item[80-20 rule] Only a small fraction of the PTEs are heavily read; the rest are
+    barely used at all
+  \end{description}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-8-28} }%
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-28} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-28} }
   \end{center}
 \end{frame}
@@ -4398,7 +4348,7 @@ There are also disadvantages:
 
 \begin{frame}{Two-Level Page Tables}{Example}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{2-level-paging-2} }%
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{2-level-paging-2} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{2-level-paging-2} }
   \end{center}
   % \begin{minipage}{.3\linewidth}
@@ -4609,7 +4559,7 @@ demand, not in advance\citetitle[Sec.~3.4.8, P.~207]{tanenbaum2008modern}.
   \begin{center}
     Mapping a file (disk block) to one or more memory pages
   \end{center}
-  \begin{varwidth}{.49\textwidth}
+  \begin{minipage}{.49\textwidth}
     \begin{itemize}
     \item \alert{Improved I/O performance} --- much faster than \emph{read()}
       and \emph{write()} system calls
@@ -4617,10 +4567,10 @@ demand, not in advance\citetitle[Sec.~3.4.8, P.~207]{tanenbaum2008modern}.
       is loaded initially
     \item A mapped file can be shared, like \emph{shared library}
     \end{itemize}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.49\textwidth}
+  \end{minipage}\quad
+  \begin{minipage}{.45\textwidth}
     \includegraphics[width=1.15\textwidth]{osc-9-54}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \subsection{Page Replacement Algorithms}
@@ -4912,11 +4862,8 @@ See also:
 \begin{frame}{The Working-Set Page Replacement Algorithm}
   \begin{block}{To evict a page that is not in the working set}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{mos-figs-4-21}
-      } \mode<article>{
-        \includegraphics[width=.6\textwidth]{mos-figs-4-21}
-      }
+      \mode<beamer>{ \includegraphics[width=.9\textwidth]{mos-figs-4-21} }
+      \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-4-21} }
     \end{center}
     $$age = \textit{Current virtual time} - \textit{Time of last use}$$
   \end{block}
@@ -4982,11 +4929,8 @@ for removal, preferably a clean page, if one exists.
 \begin{frame}{The WSClock Page Replacement Algorithm}{Combine Working Set Algorithm With
     Clock Algorithm}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.65\textwidth]{mos-figs-4-22}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{mos-figs-4-22}
-    }
+    \mode<beamer>{ \includegraphics[width=.5\textwidth]{mos-figs-4-22} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-4-22} }
   \end{center}
 \end{frame}
 
@@ -5270,10 +5214,9 @@ See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essenti
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Segmentation hardware}
   \begin{center}
-    Segmentation hardware
-    \mode<beamer>{ \includegraphics[width=\textwidth]{osc-8-49} }%
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-8-49} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-49} }
     \label{fig:segmentation-hardware}
   \end{center}
@@ -5281,7 +5224,7 @@ See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essenti
 
 \begin{frame}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.95\textwidth]{seg-trans} }%
+    \mode<beamer>{ \includegraphics[width=.85\textwidth]{seg-trans} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{seg-trans} }
   \end{center}
 \end{frame}
@@ -5499,7 +5442,7 @@ See also:
     \end{center}
   \end{block}{\small
   \begin{tabularx}{\textwidth}{>{\bfseries}rX|>{\bfseries}rX}
-    Base:&Where the seg starts&Limit:&20 bit, $\Rightarrow{}2^{20}$ in size\\\midrule
+    Base:&Where the seg starts&Limit:&20 bit, $\Rightarrow{}2^{20}$ in size\\[1ex]
     G:&Granularity flag\par
     {\footnotesize\begin{tabular}{r@{\ }l}
       0 -&seg size in bytes\\
@@ -5507,18 +5450,18 @@ See also:
     \end{tabular}}&S:&System flag\par
   {\footnotesize\begin{tabular}{r@{\ }l}
       0 -&system seg, e.g. LDT\\
-      1 -&normal code/data seg\\
-    \end{tabular}}\\\midrule
+      1 -&normal code/data seg\\[1ex]
+    \end{tabular}}\\
     D/B:&
     {\footnotesize\begin{tabular}{r@{\ }l}
       0 -&16-bit seg\\
       1 -&32-bit seg\\
-    \end{tabular}}&Type:&seg type (cs/ds/tss)\\\midrule
+    \end{tabular}}&Type:&seg type (cs/ds/tss)\\[1.5ex]
     DPL:&Descriptor Privilege Level. 0 or 3&P:&Seg-Present flag\par
     {\footnotesize\begin{tabular}{r@{\ }l}
       0 -&not in memory\\\
-      1 -&in memory\\
-    \end{tabular}}\\\midrule
+      1 -&in memory\\[1ex]
+    \end{tabular}}\\
     AVL:&ignored by Linux&&\\
   \end{tabularx}}
 \end{frame}
@@ -5528,12 +5471,12 @@ See also:
     \begin{center}
       \begin{scriptsize}
         \begin{tabular}{l>{\ttfamily}ll>{\ttfamily}llllll}
-          \toprule
-          \textbf{Segment}&\textbf{Base}&\textbf{G}&\textbf{Limit}&\textbf{S}&\textbf{Type}&\textbf{DPL}&\textbf{D/B}&\textbf{P}\\\midrule
+          \hline
+          \thead{Segment}&\thead{Base}&\thead{G}&\thead{Limit}&\thead{S}&\thead{Type}&\thead{DPL}&\thead{D/B}&\thead{P}\\\hline
           user code&0x00000000&1&0xfffff&1&10&3&1&1\\
           user data&0x00000000&1&0xfffff&1&2&3&1&1\\
           kernel code&0x00000000&1&0xfffff&1&10&0&1&1\\
-          kernel data&0x00000000&1&0xfffff&1&2&0&1&1\\\bottomrule
+          kernel data&0x00000000&1&0xfffff&1&2&0&1&1\\\hline
         \end{tabular}
       \end{scriptsize}
     \end{center}
@@ -5585,7 +5528,7 @@ See also:
 % \end{frame}
 
 \begin{frame}{Pentium Paging}{Linear Address $\Rightarrow$ Physical Address}
-  \begin{varwidth}{.4\textwidth}
+  \begin{minipage}{.4\textwidth}
     \mbox{Two page size in Pentium:}
     \begin{small}
       \begin{itemize}
@@ -5594,18 +5537,15 @@ See also:
       \end{itemize}
     \end{small}
     \begin{center}
-      \includegraphics[width=1.15\textwidth]{2-level-paging}
+      \includegraphics[width=1\textwidth]{2-level-paging}
     \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.5\textwidth}
+  \end{minipage}\quad
+  \begin{minipage}{.5\textwidth}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=1.1\textwidth]{osc-8-54}
-      } \mode<article>{
-        \includegraphics[width=.8\textwidth]{osc-8-54}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{osc-8-54} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{osc-8-54} }
     \end{center}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \begin{itemize}
@@ -5662,11 +5602,11 @@ See also:
     \begin{center}
     \begin{scriptsize}
       \begin{tabular}{llm{3em}m{3em}r}
-        \toprule
-        Arch&Page size&Address bits&Paging levels&Address splitting\\\midrule
+        \hline
+        Arch&Page size&Address bits&Paging levels&Address splitting\\\hline
         x86 &4KB(12bits) &32 &2 &$10+0+0+10+12$\\
         x86-PAE&4KB(12bits)&32&3&$2+0+9+\hspace{.6em}9+12$\\
-        x86-64&4KB(12bits)&48&4&$9+9+9+\hspace{.6em}9+12$\\\bottomrule
+        x86-64&4KB(12bits)&48&4&$9+9+9+\hspace{.6em}9+12$\\\hline
       \end{tabular}
     \end{scriptsize}
   \end{center}
@@ -5953,12 +5893,10 @@ See also:
   % \end{enumerate}
 \end{frame}
 
-\begin{frame}
-  \begin{block}{An Example Program Using File System Calls}
+\begin{frame}{Example}
     \begin{center}
-      \includegraphics[width=.8\textwidth]{cp-c}
+      \includegraphics[width=.9\textwidth]{cp-c}
     \end{center}
-  \end{block}
 \end{frame}
 
 \begin{frame}{\texttt{open()}}
@@ -6325,31 +6263,13 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \end{itemize}
 
 \begin{frame}{Inode Quiz}
-  \begin{multicols}{2}
-    \begin{itemize}
-    \item[Given:]
-      \begin{small}
-        \begin{tabular}{l}
-          block size is 1KB\\
-          pointer size is 4B
-        \end{tabular}
-      \end{small}
-    \item[Addressing:]
-      \begin{small}
-        \begin{tabular}{l}
-          byte offset 9000\\
-          byte offset 350,000
-        \end{tabular}
-      \end{small}
-    \end{itemize}
-  \end{multicols}
+  \begin{description}
+  \item[Given:] block size is 1KB; pointer size is 4B
+  \item[Addressing:] byte offset 9000; byte offset 350,000
+  \end{description}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.75\textwidth]{inode-calc2}
-    }
-    \mode<article>{
-      \includegraphics[width=.5\textwidth]{inode-calc2}
-    }
+    \mode<beamer>{ \includegraphics[width=.75\textwidth]{inode-calc2} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{inode-calc2} }
   \end{center}
 \end{frame}
 
@@ -6608,7 +6528,7 @@ output: file descriptor
 
 \begin{frame}%{What If A File Opened By Multiple Processes?}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{file-tables} }%
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{file-tables} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{file-tables} }
   \end{center}
 \end{frame}
@@ -6622,11 +6542,8 @@ output: file descriptor
     \end{itemize}
   \end{block}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.75\textwidth]{file-tables2}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{file-tables2}
-    }
+    \mode<beamer>{ \includegraphics[width=.65\textwidth]{file-tables2} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{file-tables2} }
   \end{center}
 \end{frame}
 
@@ -6645,12 +6562,8 @@ See also:
     \end{itemize}
   \end{block}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{file-tables3}
-    }
-    \mode<article>{
-      \includegraphics[width=.6\textwidth]{file-tables3}
-    }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-tables3} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{file-tables3} }
   \end{center}
 \end{frame}
 
@@ -7276,7 +7189,7 @@ allocation of eight blocks.
 \begin{frame}{Ext2 inode}
   % All inodes are 128 bytes in size
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{osc-11-28} }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-11-28} }
     \mode<article>{ \includegraphics[width=.5\textwidth]{osc-11-28} }
   \end{center}
   % \includegraphics[width=.8\textwidth]{inode}

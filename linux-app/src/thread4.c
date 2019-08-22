@@ -76,3 +76,6 @@ void *func(void *arg) {
     /* pthread_mutex_unlock(&mt); */
     pthread_exit(0);
 }
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra thread4.c -o thread4 -pthread" */
+/* End: */

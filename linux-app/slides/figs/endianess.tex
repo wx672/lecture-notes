@@ -1,0 +1,26 @@
+\documentclass[varwidth,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+Big endian
+            0x100 0x101 0x102 0x103
+      ─────┬─────┬─────┬─────┬─────┬─────
+       ... │ 01  │ 23  │ 45  │ 67  │ ... 
+      ─────┼─────┴─────┴─────┴─────┼─────
+              int i = 0x01234567;
+
+Little endian
+            0x100 0x101 0x102 0x103
+      ─────┬─────┬─────┬─────┬─────┬─────
+       ... │ 67  │ 45  │ 23  │ 01  │ ... 
+      ─────┴─────┴─────┴─────┴─────┴─────
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

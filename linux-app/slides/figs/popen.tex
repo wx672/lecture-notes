@@ -1,0 +1,19 @@
+\documentclass[varwidth,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+ fp = popen(cmd, "r");        fp = popen(cmd, "w");    
+┌──────┐    ┌───────────┐    ┌──────┐    ┌───────────┐
+│    fp│<───┤stdout     │    │    fp├───>│stdin      │
+└──────┘    └───────────┘    └──────┘    └───────────┘
+ parent      child (cmd)      parent      child (cmd) 
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

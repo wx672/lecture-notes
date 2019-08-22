@@ -44,3 +44,7 @@ int main(int argc, char **argv)
 
   return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra mq-send.c -o mq-send -lrt" */
+/* End: */

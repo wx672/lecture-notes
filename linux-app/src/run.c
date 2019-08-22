@@ -14,3 +14,7 @@ int main(int argc, char *argv[]) {
 
 	execve(argv[1], run_argv, run_envp);
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra run.c -o run" */
+/* End: */

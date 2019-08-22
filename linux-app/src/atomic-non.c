@@ -40,3 +40,7 @@ int main(int argc, char *argv[])
   printf("glob = %d\n", glob);
   exit(EXIT_SUCCESS);
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra atomic-non.c -o atomic-non -pthread" */
+/* End: */

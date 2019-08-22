@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) /* Over-simplified! */
   default: /* Parent - writes to pipe */
     close(pfd[0]); /* Read end is unused */
 
-    if (write(pfd[1], argv[1], strlen(argv[1])) != strlen(argv[1]))
+    if( (size_t)write(pfd[1], argv[1], strlen(argv[1])) != strlen(argv[1]) )
       perror("parent - partial/failed write");
 
     close(pfd[1]); /* Child will see EOF */
@@ -42,3 +42,7 @@ int main(int argc, char *argv[]) /* Over-simplified! */
     exit(EXIT_SUCCESS);
   }
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra simple_pipe.c -o simple-pipe" */
+/* End: */

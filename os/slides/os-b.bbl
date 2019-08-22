@@ -151,6 +151,56 @@
       \endverb
       \keyw{bovet2005understanding}
     \endentry
+    \entry{cs241}{book}{}
+      \name{author}{3}{}{%
+        {{hash=498dec3700eda62744cbc7a0831ea0f4}{%
+           family={Venkatesh},
+           familyi={V\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=60cb0608a8a68c1db48af9052bdb6d7e}{%
+           family={Angrave},
+           familyi={A\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=d3f8963590e1babe53e335a3c6da25e0}{%
+           family={Al.},
+           familyi={A\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {University of Illinois}%
+      }
+      \strng{namehash}{86038ebedc34a61f7fb0fa7c20088f0a}
+      \strng{fullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{bibnamehash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{authorbibnamehash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{authornamehash}{86038ebedc34a61f7fb0fa7c20088f0a}
+      \strng{authorfullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{CS241 System Programming Coursebook}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://cs241.cs.illinois.edu/coursebook/index.html
+      \endverb
+      \verb{url}
+      \verb http://cs241.cs.illinois.edu/coursebook/index.html
+      \endverb
+      \keyw{cs241}
+    \endentry
     \entry{zhenggang2016}{book}{}
       \name{author}{1}{}{%
         {{hash=a1a361ddd91c8bdf31a230b7c5e80df0}{%
@@ -169,8 +219,8 @@
       \strng{authorbibnamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
       \strng{authornamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
       \strng{authorfullhash}{a1a361ddd91c8bdf31a230b7c5e80df0}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -207,8 +257,8 @@
       \strng{authorbibnamehash}{bed1fe53bac82e0a18c65d54b800bdf6}
       \strng{authornamehash}{bed1fe53bac82e0a18c65d54b800bdf6}
       \strng{authorfullhash}{bed1fe53bac82e0a18c65d54b800bdf6}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -246,8 +296,8 @@
       \strng{authorbibnamehash}{6bd3ec8d773585effb6c0719f377cb04}
       \strng{authornamehash}{6bd3ec8d773585effb6c0719f377cb04}
       \strng{authorfullhash}{6bd3ec8d773585effb6c0719f377cb04}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}

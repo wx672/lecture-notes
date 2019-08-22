@@ -50,3 +50,7 @@ void *func(void *arg) {
   }
   pthread_exit(NULL);
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra thread3.c -o thread3 -pthread" */
+/* End: */

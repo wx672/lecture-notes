@@ -3,16 +3,20 @@
 
 int main(int argc, char *argv[])
 {
-	FILE *in, *out;	
-	int c=0;
+  FILE *in, *out; 
+  int c=0;
 
-	if (argc != 3) exit(1); 
+  if (argc != 3) exit(1); 
 
-	in = fopen(argv[1], "r");
-	out = fopen(argv[2], "w");
+  in = fopen(argv[1], "r");
+  out = fopen(argv[2], "w");
 
-	while ( (c = fgetc(in)) != EOF )
-		fputc(c, out);
+  while( (c = fgetc(in)) != EOF )
+    fputc(c, out);
 
-	return 0;
+  return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra cp-libc.c -o cp-libc" */
+/* End: */

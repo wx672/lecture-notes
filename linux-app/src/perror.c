@@ -5,9 +5,13 @@
 
 int main(int argc, char *argv[])
 {
-  if ( open(argv[1], O_RDONLY) == -1 ){
+  if( open(argv[1], O_RDONLY) == -1 ){
     perror("open");
     exit(EXIT_FAILURE);
   }       
   return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra perror.c -o perror" */
+/* End: */

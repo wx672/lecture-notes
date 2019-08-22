@@ -12,3 +12,7 @@ int main(int argc, char *argv[])
   rmdir(argv[1]);
   return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra mkdir.c -o mkdir" */
+/* End: */

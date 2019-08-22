@@ -30,3 +30,7 @@ int main() {
       
   exit(EXIT_SUCCESS);
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra lock2-sigint.c -o lock2-sigint" */
+/* End: */

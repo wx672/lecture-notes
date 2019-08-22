@@ -1,6 +1,6 @@
+#define _GNU_SOURCE
 #include <stdlib.h>
 #include <unistd.h>
-#define _GNU_SOURCE
 #include <stdio.h>
 
 int main(int argc, char *argv[])
@@ -17,3 +17,7 @@ int main(int argc, char *argv[])
   free(f);
   return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra mkstemp.c -o mkstemp" */
+/* End: */

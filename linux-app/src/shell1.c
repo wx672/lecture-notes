@@ -31,3 +31,7 @@ int main(void)
     exit(0);
 }
 /* apue-3e. p12, fig 1.7*/
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra shell1.c -o shell1" */
+/* End: */

@@ -22,3 +22,7 @@ int main() {
       
   exit(EXIT_SUCCESS);
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra lock2.c -o lock2" */
+/* End: */

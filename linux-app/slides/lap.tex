@@ -20,10 +20,17 @@
 \newcommand{\wrong}{\textcolor{red}{\nerd ✘}}
 \newcommand{\Bad}{{\Large \textcolor{red}{\bad}}}
 \newcommand{\Good}{{\Large \textcolor{Green}{\good}}}
+\newcommand{\phone}{\nerd ﬁ} % 260e☎ fb01ﬁ
+\newcommand{\mail}{\nerd } %f42f f6ef f6ed faee﫮 faef﫯 f430 
+\newcommand{\hw}{\nerd } %f8ec f8ea f420 f26d f14b f0e7 e30e e315 e305
 
-% f421,f46e,f536
+% f421,f46e,f536 f1e6 
 
 \addbibresource{ref.bib}
+
+\newcommand{\textbooks}{\nocite{cs241, matthew2008beginning, cooper10bash, raymond2003art,
+    stevens2013advanced, Love:2007:LSP:1205435, Kerrisk:2010:LPI:1869911,
+    Bryant2010computersystems}}%
 
 %\AtBeginPart{\frame{\partpage}}
 \mode<beamer>{
@@ -44,17 +51,13 @@
   \subtitle{Lecture Handouts}
   \maketitle
   \tableofcontents
-    \nocite{matthew2008beginning, cooper10bash, raymond2003art, stevens2013advanced,
-      Love:2007:LSP:1205435, Kerrisk:2010:LPI:1869911, Bryant2010computersystems}%
-  \printbibliography[title={References}]}
+  \textbooks \printbibliography[title={References}]}
 
 \mode<beamer>{\frame{\titlepage}}
 
-\begin{frame}<beamer>{Textbooks}
+\begin{frame}<beamer>{Reference Books}
   \begin{refsection}
-    \nocite{matthew2008beginning, cooper10bash, raymond2003art, stevens2013advanced,
-      Love:2007:LSP:1205435, Kerrisk:2010:LPI:1869911, Bryant2010computersystems}%
-    \printbibliography[heading=none]
+    \textbooks \printbibliography[heading=none]
   \end{refsection}
 \end{frame}
 
@@ -72,7 +75,13 @@
       202.203.132.242&cs2.swfu.edu.cn\\
       202.203.132.245&cs3.swfu.edu.cn\\      
     \end{tabular}
-  \end{block}
+  \end{block}\footnotesize
+  \begin{description}
+  \item[System Programming] \url{https://github.com/angrave/SystemProgramming/wiki}
+  \item[Beej's Guides] \url{http://beej.us/guide/}
+  \item[BLP4e] \url{http://www.wrox.com/WileyCDA/WroxTitle/productCd-0470147628,descCd-DOWNLOAD.html}
+  \item[TLPI] \url{http://www.man7.org/tlpi/}
+  \end{description}
 \end{frame}
 
 \begin{frame}{Homework}
@@ -91,8 +100,23 @@
   \item[\stackoverflow] in
     \href{https://stackoverflow.com/questions/39199299/what-is-the-essential-difference-between-compound-command-and-normal-command-inlink}{stackoverflow}
     style
-  \item[Or] simply show me the tech questions you asked on any website
+  \item[OR] simply show me the tech questions you asked on any website
   \end{itemize}  
+\end{frame}
+
+\begin{frame}
+  \mode<beamer>{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \node at (current page.center) [scale=20,opacity=.1] {\danger};%
+      \node at (current page.center) [scale=2.8,rotate=30,align=center,font=\humor]%
+      {Oversimplifed programs\\ahead!};
+    \end{tikzpicture}}
+  \begin{center}
+    \mode<article>{
+      \begin{itemize}
+      \item[\danger] Oversimplifed programs ahead!
+      \end{itemize}}
+  \end{center}
 \end{frame}
 
 \lecture{start}{start}% \lecture[short name]{name}{label}
@@ -169,7 +193,7 @@
   \end{itemize}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.5\textwidth]{sys-arch} }%
-    \mode<article>{ \includegraphics[width=.3\textwidth]{sys-arch} }
+    \mode<article>{ \includegraphics[width=.2\textwidth]{sys-arch} }
   \end{center}
 \end{frame}
 
@@ -387,18 +411,23 @@
 \end{frame}
 
 \begin{frame}{Pipe}{Chain processes together}
-  \begin{block}{Unnamed pipe}\ttfamily
-    \begin{itemize}
-    \item[\$] ps aux | sort | less
-    \end{itemize}
-  \end{block}
-  \begin{block}{Named pipe}\ttfamily
+  \begin{itemize}
+  \item[\$] \cmd{ls | wc -l}
+  \end{itemize}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{pipe-ls-wc} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{pipe-ls-wc} }
+  \end{center}
+  \begin{description}
+  \item[Unnamed pipe] \,\\
+    \CMD{unicode skull | head -1 | cut -f1 -d' ' | sm -}
+  \item[Named pipe] \,\\
     \begin{enumerate}
-    \item \alert{\$} mkfifo mypipe
-    \item \alert{\$} gzip -9 -c < mypipe > out.gz
-    \item \alert{\$} cat file > mypipe
+    \item \CMD{mkfifo mypipe}
+    \item \CMD{gzip -9 -c < mypipe > out.gz}
+    \item \CMD{cat file > mypipe}
     \end{enumerate}
-  \end{block}  
+  \end{description}
 \end{frame}
 
 \begin{itemize}
@@ -441,13 +470,13 @@
   \begin{minipage}{.44\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{isay-sh} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{isay-sh-bw} }
+      \mode<article>{\shellfile{../src/isay.sh}}
     \end{center}
   \end{minipage}\quad
   \begin{minipage}{.52\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{isay-c} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{isay-c-bw} }
+      \mode<article>{\cfile{../src/isay.c}}
     \end{center}
   \end{minipage}
 \end{frame}
@@ -465,14 +494,18 @@
   \end{block}
   \begin{block}{Example}
     \begin{center}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=.6\textwidth]{para-substitution-sh} }%
-        \mode<article>{ \includegraphics[width=.4\textwidth]{para-substitution-sh-bw} }
-      \end{center}
+      \mode<beamer>{ \includegraphics[width=.6\textwidth]{para-substitution-sh} }%
+      \mode<article>{\shellfile{../src/para-substitution.sh}}
     \end{center}
   \end{block}
+  \begin{itemize}
+  \item[\hw] Re-write it in C
+  \end{itemize}
 \end{frame}
-% file:///usr/share/doc/abs-guide/html/parameter-substitution.html
+\begin{itemize}
+\item[\$] \cmd{sudo apt install abs-guide}
+\item \url{file:///usr/share/doc/abs-guide/html/parameter-substitution.html}
+\end{itemize}
 
 \begin{frame}{Parameter Substitution}
   \begin{block}{Substring removal}
@@ -483,9 +516,9 @@
   \end{block}  
 \end{frame}
 
-\begin{frame}{Environmental Variables}
-  \begin{block}{Each process has an environment}\ttfamily\small
-    \begin{center}
+\begin{frame}{Environmental Variables}\ttfamily
+  \begin{block}{Each process has an environment}
+    \begin{center}\small
       \begin{tabular}{lllll}
         \$PATH&\$PWD&\$HOME&\$UID&\$USER\\
         \$GROUPS&\$SHELL&\$TERM&\$DISPLAY&\$TEMP\\
@@ -494,18 +527,17 @@
       \end{tabular}
     \end{center}
     \begin{itemize}
-    \item[] export HISTSIZE=2000
-    \item[] export BROWSER='/usr/bin/x-www-browser'
-    \item[] export EDITOR='vim'
-    \item[] export ALTERNATE\_EDITOR="vim"
-    \item[] export PDFVIEWER='/usr/bin/zathura'
+    \item[\$] export HISTSIZE=2000
+    \item[\$] export BROWSER='/usr/bin/x-www-browser'
+    \item[\$] export EDITOR='vim'
+    \item[\$] export ALTERNATE\_EDITOR="vim"
+    \item[\$] export PDFVIEWER='/usr/bin/zathura'
     \end{itemize}
   \end{block}
-  {\ttfamily
-    \begin{itemize}
-    \item[\$] env
-    \item[\$] declare
-    \end{itemize}}
+  \begin{itemize}
+  \item[\$] env
+  \item[\$] declare
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[allowframebreaks]{Tests}\small\ttfamily
@@ -533,7 +565,7 @@
   \begin{block}{}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.7\textwidth]{if-then-else-sh} }%
-      \mode<article>{ \includegraphics[width=.4\textwidth]{if-then-else-sh-bw} }
+      \mode<article>{\shellfile{../src/if-then-else.sh}}
     \end{center}
   \end{block}
 \end{frame}
@@ -571,28 +603,35 @@
 \begin{frame}{\texttt{case}}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{n2-sh} }%
-    \mode<article>{ \includegraphics[width=.8\textwidth]{n2-sh-bw} }
+    \mode<article>{\shellfile{../src/n2.sh}}
   \end{center}
 \end{frame}
 
 \begin{frame}{\texttt{select}}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{select-sh} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{select-sh-bw} }
+    \mode<article>{\shellfile{../src/select.sh}}
   \end{center}
 \end{frame}
 
 \begin{frame}{Functions}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{func-sh} }%
-    \mode<article>{ \includegraphics[width=.8\textwidth]{func-sh-bw} }
-  \end{center}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{func-sh} }%
+  \mode<article>{\shellfile{../src/func.sh}}
 \end{frame}
 
 \begin{frame}{Array}
-  \url{https://www.tutorialspoint.com/unix/unix-using-arrays.htm}
-  
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{wallpaper-sh} }%
+    \mode<article>{\shellfile{../src/wallpaper.sh}}
+  \end{center}
+  \begin{itemize}
+  \item[\hw] Change wallpaper every 5 mins?
+  \end{itemize}
 \end{frame}
+
+\begin{itemize}
+\item \url{https://www.tutorialspoint.com/unix/unix-using-arrays.htm}
+\end{itemize}
 
 \lecture{C Programming Basics}{C basics}
 \section{C Programming Basics}
@@ -607,20 +646,22 @@
     \begin{center}{\ttfamily
       100111000011101111001111 ... and so on ...}
     \end{center}
+    People don't think in numbers.
   \end{block}
   \begin{block}{Assembly language --- friendly to humans}
-    People don't think in numbers.
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.5\textwidth]{asm-sample-asm} }%
+      \mode<beamer>{ \includegraphics[width=.4\textwidth]{asm-sample-asm} }%
       \mode<article>{ \includegraphics[width=.2\textwidth]{asm-sample-asm} }
     \end{center}
-    The ASM programs are translated to machine code by \alert{assemblers}.
+    \begin{description}
+    \item[Assemblers] translate the ASM programs to machine code
+    \end{description}
   \end{block}
 \end{frame}
 
 \begin{frame}
   \begin{block}{High level languages}
-    Even easier to understand for humans. Examples:
+    Even easier to understand by humans. Examples:
     \begin{itemize}
     \item C\tikzmark{clang}
     \item FORTRAN\tikzmark{fortran}
@@ -628,13 +669,15 @@
     \item C++\tikzmark{cpp}
     \item ...\tikzmark{more}
     \end{itemize}\pause
-    \alert{Compilers} do the translation work.    
+    \begin{description}
+    \item[Compilers] do the translation work
+    \end{description}
   \end{block}
   \begin{tikzpicture}[remember picture,overlay,
     every node/.style={ellipse,red,opacity=.4,draw},
     every to/.style={append after command={[->,black!30,thick]}}
     ]
-    \node (asm) at ($(pic cs:java) + (3,0)$) {Assembly};
+    \node (asm) at ($(pic cs:java) + (3,.5ex)$) {Assembly};
     \node (bin) [right=of asm] {Binary};
     \draw ($(pic cs:clang)+(0,.5ex)$) to [bend left=20] (asm);
     \draw ($(pic cs:fortran)+(0,.5ex)$) to [bend left=15] (asm);
@@ -651,7 +694,7 @@
 \begin{frame}{Compilation}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{tool-chain} }%
-    \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain} }
+    \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain-bw} }
   \end{center}
 \end{frame}
 
@@ -851,25 +894,25 @@ int triple(int x)
     \begin{block}{\texttt{main.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{main-c} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{main-c-bw} }
+        \mode<article>{\cfile{../src/static/main.c}}
       \end{center}
     \end{block}
     \begin{block}{\texttt{lib.h}}
       \mode<beamer>{\includegraphics[width=.5\textwidth]{lib-h}}%
-      \mode<article>{\includegraphics[width=.5\textwidth]{lib-h-bw}}%
+      \mode<article>{\cfile{../src/static/lib.h}}
     \end{block}
   \end{minipage}\qquad
   \begin{minipage}[t]{.43\linewidth}
     \begin{block}{\texttt{hello.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{hello-c} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{hello-c-bw} }
+        \mode<article>{\cfile{../src/static/hello.c}}
       \end{center}
     \end{block}
     \begin{block}{\texttt{hi.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{hi-c-bw} }
+        \mode<article>{\cfile{../src/static/hi.c}}
       \end{center}
     \end{block}
   \end{minipage}
@@ -895,7 +938,7 @@ int triple(int x)
 \begin{frame}{Build A Static Library}{Makefile}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{makefile-a} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{makefile-a-bw} }
+    \mode<article>{\mkfile{../src/static/Makefile}}
   \end{center}
 \end{frame}
 
@@ -903,23 +946,19 @@ int triple(int x)
   \begin{block}{\texttt{hello.c}}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello-c-so} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{hello-c-so-bw} }
+      \mode<article>{\cfile{../src/shared/hello.c}}
     \end{center}
   \end{block}
   \begin{minipage}{.35\linewidth}
     \begin{block}{\texttt{hello.h}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{hello-h-so} }%
-        \mode<article>{ \includegraphics[width=.6\textwidth]{hello-h-so-bw} }
-      \end{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hello-h-so} }%
+      \mode<article>{\cfile{../src/shared/hello.h}}
     \end{block}
   \end{minipage}\qquad
   \begin{minipage}{.36\linewidth}
     \begin{block}{\texttt{hi.c}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c-so} }%
-        \mode<article>{ \includegraphics[width=.6\textwidth]{hi-c-so-bw} }
-      \end{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c-so} }%
+      \mode<article>{\cfile{../src/shared/hi.c}}
     \end{block}
   \end{minipage}
 \end{frame}
@@ -948,19 +987,20 @@ int triple(int x)
 \begin{frame}{Build A Shared Library}{Makefile}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{makefile-so} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{makefile-so-bw} }
+    \mode<article>{\mkfile{../src/shared/Makefile}}
   \end{center}
 \end{frame}
 
 \begin{frame}{GNU C Library}
   \begin{minipage}{.55\linewidth}
     Linux API > POSIX API
+    \ttfamily
     \begin{itemize}
-    \item[\$] \cmd{man 7 libc}
-    \item[\$] \cmd{man 3 intro}
-    \item[\$] \cmd{man gcc}
-    \item[\$] \cmd{info gcc}
-    \item[\debian] \cmd{sudo apt install gcc-doc}
+    \item[\$] man 7 libc
+    \item[\$] man 3 intro
+    \item[\$] man gcc
+    \item[\$] info gcc
+    \item[\debian] sudo apt install gcc-doc
     \end{itemize}
   \end{minipage}
   \begin{minipage}{.4\linewidth}
@@ -977,7 +1017,7 @@ int triple(int x)
 \begin{frame}{\texttt{errno.h}}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.6\textwidth]{perror-c} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{perror-c-bw} }
+    \mode<article>{\cfile{../src/perror.c}}
   \end{center}\ttfamily
   \begin{itemize}
   \item[\$] man errno
@@ -1031,10 +1071,7 @@ int triple(int x)
 \begin{frame}{Makefile}
   \begin{minipage}{.75\linewidth}
     \mode<beamer>{ \includegraphics[width=1.1\textwidth]{Makefile2-mk} }%
-    \mode<article>{
-      \begin{center}
-        \includegraphics[width=.8\textwidth]{Makefile2-mk}
-      \end{center}}
+    \mode<article>{\mkfile{figs/Makefile2}}
   \end{minipage}
   \begin{minipage}{.2\linewidth}
     \begin{center}
@@ -1071,11 +1108,8 @@ int triple(int x)
     \item[\$] git add filename[s]
     \item[\$] git rm filename[s]
     \item[\$] git commit
-    \item[\$] git status
-    \item[\$] git log
-    \item[\$] git diff
-    \item[\$] git push
-    \item[\$] git pull
+    \item[\$] git status\qquad\CMD{git log}\qquad\CMD{git diff}
+    \item[\$] git push\qquad\CMD{git pull}
     \item[\$] git help \{add,rm,commit,\ldots\}
     \end{itemize}
   \end{block}
@@ -1343,6 +1377,9 @@ See also:
   \qquad\CMD{sudo hd -n512 /dev/sda}
 \end{frame}
 
+\begin{itemize}
+\item \url{https://en.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface}
+\end{itemize}
 
 \lecture{Interrupt}{int}
 \subsubsection{Interrupt}
@@ -1380,14 +1417,20 @@ See also:
 \end{frame}
 
 \begin{frame}{Interrupt Processing}
-  % \includegraphics[width=.9\textwidth]{int-mos-figs-5-6}\\
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-10} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-10} }
+    \mode<beamer>{%
+      \includegraphics[width=.4\textwidth]{mos-figs-1-10-1}\qquad%
+      \includegraphics[width=.3\textwidth]{mos-figs-1-10-2}
+    } \mode<article>{%
+      \includegraphics[width=.3\textwidth]{mos-figs-1-10-1}\qquad%
+      \includegraphics[width=.2\textwidth]{mos-figs-1-10-2}%
+    }
   \end{center}
 \end{frame}
 
-Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2015modern}.
+\begin{itemize}
+\item \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2015modern}
+\end{itemize}
 
 \begin{frame}{Interrupt Timeline}
   \begin{center}
@@ -1395,7 +1438,6 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum201
     \mode<article>{ \includegraphics[width=.5\textwidth]{ir-timeline} }
   \end{center}
 \end{frame}
-
 
 \lecture{System Calls}{syscall}
 \subsubsection{System Calls}
@@ -1424,7 +1466,7 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum201
 \begin{frame}{The 11 steps in making a system call}{\texttt{read(fd,buffer,nbytes)}}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-1-18} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-18} }
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-18} }
   \end{center}
 \end{frame}
 
@@ -1516,7 +1558,7 @@ Quoted from
 \begin{frame}{Command Line Options}{\texttt{getopt.c}}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{getopt-c} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{getopt-c-bw} }
+    \mode<article>{\cfile{../src/getopt.c}}
   \end{center}
   \qquad\qquad\CMD{man 3 getopt}
 \end{frame}
@@ -1524,7 +1566,7 @@ Quoted from
 \begin{frame}{Command Line Options}{\texttt{getopt.sh}}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.9\textwidth]{getopt-sh} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{getopt-sh-bw} }
+    \mode<article>{\shellfile{../src/getopt.sh}}
   \end{center}
   \ttfamily
   \begin{itemize}
@@ -1539,7 +1581,7 @@ Quoted from
   \begin{minipage}{.5\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{env-c} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{env-c-bw} }
+      \mode<article>{ \cfile{../src/env.c} }
     \end{center}
   \end{minipage}\quad
   \begin{minipage}{.45\linewidth}
@@ -1568,22 +1610,18 @@ Quoted from
 \end{frame}
 
 \begin{frame}{Temporary Files}
-  \ttfamily
   \begin{minipage}[t]{.55\linewidth}
     \begin{block}{\texttt{mkstemp.c}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{mkstemp-c} }%
-        \mode<article>{ \includegraphics[width=.8\textwidth]{mkstemp-c-bw} }
-      \end{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mkstemp-c} }%
+      \mode<article>{\cfile{../src/mkstemp.c}}
     \end{block}
   \end{minipage}\qquad
   \begin{minipage}[t]{.35\linewidth}
     \begin{block}{\texttt{mktemp.sh}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{mktemp-sh} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{mktemp-sh-bw} }
-      \end{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mktemp-sh} }%
+      \mode<article>{\shellfile{../src/mktemp.sh}}
     \end{block}
+    \ttfamily
     \begin{itemize}
     \item[\$] man 3 mkstemp
     \item[\$] man 3 tmpfile
@@ -1596,13 +1634,13 @@ Quoted from
   \begin{block}{\ttfamily syslog.c}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{syslog-c} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{syslog-c-bw} }
+      \mode<article>{\cfile{../src/syslog.c}}
     \end{center}
   \end{block}
   \begin{block}{\ttfamily logger.sh}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{logger-sh} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{logger-sh-bw} }
+      \mode<article>{\shellfile{../src/logger.sh}}
     \end{center}
   \end{block}
   % \ttfamily
@@ -1917,7 +1955,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \begin{block}{\texttt{write()}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{write-c-bw} }
+        \mode<article>{\cfile{../src/write.c}}
       \end{center}
     \end{block}
     \ttfamily
@@ -1930,7 +1968,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \begin{block}{\texttt{read()}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{read-c} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{read-c-bw} }
+        \mode<article>{\cfile{../src/read.c}}
       \end{center}
     \end{block}
     \ttfamily
@@ -1945,7 +1983,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \begin{center}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.95\textwidth]{cp-syscall-c} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{cp-syscall-c-bw} }
+      \mode<article>{\cfile{../src/cp-syscall.c}}
     \end{center}
   \end{center}
 \end{frame}
@@ -1976,13 +2014,13 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \begin{minipage}{.48\linewidth}
       \cmd{open()}\\[1ex]
       \mode<beamer>{\includegraphics[width=\linewidth]{open-c}\\[1ex]}%
-      \mode<article>{\includegraphics[width=\linewidth]{open-c-bw}\\[1ex]}
+      \mode<article>{\cfile{../src/open.c}}
       \CMD{strace -c ./open}
     \end{minipage}\quad
     \begin{minipage}{.48\linewidth}
       \cmd{fopen()} --- Buffered I/O\\[1ex]
       \mode<beamer>{\includegraphics[width=\linewidth]{fopen-c}\\[1ex]}%
-      \mode<article>{\includegraphics[width=\linewidth]{fopen-c-bw}\\[1ex]}
+      \mode<article>{\cfile{../src/fopen.c}}
       \CMD{strace -c ./fopen}
     \end{minipage}
   \end{center}{\footnotesize
@@ -1991,20 +2029,24 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \end{itemize}}
 \end{frame}
 
-\url|https://stackoverflow.com/questions/1658476/c-fopen-vs-open|
+\begin{itemize}
+\item \url{https://stackoverflow.com/questions/1658476/c-fopen-vs-open}
+\end{itemize}
 
 \begin{frame}{\texttt{cp} --- {\small With} \texttt{stdio}}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.6\textwidth]{cp-libc-c} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{cp-libc-c-bw} }
+    \mode<article>{\cfile{../src/cp-libc.c}}
   \end{center}
   \begin{description}
   \item[Homework:] Try \texttt{fread()/fwrite()} instead.
   \end{description}
 \end{frame}
 
-\url|https://stackoverflow.com/questions/32742430/is-getc-a-macro-or-a-function|
-\url|https://stackoverflow.com/questions/9104568/macro-vs-function-in-c|
+\begin{itemize}
+\item \url{https://stackoverflow.com/questions/32742430/is-getc-a-macro-or-a-function}
+\item \url{https://stackoverflow.com/questions/9104568/macro-vs-function-in-c}
+\end{itemize}
 
 \subsection{Directory}
 \label{sec:directory}
@@ -2026,10 +2068,8 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 
 \begin{frame}%{Directory}
   \begin{block}{Directory entry in \texttt{glibc}}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{dirent-c} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{dirent-c-bw} }
-    \end{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{dirent-c} }%
+    \mode<article>{\cfile{../src/dirent.c}}
   \end{block}
   \begin{itemize}
   \item[\$] \cmd{man readdir}
@@ -2066,10 +2106,8 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \end{tikzpicture}}
   
   \begin{minipage}{.6\linewidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{ls-c} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{ls-c-bw} }
-    \end{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{ls-c} }%
+    \mode<article>{\cfile{../src/ls.c}}
   \end{minipage}\quad
   \begin{minipage}{.35\linewidth}
     \begin{description}
@@ -2099,7 +2137,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \begin{frame}{\ttfamily mkdir(), chdir(), rmdir(), getcwd()}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.9\textwidth]{mkdir-c} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mkdir-c-bw} }
+    \mode<article>{\cfile{../src/mkdir.c}}
   \end{center}
 \end{frame}
 
@@ -2137,27 +2175,33 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \begin{frame}{\ttfamily link(), unlink(), symlink()}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{link-c} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{link-c-bw} }
+    \mode<article>{\cfile{../src/link.c}}
   \end{center}
 \end{frame}
-
-
-% \subsection{The \texttt{/proc} File System}
-% \label{sec:textttpr-file-syst}
-
-% \begin{frame}{\texttt{/proc}}
-
-% \end{frame}
-
-\lecture{The Linux Environment}{Linux Environment}
-
 
 \lecture{Process}{proc}
 \section{Processes and Threads}
 \label{sec:processes-threads}
 
-\subsection{Process}
-\label{sec:process}
+\subsection{Virtual Memory}
+\label{sec:virtual-memory}
+
+\begin{frame}{Programs}
+A program is a file sitting in your hard disk. Two forms:
+\begin{itemize}
+\item Source code, e.g. \texttt{hello.c}, human readable
+\item Executable code, e.g. \texttt{a.out}, machine readable
+  \begin{description}
+  \item[Binary format identification] Usually ELF
+  \item[Machine-language instructions] Program algorithm
+  \item[Entry-point address] Where to find \texttt{main()}?
+  \item[Data] Initialized variables
+  \item[Symbol and relocation tables] Address of variables, functions...
+  \item[Shared-library] Where to find \texttt{printf()}?
+  \item[More] ...
+  \end{description}
+\end{itemize}
+\end{frame}
 
 \begin{frame}{Process}
   \begin{description}
@@ -2184,6 +2228,490 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
       \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-1-20} }
     \end{center}
   \end{minipage}
+\end{frame}
+
+\begin{frame}{Problem With Real Mode}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mm-relocation} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mm-relocation} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Protected mode}
+  We need
+  \begin{itemize}
+  \item Protect the OS from access by user programs
+  \item Protect user programs from one another
+  \end{itemize}
+  \begin{description}
+  \item[Protected mode] is an operational mode of x86-compatible CPU.
+    \begin{itemize}
+    \item The purpose is to protect everyone else (including the OS) from your program.
+    \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}{Memory Protection}{Logical Address Space}
+  \begin{description}
+  \item[Base register] holds the smallest legal physical memory address
+  \item[Limit register] contains the size of the range
+  \end{description}
+  \begin{varwidth}{.48\textwidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{osc-8-5} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{osc-8-5} }
+    \end{center}
+  \end{varwidth}\hfill
+  \begin{varwidth}{.45\textwidth}
+    A pair of \texttt{base} and \texttt{limit} registers define the logical address space
+    \begin{center}
+      \cfbox{violet}{\texttt{JMP 28}}
+    \end{center}
+    \begin{center}
+      {\rotatebox{270}{\huge \Symbol{➠}}}
+    \end{center}
+    \begin{center}
+      \cfbox{violet}{\texttt{JMP 300068}}
+    \end{center}
+  \end{varwidth}
+\end{frame}
+
+\begin{frame}{Memory Protection}{Base and limit registers}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mm-protection} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mm-protection} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{UNIX View of a Process' Memory}
+  \begin{varwidth}{.48\textwidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mm-process} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{mm-process} }
+    \end{center}
+  \end{varwidth}\hfill
+  \begin{varwidth}{.48\textwidth}
+    \begin{itemize}
+    \item[text:] program code
+    \item[data:] initialized global and static data
+    \item[bss:] uninitialized global and static data
+    \item[heap:] dynamically allocated with \texttt{malloc, new}
+    \item[stack:] local variables
+    \end{itemize}
+  \end{varwidth}
+\end{frame}
+
+\begin{frame}{Stack vs. Heap}
+  \begin{center}
+    \begin{tabular}{ll}\toprule
+      \textbf{Stack}           &\textbf{Heap}\\\midrule
+      compile-time allocation &run-time allocation\\
+      auto clean-up           &you clean-up\\
+      inflexible              &flexible\\
+      smaller                 &bigger\\
+      quicker                 &slower\\\bottomrule
+    \end{tabular}
+  \end{center}
+  \begin{block}{How large is the ...}
+    \begin{description}
+    \item[stack:] \texttt{ulimit -s}
+    \item[heap:] could be as large as your virtual memory
+    \item[text|data|bss:] \texttt{size a.out}
+    \end{description}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Multi-step Processing of a User Program}{When is space
+    allocated?}
+  \begin{minipage}{.4\textwidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{tool-chain-mm} }%osc-8-7
+      \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain-mm} }
+    \end{center}
+    \label{reg}
+  \end{minipage}
+  \begin{minipage}{.55\textwidth}
+    \begin{small}
+      \begin{description}
+      \item[Static:] before program start running
+        \begin{itemize}
+        \item Compile time
+        \item Load time
+        \end{itemize}
+      \item[Dynamic:] as program runs
+        \begin{itemize}
+        \item Execution time
+        \end{itemize}
+      \end{description}
+    \end{small}
+  \end{minipage}
+\end{frame}
+
+\begin{description}
+\item[Compiler] The name "compiler" is primarily used for programs that translate source
+  code from a high-level programming language to a lower level language (e.g., assembly
+  language or machine code)\citetitle{wiki:compiler}.
+\item[Assembler] An assembler creates object code by translating assembly instruction
+  mnemonics into opcodes, and by resolving symbolic names for memory locations and other
+  entities\citetitle{wiki:assembler}.
+\item[Linker] Computer programs typically comprise several parts or modules; all these
+  parts/modules need not be contained within a single object file, and in such case refer
+  to each other by means of symbols\citetitle{wiki:linker}.
+
+  When a program comprises multiple object files, the linker combines these files into a
+  unified executable program, resolving the symbols as it goes along.
+
+  Linkers can take objects from a collection called a library. Some linkers do not include
+  the whole library in the output; they only include its symbols that are referenced from
+  other object files or libraries. Libraries exist for diverse purposes, and one or more
+  system libraries are usually linked in by default.
+
+  The linker also takes care of arranging the objects in a program's address space. This
+  may involve relocating code that assumes a specific base address to another base. Since
+  a compiler seldom knows where an object will reside, it often assumes a fixed base
+  location (for example,zero).
+\item[Loader] An assembler creates object code by translating assembly instruction
+  mnemonics into opcodes, and by resolving symbolic names for memory locations and other
+  entities. ... Loading a program involves reading the contents of executable file, the
+  file containing the program text, into memory, and then carrying out other required
+  preparatory tasks to prepare the executable for running. Once loading is complete, the
+  operating system starts the program by passing control to the loaded program
+  code\citetitle{wiki:loader}
+\item[Dynamic linker] A dynamic linker is the part of an operating system (OS) that loads
+  (copies from persistent storage to RAM) and links (fills jump tables and relocates
+  pointers) the shared libraries needed by an executable at run time, that is, when it is
+  executed. The specific operating system and executable format determine how the dynamic
+  linker functions and how it is implemented. Linking is often referred to as a process
+  that is performed at compile time of the executable while a dynamic linker is in
+  actuality a special loader that loads external shared libraries into a running process
+  and then binds those shared libraries dynamically to the running process. The specifics
+  of how a dynamic linker functions is operating-system
+  dependent\citetitle{wiki:dynamic-linker}
+\end{description}
+
+Linkers and Loaders allow programs to be built from modules rather than as one big
+monolith.
+
+See also:
+\begin{itemize}
+\item \citetitle[Chap.~7, \emph{Linking}]{Bryant2010computersystems}.
+\item COMPILER, ASSEMBLER, LINKER AND LOADER: A BRIEF
+  STORY\footnote{\url{http://www.tenouk.com/ModuleW.html}}.
+\item Linkers and Loaders\footnote{\url{http://www.iecc.com/linker/}}.
+\item \citetitle[\emph{Links and loaders}]{levine2000linkers}.
+\item Linux Journal: Linkers and
+  Loaders\footnote{\url{http://www.linuxjournal.com/article/6463}}. Discussing how
+  compilers, links and loaders work and the benefits of shared libraries.
+\end{itemize}
+
+\begin{frame}{Address Binding}{Who assigns memory to segments?}
+  \begin{block}{Static-binding: before a program starts running}
+    \begin{description}
+    \item[Compile time:] \alert{Compiler} and \alert{assembler} generate an object file for
+      each source file
+    \item[Load time:] \hfill
+      \begin{itemize}
+      \item \alert{Linker} combines all the object files into a single executable object
+        file
+      \item \alert{Loader} (part of OS) loads an executable object file into
+        memory at location(s) determined by the OS
+        \begin{itemize}
+        \item[-] invoked via the \texttt{execve} system call
+        \end{itemize}
+      \end{itemize}
+    \end{description}
+  \end{block}
+  \begin{block}{Dynamic-binding: as program runs}
+    \begin{itemize}
+    \item Execution time:
+      \begin{itemize}
+      \item uses \texttt{new} and \texttt{malloc} to dynamically allocate memory
+      \item gets space on stack during function calls
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item Address binding has nothing to do with physical memory (RAM). It determines the
+  addresses of objects in the address space (virtual memory) of a process.
+\end{itemize}
+
+\begin{frame}{Virtual Memory}{Logical memory can be much larger than physical memory}
+  \begin{varwidth}{.48\textwidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-10} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }
+    \end{center}
+  \end{varwidth}\hfill
+  \begin{varwidth}{.48\textwidth}
+    \begin{block}{Address translation}
+      $$\genfrac{}{}{0pt}{}{virtual}{address}
+      \xrightarrow{\alert{page\,table}}
+      \genfrac{}{}{0pt}{}{physical}{address}$$
+      
+      $$Page\ 0\xrightarrow{map\,to}Frame\ 2$$
+      
+      $$0_{virtual}\xrightarrow{map\,to}8192_{physical}$$
+      
+      $$\genfrac{}{}{0pt}{}{20500_{vir}}{(20k+20)_{vir}}
+      \xrightarrow{map\,to} \genfrac{}{}{0pt}{}{12308_{phy}}{(12k+20)_{phy}}$$
+    \end{block}
+  \end{varwidth}
+\end{frame}
+
+\begin{frame}{Paging}{Address Translation Scheme}
+  \begin{block}{Address generated by CPU is divided into:}
+    \begin{description}
+    \item[Page number(p):] an index into a page table
+    \item[Page offset(d):] to be copied into memory
+    \end{description}
+  \end{block}
+  Given \alert{logical address space} ($2^m$) and \alert{page size} ($2^n$),
+  \begin{small}
+    $$\text{number of pages}=\frac{2^m}{2^n}=2^{m-n}$$
+  \end{small}
+  \begin{block}{Example: addressing to $0010000000000100$}
+    $$\underbrace{\overbrace{0\,0\,1\,0}^{m-n=4}\,\overbrace{0\,0\,0\,0\,0\,0\,0\,0\,0\,1\,0\,0}^{n=12}}_{m=16}$$
+    \begin{small}
+      $$\text{page number}=0010=2, \quad \text{page offset}=000000000100$$
+    \end{small}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{varwidth}{.65\textwidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-11} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-11} }
+    \end{center}
+    \label{fig:paging}
+  \end{varwidth}\hfill
+  \begin{varwidth}{.35\textwidth}
+    \begin{small}
+      \begin{tabular}{rl}
+        Virtual pages:  &16\\
+        Page size:      &4k\\
+        Virtual memory: & 64K\\
+        Physical frames:&8\\
+        Physical memory:&32K
+      \end{tabular}
+    \end{small}
+  \end{varwidth}
+\end{frame}
+
+\begin{frame}[fragile]{Page Fault}
+  \begin{varwidth}{.48\textwidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-10} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }
+    \end{center}
+  \end{varwidth}\hfill
+  \begin{varwidth}{.48\textwidth}
+    \mintinline{nasm}|MOV REG, 32780|?
+    \begin{itemize}
+    \item[\Symbol{➠}] Page fault \& swapping
+    \end{itemize}
+  \end{varwidth}
+\end{frame}
+
+\begin{frame}{Page Fault Handling}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-9-14} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-9-14} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Shared Pages}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-33} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-33} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Page Table Entry}{Intel i386 Page Table Entry}
+  \begin{itemize}
+  \item Commonly 4 bytes (32 bits) long
+  \item Page size is usually 4k ($2^{12}$ bytes). OS dependent
+    \begin{itemize}
+    \item[\$] \texttt{getconf PAGESIZE}
+    \end{itemize}
+  \item Could have $2^{32-12}=2^{20}=1M$ pages
+    \begin{itemize}
+    \item[] Could address $1M\times{}4KB=4GB$ memory
+    \end{itemize}
+  \end{itemize}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{i386pte} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{i386pte} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Page Table}
+  \begin{itemize}
+  \item Page table is kept in main memory
+  \item Usually one page table for each process
+  \item \alert{Page-table base register (PTBR):} A pointer to the page table is stored in
+    PCB
+  \item \alert{Page-table length register (PRLR):} indicates size of the page table
+  \item Slow
+    \begin{itemize}
+    \item Requires two memory accesses. One for the page table and one for the
+      data/instruction.
+    \end{itemize}
+  \item TLB
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Translation Lookaside Buffer (TLB)}
+  \begin{description}
+  \item[80-20 rule] Only a small fraction of the PTEs are heavily read; the rest are
+    barely used at all
+  \end{description}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-8-28} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-28} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Multilevel Page Tables}
+  \begin{itemize}
+  \item a $1M$-entry page table eats $4M$ memory
+  \item while 100 processes running, $400M$ memory is gone for page tables
+  \item avoid keeping all the page tables in memory all the time
+  \end{itemize}
+  \begin{block}{A two-level scheme}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.6\textwidth]{2-level-paging} }%
+      \mode<article>{ \includegraphics[width=.3\textwidth]{2-level-paging} }
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{description}
+\item[p1:] is an index into the outer page table
+\item[p2:] is the displacement within the page of the outer page table
+\end{description}
+
+\begin{itemize}
+\item Split one huge page table into 1k small page tables
+  \begin{itemize}
+  \item i.e. the huge page table has 1k entries.
+  \item Each entry keeps a page frame number of a small page table.
+  \end{itemize}
+\item Each small page table has 1k entries
+  \begin{itemize}
+  \item Each entry keeps a page frame number of a physical frame.
+  \end{itemize}
+\end{itemize}
+
+\begin{frame}{Two-Level Page Tables}{Example}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{2-level-paging-2} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{2-level-paging-2} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Pentium Paging}{Linear Address $\Rightarrow$ Physical Address}
+  \begin{minipage}{.4\textwidth}
+    \mbox{Two page size in Pentium:}
+    \begin{small}
+      \begin{itemize}
+      \item[4K:] \mbox{2-level paging}% (Fig.~\ref{fig:2levelpaging})}
+      \item[4M:] \mbox{1-level paging}% (Fig.~\ref{fig:paging})}
+      \end{itemize}
+    \end{small}
+    \begin{center}
+      \includegraphics[width=1.15\textwidth]{2-level-paging}
+    \end{center}
+  \end{minipage}\quad
+  \begin{minipage}{.5\textwidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=1.1\textwidth]{osc-8-54} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{osc-8-54} }
+    \end{center}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Problem With 64-bit Systems}
+  \begin{description}
+  \item[Given:]\hfill\\[-2ex]
+    \begin{itemize}
+    \item $\text{virtual address space} = 64\,bits$
+    \item $\text{page size}=4\,KB=2^{12}\,B$
+    \end{itemize}
+  \item[?] How much space would a simple single-level page table take?
+    \begin{itemize}
+    \item[if] Each page table entry takes $4\,Bytes$
+    \item[then] The whole page table ($2^{64-12}$ entries) will take
+      \[2^{64-12}\times{}4\,B=2^{54}\,B=16\,PB \quad {\scriptstyle(peta \Rightarrow tera \Rightarrow giga)!}\]
+    \end{itemize}
+    And this is for ONE process!
+  \item[Multi-level?]\hfill
+    \begin{itemize}
+    \item[if] $10\,bits$ for each level
+    \item[then] $\frac{64-12}{10}=5$ levels are required
+    \end{itemize}
+    5 memory accress for each address translation!
+  \end{description}
+\end{frame}
+
+\begin{itemize}
+\item The CR3 register {\pright} the top level page table for the current process.
+\end{itemize}
+
+\begin{frame}{Paging In Linux}{4-level paging for both 32-bit and 64-bit}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{4-level-paging} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{4-level-paging} }
+  \end{center}
+\end{frame}
+
+\begin{frame}%{Paging In Linux}
+  \begin{block}{4-level paging for both 32-bit and 64-bit}
+    \begin{itemize}
+    \item \alert{64-bit: four-level paging}
+      \begin{enumerate}
+      \item Page Global Directory
+      \item Page Upper Directory
+      \item Page Middle Directory
+      \item Page Table
+      \end{enumerate}
+    \item \alert{32-bit: two-level paging}
+      \begin{enumerate}
+      \item Page Global Directory
+      \item Page Upper Directory --- 0 bits; 1 entry
+      \item Page Middle Directory --- 0 bits; 1 entry
+      \item Page Table
+      \end{enumerate}
+    \end{itemize}
+    \alert{The same code can work on 32-bit and 64-bit architectures}
+  \end{block}
+    \begin{center}
+    \begin{scriptsize}
+      \begin{tabular}{llm{3em}m{3em}r}
+        \hline
+        Arch&Page size&Address bits&Paging levels&Address splitting\\\hline
+        x86 &4KB(12bits) &32 &2 &$10+0+0+10+12$\\
+        x86-PAE&4KB(12bits)&32&3&$2+0+9+\hspace{.6em}9+12$\\
+        x86-64&4KB(12bits)&48&4&$9+9+9+\hspace{.6em}9+12$\\\hline
+      \end{tabular}
+    \end{scriptsize}
+  \end{center}
+\end{frame}
+
+
+\subsection{Process}
+\label{sec:process}
+
+\begin{frame}
+  \begin{block}{From kernel's point of view}
+    A process consists of
+    \begin{description}
+    \item[User-space memory] program code, variable...
+    \item[Kernel data structures] keep the state of the process
+    \end{description}
+  \end{block}
 \end{frame}
 
 \begin{frame}{Process Control Block (PCB)}
@@ -2327,7 +2855,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \begin{block}{Some of the Pthreads function calls}
     \begin{center}
       \begin{small}
-        \begin{tabularx}{\textwidth}{>{\ttfamily}lX}
+        \begin{tabular}{>{\ttfamily}ll}
           \hline
           \thead{Thread call}&\thead{Description}\\\hline
           pthread\_create&Create a new thread\\
@@ -2336,7 +2864,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
           pthread\_yield&Release the CPU to let another thread run\\
           pthread\_attr\_init&Create and initialize a thread's attribute structure\\
           pthread\_attr\_destroy&Remove a thread's attribute structure\\\hline
-        \end{tabularx}
+        \end{tabular}
       \end{small}
     \end{center}
   \end{block}
@@ -2345,7 +2873,7 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \begin{frame}{Pthreads}{Example 1}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{thread1} }%
-    \mode<article>{ \includegraphics[width=\textwidth]{thread1-bw} }
+    \mode<article>{\cfile{../src/thread1.c}}
   \end{center}
 \end{frame}
 
@@ -2516,7 +3044,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}{Trap}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.5\textwidth]{trap1-sh} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{trap1-sh-bw} }
+    \mode<article>{\shellfile{../src/trap1.sh}}
   \end{center}\ttfamily
   \begin{itemize}
   \item[\#!] trap "rm -rf \$tmpfiles" EXIT
@@ -2526,7 +3054,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}{Example}{SIGINT}
 \begin{center}
   \mode<beamer>{ \includegraphics[trim={0 0 0 12em},width=.6\textwidth]{shell2-c} }%
-  \mode<article>{ \includegraphics[width=.7\textwidth]{shell2-c-bw} }
+  \mode<article>{\cfile{../src/shell2.c}}
 \end{center}
 \end{frame}
 
@@ -2537,7 +3065,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}{Example}{SIGUSR1}
   \begin{minipage}{.5\linewidth}
   \mode<beamer>{ \includegraphics[width=\textwidth]{sigusr-c} }%
-  \mode<article>{ \includegraphics[width=\textwidth]{sigusr-c-bw} }    
+  \mode<article>{\cfile{../src/sigusr.c}} 
   \end{minipage}\quad
   \begin{minipage}{.4\linewidth}\ttfamily
     \begin{itemize}
@@ -2548,15 +3076,13 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{Example}{SIGALRM}
   \begin{minipage}{.45\linewidth}
-  \mode<beamer>{  \includegraphics[clip,trim={0 13em 0 0},width=\textwidth]{alarm-c} }%
-  \mode<article>{ \includegraphics[clip,trim={0 13em 0 0},width=\textwidth]{alarm-c-bw} }    
+    \mode<beamer>{ \includegraphics[clip,trim={0 13em 0 0},width=\textwidth]{alarm-c} }%
   \end{minipage}\quad
   \begin{minipage}{.45\linewidth}
-  \mode<beamer>{  \includegraphics[clip,trim={0 0 0 17.5em},width=\textwidth]{alarm-c} }%
-  \mode<article>{ \includegraphics[clip,trim={0 0 0 17.5em},width=\textwidth]{alarm-c-bw} }    
+    \mode<beamer>{ \includegraphics[clip,trim={0 0 0 17.5em},width=\textwidth]{alarm-c} }%
   \end{minipage}
+  \mode<article>{\cfile{../src/alarm.c}}
 \end{frame}
-
 
 \lecture{IPC}{ipc}
 \section{IPC}
@@ -2633,7 +3159,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
   \begin{center}
     \begin{minipage}{.35\linewidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{pipe-prototype-c} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{pipe-prototype-c-bw} }
+      \mode<article>{\cfile{../src/pipe-prototype.c}}
     \end{minipage}\quad
     \begin{minipage}{.35\linewidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{pipe1} }%
@@ -2713,8 +3239,8 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}
   \begin{center}
     \mode<beamer>{ \includegraphics[clip,trim={0 0 0 8.5em},width=.65\textwidth]{simple_pipe-c} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{simple_pipe-c-bw} }
   \end{center}
+  \mode<article>{\cfile{../src/simple_pipe.c}}
 \end{frame}
 
 \begin{itemize}
@@ -2724,11 +3250,44 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \end{itemize}
 
 \begin{frame}{\texttt{popen()}}
-
-  \citetitle[Sec.~15.3]{stevens2013advanced}
-  
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{popen} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{popen} }
+\end{center}
+\begin{description}
+\item[\texttt{popen()}] does a \texttt{fork()} and \texttt{exec()} to execute the
+  \texttt{cmd} and returns STD I/O file pointer.
+  \begin{itemize}
+  \item[r] \texttt{fp} is readable (stdout)
+  \item[w] \texttt{fp} is writable (stdin)
+  \end{itemize}
+\end{description}
 \end{frame}
 
+\begin{itemize}
+\item \citetitle[Sec.~15.3]{stevens2013advanced}
+\item \citetitle[Sec.~13.2]{matthew2008beginning}
+\end{itemize}
+
+\begin{frame}{Example}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{popen3} }%
+  \mode<article>{\cfile{../src/popen3.c}}
+\end{center}
+\begin{itemize}
+\item[\$] \cmd{ps ax | cat}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{popen2} }%
+  \mode<article>{\cfile{../src/popen2.c}}
+\end{center}
+\begin{itemize}
+\item[\$] \cmd{echo -n hello | od -c}
+\end{itemize}
+\end{frame}
 
 
 \begin{frame}{Named Pipe (FIFO)}
@@ -2771,7 +3330,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{IPC With FIFO}
   \mode<beamer>{ \includegraphics[width=\textwidth]{fifo2-ipc} }%
-  \mode<article>{ \includegraphics[width=\textwidth]{fifo2-c-bw} }
+  \mode<article>{\cfile{../src/fifo2.c}}
 \end{frame}
 
 \begin{frame}{}{}
@@ -2803,11 +3362,10 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
   direction.
 \item There are four legal combinations of \texttt{O\_RDONLY}, \texttt{O\_WRONLY}, and the
   \texttt{O\_NONBLOCK} flag. 
-  \begin{center}
-    \includegraphics[width=\textwidth]{o_nonblock-c-bw}
-  \end{center}
 \end{itemize}
-
+\begin{longlisting}
+  \cfile{../src/o_nonblock.c}
+\end{longlisting}
 
 \subsection{Message Queues}
 \label{sec:message-queues}
@@ -2815,11 +3373,14 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}{Message Queues}
   \begin{center}
     \begin{minipage}{.3\linewidth}
-      \includegraphics[width=\linewidth]{mq}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{mq} }%
+        \mode<article>{ \includegraphics[width=.6\textwidth]{mq} }
+      \end{center}
     \end{minipage}\qquad
     \begin{minipage}{.3\linewidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
-      \mode<article>{ \includegraphics[width=\textwidth]{circular-bw} }
+      \mode<article>{ \includegraphics[width=.6\textwidth]{circular-bw} }
     \end{minipage}
   \end{center}
 \end{frame}
@@ -2905,14 +3466,14 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}{Message Queues}{Send}
 \begin{center}
   \mode<beamer>{ \includegraphics[width=\textwidth]{mq-send} }%
-  \mode<article>{ \includegraphics[width=.7\textwidth]{mq-send-bw} }
+  \mode<article>{\cfile{../src/mq-send.c}}
 \end{center}
 \end{frame}
 
 \begin{frame}{Message Queues}{Receive}
 \begin{center}
   \mode<beamer>{ \includegraphics[width=\textwidth]{mq-recv} }%
-  \mode<article>{ \includegraphics[width=.7\textwidth]{mq-recv-bw} }
+  \mode<article>{\cfile{../src/mq-recv.c}}
 \end{center}
 \end{frame}
 
@@ -2981,7 +3542,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{Mutual Exclusion With Busy Waiting}{Lock file}
   \mode<beamer>{ \includegraphics[clip,trim={0 0 0 6.5em},width=\textwidth]{lock2-c} }%
-  \mode<article>{ \includegraphics[width=.8\textwidth]{lock2-c-bw} }
+  \mode<article>{\cfile{../src/lock2.c}}
   \begin{itemize}
   \item[\Bad] Lock file could be left in system after \Cc
   \end{itemize}
@@ -2989,7 +3550,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{\wrong}
   \mode<beamer>{ \includegraphics[clip,trim={0 0 0 9.5em},width=\textwidth]{lock2-sigint-c} }%
-  \mode<article>{ \includegraphics[width=\textwidth]{lock2-sigint-c-bw} }
+  \mode<article>{\cfile{../src/lock2-sigint.c}}
 \end{frame}
 
 \begin{itemize}
@@ -3048,7 +3609,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}{Example}% Signaling with semaphore
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.63\textwidth]{thread3} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{thread3-bw} }
+    \mode<article>{\cfile{../src/thread3.c}}
   \end{center}
 \end{frame}
 
@@ -3060,7 +3621,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}{\texttt{i++} {\small can go wrong!}}
 \begin{center}
   \mode<beamer>{ \includegraphics[width=.8\textwidth]{atomic-non} }%
-  \mode<article>{ \includegraphics[width=.6\textwidth]{atomic-non-bw} }
+  \mode<article>{\cfile{../src/atomic-non.c}}
 \end{center}
 \end{frame}
 
@@ -3091,14 +3652,14 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}
 \begin{center}
   \mode<beamer>{ \includegraphics[width=.75\textwidth]{atomic-mutex} }%
-  \mode<article>{ \includegraphics[width=.6\textwidth]{atomic-mutex-bw} }
+  \mode<article>{\cfile{../src/atomic-mutex.c}}
 \end{center}
 \end{frame}
 
 \begin{frame}
 \begin{center}
   \mode<beamer>{ \includegraphics[width=.7\textwidth]{mutex} }%
-  \mode<article>{ \includegraphics[width=.5\textwidth]{mutex-bw} }
+  \mode<article>{\cfile{../src/mutex.c}}
 \end{center}
 \end{frame}
 
@@ -3166,8 +3727,8 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
   \end{center}
   \mode<beamer>{ \pause
     \begin{center}
-      {\color{red}\danger{}} \alert{Blocking on a semaphore while holding a
-        mutex!} {\color{red}\danger{}} 
+      {\danger} \alert{Blocking on a semaphore while holding a
+        mutex!} {\danger} 
     \end{center}
     \begin{tikzpicture}[remember picture, overlay]
       \node [rotate=40,scale=3.5,text opacity=0.3,color=red,xshift=2.2em,yshift=-1em] at
@@ -3401,7 +3962,330 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 %   \end{refsection}
 % \end{frame}
 
-\lecture{User Interface}{ui}
+\subsection{Shared Memory}
+\label{sec:shared-memory}
+
+\begin{frame}{Write}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{pshm-wt} }%
+  \mode<article>{ \includegraphics[width=.7\textwidth]{pshm-wt-bw} }
+\end{center}
+\end{frame}
+
+\begin{frame}{Read}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{pshm-rd} }%
+  \mode<article>{ \includegraphics[width=.7\textwidth]{pshm-rd-bw} }
+\end{center}
+\end{frame}
+
+\subsection{Sockets}
+\label{sec:sockets}
+
+\begin{frame}{Message Passing}
+  \begin{block}{Problem with semaphores}
+    \begin{itemize}
+    \item Too low level
+    \item Not suitable for distributed systems
+    \end{itemize}
+  \end{block}
+  \begin{block}{Message passing}
+    \begin{itemize}
+    \item No conflicts, easier to implement
+    \item Uses two primitives, \texttt{send()} and \texttt{receive()} system calls:
+      \begin{itemize}
+      \item[-] \texttt{send(destination,\ \&message);}
+      \item[-] \texttt{receive(source, \ \&message);}
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Message Passing}
+  \begin{block}{Design issues}
+    \begin{itemize}
+    \item Message can be lost by network; --- \texttt{ACK}
+    \item What if the ACK is lost? --- \texttt{SEQ}
+    \item What if two processes have the same name? --- \texttt{socket}
+    \item Am I talking with the right guy? Or maybe a MIM? --- \texttt{authentication}
+    \item What if the sender and the receiver on the same machine? --- Copying messages is
+      always slower than doing a semaphore operation.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Message Passing}{TCP Header Format}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{tcp} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{tcp} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Message Passing}{The producer-consumer problem}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{msg-passing} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{msg-passing-bw} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{A TCP Connection}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{tcp-socket} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{tcp-socket} }
+  \end{center}
+  \begin{block}{Port numbers}
+    \begin{description}
+    \item[Port range:] 0 \char`~{} 65535
+    \item[Well-known ports:] 0 \char`~{} 1023
+    \end{description}
+    \begin{center}
+      \begin{tabular}{rl|rl|rl}
+        FTP &20/21&SSH&22&Telnet&23\\
+        SMTP&25 &DNS&53&DHCP &67/68\\
+        HTTP&80 &POP3&110&HTTPS&443\\
+        IMAP4&143&&&&
+      \end{tabular}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Sockets}
+  To create a socket:
+  \begin{center}
+    \texttt{fd = socket(domain, type, protocol)}
+  \end{center}
+  \begin{description}
+  \item[Domain] Determines address format and the range of
+    communication (local or remote). The most commonly used domains are:
+    \begin{center}\ttfamily
+      \begin{tabular}{lll}
+        \hline
+        \thead{Domain}&\thead{Addr structure}&\thead{Addr format}\\\hline
+        AF\_UNIX &sockaddr\_un & /path/name\\
+        AF\_INET &sockaddr\_in & ip:port\\
+        AF\_INET6&sockaddr\_in6& ip6:port\\\hline
+      \end{tabular}
+    \end{center}
+  \item[Type] \texttt{SOCK\_STREAM} (\phone), \texttt{SOCK\_DGRAM} (\mail)
+  \item[Protocol] always 0
+  \end{description}
+\end{frame}
+
+\begin{frame}{Address Structure}
+  \begin{itemize}
+  \item Different socket domain, different address format, different structure type
+  \item One set of socket syscalls supports all socket domains
+  \end{itemize}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{sockaddr} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{sockaddr-bw} }
+  \end{center}
+  \begin{block}{Example}
+    \begin{itemize}
+    \item[] \cmd{struct sockaddr\_un addr;}
+    \item[\correct] \cmd{bind(sfd, (struct sockaddr *)\&addr, sizeof(struct sockaddr\_un));}
+    \item[\wrong] \cmd{bind(sfd, \&addr, sizeof(struct sockaddr\_un));}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item Why does a cast from \texttt{sockaddr\_in} to \texttt{sockaddr} work?
+  \texttt{sockaddr} is defined the way it is to maintain size-compatibility with
+  \texttt{sockaddr\_in}, which is 16 bytes, and is what \texttt{sockaddr} used to be in
+  the days when \texttt{AF\_INET} was the only address family. But newer families are NOT
+  limited to 14 bytes of data. For instance, \texttt{sockaddr\_in6} has 26 bytes (the
+  \texttt{sin6\_addr} field alone is 16 bytes). The ONLY requirement is ALL
+  \texttt{sockaddr\_*} types MUST start with a 2-byte family member, whose value dictates
+  the size of the remaining data.
+
+  Presumably, the bind function knows what kind of socket descriptor it has as the address
+  family is part of the socket's internal info. \texttt{bind()} (and \texttt{connect()})
+  validates the passed in \texttt{sockaddr} matches the socket's address family, and
+  converts the \texttt{struct sockaddr *} back to a \texttt{struct sockaddr\_in *}. (For
+  \texttt{AF\_INET}) after checking that the passed \texttt{sockaddr} is the correct
+  family \texttt{AND} byte size (which is why \texttt{bind()}, \texttt{connect()}, and
+  \texttt{accept()} have a parameter to receive the size of the \texttt{sockaddr}). If a
+  mismatch occurs, \texttt{bind()} (and \texttt{connect()} and \texttt{accept()}) fails.
+  \url{https://stackoverflow.com/questions/51287930/why-does-a-cast-from-sockaddr-in-to-sockaddr-work}
+\item Why do we cast \texttt{sockaddr\_in} to \texttt{sockaddr} when calling \texttt{bind()}?  \url{https://stackoverflow.com/questions/21099041/why-do-we-cast-sockaddr-in-to-sockaddr-when-calling-bind}
+\item \texttt{sa\_data} is an array of 14 bytes that contains the transport address
+  data. The \texttt{SOCKADDR} structure is large enough to contain a transport address for
+  most address families. A WSK application typically does not access the \texttt{sa\_data}
+  member directly. Instead, a pointer to a \texttt{SOCKADDR} structure is normally cast to
+  a pointer to the specific \texttt{SOCKADDR} structure type that corresponds to a
+  particular address family.
+  (\url{https://docs.microsoft.com/en-us/windows/win32/api/ws2def/ns-ws2def-sockaddr})
+\end{itemize}
+
+\subsubsection{Stream Sockets}
+\label{sec:stream-sockets}
+
+\begin{frame}{Stream Sockets}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{socket-stream} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{socket-stream} }
+\end{center}
+\end{frame}
+
+\begin{frame}{Two Sockets at the Server}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{tcpsocket} }%
+    \mode<article>{ \includegraphics[width=.3\textwidth]{tcpsocket} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Socket System Calls}
+  \begin{description}
+  \item[\texttt{socket()}] creates a new socket
+  \item[\texttt{bind()}] binds a socket to an address (usually a well-known address on
+    server side)
+  \item[\texttt{listen()}] waits for incoming connection requests
+  \item[\texttt{connect()}] sends a connection request to peer
+  \item[\texttt{accept()}] accepts a connection request
+  \item[\texttt{send()}/\texttt{recv()}] data transfer
+  \end{description}
+\end{frame}
+
+\citetitle[Sec.~56.5]{Kerrisk:2010:LPI:1869911}
+\begin{description}
+\item[\texttt{int listen(int sockfd, int backlog);}] To understand the purpose of the
+  \texttt{backlog} argument, we first observe that the client may call \texttt{connect()}
+  before the server calls \texttt{accept()}. This could happen, for example, because the
+  server is busy handling some other client(s). This results in a pending connection. The
+  kernel must record some information about each pending connection request so that a
+  subsequent \texttt{accept()} can be processed. The \texttt{backlog} argument allows us
+  to limit the number of such pending connections. Connection requests up to this limit
+  succeed immediately. Further connection requests block until a pending connection is
+  accepted (via \texttt{accept()}), and thus removed from the queue of pending
+  connections.
+\item[\texttt{int accept(int sockfd, struct sockaddr *addr, socklen\_t *addrlen);}] If
+  there are no pending connections when \texttt{accept()} is called, the call blocks until
+  a connection request arrives. The key point to understand about \texttt{accept()} is
+  that it creates a new socket, and it is this new socket that is connected to the peer
+  socket that performed the \texttt{connect()}. A file descriptor for the connected socket
+  is returned as the function result of the \texttt{accept()} call. The listening socket
+  (\texttt{sockfd}) remains open, and can be used to accept further connections. A typical
+  server application creates one listening socket, binds it to a well-known address, and
+  then handles all client requests by accepting connections via that socket.
+
+  The remaining arguments to \texttt{accept()} return the address of the peer socket. The
+  \texttt{addr} argument points to a structure that is used to return the socket
+  address. The type of this argument depends on the socket domain (as for
+  \texttt{bind()}).
+
+  The \texttt{addrlen} argument is a value-result argument. It points to an integer that,
+  prior to the call, must be initialized to the size of the buffer pointed to by
+  \texttt{addr}, so that the kernel knows how much space is available to return the socket
+  address. Upon return from \texttt{accept()}, this integer is set to indicate the number
+  of bytes of data actually copied into the buffer.
+
+  If we are not interested in the address of the peer socket, then addr and addrlen
+  should be specified as \texttt{NULL} and 0, respectively.
+\end{description}
+
+\subsubsection{Datagram Sockets}
+\label{sec:datagram-sockets}
+
+\begin{frame}{Datagram Sockets}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{socket-datagram} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{socket-datagram} }
+\end{center}
+\end{frame}
+
+\subsubsection{Unix Domain Sockets}
+\label{sec:unix-domain-sockets}
+
+\begin{frame}{Unix Domain Sockets}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{sockaddr_un} }%
+  \mode<article>{ \includegraphics[width=.7\textwidth]{sockaddr_un-bw} }
+\end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{description}
+  \item[Stream server] 
+  \end{description}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{us-xfr-sv} }%
+  \mode<article>{\cfile{../src/us_xfr_sv.c}}
+\end{frame}
+
+\begin{frame}
+  \begin{description}
+  \item[Stream client] 
+  \end{description}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{us-xfr-cl} }%
+  \mode<article>{\cfile{../src/us_xfr_cl.c}}
+\end{frame}
+
+\begin{frame}
+  \begin{description}
+  \item[Datagram server] 
+  \end{description}
+
+\end{frame}
+
+\begin{frame}
+  \begin{description}
+  \item[Datagram client] 
+  \end{description}
+
+\end{frame}
+
+\subsubsection{Internet Sockets}
+\label{sec:internet-sockets}
+
+\begin{frame}{Network Byte Order}
+  \begin{description}
+  \item[Big endian] The most significant byte comes first
+  \item[Little endian] The least significant byte comes first
+  \end{description}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{endianess} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{endianess} }
+  \end{center}
+  \begin{description}
+  \item[Network byte order] is big endian
+  \item[Host byte order] Most architectures are big endian. \texttt{x86} is an exception.
+  \end{description}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Convert \texttt{int} between host and network byte order}
+    \ttfamily
+    \begin{itemize}
+      \item[] \#include <arpa/inet.h>
+      \item[] uint32\_t htonl(uint32\_t hostlong);
+      \item[] uint16\_t htons(uint16\_t hostshort);
+      \item[] uint32\_t ntohl(uint32\_t netlong);
+      \item[] uint16\_t ntohs(uint16\_t netshort);
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+Strictly speaking, the use of these four functions is necessary only on systems where the
+host byte order differs from network byte order. However, these functions should always
+be used, so that programs are portable to different hardware architectures. On systems
+where the host byte order is the same as network byte order, these functions simply return
+their arguments unchanged. \citetitle[Sec.~59.2]{Kerrisk:2010:LPI:1869911}
+
+\begin{frame}{Socket Addresses}
+  \begin{block}{IPv4}
+    \begin{center}
+      \mode<beamer>{\includegraphics[width=.8\textwidth]{sockaddr_in-c}}%
+      \mode<article>{\cfile{../src/sockaddr_in.c}}
+    \end{center}
+  \end{block}
+  \begin{block}{IPv6}
+    \begin{center}
+      \mode<beamer>{\includegraphics[width=.75\textwidth]{sockaddr_in6-c}}%
+      \mode<article>{\cfile{../src/sockaddr_in6.c}}
+    \end{center}
+  \end{block}
+\end{frame}
+
 \section{User Interface}
 \label{sec:ui}
 
@@ -3422,7 +4306,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{itemize}
 \item chap 62 of \citetitle{Kerrisk:2010:LPI:1869911}
-\item \url|http://tldp.org/HOWTO/Text-Terminal-HOWTO-16.html|
+\item \url{http://tldp.org/HOWTO/Text-Terminal-HOWTO-16.html}
 \item \url{http://pubs.opengroup.org/onlinepubs/9699919799/}
 \item[\$] \cmd{man infocmp}
 \end{itemize}
