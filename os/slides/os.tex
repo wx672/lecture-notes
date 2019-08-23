@@ -30,7 +30,10 @@
 \addbibresource{bib/wikipedia.bib}
 
 \AtBeginPart{\frame{\partpage}}
-\mode<beamer>{\AtBeginSection{\frame{\sectionpage}}}
+\mode<beamer>{
+  \AtBeginSection{\frame{\sectionpage}}
+  \AtBeginSubsection{\frame{\subsectionpage}}
+}
 
 % \includeonlylecture{intro}
 % \includeonlylecture{proc}
@@ -86,7 +89,7 @@
   \end{description}
 \end{frame}
 
-\begin{frame}{Homework}
+\begin{frame}{{\hw\enspace}Homework}
   \begin{block}{Weekly tech question}
     \begin{enumerate}
     \item What was I trying to do?
@@ -656,7 +659,7 @@ Quoted from
 \begin{frame}\mode<beamer>{\frametitle{References}}
   \begin{refsection}
     \nocite{wiki:interrupt, wiki:syscall}
-    \printbibliography[heading=subbibliography,title={References}]
+    \printbibliography[heading=none]
   \end{refsection}
 \end{frame}
 
@@ -1018,10 +1021,8 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
 \end{frame}
 
 \begin{frame}{Pthreads}{Example 1}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.65\textwidth]{thread1} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{thread1-bw} }
-  \end{center}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{thread1} }%
+  \mode<article>{\cfile{../src/proc/thread1.c}}
 \end{frame}
 
 See also:
@@ -1050,8 +1051,8 @@ See also:
 
 \begin{frame}{Pthreads}{Example 2}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{thread2} }%
-    \mode<article>{ \includegraphics[width=.9\textwidth]{thread2-bw} }
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{thread3} }%
+    \mode<article>{\cfile{../src/proc/thread3.c}}
   \end{center}
 \end{frame}
 
@@ -1356,7 +1357,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}\mode<beamer>{\frametitle{References}}
   \begin{refsection}
     \nocite{wiki:process, wiki:thread, wiki:pcb}
-    \printbibliography[heading=subbibliography,title={References}]
+    \printbibliography[heading=none]
   \end{refsection}
 \end{frame}
 
@@ -1371,7 +1372,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}{Interprocess Communication}
   \begin{block}{Example:}
     \begin{itemize}
-    \item[\$] \texttt{ps | head -2 | tail -1 | cut -f2 -d' '}
+    \item[\$] \cmd{unicode skull | head -1 | cut -f1 -d' ' | sm -}
     \end{itemize}
   \end{block}
   \begin{block}{IPC issues:}
@@ -1455,42 +1456,309 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
   
   \begin{block}{Shared data:}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.8\textwidth]{shared-data}
-      } \mode<article>{
-        \includegraphics[width=.4\textwidth]{shared-data-bw}
-      }
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{shared-data} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{shared-data-bw} }
     \end{center}
   \end{block}
 \end{frame}
 
 \begin{frame}{Bounded-Buffer Problem}
-  \begin{minipage}{.7\linewidth}
+  \begin{minipage}{.6\linewidth}
     \begin{block}{Producer:}
       \begin{center}
-        \mode<beamer>{
-          \includegraphics[width=\textwidth]{bounded-buffer-1}
-        } \mode<article>{
-          \includegraphics[width=.8\textwidth]{bounded-buffer-1-bw}
-        }
+        \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-1} }%
+        \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-1-bw} }
       \end{center}
     \end{block}
     \begin{block}{Consumer:}
       \begin{center}
-        \mode<beamer>{
-          \includegraphics[width=\textwidth]{bounded-buffer-2}
-        } \mode<article>{
-          \includegraphics[width=.8\textwidth]{bounded-buffer-2-bw}
-        }
+        \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-2} }%
+        \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-2-bw} }
       \end{center}
     \end{block}
-  \end{minipage}\hfill
-  \begin{minipage}{.28\linewidth}
+  \end{minipage}\quad
+  \begin{minipage}{.3\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
       \mode<article>{ \includegraphics[width=\textwidth]{circular-bw} }
     \end{center}
   \end{minipage}
+\end{frame}
+
+\subsubsection{Pipes and FIFOs}
+\label{sec:pipes-fifos}
+
+\begin{itemize}
+\item \citetitle[chap.~44]{Kerrisk:2010:LPI:1869911}
+\end{itemize}
+
+\begin{frame}{Pipe}
+  \begin{itemize}
+  \item[\$] \cmd{ls | wc -l}
+  \end{itemize}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{pipe-ls-wc} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{pipe-ls-wc} }
+  \end{center}
+  \begin{itemize}
+  \item A pipe is a byte stream
+  \item Unidirectional
+  \item \texttt{read()} would be blocked if nothing written at the other end
+  \end{itemize}
+  \ttfamily
+  \begin{block}{tee}
+    \begin{center}
+      \begin{minipage}{.35\linewidth}
+        \begin{itemize}
+        \item[\$] ls | tee ls.out
+        \end{itemize}
+      \end{minipage}\quad
+      \begin{minipage}{.55\linewidth}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{tee} }%
+        \mode<article>{ \includegraphics[width=.6\textwidth]{tee} }
+      \end{minipage}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item When we say that a pipe is a byte stream, we mean that there is no concept of
+  messages or message boundaries when using a pipe. The process reading from a pipe can
+  read blocks of data of any size, regardless of the size of blocks written by the writing
+  process. Furthermore, the data passes through the pipe sequentially --- bytes are read from
+  a pipe in exactly the order they were written. It is not possible to randomly access the
+  data in a pipe using \texttt{lseek()}. \citetitle[chap.~44]{Kerrisk:2010:LPI:1869911}
+\end{itemize}
+
+
+\begin{frame}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{pipe} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{pipe} }
+\end{center}
+\begin{itemize}
+\item No direct link between A and B (need system calls)
+\item A pipe is simply a buffer maintained in kernel memory
+  \begin{itemize}
+  \item[\$] \cmd{cat /proc/sys/fs/pipe-max-size}
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\texttt{pipe()}}
+  \begin{center}
+    \begin{minipage}{.35\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{pipe-prototype-c} }%
+      \mode<article>{\cfile{../src/pipe-prototype.c}}
+    \end{minipage}\quad
+    \begin{minipage}{.35\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{pipe1} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{pipe1} }
+    \end{minipage}
+  \end{center}
+  \begin{description}
+  \item[\texttt{pipe()} + \texttt{fork()}]
+  \end{description}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{pipe2} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{pipe2} }
+  \end{center}
+\end{frame}
+
+\begin{itemize}
+\item Pipes must have a reader and a writer. If a process tries to write to a pipe that
+  has no reader, it will be sent the SIGPIPE signal from the kernel. This is imperative
+  when more than two processes are involved in a
+  pipeline. (\url{http://www.tldp.org/LDP/lpg/node20.html})
+\item While it is possible for the parent and child to both read from and write to the
+  pipe, this is not usual. Therefore, immediately after the \texttt{fork()}, one process
+  closes its descriptor for the write end of the pipe, and the other closes its descriptor
+  for the read end. For example, if the parent is to send data to the child, then it would
+  close its read descriptor for the pipe, \texttt{filedes[0]}, while the child would close
+  its write descriptor for the pipe, \texttt{filedes[1]}.
+  
+  One reason that it is not usual to have both the parent and child reading from a single
+  pipe is that if two processes try to simultaneously read from a pipe, we can't be sure
+  which process will be the first to succeed—the two processes race for data.  Preventing
+  such races would require the use of some synchronization mechanism.  However, if we
+  require bidirectional communication, there is a simpler way: just create two pipes, one
+  for sending data in each direction between the two processes.  (If employing this
+  technique, then we need to be wary of deadlocks that may occur if both processes block
+  while trying to read from empty pipes or while trying to write to pipes that are already
+  full.) \citetitle[chap.~44, p.~893]{Kerrisk:2010:LPI:1869911}
+\item Pipes can be used for communication between any two (or more) related processes, as
+  long as the pipe was created by a common ancestor before the series of \texttt{fork()}
+  calls that led to the existence of the processes. For example, a pipe could be used for
+  communication between a process and its grandchild. The first process creates the pipe,
+  and then forks a child that in turn forks to yield the grandchild. A common scenario is
+  that a pipe is used for communication between two siblings --- their parent creates the
+  pipe, and then creates the two children. This is what the shell does when building a
+  pipeline.
+\item \textbf{Closing unused pipe file descriptors}. The process reading from the pipe
+  closes its write descriptor for the pipe, so that, when the other process completes its
+  output and closes its write descriptor, the reader sees end-of-file (once it has read
+  any outstanding data in the pipe).  If the reading process doesn't close the write end
+  of the pipe, then, after the other process closes its write descriptor, the reader won't
+  see end-of-file, even after it has read all data from the pipe. Instead, a
+  \texttt{read()} would block waiting for data, because the kernel knows that there is
+  still at least one write descriptor open for the pipe. That this descriptor is held open
+  by the reading process itself is irrelevant; in theory, that process could still write
+  to the pipe, even if it is blocked trying to read.  For example, the \texttt{read()}
+  might be interrupted by a signal handler that writes data to the pipe.
+
+  The writing process closes its read descriptor for the pipe for a different reason.
+  When a process tries to write to a pipe for which no process has an open read
+  descriptor, the kernel sends the SIGPIPE signal to the writing process. By default, this
+  signal kills a process. A process can instead arrange to catch or ignore this signal, in
+  which case the \texttt{write()} on the pipe fails with the error EPIPE (broken
+  pipe). Receiving the SIGPIPE signal or getting the EPIPE error is a useful indication
+  about the status of the pipe, and this is why unused read descriptors for the pipe
+  should be closed.
+
+  If the writing process doesn't close the read end of the pipe, then, even after the
+  other process closes the read end of the pipe, the writing process will still be able to
+  write to the pipe. Eventually, the writing process will fill the pipe, and a further
+  attempt to write will block indefinitely.
+
+  One final reason for closing unused file descriptors is that it is only after all file
+  descriptors in all processes that refer to a pipe are closed that the pipe is destroyed
+  and its resources released for reuse by other processes. At this point, any unread data
+  in the pipe is lost.
+\end{itemize}
+
+\begin{frame}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{simple_pipe-c} }%
+  \mode<article>{\cfile{../src/simple_pipe.c}}
+\end{frame}
+
+\begin{itemize}
+\item
+  \url{https://stackoverflow.com/questions/5422831/what-is-the-difference-between-using-exit-exit-in-a-conventional-linux-fo}
+\item \texttt{\_exit(2)}
+\end{itemize}
+
+\begin{frame}{Named Pipe (FIFO)}
+  \begin{description}
+  \item[PIPEs] pass data between related processes.
+  \item[FIFOs] pass data between any processes.
+  \end{description}
+  \begin{block}{\CMD{mkfifo myfifo}}
+    \begin{center}
+      \begin{minipage}{.45\linewidth}\ttfamily
+        \begin{itemize}
+        \item[\$] echo hello > myfifo
+        \item[\$] cat myfifo
+        \end{itemize}
+      \end{minipage}\quad
+      \begin{minipage}{.5\linewidth}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{fifo} }%
+        \mode<article>{ \includegraphics[width=.6\textwidth]{fifo} }
+      \end{minipage}
+    \end{center}
+  \end{block}
+  \ttfamily
+  \begin{block}{tee}
+    \begin{minipage}{.5\linewidth}
+      \begin{itemize}
+      \item[\$] echo hello | tee myfifo
+      \item[\$] wc myfifo
+      \end{itemize}
+    \end{minipage}\quad
+    \begin{minipage}{.45\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{fifo-tee} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{fifo-tee} }
+    \end{minipage}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://en.wikipedia.org/wiki/Named_pipe}
+\end{itemize}
+
+\begin{frame}{IPC With FIFO}
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{fifo2-ipc} }%
+  \mode<article>{\cfile{../src/fifo2.c}}
+\end{frame}
+
+\begin{frame}{}{}
+  {\ttfamily
+    \begin{itemize}
+    \item[\$] watch 'lsof -n.1 /tmp/myfifo'
+    \item[\$] ./a.out O\_RDONLY
+    \item[\$] ./a.out O\_WRONLY
+    \item[\$] ./a.out O\_RDONLY O\_NONBLOCK
+    \item[\$] ./a.out O\_WRONLY O\_NONBLOCK
+    \end{itemize}}
+  \begin{block}{\texttt{O\_NONBLOCK}}
+    \begin{itemize}
+    \item A \texttt{read()/write()} will wait on an empty blocking FIFO
+    \item A \texttt{read()} on an empty nonblocking FIFO will return 0 bytes
+    \item \cmd{open(const char *path, O\_WRONLY | O\_NONBLOCK);}
+      \begin{itemize}
+      \item Returns an error (-1) if FIFO not open
+      \item Okay if someone's reading the FIFO
+      \end{itemize}
+    \item If opened with \texttt{O\_RDWR}, the result is undefined
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item If opened with \texttt{O\_RDWR}, the result is undefined. If you do want to pass
+  data in both directions, it's much better to use a pair of FIFOs or pipes, one for each
+  direction.
+\item There are four legal combinations of \texttt{O\_RDONLY}, \texttt{O\_WRONLY}, and the
+  \texttt{O\_NONBLOCK} flag. 
+\end{itemize}
+\begin{longlisting}
+  \cfile{../src/o_nonblock.c}
+\end{longlisting}
+
+\subsubsection{Message Queues}
+\label{sec:message-queues}
+
+\begin{frame}{Message Queues}
+  \begin{center}
+    \begin{minipage}{.3\linewidth}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{mq} }%
+        \mode<article>{ \includegraphics[width=.6\textwidth]{mq} }
+      \end{center}
+    \end{minipage}\qquad
+    \begin{minipage}{.3\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{circular-bw} }
+    \end{minipage}
+  \end{center}
+\end{frame}
+
+\begin{itemize}
+\item \citetitle[Sec.~52.3]{Kerrisk:2010:LPI:1869911}
+\item \texttt{mq\_overview(7)}
+\item \texttt{sem\_overview(7)}
+\item \texttt{shm\_overview(7)}
+\item \url{https://www.uninformativ.de/blog/postings/2016-05-16/0/POSTING-en.html}
+\end{itemize}
+
+\begin{frame}{Message Queues}{Send}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{mq-send} }%
+  \mode<article>{\cfile{../src/mq-send.c}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Message Queues}{Receive}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{mq-recv} }%
+  \mode<article>{\cfile{../src/mq-recv.c}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Relationship Between Kernel Data Structures}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{msgq} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{msgq} }
+\end{center}
 \end{frame}
 
 \subsection{Race Condition and Mutual Exclusion}
@@ -1596,26 +1864,37 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{Mutual Exclusion With Busy Waiting}{Peterson's Solution}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{peterson}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{peterson-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{peterson} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{peterson-bw} }
   \end{center}
   \begin{refsection}
     \nocite{wiki:peterson}
-    \printbibliography[heading=subbibliography,title={References}]
+    \printbibliography[heading=none]
   \end{refsection}
 \end{frame}
+
+\begin{frame}{Mutual Exclusion With Busy Waiting}{Lock file}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{lock2-c} }%
+  \mode<article>{\cfile{../src/proc/lock2.c}}
+  \begin{itemize}
+  \item[\Bad] Lock file could be left in system after \Cc
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\wrong}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{lock2-sigint-c} }%
+  \mode<article>{\cfile{../src/proc/lock2-sigint.c}}
+\end{frame}
+
+\begin{itemize}
+\item The \texttt{sigint()} function is too crude to be reliable. Need a more sophisticated design.
+\end{itemize}
 
 \begin{frame}{Mutual Exclusion With Busy Waiting}{Hardware Solution: The TSL Instruction}
   \begin{block}{Lock the memory bus}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{mos-figs-2-22}
-      } \mode<article>{
-        \includegraphics[width=.6\textwidth]{mos-figs-2-22}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-22} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-2-22} }
     \end{center}
   \end{block}
 \end{frame}
@@ -1624,17 +1903,13 @@ See also: \citetitle[Sec.~2.3.3, \emph{Mutual Exclusion With Busy Waiting},
 p.~124]{tanenbaum2008modern}.
 
 \begin{frame}{Mutual Exclusion Without Busy Waiting}{Sleep \& Wakeup}
-  % \includegraphics[width=.7\textwidth]{mos-figs-2-23}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{sleep-wakeup}\pause
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{sleep-wakeup}\pause%
       \begin{tikzpicture}[remember picture, overlay]
         \node [rotate=10,scale=5,text opacity=0.5,color=red] at (current page.center)
         {Deadlock!};
-      \end{tikzpicture}
-    } \mode<article>{
-      \includegraphics[width=.7\textwidth]{sleep-wakeup-bw-crop}
-    }
+      \end{tikzpicture}}%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{sleep-wakeup-bw-crop} }
   \end{center}
 \end{frame}
 
@@ -1842,6 +2117,18 @@ statement b2
   } \mode<article>{ \alert{Solution 3 has deadlock!}  }
 \end{frame}
 
+\begin{frame}{Example}% Signaling with semaphore
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{thread-semaphore} }%
+    \mode<article>{\cfile{../src/proc/thread-semaphore.c}}
+  \end{center}
+\end{frame}
+
+\begin{itemize}
+\item \citetitle[Sec.~12.5]{matthew2008beginning}
+\item \url{https://stackoverflow.com/questions/368322/differences-between-system-v-and-posix-semaphores}
+\end{itemize}
+
 \begin{frame}
   \begin{block}{Mutex}
     \begin{itemize}
@@ -1867,18 +2154,21 @@ statement b2
   \end{description}
 \end{frame}
 
+\begin{frame}{\texttt{i++} {\small can go wrong!}}
+  \mode<beamer>{\centering\includegraphics[width=.9\textwidth]{atomic-non} }%
+  \mode<article>{\cfile{../src/proc/atomic-non.c}}
+\end{frame}
+
 \begin{frame}%{\texttt{i++} is Not Thread Safe}
   \begin{block}{\texttt{i++} is not atomic in assembly language}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.8\textwidth]{ipp}
-      } \mode<article>{
-        \includegraphics[width=.5\textwidth]{ipp-bw}
-      }
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{ipp} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{ipp-bw} }
     \end{center}
   \end{block}
   Interrupts might occur in between. So, \texttt{i++} needs to be protected with a \texttt{mutex}.
 \end{frame}
+
 
 \begin{frame}{Mutex Solution}
   \begin{block}{Create a semaphore named \texttt{mutex} that is initialized to
@@ -1889,12 +2179,23 @@ statement b2
     \end{itemize}
   \end{block}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{mutex-ipp}
-    } \mode<article>{
-      \includegraphics[width=.5\textwidth]{mutex-ipp}
-    }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mutex-ipp} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mutex-ipp} }
   \end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.85\textwidth]{atomic-mutex} }%
+  \mode<article>{\cfile{../src/proc/atomic-mutex.c}}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{mutex} }%
+  \mode<article>{\cfile{../src/proc/mutex.c}}
+\end{center}
 \end{frame}
 
 \begin{frame}[label=comp,fragile]{Multiplex --- Without Busy Waiting}
@@ -2331,6 +2632,54 @@ user process to use it directly.
   \end{center}
 \end{frame}
 
+\begin{frame}{Sockets}
+  To create a socket:
+  \begin{center}
+    \texttt{fd = socket(domain, type, protocol)}
+  \end{center}
+  \begin{description}
+  \item[Domain] Determines address format and the range of
+    communication (local or remote). The most commonly used domains are:
+    \begin{center}\ttfamily
+      \begin{tabular}{lll}
+        \hline
+        \thead{Domain}&\thead{Addr structure}&\thead{Addr format}\\\hline
+        AF\_UNIX &sockaddr\_un & /path/name\\
+        AF\_INET &sockaddr\_in & ip:port\\
+        AF\_INET6&sockaddr\_in6& ip6:port\\\hline
+      \end{tabular}
+    \end{center}
+  \item[Type] \texttt{SOCK\_STREAM} (\phone), \texttt{SOCK\_DGRAM} (\mail)
+  \item[Protocol] always 0
+  \end{description}
+\end{frame}
+
+\begin{frame}{Socket System Calls}
+  \begin{description}
+  \item[\texttt{socket()}] creates a new socket
+  \item[\texttt{bind()}] binds a socket to an address (usually a well-known address on
+    server side)
+  \item[\texttt{listen()}] waits for incoming connection requests
+  \item[\texttt{connect()}] sends a connection request to peer
+  \item[\texttt{accept()}] accepts a connection request
+  \item[\texttt{send()}/\texttt{recv()}] data transfer
+  \end{description}
+\end{frame}
+
+\begin{frame}{Stream Sockets}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{socket-stream} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{socket-stream} }
+\end{center}
+\end{frame}
+
+\begin{frame}{Datagram Sockets}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{socket-datagram} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{socket-datagram} }
+\end{center}
+\end{frame}
+
 \subsection{Classical IPC Problems}
 \label{sec:class-ipc-probl}
 
@@ -2566,7 +2915,7 @@ user process to use it directly.
 \begin{frame}\mode<beamer>{\frametitle{References}}
   \begin{refsection}
     \nocite{wiki:ipc, wiki:semaphore}
-    \printbibliography[heading=subbibliography,title={References}]
+    \printbibliography[heading=none]
   \end{refsection}
 \end{frame}
 
@@ -3031,7 +3380,7 @@ See also: \emph{Discussing the Completely Fair
 
 \begin{frame}\mode<beamer>{\frametitle{References}}
   \begin{refsection}
-    \nocite{wiki:sched} \printbibliography[heading=subbibliography,title={References}]
+    \nocite{wiki:sched} \printbibliography[heading=none]
   \end{refsection}
 \end{frame}
 
@@ -3627,7 +3976,7 @@ p.~452]{tanenbaum2008modern} for the \emph{printer daemon} example.
 \begin{frame}\mode<beamer>{\frametitle{References}}
   \begin{refsection}
     \nocite{wiki:deadlock}
-    \printbibliography[heading=subbibliography,title={References}]
+    \printbibliography[heading=none]
   \end{refsection}
 \end{frame}
 
@@ -3980,6 +4329,149 @@ There are also disadvantages:
   components can be replaced. (This also argues against automatic OS updates in critical
   systems; in both cases, the OS and libraries form part of a qualified environment.)
 \end{itemize}
+
+% \subsubsection{Library Files}
+% \label{sec:library-files}
+
+\begin{frame}{Library Files}
+  \begin{description}
+  \item[Static libraries] \alert{\texttt{.a}} files. Very old ones, but still alive.
+    \begin{itemize}
+    \item[\$] \texttt{find /usr/lib -name "*.a"}
+    \end{itemize}
+  \item[Shared libraries] \alert{\texttt{.so}} files. The preferred ones.
+    \begin{itemize}
+    \item[\$] \texttt{find /usr/lib -name "*.so.*"}
+    \end{itemize}
+  \end{description}
+  Examples:
+  \begin{itemize}
+  \item[\$] \texttt{gcc -o hello hello.c /usr/lib/libm.a}
+  \item[\$] \texttt{gcc -o hello hello.c -lm}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Build A Static Library}{Source codes}
+  \begin{minipage}[t]{.47\linewidth}
+    \begin{block}{\texttt{main.c}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{main-c} }%
+        \mode<article>{\cfile{../src/mm/hello/static/main.c}}
+      \end{center}
+    \end{block}
+    \begin{block}{\texttt{lib.h}}
+      \mode<beamer>{\includegraphics[width=.5\textwidth]{lib-h}}%
+      \mode<article>{\cfile{../src/mm/hello/static/lib.h}}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}[t]{.43\linewidth}
+    \begin{block}{\texttt{hello.c}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{hello-c} }%
+        \mode<article>{\cfile{../src/mm/hello/static/hello.c}}
+      \end{center}
+    \end{block}
+    \begin{block}{\texttt{hi.c}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c} }%
+        \mode<article>{\cfile{../src/mm/hello/static/hi.c}}
+      \end{center}
+    \end{block}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Build A Static Library}{Step by step}
+  \begin{enumerate}
+  \item Get \alert{\texttt{hello.o}} and \alert{\texttt{hi.o}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -c hello.c hi.c}
+    \end{itemize}
+  \item Put \alert{\texttt{*.o}} into \alert{\texttt{libhi.a}}
+    \begin{itemize}
+    \item[\$] \texttt{ar crv libhi.a hello.o hi.o}
+    \end{itemize}
+  \item Use \alert{\texttt{libhi.a}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc main.c libhi.a}
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Build A Static Library}{Makefile}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{makefile-a} }%
+    \mode<article>{\mkfile{../src/mm/hello/static/Makefile}}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Build A Shared Library}{Source codes}
+  \begin{block}{\texttt{hello.c}}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello-c-so} }%
+      \mode<article>{\cfile{../src/mm/hello/shared/hello.c}}
+    \end{center}
+  \end{block}
+  \begin{minipage}{.35\linewidth}
+    \begin{block}{\texttt{hello.h}}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hello-h-so} }%
+      \mode<article>{\cfile{../src/mm/hello/shared/hello.h}}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}{.36\linewidth}
+    \begin{block}{\texttt{hi.c}}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c-so} }%
+      \mode<article>{\cfile{../src/mm/hello/shared/hi.c}}
+    \end{block}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Build A Shared Library}{Step by step}
+  \begin{enumerate}
+  \item Get \alert{\texttt{hi.o}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -fPIC -c hi.c}
+    \end{itemize}
+  \item Get \alert{\texttt{libhi.so}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -shared -o libhi.so hi.o}
+    \end{itemize}
+  \item Use \alert{\texttt{libhi.so}}
+    \begin{itemize}
+    \item[\$] \texttt{gcc -L. -Wl,-rpath=. hello.c -lhi}
+    \end{itemize}
+  \item Check it
+    \begin{itemize}
+    \item[\$] \texttt{ldd a.out}
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Build A Shared Library}{Makefile}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{makefile-so} }%
+    \mode<article>{\mkfile{../src/mm/hello/shared/Makefile}}
+  \end{center}
+\end{frame}
+
+\begin{frame}{GNU C Library}
+  \begin{minipage}{.55\linewidth}
+    Linux API > POSIX API
+    \ttfamily
+    \begin{itemize}
+    \item[\$] man 7 libc
+    \item[\$] man 3 intro
+    \item[\$] man gcc
+    \item[\$] info gcc
+    \item[\debian] sudo apt install gcc-doc
+    \end{itemize}
+  \end{minipage}
+  \begin{minipage}{.4\linewidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{api} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{api} }
+    \end{center}
+  \end{minipage}
+\end{frame}
 
 \begin{frame}{Logical vs. Physical Address Space}
   \begin{itemize}
@@ -5615,7 +6107,7 @@ See also:
 \begin{frame}\mode<beamer>{\frametitle{References}}
   \begin{refsection}
     \nocite{wiki:mm, wiki:vm}
-    \printbibliography[heading=subbibliography,title={References}]
+    \printbibliography[heading=none]
   \end{refsection}
 \end{frame}
 
@@ -5861,7 +6353,8 @@ See also:
 \end{frame}
 
 \begin{frame}{File Operations}{POSIX file system calls}%[squeeze]
-  \begin{tabular}{>{\ttfamily}l|>{\ttfamily}l}
+  \ttfamily
+  \begin{tabular}{l|l}
     creat(name, mode)&read(fd, buffer, byte\_count)\\
     open(name, flags)&write(fd, buffer, byte\_count)\\
     close(fd)&lseek(fd, offset, whence)\\
@@ -5872,32 +6365,116 @@ See also:
     stat(name, buffer)&utimes(name, times)\\
     fstat(fd, buffer)&\\
   \end{tabular}
-  % \begin{enumerate}
-  % \item \texttt{fd = creat(name, mode)}\\[-.5ex]
-  % \item \texttt{fd = open(name, flags)}\\[-.5ex]
-  % \item \texttt{status = close(fd)}\\[-.5ex]
-  % \item \texttt{byte\_count = read(fd, buffer, byte\_count)}\\[-.5ex]
-  % \item \texttt{byte\_count = write(fd, buffer, byte\_count)}\\[-.5ex]
-  % \item \texttt{offset = lseek(fd, offset, whence)}\\[-.5ex]
-  % \item \texttt{status = link(oldname, newname)}\\[-.5ex]
-  % \item \texttt{status = unlink(name)}\\[-.5ex]
-  % \item \texttt{status = truncate(name, size)}\\[-.5ex]
-  % \item \texttt{status = ftruncate(fd, size)}\\[-.5ex]
-  % \item \texttt{status = stat(name, buffer)}\\[-.5ex]
-  % \item \texttt{status = fstat(fd, buffer)}\\[-.5ex]
-  % \item \texttt{status = utimes(name, times)}\\[-.5ex]
-  % \item \texttt{status = chown(name, owner, group)}\\[-.5ex]
-  % \item \texttt{status = fchown(fd, owner, group)}\\[-.5ex]
-  % \item \texttt{status = chmod(name, mode)}\\[-.5ex]
-  % \item \texttt{status = fchmod(fd, mode)}
-  % \end{enumerate}
 \end{frame}
 
-\begin{frame}{Example}
-    \begin{center}
-      \includegraphics[width=.9\textwidth]{cp-c}
-    \end{center}
+\begin{frame}
+  \begin{minipage}[t]{.53\linewidth}
+    \begin{block}{\texttt{write()}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
+        \mode<article>{\cfile{../src/fs/write.c}}
+      \end{center}
+    \end{block}
+    \ttfamily
+    \begin{itemize}
+    \item[\$] man 2 write
+    \item[\$] man 3 write
+    \end{itemize}
+  \end{minipage}\qquad
+  \begin{minipage}[t]{.37\linewidth}
+    \begin{block}{\texttt{read()}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{read-c} }%
+        \mode<article>{\cfile{../src/fs/read.c}}
+      \end{center}
+    \end{block}
+    \ttfamily
+    \begin{itemize}
+    \item[\$] man 2 read
+    \item[\$] man 3 read
+    \end{itemize}
+  \end{minipage}
+  \vspace*{1em}
+  \begin{itemize}
+  \item No need to \texttt{open()} \texttt{STDIN}, \texttt{STDOUT}, and \texttt{STDERR}
+  \end{itemize}
 \end{frame}
+
+\begin{frame}{\cmd{cp}}
+  \begin{center}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.95\textwidth]{cp-syscall-c} }%
+      \mode<article>{\cfile{../src/cp-syscall.c}}
+    \end{center}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\texttt{stdio} --- The Standard I/O Library}
+  \begin{description}
+  \item[System calls:] \cmd{open(), read(), write(), close()}\ldots
+  \item[Library functions:] \cmd{fopen(), fread(), fwrite, fclose()}\ldots
+  \end{description}
+  \begin{block}{Avoid calling syscalls directly as much as you can}
+    \begin{minipage}{.4\linewidth}
+      \begin{itemize}
+      \item Portability
+      \item Buffered I/O
+      \end{itemize}
+    \end{minipage}\qquad
+    \begin{minipage}{.4\linewidth}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{api} }%
+        \mode<article>{ \includegraphics[width=.5\textwidth]{api} }
+      \end{center}
+    \end{minipage}
+  \end{block}  
+\end{frame}
+
+\begin{frame}{\texttt{open()} {\scriptsize vs.} \texttt{fopen()}}
+  \begin{center}
+    \begin{minipage}{.48\linewidth}
+      \cmd{open()}\\[1ex]
+      \mode<beamer>{\includegraphics[width=\linewidth]{open-c}\\[1ex]}%
+      \mode<article>{\cfile{../src/fs/open.c}}
+      \CMD{strace -c ./open}
+    \end{minipage}\quad
+    \begin{minipage}{.48\linewidth}
+      \cmd{fopen()} --- Buffered I/O\\[1ex]
+      \mode<beamer>{\includegraphics[width=\linewidth]{fopen-c}\\[1ex]}%
+      \mode<article>{\cfile{../src/fs/fopen.c}}
+      \CMD{strace -c ./fopen}
+    \end{minipage}
+  \end{center}{\footnotesize
+  \begin{itemize}
+  \item[\$] \cmd{dd if=/dev/zero of=/tmp/1m.test bs=1k count=1024}
+  \end{itemize}}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://stackoverflow.com/questions/1658476/c-fopen-vs-open}
+\end{itemize}
+
+\begin{frame}{\texttt{cp} --- {\small With} \texttt{stdio}}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{cp-libc-c} }%
+    \mode<article>{\cfile{../src/fs/cp-libc.c}}
+  \end{center}
+  \begin{description}
+  \item[\hw] Try \texttt{fread()/fwrite()} instead.
+  \end{description}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://stackoverflow.com/questions/32742430/is-getc-a-macro-or-a-function}
+\item \url{https://stackoverflow.com/questions/9104568/macro-vs-function-in-c}
+\end{itemize}
+
+
+% \begin{frame}{Example}
+%     \begin{center}
+%       \includegraphics[width=.9\textwidth]{cp-c}
+%     \end{center}
+% \end{frame}
 
 \begin{frame}{\texttt{open()}}
   \begin{block}{\texttt{fd open(pathname, flags)}}
@@ -5989,11 +6566,55 @@ See also:
 \end{frame}
 
 \begin{frame}{Directories}{Directory Operations}
-  \begin{center}
+  \begin{center}\ttfamily
     \begin{tabular}{llll}
-      Create&Delete&Rename&Link\\
-      Opendir&Closedir&Readdir&Unlink
+      opendir()&mkdir()&rename()&link()\\
+      closedir()&rmdir()&readdir()&unlink()\\
+      \ldots&&&
     \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\ttfamily ls}
+  \mode<beamer>{%
+    \begin{tikzpicture}[remember picture, overlay]%
+      \node [scale=.27,opacity=.5,anchor=east] at (current page.east)%
+      {\includegraphics{ls-real}};
+    \end{tikzpicture}}
+  
+  \begin{minipage}{.6\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{ls-c} }%
+    \mode<article>{\cfile{../src/fs/ls.c}}
+  \end{minipage}\quad
+  \begin{minipage}{.35\linewidth}
+    \begin{description}
+    \item[The real \texttt{ls.c}?] 
+    \end{description}
+    \mode<beamer>{
+    \begin{flushright}
+      \begin{large}
+        116 A4 pages\\
+        5308 lines\\[1em]
+        Do one thing, and do it really well.\\[2em]
+      \end{large}
+    \end{flushright}
+    {\small \CMD{apt source coreutils}}}
+  \mode<article>{
+    \begin{itemize}
+    \item 116 A4 pages
+    \item 5308 lines
+    \end{itemize}
+    Do one thing, and do it really well.
+    \begin{itemize}
+    \item[\$] \cmd{apt source coreutils}
+    \end{itemize}}
+  \end{minipage}  
+\end{frame}
+
+\begin{frame}{\ttfamily mkdir(), chdir(), rmdir(), getcwd()}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{mkdir-c} }%
+    \mode<article>{\cfile{../src/fs/mkdir.c}}
   \end{center}
 \end{frame}
 
@@ -6001,29 +6622,16 @@ See also:
 
 \subsection{Basic Structures}
 
-% \begin{frame}{UNIX Kernel Block Diagram}
-%   \begin{center}
-%     \includegraphics[width=.7\textwidth]{kernel-block}
-%   \end{center}
-% \end{frame}
-
 \begin{frame}{File System Implementation}
   \begin{block}{A typical file system layout}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{fs-layout}
-        % \includegraphics[width=\textwidth]{mos-figs-6-11}
-      } \mode<article>{
-        \includegraphics[width=.5\textwidth]{fs-layout}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{fs-layout} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{fs-layout} }
     \end{center}
   \end{block}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{mbr}
-    } \mode<article>{
-      \includegraphics[width=.5\textwidth]{mbr}
-    }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mbr} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mbr} }
   \end{center}
 \end{frame}
 
@@ -6686,6 +7294,17 @@ The maximum possible size for a file on a FAT32 volume is 4 GiB minus 1 byte or
 in the directory table and would also affect huge FAT16 partitions with a sufficient
 sector size\citetitle{wiki:fat}.
 
+\begin{frame}%{Directory}
+  \begin{block}{Directory entry in \texttt{glibc}}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{dirent-c} }%
+    \mode<article>{\cfile{../src/fs/dirent.c}}
+  \end{block}
+  \begin{itemize}
+  \item[\$] \cmd{man readdir}
+  \item[\$] \cmd{view /usr/include/x86\_64-linux-gnu/bits/dirent.h}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}{How Long A File Name Can Be?}
   \begin{center}\label{fig:filename}
     \mode<beamer>{ \includegraphics[width=.9\textwidth]{04-15} }%
@@ -6929,16 +7548,19 @@ See also: \citetitle[\emph{Wikipedia:dag}]{wiki:dag}.
   \end{block}
 \end{frame}
 
+\begin{frame}{\ttfamily link(), unlink(), symlink()}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{link-c} }%
+    \mode<article>{\cfile{../src/fs/link.c}}
+  \end{center}
+\end{frame}
+
 \subsection{Disk Space Management}
 
 \begin{frame}{Disk Space Management}{Statistics}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{04-20}
-    }
-    \mode<article>{
-      \includegraphics[width=.6\textwidth]{04-20}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{04-20} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{04-20} }
   \end{center}
 \end{frame}
 
@@ -7841,7 +8463,7 @@ the common disk file\citetitle[Sec.~12.1.1]{bovet2005understanding}.
 \begin{frame}\mode<beamer>{\frametitle{References}}
   \begin{refsection}
     \nocite{wiki:fs, wiki:file, wiki:inode, wiki:exttwo, wiki:vfs}
-    \printbibliography[heading=subbibliography,title={References}]
+    \printbibliography[heading=none]
   \end{refsection}
 \end{frame}
 
@@ -8656,7 +9278,7 @@ See also: \citetitle[Sec.~11.4.6, \emph{Selection of a Disk-Scheduling
 \begin{frame}\mode<beamer>{\frametitle{References}}
   \begin{refsection}
     \nocite{wiki:disk, wiki:io}
-    \printbibliography[heading=subbibliography,title={References}]
+    \printbibliography[heading=none]
   \end{refsection}
 \end{frame}
 

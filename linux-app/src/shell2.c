@@ -9,33 +9,34 @@
 
 void sig_int(int signo)
 {
-    printf("Why Ctrl-c?\n-> ");
+  printf("Why Ctrl-c?\n-> ");
 }
 
 int main(void)
 {
-    char  buf[MAXLINE]; 
-    pid_t pid;
-    int   status;
+  char  buf[MAXLINE]; 
+  pid_t pid;
+  int   status;
 
-    if (signal(SIGINT, sig_int) == SIG_ERR)
-        perror("signal");
+  if (signal(SIGINT, sig_int) == SIG_ERR){
+    perror("signal");
+    exit(EXIT_FAILURE);
+  }
+  printf("-> ");
+  
+  while( fgets(buf, MAXLINE, stdin) != NULL ) {
+    buf[strlen(buf) - 1] = '\0'; /* null */
 
-    printf("-> "); 
-    while (fgets(buf, MAXLINE, stdin) != NULL) {
-        buf[strlen(buf) - 1] = '\0'; /* null */
-
-        if ( (pid = fork()) == 0 ) { /* child */
-            execlp(buf, buf, (char *)0);
-            perror("execlp");
-            exit(127);
-        }
-
-        if ((pid = waitpid(pid, &status, 0)) < 0)
-            perror("waitpid");
-        printf("-> ");
+    if ( (pid = fork()) == 0 ) { /* child */
+        execlp(buf, buf, (char*)0);
+        perror("execlp");
+        exit(127);
     }
-    exit(0);
+
+    if( (pid = waitpid(pid, &status, 0)) < 0 ) perror("waitpid");
+    printf("-> ");
+  }
+  exit(EXIT_SUCCESS);
 }
 
 /* Local Variables: */

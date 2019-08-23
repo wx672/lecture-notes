@@ -12,20 +12,22 @@ void *thread_function(void *arg) {
   return NULL;
 }
 
-int main(void) {
-
+int main(void)
+{
   pthread_t mythread;
   
-  if ( pthread_create(&mythread, NULL, thread_function, NULL) ) {
+  if( pthread_create(&mythread, NULL, thread_function, NULL) ) {
     printf("error creating thread.");
     abort();
   }
+
   printf("Can you see my thread working?\n");
   
- if ( pthread_join ( mythread, NULL ) ) {
+  if( pthread_join ( mythread, NULL ) ) {
     printf("error joining thread.");
     abort();
   }
+
   exit(0);
 }
 

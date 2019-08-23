@@ -1,42 +1,44 @@
+#include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <pthread.h>
 #include <unistd.h>
 
-void *print_message_function( void *ptr );
+#define NUMBER_OF_THREADS 5
 
-int main()
+void *hello(void *tid)
 {
-     pthread_t thread1, thread2;
-     char *message1 = "Thread 1";
-     char *message2 = "Thread 2";
-     int  iret1, iret2;
- 
-    /* Create independent threads each of which will execute function */
-     iret1 = pthread_create(&thread2, NULL, print_message_function, (void*) message1);
-     /* sleep(1); */
-     iret2 = pthread_create(&thread1, NULL, print_message_function, (void*) message2);
-
-     /* Wait till threads are complete before main continues. Unless we  */
-     /* wait we run the risk of executing an exit which will terminate   */
-     /* the process and all threads before the threads have completed.   */
-     /* pthread_join(thread1, NULL); */
-     /* pthread_join(thread2, NULL); */
-
-     printf("Thread 1 returns: %d\n",iret1);
-     printf("Thread 2 returns: %d\n",iret2);
-     exit(0);
+  printf ("Hello from thread %d\n", *(int*)tid);
+  pthread_exit(NULL);
 }
 
-void *print_message_function(void *ptr)
+int main(void)
 {
-     char *message;
-     message = (char *) ptr;
-     printf("%s is running...\n", message);
-     /* sleep(10); */
-     while(1);
-     return NULL;
+  pthread_t t[NUMBER_OF_THREADS];
+  int status, i;
+  
+  
+  for (i=0; i<NUMBER_OF_THREADS; i++){      
+	printf("Main: creating thread %d ...", i);
+
+    if( (status = pthread_create(&t[i], NULL, hello, (void *)&i)) ){
+	  perror("pthread_create");
+      exit(-1);
+    }
+    puts("done.");
+  }
+
+  for (i=0; i<NUMBER_OF_THREADS; i++){
+    printf("Joining thread %d ...",i);
+
+    if( pthread_join(t[i], NULL) ){
+      perror("pthread_join");
+      abort() ;
+    }
+    puts("done.");
+  }
+  exit(0);
 }
+
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra thread2.c -o thread2 -pthread" */
+/* compile-command: "gcc -Wall -Wextra thread3.c -o thread3 -pthread" */
 /* End: */

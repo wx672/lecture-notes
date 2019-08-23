@@ -1,18 +1,20 @@
-#include <sys/types.h>
+#include <unistd.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
-int main(int argc, char *argv[])
+int main()
 {
-  int fd, i;
-  for (i = 0; i < 5; ++i)
-    {
-      if ((fd = open("open.c", O_RDONLY)) < 0) exit(2);
-      printf("fd is %d\n", fd);
-    }
-  sleep(60);
+  char c;
+  int in;
+  in = open("/tmp/1m.test", O_RDONLY);
+
+  while (read(in, &c, 1) == 1);
+
   return 0;
 }
+
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra open.c -o open" */
+/* End: */

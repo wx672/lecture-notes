@@ -17,55 +17,6 @@
 \endgroup
 
 
-\refsection{0}
-  \datalist[entry]{none/global//global/global}
-    \entry{stevens2013advanced}{book}{}
-      \name{author}{2}{}{%
-        {{hash=882cf5ccc1ce0f8a7bfc9d838094d291}{%
-           family={Stevens},
-           familyi={S\bibinitperiod},
-           given={W\bibnamedelima Richard},
-           giveni={W\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-        {{hash=d45d8f97a669ec6c26ed49cf5ff2897a}{%
-           family={Rago},
-           familyi={R\bibinitperiod},
-           given={Stephen\bibnamedelima A},
-           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{publisher}{1}{%
-        {Addison-Wesley}%
-      }
-      \strng{namehash}{10b56c37a55dc02b77229da337d43e3b}
-      \strng{fullhash}{e1035e68493cb6f18a15deca2831c327}
-      \strng{bibnamehash}{e1035e68493cb6f18a15deca2831c327}
-      \strng{authorbibnamehash}{e1035e68493cb6f18a15deca2831c327}
-      \strng{authornamehash}{10b56c37a55dc02b77229da337d43e3b}
-      \strng{authorfullhash}{e1035e68493cb6f18a15deca2831c327}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Advanced programming in the UNIX environment}
-      \field{usera}{M}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2013}
-      \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/145/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/145/Calibre1
-      \endverb
-      \keyw{stevens2013advanced}
-    \endentry
-  \enddatalist
-\endrefsection
-
 \refsection{1}
   \datalist[entry]{none/global//global/global}
     \entry{cs241}{book}{}

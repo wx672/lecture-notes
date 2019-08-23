@@ -23,11 +23,10 @@ int main() {
       sleep(2);           /* working */
       close(fd);
       if ( unlink(mylock) == 0 ) puts("Done.\nResource unlocked.");
-      sleep(3);               /* non-critical region */
+      sleep(3);           /* non-critical region */
     }
     printf("Process(%d) - Waiting for lock...\n", getpid());
   }   
-      
   exit(EXIT_SUCCESS);
 }
 

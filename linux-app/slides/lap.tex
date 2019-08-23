@@ -84,7 +84,7 @@
   \end{description}
 \end{frame}
 
-\begin{frame}{Homework}
+\begin{frame}{{\hw\enspace}Homework}
   \begin{block}{Weekly tech question}
     \begin{enumerate}
     \item What was I trying to do?
@@ -1722,6 +1722,108 @@ Quoted from
   \end{tabular}
 \end{frame}
 
+\begin{frame}
+  \begin{minipage}[t]{.53\linewidth}
+    \begin{block}{\texttt{write()}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
+        \mode<article>{\cfile{../src/write.c}}
+      \end{center}
+    \end{block}
+    \ttfamily
+    \begin{itemize}
+    \item[\$] man 2 write
+    \item[\$] man 3 write
+    \end{itemize}
+  \end{minipage}\qquad
+  \begin{minipage}[t]{.37\linewidth}
+    \begin{block}{\texttt{read()}}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{read-c} }%
+        \mode<article>{\cfile{../src/read.c}}
+      \end{center}
+    \end{block}
+    \ttfamily
+    \begin{itemize}
+    \item[\$] man 2 read
+    \item[\$] man 3 read
+    \end{itemize}
+  \end{minipage}
+  \vspace*{1em}
+  \begin{itemize}
+  \item No need to \texttt{open()} \texttt{STDIN}, \texttt{STDOUT}, and \texttt{STDERR}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\cmd{cp}}
+  \begin{center}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.95\textwidth]{cp-syscall-c} }%
+      \mode<article>{\cfile{../src/cp-syscall.c}}
+    \end{center}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\texttt{stdio} --- The Standard I/O Library}
+  \begin{description}
+  \item[System calls:] \cmd{open(), read(), write(), close()}\ldots
+  \item[Library functions:] \cmd{fopen(), fread(), fwrite, fclose()}\ldots
+  \end{description}
+  \begin{block}{Avoid calling syscalls directly as much as you can}
+    \begin{minipage}{.4\linewidth}
+      \begin{itemize}
+      \item Portability
+      \item Buffered I/O
+      \end{itemize}
+    \end{minipage}\qquad
+    \begin{minipage}{.4\linewidth}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{api} }%
+        \mode<article>{ \includegraphics[width=.5\textwidth]{api} }
+      \end{center}
+    \end{minipage}
+  \end{block}  
+\end{frame}
+
+\begin{frame}{\texttt{open()} {\scriptsize vs.} \texttt{fopen()}}
+  \begin{center}
+    \begin{minipage}{.48\linewidth}
+      \cmd{open()}\\[1ex]
+      \mode<beamer>{\includegraphics[width=\linewidth]{open-c}\\[1ex]}%
+      \mode<article>{\cfile{../src/open.c}}
+      \CMD{strace -c ./open}
+    \end{minipage}\quad
+    \begin{minipage}{.48\linewidth}
+      \cmd{fopen()} --- Buffered I/O\\[1ex]
+      \mode<beamer>{\includegraphics[width=\linewidth]{fopen-c}\\[1ex]}%
+      \mode<article>{\cfile{../src/fopen.c}}
+      \CMD{strace -c ./fopen}
+    \end{minipage}
+  \end{center}{\footnotesize
+  \begin{itemize}
+  \item[\$] \cmd{dd if=/dev/zero of=/tmp/1m.test bs=1k count=1024}
+  \end{itemize}}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://stackoverflow.com/questions/1658476/c-fopen-vs-open}
+\end{itemize}
+
+\begin{frame}{\texttt{cp} --- {\small With} \texttt{stdio}}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{cp-libc-c} }%
+    \mode<article>{\cfile{../src/cp-libc.c}}
+  \end{center}
+  \begin{description}
+  \item[\hw] Try \texttt{fread()/fwrite()} instead.
+  \end{description}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://stackoverflow.com/questions/32742430/is-getc-a-macro-or-a-function}
+\item \url{https://stackoverflow.com/questions/9104568/macro-vs-function-in-c}
+\end{itemize}
+
 \begin{frame}{File System Implementation}
   \begin{block}{A typical file system layout}
     \begin{center}
@@ -1949,104 +2051,6 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \mode<article>{ \includegraphics[width=.5\textwidth]{file-tables3} }
   \end{center}
 \end{frame}
-
-\begin{frame}
-  \begin{minipage}[t]{.53\linewidth}
-    \begin{block}{\texttt{write()}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
-        \mode<article>{\cfile{../src/write.c}}
-      \end{center}
-    \end{block}
-    \ttfamily
-    \begin{itemize}
-    \item[\$] man 2 write
-    \item[\$] man 3 write
-    \end{itemize}
-  \end{minipage}\qquad
-  \begin{minipage}[t]{.37\linewidth}
-    \begin{block}{\texttt{read()}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{read-c} }%
-        \mode<article>{\cfile{../src/read.c}}
-      \end{center}
-    \end{block}
-    \ttfamily
-    \begin{itemize}
-    \item[\$] man 2 read
-    \item[\$] man 3 read
-    \end{itemize}
-  \end{minipage}
-\end{frame}
-
-\begin{frame}{\cmd{cp}}
-  \begin{center}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.95\textwidth]{cp-syscall-c} }%
-      \mode<article>{\cfile{../src/cp-syscall.c}}
-    \end{center}
-  \end{center}
-\end{frame}
-
-\begin{frame}{\texttt{stdio} --- The Standard I/O Library}
-  \begin{description}
-  \item[System calls:] \cmd{open(), read(), write(), close()}\ldots
-  \item[Library functions:] \cmd{fopen(), fread(), fwrite, fclose()}\ldots
-  \end{description}
-  \begin{block}{Avoid calling syscalls directly as much as you can}
-    \begin{minipage}{.4\linewidth}
-      \begin{itemize}
-      \item Portability
-      \item Buffered I/O
-      \end{itemize}
-    \end{minipage}\qquad
-    \begin{minipage}{.4\linewidth}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{api} }%
-        \mode<article>{ \includegraphics[width=.5\textwidth]{api} }
-      \end{center}
-    \end{minipage}
-  \end{block}  
-\end{frame}
-
-\begin{frame}{\texttt{open()} {\scriptsize vs.} \texttt{fopen()}}
-  \begin{center}
-    \begin{minipage}{.48\linewidth}
-      \cmd{open()}\\[1ex]
-      \mode<beamer>{\includegraphics[width=\linewidth]{open-c}\\[1ex]}%
-      \mode<article>{\cfile{../src/open.c}}
-      \CMD{strace -c ./open}
-    \end{minipage}\quad
-    \begin{minipage}{.48\linewidth}
-      \cmd{fopen()} --- Buffered I/O\\[1ex]
-      \mode<beamer>{\includegraphics[width=\linewidth]{fopen-c}\\[1ex]}%
-      \mode<article>{\cfile{../src/fopen.c}}
-      \CMD{strace -c ./fopen}
-    \end{minipage}
-  \end{center}{\footnotesize
-  \begin{itemize}
-  \item[\$] \cmd{dd if=/dev/zero of=/tmp/1m.test bs=1k count=1024}
-  \end{itemize}}
-\end{frame}
-
-\begin{itemize}
-\item \url{https://stackoverflow.com/questions/1658476/c-fopen-vs-open}
-\end{itemize}
-
-\begin{frame}{\texttt{cp} --- {\small With} \texttt{stdio}}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.6\textwidth]{cp-libc-c} }%
-    \mode<article>{\cfile{../src/cp-libc.c}}
-  \end{center}
-  \begin{description}
-  \item[Homework:] Try \texttt{fread()/fwrite()} instead.
-  \end{description}
-\end{frame}
-
-\begin{itemize}
-\item \url{https://stackoverflow.com/questions/32742430/is-getc-a-macro-or-a-function}
-\item \url{https://stackoverflow.com/questions/9104568/macro-vs-function-in-c}
-\end{itemize}
 
 \subsection{Directory}
 \label{sec:directory}
@@ -2542,7 +2546,7 @@ See also:
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{i386pte} }%
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{i386pte} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{i386pte} }
   \end{center}
 \end{frame}
@@ -2569,7 +2573,7 @@ See also:
     barely used at all
   \end{description}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-8-28} }%
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-28} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-28} }
   \end{center}
 \end{frame}
@@ -2895,8 +2899,8 @@ See also:
 
 \begin{frame}{Pthreads}{Example 2}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{thread2} }%
-    \mode<article>{ \includegraphics[width=.8\textwidth]{thread2-bw} }
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{thread2} }%
+    \mode<article>{\cfile{../src/thread2.c}}
   \end{center}
 \end{frame}
 
@@ -3043,7 +3047,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{Trap}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.5\textwidth]{trap1-sh} }%
+    \mode<beamer>{ \includegraphics[width=.45\textwidth]{trap1-sh} }%
     \mode<article>{\shellfile{../src/trap1.sh}}
   \end{center}\ttfamily
   \begin{itemize}
@@ -3053,7 +3057,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{Example}{SIGINT}
 \begin{center}
-  \mode<beamer>{ \includegraphics[trim={0 0 0 12em},width=.6\textwidth]{shell2-c} }%
+  \mode<beamer>{ \includegraphics[width=.85\textwidth]{shell2-c} }%
   \mode<article>{\cfile{../src/shell2.c}}
 \end{center}
 \end{frame}
@@ -3063,15 +3067,14 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \end{itemize}
 
 \begin{frame}{Example}{SIGUSR1}
-  \begin{minipage}{.5\linewidth}
-  \mode<beamer>{ \includegraphics[width=\textwidth]{sigusr-c} }%
+  \begin{center}
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{sigusr-c} }%
   \mode<article>{\cfile{../src/sigusr.c}} 
-  \end{minipage}\quad
-  \begin{minipage}{.4\linewidth}\ttfamily
-    \begin{itemize}
-    \item[\$] kill -USR1 <PID>
-    \end{itemize}
-  \end{minipage}
+  \end{center}
+  \ttfamily
+  \begin{itemize}
+  \item[\$] kill -USR1 <PID>
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Example}{SIGALRM}
@@ -3093,6 +3096,112 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \item \url{https://stackoverflow.com/questions/404604/comparing-unix-linux-ipc}
 \item \url{https://www.thegeekstuff.com/2010/08/ipcs-command-examples/}
 \end{itemize}
+
+\begin{frame}{Interprocess Communication}
+  \begin{block}{Example:}
+    \begin{itemize}
+    \item[\$] \cmd{unicode skull | head -1 | cut -f1 -d' ' | sm -}
+    \end{itemize}
+  \end{block}
+  \begin{block}{IPC issues:}
+    \begin{enumerate}
+    \item How one process can pass information to another
+    \item Be sure processes do not get into each other's way
+      \begin{itemize}
+      \item[e.g.] in an airline reservation system, two processes compete for the last
+        seat
+      \end{itemize}
+    \item Proper sequencing when dependencies are present
+      \begin{itemize}
+      \item[e.g.] if A produces data and B prints them, B has to wait until A has produced
+        some data
+      \end{itemize}
+    \end{enumerate}
+  \end{block}
+  \begin{block}{Two models of IPC:}
+    \begin{itemize}
+    \item Shared memory
+    \item Message passing (e.g. sockets)
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Producer-Consumer Problem}
+\begin{center}
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{ipc} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{ipc-bw} }
+\end{center}
+\end{frame}
+
+\begin{frame}{Producer-Consumer Problem}
+  \begin{itemize}
+  \item Consumers don't try to remove objects from Buffer when it is empty.
+  \item Producers don't try to add objects to the Buffer when it is full.
+  \end{itemize}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{producer-consumer} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{producer-consumer-bw} }
+  \end{center}
+  \begin{center}
+    How to define \alert{full/empty}?
+  \end{center}
+\end{frame}
+
+\begin{frame}{Bounded-Buffer Problem (Circular Array)}
+  \begin{minipage}{.65\linewidth}
+  \begin{description}
+  \item[Front(out):] the first full position
+  \item[Rear(in):] the next free position
+  \end{description}
+  \end{minipage}\quad
+  \begin{minipage}{.3\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{circular-bw} }
+  \end{minipage}
+  Full or empty when ``$front == rear$''?
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Common solution:}
+    \begin{description}
+    \item[Full:] when ``$\mathtt{(in+1)\%BUFFER\_SIZE == out}$''
+      \begin{itemize}
+      \item[] Actually, this is ``$\mathtt{full - 1}$''
+      \end{itemize}
+    \item[Empty:] when ``$\mathtt{in == out}$''
+    \end{description}
+    Can only use ``$\mathtt{BUFFER\_SIZE-1}$'' elements
+  \end{block}  
+  \begin{block}{Shared data:}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{shared-data} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{shared-data-bw} }
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Bounded-Buffer Problem}
+  \begin{minipage}{.6\linewidth}
+    \begin{block}{Producer:}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-1} }%
+        \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-1-bw} }
+      \end{center}
+    \end{block}
+    \begin{block}{Consumer:}
+      \begin{center}
+        \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-2} }%
+        \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-2-bw} }
+      \end{center}
+    \end{block}
+  \end{minipage}\hfill
+  \begin{minipage}{.28\linewidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
+      \mode<article>{ \includegraphics[width=\textwidth]{circular-bw} }
+    \end{center}
+  \end{minipage}
+\end{frame}
 
 \subsection{Pipes and FIFOs}
 \label{sec:pipes-fifos}
@@ -3146,12 +3255,11 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
   \mode<article>{ \includegraphics[width=.4\textwidth]{pipe} }
 \end{center}
 \begin{itemize}
-\item No direct link between A and B
+\item No direct link between A and B (need system calls)
 \item A pipe is simply a buffer maintained in kernel memory
   \begin{itemize}
   \item[\$] \cmd{cat /proc/sys/fs/pipe-max-size}
   \end{itemize}
-\item Need system calls
 \end{itemize}
 \end{frame}
 
@@ -3237,9 +3345,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \end{itemize}
 
 \begin{frame}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[clip,trim={0 0 0 8.5em},width=.65\textwidth]{simple_pipe-c} }%
-  \end{center}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{simple_pipe-c} }%
   \mode<article>{\cfile{../src/simple_pipe.c}}
 \end{frame}
 
@@ -3329,7 +3435,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \end{itemize}
 
 \begin{frame}{IPC With FIFO}
-  \mode<beamer>{ \includegraphics[width=\textwidth]{fifo2-ipc} }%
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{fifo2-ipc} }%
   \mode<article>{\cfile{../src/fifo2.c}}
 \end{frame}
 
@@ -3383,76 +3489,6 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
       \mode<article>{ \includegraphics[width=.6\textwidth]{circular-bw} }
     \end{minipage}
   \end{center}
-\end{frame}
-
-\begin{frame}{Producer-Consumer Problem}
-  \begin{itemize}
-  \item Consumers don't try to remove objects from Buffer when it is empty.
-  \item Producers don't try to add objects to the Buffer when it is full.
-  \end{itemize}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{producer-consumer} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{producer-consumer-bw} }
-  \end{center}
-  \begin{center}
-    How to define \alert{full/empty}?
-  \end{center}
-\end{frame}
-
-\begin{frame}{Bounded-Buffer Problem (Circular Array)}
-  \begin{minipage}{.65\linewidth}
-  \begin{description}
-  \item[Front(out):] the first full position
-  \item[Rear(in):] the next free position
-  \end{description}
-  \end{minipage}\quad
-  \begin{minipage}{.3\linewidth}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{circular-bw} }
-  \end{minipage}
-  Full or empty when ``$front == rear$''?
-\end{frame}
-
-\begin{frame}
-  \begin{block}{Common solution:}
-    \begin{description}
-    \item[Full:] when ``$\mathtt{(in+1)\%BUFFER\_SIZE == out}$''
-      \begin{itemize}
-      \item[] Actually, this is ``$\mathtt{full - 1}$''
-      \end{itemize}
-    \item[Empty:] when ``$\mathtt{in == out}$''
-    \end{description}
-    Can only use ``$\mathtt{BUFFER\_SIZE-1}$'' elements
-  \end{block}  
-  \begin{block}{Shared data:}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{shared-data} }%
-      \mode<article>{ \includegraphics[width=.4\textwidth]{shared-data-bw} }
-    \end{center}
-  \end{block}
-\end{frame}
-
-\begin{frame}{Bounded-Buffer Problem}
-  \begin{minipage}{.6\linewidth}
-    \begin{block}{Producer:}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-1} }%
-        \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-1-bw} }
-      \end{center}
-    \end{block}
-    \begin{block}{Consumer:}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-2} }%
-        \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-2-bw} }
-      \end{center}
-    \end{block}
-  \end{minipage}\hfill
-  \begin{minipage}{.28\linewidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
-      \mode<article>{ \includegraphics[width=\textwidth]{circular-bw} }
-    \end{center}
-  \end{minipage}
 \end{frame}
 
 \begin{itemize}
@@ -3541,7 +3577,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \end{frame}
 
 \begin{frame}{Mutual Exclusion With Busy Waiting}{Lock file}
-  \mode<beamer>{ \includegraphics[clip,trim={0 0 0 6.5em},width=\textwidth]{lock2-c} }%
+  \mode<beamer>{ \includegraphics[width=\textwidth]{lock2-c} }%
   \mode<article>{\cfile{../src/lock2.c}}
   \begin{itemize}
   \item[\Bad] Lock file could be left in system after \Cc
@@ -3549,7 +3585,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \end{frame}
 
 \begin{frame}{\wrong}
-  \mode<beamer>{ \includegraphics[clip,trim={0 0 0 9.5em},width=\textwidth]{lock2-sigint-c} }%
+  \mode<beamer>{ \includegraphics[width=\textwidth]{lock2-sigint-c} }%
   \mode<article>{\cfile{../src/lock2-sigint.c}}
 \end{frame}
 
@@ -3620,7 +3656,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{\texttt{i++} {\small can go wrong!}}
 \begin{center}
-  \mode<beamer>{ \includegraphics[width=.8\textwidth]{atomic-non} }%
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{atomic-non} }%
   \mode<article>{\cfile{../src/atomic-non.c}}
 \end{center}
 \end{frame}
