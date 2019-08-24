@@ -884,7 +884,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
   \begin{center}
     \begin{minipage}{.35\linewidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{pipe-prototype-c} }%
-      \mode<article>{\cfile{../src/pipe-prototype.c}}
+      \mode<article>{\cfile{../src/proc/pipe-prototype.c}}
     \end{minipage}\quad
     \begin{minipage}{.35\linewidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{pipe1} }%
@@ -963,7 +963,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}
   \mode<beamer>{ \includegraphics[width=\textwidth]{simple_pipe-c} }%
-  \mode<article>{\cfile{../src/simple_pipe.c}}
+  \mode<article>{\cfile{../src/proc/simple_pipe.c}}
 \end{frame}
 
 \begin{itemize}
@@ -1012,7 +1012,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{IPC With FIFO}
   \mode<beamer>{ \includegraphics[width=.9\textwidth]{fifo2-ipc} }%
-  \mode<article>{\cfile{../src/fifo2.c}}
+  \mode<article>{\cfile{../src/proc/fifo2.c}}
 \end{frame}
 
 \begin{frame}{}{}
@@ -1078,14 +1078,14 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \begin{frame}{Message Queues}{Send}
 \begin{center}
   \mode<beamer>{ \includegraphics[width=\textwidth]{mq-send} }%
-  \mode<article>{\cfile{../src/mq-send.c}}
+  \mode<article>{\cfile{../src/proc/mq-send.c}}
 \end{center}
 \end{frame}
 
 \begin{frame}{Message Queues}{Receive}
 \begin{center}
   \mode<beamer>{ \includegraphics[width=\textwidth]{mq-recv} }%
-  \mode<article>{\cfile{../src/mq-recv.c}}
+  \mode<article>{\cfile{../src/proc/mq-recv.c}}
 \end{center}
 \end{frame}
 

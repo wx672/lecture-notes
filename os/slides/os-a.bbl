@@ -180,12 +180,95 @@
       \field{year}{2014}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Process_(computing)&oldid=639847817
+      \verb http://en.wikipedia.org/w/index.php?title=Process\_(computing)&oldid=639847817
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Process_(computing)&oldid=639847817
+      \verb http://en.wikipedia.org/w/index.php?title=Process%5C_(computing)&oldid=639847817
       \endverb
       \keyw{wiki:process}
+    \endentry
+    \entry{Kerrisk:2010:LPI:1869911}{book}{}
+      \name{author}{1}{}{%
+        {{hash=7f32f61adec784489cc0fa2cefa610a3}{%
+           family={Kerrisk},
+           familyi={K\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {No Starch Press}%
+      }
+      \strng{namehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{fullhash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{bibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authorbibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authornamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authorfullhash}{7f32f61adec784489cc0fa2cefa610a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{The Linux Programming Interface: A Linux and UNIX System Programming Handbook}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
+      \endverb
+      \verb{url}
+      \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
+      \endverb
+      \keyw{Kerrisk:2010:LPI:1869911}
+    \endentry
+    \entry{matthew2008beginning}{book}{}
+      \name{author}{2}{}{%
+        {{hash=71b0550cc21f34d5270381c62bec8e49}{%
+           family={Matthew},
+           familyi={M\bibinitperiod},
+           given={Neil},
+           giveni={N\bibinitperiod}}}%
+        {{hash=4419c9e69c561da228a7e02ebdd5e60b}{%
+           family={Stones},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{2b017aa24f11f2abd1235a5dd1f850e5}
+      \strng{fullhash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{bibnamehash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{authorbibnamehash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{authornamehash}{2b017aa24f11f2abd1235a5dd1f850e5}
+      \strng{authorfullhash}{c2388d8b76c1d7a119e8863298934f79}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Beginning linux programming}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/39/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/39/Calibre1
+      \endverb
+      \keyw{matthew2008beginning}
     \endentry
     \entry{downey2008semaphores}{book}{}
       \name{author}{1}{}{%
@@ -290,8 +373,8 @@
       \strng{authorbibnamehash}{2716e80b99ab44d63f50300bfb213d81}
       \strng{authornamehash}{2716e80b99ab44d63f50300bfb213d81}
       \strng{authorfullhash}{2716e80b99ab44d63f50300bfb213d81}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -373,10 +456,10 @@
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Assembly_language&oldid=661185928
+      \verb http://en.wikipedia.org/w/index.php?title=Assembly\_language&oldid=661185928
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Assembly_language&oldid=661185928
+      \verb http://en.wikipedia.org/w/index.php?title=Assembly%5C_language&oldid=661185928
       \endverb
       \keyw{wiki:assembler}
     \endentry
@@ -408,10 +491,10 @@
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Linker_(computing)&oldid=652892136
+      \verb http://en.wikipedia.org/w/index.php?title=Linker\_(computing)&oldid=652892136
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Linker_(computing)&oldid=652892136
+      \verb http://en.wikipedia.org/w/index.php?title=Linker%5C_(computing)&oldid=652892136
       \endverb
       \keyw{wiki:linker}
     \endentry
@@ -443,10 +526,10 @@
       \field{year}{2012}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Loader_(computing)&oldid=520743198
+      \verb http://en.wikipedia.org/w/index.php?title=Loader\_(computing)&oldid=520743198
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Loader_(computing)&oldid=520743198
+      \verb http://en.wikipedia.org/w/index.php?title=Loader%5C_(computing)&oldid=520743198
       \endverb
       \keyw{wiki:loader}
     \endentry
@@ -478,10 +561,10 @@
       \field{year}{2012}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Dynamic_linker&oldid=517400345
+      \verb http://en.wikipedia.org/w/index.php?title=Dynamic\_linker&oldid=517400345
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Dynamic_linker&oldid=517400345
+      \verb http://en.wikipedia.org/w/index.php?title=Dynamic%5C_linker&oldid=517400345
       \endverb
       \keyw{wiki:dynamic-linker}
     \endentry
@@ -505,8 +588,8 @@
       \strng{authorbibnamehash}{2d19afa203c5f71c4e6502f1f04bd951}
       \strng{authornamehash}{2d19afa203c5f71c4e6502f1f04bd951}
       \strng{authorfullhash}{2d19afa203c5f71c4e6502f1f04bd951}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9781558604964}
@@ -542,8 +625,8 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{7}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -554,10 +637,10 @@
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Page_replacement_algorithm&oldid=656936753
+      \verb http://en.wikipedia.org/w/index.php?title=Page\_replacement\_algorithm&oldid=656936753
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Page_replacement_algorithm&oldid=656936753
+      \verb http://en.wikipedia.org/w/index.php?title=Page%5C_replacement%5C_algorithm&oldid=656936753
       \endverb
       \keyw{wiki:page-replace}
     \endentry
@@ -576,8 +659,8 @@
       \strng{authorbibnamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
       \strng{authornamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
       \strng{authorfullhash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{http://pdos.csail.mit.edu/6.828/2004/readings/i386/toc.htm}
@@ -606,8 +689,8 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{8}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -618,10 +701,10 @@
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Executable_and_Linkable_Format&oldid=659380509
+      \verb http://en.wikipedia.org/w/index.php?title=Executable\_and\_Linkable\_Format&oldid=659380509
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Executable_and_Linkable_Format&oldid=659380509
+      \verb http://en.wikipedia.org/w/index.php?title=Executable%5C_and%5C_Linkable%5C_Format&oldid=659380509
       \endverb
       \keyw{wiki:elf}
     \endentry
@@ -641,8 +724,8 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{9}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -653,10 +736,10 @@
       \field{year}{2014}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Open_(system_call)&oldid=611838618
+      \verb http://en.wikipedia.org/w/index.php?title=Open\_(system\_call)&oldid=611838618
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Open_(system_call)&oldid=611838618
+      \verb http://en.wikipedia.org/w/index.php?title=Open%5C_(system%5C_call)&oldid=611838618
       \endverb
       \keyw{wiki:open}
     \endentry
@@ -688,10 +771,10 @@
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=File_descriptor&oldid=661810398
+      \verb http://en.wikipedia.org/w/index.php?title=File\_descriptor&oldid=661810398
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=File_descriptor&oldid=661810398
+      \verb http://en.wikipedia.org/w/index.php?title=File%5C_descriptor&oldid=661810398
       \endverb
       \keyw{wiki:fd}
     \endentry
@@ -763,10 +846,10 @@
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=File_Allocation_Table&oldid=661104239
+      \verb http://en.wikipedia.org/w/index.php?title=File\_Allocation\_Table&oldid=661104239
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=File_Allocation_Table&oldid=661104239
+      \verb http://en.wikipedia.org/w/index.php?title=File%5C_Allocation%5C_Table&oldid=661104239
       \endverb
       \keyw{wiki:fat}
     \endentry
@@ -825,8 +908,8 @@
       \strng{authorbibnamehash}{f93fd761a7f1a32977f071f98a83b383}
       \strng{authornamehash}{f93fd761a7f1a32977f071f98a83b383}
       \strng{authorfullhash}{f93fd761a7f1a32977f071f98a83b383}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -907,10 +990,10 @@
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Directed_acyclic_graph&oldid=654052259
+      \verb http://en.wikipedia.org/w/index.php?title=Directed\_acyclic\_graph&oldid=654052259
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Directed_acyclic_graph&oldid=654052259
+      \verb http://en.wikipedia.org/w/index.php?title=Directed%5C_acyclic%5C_graph&oldid=654052259
       \endverb
       \keyw{wiki:dag}
     \endentry
@@ -934,8 +1017,8 @@
       \strng{authorbibnamehash}{4a848d05cb0d92fab590e8cc94c3a0f7}
       \strng{authornamehash}{4a848d05cb0d92fab590e8cc94c3a0f7}
       \strng{authorfullhash}{4a848d05cb0d92fab590e8cc94c3a0f7}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -973,8 +1056,8 @@
       \strng{authorbibnamehash}{fec8919724373fd96701c8f6158b8507}
       \strng{authornamehash}{fec8919724373fd96701c8f6158b8507}
       \strng{authorfullhash}{fec8919724373fd96701c8f6158b8507}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -1019,8 +1102,8 @@
       \strng{authorbibnamehash}{a82645170a5838b9296b3f15a3962265}
       \strng{authornamehash}{37ba248fe1cc240e1d02ffc1dcedadda}
       \strng{authorfullhash}{a82645170a5838b9296b3f15a3962265}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Dutch International Symposium on Linux}
@@ -1056,11 +1139,11 @@
       \strng{authorbibnamehash}{9e142d24b7c7fe4199234dadc866c1d2}
       \strng{authornamehash}{9e142d24b7c7fe4199234dadc866c1d2}
       \strng{authorfullhash}{9e142d24b7c7fe4199234dadc866c1d2}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{http://homepage.smc.edu/morgan_david/cs40/analyze-ext2.htm}
+      \field{howpublished}{http://homepage.smc.edu/morgan\_david/cs40/analyze-ext2.htm}
       \field{langid}{english}
       \field{title}{Analyzing a filesystem}
       \field{usera}{Z}
@@ -1069,45 +1152,6 @@
       \field{year}{2012}
       \field{dateera}{ce}
       \keyw{web:ext2analysis}
-    \endentry
-    \entry{mauerer2008professional}{book}{}
-      \name{author}{1}{}{%
-        {{hash=97208baf9cdd177adef3cbe7e24d6391}{%
-           family={Mauerer},
-           familyi={M\bibinitperiod},
-           given={W.},
-           giveni={W\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{publisher}{1}{%
-        {John Wiley \& Sons}%
-      }
-      \strng{namehash}{97208baf9cdd177adef3cbe7e24d6391}
-      \strng{fullhash}{97208baf9cdd177adef3cbe7e24d6391}
-      \strng{bibnamehash}{97208baf9cdd177adef3cbe7e24d6391}
-      \strng{authorbibnamehash}{97208baf9cdd177adef3cbe7e24d6391}
-      \strng{authornamehash}{97208baf9cdd177adef3cbe7e24d6391}
-      \strng{authorfullhash}{97208baf9cdd177adef3cbe7e24d6391}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Professional Linux Kernel Architecture}
-      \field{usera}{M}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2008}
-      \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/10/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/10/Calibre1
-      \endverb
-      \keyw{mauerer2008professional}
     \endentry
   \enddatalist
 \endrefsection
@@ -1246,6 +1290,56 @@
       \endverb
       \keyw{bovet2005understanding}
     \endentry
+    \entry{cs241}{book}{}
+      \name{author}{3}{}{%
+        {{hash=498dec3700eda62744cbc7a0831ea0f4}{%
+           family={Venkatesh},
+           familyi={V\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=60cb0608a8a68c1db48af9052bdb6d7e}{%
+           family={Angrave},
+           familyi={A\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=d3f8963590e1babe53e335a3c6da25e0}{%
+           family={Al.},
+           familyi={A\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {University of Illinois}%
+      }
+      \strng{namehash}{86038ebedc34a61f7fb0fa7c20088f0a}
+      \strng{fullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{bibnamehash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{authorbibnamehash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{authornamehash}{86038ebedc34a61f7fb0fa7c20088f0a}
+      \strng{authorfullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{CS241 System Programming Coursebook}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://cs241.cs.illinois.edu/coursebook/index.html
+      \endverb
+      \verb{url}
+      \verb http://cs241.cs.illinois.edu/coursebook/index.html
+      \endverb
+      \keyw{cs241}
+    \endentry
     \entry{zhenggang2016}{book}{}
       \name{author}{1}{}{%
         {{hash=a1a361ddd91c8bdf31a230b7c5e80df0}{%
@@ -1264,8 +1358,8 @@
       \strng{authorbibnamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
       \strng{authornamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
       \strng{authorfullhash}{a1a361ddd91c8bdf31a230b7c5e80df0}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -1302,8 +1396,8 @@
       \strng{authorbibnamehash}{bed1fe53bac82e0a18c65d54b800bdf6}
       \strng{authornamehash}{bed1fe53bac82e0a18c65d54b800bdf6}
       \strng{authorfullhash}{bed1fe53bac82e0a18c65d54b800bdf6}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -1341,8 +1435,8 @@
       \strng{authorbibnamehash}{6bd3ec8d773585effb6c0719f377cb04}
       \strng{authornamehash}{6bd3ec8d773585effb6c0719f377cb04}
       \strng{authorfullhash}{6bd3ec8d773585effb6c0719f377cb04}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -1360,83 +1454,6 @@
       \verb https://cs3.swfu.edu.cn/tech/get/PDF/2/Calibre1
       \endverb
       \keyw{yuyuan2009orange}
-    \endentry
-  \enddatalist
-\endrefsection
-
-\refsection{10}
-  \datalist[entry]{none/global//global/global}
-    \entry{wiki:disk}{online}{}
-      \name{author}{1}{}{%
-        {{hash=9c677286866aad38f8e9b660f5411814}{%
-           family={Wikipedia},
-           familyi={W\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
-      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{extraname}{1}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Hard disk drive --- Wikipedia{,} The Free Encyclopedia}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \true{nocite}
-      \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Hard_disk_drive&oldid=648161868
-      \endverb
-      \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Hard_disk_drive&oldid=648161868
-      \endverb
-      \keyw{wiki:disk}
-    \endentry
-    \entry{wiki:io}{online}{}
-      \name{author}{1}{}{%
-        {{hash=9c677286866aad38f8e9b660f5411814}{%
-           family={Wikipedia},
-           familyi={W\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
-      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{extraname}{2}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Input/output --- Wikipedia{,} The Free Encyclopedia}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \true{nocite}
-      \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Input/output&oldid=646503450
-      \endverb
-      \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Input/output&oldid=646503450
-      \endverb
-      \keyw{wiki:io}
     \endentry
   \enddatalist
 \endrefsection
@@ -1508,10 +1525,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=System_call&oldid=647910319
+      \verb http://en.wikipedia.org/w/index.php?title=System\_call&oldid=647910319
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=System_call&oldid=647910319
+      \verb http://en.wikipedia.org/w/index.php?title=System%5C_call&oldid=647910319
       \endverb
       \keyw{wiki:syscall}
     \endentry
@@ -1548,10 +1565,10 @@
       \field{year}{2014}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Process_(computing)&oldid=639847817
+      \verb http://en.wikipedia.org/w/index.php?title=Process\_(computing)&oldid=639847817
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Process_(computing)&oldid=639847817
+      \verb http://en.wikipedia.org/w/index.php?title=Process%5C_(computing)&oldid=639847817
       \endverb
       \keyw{wiki:process}
     \endentry
@@ -1584,10 +1601,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Thread_(computing)&oldid=648172980
+      \verb http://en.wikipedia.org/w/index.php?title=Thread\_(computing)&oldid=648172980
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Thread_(computing)&oldid=648172980
+      \verb http://en.wikipedia.org/w/index.php?title=Thread%5C_(computing)&oldid=648172980
       \endverb
       \keyw{wiki:thread}
     \endentry
@@ -1620,10 +1637,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Process_control_block&oldid=646933587
+      \verb http://en.wikipedia.org/w/index.php?title=Process\_control\_block&oldid=646933587
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Process_control_block&oldid=646933587
+      \verb http://en.wikipedia.org/w/index.php?title=Process%5C_control%5C_block&oldid=646933587
       \endverb
       \keyw{wiki:pcb}
     \endentry
@@ -1660,10 +1677,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s_algorithm&oldid=646078826
+      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s\_algorithm&oldid=646078826
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s_algorithm&oldid=646078826
+      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s%5C_algorithm&oldid=646078826
       \endverb
       \keyw{wiki:peterson}
     \endentry
@@ -1701,10 +1718,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Inter-process_communication&oldid=645037874
+      \verb http://en.wikipedia.org/w/index.php?title=Inter-process\_communication&oldid=645037874
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Inter-process_communication&oldid=645037874
+      \verb http://en.wikipedia.org/w/index.php?title=Inter-process%5C_communication&oldid=645037874
       \endverb
       \keyw{wiki:ipc}
     \endentry
@@ -1737,10 +1754,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Semaphore_(programming)&oldid=647556304
+      \verb http://en.wikipedia.org/w/index.php?title=Semaphore\_(programming)&oldid=647556304
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Semaphore_(programming)&oldid=647556304
+      \verb http://en.wikipedia.org/w/index.php?title=Semaphore%5C_(programming)&oldid=647556304
       \endverb
       \keyw{wiki:semaphore}
     \endentry
@@ -1777,10 +1794,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Scheduling_(computing)&oldid=647892123
+      \verb http://en.wikipedia.org/w/index.php?title=Scheduling\_(computing)&oldid=647892123
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Scheduling_(computing)&oldid=647892123
+      \verb http://en.wikipedia.org/w/index.php?title=Scheduling%5C_(computing)&oldid=647892123
       \endverb
       \keyw{wiki:sched}
     \endentry
@@ -1858,10 +1875,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Memory_management&oldid=647917932
+      \verb http://en.wikipedia.org/w/index.php?title=Memory\_management&oldid=647917932
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Memory_management&oldid=647917932
+      \verb http://en.wikipedia.org/w/index.php?title=Memory%5C_management&oldid=647917932
       \endverb
       \keyw{wiki:mm}
     \endentry
@@ -1894,10 +1911,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Virtual_memory&oldid=644430956
+      \verb http://en.wikipedia.org/w/index.php?title=Virtual\_memory&oldid=644430956
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Virtual_memory&oldid=644430956
+      \verb http://en.wikipedia.org/w/index.php?title=Virtual%5C_memory&oldid=644430956
       \endverb
       \keyw{wiki:vm}
     \endentry
@@ -1935,10 +1952,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=File_system&oldid=646603121
+      \verb http://en.wikipedia.org/w/index.php?title=File\_system&oldid=646603121
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=File_system&oldid=646603121
+      \verb http://en.wikipedia.org/w/index.php?title=File%5C_system&oldid=646603121
       \endverb
       \keyw{wiki:fs}
     \endentry
@@ -1971,10 +1988,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Computer_file&oldid=647724614
+      \verb http://en.wikipedia.org/w/index.php?title=Computer\_file&oldid=647724614
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Computer_file&oldid=647724614
+      \verb http://en.wikipedia.org/w/index.php?title=Computer%5C_file&oldid=647724614
       \endverb
       \keyw{wiki:file}
     \endentry
@@ -2078,10 +2095,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Virtual_file_system&oldid=640354992
+      \verb http://en.wikipedia.org/w/index.php?title=Virtual\_file\_system&oldid=640354992
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Virtual_file_system&oldid=640354992
+      \verb http://en.wikipedia.org/w/index.php?title=Virtual%5C_file%5C_system&oldid=640354992
       \endverb
       \keyw{wiki:vfs}
     \endentry

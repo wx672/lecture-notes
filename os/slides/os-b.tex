@@ -1,8 +1,34 @@
 \documentclass{wx672beamer}
-%\documentclass[10pt,ignorenonframetext,xcolor={svgnames,table},hyperref={xetex,colorlinks,linkcolor=blue},compress]{beamer}
 
 \usepackage{wx672b} % wx672common, wx672fonts, wx672bib loaded here
 \usepackage{wx672tikz}
 \usepackage{wx672minted}
 
-\input{os.tex}
+\input{pre}
+
+% \includeonlylecture{intro}
+% \includeonlylecture{proc}
+% \includeonlylecture{ipc}
+% \includeonlylecture{sched}
+% \includeonlylecture{deadlock}
+% \includeonlylecture{mm}
+% \includeonlylecture{fs}
+% \includeonlylecture{io}
+
+\begin{document}
+\mode<all>
+\include{title}
+\include{intro}
+\include{proc}
+\include{mm}
+\include{fs}
+%\include{io}
+
+\end{document}
+
+%\input{os.tex}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
