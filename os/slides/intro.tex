@@ -1,0 +1,561 @@
+\mode*
+\part{Introduction}
+
+\lecture[intro]{intro}{intro}
+
+\section{What's an Operating System}
+
+\begin{frame}{What's an Operating System?}
+  \begin{itemize}
+  \item \emph{``Everything a vendor ships when you order an operating system''}
+  \item It's the program that runs all the time
+  \item It's a \alert{resource manager}
+    \begin{itemize}
+    \item[-] Each program gets time with the resource
+    \item[-] Each program gets space on the resource
+    \end{itemize}
+  \item It's a \alert{control program}
+    \begin{itemize}
+    \item[-] Controls execution of programs to prevent errors and improper use of the
+      computer
+    \end{itemize}
+  \item No universally accepted definition
+  \end{itemize}
+\end{frame}
+
+\begin{frame}<beamer>{What's in the OS?}
+  \begin{center}
+    \includegraphics[height=.85\textheight]{kernel-block}
+  \end{center}
+\end{frame}
+
+\begin{center}
+  \includegraphics[width=\textwidth]{kernel-block}
+\end{center}
+
+\begin{frame}{Abstractions}{To hide the complexity of the actual implementations}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{abstraction} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{abstraction} }
+  \end{center}
+\end{frame}
+
+See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Computer
+  Systems}]{Bryant2010computersystems}.
+
+\begin{frame}{System Goals}
+  \begin{block}{Convenient vs. Efficient}
+    \begin{itemize}
+    \item Convenient for the user --- for PCs
+    \item Efficient --- for mainframes, multiusers
+    \item UNIX
+      \begin{itemize}
+      \item[-] Started with keyboard + printer, none paid to convenience
+      \item[-] Now, still concentrating on efficiency, with GUI support
+      \end{itemize}
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{History of Operating Systems}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-2} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-2} }
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{description}
+  \item[1945 - 1955] First generation 
+    \begin{itemize}
+    \item[-] vacuum tubes, plug boards
+    \end{itemize}
+  \item[1955 - 1965] Second generation 
+    \begin{itemize}
+    \item[-] transistors, batch systems
+    \end{itemize}
+  \item[1965 - 1980] Third generation 
+    \begin{itemize}
+    \item[-] ICs and multiprogramming
+    \end{itemize}
+  \item[1980 - present] Fourth generation 
+    \begin{itemize}
+    \item[-] personal computers
+    \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Multi-programming is the first instance where the OS must make decisions
+      for the users}
+    \begin{minipage}{.65\linewidth}
+      \begin{description}
+      \item[Job scheduling] --- decides which job should be loaded into the memory.
+      \item[Memory management] --- because several programs in memory at the same time
+      \item[CPU scheduling] --- choose one job among all the jobs are ready to run
+      \item[Process management] --- make sure processes don't offend each other
+      \end{description}
+    \end{minipage}\quad
+    \begin{minipage}{.3\linewidth}
+      \includegraphics[width=\textwidth]{mos-figs-1-4}
+    \end{minipage}
+  \end{block}
+\end{frame}
+
+\begin{frame}{The Operating System Zoo}
+    \begin{itemize}
+    \item {\huge Mainframe OS}
+    \item {\LARGE Server OS}
+    \item {\Large Multiprocessor OS}
+    \item {\large Personal computer OS}
+    \item Real-time OS
+    \item {\small Embedded OS}
+    \item {\scriptsize Smart card OS}
+    \end{itemize}
+\end{frame}
+
+\section{OS Services}
+
+\begin{frame}{OS Services}{Like a government}
+  \begin{block}{Helping the users:}
+    \begin{multicols}{2}
+      \begin{itemize}
+      \item User interface
+      \item Program execution
+      \item I/O operation
+      \item File system manipulation
+      \item Communication
+      \item Error detection
+      \end{itemize}
+    \end{multicols}
+  \end{block}
+  \begin{block}{Keeping the system efficient:}
+  \begin{itemize}
+  \item Resource allocation
+  \item Accounting
+  \item Protection and security
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{A Computer System}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-1} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-1-1} }
+  \end{center}
+\end{frame}
+
+\section{Hardware}
+\label{sec:cpu}
+
+% \begin{frame}<beamer>{Outline}
+%   \tableofcontents[currentsection,currentsubsection]
+% \end{frame}
+
+\begin{frame}{CPU Working Cycle}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{mos-figs-1-6} }%
+    \mode<article>{ \includegraphics[width=.3\textwidth]{mos-figs-1-6} }
+  \end{center}
+  \begin{enumerate}
+  \item Fetch the first instruction from memory
+  \item Decode it to determine its type and operands
+  \item execute it
+  \end{enumerate}
+  \begin{block}{Special CPU Registers}
+    \begin{description}
+    \item[Program counter (PC):] keeps the memory address of the next instruction to
+      be fetched
+    \item[Stack pointer (SP):] {\symbola ☛} the top of the current stack in memory
+    \item[Program status (PS):] holds
+      \begin{itemize}
+      \item[-] condition code bits
+      \item[-] processor state
+      \end{itemize}
+    \end{description}
+  \end{block}
+\end{frame}
+
+\begin{frame}{System Bus}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-5} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-5} }
+  \end{center}
+  \begin{description}
+  \item[Address Bus:] specifies the memory locations (addresses) for the
+    data transfers
+  \item[Data Bus:] holds the data transfered. Bidirectional
+  \item[Control Bus:] contains various lines used to route timing and
+    control signals throughout the system
+  \end{description}
+\end{frame}
+
+\begin{frame}{Controllers and Peripherals}
+  \begin{itemize}
+  \item Peripherals are real devices controlled by controller chips
+  \item Controllers are processors like the CPU itself, have control registers
+  \item Device driver writes to the registers, thus control it
+  \item Controllers are connected to the CPU and to each other by a variety of buses
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-11} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-11} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Motherboard Chipsets}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{chipsets} }
+    \mode<article>{ \includegraphics[width=.5\textwidth]{chipsets-bw} }
+  \end{center}
+\end{frame}
+
+See also:
+\href{http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map}{\emph{Motherboard
+    Chipsets And The Memory Map}}
+\footnote{\url{http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map}}.
+
+\begin{frame}
+  \begin{itemize}
+  \item The CPU doesn't know what it's connected to
+    \begin{itemize}
+    \item[-] CPU test bench?\quad{}network router?\quad{}toaster?\quad{}brain implant?
+    \end{itemize}
+  \item The CPU talks to the outside world through its pins
+    \begin{itemize}
+    \item[-] some pins to transmit the physical memory address
+    \item[-] other pins to transmit the values
+    \end{itemize}
+  \item The CPU's gateway to the world is the \alert{front-side bus}
+  \end{itemize}
+  \begin{block}{Intel Core 2 QX6600}
+    \begin{itemize}
+    \item 33 pins to transmit the physical memory address
+      \begin{itemize}
+      \item[-] so there are $2^{33}$ choices of memory locations
+      \end{itemize}
+    \item 64 pins to send or receive data
+      \begin{itemize}
+      \item[-] so data path is 64-bit wide, or 8-byte chunks
+      \end{itemize}
+    \end{itemize}
+    This allows the CPU to physically address 64GB of memory ($2^{33}\times{}8B$)    
+  \end{block}
+\end{frame}
+
+See also:
+\href{http://download.intel.com/design/processor/datashts/31559205.pdf}{\emph{Datasheet
+    for Intel Core 2 Quad-Core Q6000 Sequence}}
+\footnote{\url{http://download.intel.com/design/processor/datashts/31559205.pdf}}.
+
+\begin{frame}[plain]
+  \begin{minipage}{.65\linewidth}
+    \begin{block}{Some physical memory addresses are mapped away!}
+      \begin{itemize}
+      \item only the addresses, not the spaces
+      \item Memory holes
+        \begin{itemize}
+        \item[-] $640KB \sim 1MB$
+        \item[-] \texttt{/proc/iomem}
+        \end{itemize}
+      \end{itemize}
+    \end{block}
+    \begin{block}{Memory-mapped I/O}
+      \begin{itemize}
+      \item BIOS ROM
+      \item video cards
+      \item PCI cards
+      \item \ldots
+      \end{itemize}
+      This is why 32-bit OSes have problems using 4 gigs of RAM.
+    \end{block}
+  \end{minipage}\quad
+  \begin{minipage}{.3\linewidth}
+    \tikz[baseline,overlay]{
+      \node [xshift=1.5cm,yshift=-1cm] at (0,0) {
+        \includegraphics[scale=0.62]{boot-mem}}}
+  \end{minipage}
+  % \begin{center}
+  %   What if you don't have 4G RAM?
+  % \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{the northbridge}
+    \begin{enumerate}
+    \item receives a physical memory request
+    \item decides where to route it
+      \begin{itemize}
+      \item[-] to RAM? to video card? to \ldots{}?
+      \item[-] decision made via the \alert{memory address map}
+      \end{itemize}
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item When is the memory address map built? \texttt{setup()}.
+\end{itemize}
+
+\section{Bootstrapping}
+\label{sec:bootstrapping}
+
+\begin{frame}{Bootstrapping}
+  \begin{block}{Can you pull yourself up by your own bootstraps?}
+    \begin{itemize}
+    \item[] A computer cannot run without first loading software but must be running
+      before any software can be loaded.
+    \end{itemize}
+  \end{block}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{boot}}%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{boot-bw}}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Intel x86 Bootstrapping}
+  \begin{enumerate}
+  \item BIOS (\texttt{0xfffffff0})\\
+    \begin{small}
+      {\Symbol{➠}} POST\quad
+      {\Symbol{➠}} HW init\quad
+      {\Symbol{➠}} Find a boot device (FD,CD,HD\ldots{})\quad
+      {\Symbol{➠}} Copy \alert{sector zero (MBR)} to RAM (\texttt{0x00007c00})
+    \end{small}
+  \item MBR -- the first 512 bytes, contains
+    \begin{itemize}
+    \item Small code ($< 446\,Bytes$), e.g. GRUB stage 1, for loading GRUB stage 2
+    \item the primary partition table ($16\times{}4=64\,Bytes$)
+    \item its job is to load the second-stage boot loader.
+    \end{itemize}
+  \item GRUB stage 2 --- load the OS kernel into RAM
+  \item {\linux} startup
+  \item init --- the first user-space program
+  \end{enumerate}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mbr}}%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mbr}}
+  \end{center}
+  \begin{itemize}
+  \item[\$] \texttt{sudo hd -n512 /dev/sda}
+  \end{itemize}
+\end{frame}
+
+\section{Interrupt}
+\label{sec:interrupt}
+
+% \begin{frame}<beamer>{Outline}
+%   \tableofcontents[currentsection,currentsubsection]
+% \end{frame}
+
+\begin{frame}{Why Interrupt?}
+  \begin{block}{While a process is reading a disk file, can we do...}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.6\textwidth]{interrupt}}%
+      \mode<article>{ \includegraphics[width=.3\textwidth]{interrupt-bw}}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Modern OS are Interrupt Driven}
+  \begin{description}
+  \item[HW INT] by sending a signal to CPU
+  \item[SW INT] by executing a \alert{system call}
+  \item[Trap (exception)] is a software-generated INT coursed by an error or by a
+    specific request from an user program
+  \item[Interrupt vector] is an array of pointers {\pright} the memory addresses
+    of \alert{interrupt handlers}. This array is indexed by a unique device number
+    \begin{itemize}
+    \item[\$] \texttt{less /proc/devices}
+    \item[\$] \texttt{less /proc/interrupts}
+    \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}{Programmable Interrupt Controllers}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{int-osdi-34}}%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{int-osdi-34}}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Interrupt Processing}
+  % \includegraphics[width=.9\textwidth]{int-mos-figs-5-6}\\
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-10} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-10} }
+  \end{center}
+\end{frame}
+
+Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2008modern}.
+
+\begin{frame}{Interrupt Timeline}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{ir-timeline} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{ir-timeline} }
+  \end{center}
+\end{frame}
+
+\section{System Calls}
+\label{sec:system-calls}
+
+% \begin{frame}<beamer>{Outline}
+%   \tableofcontents[currentsection,currentsubsection]
+% \end{frame}
+
+\begin{frame}{System Calls}
+  \begin{block}{A System Call}
+  \begin{itemize}
+  \item is how a program requests a service from an OS kernel
+  \item provides the interface between a process and the OS
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \mode<beamer>{
+      \includegraphics[height=\textheight]{syscall}
+    }
+    \mode<article>{
+      \includegraphics[width=.5\textwidth]{syscall}
+    }
+  \end{center}
+\end{frame}
+
+\begin{frame}%{System Calls}
+  \begin{center}
+    \mode<beamer>{
+      \includegraphics[width=\textwidth]{osdi2-1-18}
+    }
+    \mode<article>{
+      \includegraphics[width=.7\textwidth]{osdi2-1-18}
+    }
+  \end{center}
+\end{frame}
+
+% \begin{frame} {System Calls}
+%   \includegraphics[width=\textwidth]{syscall1}
+% \end{frame}
+
+\begin{frame}
+  \begin{block}{The 11 steps in making the system call \texttt{read(fd,buffer,nbytes)}}
+    \begin{center}
+      \mode<beamer>{
+        \includegraphics[width=.85\textwidth]{mos-figs-1-18}
+      }
+      \mode<article>{
+        \includegraphics[width=.7\textwidth]{mos-figs-1-18}
+      }
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Example}{Linux INT80h}
+  \begin{description}
+  \item[Interrupt Vector Table:] The very first 1KiB of x86 memory. 
+    \begin{itemize} 
+    \item 256 entries $\times$ 4B = 1KiB
+    \item Each entry is a complete memory address (segment:offset)
+    \item It's populated by Linux and BIOS
+    \item Slot 80h: address of the kernel services dispatcher ({\pright} sys-call table)
+    \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]{Example}
+\begin{nasmcode}
+Msg: db "Hello, world"
+MsgLen: equ $-Msg
+
+mov eax,4      ; Specify sys_write syscall
+mov ebx,1      ; Specify File Descriptor 1 (STDOUT)
+mov ecx,Msg    ; Pass offset of the message
+mov edx,MsgLen ; Pass the length of the message
+int 80H        ; Make syscall to output the text to STDOUT
+\end{nasmcode}
+\end{frame}
+%$
+% \begin{frame} {System Calls}
+%   \includegraphics[width=\textwidth]{syscall2}
+% \end{frame}
+
+\begin{frame}%{System Calls}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{System Call Examples}
+  \begin{block}{\texttt{fork()}}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{fork} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{fork-bw} }
+    \end{center}
+  \end{block}
+  \begin{itemize}
+  \item[\$] \texttt{man 2 fork}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{\texttt{exec()}}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{fork-exec} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{fork-exec-bw} }
+    \end{center}
+  \end{block}
+  \begin{itemize}
+  \item[\$] \texttt{man 3 exec}
+  \end{itemize}
+\end{frame}
+
+Quoted from
+\href{https://stackoverflow.com/questions/20823371/what-is-the-difference-between-the-functions-of-the-exec-family-of-system-calls}{
+  stackoverflow: What is the difference between the functions of the \emph{exec} family of system calls}:
+
+\begin{quote}
+  There is no \emph{exec} system call --- this is usually used to refer to all the
+  \emph{execXX} calls as a group. They all do essentially the same thing: loading a new
+  program into the current process, and provide it with arguments and environment
+  variables. The differences are in how the program is found, how the arguments are
+  specified, and where the environment comes from.
+
+  \begin{itemize}
+  \item The calls with \emph{v} in the name take an array parameter to specify the
+    \texttt{argv[]} array (\emph{vector}) of the new program.
+  \item The calls with \emph{l} in the name take the arguments of the new program as a
+    variable-length argument \emph{list} to the function itself.
+  \item The calls with \emph{e} in the name take an extra argument to provide the
+    \emph{environment} of the new program; otherwise, the program inherits the current
+    process's environment.
+  \item The calls with \emph{p} in the name search the \emph{PATH} environment variable to
+    find the program if it doesn't have a directory in it (i.e. it doesn't contain a /
+    character). Otherwise, the program name is always treated as a path to the executable.
+  \end{itemize}
+\end{quote}
+
+\begin{frame}{Hardware INT vs. Software INT}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{int-osdi-35} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{int-osdi-35} }
+  \end{center}
+\end{frame}
+
+\begin{frame}\mode<beamer>{\frametitle{References}}
+  \begin{refsection}
+    \nocite{wiki:interrupt, wiki:syscall}
+    \printbibliography[heading=none]
+  \end{refsection}
+\end{frame}
+\mode<all>
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "os-b"
+%%% End:
