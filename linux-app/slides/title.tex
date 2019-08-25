@@ -1,0 +1,79 @@
+\mode*
+\mode<article>{
+  \subtitle{Lecture Handouts}
+  \maketitle
+  \tableofcontents
+  \textbooks \printbibliography[title={References}]}
+
+\mode<beamer>{\frame{\titlepage}}
+
+\begin{frame}<beamer>{Reference Books}
+  \begin{refsection}
+    \textbooks \printbibliography[heading=none]
+  \end{refsection}
+\end{frame}
+
+\begin{frame}{Course Web Links}
+  \begin{itemize}
+  \item[\moodle] \url{https://cs6.swfu.edu.cn/moodle}
+  \item[\pdf] \url{https://cs2.swfu.edu.cn/~wx672/lecture_notes/linux-app/slides/}
+  \item[\folder] \url{https://cs2.swfu.edu.cn/~wx672/lecture_notes/linux-app/src/}
+  \item[\obook] \url{https://cs3.swfu.edu.cn/tech}
+  \end{itemize}
+  \begin{block}{\texttt{/etc/hosts}}
+    \ttfamily
+    \begin{tabular}{ll}
+      202.203.132.241&cs6.swfu.edu.cn\\      
+      202.203.132.242&cs2.swfu.edu.cn\\
+      202.203.132.245&cs3.swfu.edu.cn\\      
+    \end{tabular}
+  \end{block}\footnotesize
+  \begin{description}
+  \item[System Programming] \url{https://github.com/angrave/SystemProgramming/wiki}
+  \item[Beej's Guides] \url{http://beej.us/guide/}
+  \item[BLP4e] \url{http://www.wrox.com/WileyCDA/WroxTitle/productCd-0470147628,descCd-DOWNLOAD.html}
+  \item[TLPI] \url{http://www.man7.org/tlpi/}
+  \end{description}
+\end{frame}
+
+\begin{frame}{{\hw\enspace}Homework}
+  \begin{block}{Weekly tech question}
+    \begin{enumerate}
+    \item What was I trying to do?
+    \item How did I do it? (steps)
+    \item The expected output? The real output?
+    \item How did I try to solve it? (steps, books, web links)
+    \item How many hours did I struggle?
+    \end{enumerate}
+  \end{block}
+  \begin{itemize}
+  \item[\Large\dejavu ✉] \alert{\ttfamily wx672ster+linux@gmail.com}
+  \item[$\mathbb{E}$] Preferably in English
+  \item[\stackoverflow] in
+    \href{https://stackoverflow.com/questions/39199299/what-is-the-essential-difference-between-compound-command-and-normal-command-inlink}{stackoverflow}
+    style
+  \item[OR] simply show me the tech questions you asked on any website
+  \end{itemize}  
+\end{frame}
+
+\begin{frame}
+  \mode<beamer>{%
+    \begin{tikzpicture}[remember picture, overlay]
+      \node at (current page.center) [scale=20,opacity=.1] {\danger};%
+      \node at (current page.center) [scale=2.8,rotate=30,align=center,font=\humor]%
+      {Oversimplifed programs\\ahead!};
+    \end{tikzpicture}}
+  \begin{center}
+    \mode<article>{
+      \begin{itemize}
+      \item[\danger] Oversimplifed programs ahead!
+      \end{itemize}}
+  \end{center}
+\end{frame}
+
+
+\mode<all>
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "lap-b"
+%%% End:
