@@ -386,10 +386,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=System_call&oldid=647910319
+      \verb http://en.wikipedia.org/w/index.php?title=System\_call&oldid=647910319
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=System_call&oldid=647910319
+      \verb http://en.wikipedia.org/w/index.php?title=System%5C_call&oldid=647910319
       \endverb
       \keyw{wiki:syscall}
     \endentry
@@ -427,10 +427,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Process_(computing)&oldid=639847817
+      \verb http://en.wikipedia.org/w/index.php?title=Process\_(computing)&oldid=639847817
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Process_(computing)&oldid=639847817
+      \verb http://en.wikipedia.org/w/index.php?title=Process%5C_(computing)&oldid=639847817
       \endverb
       \keyw{wiki:process}
     \endentry
@@ -463,10 +463,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Thread_(computing)&oldid=648172980
+      \verb http://en.wikipedia.org/w/index.php?title=Thread\_(computing)&oldid=648172980
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Thread_(computing)&oldid=648172980
+      \verb http://en.wikipedia.org/w/index.php?title=Thread%5C_(computing)&oldid=648172980
       \endverb
       \keyw{wiki:thread}
     \endentry
@@ -499,10 +499,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Process_control_block&oldid=646933587
+      \verb http://en.wikipedia.org/w/index.php?title=Process\_control\_block&oldid=646933587
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Process_control_block&oldid=646933587
+      \verb http://en.wikipedia.org/w/index.php?title=Process%5C_control%5C_block&oldid=646933587
       \endverb
       \keyw{wiki:pcb}
     \endentry
@@ -539,10 +539,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s_algorithm&oldid=646078826
+      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s\_algorithm&oldid=646078826
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s_algorithm&oldid=646078826
+      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s%5C_algorithm&oldid=646078826
       \endverb
       \keyw{wiki:peterson}
     \endentry
@@ -580,10 +580,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Inter-process_communication&oldid=645037874
+      \verb http://en.wikipedia.org/w/index.php?title=Inter-process\_communication&oldid=645037874
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Inter-process_communication&oldid=645037874
+      \verb http://en.wikipedia.org/w/index.php?title=Inter-process%5C_communication&oldid=645037874
       \endverb
       \keyw{wiki:ipc}
     \endentry
@@ -616,10 +616,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Semaphore_(programming)&oldid=647556304
+      \verb http://en.wikipedia.org/w/index.php?title=Semaphore\_(programming)&oldid=647556304
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Semaphore_(programming)&oldid=647556304
+      \verb http://en.wikipedia.org/w/index.php?title=Semaphore%5C_(programming)&oldid=647556304
       \endverb
       \keyw{wiki:semaphore}
     \endentry
@@ -656,10 +656,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Scheduling_(computing)&oldid=647892123
+      \verb http://en.wikipedia.org/w/index.php?title=Scheduling\_(computing)&oldid=647892123
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Scheduling_(computing)&oldid=647892123
+      \verb http://en.wikipedia.org/w/index.php?title=Scheduling%5C_(computing)&oldid=647892123
       \endverb
       \keyw{wiki:sched}
     \endentry
@@ -737,10 +737,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Memory_management&oldid=647917932
+      \verb http://en.wikipedia.org/w/index.php?title=Memory\_management&oldid=647917932
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Memory_management&oldid=647917932
+      \verb http://en.wikipedia.org/w/index.php?title=Memory%5C_management&oldid=647917932
       \endverb
       \keyw{wiki:mm}
     \endentry
@@ -773,10 +773,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Virtual_memory&oldid=644430956
+      \verb http://en.wikipedia.org/w/index.php?title=Virtual\_memory&oldid=644430956
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Virtual_memory&oldid=644430956
+      \verb http://en.wikipedia.org/w/index.php?title=Virtual%5C_memory&oldid=644430956
       \endverb
       \keyw{wiki:vm}
     \endentry
@@ -814,10 +814,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=File_system&oldid=646603121
+      \verb http://en.wikipedia.org/w/index.php?title=File\_system&oldid=646603121
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=File_system&oldid=646603121
+      \verb http://en.wikipedia.org/w/index.php?title=File%5C_system&oldid=646603121
       \endverb
       \keyw{wiki:fs}
     \endentry
@@ -850,10 +850,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Computer_file&oldid=647724614
+      \verb http://en.wikipedia.org/w/index.php?title=Computer\_file&oldid=647724614
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Computer_file&oldid=647724614
+      \verb http://en.wikipedia.org/w/index.php?title=Computer%5C_file&oldid=647724614
       \endverb
       \keyw{wiki:file}
     \endentry
@@ -958,10 +958,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Virtual_file_system&oldid=640354992
+      \verb http://en.wikipedia.org/w/index.php?title=Virtual\_file\_system&oldid=640354992
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Virtual_file_system&oldid=640354992
+      \verb http://en.wikipedia.org/w/index.php?title=Virtual%5C_file%5C_system&oldid=640354992
       \endverb
       \keyw{wiki:vfs}
     \endentry
