@@ -1,0 +1,9 @@
+
+* What's Objective-c?
+  - It's a superset of C
+  - roughly, it's C + Smalltalk
+    1. The OO part of it follows Smalltalk
+    2. The non-OO parts follow C
+* Teaching
+  add a new chapter about OBJ-C in the C programming course.
+* Environment

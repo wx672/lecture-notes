@@ -1084,8 +1084,8 @@ See also:
   \begin{block}{Example}
     \begin{minipage}{.22\textwidth}
       \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{fs-hello} }%
-        \mode<article>{ \includegraphics[width=.7\textwidth]{fs-hello} }
+        \mode<beamer>{ \includegraphics[width=\textwidth]{fs-hello-sh} }%
+        \mode<article>{ \shellfile{fs-hello.sh} }
       \end{center}
     \end{minipage}\qquad
     \begin{minipage}{.7\textwidth}
@@ -1107,14 +1107,14 @@ Why file table?
   holding the I/O pointer. Processes that share the same open ﬁle (the result of
   \texttt{fork}s) share a common open ﬁle table entry.  A separate open of the same ﬁle
   will only share the i-node table entry, but will have distinct open ﬁle table
-  entries\citetitle[Sec.~4.1]{Thompson78uniximplementation}.
+  entries\citetitle[Sec.~4.1]{thompson78uniximplementation}.
 \item[Open] The user file descriptor table entry could conceivably contain the file offset
   for the position of the next I/O operation and point directly to the in-core inode entry
   for the file, eliminating the need for a separate kernel file table. The examples above
   show a one-to-one relationship between user file descriptor entries and kernel file
   table entries. Thompson notes, however, that he implemented the file table as a separate
   structure to allow sharing of the offset pointer between several user file
-  descriptors\citetitle[\emph{Thompson~78, p.~1943}]{Thompson78uniximplementation}. The
+  descriptors\citetitle[\emph{Thompson~78, p.~1943}]{thompson78uniximplementation}. The
   \texttt{dup} and \texttt{fork} system calls, explained in
   \citetitle[Sec.~5.13]{bach1986design} and \citetitle[Sec.~7.1]{bach1986design},
   manipulate the data structures to allow such sharing
@@ -1876,11 +1876,8 @@ user, it is inferior to Linux's unified namespace\citetitle[Sec.~13.3, \emph{Uni
   \end{minipage}\quad
   \begin{minipage}{.65\linewidth}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{vfs-cp2}
-      } \mode<article>{
-        \includegraphics[width=.7\textwidth]{vfs-cp2-bw}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{vfs-cp2-c} }%
+      \mode<article>{ \shellfile{figs/pseudo/vfs-cp2.c} }
     \end{center}
   \end{minipage}
 \end{frame}

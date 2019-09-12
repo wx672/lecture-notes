@@ -168,8 +168,8 @@ Modern Unix kernels solve this problem by introducing three different mechanisms
 
 \begin{frame}{Forking in C}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-bw} }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork-c} }%
+    \mode<article>{ \cfile{../src/proc/fork.c} }
   \end{center}
   \begin{itemize}
   \item[\$] \texttt{man fork}
@@ -178,11 +178,11 @@ Modern Unix kernels solve this problem by introducing three different mechanisms
 
 \begin{frame}{\texttt{exec()}}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork-exec-osc} }
-    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-exec-osc-bw} }
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{fork-exec-osc-c}}%
+    \mode<article>{ \cfile{../src/proc/fork-exec-osc.c}}
   \end{center}
   \begin{itemize}
-  \item[\$] \texttt{man 3 exec}
+  \item[\$] \cmd{man 3 exec}
   \end{itemize}
 \end{frame}
 
@@ -341,14 +341,14 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
     \begin{center}
       \begin{small}
         \begin{tabularx}{\textwidth}{>{\ttfamily}lX}
-          \toprule
-          \textbf{Thread call}&\textbf{Description}\\\midrule
+          \hline
+          \thead{Thread call}&\thead{Description}\\\hline
           pthread\_create&Create a new thread\\
           pthread\_exit&Terminate the calling thread\\
           pthread\_join&Wait for a specific thread to exit\\
           pthread\_yield&Release the CPU to let another thread run\\
           pthread\_attr\_init&Create and initialize a thread's attribute structure\\
-          pthread\_attr\_destroy&Remove a thread's attribute structure\\\bottomrule
+          pthread\_attr\_destroy&Remove a thread's attribute structure\\\hline
         \end{tabularx}
       \end{small}
     \end{center}
@@ -356,7 +356,7 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
 \end{frame}
 
 \begin{frame}{Pthreads}{Example 1}
-  \mode<beamer>{ \includegraphics[width=\textwidth]{thread1} }%
+  \mode<beamer>{ \centering\includegraphics[width=.8\textwidth]{thread1-c} }%
   \mode<article>{\cfile{../src/proc/thread1.c}}
 \end{frame}
 
@@ -377,7 +377,7 @@ See also:
   \end{description}
   \begin{block}{How to use pthread?}
     \begin{itemize}
-    \item \texttt{\#include<pthread.h>}
+    \item[] \texttt{\#include<pthread.h>}
     \item[\$] \texttt{gcc thread1.c -o thread1 -pthread}
     \item[\$] \texttt{./thread1}
     \end{itemize}
@@ -592,8 +592,8 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 
 \begin{frame}{\texttt{clone()}}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{clone-prototype} }%
-    \mode<article>{ \includegraphics[width=.8\textwidth]{clone-prototype-bw} }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{clone-prototype-c} }%
+    \mode<article>{ \cfile{figs/pseudo/clone-prototype.c}}
   \end{center}
   \begin{small}
     \begin{description}
@@ -636,57 +636,31 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \end{frame}
 
 \begin{frame}{\texttt{clone()} Example}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{clone2}
-      \pause
-      \begin{tikzpicture}[remember picture, overlay]
-        \node [yshift=-7em,xshift=5em,rotate=-20,scale=6,text opacity=0.7,color=red] at
-        (current page.center) {\Symbol{✘}};
-      \end{tikzpicture}}%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{clone2-bw-crop} }
-  \end{center}
-\end{frame}
-
-\begin{frame}[fragile]{Stack Grows Downwards}
-\begin{ccode}
-child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
-\end{ccode}
   \mode<beamer>{
+    \includegraphics[width=\textwidth]{clone2}
+    \pause 
+    \begin{iblock}{Stack grows downwards}
+      \includegraphics[width=\textwidth]{child-stack-c}
+    \end{iblock}
     \begin{tikzpicture}[remember picture, overlay]
-      \node [yshift=-0.1em,xshift=9em,rotate=0,scale=12,text opacity=0.7,color=red] at
-      (current page.center) {\Symbol{✔}};
-    \end{tikzpicture}}
+      \node [anchor=east,yshift=2em,rotate=-20,scale=6,text opacity=0.6,color=red] at
+      (current page.east) {\Symbol{✘}};
+      \node at (current page.south east)
+      [anchor=east,yshift=3em,scale=8,text opacity=0.6,color=Green] {\Symbol{✔}};
+    \end{tikzpicture}}%
+  \mode<article>{ \cfile{../src/proc/clone.c}}
 \end{frame}
 
-% \begin{frame}{}{}
+% \begin{frame}{Stack Grows Downwards}
 %   \begin{center}
-%     \includegraphics[width=\textwidth]{mos-figs-2-15}
+%     \mode<beamer>{ \includegraphics[width=\textwidth]{child-stack-c} }%
+%     \mode<article>{ \cfile{figs/pseudo/child-stack.c} }
 %   \end{center}
-% \end{frame}
-
-% \begin{frame}{}{}
-%   \begin{center}
-%     \includegraphics[width=\textwidth]{mos-figs-2-16}
-%   \end{center}
-% \end{frame}
-
-% \begin{frame}{}{}
-%   \begin{center}
-%     \includegraphics[width=\textwidth]{mos-figs-2-17}
-%   \end{center}
-% \end{frame}
-
-% \begin{frame}{}{}
-%   Several systems today (QNX and Plan 9, for instance) take the stance that threads `fix the
-%   symptom, but not the problem'. Rather than using threads because the OS context switch time is too
-%   slow, a better approach, according to the architects of these systems, is to fix the OS. It's
-%   ironic, now that even PC-hosted desktop OSes provide MMU-protected multitasking, the fashionable
-%   programming model has become multiple threads running in a common address space, making debugging
-%   difficult, and also making it more difficult to generate reliable code. With fast context
-%   switching, existing OS services like explicitly allocated shared memory between a team of
-%   cooperating processes can create a `threaded' environment, without opening the Pandora's box of
-%   problems that a fully shared memory space entails.
+%   \mode<beamer>{
+%     \begin{tikzpicture}[remember picture, overlay]
+%       \node [yshift=-0.1em,xshift=9em,rotate=0,scale=12,text opacity=0.7,color=red] at
+%       (current page.center) {\Symbol{✔}};
+%     \end{tikzpicture}}
 % \end{frame}
 
 \begin{frame}\mode<beamer>{\frametitle{References}}
@@ -791,8 +765,8 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
   
   \begin{block}{Shared data:}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.7\textwidth]{shared-data} }%
-      \mode<article>{ \includegraphics[width=.4\textwidth]{shared-data-bw} }
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{shared-data-c} }%
+      \mode<article>{ \cfile{figs/pseudo/shared-data.c} }
     \end{center}
   \end{block}
 \end{frame}
@@ -801,14 +775,14 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
   \begin{minipage}{.6\linewidth}
     \begin{block}{Producer:}
       \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-1} }%
-        \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-1-bw} }
+        \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-1-c} }%
+        \mode<article>{ \cfile{figs/pseudo/bounded-buffer-1.c} }
       \end{center}
     \end{block}
     \begin{block}{Consumer:}
       \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-2} }%
-        \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-2-bw} }
+        \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-2-c} }%
+        \mode<article>{ \cfile{figs/pseudo/bounded-buffer-2.c} }
       \end{center}
     \end{block}
   \end{minipage}\quad
@@ -824,7 +798,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \label{sec:pipes-fifos}
 
 \begin{itemize}
-\item \citetitle[chap.~44]{Kerrisk:2010:LPI:1869911}
+\item \citetitle[chap.~44]{kerrisk:2010:lpi:1869911}
 \end{itemize}
 
 \begin{frame}{Pipe}
@@ -862,7 +836,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
   read blocks of data of any size, regardless of the size of blocks written by the writing
   process. Furthermore, the data passes through the pipe sequentially --- bytes are read from
   a pipe in exactly the order they were written. It is not possible to randomly access the
-  data in a pipe using \texttt{lseek()}. \citetitle[chap.~44]{Kerrisk:2010:LPI:1869911}
+  data in a pipe using \texttt{lseek()}. \citetitle[chap.~44]{kerrisk:2010:lpi:1869911}
 \end{itemize}
 
 
@@ -920,7 +894,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
   for sending data in each direction between the two processes.  (If employing this
   technique, then we need to be wary of deadlocks that may occur if both processes block
   while trying to read from empty pipes or while trying to write to pipes that are already
-  full.) \citetitle[chap.~44, p.~893]{Kerrisk:2010:LPI:1869911}
+  full.) \citetitle[chap.~44, p.~893]{kerrisk:2010:lpi:1869911}
 \item Pipes can be used for communication between any two (or more) related processes, as
   long as the pipe was created by a common ancestor before the series of \texttt{fork()}
   calls that led to the existence of the processes. For example, a pipe could be used for
@@ -1068,7 +1042,7 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 \end{frame}
 
 \begin{itemize}
-\item \citetitle[Sec.~52.3]{Kerrisk:2010:LPI:1869911}
+\item \citetitle[Sec.~52.3]{kerrisk:2010:lpi:1869911}
 \item \texttt{mq\_overview(7)}
 \item \texttt{sem\_overview(7)}
 \item \texttt{shm\_overview(7)}
@@ -1110,13 +1084,13 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{Race Conditions}{Two producers}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.6\textwidth]{two-producer} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{two-producer-bw} }
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{two-producer-c} }%
+    \mode<article>{ \cfile{figs/pseudo/two-producer.c} }
   \end{center}
   \begin{block}{Process A and B do the same thing:}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{two-producer-2} }%
-      \mode<article>{ \includegraphics[width=.5\textwidth]{two-producer-2-bw} }
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{two-producer-2-c} }%
+      \mode<article>{ \cfile{figs/pseudo/two-producer-2.c} }
     \end{center}
   \end{block}
 \end{frame}
@@ -1151,8 +1125,8 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{Mutual Exclusion With Busy Waiting}{Disabling Interrupts}
   \begin{minipage}{.3\linewidth}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{disable-int} }%
-    \mode<article>{ \includegraphics[width=\textwidth]{disable-int} }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{disable-int-c} }%
+    \mode<article>{ \cfile{figs/pseudo/disable-int.c} }
   \end{minipage}\quad
   \begin{minipage}{.65\linewidth}
     \begin{block}{Problems:}
@@ -1171,8 +1145,8 @@ child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
 
 \begin{frame}{Mutual Exclusion With Busy Waiting}{Lock Variables}
   \begin{minipage}{.45\linewidth}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{lock-var} }%
-    \mode<article>{ \includegraphics[width=\textwidth]{lock-var-bw} }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{lock-var-c} }%
+    \mode<article>{ \cfile{figs/pseudo/lock-var.c} }
   \end{minipage}\quad
   \begin{minipage}{.5\linewidth}
     \begin{block}{Problem:}
@@ -1596,8 +1570,8 @@ access some common resources.
 
 \begin{frame}{Barrier Solution}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.4\textwidth]{barrier-1} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{barrier-1} }
+    \mode<beamer>{ \includegraphics[width=.4\textwidth]{barrier-1-py} }%
+    \mode<article>{ \pycode{figs/pseudo/barrier-1.py} }
   \end{center}
   \begin{footnotesize}
     \begin{description}
@@ -1900,11 +1874,8 @@ user process to use it directly.
   \hfill
   \begin{minipage}{.39\linewidth}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{monitor}
-      } \mode<article>{
-        \includegraphics[width=\textwidth]{monitor-bw}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{monitor-pas} }%
+      \mode<article>{ \pasfile{figs/pseudo/monitor.pas} }
     \end{center}
   \end{minipage}
 \end{frame}
@@ -1958,8 +1929,8 @@ user process to use it directly.
 
 \begin{frame}{Message Passing}{The producer-consumer problem}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{msg-passing} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{msg-passing-bw} }
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{msg-passing-c} }%
+    \mode<article>{ \cfile{figs/pseudo/msg-passing.c} }
   \end{center}
 \end{frame}
 
@@ -2053,8 +2024,8 @@ user process to use it directly.
 \begin{frame}{The Dining Philosophers Problem}{With One Mutex}
   \begin{minipage}{.49\linewidth}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{dining-mutex} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{dining-mutex-bw} }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{dining-mutex-c} }%
+      \mode<article>{ \cfile{figs/pseudo/dining-mutex.c} }
     \end{center}
   \end{minipage} \hfill
   \begin{minipage}{.49\linewidth}
@@ -2101,16 +2072,16 @@ user process to use it directly.
 \begin{block}{A philosopher may only move into eating state if neither neighbor is
     eating}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.85\textwidth]{dphil-1} }%
-    \mode<article>{ \includegraphics[width=.8\textwidth]{dphil-1-bw} }
+    \mode<beamer>{ \includegraphics[width=.85\textwidth]{dphil-1-c} }%
+    \mode<article>{ \cfile{figs/pseudo/dphil-1.c} }
   \end{center}
 \end{block}
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{AST Solution (Part 2)}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{dphil-2} }%
-    \mode<article>{ \includegraphics[width=.9\textwidth]{dphil-2-bw} }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{dphil-2-c} }%
+    \mode<article>{ \cfile{figs/pseudo/dphil-2.c} }
   \end{center}\pause
 \mode<beamer>{
   \begin{tikzpicture}[remember picture, overlay]%

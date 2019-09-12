@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.0 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -511,7 +511,7 @@
 
 \refsection{4}
   \datalist[entry]{none/global//global/global}
-    \entry{wiki:peterson}{online}{}
+    \entry{wiki:peterson}{misc}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -532,18 +532,12 @@
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{title}{Peterson's algorithm --- Wikipedia{,} The Free Encyclopedia}
-      \field{usera}{EB}
+      \field{usera}{Z}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2015}
       \field{dateera}{ce}
       \true{nocite}
-      \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s\_algorithm&oldid=646078826
-      \endverb
-      \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s%5C_algorithm&oldid=646078826
-      \endverb
       \keyw{wiki:peterson}
     \endentry
   \enddatalist

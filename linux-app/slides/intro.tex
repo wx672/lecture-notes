@@ -27,18 +27,24 @@
 \end{frame}
 
 \begin{frame}{Text Editors}
-  \begin{block}
+  \begin{iblock}
     {\mode<beamer>{{{\Huge\vim}\,\quad{}vs.\quad{}{\LARGE\emacs}}}
-    \mode<article>{{\vim\,\quad{}vs.\quad{}\emacs}}}
+      \mode<article>{{\vim\,\quad{}vs.\quad{}\emacs}}}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{vivsemacs} }%
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{vivsemacs} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{vivsemacs} }
     \end{center}
-  \end{block}
+  \end{iblock}
+  \begin{description}
+  \item[uemacs] Linus Torvalds' editor
+    \begin{itemize}
+    \item[\github] \url{https://github.com/torvalds/uemacs}
+    \end{itemize}
+  \end{description}
 \end{frame}
 
 \begin{frame}{Help Your Editor}
-  \begin{block}{Suffix matters}\ttfamily
+  \begin{iblock}{Suffix matters}\ttfamily
     \begin{itemize}
     \item[\$] vim \wrong
     \item[\$] vim hello \wrong
@@ -49,7 +55,7 @@
     \item[\$] emacsclient hello.c  \correct
     \item[\$] emacsclient hello.py \correct
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Keyboard}

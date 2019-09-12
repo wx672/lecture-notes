@@ -1,0 +1,929 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.0 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{stevens2013advanced}{book}{}
+      \name{author}{2}{}{%
+        {{hash=882cf5ccc1ce0f8a7bfc9d838094d291}{%
+           family={Stevens},
+           familyi={S\bibinitperiod},
+           given={W\bibnamedelima Richard},
+           giveni={W\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=d45d8f97a669ec6c26ed49cf5ff2897a}{%
+           family={Rago},
+           familyi={R\bibinitperiod},
+           given={Stephen\bibnamedelima A},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{10b56c37a55dc02b77229da337d43e3b}
+      \strng{fullhash}{e1035e68493cb6f18a15deca2831c327}
+      \strng{bibnamehash}{e1035e68493cb6f18a15deca2831c327}
+      \strng{authorbibnamehash}{e1035e68493cb6f18a15deca2831c327}
+      \strng{authornamehash}{10b56c37a55dc02b77229da337d43e3b}
+      \strng{authorfullhash}{e1035e68493cb6f18a15deca2831c327}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Advanced programming in the UNIX environment}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/145/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/145/Calibre1
+      \endverb
+      \keyw{stevens2013advanced}
+    \endentry
+    \entry{raymond2003art}{book}{}
+      \name{author}{1}{}{%
+        {{hash=54a2a72b576ed340cbad4320514b664e}{%
+           family={Raymond},
+           familyi={R\bibinitperiod},
+           given={Eric\bibnamedelima S},
+           giveni={E\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{54a2a72b576ed340cbad4320514b664e}
+      \strng{fullhash}{54a2a72b576ed340cbad4320514b664e}
+      \strng{bibnamehash}{54a2a72b576ed340cbad4320514b664e}
+      \strng{authorbibnamehash}{54a2a72b576ed340cbad4320514b664e}
+      \strng{authornamehash}{54a2a72b576ed340cbad4320514b664e}
+      \strng{authorfullhash}{54a2a72b576ed340cbad4320514b664e}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{The art of Unix programming}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/15/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/15/Calibre1
+      \endverb
+      \keyw{raymond2003art}
+    \endentry
+    \entry{matthew2008beginning}{book}{}
+      \name{author}{2}{}{%
+        {{hash=71b0550cc21f34d5270381c62bec8e49}{%
+           family={Matthew},
+           familyi={M\bibinitperiod},
+           given={Neil},
+           giveni={N\bibinitperiod}}}%
+        {{hash=4419c9e69c561da228a7e02ebdd5e60b}{%
+           family={Stones},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{2b017aa24f11f2abd1235a5dd1f850e5}
+      \strng{fullhash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{bibnamehash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{authorbibnamehash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{authornamehash}{2b017aa24f11f2abd1235a5dd1f850e5}
+      \strng{authorfullhash}{c2388d8b76c1d7a119e8863298934f79}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Beginning linux programming}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/39/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/39/Calibre1
+      \endverb
+      \keyw{matthew2008beginning}
+    \endentry
+    \entry{kernighan2006c}{book}{}
+      \name{author}{2}{}{%
+        {{hash=cef3a18f3097ba31cc4cf18c95bfdfbc}{%
+           family={Kernighan},
+           familyi={K\bibinitperiod},
+           given={Brian\bibnamedelima W},
+           giveni={B\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=12fa210c982feca0e65287dfda751aca}{%
+           family={Ritchie},
+           familyi={R\bibinitperiod},
+           given={Dennis\bibnamedelima M},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{de4fe63d7869a5e1c8f55a09b009ae79}
+      \strng{fullhash}{3d646d17379d31803e7e0fbf4ee93b5c}
+      \strng{bibnamehash}{3d646d17379d31803e7e0fbf4ee93b5c}
+      \strng{authorbibnamehash}{3d646d17379d31803e7e0fbf4ee93b5c}
+      \strng{authornamehash}{de4fe63d7869a5e1c8f55a09b009ae79}
+      \strng{authorfullhash}{3d646d17379d31803e7e0fbf4ee93b5c}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{The C programming language}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/50/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/50/Calibre1
+      \endverb
+      \keyw{kernighan2006c}
+    \endentry
+    \entry{king2008c}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d9085d51fed3b9ce163943803b90a0e5}{%
+           family={King},
+           familyi={K\bibinitperiod},
+           given={Kim\bibnamedelima N},
+           giveni={K\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {WW Norton \& Company}%
+      }
+      \strng{namehash}{d9085d51fed3b9ce163943803b90a0e5}
+      \strng{fullhash}{d9085d51fed3b9ce163943803b90a0e5}
+      \strng{bibnamehash}{d9085d51fed3b9ce163943803b90a0e5}
+      \strng{authorbibnamehash}{d9085d51fed3b9ce163943803b90a0e5}
+      \strng{authornamehash}{d9085d51fed3b9ce163943803b90a0e5}
+      \strng{authorfullhash}{d9085d51fed3b9ce163943803b90a0e5}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{C programming: a modern approach}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/72/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/72/Calibre1
+      \endverb
+      \keyw{king2008c}
+    \endentry
+    \entry{reek1997pointers}{book}{}
+      \name{author}{1}{}{%
+        {{hash=bd06a1076018ae54d63034430780a9e5}{%
+           family={Reek},
+           familyi={R\bibinitperiod},
+           given={Kenneth\bibnamedelima A},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{bd06a1076018ae54d63034430780a9e5}
+      \strng{fullhash}{bd06a1076018ae54d63034430780a9e5}
+      \strng{bibnamehash}{bd06a1076018ae54d63034430780a9e5}
+      \strng{authorbibnamehash}{bd06a1076018ae54d63034430780a9e5}
+      \strng{authornamehash}{bd06a1076018ae54d63034430780a9e5}
+      \strng{authorfullhash}{bd06a1076018ae54d63034430780a9e5}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Pointers on C}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1997}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/EPUB/75/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/EPUB/75/Calibre1
+      \endverb
+      \keyw{reek1997pointers}
+    \endentry
+    \entry{weiss1993data}{book}{}
+      \name{author}{2}{}{%
+        {{hash=0b643e58c134ac568e751719eb99c40e}{%
+           family={Weiss},
+           familyi={W\bibinitperiod},
+           given={Mark\bibnamedelima Allen},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=0b643e58c134ac568e751719eb99c40e}{%
+           family={Weiss},
+           familyi={W\bibinitperiod},
+           given={Mark\bibnamedelima Allen},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Benjamin/Cummings California}%
+      }
+      \strng{namehash}{649b8e45f070a9a8522eae36165e0f98}
+      \strng{fullhash}{d2c0f78433f4b368a00bd2d0f411d6cf}
+      \strng{bibnamehash}{d2c0f78433f4b368a00bd2d0f411d6cf}
+      \strng{authorbibnamehash}{d2c0f78433f4b368a00bd2d0f411d6cf}
+      \strng{authornamehash}{649b8e45f070a9a8522eae36165e0f98}
+      \strng{authorfullhash}{d2c0f78433f4b368a00bd2d0f411d6cf}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Data structures and algorithm analysis in C}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1993}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/74/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/74/Calibre1
+      \endverb
+      \keyw{weiss1993data}
+    \endentry
+    \entry{waite1987c}{book}{}
+      \name{author}{3}{}{%
+        {{hash=8ad357cba4a6cf04736a906253f295d5}{%
+           family={Waite},
+           familyi={W\bibinitperiod},
+           given={Mitchell},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2e43717be9d8e6bab9397ad4f022a306}{%
+           family={Prata},
+           familyi={P\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c526380e2ffa9aac5ae1d51ece8af374}{%
+           family={Martin},
+           familyi={M\bibinitperiod},
+           given={Donald},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Sams}%
+      }
+      \strng{namehash}{1e9201f062762c0d59cf0c764cdeb5f1}
+      \strng{fullhash}{4176be67405468e04c53e4fd268c18a9}
+      \strng{bibnamehash}{4176be67405468e04c53e4fd268c18a9}
+      \strng{authorbibnamehash}{4176be67405468e04c53e4fd268c18a9}
+      \strng{authornamehash}{1e9201f062762c0d59cf0c764cdeb5f1}
+      \strng{authorfullhash}{4176be67405468e04c53e4fd268c18a9}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{C primer plus}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1987}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/MOBI/51/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/MOBI/51/Calibre1
+      \endverb
+      \keyw{waite1987c}
+    \endentry
+    \entry{erickson2008hacking}{book}{}
+      \name{author}{1}{}{%
+        {{hash=54eeee8090fe59b172823d5d7d831286}{%
+           family={Erickson},
+           familyi={E\bibinitperiod},
+           given={Jon},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {No Starch Press}%
+      }
+      \strng{namehash}{54eeee8090fe59b172823d5d7d831286}
+      \strng{fullhash}{54eeee8090fe59b172823d5d7d831286}
+      \strng{bibnamehash}{54eeee8090fe59b172823d5d7d831286}
+      \strng{authorbibnamehash}{54eeee8090fe59b172823d5d7d831286}
+      \strng{authornamehash}{54eeee8090fe59b172823d5d7d831286}
+      \strng{authorfullhash}{54eeee8090fe59b172823d5d7d831286}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Hacking: the art of exploitation}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/157/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/157/Calibre1
+      \endverb
+      \keyw{erickson2008hacking}
+    \endentry
+    \entry{jeff16assembly}{book}{}
+      \name{author}{1}{}{%
+        {{hash=49da700720fe6c9fc64a84fb5c86bbf4}{%
+           family={Duntemann},
+           familyi={D\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{49da700720fe6c9fc64a84fb5c86bbf4}
+      \strng{fullhash}{49da700720fe6c9fc64a84fb5c86bbf4}
+      \strng{bibnamehash}{49da700720fe6c9fc64a84fb5c86bbf4}
+      \strng{authorbibnamehash}{49da700720fe6c9fc64a84fb5c86bbf4}
+      \strng{authornamehash}{49da700720fe6c9fc64a84fb5c86bbf4}
+      \strng{authorfullhash}{49da700720fe6c9fc64a84fb5c86bbf4}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Assembly Language Step-by-Step Assembly Language Step-by-Step Programming with Linux{®} Third Edition}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/154/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/154/Calibre1
+      \endverb
+      \keyw{jeff16assembly}
+    \endentry
+    \entry{neveln2000linux}{book}{}
+      \name{author}{1}{}{%
+        {{hash=ee9f8379a9978ea2e134d3a5d9e85e58}{%
+           family={Neveln},
+           familyi={N\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall PTR}%
+      }
+      \strng{namehash}{ee9f8379a9978ea2e134d3a5d9e85e58}
+      \strng{fullhash}{ee9f8379a9978ea2e134d3a5d9e85e58}
+      \strng{bibnamehash}{ee9f8379a9978ea2e134d3a5d9e85e58}
+      \strng{authorbibnamehash}{ee9f8379a9978ea2e134d3a5d9e85e58}
+      \strng{authornamehash}{ee9f8379a9978ea2e134d3a5d9e85e58}
+      \strng{authorfullhash}{ee9f8379a9978ea2e134d3a5d9e85e58}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780130879400}
+      \field{langid}{english}
+      \field{series}{Open source technology series}
+      \field{title}{LINUX Assembly Language Programming}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/94/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/94/Calibre1
+      \endverb
+      \keyw{neveln2000linux}
+    \endentry
+    \entry{levine2000linkers}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2d19afa203c5f71c4e6502f1f04bd951}{%
+           family={Levine},
+           familyi={L\bibinitperiod},
+           given={J.R.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann}%
+      }
+      \strng{namehash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{fullhash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{bibnamehash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{authorbibnamehash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{authornamehash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{authorfullhash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781558604964}
+      \field{langid}{english}
+      \field{series}{Operating Systems Series}
+      \field{title}{Linkers and Loaders}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/36/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/36/Calibre1
+      \endverb
+      \keyw{levine2000linkers}
+    \endentry
+    \entry{salomon1992assemblers}{book}{}
+      \name{author}{1}{}{%
+        {{hash=4f43062cf4ac043449c31a6d6add0880}{%
+           family={Salomon},
+           familyi={S\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Ellis Horwood}%
+      }
+      \strng{namehash}{4f43062cf4ac043449c31a6d6add0880}
+      \strng{fullhash}{4f43062cf4ac043449c31a6d6add0880}
+      \strng{bibnamehash}{4f43062cf4ac043449c31a6d6add0880}
+      \strng{authorbibnamehash}{4f43062cf4ac043449c31a6d6add0880}
+      \strng{authornamehash}{4f43062cf4ac043449c31a6d6add0880}
+      \strng{authorfullhash}{4f43062cf4ac043449c31a6d6add0880}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{series}{Computers and their applications}
+      \field{title}{Assemblers and loaders}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1992}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/78/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/78/Calibre1
+      \endverb
+      \keyw{salomon1992assemblers}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{1}
+  \datalist[entry]{none/global//global/global}
+    \entry{stevens2013advanced}{book}{}
+      \name{author}{2}{}{%
+        {{hash=882cf5ccc1ce0f8a7bfc9d838094d291}{%
+           family={Stevens},
+           familyi={S\bibinitperiod},
+           given={W\bibnamedelima Richard},
+           giveni={W\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=d45d8f97a669ec6c26ed49cf5ff2897a}{%
+           family={Rago},
+           familyi={R\bibinitperiod},
+           given={Stephen\bibnamedelima A},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{10b56c37a55dc02b77229da337d43e3b}
+      \strng{fullhash}{e1035e68493cb6f18a15deca2831c327}
+      \strng{bibnamehash}{e1035e68493cb6f18a15deca2831c327}
+      \strng{authorbibnamehash}{e1035e68493cb6f18a15deca2831c327}
+      \strng{authornamehash}{10b56c37a55dc02b77229da337d43e3b}
+      \strng{authorfullhash}{e1035e68493cb6f18a15deca2831c327}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Advanced programming in the UNIX environment}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/145/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/145/Calibre1
+      \endverb
+      \keyw{stevens2013advanced}
+    \endentry
+    \entry{raymond2003art}{book}{}
+      \name{author}{1}{}{%
+        {{hash=54a2a72b576ed340cbad4320514b664e}{%
+           family={Raymond},
+           familyi={R\bibinitperiod},
+           given={Eric\bibnamedelima S},
+           giveni={E\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{54a2a72b576ed340cbad4320514b664e}
+      \strng{fullhash}{54a2a72b576ed340cbad4320514b664e}
+      \strng{bibnamehash}{54a2a72b576ed340cbad4320514b664e}
+      \strng{authorbibnamehash}{54a2a72b576ed340cbad4320514b664e}
+      \strng{authornamehash}{54a2a72b576ed340cbad4320514b664e}
+      \strng{authorfullhash}{54a2a72b576ed340cbad4320514b664e}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{The art of Unix programming}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/15/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/15/Calibre1
+      \endverb
+      \keyw{raymond2003art}
+    \endentry
+    \entry{matthew2008beginning}{book}{}
+      \name{author}{2}{}{%
+        {{hash=71b0550cc21f34d5270381c62bec8e49}{%
+           family={Matthew},
+           familyi={M\bibinitperiod},
+           given={Neil},
+           giveni={N\bibinitperiod}}}%
+        {{hash=4419c9e69c561da228a7e02ebdd5e60b}{%
+           family={Stones},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{2b017aa24f11f2abd1235a5dd1f850e5}
+      \strng{fullhash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{bibnamehash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{authorbibnamehash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{authornamehash}{2b017aa24f11f2abd1235a5dd1f850e5}
+      \strng{authorfullhash}{c2388d8b76c1d7a119e8863298934f79}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Beginning linux programming}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/39/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/39/Calibre1
+      \endverb
+      \keyw{matthew2008beginning}
+    \endentry
+    \entry{kernighan2006c}{book}{}
+      \name{author}{2}{}{%
+        {{hash=cef3a18f3097ba31cc4cf18c95bfdfbc}{%
+           family={Kernighan},
+           familyi={K\bibinitperiod},
+           given={Brian\bibnamedelima W},
+           giveni={B\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=12fa210c982feca0e65287dfda751aca}{%
+           family={Ritchie},
+           familyi={R\bibinitperiod},
+           given={Dennis\bibnamedelima M},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{de4fe63d7869a5e1c8f55a09b009ae79}
+      \strng{fullhash}{3d646d17379d31803e7e0fbf4ee93b5c}
+      \strng{bibnamehash}{3d646d17379d31803e7e0fbf4ee93b5c}
+      \strng{authorbibnamehash}{3d646d17379d31803e7e0fbf4ee93b5c}
+      \strng{authornamehash}{de4fe63d7869a5e1c8f55a09b009ae79}
+      \strng{authorfullhash}{3d646d17379d31803e7e0fbf4ee93b5c}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{The C programming language}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/50/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/50/Calibre1
+      \endverb
+      \keyw{kernighan2006c}
+    \endentry
+    \entry{king2008c}{book}{}
+      \name{author}{1}{}{%
+        {{hash=d9085d51fed3b9ce163943803b90a0e5}{%
+           family={King},
+           familyi={K\bibinitperiod},
+           given={Kim\bibnamedelima N},
+           giveni={K\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {WW Norton \& Company}%
+      }
+      \strng{namehash}{d9085d51fed3b9ce163943803b90a0e5}
+      \strng{fullhash}{d9085d51fed3b9ce163943803b90a0e5}
+      \strng{bibnamehash}{d9085d51fed3b9ce163943803b90a0e5}
+      \strng{authorbibnamehash}{d9085d51fed3b9ce163943803b90a0e5}
+      \strng{authornamehash}{d9085d51fed3b9ce163943803b90a0e5}
+      \strng{authorfullhash}{d9085d51fed3b9ce163943803b90a0e5}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{C programming: a modern approach}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/72/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/72/Calibre1
+      \endverb
+      \keyw{king2008c}
+    \endentry
+    \entry{reek1997pointers}{book}{}
+      \name{author}{1}{}{%
+        {{hash=bd06a1076018ae54d63034430780a9e5}{%
+           family={Reek},
+           familyi={R\bibinitperiod},
+           given={Kenneth\bibnamedelima A},
+           giveni={K\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{bd06a1076018ae54d63034430780a9e5}
+      \strng{fullhash}{bd06a1076018ae54d63034430780a9e5}
+      \strng{bibnamehash}{bd06a1076018ae54d63034430780a9e5}
+      \strng{authorbibnamehash}{bd06a1076018ae54d63034430780a9e5}
+      \strng{authornamehash}{bd06a1076018ae54d63034430780a9e5}
+      \strng{authorfullhash}{bd06a1076018ae54d63034430780a9e5}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Pointers on C}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1997}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/EPUB/75/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/EPUB/75/Calibre1
+      \endverb
+      \keyw{reek1997pointers}
+    \endentry
+    \entry{weiss1993data}{book}{}
+      \name{author}{2}{}{%
+        {{hash=0b643e58c134ac568e751719eb99c40e}{%
+           family={Weiss},
+           familyi={W\bibinitperiod},
+           given={Mark\bibnamedelima Allen},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=0b643e58c134ac568e751719eb99c40e}{%
+           family={Weiss},
+           familyi={W\bibinitperiod},
+           given={Mark\bibnamedelima Allen},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Benjamin/Cummings California}%
+      }
+      \strng{namehash}{649b8e45f070a9a8522eae36165e0f98}
+      \strng{fullhash}{d2c0f78433f4b368a00bd2d0f411d6cf}
+      \strng{bibnamehash}{d2c0f78433f4b368a00bd2d0f411d6cf}
+      \strng{authorbibnamehash}{d2c0f78433f4b368a00bd2d0f411d6cf}
+      \strng{authornamehash}{649b8e45f070a9a8522eae36165e0f98}
+      \strng{authorfullhash}{d2c0f78433f4b368a00bd2d0f411d6cf}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Data structures and algorithm analysis in C}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1993}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/74/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/74/Calibre1
+      \endverb
+      \keyw{weiss1993data}
+    \endentry
+    \entry{waite1987c}{book}{}
+      \name{author}{3}{}{%
+        {{hash=8ad357cba4a6cf04736a906253f295d5}{%
+           family={Waite},
+           familyi={W\bibinitperiod},
+           given={Mitchell},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2e43717be9d8e6bab9397ad4f022a306}{%
+           family={Prata},
+           familyi={P\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c526380e2ffa9aac5ae1d51ece8af374}{%
+           family={Martin},
+           familyi={M\bibinitperiod},
+           given={Donald},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Sams}%
+      }
+      \strng{namehash}{1e9201f062762c0d59cf0c764cdeb5f1}
+      \strng{fullhash}{4176be67405468e04c53e4fd268c18a9}
+      \strng{bibnamehash}{4176be67405468e04c53e4fd268c18a9}
+      \strng{authorbibnamehash}{4176be67405468e04c53e4fd268c18a9}
+      \strng{authornamehash}{1e9201f062762c0d59cf0c764cdeb5f1}
+      \strng{authorfullhash}{4176be67405468e04c53e4fd268c18a9}
+      \field{sortinit}{8}
+      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{C primer plus}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1987}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/MOBI/51/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/MOBI/51/Calibre1
+      \endverb
+      \keyw{waite1987c}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

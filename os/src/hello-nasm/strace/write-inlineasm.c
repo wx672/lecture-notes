@@ -1,0 +1,1 @@
+../../fs/write-inlineasm.c

@@ -3,10 +3,11 @@
 #include <unistd.h>
 #include <stdio.h>
 
-void *thread_function(void *arg) {
+void *hello(void *arg)
+{
   int i;
-  for ( i=0; i<10; i++ ) {
-    printf("Thread says hi!, %d\n",i);
+  for( i=0; i<20; i++ ){
+	puts("Thread says hi!");
     sleep(1);
   }
   return NULL;
@@ -14,23 +15,19 @@ void *thread_function(void *arg) {
 
 int main(void)
 {
-  pthread_t mythread;
-  
-  if ( pthread_create(&mythread, NULL, thread_function, NULL) ) {
-    printf("error creating thread.");
+  pthread_t t;
+  if( pthread_create(&t, NULL, hello, NULL) ){
+    perror("error creating thread.");
     abort();
   }
 
-  printf("Can you see my thread working?\n");
-  
-  if ( pthread_join ( mythread, NULL ) ) {
-    printf("error joining thread.");
+  if( pthread_join(t, NULL) ){
+    perror("error joining thread.");
     abort();
   }
-
   exit(0);
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall thread1.c -pthread" */
+/* compile-command: "gcc -Wall -Wextra thread1.c -pthread" */
 /* End: */

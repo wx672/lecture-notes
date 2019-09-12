@@ -20,7 +20,7 @@ int main(void) {
  
    variable = 9;
    child_stack = (void *) malloc(8192); // WRONG!
-//   child_stack = (void **) malloc(8192) + 8192 / sizeof(*child_stack); // Right!
+   // child_stack = (void **) malloc(8192) + 8192 / sizeof(*child_stack); // Right!
    printf("The variable was %d\n", variable);
    
    clone(do_something, child_stack, CLONE_FS | CLONE_VM | CLONE_FILES, NULL);

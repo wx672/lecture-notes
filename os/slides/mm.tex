@@ -11,11 +11,8 @@
   \end{description}
   \begin{block}{In real world ...}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{mos-figs-1-7}
-      } \mode<article>{
-        \includegraphics[width=.6\textwidth]{mos-figs-1-7}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-7} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-7} }
     \end{center}
   \end{block}
   \begin{itemize}
@@ -216,7 +213,7 @@ monolith.
 
 See also:
 \begin{itemize}
-\item \citetitle[Chap.~7, \emph{Linking}]{Bryant2010computersystems}.
+\item \citetitle[Chap.~7, \emph{Linking}]{bryant2010computersystems}.
 \item COMPILER, ASSEMBLER, LINKER AND LOADER: A BRIEF
   STORY\footnote{\url{http://www.tenouk.com/ModuleW.html}}.
 \item Linkers and Loaders\footnote{\url{http://www.iecc.com/linker/}}.
@@ -1542,16 +1539,18 @@ P.~211]{tanenbaum2008modern}.
     If the process has fewer than 128 frames...\\[1ex]
     \begin{minipage}[t]{.5\linewidth}
       \textbf{Program 1:}\\[1ex]
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{mm-pagefault} }%
-      \mode<article>{ \includegraphics[width=.5\textwidth]{mm-pagefault} } Worst case:
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{mm-pagefault-c} }%
+      \mode<article>{ \cfile{figs/pseudo/mm-pagefault.c} }%
+      Worst case:
       \begin{itemize}
       \item[] $128 \times 128 = 16,384$ page faults
       \end{itemize}
     \end{minipage}\qquad
     \begin{minipage}[t]{.4\linewidth}
       \textbf{Program 2:}\\[1ex]
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mm-pagefault2} }%
-      \mode<article>{ \includegraphics[width=.5\textwidth]{mm-pagefault2} } Worst case:
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mm-pagefault2-c} }%
+      \mode<article>{ \cfile{figs/pseudo/mm-pagefault2.c} }%
+      Worst case:
       \begin{itemize}
       \item[] $128$ page faults
       \end{itemize}

@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.0 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -19,7 +19,7 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global}
-    \entry{Bryant2010computersystems}{book}{}
+    \entry{bryant2010computersystems}{book}{}
       \name{author}{2}{}{%
         {{hash=733e32bf9035c50457c549c4ca2d1a72}{%
            family={Bryant},
@@ -65,7 +65,7 @@
       \verb{url}
       \verb https://cs3.swfu.edu.cn/tech/get/PDF/33/Calibre1
       \endverb
-      \keyw{Bryant2010computersystems}
+      \keyw{bryant2010computersystems}
     \endentry
     \entry{tanenbaum2008modern}{book}{}
       \name{author}{1}{}{%
@@ -187,7 +187,7 @@
       \endverb
       \keyw{wiki:process}
     \endentry
-    \entry{Kerrisk:2010:LPI:1869911}{book}{}
+    \entry{kerrisk:2010:lpi:1869911}{book}{}
       \name{author}{1}{}{%
         {{hash=7f32f61adec784489cc0fa2cefa610a3}{%
            family={Kerrisk},
@@ -224,7 +224,7 @@
       \verb{url}
       \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
       \endverb
-      \keyw{Kerrisk:2010:LPI:1869911}
+      \keyw{kerrisk:2010:lpi:1869911}
     \endentry
     \entry{matthew2008beginning}{book}{}
       \name{author}{2}{}{%
@@ -456,10 +456,10 @@
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Assembly\_language&oldid=661185928
+      \verb http://en.wikipedia.org/w/index.php?title=Assembly_language&oldid=661185928
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Assembly%5C_language&oldid=661185928
+      \verb http://en.wikipedia.org/w/index.php?title=Assembly_language&oldid=661185928
       \endverb
       \keyw{wiki:assembler}
     \endentry
@@ -491,10 +491,10 @@
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Linker\_(computing)&oldid=652892136
+      \verb http://en.wikipedia.org/w/index.php?title=Linker_(computing)&oldid=652892136
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Linker%5C_(computing)&oldid=652892136
+      \verb http://en.wikipedia.org/w/index.php?title=Linker_(computing)&oldid=652892136
       \endverb
       \keyw{wiki:linker}
     \endentry
@@ -526,10 +526,10 @@
       \field{year}{2012}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Loader\_(computing)&oldid=520743198
+      \verb http://en.wikipedia.org/w/index.php?title=Loader_(computing)&oldid=520743198
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Loader%5C_(computing)&oldid=520743198
+      \verb http://en.wikipedia.org/w/index.php?title=Loader_(computing)&oldid=520743198
       \endverb
       \keyw{wiki:loader}
     \endentry
@@ -561,10 +561,10 @@
       \field{year}{2012}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Dynamic\_linker&oldid=517400345
+      \verb http://en.wikipedia.org/w/index.php?title=Dynamic_linker&oldid=517400345
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Dynamic%5C_linker&oldid=517400345
+      \verb http://en.wikipedia.org/w/index.php?title=Dynamic_linker&oldid=517400345
       \endverb
       \keyw{wiki:dynamic-linker}
     \endentry
@@ -846,10 +846,10 @@
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=File\_Allocation\_Table&oldid=661104239
+      \verb http://en.wikipedia.org/w/index.php?title=File_Allocation_Table&oldid=661104239
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=File%5C_Allocation%5C_Table&oldid=661104239
+      \verb http://en.wikipedia.org/w/index.php?title=File_Allocation_Table&oldid=661104239
       \endverb
       \keyw{wiki:fat}
     \endentry
@@ -928,7 +928,7 @@
       \endverb
       \keyw{bach1986design}
     \endentry
-    \entry{Thompson78uniximplementation}{article}{}
+    \entry{thompson78uniximplementation}{article}{}
       \name{author}{1}{}{%
         {{hash=2ac0bcb42345d5b16d94d80fdd2159be}{%
            family={Thompson},
@@ -960,7 +960,7 @@
       \field{dateera}{ce}
       \field{pages}{1931\bibrangedash 1946}
       \range{pages}{16}
-      \keyw{Thompson78uniximplementation}
+      \keyw{thompson78uniximplementation}
     \endentry
     \entry{wiki:dag}{online}{}
       \name{author}{1}{}{%
@@ -1649,7 +1649,7 @@
 
 \refsection{4}
   \datalist[entry]{none/global//global/global}
-    \entry{wiki:peterson}{online}{}
+    \entry{wiki:peterson}{misc}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -1670,18 +1670,12 @@
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{title}{Peterson's algorithm --- Wikipedia{,} The Free Encyclopedia}
-      \field{usera}{EB}
+      \field{usera}{Z}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2015}
       \field{dateera}{ce}
       \true{nocite}
-      \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s\_algorithm&oldid=646078826
-      \endverb
-      \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s%5C_algorithm&oldid=646078826
-      \endverb
       \keyw{wiki:peterson}
     \endentry
   \enddatalist

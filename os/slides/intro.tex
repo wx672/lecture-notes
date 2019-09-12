@@ -41,7 +41,7 @@
 \end{frame}
 
 See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Computer
-  Systems}]{Bryant2010computersystems}.
+  Systems}]{bryant2010computersystems}.
 
 \begin{frame}{System Goals}
   \begin{block}{Convenient vs. Efficient}
@@ -354,8 +354,8 @@ See also:
 \begin{frame}{Why Interrupt?}
   \begin{block}{While a process is reading a disk file, can we do...}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.6\textwidth]{interrupt}}%
-      \mode<article>{ \includegraphics[width=.3\textwidth]{interrupt-bw}}
+      \mode<beamer>{ \includegraphics[width=.6\textwidth]{interrupt-c}}%
+      \mode<article>{ \cfile{figs/pseudo/interrupt.c}}
     \end{center}
   \end{block}
 \end{frame}
@@ -408,32 +408,36 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
 
 \begin{frame}{System Calls}
   \begin{block}{A System Call}
-  \begin{itemize}
-  \item is how a program requests a service from an OS kernel
-  \item provides the interface between a process and the OS
-  \end{itemize}
+    \begin{itemize}
+    \item is how a program requests a service from an OS kernel
+    \item provides the interface between a process and the OS
+    \end{itemize}
   \end{block}
+  \ttfamily
+  \begin{itemize}
+  \item[\$] man 2 intro
+  \item[\$] man 2 syscalls
+  \end{itemize}
+\end{frame}
+
+\begin{frame}%{System Calls}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.75\textwidth]{mos-figs-1-19} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }
+  \end{center}
 \end{frame}
 
 \begin{frame}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[height=\textheight]{syscall}
-    }
-    \mode<article>{
-      \includegraphics[width=.5\textwidth]{syscall}
-    }
+    \mode<beamer>{ \includegraphics[height=\textheight]{syscall} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{syscall} }
   \end{center}
 \end{frame}
 
 \begin{frame}%{System Calls}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{osdi2-1-18}
-    }
-    \mode<article>{
-      \includegraphics[width=.7\textwidth]{osdi2-1-18}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{osdi2-1-18} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{osdi2-1-18} }
   \end{center}
 \end{frame}
 
@@ -442,16 +446,12 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
 % \end{frame}
 
 \begin{frame}
-  \begin{block}{The 11 steps in making the system call \texttt{read(fd,buffer,nbytes)}}
+  \begin{iblock}{The 11 steps in making the system call \texttt{read(fd,buffer,nbytes)}}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.85\textwidth]{mos-figs-1-18}
-      }
-      \mode<article>{
-        \includegraphics[width=.7\textwidth]{mos-figs-1-18}
-      }
+      \mode<beamer>{ \includegraphics[width=.85\textwidth]{mos-figs-1-18} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-18} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Example}{Linux INT80h}
@@ -466,52 +466,64 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
   \end{description}
 \end{frame}
 
-\begin{frame}[fragile]{Example}
-\begin{nasmcode}
-Msg: db "Hello, world"
-MsgLen: equ $-Msg
+\begin{itemize}
+\item \url{https://github.com/torvalds/linux/blob/master/arch/x86/entry/syscalls/syscall_64.tbl}
+\end{itemize}
 
-mov eax,4      ; Specify sys_write syscall
-mov ebx,1      ; Specify File Descriptor 1 (STDOUT)
-mov ecx,Msg    ; Pass offset of the message
-mov edx,MsgLen ; Pass the length of the message
-int 80H        ; Make syscall to output the text to STDOUT
-\end{nasmcode}
-\end{frame}
-%$
-% \begin{frame} {System Calls}
-%   \includegraphics[width=\textwidth]{syscall2}
-% \end{frame}
-
-\begin{frame}%{System Calls}
+\begin{frame}{Example}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello32-asm} }%h-asm.pdf
+    \mode<article>{ \nasmfile{../src/hello-nasm/hello32.asm}}
+  \end{center}
+  System call numbers:
+  \begin{itemize}
+  \item[\$] \cmd{less /usr/include/asm/unistd\_32.h}
+  \item[\$] \cmd{less /usr/include/asm/unistd\_64.h}
+  \end{itemize}
+\end{frame}
+
+64-bits version:
+\nasmfile{../src/hello-nasm/hello64.s}
+
+\begin{frame}{System Call Examples}
+  \begin{minipage}{.55\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
+    \mode<article>{ \cfile{../src/fs/write.c}}
+  \end{minipage}\quad
+  \begin{minipage}{.4\linewidth}\ttfamily\footnotesize
+    \begin{itemize}
+    \item Actually, \texttt{write()} is a wrapper function in glibc.
+    \item[\$] man 2 write
+    \item[\$] man 3 write
+    \end{itemize}
+  \end{minipage}\\[1em]
+  \begin{description}
+  \item[Don't invoke syscall directly whenever possible]
+  \end{description}
+  \mode<beamer>{ \centering\includegraphics[width=.9\textwidth]{write-inlineasm-c} }%
+  \mode<article>{ \cfile{../src/fs/write-inlineasm.c}}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://jameshfisher.com/2018/02/20/c-inline-assembly-hello-world/}
+\item \url{https://cs.lmu.edu/~ray/notes/gasexamples/}
+\item \url{https://montcs.bloomu.edu/Information/LowLevel/Assembly/assembly-tutorial.html}
+\end{itemize}
+
+\begin{frame}{System Call Examples}
+  \CMD{man 2 fork}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{fork-c} }%
+    \mode<article>{ \cfile{../src/proc/fork.c}}
   \end{center}
 \end{frame}
 
-\begin{frame}{System Call Examples}
-  \begin{block}{\texttt{fork()}}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{fork} }%
-      \mode<article>{ \includegraphics[width=.4\textwidth]{fork-bw} }
-    \end{center}
-  \end{block}
-  \begin{itemize}
-  \item[\$] \texttt{man 2 fork}
-  \end{itemize}
-\end{frame}
-
 \begin{frame}
-  \begin{block}{\texttt{exec()}}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{fork-exec} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{fork-exec-bw} }
-    \end{center}
-  \end{block}
-  \begin{itemize}
-  \item[\$] \texttt{man 3 exec}
-  \end{itemize}
+  \CMD{man 3 exec}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{fork-exec} }%
+    \mode<article>{\cfile{../src/proc/fork-exec.c}}
+  \end{center}
 \end{frame}
 
 Quoted from
@@ -538,6 +550,11 @@ Quoted from
     character). Otherwise, the program name is always treated as a path to the executable.
   \end{itemize}
 \end{quote}
+
+\begin{itemize}
+\item \url{https://stackoverflow.com/questions/174942/how-should-strace-be-used}
+\item \url{https://unix.stackexchange.com/questions/160578/strace-hello-world-program}
+\end{itemize}
 
 \begin{frame}{Hardware INT vs. Software INT}
   \begin{center}

@@ -1,13 +1,12 @@
 \documentclass[varwidth=35.2em,crop]{standalone}
-\usepackage{wx672fonts}
+\usepackage{fontspec}
 \setmonofont{DejaVu Sans Mono}
 \begin{document}
 \begin{verbatim}
- Program 1    Program 2    Program 3
+ Program 1   Program 2   Program 3
 ┌─────────┐ ┌─────────┐ ┌─────────┐
 │ fork()  │ │ vfork() │ │ clone() │
 └────┬────┘ └────┬────┘ └────┬────┘
-     │           │           │
   ┌──v───────────v───────────v──┐
   │          C Library          │
   └──────────────┬──────────────┘          User space
@@ -17,7 +16,7 @@
   └──────────────┬──────────────┘
                  │       ┌─────────┐
                  │       │   ...   │
-                 │     3 ├─────────┤  sys_fork()
+                 │     2 ├─────────┤  sys_fork()
                  ├───────> fork()  ├───────────────┐
                  │       ├─────────┤               │
                  │       │   ...   │               │
@@ -25,7 +24,7 @@
                  ├───────> clone() ├───────────────┤
                  │       ├─────────┤               │
                  │       │   ...   │               │
-                 │   289 ├─────────┤  sys_vfork()  │
+                 │   190 ├─────────┤  sys_vfork()  │
                  └───────> vfork() ├───────────────┤
                          ├─────────┤               │
                          │   ...   │               v

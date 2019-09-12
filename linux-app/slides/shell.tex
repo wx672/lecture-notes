@@ -35,14 +35,14 @@
 \end{frame}
 
 \begin{frame}{File Operations}
-  \begin{block}{Ways to create a file}
+  \begin{iblock}{Ways to create a file}
     \begin{itemize}
     \item[\vim] Using an editor (vim, emacs, nano\ldots), or
     \item[\$] \cmd{cat > filename}
     \item[\$] \cmd{echo "hello, world" > filename}
     \item[\$] \cmd{touch filename}
     \end{itemize}
-  \end{block}
+  \end{iblock}
   More file operations:
   \begin{center}\small
     \begin{tabular}{r@{\quad}>{\ttfamily}l|r@{\quad}>{\ttfamily}l}
@@ -59,17 +59,17 @@
 \end{frame}
 
 \begin{frame}{Redirection}
-  \begin{block}{Redirecting output}\ttfamily
+  \begin{iblock}{Redirecting output}\ttfamily
     \begin{itemize}
     \item[\$] ls -l > output.txt
     \item[\$] ps aux >> output.txt
     \end{itemize}
-  \end{block}
-  \begin{block}{Redirecting input}\ttfamily
+  \end{iblock}
+  \begin{iblock}{Redirecting input}\ttfamily
     \begin{itemize}
     \item[\$] more < output.txt
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Process Operations}
@@ -153,7 +153,7 @@
       \end{tabular}
   \end{minipage}
 
-  \begin{block}{9-bit permission}
+  \begin{iblock}{9-bit permission}
     \begin{minipage}{.27\linewidth}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{9bit} }%
@@ -168,7 +168,7 @@
         \CMD{chmod g+w foo}&\CMD{chmod go=rx foo}
       \end{tabular}
     \end{minipage}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Wildcard Expansion}
@@ -182,7 +182,7 @@
       \{\}&and&\CMD{ls *.\{c,h,cpp\}}\\\hline    
     \end{tabular}
   \end{center}
-  \begin{block}{Example}
+  \begin{iblock}{Example}
     \CMD{touch \{2,3,4,234\}.\{jpg,png\} \&\& ls}\\[1ex]
     \begin{description}
     \item[output:]
@@ -202,7 +202,7 @@
       \item[\$] \cmd{rm *}
       \end{itemize}
     \end{multicols}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Everything Is A File}
@@ -301,7 +301,7 @@
 \end{frame}
 
 \begin{frame}{Parameter Substitution}
-  \begin{block}{Default value}\ttfamily
+  \begin{iblock}{Default value}\ttfamily
     \begin{multicols}{2}
       \begin{itemize}
       \item[\$] echo \$\{s:=abc\}
@@ -310,13 +310,13 @@
       \item[\$] echo \$\{v:-10\}
       \end{itemize}
     \end{multicols}
-  \end{block}
-  \begin{block}{Example}
+  \end{iblock}
+  \begin{iblock}{Example}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.6\textwidth]{para-substitution-sh} }%
       \mode<article>{\shellfile{../src/para-substitution.sh}}
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item[\hw] Re-write it in C
   \end{itemize}
@@ -327,16 +327,16 @@
 \end{itemize}
 
 \begin{frame}{Parameter Substitution}
-  \begin{block}{Substring removal}
+  \begin{iblock}{Substring removal}
     \CMD{for f in *.pbm; do ppm2tiff \$f \$\{f\%pbm\}tif; done}
-  \end{block}
-  \begin{block}{Substring replacement}
+  \end{iblock}
+  \begin{iblock}{Substring replacement}
     \CMD{for f in *.jpg; do mv \$f \$\{f/jpg/JPG\}; done}
-  \end{block}  
+  \end{iblock}  
 \end{frame}
 
 \begin{frame}{Environmental Variables}\ttfamily
-  \begin{block}{Each process has an environment}
+  \begin{iblock}{Each process has an environment}
     \begin{center}\small
       \begin{tabular}{lllll}
         \$PATH&\$PWD&\$HOME&\$UID&\$USER\\
@@ -352,7 +352,7 @@
     \item[\$] export ALTERNATE\_EDITOR="vim"
     \item[\$] export PDFVIEWER='/usr/bin/zathura'
     \end{itemize}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item[\$] env
   \item[\$] declare
@@ -381,12 +381,12 @@
   \item[\$] [[ "\$pass" != "\$MYPASS" ]] \&\& echo 'Wrong password!' \&\& exit 1
   \item[\$] help test
   \end{itemize}
-  \begin{block}{}
+  \begin{iblock}{}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.7\textwidth]{if-then-else-sh} }%
       \mode<article>{\shellfile{../src/if-then-else.sh}}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Loops}{\ttfamily for ARG in LIST; do COMMAND(s); done}\small\ttfamily

@@ -3,18 +3,18 @@
    the call was made (for the assembly kids : it means that the relative value of the next
    instruction pointer is also copied)  */
 
-/* When we launch this program, it first goes through the first printf(). Then, the fork() makes a
+/* When we launch this program, it first goes through the first puts(). Then, the fork() makes a
    copy of this program. Finally, each one of this program and its copy goes through the second
-   printf().  */
+   puts().  */
 
 #include <stdio.h> 
 #include <unistd.h> 
 
 int main () 
 { 
-  printf("Hello World!\n"); 
+  puts("Hello World!");
   fork(); 
-  printf("Goodbye Cruel World!\n"); 
+  puts("Goodbye Cruel World!");
   return 0;
 }
 /* Local Variables: */

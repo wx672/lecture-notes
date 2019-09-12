@@ -213,7 +213,7 @@ monolith.
 
 See also:
 \begin{itemize}
-\item \citetitle[Chap.~7, \emph{Linking}]{Bryant2010computersystems}.
+\item \citetitle[Chap.~7, \emph{Linking}]{bryant2010computersystems}.
 \item COMPILER, ASSEMBLER, LINKER AND LOADER: A BRIEF
   STORY\footnote{\url{http://www.tenouk.com/ModuleW.html}}.
 \item Linkers and Loaders\footnote{\url{http://www.iecc.com/linker/}}.
@@ -399,12 +399,12 @@ See also:
   \item while 100 processes running, $400M$ memory is gone for page tables
   \item avoid keeping all the page tables in memory all the time
   \end{itemize}
-  \begin{block}{A two-level scheme}
+  \begin{iblock}{A two-level scheme}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.6\textwidth]{2-level-paging} }%
       \mode<article>{ \includegraphics[width=.3\textwidth]{2-level-paging} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{description}
@@ -583,8 +583,8 @@ See also:
 
 \begin{frame}{Forking in C}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-bw} }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork-c} }%
+    \mode<article>{ \cfile{../src/fork.c} }
   \end{center}
 \end{frame}
 
@@ -611,7 +611,7 @@ See also:
   actions depending on the name used to invoke it. An example of this technique is
   provided by the \emph{gzip(1)}, \emph{gunzip(1)}, and \emph{zcat(1)} commands, all of
   which are links to the same executable
-  file. \citetitle[Sec.~6.6]{Kerrisk:2010:LPI:1869911}
+  file. \citetitle[Sec.~6.6]{kerrisk:2010:lpi:1869911}
 \item \url{https://stackoverflow.com/questions/2794150/when-can-argv0-have-null}
 \item \url{https://stackoverflow.com/questions/36673765/why-can-the-execve-system-call-run-bin-sh-without-any-argv-arguments-but-not}
 \end{itemize}
@@ -718,13 +718,13 @@ See also:
   \item[\texttt{pthread\_create()}] returns zero on success and a non-zero value on failure;
   \item[\texttt{pthread\_join()}] returns zero on success and a non-zero value on failure;
   \end{description}
-  \begin{block}{How to use pthread?}
+  \begin{iblock}{How to use pthread?}
     \begin{itemize}
     \item \texttt{\#include<pthread.h>}
     \item[\$] \texttt{gcc thread1.c -o thread1 -pthread}
     \item[\$] \texttt{./thread1}
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Pthreads}{Example 2}
@@ -809,28 +809,21 @@ See also:
   \end{block}
 \end{frame}
 
-\begin{frame}{\texttt{clone()} Example}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{clone2}
-      \pause
-      \begin{tikzpicture}[remember picture, overlay]
-        \node [yshift=-7em,xshift=5em,rotate=-20,scale=6,text opacity=0.7,color=red] at
-        (current page.center) {\Symbol{✘}};
-      \end{tikzpicture}
-    } \mode<article>{ \includegraphics[width=.45\textwidth]{clone2-bw-crop} }
-  \end{center}
-\end{frame}
 
-\begin{frame}[fragile]{Stack Grows Downwards}
-\begin{ccode}
-child_stack = (void**)malloc(8192) + 8192/sizeof(*child_stack);
-\end{ccode}
+\begin{frame}{\texttt{clone()} Example}
   \mode<beamer>{
+    \includegraphics[width=\textwidth]{clone2}
+    \pause 
+    \begin{iblock}{Stack grows downwards}
+      \includegraphics[width=\textwidth]{child-stack-c}
+    \end{iblock}
     \begin{tikzpicture}[remember picture, overlay]
-      \node [yshift=-0.1em,xshift=9em,rotate=0,scale=12,text opacity=0.7,color=red] at
-      (current page.center) {\Symbol{✔}};
-    \end{tikzpicture}}
+      \node [anchor=east,yshift=2em,rotate=-20,scale=6,text opacity=0.6,color=red] at
+      (current page.east) {\Symbol{✘}};
+      \node at (current page.south east)
+      [anchor=east,yshift=3em,scale=8,text opacity=0.6,color=Green] {\Symbol{✔}};
+    \end{tikzpicture}}%
+  \mode<article>{ \cfile{../src/clone.c}}
 \end{frame}
 
 \section{Signals}

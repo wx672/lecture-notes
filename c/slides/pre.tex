@@ -1,0 +1,25 @@
+\usepackage{wx672tut}
+
+\addbibresource{os.bib}
+
+\newcommand{\textbooks}{\nocite{stevens2013advanced, raymond2003art, matthew2008beginning,
+    kernighan2006c, king2008c, reek1997pointers, weiss1993data, waite1987c}}%
+
+\mode<beamer>{
+  \AtBeginPart{\frame{\partpage}}
+  \AtBeginSection{\frame{\sectionpage}}
+  \AtBeginSubsection{\frame{\subsectionpage}}
+}
+
+% \includeonlylecture{intro}
+% \includeonlylecture{ipc}
+
+\title{C Programming in Linux}
+\author{WANG Xiaolin\\%
+  {\footnotesize\texttt{wx672ster+c@gmail.com}}}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "c-b"
+%%% End:

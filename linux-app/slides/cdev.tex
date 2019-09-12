@@ -110,7 +110,7 @@
 \end{description}
 
 \begin{frame}[fragile]{Compiler vs. Interpreter}
-  \begin{block}{\texttt{hello.c}}
+  \begin{iblock}{\texttt{hello.c}}
     \begin{minipage}{.5\linewidth}
 \begin{ccode}
 #include <stdio.h>
@@ -128,8 +128,8 @@ int main()
     \end{itemize}
     \end{minipage}
     %\textcolor{LightGray}{\rule{.3\textwidth}{1pt}}
-  \end{block}
-  \begin{block}{\texttt{hello.sh}}
+  \end{iblock}
+  \begin{iblock}{\texttt{hello.sh}}
     \begin{minipage}{.5\linewidth}
       \begin{shellcode}
         #!/bin/bash
@@ -142,8 +142,8 @@ int main()
       \item[\$] \texttt{./hello.sh}
       \end{enumerate}
     \end{minipage}
-  \end{block}
-  \begin{block}{\texttt{hello.py}}
+  \end{iblock}
+  \begin{iblock}{\texttt{hello.py}}
     \begin{minipage}{.5\linewidth}
 \begin{pythoncode}
 #!/usr/bin/python
@@ -156,7 +156,7 @@ print "Hello, world!"
       \item[\$] \texttt{./hello.py}
       \end{enumerate}
     \end{minipage}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \subsection{Header Files}
@@ -164,7 +164,7 @@ print "Hello, world!"
 
 \begin{frame}[fragile]{Header Files}
   \begin{minipage}{.45\linewidth}
-    \begin{block}{Why?}
+    \begin{iblock}{Why?}
 \begin{ccode}
 #include "add.h"
 
@@ -173,10 +173,10 @@ int triple(int x)
   return add(x, add(x,x));
 }
 \end{ccode}
-    \end{block}
+    \end{iblock}
   \end{minipage}\qquad
   \begin{minipage}{.45\linewidth}
-    \begin{block}{Why not?}
+    \begin{iblock}{Why not?}
 \begin{ccode}
 int add(int, int);
 
@@ -185,7 +185,7 @@ int triple(int x)
   return add(x, add(x, x));
 }
 \end{ccode}
-    \end{block}
+    \end{iblock}
   \end{minipage}\\[1ex]
   \begin{itemize}
   \item Ensure everyone use the same code
@@ -256,30 +256,30 @@ int triple(int x)
 
 \begin{frame}{Build A Static Library}{Source codes}
   \begin{minipage}[t]{.47\linewidth}
-    \begin{block}{\texttt{main.c}}
+    \begin{iblock}{\texttt{main.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{main-c} }%
         \mode<article>{\cfile{../src/static/main.c}}
       \end{center}
-    \end{block}
-    \begin{block}{\texttt{lib.h}}
+    \end{iblock}
+    \begin{iblock}{\texttt{lib.h}}
       \mode<beamer>{\includegraphics[width=.5\textwidth]{lib-h}}%
       \mode<article>{\cfile{../src/static/lib.h}}
-    \end{block}
+    \end{iblock}
   \end{minipage}\qquad
   \begin{minipage}[t]{.43\linewidth}
-    \begin{block}{\texttt{hello.c}}
+    \begin{iblock}{\texttt{hello.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{hello-c} }%
         \mode<article>{\cfile{../src/static/hello.c}}
       \end{center}
-    \end{block}
-    \begin{block}{\texttt{hi.c}}
+    \end{iblock}
+    \begin{iblock}{\texttt{hi.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c} }%
         \mode<article>{\cfile{../src/static/hi.c}}
       \end{center}
-    \end{block}
+    \end{iblock}
   \end{minipage}
 \end{frame}
 
@@ -308,23 +308,23 @@ int triple(int x)
 \end{frame}
 
 \begin{frame}{Build A Shared Library}{Source codes}
-  \begin{block}{\texttt{hello.c}}
+  \begin{iblock}{\texttt{hello.c}}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello-c-so} }%
       \mode<article>{\cfile{../src/shared/hello.c}}
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{minipage}{.35\linewidth}
-    \begin{block}{\texttt{hello.h}}
+    \begin{iblock}{\texttt{hello.h}}
       \mode<beamer>{ \includegraphics[width=\textwidth]{hello-h-so} }%
       \mode<article>{\cfile{../src/shared/hello.h}}
-    \end{block}
+    \end{iblock}
   \end{minipage}\qquad
   \begin{minipage}{.36\linewidth}
-    \begin{block}{\texttt{hi.c}}
+    \begin{iblock}{\texttt{hi.c}}
       \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c-so} }%
       \mode<article>{\cfile{../src/shared/hi.c}}
-    \end{block}
+    \end{iblock}
   \end{minipage}
 \end{frame}
 
@@ -405,7 +405,7 @@ int triple(int x)
     % \tikz \node [opacity=.4,red,scale=3,inner
     % sep=0pt,label={[below=2.5ex,right]{\tiny OK. But...}}] {\Checked};
   \end{itemize}
-  \begin{block}{What if you have a large project with 1000+ files?}
+  \begin{iblock}{What if you have a large project with 1000+ files?}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{tree} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{tree} }
@@ -413,21 +413,21 @@ int triple(int x)
     \begin{description}
     \item[Linux 4.9 source tree:] 3799 directories, 55877 files
     \end{description}
-  \end{block}
+  \end{iblock}
   \begin{description}
   \item[make:] help you maintain your programs.
   \end{description}
 \end{frame}
 
 \begin{frame}{Makefile}
-  \begin{block}{}
+  \begin{iblock}{}
       \mode<beamer>{ \includegraphics[width=.5\textwidth]{mktab1} }%
       \mode<article>{ \includegraphics[width=.3\textwidth]{mktab1-bw} }
-  \end{block}
-  \begin{block}{Example}
+  \end{iblock}
+  \begin{iblock}{Example}
       \mode<beamer>{ \includegraphics[width=.6\textwidth]{mktab2} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{mktab2-bw} }
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item[\$] \cmd{info make makefiles}
   \end{itemize}
@@ -583,16 +583,16 @@ int triple(int x)
 
 \begin{frame}{Temporary Files}
   \begin{minipage}[t]{.55\linewidth}
-    \begin{block}{\texttt{mkstemp.c}}
+    \begin{iblock}{\texttt{mkstemp.c}}
       \mode<beamer>{ \includegraphics[width=\textwidth]{mkstemp-c} }%
       \mode<article>{\cfile{../src/mkstemp.c}}
-    \end{block}
+    \end{iblock}
   \end{minipage}\qquad
   \begin{minipage}[t]{.35\linewidth}
-    \begin{block}{\texttt{mktemp.sh}}
+    \begin{iblock}{\texttt{mktemp.sh}}
       \mode<beamer>{ \includegraphics[width=\textwidth]{mktemp-sh} }%
       \mode<article>{\shellfile{../src/mktemp.sh}}
-    \end{block}
+    \end{iblock}
     \ttfamily
     \begin{itemize}
     \item[\$] man 3 mkstemp
@@ -603,18 +603,18 @@ int triple(int x)
 \end{frame}
 
 \begin{frame}{Logging}
-  \begin{block}{\ttfamily syslog.c}
+  \begin{iblock}{\ttfamily syslog.c}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{syslog-c} }%
       \mode<article>{\cfile{../src/syslog.c}}
     \end{center}
-  \end{block}
-  \begin{block}{\ttfamily logger.sh}
+  \end{iblock}
+  \begin{iblock}{\ttfamily logger.sh}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{logger-sh} }%
       \mode<article>{\shellfile{../src/logger.sh}}
     \end{center}
-  \end{block}
+  \end{iblock}
   % \ttfamily
   % \begin{itemize}
   % \item[\$] man 3 syslog
@@ -638,7 +638,7 @@ int triple(int x)
 \end{frame}
 
 See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Computer
-  Systems}]{Bryant2010computersystems}.
+  Systems}]{bryant2010computersystems}.
 
 \begin{frame}{A Computer System}
   \begin{center}
@@ -848,12 +848,12 @@ See also:
 \label{sec:interrupt}
 
 \begin{frame}{Why Interrupt?}
-  \begin{block}{While a process is reading a disk file, can we do...}
+  \begin{iblock}{While a process is reading a disk file, can we do...}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.6\textwidth]{interrupt}}%
       \mode<article>{ \includegraphics[width=.3\textwidth]{interrupt-bw}}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Modern OS are Interrupt Driven}
@@ -917,6 +917,13 @@ See also:
   \end{itemize}
 \end{frame}
 
+\begin{frame}%{System Calls}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.75\textwidth]{mos-figs-1-19} }
+    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }
+  \end{center}
+\end{frame}
+
 \begin{frame}
   \begin{center}
     \mode<beamer>{ \includegraphics[height=\textheight]{syscall} }%
@@ -945,43 +952,64 @@ See also:
 
 \begin{frame}{Example}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{h-asm} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{h-asm-bw} }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello32-asm} }%
+    \mode<article>{ \nasmfile{../src/hello32.asm} }
   \end{center}
-  \begin{block}{}
-    \ttfamily
+  \begin{iblock}{}
+    \ttfamily\footnotesize
     \begin{enumerate}
     \item[\$] nasm -f elf64 hello.asm -o hello.o
     \item[\$] ld hello.o -o hello
-    \item[\$] ./hello
+    \item[\$] less /usr/include/asm/unistd\_32.h
+    \item[\$] less /usr/include/asm/unistd\_64.h
     \end{enumerate}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
-\begin{frame}%{System Calls}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.75\textwidth]{mos-figs-1-19} }
-    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }
-  \end{center}
-\end{frame}
+64-bits version:
+\nasmfile{../src/hello-nasm/hello64.s}
 
 \begin{frame}{System Call Examples}
-  \begin{block}{\cmd{fork()}}
+  \begin{minipage}{.55\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
+    \mode<article>{ \cfile{../src/write.c}}
+  \end{minipage}\quad
+  \begin{minipage}{.4\linewidth}\ttfamily\footnotesize
+    \begin{itemize}
+    \item Actually, \texttt{write()} is a wrapper function in glibc.
+    \item[\$] man 2 write
+    \item[\$] man 3 write
+    \end{itemize}
+  \end{minipage}\\[1em]
+  \begin{description}
+  \item[Don't invoke syscall directly whenever possible]
+  \end{description}
+  \mode<beamer>{ \centering\includegraphics[width=.9\textwidth]{write-inlineasm-c} }%
+  \mode<article>{ \cfile{../src/write-inlineasm.c}}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://jameshfisher.com/2018/02/20/c-inline-assembly-hello-world/}
+\item \url{https://cs.lmu.edu/~ray/notes/gasexamples/}
+\item \url{https://montcs.bloomu.edu/Information/LowLevel/Assembly/assembly-tutorial.html}
+\end{itemize}
+
+\begin{frame}{System Call Examples}
+  \begin{iblock}{\CMD{man 2 fork}}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{fork} }%
-      \mode<article>{ \includegraphics[width=.4\textwidth]{fork-bw} }
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{fork-c} }%
+      \mode<article>{ \cfile{../src/fork.c} }
     \end{center}
-  \end{block}
-  \qquad\CMD{man 2 fork}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{\cmd{execve()}}
+  \begin{iblock}{\cmd{execve()}}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{fork-exec} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{fork-exec-bw} }
     \end{center}
-  \end{block}\ttfamily
+  \end{iblock}\ttfamily
   \begin{itemize}
   \item[\$] man 2 execve
   \item[\$] man 3 exec

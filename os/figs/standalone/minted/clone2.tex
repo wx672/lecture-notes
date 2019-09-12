@@ -30,7 +30,7 @@ int main(void)
   void *child_stack;
   variable = 9;
 
-  child_stack = (void *) malloc(16384);
+  child_stack = (void *) malloc(8192);
   printf("The variable was %d\n", variable);
    
   clone(do_something, child_stack,
@@ -43,3 +43,8 @@ int main(void)
 \end{minted}
 \end{minipage}
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

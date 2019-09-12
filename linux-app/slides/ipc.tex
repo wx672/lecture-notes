@@ -9,11 +9,11 @@
 \end{itemize}
 
 \begin{frame}{Interprocess Communication}
-  \begin{block}{Example:}
+  \begin{iblock}{Example:}
     \begin{itemize}
     \item[\$] \cmd{unicode skull | head -1 | cut -f1 -d' ' | sm -}
     \end{itemize}
-  \end{block}
+  \end{iblock}
   \begin{block}{IPC issues:}
     \begin{enumerate}
     \item How one process can pass information to another
@@ -83,28 +83,28 @@
     \end{description}
     Can only use ``$\mathtt{BUFFER\_SIZE-1}$'' elements
   \end{block}  
-  \begin{block}{Shared data:}
+  \begin{iblock}{Shared data:}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{shared-data} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{shared-data-bw} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Bounded-Buffer Problem}
   \begin{minipage}{.6\linewidth}
-    \begin{block}{Producer:}
+    \begin{iblock}{Producer:}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-1} }%
         \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-1-bw} }
       \end{center}
-    \end{block}
-    \begin{block}{Consumer:}
+    \end{iblock}
+    \begin{iblock}{Consumer:}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-2} }%
         \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-2-bw} }
       \end{center}
-    \end{block}
+    \end{iblock}
   \end{minipage}\hfill
   \begin{minipage}{.28\linewidth}
     \begin{center}
@@ -118,7 +118,7 @@
 \label{sec:pipes-fifos}
 
 \begin{itemize}
-\item \citetitle[chap.~44]{Kerrisk:2010:LPI:1869911}
+\item \citetitle[chap.~44]{kerrisk:2010:lpi:1869911}
 \end{itemize}
 
 \begin{frame}{Pipe}
@@ -135,7 +135,7 @@
   \item \texttt{read()} would be blocked if nothing written at the other end
   \end{itemize}
   \ttfamily
-  \begin{block}{tee}
+  \begin{iblock}{\texttt{tee}}
     \begin{center}
       \begin{minipage}{.35\linewidth}
         \begin{itemize}
@@ -147,7 +147,7 @@
         \mode<article>{ \includegraphics[width=.6\textwidth]{tee} }
       \end{minipage}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{itemize}
@@ -156,7 +156,7 @@
   read blocks of data of any size, regardless of the size of blocks written by the writing
   process. Furthermore, the data passes through the pipe sequentially --- bytes are read from
   a pipe in exactly the order they were written. It is not possible to randomly access the
-  data in a pipe using \texttt{lseek()}. \citetitle[chap.~44]{Kerrisk:2010:LPI:1869911}
+  data in a pipe using \texttt{lseek()}. \citetitle[chap.~44]{kerrisk:2010:lpi:1869911}
 \end{itemize}
 
 
@@ -214,7 +214,7 @@
   for sending data in each direction between the two processes.  (If employing this
   technique, then we need to be wary of deadlocks that may occur if both processes block
   while trying to read from empty pipes or while trying to write to pipes that are already
-  full.) \citetitle[chap.~44, p.~893]{Kerrisk:2010:LPI:1869911}
+  full.) \citetitle[chap.~44, p.~893]{kerrisk:2010:lpi:1869911}
 \item Pipes can be used for communication between any two (or more) related processes, as
   long as the pipe was created by a common ancestor before the series of \texttt{fork()}
   calls that led to the existence of the processes. For example, a pipe could be used for
@@ -312,7 +312,7 @@
   \item[PIPEs] pass data between related processes.
   \item[FIFOs] pass data between any processes.
   \end{description}
-  \begin{block}{\CMD{mkfifo myfifo}}
+  \begin{iblock}{\CMD{mkfifo myfifo}}
     \begin{center}
       \begin{minipage}{.45\linewidth}\ttfamily
         \begin{itemize}
@@ -325,9 +325,9 @@
         \mode<article>{ \includegraphics[width=.6\textwidth]{fifo} }
       \end{minipage}
     \end{center}
-  \end{block}
+  \end{iblock}
   \ttfamily
-  \begin{block}{tee}
+  \begin{iblock}{\texttt{tee}}
     \begin{minipage}{.5\linewidth}
       \begin{itemize}
       \item[\$] echo hello | tee myfifo
@@ -338,7 +338,7 @@
       \mode<beamer>{ \includegraphics[width=\textwidth]{fifo-tee} }%
       \mode<article>{ \includegraphics[width=.6\textwidth]{fifo-tee} }
     \end{minipage}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{itemize}
@@ -403,7 +403,7 @@
 \end{frame}
 
 \begin{itemize}
-\item \citetitle[Sec.~52.3]{Kerrisk:2010:LPI:1869911}
+\item \citetitle[Sec.~52.3]{kerrisk:2010:lpi:1869911}
 \item \texttt{mq\_overview(7)}
 \item \texttt{sem\_overview(7)}
 \item \texttt{shm\_overview(7)}
@@ -571,12 +571,12 @@
 \end{frame}
 
 \begin{frame}{Atomic}
-  \begin{block}{\texttt{i++} is not atomic in assembly language}
+  \begin{iblock}{\texttt{i++} is not atomic in assembly language}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{ipp} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{ipp-bw} }
     \end{center}
-  \end{block}
+  \end{iblock}
   Interrupts might occur in between. So, \texttt{i++} needs to be protected with a \texttt{mutex}.
 \end{frame}
 
@@ -619,7 +619,7 @@
   \item All processes but one blocked at the barrier
   \item When the last process arrives at the barrier, all of them are let through
   \end{enumerate}
-  \begin{block}{Synchronization requirement:}
+  \begin{iblock}{Synchronization requirement:}
     \begin{center}\ttfamily
       \begin{tabular}{l}
         specific\_task()\\
@@ -628,7 +628,7 @@
     \end{center}
     No thread executes \texttt{critical\_point()} until after all threads have executed
     \texttt{specific\_task()}.
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Barrier Solution}
@@ -759,13 +759,13 @@
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{AST Solution (Part 1)}
-\begin{block}{A philosopher may only move into eating state if neither neighbor is
+\begin{iblock}{A philosopher may only move into eating state if neither neighbor is
     eating}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.85\textwidth]{dphil-1} }%
     \mode<article>{ \includegraphics[width=.8\textwidth]{dphil-1-bw} }
   \end{center}
-\end{block}
+\end{iblock}
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{AST Solution (Part 2)}
@@ -1025,13 +1025,13 @@
     \mode<beamer>{ \includegraphics[width=\textwidth]{sockaddr} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{sockaddr-bw} }
   \end{center}
-  \begin{block}{Example}
+  \begin{iblock}{Example}
     \begin{itemize}
     \item[] \cmd{struct sockaddr\_un addr;}
     \item[\correct] \cmd{bind(sfd, (struct sockaddr *)\&addr, sizeof(struct sockaddr\_un));}
     \item[\wrong] \cmd{bind(sfd, \&addr, sizeof(struct sockaddr\_un));}
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{itemize}
@@ -1092,7 +1092,7 @@
   \end{description}
 \end{frame}
 
-\citetitle[Sec.~56.5]{Kerrisk:2010:LPI:1869911}
+\citetitle[Sec.~56.5]{kerrisk:2010:lpi:1869911}
 \begin{description}
 \item[\texttt{int listen(int sockfd, int backlog);}] To understand the purpose of the
   \texttt{backlog} argument, we first observe that the client may call \texttt{connect()}
@@ -1198,7 +1198,7 @@
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Convert \texttt{int} between host and network byte order}
+  \begin{iblock}{Convert \texttt{int} between host and network byte order}
     \ttfamily
     \begin{itemize}
       \item[] \#include <arpa/inet.h>
@@ -1207,28 +1207,28 @@
       \item[] uint32\_t ntohl(uint32\_t netlong);
       \item[] uint16\_t ntohs(uint16\_t netshort);
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 Strictly speaking, the use of these four functions is necessary only on systems where the
 host byte order differs from network byte order. However, these functions should always
 be used, so that programs are portable to different hardware architectures. On systems
 where the host byte order is the same as network byte order, these functions simply return
-their arguments unchanged. \citetitle[Sec.~59.2]{Kerrisk:2010:LPI:1869911}
+their arguments unchanged. \citetitle[Sec.~59.2]{kerrisk:2010:lpi:1869911}
 
 \begin{frame}{Socket Addresses}
-  \begin{block}{IPv4}
+  \begin{iblock}{IPv4}
     \begin{center}
       \mode<beamer>{\includegraphics[width=.8\textwidth]{sockaddr_in-c}}%
       \mode<article>{\cfile{../src/sockaddr_in.c}}
     \end{center}
-  \end{block}
-  \begin{block}{IPv6}
+  \end{iblock}
+  \begin{iblock}{IPv6}
     \begin{center}
       \mode<beamer>{\includegraphics[width=.75\textwidth]{sockaddr_in6-c}}%
       \mode<article>{\cfile{../src/sockaddr_in6.c}}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 

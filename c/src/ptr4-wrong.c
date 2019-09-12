@@ -13,3 +13,7 @@ int main(){
     
     return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall ptr4-wrong.c -o ptr4-wrong" */
+/* End: */

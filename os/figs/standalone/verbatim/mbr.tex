@@ -1,14 +1,14 @@
 \documentclass[varwidth=40em,crop]{standalone}
-\usepackage{wx672fonts}
+\usepackage{fontspec}
 \setmonofont{DejaVu Sans Mono}
 \begin{document}
 \begin{verbatim}
 ╷<──────────── Master Boot Record (512 Bytes) ───────────>╷
 ├────//─────┬──────────┬──────┬──────//─────────┬─────────┤
 │ code area │ disk-sig │ null │ partition table │ MBR-sig │  
-│    440    │     4    │  2   │     16x4=64     │ 0xAA55  │
+│    440    │    4     │  2   │     16x4=64     │ 0xAA55  │
 └────//─────┴──────────┴──────┴──────//─────────┴─────────┘
-0         439        443    445               509       511
+0          439        443    445               509       511
 \end{verbatim}
 \end{document}
 

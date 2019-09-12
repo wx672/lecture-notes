@@ -1081,16 +1081,18 @@
 \tikzsetnextfilename{vfs-objs}
 \begin{figure}
   \centering
-\begin{tikzpicture}[ decoration={random steps,segment length=4pt,amplitude=.7pt},%
-  thick,%
-  arrow/.style={thick,->,decorate},%
-  squarebox/.style={decorate,draw,align=center,minimum width=2.2cm,minimum height=1cm,fill=blue!20},%
-  dentrybox/.style={decorate,align=center,minimum height=1cm,fill=red!20},%
-  cylinderbox/.style={decorate,draw,%
-    cylinder,shape border rotate=90,aspect=.25,%
-    cylinder uses custom fill,%
-    cylinder body fill=gray!10, cylinder end fill=gray!30,%
-    minimum width=1.5cm,minimum height=2cm,align=center},%
+  \begin{tikzpicture}[%
+    list/.style={rectangle split, rectangle split horizontal,%
+      rectangle split parts=5, draw},%
+    thick,%
+    arrow/.style={thick,->},%
+    squarebox/.style={draw,align=center,minimum width=2.2cm,minimum height=1cm,fill=blue!20},%
+    dentrybox/.style={draw,align=center,minimum height=1cm,fill=red!20},%
+    cylinderbox/.style={draw,%
+      cylinder,shape border rotate=90,aspect=.25,%
+      cylinder uses custom fill,%
+      cylinder body fill=gray!10, cylinder end fill=gray!30,%
+      minimum width=1.5cm,minimum height=2cm,align=center},%
   ] 
 
   \node (p1) [squarebox] {Process 1};%
@@ -1101,15 +1103,12 @@
   \node (f2) [squarebox,right=of p2] {File object};%
   \node (f3) [squarebox,right=of p3] {File object};%
 
-  \node (dentry) [dentrybox,draw,right=of f2.east,anchor=west,minimum width=4.5cm] {};%
-  \node (dentry1) [dentrybox,right=of dentry.west,anchor=west,xshift=-.5cm,scale=.9] {dentry\\object};%
-  \node (dentry2) [dentrybox,right=of dentry1,xshift=-.5cm,scale=.9] {dentry\\object};%
-  \draw [decorate] (dentry1.north west) -- (dentry1.south west);%
-  \draw [decorate] (dentry1.north east) -- (dentry1.south east);%
-  \draw [decorate] (dentry2.north west) -- (dentry2.south west);%
-  \draw [decorate] (dentry2.north east) -- (dentry2.south east);%
-    
-  \node (inode) [squarebox,fill=brown!20,above=2cm of dentry2] {inode\\object};%
+  \node (dentry) [dentrybox,list,right=of f2.east] {%
+    \nodepart{one}\nodepart{three}\nodepart{five}%
+    \nodepart{two}dentry\\object%
+    \nodepart{four}dentry\\object};%
+  
+  \node (inode) [squarebox,fill=brown!20,above=2cm of dentry.four north] {inode\\object};%
 
   \node (sb) [squarebox,fill=violet!20,left=of inode] {Superblock\\object};%
 
@@ -1121,13 +1120,17 @@
   (p3) edge [arrow] (f3);
 
   \draw [arrow,dashed] (f1.east) -| node [above,xshift=-.7cm,scale=.6] {f\_dentry}%
-  (dentry1.north west);
+  (dentry.one split north);
+  
   \draw [arrow,dashed] (f2.east) -- ($(f2.east) + (.3cm,0)$) |- %
-  ($(dentry1.south west) + (0,-.3cm)$) -- (dentry1.south west);%
-  \draw [arrow,dashed] (f3.east) -| (dentry2.south west);
-  \draw [arrow,dotted] (dentry1.north) |- ($(inode.south west) + (.5cm,-1cm)$)%
+  ($(dentry.west) + (0,-.9cm)$) -| (dentry.one split south);%
+  
+  \draw [arrow,dashed] (f3.east) -| (dentry.three split south);
+  
+  \draw [arrow,dotted] (dentry.two north) |- ($(inode.south west) + (.5cm,-1cm)$)%
   -| node [above,xshift=-.7cm,scale=.6] {d\_inode} ($(inode.south west) + (.5cm,0)$);%
-  \draw [arrow,dotted] (dentry2) -- (inode);%
+
+  \draw [arrow,dotted] (dentry.four north) -- (inode);%
   \draw [arrow] (inode) -- node [above,scale=.6] {i\_sb} (sb);%
   \draw [arrow,dotted] (sb) -- (disk.-13);
   \draw [arrow,dotted] (inode.north) |- ($(disk.east) + (0,.7cm)$);
@@ -1139,17 +1142,19 @@
 \tikzsetnextfilename{vfs-objs-bw}
 \begin{figure}
   \centering
-\begin{tikzpicture}[decoration={random steps,segment length=4pt,amplitude=.7pt},%
-  thick,%
-  arrow/.style={thick,->,decorate},%
-  squarebox/.style={decorate,draw,align=center,minimum width=2.2cm,minimum height=1cm},%
-  dentrybox/.style={decorate,align=center,minimum height=1cm},%
-  cylinderbox/.style={decorate,draw,%
-    cylinder,shape border rotate=90,aspect=.25,%
-    cylinder uses custom fill,%
-    cylinder body fill=gray!10, cylinder end fill=gray!30,%
-    minimum width=1.5cm,minimum height=2cm,align=center},%
-  ]%
+  \begin{tikzpicture}[%
+    list/.style={rectangle split, rectangle split horizontal,%
+      rectangle split parts=5, draw},%
+    thick,%
+    arrow/.style={thick,->},%
+    squarebox/.style={draw,align=center,minimum width=2.2cm,minimum height=1cm},%
+    dentrybox/.style={draw,align=center,minimum height=1cm},%
+    cylinderbox/.style={draw,%
+      cylinder,shape border rotate=90,aspect=.25,%
+      cylinder uses custom fill,%
+      cylinder body fill=gray!10, cylinder end fill=gray!30,%
+      minimum width=1.5cm,minimum height=2cm,align=center},%
+  ] 
 
   \node (p1) [squarebox] {Process 1};%
   \node (p2) [squarebox,below=of p1,yshift=.8cm] {Process 2};%
@@ -1159,15 +1164,12 @@
   \node (f2) [squarebox,right=of p2] {File object};%
   \node (f3) [squarebox,right=of p3] {File object};%
 
-  \node (dentry) [dentrybox,draw,right=of f2.east,anchor=west,minimum width=4.5cm] {};%
-  \node (dentry1) [dentrybox,right=of dentry.west,anchor=west,xshift=-.5cm] {dentry\\object};%
-  \node (dentry2) [dentrybox,right=of dentry1,xshift=-.5cm] {dentry\\object};%
-  \draw [decorate] (dentry1.north west) -- (dentry1.south west);%
-  \draw [decorate] (dentry1.north east) -- (dentry1.south east);%
-  \draw [decorate] (dentry2.north west) -- (dentry2.south west);%
-  \draw [decorate] (dentry2.north east) -- (dentry2.south east);%
-    
-  \node (inode) [squarebox,above=2cm of dentry2] {inode\\object};%
+  \node (dentry) [dentrybox,list,right=of f2.east] {%
+    \nodepart{one}\nodepart{three}\nodepart{five}%
+    \nodepart{two}dentry\\object%
+    \nodepart{four}dentry\\object};%
+  
+  \node (inode) [squarebox,above=2cm of dentry.four north] {inode\\object};%
 
   \node (sb) [squarebox,left=of inode] {Superblock\\object};%
 
@@ -1179,27 +1181,30 @@
   (p3) edge [arrow] (f3);
 
   \draw [arrow,dashed] (f1.east) -| node [above,xshift=-.7cm,scale=.6] {f\_dentry}%
-  (dentry1.north west);
+  (dentry.one split north);
+  
   \draw [arrow,dashed] (f2.east) -- ($(f2.east) + (.3cm,0)$) |- %
-  ($(dentry1.south west) + (0,-.3cm)$) -- (dentry1.south west);%
-  \draw [arrow,dashed] (f3.east) -| (dentry2.south west);
-  \draw [arrow,dotted] (dentry1.north) |- ($(inode.south west) + (.5cm,-1cm)$)%
+  ($(dentry.west) + (0,-.9cm)$) -| (dentry.one split south);%
+  
+  \draw [arrow,dashed] (f3.east) -| (dentry.three split south);
+  
+  \draw [arrow,dotted] (dentry.two north) |- ($(inode.south west) + (.5cm,-1cm)$)%
   -| node [above,xshift=-.7cm,scale=.6] {d\_inode} ($(inode.south west) + (.5cm,0)$);%
-  \draw [arrow,dotted] (dentry2) -- (inode);%
+
+  \draw [arrow,dotted] (dentry.four north) -- (inode);%
   \draw [arrow] (inode) -- node [above,scale=.6] {i\_sb} (sb);%
   \draw [arrow,dotted] (sb) -- (disk.-13);
   \draw [arrow,dotted] (inode.north) |- ($(disk.east) + (0,.7cm)$);
-  
 \end{tikzpicture}  
-  \caption{VFS objects (bw version)}
-  \label{fig:vfs-objs-bw}
+  \caption{VFS objects}
+  \label{fig:vfs-objs}
 \end{figure}
 
 \tikzsetnextfilename{vfs-cp}
 \begin{figure}
   \centering
 \begin{tikzpicture}[%
-  decoration={random steps,segment length=3pt,amplitude=.3pt},%
+  %decoration={random steps,segment length=3pt,amplitude=.3pt},%
   thick,node distance=0pt,%
   roundbox/.style ={ellipse,fill=blue!20,inner sep=1pt,minimum width=1.5cm},%
   squarebox/.style ={fill=orange!30,minimum width=3cm},%
@@ -1211,7 +1216,7 @@
     inner xsep=.5cm,inner ysep=.5cm,%
     double arrow tip angle=135,%
     double arrow head extend=6pt},%
-  every node/.style ={decorate,draw}%
+  every node/.style ={draw}%decorate,
   ] 
 
   \node (cp) [roundbox] {cp};%
@@ -1233,7 +1238,7 @@
 \begin{figure}
   \centering
 \begin{tikzpicture}[%
-  decoration={random steps,segment length=3pt,amplitude=.3pt},%
+  %decoration={random steps,segment length=3pt,amplitude=.3pt},%
   thick,node distance=0pt,%
   roundbox/.style ={ellipse,inner sep=1pt,minimum width=1.5cm},%
   squarebox/.style ={minimum width=3cm},%
@@ -1243,7 +1248,7 @@
     inner xsep=.5cm,inner ysep=.5cm,%
     double arrow tip angle=135,%
     double arrow head extend=6pt},%
-  every node/.style ={decorate,draw}%
+  every node/.style ={draw}%%decorate,
   ] 
 
   \node (cp) [roundbox] {cp};%

@@ -73,12 +73,12 @@
 
 \begin{frame}
   \begin{minipage}[t]{.53\linewidth}
-    \begin{block}{\texttt{write()}}
+    \begin{iblock}{\texttt{write()}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
         \mode<article>{\cfile{../src/write.c}}
       \end{center}
-    \end{block}
+    \end{iblock}
     \ttfamily
     \begin{itemize}
     \item[\$] man 2 write
@@ -86,12 +86,12 @@
     \end{itemize}
   \end{minipage}\qquad
   \begin{minipage}[t]{.37\linewidth}
-    \begin{block}{\texttt{read()}}
+    \begin{iblock}{\texttt{read()}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{read-c} }%
         \mode<article>{\cfile{../src/read.c}}
       \end{center}
-    \end{block}
+    \end{iblock}
     \ttfamily
     \begin{itemize}
     \item[\$] man 2 read
@@ -174,12 +174,12 @@
 \end{itemize}
 
 \begin{frame}{File System Implementation}
-  \begin{block}{A typical file system layout}
+  \begin{iblock}{A typical file system layout}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{fs-layout} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{fs-layout} }
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{mbr} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{mbr} }
@@ -375,13 +375,13 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \end{frame}
 
 \begin{frame}
-  \begin{block}{A process executes the following code:}\ttfamily
+  \begin{iblock}{A process executes the following code:}\ttfamily
     \begin{itemize}
     \item[] fd1 = open("/etc/passwd", O\_RDONLY);
     \item[] fd2 = open("local", O\_RDWR);
     \item[] fd3 = open("/etc/passwd", O\_WRONLY);
     \end{itemize}
-  \end{block}
+  \end{iblock}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.6\textwidth]{file-tables2} }%
     \mode<article>{ \includegraphics[width=.4\textwidth]{file-tables2} }
@@ -389,12 +389,12 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \end{frame}
 
 \begin{frame}
-  \begin{block}{One more process B:}\ttfamily
+  \begin{iblock}{One more process B:}\ttfamily
     \begin{itemize}
     \item[] fd1 = open("/etc/passwd", O\_RDONLY);
     \item[] fd2 = open("private", O\_RDONLY);
     \end{itemize}
-  \end{block}
+  \end{iblock}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-tables3} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{file-tables3} }
@@ -419,10 +419,10 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \end{frame}
 
 \begin{frame}%{Directory}
-  \begin{block}{Directory entry in \texttt{glibc}}
+  \begin{iblock}{Directory entry in \texttt{glibc}}
     \mode<beamer>{ \includegraphics[width=\textwidth]{dirent-c} }%
     \mode<article>{\cfile{../src/dirent.c}}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item[\$] \cmd{man readdir}
   \item[\$] \cmd{view /usr/include/x86\_64-linux-gnu/bits/dirent.h}
@@ -494,30 +494,30 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 \end{frame}
 
 \begin{frame}{Hard Links}
-  \begin{block}{Hard links {\pright} the same inode}
+  \begin{iblock}{Hard links {\pright} the same inode}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{hard-link} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{hard-link} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Drawback}
+  \begin{iblock}{Drawback}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{hardlink-drawback} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{hardlink-drawback} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Symbolic Links}
-  \begin{block}{A symbolic link has its own inode {\pright} a directory entry}
+  \begin{iblock}{A symbolic link has its own inode {\pright} a directory entry}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.9\textwidth]{soft-link} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{soft-link} }
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{description}
   \item[Fast symbolic link:] Short path name ($< 60\,chars$) needs no data block. Can be
     stored in the 15 pointer fields
