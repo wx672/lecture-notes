@@ -9,3 +9,7 @@ int main(void)
     printf("*p = %c\n", *p); /* Invalid memory access */
     return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra ptr2-wrong2.c -o /tmp/a.out" */
+/* End: */

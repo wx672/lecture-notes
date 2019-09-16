@@ -1,10 +1,12 @@
         ; https://www.devdungeon.com/content/hello-world-nasm-assembler
-        ; Compile: nasm -f elf64 hello.asm -o hello.o
-        ;    Link: ld hello.o -o hello
+        ; Compile: nasm -f elf hello32.asm -o hello.o
+        ;    Link: ld hello.o -o hello -m elf_i386
         ;     Run: ./hello
         ;
-        ; strace issue: https://github.com/strace/strace/issues/103
-        ; (need kernel 5.3+)
+        ; strace issue:
+		; https://github.com/strace/strace/issues/103 (need kernel 5.3+)
+		; https://stackoverflow.com/questions/57850588/confused-by-strace-output-of-a-simple-helloworld-nasm-program/57884132#57884132
+        ;
         
 SECTION .DATA
 Msg:     db 'Hello, world!',10  ; 10 = ascii for LF

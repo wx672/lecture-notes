@@ -1571,7 +1571,7 @@ access some common resources.
 \begin{frame}{Barrier Solution}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.4\textwidth]{barrier-1-py} }%
-    \mode<article>{ \pycode{figs/pseudo/barrier-1.py} }
+    \mode<article>{ \pyfile{figs/pseudo/barrier-1.py} }
   \end{center}
   \begin{footnotesize}
     \begin{description}
@@ -1989,18 +1989,16 @@ user process to use it directly.
 \label{sec:dining-phil-probl}
 
 \begin{frame}{The Dining Philosophers Problem}
-  \begin{minipage}{.49\linewidth}
-    \begin{center}
+  \begin{center}
+    \begin{minipage}{.49\linewidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{dining} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{dining-bw} }
-    \end{center}
-  \end{minipage} \hfill
-  \begin{minipage}{.49\linewidth}
-    \begin{center}
+    \end{minipage} \hfill
+    \begin{minipage}{.49\linewidth}
       \mode<beamer>{ \includegraphics[width=.7\textwidth]{dphil-0} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{dphil-0} }
-    \end{center}
-  \end{minipage}
+    \end{minipage}
+  \end{center}
   
   How to implement \texttt{get\_forks()} and \texttt{put\_forks()} to ensure
   \begin{enumerate}
@@ -2010,19 +2008,24 @@ user process to use it directly.
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{The Dining Philosophers Problem}{Deadlock}
+\begin{frame}{The Dining Philosophers Problem}%{Deadlock}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-32} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-2-32} }
-  \end{center}
+    \mode<article>{ \cfile{figs/pseudo/mos-2-32.c}}
+  \end{center}\pause
+  \mode<beamer>{%
+    \begin{tikzpicture}[remember picture, overlay]%
+      \node [rotate=15,scale=5,text opacity=0.4,color=red,xshift=-.4]
+      at (current page.center) {Deadlock!};
+    \end{tikzpicture}}
   \begin{itemize}
-  \item Put down the left fork and wait for a while if the right one is not available?
-    Similar to CSMA/CD --- Starvation
+  \item[?] Put down the left fork and wait for a while if the right one is not available?
+    Similar to CSMA/CD\pause{} --- \alert{Starvation}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{With One Mutex}
-  \begin{minipage}{.49\linewidth}
+  \begin{minipage}{.47\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{dining-mutex-c} }%
       \mode<article>{ \cfile{figs/pseudo/dining-mutex.c} }
@@ -2036,58 +2039,30 @@ user process to use it directly.
   \end{minipage}
   \pause
   \begin{itemize}
-  \item Only one philosopher can eat at a time.
-  \item How about 2 mutexes? 5 mutexes?
+  \item[\Bad] Only one philosopher can eat at a time.
+  \item[?] How about 2 mutexes? 5 mutexes?
   \end{itemize}
 \end{frame}
 
-% \begin{frame}{The Dining Philosophers Problem}{4 at a time}
-%   \begin{block}{If only four philosophers are allowed at the table at a time,
-%       deadlock is impossible}
-%     \begin{center}
-%       \begin{varwidth}{.4\textwidth}
-%         \begin{minted}[
-%           linenos=true,numbersep=2pt,
-%           frame=leftline,framesep=3pt,rulecolor=\color{lightgray},
-%           xleftmargin=10pt,fontsize=\small
-%           ]{python}
-% footman.counter = 4
-
-% def get_forks(i):
-%   footman.wait()
-%   fork[right(i)].wait()
-%   fork[left(i)].wait()
-
-% def put_forks(i):
-%   fork[right(i)].signal()
-%   fork[left(i)].signal()
-%   footman.signal()          
-%         \end{minted}
-%       \end{varwidth}
-%     \end{center}
-%   \end{block}
-% \end{frame}
-
 \begin{frame}{The Dining Philosophers Problem}{AST Solution (Part 1)}
-\begin{block}{A philosopher may only move into eating state if neither neighbor is
+\begin{iblock}{A philosopher may only move into eating state if neither neighbor is
     eating}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.85\textwidth]{dphil-1-c} }%
     \mode<article>{ \cfile{figs/pseudo/dphil-1.c} }
   \end{center}
-\end{block}
+\end{iblock}
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{AST Solution (Part 2)}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{dphil-2-c} }%
-    \mode<article>{ \cfile{figs/pseudo/dphil-2.c} }
-  \end{center}\pause
-\mode<beamer>{
-  \begin{tikzpicture}[remember picture, overlay]%
-    \node [rotate=15,scale=5,text opacity=0.4,color=red,xshift=-.4]
-    at (current page.center) {Starvation!};
-  \end{tikzpicture}}
+  \mode<beamer>{ \centering\includegraphics[width=.9\textwidth]{dphil-2-c} }%
+  \mode<article>{ \cfile{figs/pseudo/dphil-2.c} }
+  \pause
+  \mode<beamer>{%
+    \begin{tikzpicture}[remember picture, overlay]%
+      \node [rotate=15,scale=5,text opacity=0.4,color=red,xshift=-.4]
+      at (current page.center) {Starvation!};
+    \end{tikzpicture}}
 \end{frame}
 
 \begin{itemize}
@@ -2156,7 +2131,7 @@ user process to use it directly.
     another process is writing to it.
   \end{description}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{reader-writer-1} }%
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{reader-writer-1} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{reader-writer-1-bw} }
   \end{center}
   \pause

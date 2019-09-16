@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.0 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -98,7 +98,6 @@
       \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{4}
       \field{langid}{english}
       \field{title}{Beginning linux programming}
       \field{usera}{M}
@@ -240,7 +239,7 @@
       \endverb
       \keyw{stevens2013advanced}
     \endentry
-    \entry{Love:2007:LSP:1205435}{book}{}
+    \entry{love:2007:lsp:1205435}{book}{}
       \name{author}{1}{}{%
         {{hash=3262f21e1ec854d54444577e29125b8e}{%
            family={Love},
@@ -278,9 +277,9 @@
       \verb{url}
       \verb http://cs3.swfu.edu.cn:8080/get/PDF/13/Calibre1
       \endverb
-      \keyw{Love:2007:LSP:1205435}
+      \keyw{love:2007:lsp:1205435}
     \endentry
-    \entry{Kerrisk:2010:LPI:1869911}{book}{}
+    \entry{kerrisk:2010:lpi:1869911}{book}{}
       \name{author}{1}{}{%
         {{hash=7f32f61adec784489cc0fa2cefa610a3}{%
            family={Kerrisk},
@@ -318,9 +317,9 @@
       \verb{url}
       \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
       \endverb
-      \keyw{Kerrisk:2010:LPI:1869911}
+      \keyw{kerrisk:2010:lpi:1869911}
     \endentry
-    \entry{Bryant2010computersystems}{book}{}
+    \entry{bryant2010computersystems}{book}{}
       \name{author}{2}{}{%
         {{hash=733e32bf9035c50457c549c4ca2d1a72}{%
            family={Bryant},
@@ -335,6 +334,9 @@
       }
       \list{language}{1}{%
         {english}%
+      }
+      \list{location}{1}{%
+        {USA}%
       }
       \list{publisher}{1}{%
         {Addison-Wesley}%
@@ -364,7 +366,7 @@
       \verb{url}
       \verb https://cs3.swfu.edu.cn/tech/get/PDF/33/Calibre1
       \endverb
-      \keyw{Bryant2010computersystems}
+      \keyw{bryant2010computersystems}
     \endentry
     \entry{tanenbaum2015modern}{book}{}
       \name{author}{1}{}{%
@@ -776,7 +778,6 @@
       \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{4}
       \field{langid}{english}
       \field{title}{Beginning linux programming}
       \field{usera}{M}
@@ -918,7 +919,7 @@
       \endverb
       \keyw{stevens2013advanced}
     \endentry
-    \entry{Love:2007:LSP:1205435}{book}{}
+    \entry{love:2007:lsp:1205435}{book}{}
       \name{author}{1}{}{%
         {{hash=3262f21e1ec854d54444577e29125b8e}{%
            family={Love},
@@ -956,9 +957,9 @@
       \verb{url}
       \verb http://cs3.swfu.edu.cn:8080/get/PDF/13/Calibre1
       \endverb
-      \keyw{Love:2007:LSP:1205435}
+      \keyw{love:2007:lsp:1205435}
     \endentry
-    \entry{Kerrisk:2010:LPI:1869911}{book}{}
+    \entry{kerrisk:2010:lpi:1869911}{book}{}
       \name{author}{1}{}{%
         {{hash=7f32f61adec784489cc0fa2cefa610a3}{%
            family={Kerrisk},
@@ -996,9 +997,9 @@
       \verb{url}
       \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
       \endverb
-      \keyw{Kerrisk:2010:LPI:1869911}
+      \keyw{kerrisk:2010:lpi:1869911}
     \endentry
-    \entry{Bryant2010computersystems}{book}{}
+    \entry{bryant2010computersystems}{book}{}
       \name{author}{2}{}{%
         {{hash=733e32bf9035c50457c549c4ca2d1a72}{%
            family={Bryant},
@@ -1013,6 +1014,9 @@
       }
       \list{language}{1}{%
         {english}%
+      }
+      \list{location}{1}{%
+        {USA}%
       }
       \list{publisher}{1}{%
         {Addison-Wesley}%
@@ -1042,7 +1046,7 @@
       \verb{url}
       \verb https://cs3.swfu.edu.cn/tech/get/PDF/33/Calibre1
       \endverb
-      \keyw{Bryant2010computersystems}
+      \keyw{bryant2010computersystems}
     \endentry
   \enddatalist
 \endrefsection

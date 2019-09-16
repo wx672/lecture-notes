@@ -1,15 +1,20 @@
 #include <stdio.h> 
-int inc_count(int count){
+
+int inc_count(int count)
+{
     return ++count;
 } 
 
-int main(){
+int main()
+{
     int count = 0; 
    
-    while(count < 10){
-        count = inc_count(count); 
-        printf("%d\n", count); 
-    } 
+	count = inc_count(count); 
+	printf("%d\n", count); 
     
     return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra ptr4-ok.c -o /tmp/a.out" */
+/* End: */

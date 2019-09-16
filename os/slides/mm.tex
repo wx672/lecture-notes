@@ -9,19 +9,19 @@
   \begin{description}
   \item[In a perfect world] Memory is \emph{large, fast, non-volatile}
   \end{description}
-  \begin{block}{In real world ...}
+  \begin{iblock}{In real world ...}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-7} }%
       \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-7} }
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item[] Memory manager handles the memory hierarchy.
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Basic Memory Management}{Real Mode}
-  \begin{block}{In the old days ... }
+  \begin{iblock}{In the old days ... }
     \begin{itemize}
     \item Every program simply saw the physical memory
     \item mono-programming without swapping or paging
@@ -30,7 +30,7 @@
       \mode<beamer>{ \includegraphics[width=\textwidth]{mm-realmode} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{mm-realmode} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Basic Memory Management}{Relocation Problem}
@@ -131,13 +131,13 @@
       quicker                 &slower\\\hline
     \end{tabular}
   \end{center}
-  \begin{block}{How large is the ...}
+  \begin{iblock}{How large is the ...}
     \begin{description}
     \item[stack:] \texttt{ulimit -s}
     \item[heap:] could be as large as your virtual memory
     \item[text|data|bss:] \texttt{size a.out}
     \end{description}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Multi-step Processing of a User Program}{When is space
@@ -224,7 +224,7 @@ See also:
 \end{itemize}
 
 \begin{frame}{Address Binding}{Who assigns memory to segments?}
-  \begin{block}{Static-binding: before a program starts running}
+  \begin{iblock}{Static-binding: before a program starts running}
     \begin{description}
     \item[Compile time:] \alert{Compiler} and \alert{assembler} generate an object file for
       each source file
@@ -244,8 +244,8 @@ See also:
         \end{itemize}
       \end{itemize}
     \end{description}
-  \end{block}
-  \begin{block}{Dynamic-binding: as program runs}
+  \end{iblock}
+  \begin{iblock}{Dynamic-binding: as program runs}
     \begin{itemize}
     \item Execution time:
       \begin{itemize}
@@ -253,7 +253,7 @@ See also:
       \item gets space on stack during function calls
       \end{itemize}
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{itemize}
@@ -277,7 +277,7 @@ See also:
 \end{frame}
 
 % \begin{frame}{Dynamic Loading}
-%   \begin{block}{Better memory utilization}
+%   \begin{iblock}{Better memory utilization}
 %     \begin{itemize}
 %     \item Only the main program is loaded into memory and is executed
 %     \item Routine is not loaded until it is called
@@ -285,7 +285,7 @@ See also:
 %     \item Useful when large amounts of code are needed to handle infrequently occurring
 %       cases
 %     \end{itemize}
-%   \end{block}
+%   \end{iblock}
 %   \begin{center}
 %     \mode<beamer>{
 %       \includegraphics[width=.7\textwidth]{mm-dynamic}
@@ -369,30 +369,30 @@ There are also disadvantages:
 
 \begin{frame}{Build A Static Library}{Source codes}
   \begin{minipage}[t]{.47\linewidth}
-    \begin{block}{\texttt{main.c}}
+    \begin{iblock}{\texttt{main.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{main-c} }%
         \mode<article>{\cfile{../src/mm/hello/static/main.c}}
       \end{center}
-    \end{block}
-    \begin{block}{\texttt{lib.h}}
+    \end{iblock}
+    \begin{iblock}{\texttt{lib.h}}
       \mode<beamer>{\includegraphics[width=.5\textwidth]{lib-h}}%
       \mode<article>{\cfile{../src/mm/hello/static/lib.h}}
-    \end{block}
+    \end{iblock}
   \end{minipage}\qquad
   \begin{minipage}[t]{.43\linewidth}
-    \begin{block}{\texttt{hello.c}}
+    \begin{iblock}{\texttt{hello.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{hello-c} }%
         \mode<article>{\cfile{../src/mm/hello/static/hello.c}}
       \end{center}
-    \end{block}
-    \begin{block}{\texttt{hi.c}}
+    \end{iblock}
+    \begin{iblock}{\texttt{hi.c}}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c} }%
         \mode<article>{\cfile{../src/mm/hello/static/hi.c}}
       \end{center}
-    \end{block}
+    \end{iblock}
   \end{minipage}
 \end{frame}
 
@@ -421,23 +421,23 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}{Build A Shared Library}{Source codes}
-  \begin{block}{\texttt{hello.c}}
+  \begin{iblock}{\texttt{hello.c}}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello-c-so} }%
       \mode<article>{\cfile{../src/mm/hello/shared/hello.c}}
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{minipage}{.35\linewidth}
-    \begin{block}{\texttt{hello.h}}
+    \begin{iblock}{\texttt{hello.h}}
       \mode<beamer>{ \includegraphics[width=\textwidth]{hello-h-so} }%
       \mode<article>{\cfile{../src/mm/hello/shared/hello.h}}
-    \end{block}
+    \end{iblock}
   \end{minipage}\qquad
   \begin{minipage}{.36\linewidth}
-    \begin{block}{\texttt{hi.c}}
+    \begin{iblock}{\texttt{hi.c}}
       \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c-so} }%
       \mode<article>{\cfile{../src/mm/hello/shared/hi.c}}
-    \end{block}
+    \end{iblock}
   \end{minipage}
 \end{frame}
 
@@ -545,11 +545,11 @@ There are also disadvantages:
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-14} }%
     \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-14} }
   \end{center}
-  \begin{block}{Major part of swap time is transfer time}
+  \begin{iblock}{Major part of swap time is transfer time}
     \begin{itemize}
     \item[] Total transfer time is directly proportional to the amount of memory swapped
     \end{itemize}
-  \end{block}
+  \end{iblock}
   % \item System maintains a ready queue of ready-to-run processes which have memory
   %   images on disk
 \end{frame}
@@ -601,7 +601,7 @@ There are also disadvantages:
     \includegraphics[width=\textwidth]{mm-frag}
   \end{varwidth}\hfill
   \begin{varwidth}{.66\textwidth}
-    \begin{block}{Reduce external fragmentation by}
+    \begin{iblock}{Reduce external fragmentation by}
       \begin{itemize}
       \item \alert{Compaction} is possible only if relocation is dynamic,
         and is done at execution time
@@ -611,7 +611,7 @@ There are also disadvantages:
         \item Segmentation
         \end{itemize}
       \end{itemize}
-    \end{block}
+    \end{iblock}
   \end{varwidth}
 \end{frame}
 
@@ -625,7 +625,7 @@ There are also disadvantages:
     \end{center}
   \end{varwidth}\hfill
   \begin{varwidth}{.48\textwidth}
-    \begin{block}{Address translation}
+    \begin{iblock}{Address translation}
       $$\genfrac{}{}{0pt}{}{virtual}{address}
       \xrightarrow{\alert{page\,table}}
       \genfrac{}{}{0pt}{}{physical}{address}$$
@@ -636,7 +636,7 @@ There are also disadvantages:
       
       $$\genfrac{}{}{0pt}{}{20500_{vir}}{(20k+20)_{vir}}
       \xrightarrow{map\,to} \genfrac{}{}{0pt}{}{12308_{phy}}{(12k+20)_{phy}}$$
-    \end{block}
+    \end{iblock}
   \end{varwidth}
 \end{frame}
 
@@ -649,22 +649,22 @@ There are also disadvantages:
 \subsection{Paging}
 
 \begin{frame}{Paging}{Address Translation Scheme}
-  \begin{block}{Address generated by CPU is divided into:}
+  \begin{iblock}{Address generated by CPU is divided into:}
     \begin{description}
     \item[Page number(p):] an index into a \emph{page table}
     \item[Page offset(d):] to be copied into memory
     \end{description}
-  \end{block}
+  \end{iblock}
   Given \alert{logical address space} ($2^m$) and \alert{page size} ($2^n$),
   \begin{small}
     $$\text{number of pages}=\frac{2^m}{2^n}=2^{m-n}$$
   \end{small}
-  \begin{block}{Example: addressing to $0010000000000100$}
+  \begin{iblock}{Example: addressing to $0010000000000100$}
     $$\underbrace{\overbrace{0\,0\,1\,0}^{m-n=4}\,\overbrace{0\,0\,0\,0\,0\,0\,0\,0\,0\,1\,0\,0}^{n=12}}_{m=16}$$
     \begin{small}
       $$\text{page number}=0010=2, \quad \text{page offset}=000000000100$$
     \end{small}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
@@ -785,12 +785,12 @@ There are also disadvantages:
     \item while 100 processes running, $400M$ memory is gone for page tables
     \item avoid keeping all the page tables in memory all the time
     \end{itemize}
-    \begin{block}{A two-level scheme}
+    \begin{iblock}{A two-level scheme}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=.6\textwidth]{2-level-paging} }%
         \mode<article>{ \includegraphics[width=.3\textwidth]{2-level-paging} }
       \end{center}
-    \end{block}    
+    \end{iblock}    
     %  \end{minipage}\hfill
   % \begin{minipage}{.46\textwidth}
   %   \begin{center}
@@ -895,7 +895,7 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}{Inverted Page Tables}{Index with frame number}
-  \begin{block}{Inverted Page Table:}
+  \begin{iblock}{Inverted Page Table:}
     \begin{itemize}
     \item One entry for each \emph{physical} frame
       \begin{itemize}
@@ -906,7 +906,7 @@ There are also disadvantages:
       \item The table is shared --- PID is required
       \end{itemize}
     \end{itemize}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item Physical pages are now mapped to virtual --- each entry contains a virtual page
     number instead of a physical one
@@ -915,13 +915,13 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Find index according to entry contents}
+  \begin{iblock}{Find index according to entry contents}
     $(pid,\,p)\Rightarrow{}i$
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-8-43} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-43} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}%{Linear Inverted Page Tables}
@@ -1006,7 +1006,7 @@ There are also disadvantages:
 \subsection{Demand Paging}
 
 \begin{frame}{Demand Paging}
-  \begin{block}{With demand paging, the size of the LAS is no longer constrained by
+  \begin{iblock}{With demand paging, the size of the LAS is no longer constrained by
       physical memory}
     \begin{itemize}
     \item Bring a page into memory only when it is needed
@@ -1028,7 +1028,7 @@ There are also disadvantages:
       \item \alert{Pager (Lazy swapper)} deals with pages
       \end{itemize}
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \paragraph{More about demand paging}
@@ -1113,14 +1113,14 @@ See also:
   \item[Page-replacement algorithm] When page replacement is required, we must select the
     frames that are to be replaced.
   \end{description}
-  \begin{block}{Performance}
+  \begin{iblock}{Performance}
     We want an algorithm resulting in lowest page-fault rate
     \begin{itemize}
     \item Is the victim page modified?
     \item Pick a random page to swap out?
     \item Pick a page from the faulting process' own pages? Or from others?
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Page-Fault Frequency Scheme}
@@ -1202,16 +1202,16 @@ See also:
   \item[LRU] uses the recent past as an approximation of the near future
   \end{itemize}
   Replace the page that \emph{has not been used} for the longest period of time
-  \begin{block}{Assume recently-used-pages will used again soon}
+  \begin{iblock}{Assume recently-used-pages will used again soon}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{osc-9-34} }%
       \mode<article>{ \includegraphics[width=.6\textwidth]{osc-9-34} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{LRU Implementations}
-  \begin{block}{\alert{Counters}: record the time of the last reference
+  \begin{iblock}{\alert{Counters}: record the time of the last reference
       to each page}
     \begin{itemize}
     \item choose page with lowest value counter
@@ -1220,8 +1220,8 @@ See also:
     \item require a \alert{search} of the page table to find the LRU page
     \item update time-of-use field in the page table \alert{every memory reference!}
     \end{itemize}
-  \end{block}
-  \begin{block}{\alert{Stack}: keep a linked list (stack) of pages}
+  \end{iblock}
+  \begin{iblock}{\alert{Stack}: keep a linked list (stack) of pages}
     \begin{itemize}
     \item most recently used at top, least (LRU) at bottom
       \begin{itemize}
@@ -1232,7 +1232,7 @@ See also:
       \item update this list \alert{every memory reference!}
       \end{itemize}
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Second Chance Page Replacement Algorithm}
@@ -1352,7 +1352,7 @@ See also:
       \includegraphics[width=.6\textwidth]{osc-9-49}
     }
   \end{center}
-  \begin{block}{}
+  \begin{iblock}{}
     \begin{description}
     \item[$\Delta$:] Working-set window. In this example,
       \begin{itemize}
@@ -1360,7 +1360,7 @@ See also:
       \end{itemize}
     \item[WSS:] Working-set size.  $WS(t_1)=\{\overbrace{1,\,2,\,5,\,6,\,7}^{WSS=5}\}$
     \end{description}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item The accuracy of the working set depends on the selection of $\Delta$
   \item Thrashing, if $\sum{}WSS_i > SIZE_{total\,memory}$
@@ -1368,13 +1368,13 @@ See also:
 \end{frame}
 
 \begin{frame}{The Working-Set Page Replacement Algorithm}
-  \begin{block}{To evict a page that is not in the working set}
+  \begin{iblock}{To evict a page that is not in the working set}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.9\textwidth]{mos-figs-4-21} }
       \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-4-21} }
     \end{center}
     $$age = \textit{Current virtual time} - \textit{Time of last use}$$
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{description}
@@ -1516,7 +1516,7 @@ P.~211]{tanenbaum2008modern}.
 \begin{frame}{Other Issues --- Program Structure}
   Careful selection of data structures and programming structures can increase locality,
   i.e. lower the page-fault rate and the number of pages in the working set.
-  \begin{block}{Example}
+  \begin{iblock}{Example}
     \begin{itemize}
     \item A stack has a good locality, since access is always made to the top
     \item A hash table has a bad locality, since it's designed to scatter references
@@ -1526,11 +1526,11 @@ P.~211]{tanenbaum2008modern}.
       \item OO programs tend to have a poor locality
       \end{itemize}
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Other Issues --- Program Structure}
-  \begin{block}{Example}
+  \begin{iblock}{Example}
     \begin{itemize}
     \item \texttt{int[i][j] = int[128][128]}
     \item Assuming page size is 128 words, then
@@ -1555,14 +1555,14 @@ P.~211]{tanenbaum2008modern}.
       \item[] $128$ page faults
       \end{itemize}
     \end{minipage}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essentials}.
 
 \begin{frame}{Other Issues --- I/O interlock}
   Sometimes it is necessary to lock pages in memory so that they are not paged out.
-  \begin{block}{Example}
+  \begin{iblock}{Example}
     \begin{itemize}
     \item The OS
     \item I/O operation --- the frame into which the I/O device was scheduled to write
@@ -1570,11 +1570,11 @@ See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essenti
     \item New page that was just brought in --- looks like the best candidate to be
       replaced because it was not accessed yet, nor was it modified.
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Other Issues --- I/O interlock}{Case 1}
-  \begin{block}{Be sure the following sequence of events does not occur:}
+  \begin{iblock}{Be sure the following sequence of events does not occur:}
     \begin{enumerate}
     \item A process issues an I/O request, and then queueing for that I/O device
     \item The CPU is given to other processes
@@ -1583,12 +1583,12 @@ See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essenti
     \item When its I/O request is served, the specific frame is now being used by another
       process
     \end{enumerate}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Other Issues --- I/O interlock}{Case 2}
   
-  \begin{block}{Another bad sequence of events:}
+  \begin{iblock}{Another bad sequence of events:}
     \begin{enumerate}
     \item A low-priority process faults
     \item The paging system selects a replacement frame. Then, the necessary page is
@@ -1603,27 +1603,27 @@ See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essenti
       \item It doesn't know the page is just brought in for the low-priority process
       \end{enumerate}
     \end{enumerate}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \subsection{Segmentation}
 
 \begin{frame}{Two Views of A Virtual Address Space}
   \begin{varwidth}{.45\textwidth}
-    \begin{block}{One-dimensional}
+    \begin{iblock}{One-dimensional}
       a linear array of bytes
       \begin{center}
         \includegraphics[width=.9\textwidth]{memory1}
       \end{center}
-    \end{block}
+    \end{iblock}
   \end{varwidth}\hfill
   \begin{varwidth}{.45\textwidth}
-    \begin{block}{Two-dimensional}
+    \begin{iblock}{Two-dimensional}
       a collection of variable-sized segments
       \begin{center}
         \includegraphics[width=.75\textwidth]{osc-8-45}
       \end{center}
-    \end{block}
+    \end{iblock}
   \end{varwidth}
 \end{frame}
 
@@ -1740,7 +1740,7 @@ See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essenti
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Advantages of Segmentation}
+  \begin{iblock}{Advantages of Segmentation}
     \begin{itemize}
     \item Each segment can be
       \begin{itemize}
@@ -1750,8 +1750,8 @@ See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essenti
       \end{itemize}
     \item Segments can be shared between processes
     \end{itemize}
-  \end{block}
-  \begin{block}{Problems with Segmentation}
+  \end{iblock}
+  \begin{iblock}{Problems with Segmentation}
     \begin{itemize}
     \item Variable allocation
     \item Difficult to find holes in physical memory
@@ -1761,19 +1761,19 @@ See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essenti
       \end{itemize}
     \item External fragmentation
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also: \url{http://cseweb.ucsd.edu/classes/fa03/cse120/Lec08.pdf}.
 
 \begin{frame}{Linux prefers paging to segmentation}
-  \begin{block}{Because}
+  \begin{iblock}{Because}
   \begin{itemize}
   \item Segmentation and paging are somewhat redundant
   \item Memory management is simpler when all processes share the same set of linear addresses
   \item Maximum portability. RISC architectures in particular have limited support for segmentation
   \end{itemize}
-  \end{block}
+  \end{iblock}
   The Linux 2.6 uses segmentation only when required by the 80x86 architecture.
 \end{frame}
 
@@ -1817,23 +1817,23 @@ See also: \url{http://cseweb.ucsd.edu/classes/fa03/cse120/Lec08.pdf}.
 \end{frame}
 
 \begin{frame}{Segmentation}
-  \begin{block}{Logical Address $\Rightarrow$ Linear Address}
+  \begin{iblock}{Logical Address $\Rightarrow$ Linear Address}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-8-53} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-53} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Segment Selectors}
-  \begin{block}{A logical address consists of two parts:}
+  \begin{iblock}{A logical address consists of two parts:}
     \begin{center}
       \begin{tabular}{ccc}
         segment selector&:&offset\\
         {\scriptsize 16 bits}&&{\scriptsize 32 bits}
       \end{tabular}
     \end{center}
-  \end{block}
+  \end{iblock}
   \vspace{1em}
   \begin{description}
   \item[Segment selector] is an index into GDT/LDT
@@ -1859,7 +1859,7 @@ See also: \url{http://cseweb.ucsd.edu/classes/fa03/cse120/Lec08.pdf}.
       \end{itemize}
     \item[Segment descriptors] are entries in either GDT or LDT, 8-byte long
     \end{description}
-      \begin{block}{Analogy}
+      \begin{iblock}{Analogy}
         \begin{center}
           \begin{tabular}{rcl}
             Process&$\Longleftrightarrow$&Process Descriptor(PCB)\\
@@ -1867,7 +1867,7 @@ See also: \url{http://cseweb.ucsd.edu/classes/fa03/cse120/Lec08.pdf}.
             Segment&$\Longleftrightarrow$&Segment Descriptor
           \end{tabular}
         \end{center}
-      \end{block}
+      \end{iblock}
 \end{frame}
 
 See also:
@@ -1878,7 +1878,7 @@ See also:
 \end{itemize}
 
 \begin{frame}{Segment Registers}
-  \begin{block}{The Intel Pentium has}
+  \begin{iblock}{The Intel Pentium has}
     \begin{itemize}
     \item \alert{6 segment registers}, allowing 6 segments to be addressed at
       any one time by a process
@@ -1890,7 +1890,7 @@ See also:
       \item avoid having to read the descriptor from memory for every memory reference
       \end{itemize}
     \end{itemize}
-  \end{block}
+  \end{iblock}
   \begin{center}
     \mode<beamer>{
       \includegraphics[width=.8\textwidth]{micro-program-reg}
@@ -1899,16 +1899,16 @@ See also:
     }
   \end{center}
 
-  % \begin{block}{The linear address is 32 bits long}
+  % \begin{iblock}{The linear address is 32 bits long}
   %   \begin{itemize}
   %   \item The \alert{base} and \alert{limit} information is used to generate a linear
   %     address (Fig.~\ref{fig:segmentation-hardware}).
   %   \end{itemize}
-  % \end{block}
+  % \end{iblock}
 \end{frame}
 
 \begin{frame}{Fast access to segment descriptors}
-  \begin{block}{An additional nonprogrammable register for each segment register}
+  \begin{iblock}{An additional nonprogrammable register for each segment register}
     \begin{center}
       \mode<beamer>{
         \includegraphics[width=.8\textwidth]{nonprogrammable}
@@ -1917,11 +1917,11 @@ See also:
         \includegraphics[width=.5\textwidth]{nonprogrammable}
       }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Segment registers hold segment selectors}
+  \begin{iblock}{Segment registers hold segment selectors}
     \begin{description}
     \item[cs] code segment register
       \begin{itemize}
@@ -1935,7 +1935,7 @@ See also:
     \item[ds] data segment register
     \item[es/fs/gs] general purpose registers, may refer to arbitrary data segments
     \end{description}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also:
@@ -1945,12 +1945,12 @@ See also:
 \end{itemize}
 
 \begin{frame}%{Segment Descriptors}
-  \begin{block}{Example: A LDT entry for code segment}
+  \begin{iblock}{Example: A LDT entry for code segment}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{ldt-entry-color} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{ldt-entry-bw} }
     \end{center}
-  \end{block}{\small
+  \end{iblock}{\small
   \begin{tabularx}{\textwidth}{>{\bfseries}rX|>{\bfseries}rX}
     Base:&Where the seg starts&Limit:&20 bit, $\Rightarrow{}2^{20}$ in size\\[1ex]
     G:&Granularity flag\par
@@ -1977,7 +1977,7 @@ See also:
 \end{frame}
 
 \begin{frame}{The Four Main Linux Segments}
-  \begin{block}{Every process in Linux has these 4 segments}
+  \begin{iblock}{Every process in Linux has these 4 segments}
     \begin{center}
       \begin{scriptsize}
         \begin{tabular}{l>{\ttfamily}ll>{\ttfamily}llllll}
@@ -1990,19 +1990,19 @@ See also:
         \end{tabular}
       \end{scriptsize}
     \end{center}
-  \end{block}
-    \begin{block}{All linear addresses start at 0, end at 4G-1}
+  \end{iblock}
+    \begin{iblock}{All linear addresses start at 0, end at 4G-1}
     \begin{itemize}
     \item All processes share the same set of linear addresses
     \item Logical addresses coincide with linear addresses
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 % \begin{frame}{The Intel Pentium Segmentation}
 %   The logical address space of a process
 %   $\langle{}\genfrac{}{}{0pt}{}{Private\rightarrow{}LDT}{Shared\rightarrow{}GDT}$
-%   \begin{block}{Two kind of segment table}
+%   \begin{iblock}{Two kind of segment table}
 %     \begin{description}
 %     \item[LDT] Local Descriptor Table
 %     \item[GDT] Global Descriptor Table
@@ -2012,12 +2012,12 @@ See also:
 %     \item GDT is shared by all the programs, describes system segments, including the OS
 %       itself
 %     \end{itemize}
-%   \end{block}
+%   \end{iblock}
 % \end{frame}
 
 % \begin{frame}
 %   A \emph{segment descriptor} is 8 bytes long
-%   \begin{block}{Example: A LDT entry for code segment}
+%   \begin{iblock}{Example: A LDT entry for code segment}
 %     \begin{center}
 %       \mode<beamer>{
 %         \includegraphics[width=\textwidth]{mos-figs-4-44}
@@ -2025,8 +2025,8 @@ See also:
 %         \includegraphics[width=.6\textwidth]{mos-figs-4-44}
 %       }
 %     \end{center}
-%   \end{block}
-%   \begin{block}{logical address --- \texttt{(selector, offset)}}
+%   \end{iblock}
+%   \begin{iblock}{logical address --- \texttt{(selector, offset)}}
 %     \begin{center}
 %       \mode<beamer>{
 %         \includegraphics[width=.7\textwidth]{mm-segpaging2}
@@ -2034,7 +2034,7 @@ See also:
 %         \includegraphics[width=.5\textwidth]{mm-segpaging2}
 %       }
 %     \end{center}
-%   \end{block}
+%   \end{iblock}
 % \end{frame}
 
 \begin{frame}{Pentium Paging}{Linear Address $\Rightarrow$ Physical Address}
@@ -2090,7 +2090,7 @@ See also:
 \end{frame}
 
 \begin{frame}%{Paging In Linux}
-  \begin{block}{4-level paging for both 32-bit and 64-bit}
+  \begin{iblock}{4-level paging for both 32-bit and 64-bit}
     \begin{itemize}
     \item \alert{64-bit: four-level paging}
       \begin{enumerate}
@@ -2108,7 +2108,7 @@ See also:
       \end{enumerate}
     \end{itemize}
     \alert{The same code can work on 32-bit and 64-bit architectures}
-  \end{block}
+  \end{iblock}
     \begin{center}
     \begin{scriptsize}
       \begin{tabular}{llm{3em}m{3em}r}

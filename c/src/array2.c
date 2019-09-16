@@ -12,3 +12,7 @@ int main(void)
   
   return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra array2.c -o /tmp/a.out" */
+/* End: */

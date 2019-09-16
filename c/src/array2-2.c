@@ -12,3 +12,7 @@ int main(void)
   printf("pa = %p; a = %p\n",pa,a);
   return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra array2-2.c -o /tmp/a.out" */
+/* End: */

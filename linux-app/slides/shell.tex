@@ -229,7 +229,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Pipe}{Chain processes together}
+\begin{frame}{Pipe --- Chain Processes Together}
   \begin{itemize}
   \item[\$] \cmd{ls | wc -l}
   \end{itemize}
@@ -272,11 +272,11 @@
   \begin{itemize}
   \item[\$] a=8; b=2
   \item[\$] a=a+5; a=\$a+5 \Bad
-  \item[\$] let a=a+5; let a+=5 \Good
-  \item[\$] let b=b+a; let b+=a \Good
+  \item[\$] let a=a+5; let a+=5; a=\$((a+5)) \Good
+  \item[\$] let b=b+a; let b+=a; b=\$((b+a)) \Good
   \item[\$] echo a; echo \$a
   \item[\$] (( a=5, b=6, a+=b )) \Good
-  \item[\$] (( b=a<5?8:9 )) \Good
+  \item[\$] (( b = a<5 ? 8 : 9 )) \Good
   \item[\$] r=\$(( RANDOM\%100 )) \Good
   \item[\$] echo "\$a" \# partial quoting
   \item[\$] echo '\$a' \# full quoting
@@ -366,16 +366,16 @@
   \item[\$] [[ \$a -lt \$b ]] \&\& echo yes || echo no
   \item[\$] if [[ \$a -lt \$b ]]; then echo yes; else echo no; fi
   \item[\$] if test \$a -lt \$b; then echo of course; fi
-  \item[\$] if a = 5; then echo a=\$a; fi \# whitespace matters \wrong
-  \item[\$] if a=5; then echo a=\$a; fi \Bad
-  \item[\$] if test a=5; then echo a=\$a; fi \Bad
-  \item[\$] if test a = 5; then echo a=\$a; fi \Bad
   \item[\$] if test \$a = 5; then echo a=\$a; fi \correct
+  \item[\$] if test a = 5; then echo a=\$a; fi \wrong
+  \item[\$] if test a=5; then echo a=\$a; fi \Bad{} \# test ls,cd,\ldots
+  \item[\$] if a = 5; then echo a=\$a; fi \wrong{} \# whitespace matters
+  \item[\$] if a=5; then echo a=\$a; fi \Okay
   \item[\$] test \$a = 5 \&\& echo a=\$a \correct
   \item[\$] [[ \$a = 5 ]] \&\& echo a=\$a \correct
+  \item[\$] if cmp a b; then echo same file; fi \correct
   \item[\$] [[ cmp a b ]] \&\& echo same file \wrong
   \item[\$] if test cmp a b; then echo same file; fi \wrong
-  \item[\$] if cmp a b; then echo same file; fi \correct
   \item[\$] [[ -f \symbol{`~}/.bash\_aliases ]] \&\& . \symbol{`~}/.bash\_aliases
   \item[\$] [[ -x /usr/bin/xterm ]] \&\& /usr/bin/xterm -e tmux \&
   \item[\$] [[ "\$pass" != "\$MYPASS" ]] \&\& echo 'Wrong password!' \&\& exit 1
@@ -396,8 +396,9 @@
 \item[\$] for i in \$(seq 10); do echo \$i; done
 \item[\$] for ((i=1; i<=10; i++)); do echo \$i; done
 \item[\$] for ((i=1, j=1; i<=10; i++, j++)); do\\
-  \quad{}echo \$i-\$j \Bad\\
+  \quad{}echo \$((i-j)) \Good\\
   \quad{}echo \$((\$i-\$j)) \Good\\
+  \quad{}echo \$i-\$j \Bad\\
   done
 \item[\$] for ((i=1; i<=10; i++)) \{ echo \$i; \} \# C style
 \item[\$] for i in hello world; do echo -n "\$i "; done
@@ -406,13 +407,14 @@
 
 \begin{frame}{Loops}{\ttfamily while CONDITION; do COMMAND(s); done}\small\ttfamily
 \begin{itemize}
-\item[\$] a=0; while [[ a < 10 ]]; do echo \$a; ((a++)); done \Bad
-\item[\$] while [[ \$a < 10 ]]; do echo \$a; ((a++)); done \Bad
+\item[\$] a=0; 
 \item[\$] while [[ \$a -lt 10 ]]; do echo \$a; ((a++)); done \correct
-\item[\$] while [ \$a -lt 10 ]; do echo \$a; ((a++)); done \correct
-\item[\$] while (( a < 10 )); do echo \$a; ((a++)); done \correct
-\item[\$] until (( a = 10 )); do echo \$a; ((a++)); done \Bad
+\item[\$] while \ [ \$a -lt 10 ] ; do echo \$a; ((a++)); done \correct
+\item[\$] while [[ \ a < 10 ]]; do echo \$a; ((a++)); done \wrong
+\item[\$] while [[ \$a < 10 ]]; do echo \$a; ((a++)); done \wrong
+\item[\$] while (( a < 10 )) ; do echo \$a; ((a++)); done \correct
 \item[\$] until (( a == 10 )); do echo \$a; ((a++)); done \correct
+\item[\$] until (( a = 10 )) ; do echo \$a; ((a++)); done \Bad
 \item[\$] while read n; do n2 \$n; done
 \item[\$] while read n; do n2 \$n; done < datafile
 \item[\$] until (( n == 0 )); do read n; n2 \$n; done
@@ -450,6 +452,30 @@
 
 \begin{itemize}
 \item \url{https://www.tutorialspoint.com/unix/unix-using-arrays.htm}
+\end{itemize}
+
+\begin{frame}{Subshells}\ttfamily
+  \begin{itemize}
+  \item[\$] read first second\\
+    \quad hello world
+  \item[\$] echo \$first \$second
+  \item[] 
+  \item[\$] read first second <<<'hello world'
+  \item[\$] echo \$first \$second
+  \end{itemize}
+  \begin{iblock}{Subshell examples}
+    \begin{itemize}
+    \item[\$] echo hello world | (read f s; echo \$f \$s)
+    \item[\$] echo \$f \$s
+    \item[] 
+    \item[\$] x=out; (x=in; echo \$x)
+    \end{itemize}
+  \end{iblock}
+\end{frame}
+
+\begin{itemize}
+\item \url{file:///usr/share/doc/abs-guide/html/subshells.html}
+\item \url{file:///usr/share/doc/abs-guide/html/process-sub.html}
 \end{itemize}
 
 

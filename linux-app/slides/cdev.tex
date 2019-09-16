@@ -109,34 +109,25 @@
   \end{itemize}
 \end{description}
 
-\begin{frame}[fragile]{Compiler vs. Interpreter}
+\begin{frame}{Compiler vs. Interpreter}
   \begin{iblock}{\texttt{hello.c}}
+    \begin{minipage}{.4\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{helloworld-c} }%
+      \mode<article>{ \cfile{../src/helloworld.c} }
+    \end{minipage}
     \begin{minipage}{.5\linewidth}
-\begin{ccode}
-#include <stdio.h>
-int main()
-{
-  printf("Hello, world!\n");
-  return 0;
-}
-\end{ccode}
+      \begin{itemize}
+      \item[\$] \texttt{gcc -o hello hello.c}
+      \item[\$] \texttt{./hello}
+      \end{itemize}
     \end{minipage}
-    \begin{minipage}{.45\linewidth}
-    \begin{itemize}
-    \item[\$] \texttt{gcc -o hello hello.c}
-    \item[\$] \texttt{./hello}
-    \end{itemize}
-    \end{minipage}
-    %\textcolor{LightGray}{\rule{.3\textwidth}{1pt}}
   \end{iblock}
   \begin{iblock}{\texttt{hello.sh}}
-    \begin{minipage}{.5\linewidth}
-      \begin{shellcode}
-        #!/bin/bash
-        echo 'Hello, world!'
-      \end{shellcode}
+    \begin{minipage}{.4\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hello-sh} }%
+      \mode<article>{ \shfile{../src/hello.sh} }
     \end{minipage}
-    \begin{minipage}{.45\linewidth}
+    \begin{minipage}{.5\linewidth}
       \begin{enumerate}
       \item[\$] \texttt{chmod +x hello.sh}
       \item[\$] \texttt{./hello.sh}
@@ -144,13 +135,11 @@ int main()
     \end{minipage}
   \end{iblock}
   \begin{iblock}{\texttt{hello.py}}
-    \begin{minipage}{.5\linewidth}
-\begin{pythoncode}
-#!/usr/bin/python
-print "Hello, world!"
-\end{pythoncode}      
+    \begin{minipage}{.4\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hello-py} }%
+      \mode<article>{ \pyfile{../src/hello.py} }
     \end{minipage}
-    \begin{minipage}{.45\linewidth}
+    \begin{minipage}{.5\linewidth}
       \begin{enumerate}
       \item[\$] \texttt{chmod +x hello.py}
       \item[\$] \texttt{./hello.py}
@@ -162,29 +151,17 @@ print "Hello, world!"
 \subsection{Header Files}
 \label{sec:header-files}
 
-\begin{frame}[fragile]{Header Files}
+\begin{frame}{Header Files}
   \begin{minipage}{.45\linewidth}
     \begin{iblock}{Why?}
-\begin{ccode}
-#include "add.h"
-
-int triple(int x)
-{
-  return add(x, add(x,x));
-}
-\end{ccode}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hdr1-c} }%
+      \mode<article>{ \cfile{figs/hdr1.c} }
     \end{iblock}
   \end{minipage}\qquad
   \begin{minipage}{.45\linewidth}
     \begin{iblock}{Why not?}
-\begin{ccode}
-int add(int, int);
-
-int triple(int x)
-{
-  return add(x, add(x, x));
-}
-\end{ccode}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hdr2-c} }%
+      \mode<article>{ \cfile{figs/hdr2.c} }
     \end{iblock}
   \end{minipage}\\[1ex]
   \begin{itemize}
@@ -196,7 +173,7 @@ int triple(int x)
       \begin{itemize}
       \item function declarations
       \item macro definitions
-      \item contants
+      \item constants
       \item system wide global variables
       \end{itemize}
     \end{multicols}
@@ -206,11 +183,46 @@ int triple(int x)
   \end{itemize}
 \end{frame}
 
+\subsubsection{A small software project}
+\label{sec:small-softw-proj}
+
+\begin{minipage}[t]{.45\linewidth}
+\begin{block}{\texttt{Makefile}}
+  \mkfile{../src/hdr/Makefile}
+\end{block}  
+\end{minipage}\qquad
+\begin{minipage}[t]{.45\linewidth}
+\begin{block}{\texttt{triple.c}}
+  \cfile{../src/hdr/triple.c}
+\end{block}  
+\end{minipage}
+
+\begin{minipage}[t]{.45\linewidth}
+\begin{block}{\texttt{add.h}}
+  \cfile{../src/hdr/add.h}
+\end{block}
+\end{minipage}\quad
+\begin{minipage}[t]{.45\linewidth}
+\begin{block}{\texttt{add3.c}}
+  \cfile{../src/hdr/add3.c}
+\end{block}  
+\end{minipage}
+
+\begin{description}
+\item[\texttt{triple.c}] --- the main source file.
+\item[\texttt{add.h}] --- macros and function prototypes. Like \texttt{stdio.h}, can be
+  used by anyone.
+\item[\texttt{add3.c}] --- function implementations. It's like a black box. Any changes
+  made inside a block box are transparent to the calling functions.
+\item[\texttt{Makefile}] --- managing the project.
+\end{description}
+
 \subsection{Library Files}
 \label{sec:library-files}
 
 \begin{frame}{Library Files}
   \begin{description}
+  \item[A library] is a collection of pre-compiled object files which can be linked into programs.
   \item[Static libraries] \alert{\texttt{.a}} files. Very old ones, but still alive.
     \begin{itemize}
     \item[\$] \texttt{find /usr/lib -name "*.a"}
@@ -220,12 +232,23 @@ int triple(int x)
     \item[\$] \texttt{find /usr/lib -name "*.so.*"}
     \end{itemize}
   \end{description}
-  Examples:
+\end{frame}
+
+\begin{frame}{Example}
+  \begin{iblock}{\texttt{calc.c}}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{calc-c} }%
+    \mode<article>{ \cfile{../src/calc.c} }
+  \end{iblock}\ttfamily
   \begin{itemize}
-  \item[\$] \texttt{gcc -o hello hello.c /usr/lib/libm.a}
-  \item[\$] \texttt{gcc -o hello hello.c -lm}
+  \item[\$] gcc -o calc calc.c \$(find /usr/lib -name libm.a) \correct
+  \item[\$] gcc -o calc calc.c -lm \correct
+  \item[\$] gcc -o calc -lm calc.c \Bad
   \end{itemize}
 \end{frame}
+
+\begin{itemize}
+\item \url{https://www.linuxtopia.org/online_books/an_introduction_to_gcc/gccintro_18.html}
+\end{itemize}
 
 \begin{frame}
   \begin{block}{Static Linking}
@@ -355,6 +378,44 @@ int triple(int x)
     \mode<article>{\mkfile{../src/shared/Makefile}}
   \end{center}
 \end{frame}
+
+\begin{description}
+\item[Position Independent Code (PIC)] Unlike executables, when shared libraries are being
+  built, the linker can't assume a known load address for their code. When translated to
+  x86 assembly, this will involve lots of \texttt{mov} instruction to pull the value of
+  some variable from its location in memory into a register. \texttt{mov} requires an
+  absolute address - so how does the linker know which address to place in it? The answer
+  is - it doesn't. As I mentioned above, shared libraries have no pre-defined load address
+  - it will be decided at runtime.
+
+  In Linux, the dynamic loader is a piece of code responsible for preparing programs for
+  running. One of its tasks is to load shared libraries from disk into memory, when the
+  running executable requests them. When a shared library is loaded into memory, it is
+  then adjusted for its newly determined load location. It is the job of the dynamic
+  loader to solve the problem presented in the previous paragraph.
+
+  The idea behind PIC is simple - add an additional level of indirection to all global
+  data and function references in the code. By cleverly utilizing some artifacts of the
+  linking and loading processes, it's possible to make the text section of the shared
+  library truly \emph{position independent}, in the sense that it can be easily mapped
+  into different memory addresses without needing to change one bit.
+  \begin{itemize}
+  \item
+    \url{https://eli.thegreenplace.net/2011/08/25/load-time-relocation-of-shared-libraries/}
+  \item
+    \url{https://eli.thegreenplace.net/2011/11/03/position-independent-code-pic-in-shared-libraries/}
+  \item \url{https://en.wikipedia.org/wiki/Position-independent_code}
+  \item \url{https://en.wikipedia.org/wiki/Relocation_(computing)#Load-time}
+  \item
+    \url{https://stackoverflow.com/questions/813980/why-isnt-all-code-compiled-position-independent}
+  \item \url{https://eklitzke.org/position-independent-executables}
+  \item
+    \url{http://davidad.github.io/blog/2014/02/19/relocatable-vs-position-independent-code-or/}
+  \item
+    \url{https://www.codeproject.com/Articles/1032231/What-is-the-Symbol-Table-and-What-is-the-Global-Of}
+  \item \url{https://www.technovelty.org/linux/plt-and-got-the-key-to-code-sharing-and-dynamic-libraries.html}
+  \end{itemize}
+\end{description}
 
 \begin{frame}{GNU C Library}
   \begin{minipage}{.55\linewidth}
@@ -523,6 +584,234 @@ int triple(int x)
   \item[\$] \cmd{apt source hello}
   \end{itemize}
 \end{frame}
+
+\subsection{Pointers in C}
+\label{sec:pointers-c}
+
+\begin{frame}{Pointers}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{ptr1-code-c} }%
+    \mode<article>{\cfile{../src/ptr1-code.c}}
+  \end{center}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{ptr1} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{ptr1} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Pointer Operators}
+  \begin{itemize}
+  \item[\&] returns the \alert{address} of a thing
+  \item[{\dejavu ✶}] return the \alert{object (thing)} to which a pointer points at
+  \end{itemize}
+  \begin{block}{\texttt{int thing; int *thing\_ptr;}}
+    \begin{center}
+      \begin{tabular}{>{\ttfamily}rl}\hline
+        \thead{C Code} & \thead{Description}            \\\hline
+        thing          & the variable named `thing'     \\
+        \&thing        & address of `thing' (a pointer) \\
+        *thing         & \wrong{} \texttt{thing} is not a pointer\\
+        thing\_ptr     & pointer to an int              \\
+        *thing\_ptr    & the int variable at the address \texttt{thing\_ptr} points
+                      to                                \\
+        \&thing\_ptr   & odd, a pointer to a pointer    \\\hline
+      \end{tabular}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{iblock}{Example}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.9\textwidth]{ptr2-code-c} }%
+      \mode<article>{\cfile{../src/ptr2-code.c}}
+    \end{center}
+  \end{iblock}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{ptr2} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{ptr2} }
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{iblock}{Invalid operation}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{ptr2-wrong1-c} }%
+      \mode<article>{\cfile{../src/ptr2-wrong1.c}}
+    \end{center}
+    \mode<article>{
+      In the \texttt{printf()} statement, it's trying to treat \texttt{i} as a pointer.
+    }
+  \end{iblock}
+  \begin{iblock}{Invalid memory access}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{ptr2-wrong2-c} }%
+      \mode<article>{ \cfile{../src/ptr2-wrong2.c} }
+    \end{center}
+    \mode<article>{This is trying to treat the value of \texttt{p} as a memory
+      address. But the memory address \texttt{5} is not accessible by this program.}
+  \end{iblock}
+\end{frame}
+
+\begin{frame}{Call By Value}
+  \begin{center}
+    \mode<beamer>{
+      \includegraphics[width=.8\textwidth]{ptr4-wrong-c}\tikzmark{ptr4wrong}
+      \pause
+      \begin{tikzpicture}[remember picture,overlay]
+        \node at ($(pic cs:ptr4wrong)+(0,2)$) [opacity=.4,scale=7] {\wrong};
+      \end{tikzpicture}}%    
+    \mode<article>{\cfile{../src/ptr4-wrong.c}}
+  \end{center}
+  \begin{description}
+  \item[Call by value:] only the \alert{value} of `\texttt{count}' is handed to the
+    function \texttt{inc\_count()}
+  \end{description}
+\end{frame}
+
+\begin{frame}
+  \begin{iblock}{Solution 1: return}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{ptr4-ok-c}%
+        \begin{tikzpicture}[remember picture,overlay]
+          \node at ($(pic cs:ptr4ok)+(0,2)$) [opacity=.4,scale=10] {\correct};
+        \end{tikzpicture}}%
+    \end{center}
+    \mode<article>{\cfile{../src/ptr4-ok.c}%
+      \begin{enumerate}
+      \item read the \emph{value} of \texttt{count}, and pass it to \texttt{inc\_count()};
+      \item \texttt{inc\_count()} uses the \emph{value} of \texttt{count} to do the
+        calculations;
+      \item return the result to \texttt{main()}.
+      \end{enumerate}}
+  \end{iblock}
+\end{frame}
+
+\begin{frame}%{Pointers as Function Arguments}
+  \begin{iblock}{Solution 2: Call by reference}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.6\textwidth]{ptr4-c}%
+        \begin{tikzpicture}[remember picture,overlay]
+          \node at ($(pic cs:ptr4)+(0,2)$) [opacity=.4,scale=10] {\correct};
+        \end{tikzpicture}}%
+    \end{center}
+    \mode<article>{\cfile{../src/ptr4.c}%
+      \begin{enumerate}
+      \item pass the address of \texttt{count} to \texttt{inc\_count()};
+      \item \texttt{inc\_count()} operates directly on \texttt{count}.
+      \end{enumerate}}
+  \end{iblock}
+  \begin{description}
+  \item[More efficient than solution 1] Imagining you are operating on a large data
+    structure rather than an \texttt{int}
+  \end{description}
+\end{frame}
+
+\subsection{Pointers and Arrays}
+
+\begin{frame}
+  \begin{minipage}[t]{.45\linewidth}
+    \includegraphics[width=\textwidth]{array2-c}
+  \end{minipage}\quad
+  \begin{minipage}[t]{.5\linewidth}
+    \includegraphics[width=\textwidth]{array2-2-c}\tikzmark{array2-2}
+    \mode<beamer>{
+      \begin{tikzpicture}[remember picture,overlay]
+        \node at ($(pic cs:array2-2)+(-.68,.95)$) [ellipse,opacity=.4,red,draw,thick,minimum
+        width=1cm] {};
+      \end{tikzpicture}}
+    \mode<article>{
+      \begin{tikzpicture}[remember picture,overlay]
+        \node at ($(pic cs:array2-2)+(-.9,1.4)$) [ellipse,opacity=.4,red,draw,thick,minimum
+        width=1.5cm] {};
+      \end{tikzpicture}
+      C automatically scales pointer arithmetic so that it works correctly, by
+      incrementing/decrementing by the correct number of bytes. For example, in above
+      program, the value of \texttt{pa} (\texttt{\&a[2]}) is \texttt{1008}, and the value
+      of \texttt{a} (\texttt{\&a[0]}) is \texttt{1000}. But the result of ``\texttt{pa -
+        a}'' is \texttt{2} rather than \texttt{8}. This means \texttt{pa} is \emph{two
+        ints} ahead of \texttt{a}.}
+  \end{minipage}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{array2-3} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{array2-3} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Passing Arrays to Functions}
+  \begin{block}{}
+    When passing an array to a function, C will automatically change the array into a
+    pointer.
+  \end{block}
+  \begin{center}
+    \begin{minipage}{.53\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{array3-1-c} }%
+    \end{minipage}\quad
+    \begin{minipage}{.4\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{array3-2-c} }%
+    \end{minipage}
+  \end{center}
+  \mode<article>{ \cfile{../src/array3.c} }
+\end{frame}
+
+\begin{frame}{Strings --- Arrays Of Characters}
+  \begin{description}
+  \item[Strings] are \alert{character arrays} with the additional special character
+    ``\texttt{\textbackslash0}'' (\texttt{NUL}) at the end, e.g.:
+    \ttfamily
+    \begin{itemize}
+    \item[] char system[] = "Linux";
+    \item[] \begin{tabular}{*{6}{|c}|} \hline
+              L&i&n&u&x&\textbackslash0\\\hline
+            \end{tabular}
+          \end{itemize}
+  \end{description}
+  \begin{iblock}{The most common string functions}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{string-funcs-c} }%
+    \mode<article>{ \cfile{../src/string-funcs.c}}
+  \end{iblock}
+\end{frame}
+
+\begin{frame}{Arrays Of Pointers}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{array4-c} }%
+  \end{center}
+  \mode<article>{ \cfile{../src/array4.c} }
+\end{frame}
+
+\begin{description}
+\item[Once you've declared an array, you can't reassign it. Why?] Consider an assignment like
+
+\begin{ccode}
+char *my_str = "foo"; // Declare and initialize a char pointer.
+my_str = "bar"; // Change its value.
+\end{ccode}
+
+The first line declares a char pointer and ``aims'' it at the first letter in \texttt{foo}. Since \texttt{foo} is a string constant, it resides somewhere in memory with all the other constants. When you reassign the pointer, you're assigning a new value to it: the address of \texttt{bar}. But the original string, \texttt{foo}, remains unchanged. You've moved the pointer, but haven't altered the data.
+
+\emph{When you declare an array, however, you aren't declaring a pointer at all. You're reserving a certain amount of memory and giving it a name}. So the line
+
+\begin{ccode}
+char c[5] = "data";
+\end{ccode}
+
+starts with the string constant \texttt{data}, then allocates 5 new bytes, calls them \texttt{c}, and copies the string into them. You can access the elements of the array exactly as if you'd declared a pointer to them; arrays and pointers are (for most purposes) interchangeable in that way.
+
+\emph{But since arrays are not pointers, you cannot reassign them}. You can't make
+\texttt{c} ``point'' anywhere else, because it's not a pointer; it's the name of an area of
+memory. For example,
+
+\begin{ccode}
+char c[5] = "data";
+char b[5] = "beta";
+b = c; /* Wrong! 'b[]' cannot be reassigned (pointing to elsewhere). */
+\end{ccode}
+\end{description}
+
+\begin{itemize}
+\item \url{https://stackoverflow.com/questions/17077505/string-pointer-and-array-of-chars-in-c}
+\end{itemize}  
+
 
 \section{The Linux Environment}
 \label{sec:linux-environment}
@@ -967,7 +1256,7 @@ See also:
 \end{frame}
 
 64-bits version:
-\nasmfile{../src/hello-nasm/hello64.s}
+\nasmfile{../src/hello64.s}
 
 \begin{frame}{System Call Examples}
   \begin{minipage}{.55\linewidth}
