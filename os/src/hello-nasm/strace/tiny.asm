@@ -1,7 +1,7 @@
-        ; Compile: nasm -f elf64 tiny.asm -o tiny.o
-        ;    Link: ld tiny.o -o tiny
+        ; Compile: nasm -f elf tiny.asm -o tiny.o
+        ;    Link: ld tiny.o -o tiny -m elf_i386
         ;     Run: ./tiny
-		;          strace ./tiny
+		;  strace: strace ./tiny
 BITS 64
   GLOBAL _start
   SECTION .text

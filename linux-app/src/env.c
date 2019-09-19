@@ -1,19 +1,18 @@
-#include <stdlib.h>
 #include <stdio.h>
 
 extern char** environ;
 
-int main() {
+int main()
+{
   char** env = environ;
 
   while (*env) {
     printf("%s\n", *env);
     env++;
   }
-
   return 0;
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra env.c -o env" */
+/* compile-command: "gcc -Wall -Wextra env.c -o /tmp/a.out" */
 /* End: */

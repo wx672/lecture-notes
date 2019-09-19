@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
   int opt;
 
-  while ((opt = getopt(argc, argv, "hf:l")) != -1) {
+  while ( (opt = getopt(argc, argv, "hf:l")) != -1 ) {
     switch (opt) {
     case 'h':
       printf("Usage: %s [-h] [-f file] [-l]\n", argv[0]);
@@ -21,5 +22,5 @@ int main(int argc, char* argv[]) {
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra getopt.c -o getopt" */
+/* compile-command: "gcc -Wall -Wextra getopt.c -o /tmp/a.out" */
 /* End: */

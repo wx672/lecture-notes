@@ -816,20 +816,35 @@ b = c; /* Wrong! 'b[]' cannot be reassigned (pointing to elsewhere). */
 \section{The Linux Environment}
 \label{sec:linux-environment}
 
-\begin{frame}{Command Line Options}{\texttt{getopt.c}}
+\begin{frame}{Command Line Options}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{getopt-c} }%
-    \mode<article>{\cfile{../src/getopt.c}}
-  \end{center}
-  \qquad\qquad\CMD{man 3 getopt}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{args-c.pdf} }%
+    \mode<article>{ \cfile{../src/args.c} }
+  \end{center}\ttfamily
+  \begin{itemize}
+  \item[\$] ./a.out -a -bc hello 'holy world'
+  \end{itemize}
 \end{frame}
 
-\begin{frame}{Command Line Options}{\texttt{getopt.sh}}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{getopt-sh} }%
-    \mode<article>{\shellfile{../src/getopt.sh}}
-  \end{center}
-  \ttfamily
+\begin{frame}{\texttt{getopt} --- The Standard Way}
+  \begin{iblock}{\CMD{man 3 getopt}}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.9\textwidth]{getopt-c} }%
+      \mode<article>{\cfile{../src/getopt.c}}
+    \end{center}
+  \end{iblock}\ttfamily
+  \begin{itemize}
+  \item[\$] ./a.out -h -l -fhello
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{iblock}{\CMD{help getopts}}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.9\textwidth]{getopt-sh} }%
+      \mode<article>{\shellfile{../src/getopt.sh}}
+    \end{center}
+  \end{iblock}\ttfamily
   \begin{itemize}
   \item[\$] ./getopt.sh -h
   \item[\$] ./getopt.sh -lf filename
@@ -855,7 +870,7 @@ b = c; /* Wrong! 'b[]' cannot be reassigned (pointing to elsewhere). */
   \end{minipage}
 \end{frame}
 
-\citetitle[p.147, Sec. The \texttt{environ} Variable]{matthew2008beginning}
+\citetitle[p.147, Sec~4.2 The \texttt{environ} Variable]{matthew2008beginning}
 
 \begin{frame}{Time and Date}
   \begin{center}

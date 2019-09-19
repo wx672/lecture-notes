@@ -205,16 +205,24 @@
   \end{iblock}
 \end{frame}
 
-\begin{frame}{Everything Is A File}
+\begin{frame}{Everything Is A File}\ttfamily
   \begin{itemize}
-  \item[\$] \cmd{cat /dev/null > /var/log/messages \# empty a file}
+  \item[\$] cat /dev/null > /var/log/messages \# empty a file
     \begin{itemize}
-    \item[\$] \cmd{: > /var/log/messages \# no new process}
+    \item[\$] : > /var/log/messages \# no new process
     \end{itemize}
-  \item[\$] \cmd{ls > /dev/null}
-  \item[\$] \cmd{dd if=/dev/zero of=/tmp/clean bs=1k count=1k}
-  \item[\$] \cmd{dd if=/dev/urandom of=/tmp/random bs=1k count=1k}
+  \item[\$] ls > /dev/null
+  \item[\$] dd if=/dev/zero of=/tmp/clean bs=1k count=1k
+  \item[\$] dd if=/dev/urandom of=/tmp/random bs=1k count=1k
   \end{itemize}
+  \begin{iblock}{{\normalfont Generating random numbers}}
+    \begin{itemize}
+    \item[\$] echo \$RANDOM \# 0\range{}32767; pseudorandom!
+    \item[\$] r=\$((RANDOM \% 100)) \# 0\range{}100
+    \item[\$] RANDOM=8; for i in \$(seq 10); do echo \$RANDOM; done
+    \item[\$] od -A n -N1 -t d /dev/urandom
+    \end{itemize}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{\texttt{/proc}}
