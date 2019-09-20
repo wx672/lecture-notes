@@ -29,7 +29,7 @@
 \end{frame}
 
 \begin{frame}{The \texttt{\#define} Instruction}
-  \begin{block}{Always put \alert{\{ \}} around all multi-statement macros!}
+  \begin{iblock}{Always put \alert{\{ \}} around all multi-statement macros!}
     \begin{center}
       \mode<beamer>{
         \includegraphics[width=.8\textwidth]{die-wrong-c}\tikzmark{die-wrong}
@@ -44,13 +44,13 @@
         \end{tikzpicture}
       }
     \end{center}
-  \end{block}
-  \begin{block}{}
+  \end{iblock}
+  \begin{iblock}{}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{die-right-c}\tikzmark{die-right} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{die-right-c}\tikzmark{die-right} }
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{description}
   \item[Why?] \texttt{gcc -E}
   \end{description}
@@ -60,7 +60,7 @@
 \end{frame}
 
 \begin{frame}[fragile=singleslide]
-  \begin{block}{Always put \alert{( )} around the parameters of a macro!}
+  \begin{iblock}{Always put \alert{( )} around the parameters of a macro!}
     \begin{center}
       \mode<beamer>{
         \includegraphics[width=\textwidth]{sqr-wrong-c}\tikzmark{sqr-wrong}
@@ -75,7 +75,7 @@
         \end{tikzpicture}
       }
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item[\Checked] \mintinline{c}{#define SQR(x) ((x) * (x))}
   \item[\$] \texttt{gcc -E}
@@ -105,7 +105,7 @@
   \item[\&] returns the \alert{address} of a thing
   \item[{\dejavu ✶}] return the \alert{object (thing)} to which a pointer points at
   \end{itemize}
-  \begin{block}{\texttt{int thing; int *thing\_ptr;}}
+  \begin{iblock}{\texttt{int thing; int *thing\_ptr;}}
     \begin{center}
       \begin{tabular}{rl}\hline
         \thead{C Code}&\thead{Description}\\\hline
@@ -118,16 +118,16 @@
         \texttt{\&thing\_ptr}& odd, a pointer to a pointer\\\hline
       \end{tabular}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Example}
+  \begin{iblock}{Example}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.9\textwidth]{ptr2-code-c} }%
       \mode<article>{\cfile{../src/ptr2-code.c}}
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{ptr2} }%
     \mode<article>{ \includegraphics[width=.4\textwidth]{ptr2} }
@@ -135,7 +135,7 @@
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Invalid operation}
+  \begin{iblock}{Invalid operation}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.7\textwidth]{ptr2-wrong1-c} }%
       \mode<article>{\cfile{../src/ptr2-wrong1.c}}
@@ -144,15 +144,15 @@
       This is trying to treat the value of \texttt{i} as an memory address. But the memory
       address \texttt{5} is not accessible by this program.
     }
-  \end{block}
-  \begin{block}{Invalid memory access}
+  \end{iblock}
+  \begin{iblock}{Invalid memory access}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{ptr2-wrong2-c} }%
       \mode<article>{ \includegraphics[width=.6\textwidth]{ptr2-wrong2-c} }
     \end{center}
     \mode<article>{This is trying to treat the value of \texttt{p} as an memory
       address. But the memory address \texttt{5} is not accessible by this program.}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Call by Value}
@@ -176,7 +176,7 @@
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Solution 1: return}
+  \begin{iblock}{Solution 1: return}
     \begin{center}
       \mode<beamer>{
         \includegraphics[width=.7\textwidth]{ptr4-ok-c}
@@ -196,11 +196,11 @@
         \end{enumerate}
       }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Pointers as Function Arguments}
-  \begin{block}{Solution 2: Call by reference}
+  \begin{iblock}{Solution 2: Call by reference}
     \begin{center}
       \mode<beamer>{
         \includegraphics[width=.6\textwidth]{ptr4-c}
@@ -220,7 +220,7 @@
         data structure rather than an \texttt{int}). 
       }
     \end{center}
-  \end{block}    
+  \end{iblock}    
 \end{frame}
 
 \begin{frame}[fragile]{\texttt{const} Pointers}

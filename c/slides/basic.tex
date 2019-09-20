@@ -2,7 +2,7 @@
 \section{Basic Building Blocks of C}
 
 \begin{frame}[fragile]{Basic Building Blocks of C}
-  \begin{block}{Data}
+  \begin{iblock}{Data}
     different \alert{types} of \alert{variables}. Examples:\ttfamily
     \begin{multicols}{3}
       \begin{itemize}
@@ -13,8 +13,8 @@
       \item[double] i;
       \end{itemize}
     \end{multicols}
-  \end{block}
-  \begin{block}{Instructions}
+  \end{iblock}
+  \begin{iblock}{Instructions}
     Tell the computer what to do with the data.
     \begin{multicols}{2}
       \begin{itemize}
@@ -23,7 +23,7 @@
       \item Control statement (\mintinline{c}{if else; for; while; ...})
       \end{itemize}
     \end{multicols}
-  \end{block}
+  \end{iblock}
   Examples:
   \begin{center}
 \begin{ccode}
@@ -35,20 +35,20 @@ if (sum != 11) puts("Wrong!");
 \end{frame}
 
 \begin{frame}[fragile=singleslide]
-  \begin{block}{Operators for shortcuts}
+  \begin{iblock}{Operators for shortcuts}
     \begin{center}{\ttfamily
       \begin{tabular}{llll}
         x++; & x += 2; & x *= 4; & x \%= 6;\\
         x--; & x -= 3; & x /= 5; & \\
       \end{tabular}}
     \end{center}
-  \end{block}
+  \end{iblock}
 \begin{ccode}
 n = 5;
 npp = n++; /* npp is 5 */
 ppn = ++n; /* ppn is 6 */
 \end{ccode}
-  \begin{block}{The result (11 or 13) actually depends on the compiler}
+  \begin{iblock}{The result (11 or 13) actually depends on the compiler}
     {\ttfamily
     \begin{enumerate}
     \item int i=1;
@@ -67,7 +67,7 @@ ppn = ++n; /* ppn is 6 */
       \draw[overlay, ->, blue] ($(pic cs:b1)+(0,7pt)$) to [bend right=25] node
       [auto,swap,inner sep=1pt] {++} ($(pic cs:b2)+(0,7pt)$);
     \end{tikzpicture}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}[fragile]{Functions}
@@ -88,7 +88,7 @@ int main(void){
 }
 \end{ccode}
     \end{minipage}
-    \begin{block}{Recursion --- A function calls itself}
+    \begin{iblock}{Recursion --- A function calls itself}
       \begin{minipage}[t]{.5\linewidth}
 \begin{ccode}
 int factorial(int n){
@@ -104,7 +104,7 @@ int main(void){
 }
 \end{ccode}
       \end{minipage}
-    \end{block}
+    \end{iblock}
 \end{frame}
 
 \begin{frame}{Files}{Several files can be compiled together into a single executable}
@@ -159,12 +159,12 @@ int main(void){
 \end{frame}
 
 \begin{frame}{Integer}
-  \begin{block}{Platform dependent}
+  \begin{iblock}{Platform dependent}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{sizeof-c} }%
       \mode<article>{ \cfile{../src/sizeof.c}}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also: \citetitle[Sec 2.5, \emph{Limits}]{stevens2013advanced}.
@@ -276,12 +276,12 @@ long double &10 byte      &$3.4\times{}10^{-4932}\sim{}1.1\times{}10^{4932}$ & 1
 \end{frame}
 
 \begin{frame}[fragile=singleslide]{Arrays}
-  \begin{block}{}
+  \begin{iblock}{}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{array1-c} }%
       \mode<article>{ \cfile{../src/array1.c}}
     \end{center}
-  \end{block}
+  \end{iblock}
 \begin{itemize}
 \item[\Checked] \mintinline{c}{int data[3]={10,972,45};}
 \item[\Checked] \mintinline{c}{int data[]={10,972,45};}
@@ -292,57 +292,51 @@ long double &10 byte      &$3.4\times{}10^{-4932}\sim{}1.1\times{}10^{4932}$ & 1
 \begin{frame}[fragile=singleslide]{Strings}
   \begin{description}
   \item[Strings] are \alert{character arrays} with the additional special character ``\verb|\0|''
-    (NUL) at the end. E.g.:
+    (NUL) at the end. E.g.:\ttfamily
     \begin{itemize}
-    \item[] \mintinline{c}{char system[] = "Linux";}
-    \item[] \ttfamily\begin{tabular}{*{6}{|c}|} \hline
+    \item[] char system[] = "Linux";
+    \item[] \begin{tabular}{*{6}{|c}|} \hline
               L&i&n&u&x&\textbackslash0\\\hline
             \end{tabular}
           \end{itemize}
   \end{description}
-  \begin{block}{The most common string functions}
+  \begin{iblock}{The most common string functions}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{string-funcs-c} }%
       \mode<article>{ \cfile{../src/string-funcs.c}}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
-\begin{frame}
-  \begin{block}{Example}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{strcat-c} }%
-      \mode<article>{ \cfile{../src/strcat.c}}
-    \end{center}
-  \end{block}
+\begin{frame}{String Functions}
+  \begin{iblock}{\CMD{man 3 strcat; man 3 strcpy}}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{strcat-c} }%
+    \mode<article>{ \cfile{../src/strcat.c}}
+  \end{iblock}
 \end{frame}
 
-\begin{frame}[fragile=singleslide]{fgets()}{Reading in strings from keyboard}
-  \mintinline{c}{char *fgets(char *s, int size, FILE *stream);}
-  \begin{block}{Example}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{fgets1-c} }%
-      \mode<article>{ \cfile{../src/fgets1.c}}
-    \end{center}
-  \end{block}
+\begin{frame}{Reading In Strings From Keyboard}
+  \begin{iblock}{\cmd{char *fgets(char *s, int size, FILE *stream);}}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{fgets1-c} }%
+    \mode<article>{ \cfile{../src/fgets1.c}}
+  \end{iblock}
   \begin{itemize}
   \item[\$] \texttt{man 3 fgets}
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Example}
+  \begin{iblock}{}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.6\textwidth]{fgets2-c} }%
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{fgets2-c} }%
       \mode<article>{ \cfile{../src/fgets2.c}}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
-Output of fgets - Example 2:
-
+Output of fgets():
 \begin{verbatim}
-~$ ./full1
+~$ /tmp/a.out
 Enter first name: John
 Enter last name: Lennon
 The name is John
@@ -363,21 +357,21 @@ first[strlen(first)-1] = '\0';
   earlier.
 \end{description}
 
-\begin{frame}[fragile=singleslide]{scanf()}{Reading in formatted input from stdin}
-  \mintinline{c}{int scanf(const char *format, ...);}
-  \begin{block}{Example}
+\begin{frame}{scanf()}{Reading in formatted input from stdin}
+  \begin{iblock}{\cmd{int scanf(const char *format, ...);}}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.7\textwidth]{scanf-c} }%
       \mode<article>{ \cfile{../src/scanf.c} }
     \end{center}
-  \end{block}
+  \end{iblock}
+  \begin{itemize}
+  \item Better use \texttt{fread(), fgets()} instead whenever possible
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{\texttt{if ... else ...}}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.8\textwidth]{if1-c} }%
+  \mode<beamer>{\centering\includegraphics[width=.6\textwidth]{if1-c} }%
   \mode<article>{\cfile{../src/if1.c}}
-\end{center}
 \end{frame}
 
 \begin{frame}{Relational Operators}
@@ -421,18 +415,14 @@ first[strlen(first)-1] = '\0';
 \end{center}
 \end{frame}
 
-\begin{frame}{switch}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{switch1-c} }%
-    \mode<article>{\cfile{../src/switch1.c}}
-  \end{center}
+\begin{frame}{switch-case}
+  \mode<beamer>{\centering\includegraphics[width=.8\textwidth]{switch1-c} }%
+  \mode<article>{\cfile{../src/switch1.c}}
 \end{frame}
 
 \begin{frame}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.8\textwidth]{switch2-c} }%
+  \mode<beamer>{ \centering\includegraphics[width=.7\textwidth]{switch2-c} }%
   \mode<article>{ \cfile{../src/switch2.c}}
-\end{center}
 \end{frame}
 
 \mode<all>

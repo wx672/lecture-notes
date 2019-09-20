@@ -34,13 +34,13 @@
     When passing an array to a function, C will automatically change the array into a
     pointer.
   \end{block}  
-  \begin{minipage}{.47\linewidth}
+  \begin{minipage}{.55\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{array3-1-c} }%
       \mode<article>{ \includegraphics[width=.6\textwidth]{array3-1-c} }
     \end{center}
   \end{minipage}\hfill
-  \begin{minipage}{.47\linewidth}
+  \begin{minipage}{.4\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{array3-2-c} }%
       \mode<article>{ \includegraphics[width=.6\textwidth]{array3-2-c} }
@@ -86,7 +86,7 @@ b = c; /* Wrong! 'b[]' cannot be reassigned (pointing to elsewhere). */
 \end{ccode}
 
 \begin{frame}[fragile=singleslide]{How not to Use Pointers}
-  \begin{block}{Life is complicated enough, don't make it worse}
+  \begin{iblock}{Life is complicated enough, don't make it worse}
 \begin{ccode}
 /* Point to the first element of the array. */
 data_ptr = &array[0];
@@ -101,14 +101,14 @@ value = *++data_ptr;
    Leave data_ptr alone. */
 value = ++*data_ptr;
 \end{ccode}
-  \end{block}
+  \end{iblock}
   \begin{tikzpicture}[remember picture,overlay]
     \node at ($(current page.center)+(4.5,-2)$) [opacity=.2,red,scale=10] {\bad};
   \end{tikzpicture}  
 \end{frame}
 
 \begin{frame}[fragile]
-  \begin{block}{Just don't do it}
+  \begin{iblock}{Just don't do it}
 \begin{ccode}
 void copy_string(char *p, char *q)
 {
@@ -116,9 +116,9 @@ void copy_string(char *p, char *q)
 }
 \end{ccode}
   \begin{tikzpicture}[remember picture,overlay]
-    \node at ($(current page.center)+(2,-2)$) [opacity=.2,red,scale=20] {\bad};
+    \node at ($(current page.center)+(2,-2)$) [opacity=.2,red,scale=10] {\bad};
   \end{tikzpicture}  
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 % https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-s096-effective-programming-in-c-and-c-january-iap-2014/lecture-notes/

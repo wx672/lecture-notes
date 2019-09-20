@@ -7,9 +7,13 @@ int main () {
     printf("Enter name: ");
     scanf("%s", name);
     printf("Enter age: ");
-    scanf("%d", age);
+    scanf("%d", &age);
 
     printf("Your name is: %s\n", name);
     printf("Your age is: %d\n", age);
     return 0;
 }
+
+/* Local Variables: */
+/* compile-command: "gcc -Wall -Wextra scanf.c -o /tmp/a.out" */
+/* End: */

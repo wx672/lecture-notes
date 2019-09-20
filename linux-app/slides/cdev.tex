@@ -148,7 +148,7 @@
   \end{iblock}
 \end{frame}
 
-\subsection{Header Files}
+\subsection{Header Files And Macros}
 \label{sec:header-files}
 
 \begin{frame}{Header Files}
@@ -168,18 +168,94 @@
   \item Ensure everyone use the same code
   \item Easy to share, upgrade, reuse
   \end{itemize}
-  \begin{block}{In the header files\ldots}
-    \begin{multicols}{2}
+\end{frame}
+
+\begin{frame}
+  \begin{iblock}{In the header files\ldots}
+    \begin{itemize}
+    \item function declarations, e.g.:
       \begin{itemize}
-      \item function declarations
-      \item macro definitions
-      \item constants
-      \item system wide global variables
+      \item[] \cmd{int myfunc(int fd, void *buf, int nbyte);}
       \end{itemize}
-    \end{multicols}
-  \end{block}
+    \item macro definitions, e.g.:
+      \begin{itemize}
+      \item[] \cmd{\#define SQR(x) ((x) * (x))}
+      \end{itemize}
+    \item constants
+    \item system wide global variables
+    \end{itemize}
+  \end{iblock}
+\end{frame}
+
+\begin{frame}{The \texttt{\#include} Instruction}
+  \begin{center}
+    \includegraphics[scale=1.5]{include-c}\tikzmark{inc}
+  \end{center}
+\begin{description}
+\item[Stan\tikzmark{std}dard header files:] define data structures, macros, and function
+  prototypes used by library routines, e.g. \texttt{printf()}.
   \begin{itemize}
-  \item[\$] \texttt{ls /usr/include/}
+  \item[\$] \cmd{ls /usr/include}
+  \end{itemize}
+\item[Loc\tikzmark{local}al include files:] self-defined data structures, macros, and
+  function prototypes.
+\end{description}
+\begin{itemize}
+\item[\$] \cmd{gcc -E hello.c}
+\end{itemize}
+\begin{tikzpicture}[remember picture,overlay,->,blue,ultra thick,opacity=.1]
+  \draw ($(pic cs:std)+(0,1ex)$) to[bend left=25] ($(pic cs:inc)+(-2.8,.8)$);
+  \draw ($(pic cs:local)+(0,1ex)$) to[bend left=20] ($(pic cs:inc)+(-2.8,.2)$);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{The \texttt{\#define} Instruction}
+  \begin{iblock}{Always put \alert{\{ \}} around all multi-statement macros!}
+    \begin{center}
+      \mode<beamer>{
+        \includegraphics[width=.8\textwidth]{die-wrong-c}\tikzmark{die-wrong}
+        \begin{tikzpicture}[remember picture,overlay,opacity=.3]
+          \node (wrong) [scale=5] at ($(pic cs:die-wrong)+(0,3)$) {\wrong};
+        \end{tikzpicture}}%
+      \mode<article>{
+        \includegraphics[width=.4\textwidth]{die-wrong-c}\tikzmark{die-wronga}
+        \begin{tikzpicture}[remember picture,overlay,opacity=.3]
+          \node (wrong) [scale=5] at ($(pic cs:die-wronga)+(0,2)$) {\wrong};
+        \end{tikzpicture}}
+    \end{center}
+  \end{iblock}
+  \begin{iblock}{}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{die-right-c}\tikzmark{die-right} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{die-right-c}\tikzmark{die-right} }
+    \end{center}
+  \end{iblock}
+  \begin{description}
+  \item[Why?] \cmd{gcc -E}
+  \end{description}
+  \begin{tikzpicture}[remember picture,overlay,opacity=.3]
+    \node (right) [scale=5] at (pic cs:die-right) {\correct};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+  \begin{iblock}{Always put \alert{( )} around the parameters of a macro!}
+    \begin{center}
+      \mode<beamer>{
+        \includegraphics[width=\textwidth]{sqr-wrong-c}\tikzmark{sqr-wrong}
+        \begin{tikzpicture}[remember picture,overlay,opacity=.3]
+          \node [scale=5] at ($(pic cs:sqr-wrong)+(-6,4.5)$) {\RedCross};
+        \end{tikzpicture} }%
+      \mode<article>{
+        \includegraphics[width=.5\textwidth]{sqr-wrong-c}\tikzmark{sqr-wronga}
+        \begin{tikzpicture}[remember picture,overlay,opacity=.3]
+          \node [scale=5] at ($(pic cs:sqr-wronga)+(-4,3.2)$) {\RedCross};
+        \end{tikzpicture} }
+    \end{center}
+  \end{iblock}
+  \begin{itemize}
+  \item[\correct] \mintinline{c}{#define SQR(x) ((x) * (x))}
+  \item[\$] \texttt{gcc -E}
   \end{itemize}
 \end{frame}
 
