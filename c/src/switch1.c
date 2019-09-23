@@ -1,13 +1,19 @@
 #include <stdio.h>
+#include <unistd.h>
 
 int main()
 {
-  char grade;
+	char grade[1];
+
   while(1){
-    puts("Input an uppercase letter: ");
-    scanf(" %c", &grade); /* try without the space */
-    
-    switch(grade) {
+	  /* write(1, "Input an uppercase letter: ", 27); */
+	  /* read(0, &grade, 2); */
+	  printf("Input an uppercase letter: ");
+	  /* grade = getchar(); getchar(); */
+	  /* scanf(" %c", &grade); /\* try without the space *\/ */
+
+	  scanf("%s",grade);
+    switch(grade[0]) {
     case 'A' :
       puts("Excellent!"); break;
     case 'B' :
