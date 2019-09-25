@@ -14,5 +14,5 @@ int main()
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra env.c -o /tmp/a.out" */
+/* compile-command: "gcc -Wall -Wextra env.c -o /tmp/env" */
 /* End: */

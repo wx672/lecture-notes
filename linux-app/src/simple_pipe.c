@@ -46,5 +46,5 @@ int main(int argc, char *argv[]) /* Over-simplified! */
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra simple_pipe.c -o simple-pipe" */
+/* compile-command: "gcc -Wall -Wextra simple_pipe.c -o /tmp/simple_pipe" */
 /* End: */

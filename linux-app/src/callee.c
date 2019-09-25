@@ -6,5 +6,5 @@ int main(int argc, char **argv) {
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra callee.c -o callee" */
+/* compile-command: "gcc -Wall -Wextra callee.c -o /tmp/callee" */
 /* End: */

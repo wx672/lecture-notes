@@ -7,5 +7,5 @@ int main(void) {
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra caller.c -o caller" */
+/* compile-command: "gcc -Wall -Wextra caller.c -o /tmp/caller" */
 /* End: */

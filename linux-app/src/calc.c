@@ -9,5 +9,5 @@ int main (void)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra calc.c -lm -o calc" */
+/* compile-command: "gcc -Wall -Wextra calc.c -lm -o /tmp/calc" */
 /* End: */

@@ -18,5 +18,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra cp-libc.c -o cp-libc" */
+/* compile-command: "gcc -Wall -Wextra cp-libc.c -o /tmp/cp-libc" */
 /* End: */

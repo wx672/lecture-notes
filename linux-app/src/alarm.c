@@ -28,5 +28,5 @@ int main()
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra alarm.c -o alarm" */
+/* compile-command: "gcc -Wall -Wextra alarm.c -o /tmp/alarm" */
 /* End: */

@@ -13,5 +13,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra perror.c -o perror" */
+/* compile-command: "gcc -Wall -Wextra perror.c -o /tmp/perror" */
 /* End: */

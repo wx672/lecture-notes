@@ -39,5 +39,5 @@ int main(int argc, char *argv[]) /* Oversimplified */
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra fifo2.c -o fifo2" */
+/* compile-command: "gcc -Wall -Wextra fifo2.c -o /tmp/fifo2" */
 /* End: */

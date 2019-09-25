@@ -12,5 +12,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra syslog.c -o syslog" */
+/* compile-command: "gcc -Wall -Wextra syslog.c -o /tmp/syslog" */
 /* End: */

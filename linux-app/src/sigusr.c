@@ -28,5 +28,5 @@ void sig_usr(int signo)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra sigusr.c -o sigusr" */
+/* compile-command: "gcc -Wall -Wextra sigusr.c -o /tmp/sigusr" */
 /* End: */

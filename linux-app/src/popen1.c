@@ -21,5 +21,5 @@ int main()
 
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra popen1.c -o popen1" */
+/* compile-command: "gcc -Wall -Wextra popen1.c -o /tmp/popen1" */
 /* End: */

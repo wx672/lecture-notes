@@ -14,5 +14,5 @@ int main()
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra forkforkfork.c -o fff" */
+/* compile-command: "gcc -Wall -Wextra forkforkfork.c -o /tmp/fff" */
 /* End: */

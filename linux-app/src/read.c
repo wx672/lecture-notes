@@ -12,5 +12,5 @@ int main(void)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra read.c -o read" */
+/* compile-command: "gcc -Wall -Wextra read.c -o /tmp/read" */
 /* End: */

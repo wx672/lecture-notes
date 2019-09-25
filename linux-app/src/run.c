@@ -16,5 +16,5 @@ int main(int argc, char *argv[]) {
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra run.c -o run" */
+/* compile-command: "gcc -Wall -Wextra run.c -o /tmp/run" */
 /* End: */

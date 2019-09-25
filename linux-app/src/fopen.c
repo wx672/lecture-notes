@@ -14,5 +14,5 @@ int main(void)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra fopen.c -o fopen" */
+/* compile-command: "gcc -Wall -Wextra fopen.c -o /tmp/fopen" */
 /* End: */

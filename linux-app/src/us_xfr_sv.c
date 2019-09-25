@@ -59,5 +59,5 @@ int main(void)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra us_xfr_sv.c -o us-xfr-sv" */
+/* compile-command: "gcc -Wall -Wextra us_xfr_sv.c -o /tmp/us-xfr-sv" */
 /* End: */

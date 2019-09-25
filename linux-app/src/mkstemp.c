@@ -19,5 +19,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra mkstemp.c -o mkstemp" */
+/* compile-command: "gcc -Wall -Wextra mkstemp.c -o /tmp/mkstemp" */
 /* End: */

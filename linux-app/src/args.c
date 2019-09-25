@@ -14,5 +14,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra args.c -o /tmp/a.out" */
+/* compile-command: "gcc -Wall -Wextra args.c -o /tmp/args" */
 /* End: */

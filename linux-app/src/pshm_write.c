@@ -36,5 +36,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra pshm_write.c -o pshm-write -lrt" */
+/* compile-command: "gcc -Wall -Wextra pshm_write.c -o /tmp/pshm-write -lrt" */
 /* End: */

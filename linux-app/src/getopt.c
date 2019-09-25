@@ -22,5 +22,5 @@ int main(int argc, char* argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra getopt.c -o /tmp/a.out" */
+/* compile-command: "gcc -Wall -Wextra getopt.c -o /tmp/getopt" */
 /* End: */

@@ -33,5 +33,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra pshm_read.c -o pshm-read -lrt" */
+/* compile-command: "gcc -Wall -Wextra pshm_read.c -o /tmp/pshm-read -lrt" */
 /* End: */

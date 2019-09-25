@@ -3,7 +3,7 @@
 int main(int argc, char *argv[])
 {
   int i;
-  printf("You said:\n\t");
+  puts("You said:\n\t");
   
   for(i=1; i<argc; i++)
     printf("%s ",argv[i]);
@@ -17,5 +17,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra isay.c -o isay" */
+/* compile-command: "gcc -Wall -Wextra isay.c -o /tmp/isay" */
 /* End: */

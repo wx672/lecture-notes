@@ -40,5 +40,5 @@ int main(void)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra shell2.c -o shell2" */
+/* compile-command: "gcc -Wall -Wextra shell2.c -o /tmp/shell2" */
 /* End: */

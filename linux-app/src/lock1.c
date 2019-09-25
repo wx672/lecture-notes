@@ -15,5 +15,5 @@ int main()
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra lock1.c -o lock1" */
+/* compile-command: "gcc -Wall -Wextra lock1.c -o /tmp/lock1" */
 /* End: */

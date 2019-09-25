@@ -32,5 +32,5 @@ int main(void)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra thread1.c -o thread1 -pthread" */
+/* compile-command: "gcc -Wall -Wextra thread1.c -o /tmp/thread1 -pthread" */
 /* End: */

@@ -8,5 +8,5 @@ int main(void)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra write.c -o write" */
+/* compile-command: "gcc -Wall -Wextra write.c -o /tmp/write" */
 /* End: */

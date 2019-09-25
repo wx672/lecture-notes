@@ -9,5 +9,5 @@ int main(void)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra putchar.c -o putchar" */
+/* compile-command: "gcc -Wall -Wextra putchar.c -o /tmp/putchar" */
 /* End: */

@@ -49,5 +49,5 @@ int main(int argc, char **argv)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra mq-recv.c -o mq-recv -lrt" */
+/* compile-command: "gcc -Wall -Wextra mq-recv.c -o /tmp/mq-recv -lrt" */
 /* End: */

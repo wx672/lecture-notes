@@ -7,5 +7,5 @@ int main(void)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra hello.c" */
+/* compile-command: "gcc -Wall -Wextra hello.c -o /tmp/hello" */
 /* End: */

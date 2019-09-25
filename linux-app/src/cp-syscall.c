@@ -28,5 +28,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra cp-syscall.c -o cp-syscall" */
+/* compile-command: "gcc -Wall -Wextra cp-syscall.c -o /tmp/cp-syscall" */
 /* End: */

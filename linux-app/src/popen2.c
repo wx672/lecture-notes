@@ -19,5 +19,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra popen2.c -o popen2" */
+/* compile-command: "gcc -Wall -Wextra popen2.c -o /tmp/popen2" */
 /* End: */

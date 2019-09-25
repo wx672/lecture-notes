@@ -18,5 +18,5 @@ int main ()
   return 0;
 }
 /* Local Variables: */
-/* compile-command: "gcc -Wall fork.c" */
+/* compile-command: "gcc -Wall fork.c -o /tmp/fork" */
 /* End: */

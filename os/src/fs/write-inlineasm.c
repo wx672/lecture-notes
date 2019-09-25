@@ -10,5 +10,5 @@ int main(void) {
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall write-inlineasm.c -o w-inline" */
+/* compile-command: "gcc -Wall write-inlineasm.c -o /tmp/a.out" */
 /* End: */

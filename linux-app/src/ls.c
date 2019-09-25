@@ -20,5 +20,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra ls.c -o ls" */
+/* compile-command: "gcc -Wall -Wextra ls.c -o /tmp/ls" */
 /* End: */

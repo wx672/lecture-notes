@@ -24,5 +24,5 @@ int main() {
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra lock2.c -o lock2" */
+/* compile-command: "gcc -Wall -Wextra lock2.c -o /tmp/lock2" */
 /* End: */

@@ -52,5 +52,5 @@ void *func(void *arg) {
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra thread3.c -o thread3 -pthread" */
+/* compile-command: "gcc -Wall -Wextra thread3.c -o /tmp/thread3 -pthread" */
 /* End: */

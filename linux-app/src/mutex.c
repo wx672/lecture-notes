@@ -55,5 +55,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra mutex.c -o mutex -pthread" */
+/* compile-command: "gcc -Wall -Wextra mutex.c -o /tmp/mutex -pthread" */
 /* End: */

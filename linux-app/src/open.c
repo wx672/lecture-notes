@@ -14,7 +14,6 @@ int main()
   return 0;
 }
 
-
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra open.c -o open" */
+/* compile-command: "gcc -Wall -Wextra open.c -o /tmp/open" */
 /* End: */

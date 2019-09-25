@@ -50,5 +50,5 @@ int main(int argc, char *argv[])
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra atomic-mutex.c -o atomic-mutex -pthread" */
+/* compile-command: "gcc -Wall -Wextra atomic-mutex.c -o /tmp/atomic-mutex -pthread" */
 /* End: */

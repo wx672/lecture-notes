@@ -31,5 +31,5 @@ int main() {
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra lock2-sigint.c -o lock2-sigint" */
+/* compile-command: "gcc -Wall -Wextra lock2-sigint.c -o /tmp/lock2-sigint" */
 /* End: */
