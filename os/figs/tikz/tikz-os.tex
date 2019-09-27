@@ -672,9 +672,9 @@
 
     \matrix [row sep=5mm]%column sep=-1cm, 
     {
-      \node (emacs)[tool,%
-      %label={\includegraphics[scale=.5]{programmer}},%
-      label={0:\textdollar{} emacs hello.c}] {Editor\\(\texttt{emacs})};\\%
+      % \node (emacs)[tool,%
+      % %label={\includegraphics[scale=.5]{programmer}},%
+      % label={0:\textdollar{} emacs hello.c}] {Editor\\(\texttt{emacs})};\\%
       \node (hello-c) [file] {C source code\\(\texttt{hello.c})};\\%
       \node (cpp) [tool,label={0:\begin{tabular}{l}
           \$ cpp hello.c\\
@@ -701,11 +701,11 @@
       %   \$ gdb hello
       % \end{tabular}}] {Debugger\\(\texttt{gdb})};\\%
   };
- \node (stdio-h) [right=2mm of hello-c,file] {Include files, macros\\(\texttt{stdio.h})};%
- \node (printf) [right=2mm of hello-o,file] {Libraries\\(\texttt{printf})};
+ \node (stdio-h) [right=2mm of hello-c,file] {Include files, macros\\(\texttt{e.g. stdio.h})};%
+ \node (printf) [right=2mm of hello-o,file] {Libraries\\(\texttt{e.g. printf})};
 
   \begin{scope}[every path/.style=line]
-    \path (emacs) -- (hello-c);
+    % \path (emacs) -- (hello-c);
     \path (hello-c) -- (cpp);
     \path (stdio-h) -- (cpp);
     \path (cpp) -- (helloext);
@@ -1197,7 +1197,7 @@
   \draw [arrow,dotted] (inode.north) |- ($(disk.east) + (0,.7cm)$);
 \end{tikzpicture}  
   \caption{VFS objects}
-  \label{fig:vfs-objs}
+  \label{fig:vfs-objs-bw}
 \end{figure}
 
 \tikzsetnextfilename{vfs-cp}
