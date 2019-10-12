@@ -142,7 +142,7 @@
    - =#= 代表root；
 5. 然后，开始大批量安装软件包：
    #+BEGIN_SRC sh
-   apt install $(cat list.laptop)
+   apt-get install $(cat list.laptop)
    #+END_SRC
    
    如果网络顺畅的话，这一步大概需要半个小时。通常，安装过程是不需要人为干预的。但有的软件

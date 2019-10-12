@@ -332,26 +332,42 @@
       1. understanding =signal()=
      
          If you can understand
-         : typedef int MYINT;
-         : MYINT myfunction(MYINT);
-         Then, you should be able to understand 
-         : typedef void (*sighandler_t)(int);
-         : sighandler_t signal(int signum, sighandler_t handler);
+         
+         #+begin_src c
+         typedef int MYINT;
+         MYINT myfunction(MYINT);
+         #+end_src
+         
+         Then, you should be able to understand
+
+         #+begin_src c
+         typedef void (*sighandler_t)(int);
+         sighandler_t signal(int signum, sighandler_t handler);
+         #+end_src
+         
          Now, tell me your understanding about the following [[http://en.wikipedia.org/wiki/Function_prototype][function prototype]]:
-         : void (*signal(int sig, void (*func)(int)))(int);
-         :              `-------------------v------------'
-         :                                   `----> *signal() is a function returning a 'function pointer'
-         :                                    `               pointing to a function of type void(*)(int)
-         :                                     `--> *signal() takes 2 arguments:
-         :                                            .  sig - an int
-         :                                            . func - a 'function pointer' void(*)(int)
+         
+         #+begin_example
+         void (*signal(int sig, void (*func)(int)))(int);
+                      `-------------------v------------'
+                                           `----> *signal() is a function returning a 'function pointer'
+                                            `               pointing to a function of type void(*)(int)
+                                             `--> *signal() takes 2 arguments:
+                                                    .  sig - an int
+                                                    . func - a 'function pointer' void(*)(int)
+         #+end_example
+
          Put it in another way:
-         : void (*signal(int sig, void (*func)(int)))(int);
-         : void (                 *                 )(int);
-         : `--------------------v------------------------'
-         :                       `---> void(*)(int) is a function pointer which is:
-         :                             - returned by function '*signal()'
-         :                             - pointing to a function taking an int, returning void
+
+         #+begin_example
+         void (*signal(int sig, void (*func)(int)))(int);
+         void (                 *                 )(int);
+         `--------------------v------------------------'
+                               `---> void(*)(int) is a function pointer which is:
+                                     - returned by function '*signal()'
+                                     - pointing to a function taking an int, returning void
+         #+end_example
+
          - =man 2 signal= can help
 
       2. Following /Beej's Guide to Unix IPC/, [[http://beej.us/guide/bgipc/html/multi/signals.html][section 3]] to play with signals. And then

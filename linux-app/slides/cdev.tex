@@ -5,6 +5,16 @@
 \section{C Programming Environment}
 \label{sec:c-programming-basics}
 
+\begin{frame}{Languages}
+  \begin{description}
+  \item[Languages] is a way to express yourself. In another word,
+    \begin{itemize}
+    \item If nothing to express, you don't need any languages.
+    \item if nothing to do, you don't need any programming languages.
+    \end{itemize}
+  \end{description}
+\end{frame}
+
 \begin{frame}{Program Languages}
   \begin{block}{Machine code}
     The \alert{binary numbers} that the CPUs can understand.
@@ -189,7 +199,8 @@
 
 \begin{frame}{The \texttt{\#include} Instruction}
   \begin{center}
-    \includegraphics[scale=1.5]{include-c}\tikzmark{inc}
+    \mode<beamer>{\includegraphics[scale=1.5]{include-c}\tikzmark{inc}}%
+    \mode<article>{\includegraphics[scale=1.5]{include-c-bw}\tikzmark{inc}}
   \end{center}
 \begin{description}
 \item[Stan\tikzmark{std}dard header files:] define data structures, macros, and function
@@ -218,7 +229,7 @@
           \node (wrong) [scale=5] at ($(pic cs:die-wrong)+(0,3)$) {\wrong};
         \end{tikzpicture}}%
       \mode<article>{
-        \includegraphics[width=.4\textwidth]{die-wrong-c}\tikzmark{die-wronga}
+        \includegraphics[width=.4\textwidth]{die-wrong-c-bw}\tikzmark{die-wronga}
         \begin{tikzpicture}[remember picture,overlay,opacity=.3]
           \node (wrong) [scale=5] at ($(pic cs:die-wronga)+(0,2)$) {\wrong};
         \end{tikzpicture}}
@@ -227,7 +238,7 @@
   \begin{iblock}{}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{die-right-c}\tikzmark{die-right} }%
-      \mode<article>{ \includegraphics[width=.4\textwidth]{die-right-c}\tikzmark{die-right} }
+      \mode<article>{ \includegraphics[width=.4\textwidth]{die-right-c-bw}\tikzmark{die-right} }
     \end{center}
   \end{iblock}
   \begin{description}
@@ -247,7 +258,7 @@
           \node [scale=5] at ($(pic cs:sqr-wrong)+(-6,4.5)$) {\RedCross};
         \end{tikzpicture} }%
       \mode<article>{
-        \includegraphics[width=.5\textwidth]{sqr-wrong-c}\tikzmark{sqr-wronga}
+        \includegraphics[width=.5\textwidth]{sqr-wrong-c-bw}\tikzmark{sqr-wronga}
         \begin{tikzpicture}[remember picture,overlay,opacity=.3]
           \node [scale=5] at ($(pic cs:sqr-wronga)+(-4,3.2)$) {\RedCross};
         \end{tikzpicture} }
@@ -787,19 +798,21 @@
 
 \begin{frame}
   \begin{minipage}[t]{.45\linewidth}
-    \includegraphics[width=\textwidth]{array2-c}
+    \mode<beamer>{\includegraphics[width=\textwidth]{array2-c}}
+    \mode<article>{\includegraphics[width=\textwidth]{array2-c-bw}}
   \end{minipage}\quad
   \begin{minipage}[t]{.5\linewidth}
-    \includegraphics[width=\textwidth]{array2-2-c}\tikzmark{array2-2}
-    \mode<beamer>{
+    \mode<beamer>{%
+      \includegraphics[width=\textwidth]{array2-2-c}\tikzmark{array2-2}
       \begin{tikzpicture}[remember picture,overlay]
         \node at ($(pic cs:array2-2)+(-.68,.95)$) [ellipse,opacity=.4,red,draw,thick,minimum
         width=1cm] {};
-      \end{tikzpicture}}
-    \mode<article>{
+      \end{tikzpicture}}%
+    \mode<article>{%
+      \includegraphics[width=\textwidth]{array2-2-c-bw}\tikzmark{array2-2}
       \begin{tikzpicture}[remember picture,overlay]
-        \node at ($(pic cs:array2-2)+(-.9,1.4)$) [ellipse,opacity=.4,red,draw,thick,minimum
-        width=1.5cm] {};
+        \node at ($(pic cs:array2-2)+(-4,2)$) [ellipse,opacity=.4,red,draw,thick,minimum
+        width=1cm] {};
       \end{tikzpicture}
       C automatically scales pointer arithmetic so that it works correctly, by
       incrementing/decrementing by the correct number of bytes. For example, in above

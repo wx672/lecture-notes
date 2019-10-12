@@ -8,7 +8,7 @@
 void *func(void *arg);
 sem_t sem;
 #define BUFSIZE 1024
-char buf[BUFSIZE];
+char buf[BUFSIZE]; 				/* critical region */
 
 int main() {
   pthread_t t;
@@ -49,5 +49,5 @@ void *func(void *arg) {
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra thread-semaphore.c -o thread-semaphore -pthread" */
+/* compile-command: "gcc -Wall -Wextra thread-semaphore.c -o /tmp/a.out -pthread" */
 /* End: */

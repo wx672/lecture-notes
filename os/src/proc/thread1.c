@@ -21,10 +21,10 @@ int main(void)
     abort();
   }
 
-  /* if( pthread_join(t, NULL) ){ */
-  /*   perror("error joining thread."); */
-  /*   abort(); */
-  /* } */
+  if( pthread_join(t, NULL) ){
+    perror("error joining thread.");
+    abort();
+  }
   exit(0);
 }
 

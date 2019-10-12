@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cn">
 <head>
-<!-- 2019-09-23 Mon 08:18 -->
+<!-- 2019-10-12 Sat 17:26 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Debian快速安装指导</title>
@@ -134,16 +134,16 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5ad7a5a">1. UEFI</a></li>
-<li><a href="#org56c4ceb">2. 安装</a></li>
-<li><a href="#orgb4c69d1">3. 安装配置</a>
+<li><a href="#org11516f8">1. UEFI</a></li>
+<li><a href="#org9d642f0">2. 安装</a></li>
+<li><a href="#org6e26ab3">3. 安装配置</a>
 <ul>
-<li><a href="#orgba71d3b">3.1. 配置</a>
+<li><a href="#org49138fb">3.1. 配置</a>
 <ul>
-<li><a href="#orga11b678">3.1.1. sudo</a></li>
-<li><a href="#org56ff28a">3.1.2. dotfile</a></li>
-<li><a href="#orgc1a7bf6">3.1.3. Auto login</a></li>
-<li><a href="#orgb23fd62">3.1.4. 中文语言环境</a></li>
+<li><a href="#org6f118e4">3.1.1. sudo</a></li>
+<li><a href="#orge274608">3.1.2. dotfile</a></li>
+<li><a href="#org36a9d9c">3.1.3. Auto login</a></li>
+<li><a href="#org34d2f67">3.1.4. 中文语言环境</a></li>
 </ul>
 </li>
 </ul>
@@ -154,13 +154,13 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#app3">5. 附录：关于硬件配置</a></li>
-<li><a href="#org0be7b79">6. 附录：LaTeX （非必须）</a></li>
+<li><a href="#org1ac1a59">6. 附录：LaTeX （非必须）</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5ad7a5a" class="outline-2">
-<h2 id="org5ad7a5a"><span class="section-number-2">1</span> UEFI</h2>
+<div id="outline-container-org11516f8" class="outline-2">
+<h2 id="org11516f8"><span class="section-number-2">1</span> UEFI</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 现在（2018年10月）的电脑都很新潮，在主板上几乎都用UEFI取代了传统的BIOS。关于UEFI设置，我的经验是：
@@ -178,8 +178,8 @@ Technology (Intel RST)，把它设置为AHCI。</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org56c4ceb" class="outline-2">
-<h2 id="org56c4ceb"><span class="section-number-2">2</span> 安装</h2>
+<div id="outline-container-org9d642f0" class="outline-2">
+<h2 id="org9d642f0"><span class="section-number-2">2</span> 安装</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 安装Debian系统的大致步骤如下：
@@ -259,8 +259,8 @@ sudo sync
 </div>
 </div>
 
-<div id="outline-container-orgb4c69d1" class="outline-2">
-<h2 id="orgb4c69d1"><span class="section-number-2">3</span> 安装配置</h2>
+<div id="outline-container-org6e26ab3" class="outline-2">
+<h2 id="org6e26ab3"><span class="section-number-2">3</span> 安装配置</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 最小系统装好之后，拔出U盘，重启系统，现在我们讲讲之后的事情……
@@ -379,7 +379,7 @@ wget https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/
 然后，开始大批量安装软件包：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">apt install $(<span style="color: #FFA000;">cat</span> list.laptop)
+<pre class="src src-sh">apt-get install $(<span style="color: #FFA000;">cat</span> list.laptop)
 </pre>
 </div>
 
@@ -403,12 +403,12 @@ wget https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/
 </ol>
 </div>
 
-<div id="outline-container-orgba71d3b" class="outline-3">
-<h3 id="orgba71d3b"><span class="section-number-3">3.1</span> 配置</h3>
+<div id="outline-container-org49138fb" class="outline-3">
+<h3 id="org49138fb"><span class="section-number-3">3.1</span> 配置</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-orga11b678" class="outline-4">
-<h4 id="orga11b678"><span class="section-number-4">3.1.1</span> sudo</h4>
+<div id="outline-container-org6f118e4" class="outline-4">
+<h4 id="org6f118e4"><span class="section-number-4">3.1.1</span> sudo</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 <code>sudo</code> 的时候总要问密码，是不是很烦？那就不让它问了：
@@ -464,8 +464,8 @@ your-user-name  ALL = NOPASSWD: ALL
 </ol>
 </div>
 </div>
-<div id="outline-container-org56ff28a" class="outline-4">
-<h4 id="org56ff28a"><span class="section-number-4">3.1.2</span> dotfile</h4>
+<div id="outline-container-orge274608" class="outline-4">
+<h4 id="orge274608"><span class="section-number-4">3.1.2</span> dotfile</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 现在你的系统和机房的差不多一样了，唯一的差别就是你还没配置呢。
@@ -581,8 +581,8 @@ tar zxf elpa.tgz
 </ol>
 </div>
 </div>
-<div id="outline-container-orgc1a7bf6" class="outline-4">
-<h4 id="orgc1a7bf6"><span class="section-number-4">3.1.3</span> Auto login</h4>
+<div id="outline-container-org36a9d9c" class="outline-4">
+<h4 id="org36a9d9c"><span class="section-number-4">3.1.3</span> Auto login</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 简单起见，我们只讲“怎么做”，先不管“为什么”。（需要sudo，也就是用root身份来做）
@@ -620,8 +620,8 @@ ExecStart=-/sbin/agetty --autologin wx672 --noclear %I $TERM
 </div>
 </div>
 
-<div id="outline-container-orgb23fd62" class="outline-4">
-<h4 id="orgb23fd62"><span class="section-number-4">3.1.4</span> 中文语言环境</h4>
+<div id="outline-container-org34d2f67" class="outline-4">
+<h4 id="org34d2f67"><span class="section-number-4">3.1.4</span> 中文语言环境</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p>
 注意，我们其实并不需要一套纯正的中文环境，我们只是需要输入和阅读中文。
@@ -717,7 +717,7 @@ sudo apt install <span style="color: #FFA000;">`cat list.chinese`</span>
 </div>
 </div>
 
-<div id="outline-container-orgaf63a6c" class="outline-2">
+<div id="outline-container-org7b327b9" class="outline-2">
 <h2 id="app1"><span class="section-number-2">4</span> 附录：没有有线网卡怎么办？</h2>
 <div class="outline-text-2" id="text-app1">
 <p>
@@ -781,7 +781,7 @@ Tethering”，激活里面的USB Tethering功能就行了；</li>
 </ol>
 </div>
 
-<div id="outline-container-org0952f95" class="outline-3">
+<div id="outline-container-org7c97cf0" class="outline-3">
 <h3 id="app2"><span class="section-number-3">4.1</span> 无线联网时的密码设置</h3>
 <div class="outline-text-3" id="text-app2">
 <p>
@@ -831,7 +831,7 @@ wpa-psk PASSWORD
 </div>
 </div>
 
-<div id="outline-container-org596b210" class="outline-2">
+<div id="outline-container-orga16636f" class="outline-2">
 <h2 id="app3"><span class="section-number-2">5</span> 附录：关于硬件配置</h2>
 <div class="outline-text-2" id="text-app3">
 <p>
@@ -880,8 +880,8 @@ sudo apt install firmware-iwlwifi
 </p>
 </div>
 </div>
-<div id="outline-container-org0be7b79" class="outline-2">
-<h2 id="org0be7b79"><span class="section-number-2">6</span> 附录：LaTeX （非必须）</h2>
+<div id="outline-container-org1ac1a59" class="outline-2">
+<h2 id="org1ac1a59"><span class="section-number-2">6</span> 附录：LaTeX （非必须）</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 在Linux平台，你不用非要学习使用LaTeX来排版你的文章、报告、论文，
@@ -961,7 +961,7 @@ Happy LaTeXing!
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 王晓林</p>
-<p class="date">Created: 2019-09-23 Mon 08:18</p>
+<p class="date">Created: 2019-10-12 Sat 17:26</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

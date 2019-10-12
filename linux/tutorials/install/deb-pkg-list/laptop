@@ -23,8 +23,8 @@ dict-vera
 dict-wn
 dosfstools
 elpa-pdf-tools-server
-emacs25
-emacs25-common-non-dfsg
+emacs
+emacs-common-non-dfsg
 ffmpeg
 firmware-linux-free
 firmware-linux-nonfree

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2018-11-25 Sun 12:23 -->
+<!-- 2019-10-21 Mon 12:46 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Operating Systems &#x2014; Lab Instruction</title>
@@ -10,14 +10,14 @@
 <meta name="description" content="Lab projects for the OS course"
 >
 <meta name="keywords" content="os, operating system, linux, kernel, system call, process, memory, file, gcc, lab, project">
-<link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
+<link rel="stylesheet" href="https://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
 <style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -66,62 +66,62 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2f9d49c">1. Caution</a></li>
-<li><a href="#org508cb55">2. Approaching to the Linux kernel</a>
+<li><a href="#orga5d0b88">1. Caution</a></li>
+<li><a href="#org99378d7">2. Approaching to the Linux kernel</a>
 <ul>
-<li><a href="#org594521d">2.1. proc file-system</a></li>
-<li><a href="#org1514f0b">2.2. Play with the kernel</a></li>
-<li><a href="#org11fdc03">2.3. Hello, kernel module!</a>
+<li><a href="#org32a2910">2.1. proc file-system</a></li>
+<li><a href="#org6e8e1c2">2.2. Play with the kernel</a></li>
+<li><a href="#org21fdaba">2.3. Hello, kernel module!</a>
 <ul>
-<li><a href="#org4bc832e">2.3.1. Questions</a></li>
-<li><a href="#orgb73fb2f">2.3.2. Sum up</a></li>
+<li><a href="#org899eeb7">2.3.1. Questions</a></li>
+<li><a href="#org33070c3">2.3.2. Sum up</a></li>
 </ul>
 </li>
-<li><a href="#org3afd4ba">2.4. System calls</a></li>
+<li><a href="#org54ec5d5">2.4. System calls</a></li>
 </ul>
 </li>
-<li><a href="#org71eb190">3. Process Management</a>
+<li><a href="#orgc2b6672">3. Process Management</a>
 <ul>
 <li><a href="#code-insertion">3.1. Process creation</a></li>
-<li><a href="#orgf5211e9">3.2. Thread</a></li>
-<li><a href="#org7ddd645">3.3. IPC</a>
+<li><a href="#org1f42a8b">3.2. Thread</a></li>
+<li><a href="#orgc821a5a">3.3. IPC</a>
 <ul>
-<li><a href="#org3478b10">3.3.1. Signals</a></li>
-<li><a href="#org7b61201">3.3.2. Pipe</a></li>
-<li><a href="#orgf573a67">3.3.3. FIFO</a></li>
-<li><a href="#org604e764">3.3.4. File Locking</a></li>
-<li><a href="#orgb1999c5">3.3.5. Message Queues</a></li>
-<li><a href="#orgc48e7aa">3.3.6. Semaphores</a></li>
-<li><a href="#orgc65b71e">3.3.7. Sum up</a></li>
+<li><a href="#orgcc075fd">3.3.1. Signals</a></li>
+<li><a href="#orgade0421">3.3.2. Pipe</a></li>
+<li><a href="#org1429d76">3.3.3. FIFO</a></li>
+<li><a href="#orgb22026c">3.3.4. File Locking</a></li>
+<li><a href="#orga354d1d">3.3.5. Message Queues</a></li>
+<li><a href="#orgb8e8570">3.3.6. Semaphores</a></li>
+<li><a href="#org6b18ea5">3.3.7. Sum up</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgdf5637d">4. Memory management</a>
+<li><a href="#orgb7561ca">4. Memory management</a>
 <ul>
-<li><a href="#org431d975">4.1. Basic commands</a></li>
-<li><a href="#orgdc8622f">4.2. Shared Memory Segments</a></li>
-<li><a href="#org298cdd7">4.3. Memory Mapped Files</a></li>
-<li><a href="#org0dcc1b6">4.4. Sum up</a></li>
+<li><a href="#orgb34414e">4.1. Basic commands</a></li>
+<li><a href="#org3a3f014">4.2. Shared Memory Segments</a></li>
+<li><a href="#org3a92f80">4.3. Memory Mapped Files</a></li>
+<li><a href="#org71bf59c">4.4. Sum up</a></li>
 </ul>
 </li>
-<li><a href="#org4f0faa4">5. File System</a>
+<li><a href="#org165261e">5. File System</a>
 <ul>
-<li><a href="#orgfc26c80">5.1. File system creation</a>
+<li><a href="#org5c311d1">5.1. File system creation</a>
 <ul>
-<li><a href="#org4268e73">5.1.1. Your tasks</a></li>
+<li><a href="#org3d7bcb5">5.1.1. Your tasks</a></li>
 </ul>
 </li>
-<li><a href="#org7a5a2a9">5.2. Finding a file with <code>hexdump</code></a></li>
-<li><a href="#org834760c">5.3. Sum up</a></li>
+<li><a href="#orge67d466">5.2. Finding a file with <code>hexdump</code></a></li>
+<li><a href="#orgf2ac184">5.3. Sum up</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2f9d49c" class="outline-2">
-<h2 id="org2f9d49c"><span class="section-number-2">1</span> Caution</h2>
+<div id="outline-container-orga5d0b88" class="outline-2">
+<h2 id="orga5d0b88"><span class="section-number-2">1</span> Caution</h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li>To complete the lab work, you have to be happy with 2 foreign languages, <code>English</code> and <code>C</code>.</li>
@@ -169,12 +169,12 @@ examples in <a href="#code-insertion">this section</a>.</li>
 </div>
 </div>
 
-<div id="outline-container-org508cb55" class="outline-2">
-<h2 id="org508cb55"><span class="section-number-2">2</span> Approaching to the Linux kernel</h2>
+<div id="outline-container-org99378d7" class="outline-2">
+<h2 id="org99378d7"><span class="section-number-2">2</span> Approaching to the Linux kernel</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org594521d" class="outline-3">
-<h3 id="org594521d"><span class="section-number-3">2.1</span> proc file-system</h3>
+<div id="outline-container-org32a2910" class="outline-3">
+<h3 id="org32a2910"><span class="section-number-3">2.1</span> proc file-system</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><b>Reference</b>
@@ -204,7 +204,6 @@ examples in <a href="#code-insertion">this section</a>.</li>
 </ol>
 <pre class="example">
 cd /proc/`ps | head -2 | tail -1 | cut -f1 -d' '` &amp;&amp; ls -l
-
 </pre></li>
 <li><b>Sum up:</b> In your email message, please answer the following questions.
 <ol class="org-ol">
@@ -216,8 +215,8 @@ cd /proc/`ps | head -2 | tail -1 | cut -f1 -d' '` &amp;&amp; ls -l
 </ul>
 </div>
 </div>
-<div id="outline-container-org1514f0b" class="outline-3">
-<h3 id="org1514f0b"><span class="section-number-3">2.2</span> Play with the kernel</h3>
+<div id="outline-container-org6e8e1c2" class="outline-3">
+<h3 id="org6e8e1c2"><span class="section-number-3">2.2</span> Play with the kernel</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li><b>Help for beginners</b>
@@ -269,8 +268,8 @@ encouraged to go through lesson 7-9, though it's not mandatory.</li>
 </div>
 </div>
 
-<div id="outline-container-org11fdc03" class="outline-3">
-<h3 id="org11fdc03"><span class="section-number-3">2.3</span> Hello, kernel module!</h3>
+<div id="outline-container-org21fdaba" class="outline-3">
+<h3 id="org21fdaba"><span class="section-number-3">2.3</span> Hello, kernel module!</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li><b>Reference</b> 
@@ -287,21 +286,19 @@ Find out the right kernel headers package matching your running kernel:
 <pre class="example">
 uname -a
 aptitude search ^linux-headers
-
 </pre>
+
 <p>
 install the right headers-package matching your running kernel:
 </p>
 <pre class="example">
 sudo aptitude install linux-headers-`uname -r`
-
 </pre></li>
 <li><p>
 Make a directory to store your <code>Hello, world!</code> kernel module
 </p>
 <pre class="example">
 mkdir hello-lkm &amp;&amp; cd hello-lkm
-
 </pre></li>
 <li>In <code>hello-lkm</code> directory, write a <a href="src/hello-lkm/hello-1.c">hello-1.c</a>. (See <a href="http://tldp.org/LDP/lkmpg/2.6/html/lkmpg.html#AEN119">The Linux Kernel Module
 Programming Guide</a> chapter 2 for details.)</li>
@@ -311,8 +308,8 @@ make
 </p>
 <pre class="example">
 make
-
 </pre>
+
 <p>
 If everything is ok, there should be a <code>hello-1.ko</code> file in your <code>hello-lkm</code> directory.
 </p></li>
@@ -321,48 +318,44 @@ Install the module into the running kernel
 </p>
 <pre class="example">
 sudo insmod hello-1.ko
-
 </pre></li>
 <li><p>
 See if it's running
 </p>
 <pre class="example">
 lsmod | grep hello
-
 </pre>
+
 <p>
 Does it show up? Well, and you can see "Hello, world!" here:
 </p>
 <pre class="example">
 dmesg | tail
-
 </pre></li>
 <li><p>
 Now, you can remove this useless module from the kernel by doing:
 </p>
 <pre class="example">
 sudo rmmod hello_1
-
 </pre></li>
 <li><p>
 See if it's removed:
 </p>
 <pre class="example">
 lsmod | grep hello
-
 </pre>
+
 <p>
 And you should see "Goodbye, world!" here:
 </p>
 <pre class="example">
 dmesg | tail
-
 </pre></li>
 </ol></li>
 </ul>
 </div>
-<div id="outline-container-org4bc832e" class="outline-4">
-<h4 id="org4bc832e"><span class="section-number-4">2.3.1</span> Questions</h4>
+<div id="outline-container-org899eeb7" class="outline-4">
+<h4 id="org899eeb7"><span class="section-number-4">2.3.1</span> Questions</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <ol class="org-ol">
 <li>What's a kernel module?</li>
@@ -373,8 +366,8 @@ dmesg | tail
 </ol>
 </div>
 </div>
-<div id="outline-container-orgb73fb2f" class="outline-4">
-<h4 id="orgb73fb2f"><span class="section-number-4">2.3.2</span> Sum up</h4>
+<div id="outline-container-org33070c3" class="outline-4">
+<h4 id="org33070c3"><span class="section-number-4">2.3.2</span> Sum up</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <p>
 In your email message, please answer the following questions.
@@ -388,8 +381,8 @@ In your email message, please answer the following questions.
 </div>
 </div>
 </div>
-<div id="outline-container-org3afd4ba" class="outline-3">
-<h3 id="org3afd4ba"><span class="section-number-3">2.4</span> System calls</h3>
+<div id="outline-container-org54ec5d5" class="outline-3">
+<h3 id="org54ec5d5"><span class="section-number-3">2.4</span> System calls</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li><b>Reference</b>
@@ -408,8 +401,8 @@ In your email message, please answer the following questions.
 </div>
 </div>
 </div>
-<div id="outline-container-org71eb190" class="outline-2">
-<h2 id="org71eb190"><span class="section-number-2">3</span> Process Management</h2>
+<div id="outline-container-orgc2b6672" class="outline-2">
+<h2 id="orgc2b6672"><span class="section-number-2">3</span> Process Management</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><b>Reference</b>
@@ -427,7 +420,6 @@ Get a sense of the following commands:
 ps -af
 ps -ax
 ps -eLf
-
 </pre></li>
 <li><code>pstree</code></li>
 <li><code>nice/renice</code></li>
@@ -436,8 +428,8 @@ ps -eLf
 </p>
 <pre class="example">
 man top
-
 </pre>
+
 <p>
 Process Status:
 </p>
@@ -451,8 +443,8 @@ Process Status:
 </ol></li>
 </ul>
 </div>
-<div id="outline-container-org96bc526" class="outline-3">
-<h3 id="code-insertion"><a id="org96bc526"></a><span class="section-number-3">3.1</span> Process creation</h3>
+<div id="outline-container-orgd1031f3" class="outline-3">
+<h3 id="code-insertion"><span class="section-number-3">3.1</span> Process creation</h3>
 <div class="outline-text-3" id="text-code-insertion">
 <ul class="org-ul">
 <li><b>Reference</b> 
@@ -474,7 +466,6 @@ Tell me about the following line of code:
 </p>
 <pre class="example">
 w = waitpid(cpid, &amp;status, WUNTRACED | WCONTINUED);
-
 </pre></li>
 </ol></li>
 <li><p>
@@ -485,63 +476,63 @@ w = waitpid(cpid, &amp;status, WUNTRACED | WCONTINUED);
 Compile and run the following 4 programs. Tell me what they do? And <a href="http://stackoverflow.com/questions/1697440/difference-between-system-and-exec-in-linux">their differences</a>?
 </p>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdlib.h&gt;</span>
-<span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
-<span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>()
+<pre class="src src-c"><span style="color: #FFA000;">#include</span> <span style="color: #689f38;">&lt;stdlib.h&gt;</span>
+<span style="color: #FFA000;">#include</span> <span style="color: #689f38;">&lt;stdio.h&gt;</span>
+<span style="color: #0097A7;">int</span> <span style="color: #0097A7;">main</span>()
 {
-    printf(<span style="color: #CC9393;">"Running ps with system\n"</span>);
-    system(<span style="color: #CC9393;">"ps -ax &amp;"</span>);
-    printf(<span style="color: #CC9393;">"Done.\n"</span>);
+    printf(<span style="color: #689f38;">"Running ps with system\n"</span>);
+    system(<span style="color: #689f38;">"ps -ax &amp;"</span>);
+    printf(<span style="color: #689f38;">"Done.\n"</span>);
     exit(0);
 }
 </pre>
 </div>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;unistd.h&gt;</span>
-<span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
-<span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>()
+<pre class="src src-c"><span style="color: #FFA000;">#include</span> <span style="color: #689f38;">&lt;unistd.h&gt;</span>
+<span style="color: #FFA000;">#include</span> <span style="color: #689f38;">&lt;stdio.h&gt;</span>
+<span style="color: #0097A7;">int</span> <span style="color: #0097A7;">main</span>()
 {
-    printf(<span style="color: #CC9393;">"Running ps with execlp\n"</span>);
-    execlp(<span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"-ax"</span>, 0);
-    printf(<span style="color: #CC9393;">"Done.\n"</span>);
+    printf(<span style="color: #689f38;">"Running ps with execlp\n"</span>);
+    execlp(<span style="color: #689f38;">"ps"</span>, <span style="color: #689f38;">"ps"</span>, <span style="color: #689f38;">"-ax"</span>, 0);
+    printf(<span style="color: #689f38;">"Done.\n"</span>);
     exit(0);
 }
 </pre>
 </div>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
-<span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;unistd.h&gt;</span>
-<span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>(){
+<pre class="src src-c"><span style="color: #FFA000;">#include</span> <span style="color: #689f38;">&lt;stdio.h&gt;</span>
+<span style="color: #FFA000;">#include</span> <span style="color: #689f38;">&lt;unistd.h&gt;</span>
+<span style="color: #0097A7;">int</span> <span style="color: #0097A7;">main</span>(){
 
-   <span style="color: #7CB8BB;">pid_t</span> <span style="color: #DFAF8F;">child_p</span>;
-   printf(<span style="color: #CC9393;">"Running ps with fork\n"</span>);
+   <span style="color: #0097A7;">pid_t</span> <span style="color: #EF6C00;">child_p</span>;
+   printf(<span style="color: #689f38;">"Running ps with fork\n"</span>);
 
    child_p = fork();
 
-   execlp(<span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"-ax"</span>, 0);
-   <span style="color: #F0DFAF; font-weight: bold;">return</span> 0;
+   execlp(<span style="color: #689f38;">"ps"</span>, <span style="color: #689f38;">"ps"</span>, <span style="color: #689f38;">"-ax"</span>, 0);
+   <span style="color: #00796b;">return</span> 0;
 }
 </pre>
 </div>
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;unistd.h&gt;</span>
-<span style="color: #94BFF3;">#include</span> <span style="color: #CC9393;">&lt;stdio.h&gt;</span>
-<span style="color: #7CB8BB;">int</span> <span style="color: #93E0E3;">main</span>()
+<pre class="src src-c"><span style="color: #FFA000;">#include</span> <span style="color: #689f38;">&lt;unistd.h&gt;</span>
+<span style="color: #FFA000;">#include</span> <span style="color: #689f38;">&lt;stdio.h&gt;</span>
+<span style="color: #0097A7;">int</span> <span style="color: #0097A7;">main</span>()
 {
-    <span style="color: #7CB8BB;">pid_t</span> <span style="color: #DFAF8F;">pid</span>;
-    printf(<span style="color: #CC9393;">"Running ps again with fork\n"</span>);
+    <span style="color: #0097A7;">pid_t</span> <span style="color: #EF6C00;">pid</span>;
+    printf(<span style="color: #689f38;">"Running ps again with fork\n"</span>);
     pid = fork();
-    <span style="color: #F0DFAF; font-weight: bold;">if</span> ( pid == 0 ) { <span style="color: #5F7F5F;">// </span><span style="color: #7F9F7F;">in the child, do exec</span>
-    execlp(<span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"ps"</span>, <span style="color: #CC9393;">"-ax"</span>, 0);
+    <span style="color: #00796b;">if</span> ( pid == 0 ) { <span style="color: #607d8b;">// </span><span style="color: #607d8b;">in the child, do exec</span>
+    execlp(<span style="color: #689f38;">"ps"</span>, <span style="color: #689f38;">"ps"</span>, <span style="color: #689f38;">"-ax"</span>, 0);
     }
-    <span style="color: #F0DFAF; font-weight: bold;">else</span> <span style="color: #F0DFAF; font-weight: bold;">if</span> (pid &lt; 0) <span style="color: #5F7F5F;">// </span><span style="color: #7F9F7F;">failed to fork</span>
+    <span style="color: #00796b;">else</span> <span style="color: #00796b;">if</span> (pid &lt; 0) <span style="color: #607d8b;">// </span><span style="color: #607d8b;">failed to fork</span>
     {
-        printf(<span style="color: #CC9393;">"fork failed.\n"</span>);
+        printf(<span style="color: #689f38;">"fork failed.\n"</span>);
         exit(1);
     }
-    <span style="color: #F0DFAF; font-weight: bold;">else</span> <span style="color: #5F7F5F;">// </span><span style="color: #7F9F7F;">parent</span>
+    <span style="color: #00796b;">else</span> <span style="color: #607d8b;">// </span><span style="color: #607d8b;">parent</span>
     {
-    wait(<span style="color: #BFEBBF;">NULL</span>);
+    wait(<span style="color: #558b2f;">NULL</span>);
     }
     exit(0);
 }
@@ -571,7 +562,6 @@ in the system. You can see it with
 </p>
 <pre class="example">
 ps u
-
 </pre></li>
 </ul>
 <ul class="org-ul">
@@ -595,8 +585,8 @@ zombies with <code>waitpid()</code> system call. And correct the above program.<
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf5211e9" class="outline-3">
-<h3 id="orgf5211e9"><span class="section-number-3">3.2</span> Thread</h3>
+<div id="outline-container-org1f42a8b" class="outline-3">
+<h3 id="org1f42a8b"><span class="section-number-3">3.2</span> Thread</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li><b>Reference</b> 
@@ -629,16 +619,16 @@ difference, and why?</li>
 </div>
 </div>
 
-<div id="outline-container-org7ddd645" class="outline-3">
-<h3 id="org7ddd645"><span class="section-number-3">3.3</span> IPC</h3>
+<div id="outline-container-orgc821a5a" class="outline-3">
+<h3 id="orgc821a5a"><span class="section-number-3">3.3</span> IPC</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li><b>Reference:</b> 
 <a href="http://beej.us/guide/bgipc/"><i>Beej's Guide to Unix IPC</i></a></li>
 </ul>
 </div>
-<div id="outline-container-org3478b10" class="outline-4">
-<h4 id="org3478b10"><span class="section-number-4">3.3.1</span> Signals</h4>
+<div id="outline-container-orgcc075fd" class="outline-4">
+<h4 id="orgcc075fd"><span class="section-number-4">3.3.1</span> Signals</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <ul class="org-ul">
 <li><b>Reference</b>
@@ -661,22 +651,27 @@ understanding <code>signal()</code>
 <p>
 If you can understand
 </p>
-<pre class="example">
-typedef int MYINT;
-MYINT myfunction(MYINT);
 
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #00796b;">typedef</span> <span style="color: #0097A7;">int</span> <span style="color: #0097A7;">MYINT</span>;
+<span style="color: #0097A7;">MYINT</span> <span style="color: #0097A7;">myfunction</span>(<span style="color: #0097A7;">MYINT</span>);
 </pre>
+</div>
+
 <p>
-Then, you should be able to understand 
+Then, you should be able to understand
 </p>
-<pre class="example">
-typedef void (*sighandler_t)(int);
-sighandler_t signal(int signum, sighandler_t handler);
 
+<div class="org-src-container">
+<pre class="src src-c"><span style="color: #00796b;">typedef</span> <span style="color: #0097A7;">void</span> (*<span style="color: #0097A7;">sighandler_t</span>)(<span style="color: #0097A7;">int</span>);
+<span style="color: #0097A7;">sighandler_t</span> <span style="color: #0097A7;">signal</span>(<span style="color: #0097A7;">int</span> <span style="color: #EF6C00;">signum</span>, <span style="color: #0097A7;">sighandler_t</span> <span style="color: #EF6C00;">handler</span>);
 </pre>
+</div>
+
 <p>
 Now, tell me your understanding about the following <a href="http://en.wikipedia.org/wiki/Function_prototype">function prototype</a>:
 </p>
+
 <pre class="example">
 void (*signal(int sig, void (*func)(int)))(int);
              `-------------------v------------'
@@ -685,11 +680,12 @@ void (*signal(int sig, void (*func)(int)))(int);
                                     `--&gt; *signal() takes 2 arguments:
                                            .  sig - an int
                                            . func - a 'function pointer' void(*)(int)
-
 </pre>
+
 <p>
 Put it in another way:
 </p>
+
 <pre class="example">
 void (*signal(int sig, void (*func)(int)))(int);
 void (                 *                 )(int);
@@ -697,8 +693,8 @@ void (                 *                 )(int);
                       `---&gt; void(*)(int) is a function pointer which is:
                             - returned by function '*signal()'
                             - pointing to a function taking an int, returning void
-
 </pre>
+
 <ul class="org-ul">
 <li><code>man 2 signal</code> can help</li>
 </ul></li>
@@ -709,8 +705,8 @@ tell me details about the following code
 </p>
 <pre class="example">
 int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact);
-
 </pre>
+
 <ul class="org-ul">
 <li><code>man 2 sigaction</code> can help</li>
 </ul></li>
@@ -719,8 +715,8 @@ int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact)
 </div>
 </div>
 
-<div id="outline-container-org7b61201" class="outline-4">
-<h4 id="org7b61201"><span class="section-number-4">3.3.2</span> Pipe</h4>
+<div id="outline-container-orgade0421" class="outline-4">
+<h4 id="orgade0421"><span class="section-number-4">3.3.2</span> Pipe</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <ul class="org-ul">
 <li><b>Reference</b>
@@ -739,8 +735,8 @@ int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact)
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf573a67" class="outline-4">
-<h4 id="orgf573a67"><span class="section-number-4">3.3.3</span> FIFO</h4>
+<div id="outline-container-org1429d76" class="outline-4">
+<h4 id="org1429d76"><span class="section-number-4">3.3.3</span> FIFO</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <ul class="org-ul">
 <li><b>Reference</b>
@@ -762,8 +758,8 @@ int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact)
 </ul>
 </div>
 </div>
-<div id="outline-container-org604e764" class="outline-4">
-<h4 id="org604e764"><span class="section-number-4">3.3.4</span> File Locking</h4>
+<div id="outline-container-orgb22026c" class="outline-4">
+<h4 id="orgb22026c"><span class="section-number-4">3.3.4</span> File Locking</h4>
 <div class="outline-text-4" id="text-3-3-4">
 <ul class="org-ul">
 <li><b>Reference</b>
@@ -784,8 +780,8 @@ int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact)
 </div>
 </div>
 
-<div id="outline-container-orgb1999c5" class="outline-4">
-<h4 id="orgb1999c5"><span class="section-number-4">3.3.5</span> Message Queues</h4>
+<div id="outline-container-orga354d1d" class="outline-4">
+<h4 id="orga354d1d"><span class="section-number-4">3.3.5</span> Message Queues</h4>
 <div class="outline-text-4" id="text-3-3-5">
 <ul class="org-ul">
 <li><b>Reference</b>
@@ -816,8 +812,8 @@ programs will help you gain an understanding of what is really going on.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc48e7aa" class="outline-4">
-<h4 id="orgc48e7aa"><span class="section-number-4">3.3.6</span> Semaphores</h4>
+<div id="outline-container-orgb8e8570" class="outline-4">
+<h4 id="orgb8e8570"><span class="section-number-4">3.3.6</span> Semaphores</h4>
 <div class="outline-text-4" id="text-3-3-6">
 <ul class="org-ul">
 <li><b>Reference</b>
@@ -838,8 +834,8 @@ programs will help you gain an understanding of what is really going on.</li>
 </div>
 </div>
 
-<div id="outline-container-orgc65b71e" class="outline-4">
-<h4 id="orgc65b71e"><span class="section-number-4">3.3.7</span> Sum up</h4>
+<div id="outline-container-org6b18ea5" class="outline-4">
+<h4 id="org6b18ea5"><span class="section-number-4">3.3.7</span> Sum up</h4>
 <div class="outline-text-4" id="text-3-3-7">
 <p>
 In your email message, please answer the following questions.
@@ -855,16 +851,16 @@ In your email message, please answer the following questions.
 </div>
 </div>
 
-<div id="outline-container-orgdf5637d" class="outline-2">
-<h2 id="orgdf5637d"><span class="section-number-2">4</span> Memory management</h2>
+<div id="outline-container-orgb7561ca" class="outline-2">
+<h2 id="orgb7561ca"><span class="section-number-2">4</span> Memory management</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><b>Reference</b>
 <a href="http://www.informit.com/articles/article.aspx?p=173438">User-Level Memory Management in Linux Programming</a>, 2004.</li>
 </ul>
 </div>
-<div id="outline-container-org431d975" class="outline-3">
-<h3 id="org431d975"><span class="section-number-3">4.1</span> Basic commands</h3>
+<div id="outline-container-orgb34414e" class="outline-3">
+<h3 id="orgb34414e"><span class="section-number-3">4.1</span> Basic commands</h3>
 <div class="outline-text-3" id="text-4-1">
 <ol class="org-ol">
 <li><p>
@@ -872,8 +868,8 @@ top
 </p>
 <pre class="example">
 top
-
 </pre>
+
 <p>
 With the help of <code>man top</code>, get a clear idea about:
 </p>
@@ -969,31 +965,31 @@ Compile <a href="./src/mem/size.c">this c program</a> with
 </p>
 <pre class="example">
 gcc -Wall size.c
-
 </pre>
+
 <p>
 Then, use <code>size</code> to see the size of its <i>text</i>, <i>data</i>, and <i>bss</i> segments.
 </p>
 <pre class="example">
 size a.out
-
 </pre>
+
 <p>
 The output should be something like
 </p>
 <pre class="example">
 text   data   bss        dec         hex    filename
 1200   520    1024032    1025752     fa6d8      a.out
-
 </pre>
+
 <p>
 If you exam its size with <code>ls -l</code>, you should get something similar to the following
 line
 </p>
 <pre class="example">
 -rwxr-xr-x   1 wx672          wx672        6627 Oct 18 18:05 a.out
-
 </pre>
+
 <p>
 Tell me:
 </p>
@@ -1004,8 +1000,8 @@ Tell me:
 </ol>
 </div>
 </div>
-<div id="outline-container-orgdc8622f" class="outline-3">
-<h3 id="orgdc8622f"><span class="section-number-3">4.2</span> Shared Memory Segments</h3>
+<div id="outline-container-org3a3f014" class="outline-3">
+<h3 id="org3a3f014"><span class="section-number-3">4.2</span> Shared Memory Segments</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li><b>Reference</b> 
@@ -1029,8 +1025,8 @@ access to the shared data area.</li>
 </div>
 </div>
 
-<div id="outline-container-org298cdd7" class="outline-3">
-<h3 id="org298cdd7"><span class="section-number-3">4.3</span> Memory Mapped Files</h3>
+<div id="outline-container-org3a92f80" class="outline-3">
+<h3 id="org3a92f80"><span class="section-number-3">4.3</span> Memory Mapped Files</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li><b>Reference</b> 
@@ -1051,8 +1047,8 @@ access to the shared data area.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0dcc1b6" class="outline-3">
-<h3 id="org0dcc1b6"><span class="section-number-3">4.4</span> Sum up</h3>
+<div id="outline-container-org71bf59c" class="outline-3">
+<h3 id="org71bf59c"><span class="section-number-3">4.4</span> Sum up</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 In your email message, please answer the following questions.
@@ -1067,8 +1063,8 @@ In your email message, please answer the following questions.
 </div>
 </div>
 
-<div id="outline-container-org4f0faa4" class="outline-2">
-<h2 id="org4f0faa4"><span class="section-number-2">5</span> File System</h2>
+<div id="outline-container-org165261e" class="outline-2">
+<h2 id="org165261e"><span class="section-number-2">5</span> File System</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><b>Reference</b>
@@ -1080,8 +1076,8 @@ In your email message, please answer the following questions.
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-orgfc26c80" class="outline-3">
-<h3 id="orgfc26c80"><span class="section-number-3">5.1</span> File system creation</h3>
+<div id="outline-container-org5c311d1" class="outline-3">
+<h3 id="org5c311d1"><span class="section-number-3">5.1</span> File system creation</h3>
 <div class="outline-text-3" id="text-5-1">
 <ol class="org-ol">
 <li><p>
@@ -1089,8 +1085,8 @@ Create a initialized file
 </p>
 <pre class="example">
 dd if=/dev/zero of=fs.img bs=1k count=10000
-
 </pre>
+
 <p>
 You now have a file called <code>fs.img</code> that's 10MB.
 </p></li>
@@ -1100,40 +1096,36 @@ like a block device instead of just a regular file within the file system):
 </p>
 <pre class="example">
 sudo losetup /dev/loop0 fs.img
-
 </pre></li>
 <li><p>
 Creating an ext2 file system within the loop device
 </p>
 <pre class="example">
 sudo mke2fs /dev/loop0 
-
 </pre></li>
 <li><p>
 Mount the newly created file system onto <code>/mnt</code> directory
 </p>
 <pre class="example">
 sudo mount -t ext2 /dev/loop0 /mnt
-
 </pre>
+
 <p>
 or
 </p>
 <pre class="example">
 sudo mount -o loop fs.img /mnt
-
 </pre></li>
 <li><p>
 Get information about your new file system   
 </p>
 <pre class="example">
 dumpe2fs /dev/loop0
-
 </pre></li>
 </ol>
 </div>
-<div id="outline-container-org4268e73" class="outline-4">
-<h4 id="org4268e73"><span class="section-number-4">5.1.1</span> Your tasks</h4>
+<div id="outline-container-org3d7bcb5" class="outline-4">
+<h4 id="org3d7bcb5"><span class="section-number-4">5.1.1</span> Your tasks</h4>
 <div class="outline-text-4" id="text-5-1-1">
 <ol class="org-ol">
 <li>By following the above 5 steps, you've got a new file system mounted on <code>/mnt</code>
@@ -1150,8 +1142,8 @@ it.</li>
 </div>
 </div>
 </div>
-<div id="outline-container-org7a5a2a9" class="outline-3">
-<h3 id="org7a5a2a9"><span class="section-number-3">5.2</span> Finding a file with <code>hexdump</code></h3>
+<div id="outline-container-orge67d466" class="outline-3">
+<h3 id="orge67d466"><span class="section-number-3">5.2</span> Finding a file with <code>hexdump</code></h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Follow the instructions in
@@ -1172,8 +1164,8 @@ Now give me a detailed picture about what is happened in the OS from '<code>cat 
 </ul>
 </div>
 </div>
-<div id="outline-container-org834760c" class="outline-3">
-<h3 id="org834760c"><span class="section-number-3">5.3</span> Sum up</h3>
+<div id="outline-container-orgf2ac184" class="outline-3">
+<h3 id="orgf2ac184"><span class="section-number-3">5.3</span> Sum up</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 In your email message, please answer the following questions.
@@ -1190,7 +1182,7 @@ In your email message, please answer the following questions.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: WANG Xiaolin</p>
-<p class="date">Created: 2018-11-25 Sun 12:23</p>
+<p class="date">Created: 2019-10-21 Mon 12:46</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

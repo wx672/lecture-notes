@@ -1190,14 +1190,13 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \end{itemize}
 \end{frame}
 
-\begin{frame}{\wrong}
+\begin{frame}
   \mode<beamer>{ \includegraphics[width=\textwidth]{lock2-sigint-c} }%
   \mode<article>{\cfile{../src/proc/lock2-sigint.c}}
+  \begin{itemize}
+  \item[\Bad] \texttt{sigint()} is too crude to be reliable. Need a more sophisticated design.
+  \end{itemize}
 \end{frame}
-
-\begin{itemize}
-\item The \texttt{sigint()} function is too crude to be reliable. Need a more sophisticated design.
-\end{itemize}
 
 \begin{frame}{Mutual Exclusion With Busy Waiting}{Hardware Solution: The TSL Instruction}
   \begin{block}{Lock the memory bus}
@@ -1426,7 +1425,7 @@ statement b2
   } \mode<article>{ \alert{Solution 3 has deadlock!}  }
 \end{frame}
 
-\begin{frame}{Example}% Signaling with semaphore
+\begin{frame}{Example: Signaling With Semaphore}% 
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{thread-semaphore} }%
     \mode<article>{\cfile{../src/proc/thread-semaphore.c}}
@@ -1647,94 +1646,91 @@ access some common resources.
   \end{block}
 \end{frame}
 
-\begin{frame}{Semaphores}{Producer-Consumer Problem}
-  \begin{block}{Whenever an event occurs}
-    \begin{itemize}
-    \item a producer thread creates an \emph{event object} and adds it to the event
-      buffer. Concurrently,
-    \item consumer threads take events out of the buffer and process them. In this case,
-      the consumers are called ``\emph{event handlers}''.
-    \end{itemize}
-  \end{block}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.9\textwidth]{event}
-    } \mode<article>{
-      \includegraphics[width=.5\textwidth]{event-bw}
-    }
-  \end{center}
-  \begin{itemize}
-  \item[Q:] Add synchronization statements to the producer and consumer code to enforce
-    the synchronization constraints
-    \begin{enumerate}
-    \item Mutual exclusion
-    \item Serialization
-    \end{enumerate}
-  \end{itemize}
-\end{frame}
+% \begin{frame}{Semaphores}{Producer-Consumer Problem}
+%   \begin{block}{Whenever an event occurs}
+%     \begin{itemize}
+%     \item a producer thread creates an \emph{event object} and adds it to the event
+%       buffer. Concurrently,
+%     \item consumer threads take events out of the buffer and process them. In this case,
+%       the consumers are called ``\emph{event handlers}''.
+%     \end{itemize}
+%   \end{block}
+%   \begin{center}
+%     \mode<beamer>{ \includegraphics[width=.9\textwidth]{event} }%
+%     \mode<article>{ \includegraphics[width=.5\textwidth]{event-bw} }
+%   \end{center}
+%   \begin{itemize}
+%   \item[Q:] Add synchronization statements to the producer and consumer code to enforce
+%     the synchronization constraints
+%     \begin{enumerate}
+%     \item Mutual exclusion
+%     \item Serialization
+%     \end{enumerate}
+%   \end{itemize}
+% \end{frame}
 
 See also: \citetitle[Sec.~4.1, \emph{Producer-Consumer Problem}]{downey2008semaphores}.
 
-\begin{frame}{Semaphores --- Producer-Consumer Problem}{Solution}
-  \begin{block}{Initialization:}
-    \begin{center}
-      \begin{tabular}{>{\ttfamily}l}
-        mutex = Semaphore(1)\\
-        items = Semaphore(0)
-      \end{tabular}
-    \end{center}
-    \begin{itemize}
-    \item \texttt{mutex} provides exclusive access to the buffer
-    \item \texttt{items}:
-      \begin{itemize}
-      \item[{\nerd }] number of items in the buffer
-      \item[{\nerd }] number of consumer threads in queue
-      \end{itemize}
-    \end{itemize}
-  \end{block}
-\end{frame}
+% \begin{frame}{Semaphores --- Producer-Consumer Problem}{Solution}
+%   \begin{block}{Initialization:}
+%     \begin{center}
+%       \begin{tabular}{>{\ttfamily}l}
+%         mutex = Semaphore(1)\\
+%         items = Semaphore(0)
+%       \end{tabular}
+%     \end{center}
+%     \begin{itemize}
+%     \item \texttt{mutex} provides exclusive access to the buffer
+%     \item \texttt{items}:
+%       \begin{itemize}
+%       \item[{\nerd }] number of items in the buffer
+%       \item[{\nerd }] number of consumer threads in queue
+%       \end{itemize}
+%     \end{itemize}
+%   \end{block}
+% \end{frame}
 
-\begin{frame}{Semaphores --- Producer-Consumer Problem}{Solution}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{event-2} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{event-2-bw} }
-  \end{center}
+% \begin{frame}{Semaphores --- Producer-Consumer Problem}{Solution}
+%   \begin{center}
+%     \mode<beamer>{ \includegraphics[width=\textwidth]{event-2} }%
+%     \mode<article>{ \includegraphics[width=.5\textwidth]{event-2-bw} }
+%   \end{center}
   
-  \mode<article>{
-    \begin{itemize}
-    \item[\danger{}] any time you wait for a semaphore while holding a mutex!
-    \end{itemize}}
-  \mode<beamer>{\pause    
-    \begin{itemize}
-    \item[{\color{red}\danger{}}] any time you wait for a semaphore while holding a mutex!
-    \end{itemize}
-    \begin{tikzpicture}[remember picture, overlay]
-      \node [rotate=15,scale=2.5,text opacity=0.4,color=red,yshift=-3em,xshift=2.5em] at
-      (current page.center) {Deadlock!};
-    \end{tikzpicture}}
-\end{frame}
+%   \mode<article>{
+%     \begin{itemize}
+%     \item[\danger{}] any time you wait for a semaphore while holding a mutex!
+%     \end{itemize}}
+%   \mode<beamer>{\pause    
+%     \begin{itemize}
+%     \item[{\color{red}\danger{}}] any time you wait for a semaphore while holding a mutex!
+%     \end{itemize}
+%     \begin{tikzpicture}[remember picture, overlay]
+%       \node [rotate=15,scale=2.5,text opacity=0.4,color=red,yshift=-3em,xshift=2.5em] at
+%       (current page.center) {Deadlock!};
+%     \end{tikzpicture}}
+% \end{frame}
 
-\begin{minipage}{.4\linewidth}
-\begin{ccode}
-  items.signal()
-  {
-    items++;
-    if(items == 0)
-      wakeup(consumer);
-  }  
-\end{ccode} 
-\end{minipage}
-\qquad\qquad
-\begin{minipage}{.4\linewidth}
-\begin{ccode}
-  items.wait()
-  {
-    items--;
-    if(items < 0)
-      sleep();
-  }
-\end{ccode} 
-\end{minipage}
+% \begin{minipage}{.4\linewidth}
+% \begin{ccode}
+%   items.signal()
+%   {
+%     items++;
+%     if(items == 0)
+%       wakeup(consumer);
+%   }  
+% \end{ccode} 
+% \end{minipage}
+% \qquad\qquad
+% \begin{minipage}{.4\linewidth}
+% \begin{ccode}
+%   items.wait()
+%   {
+%     items--;
+%     if(items < 0)
+%       sleep();
+%   }
+% \end{ccode} 
+% \end{minipage}
 
 \begin{frame}{Producer-Consumer Problem With Bounded-Buffer}
   \begin{block}{Given:}
@@ -1802,55 +1798,49 @@ void S.up(){
 Notice that the checking is within \texttt{down()} and \texttt{up()}, and is not available to
 user process to use it directly.
 
-\begin{frame}{Producer-Consumer Problem With Bounded-Buffer}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{sem-putintobuf}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{sem-putintobuf-bw}
-    }
-  \end{center}
-  \pause
-  \begin{itemize}
-  \item[] works fine when there is only one producer and one consumer, because
-      \texttt{putIntoBuffer()} is not atomic.
-  \end{itemize}
-  \mode<beamer>{
-    \begin{tikzpicture}[remember picture, overlay]
-      \node [rotate=-20,scale=15,text opacity=0.7,color=red,yshift=0em,xshift=0em] at
-      (current page.center) {!};
-    \end{tikzpicture}
-  }
-\end{frame}
+% \begin{frame}{Producer-Consumer Problem With Bounded-Buffer}
+%   \begin{center}
+%     \mode<beamer>{ \includegraphics[width=\textwidth]{sem-putintobuf} }%
+%     \mode<article>{ \includegraphics[width=.6\textwidth]{sem-putintobuf-bw} }
+%   \end{center}
+%   \pause
+%   \begin{itemize}
+%   \item[] works fine when there is only one producer and one consumer, because
+%       \texttt{putIntoBuffer()} is not atomic.
+%   \end{itemize}
+%   \mode<beamer>{
+%     \begin{tikzpicture}[remember picture, overlay]
+%       \node [rotate=-20,scale=15,text opacity=0.7,color=red,yshift=0em,xshift=0em] at
+%       (current page.center) {!};
+%     \end{tikzpicture}
+%   }
+% \end{frame}
 
-\begin{frame}%{Producer-Consumer Problem With Bounded-Buffer}
-  \begin{block}{\texttt{putIntoBuffer()} could contain two actions:}
-    \begin{enumerate}
-    \item determining the next available slot
-    \item writing into it
-    \end{enumerate}
-  \end{block}
-  \begin{block}{Race condition:}
-    \begin{enumerate}
-    \item Two producers decrement spaces
-    \item One of the producers determines the next empty slot in the buffer
-    \item Second producer determines the next empty slot and gets the same result as the
-      first producer
-    \item Both producers write into the same slot
-    \end{enumerate}
-  \end{block}
-  \texttt{putIntoBuffer()} needs to be protected with a \texttt{mutex}.
-\end{frame}
+% \begin{frame}%{Producer-Consumer Problem With Bounded-Buffer}
+%   \begin{block}{\texttt{putIntoBuffer()} could contain two actions:}
+%     \begin{enumerate}
+%     \item determining the next available slot
+%     \item writing into it
+%     \end{enumerate}
+%   \end{block}
+%   \begin{block}{Race condition:}
+%     \begin{enumerate}
+%     \item Two producers decrement spaces
+%     \item One of the producers determines the next empty slot in the buffer
+%     \item Second producer determines the next empty slot and gets the same result as the
+%       first producer
+%     \item Both producers write into the same slot
+%     \end{enumerate}
+%   \end{block}
+%   \texttt{putIntoBuffer()} needs to be protected with a \texttt{mutex}.
+% \end{frame}
 
-\begin{frame}{With a \texttt{mutex}}%{Producer-Consumer Problem With Bounded-Buffer}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{putintobuf-2}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{putintobuf-2-bw}
-    }
-  \end{center}
-\end{frame}
+% \begin{frame}{With a \texttt{mutex}}%{Producer-Consumer Problem With Bounded-Buffer}
+%   \begin{center}
+%     \mode<beamer>{ \includegraphics[width=\textwidth]{putintobuf-2} }%
+%     \mode<article>{ \includegraphics[width=.6\textwidth]{putintobuf-2-bw} }
+%   \end{center}
+% \end{frame}
 
 \subsection{Monitors}
 \label{sec:monitors}
@@ -2789,12 +2779,8 @@ See also: \emph{Discussing the Completely Fair
 
 \begin{frame}{Resource-Allocation Graph}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{deadlock-graph}
-    }
-    \mode<article>{
-      \includegraphics[width=.6\textwidth]{deadlock-graph}
-    }
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{deadlock-graph} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{deadlock-graph} }
   \end{center}
   \begin{block}{Strategies for dealing with Deadlocks}
     \begin{enumerate}

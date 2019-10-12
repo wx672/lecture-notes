@@ -31,5 +31,5 @@ int main(void) {
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall clone.c" */
+/* compile-command: "gcc -Wall clone.c -o /tmp/a.out" */
 /* End: */

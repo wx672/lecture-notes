@@ -493,14 +493,17 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{\wrong}
+\begin{frame}
   \mode<beamer>{ \includegraphics[width=\textwidth]{lock2-sigint-c} }%
   \mode<article>{\cfile{../src/lock2-sigint.c}}
+  \begin{itemize}
+  \item[\Bad] \texttt{sigint()} is too crude to be reliable. Need a more sophisticated design.
+  \end{itemize}
 \end{frame}
 
-\begin{itemize}
-\item The \texttt{sigint()} function is too crude to be reliable. Need a more sophisticated design.
-\end{itemize}
+% \begin{itemize}
+% \item The \texttt{sigint()} function is too crude to be reliable. 
+% \end{itemize}
 
 \begin{frame}{What is a Semaphore?\,\includegraphics[width=1em]{semaphore-papa}}
   \begin{center}

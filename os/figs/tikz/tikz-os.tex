@@ -438,22 +438,22 @@
 \tikzsetnextfilename{deadlock-graph}
 \begin{figure}
   \centering\resizebox{.6\textwidth}{!}{
-\begin{tikzpicture}
-  
-  %%% background image
-  \node[anchor=south west,inner sep=0] (image) at (0,0)%
-  {\includegraphics[width=\paperwidth]{mos-figs-3-3}};
+    \begin{tikzpicture}[%
+      r/.style={rectangle, draw,thick},
+      p/.style={circle, draw, thick},
+      every edge quotes/.style={auto=right,font=\footnotesize},
+      every label quotes/.style={below},
+      every edge/.style={draw,->, >=stealth, thick}]
 
-  \begin{scope}[x={(image.south east)},y={(image.north west)}]%
-    % %%% grid
-    % \draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);%
-    % \foreach \x in {0,1,...,9} { \node [xy,anchor=north] at (\x/10,0) {0.\x}; }%
-    % \foreach \y in {0,1,...,9} { \node [xy,anchor=east] at (0,\y/10) {0.\y}; }%
+      \node (a) [p] {A};
+      \node (r) [r, below=of a] {R} edge ["has"](a);
+      \node (s) [r, right=of a] {S};
+      \node (b) [p, below=of s] {B} edge ["wants"](s);
 
-    \node at (.04,.6) [anchor=west] {has};
-    \node at (.38,.6) [anchor=west] {wants};
-  \end{scope}
-
+      \node (d) [p, right=2.7cm of s,yshift=6mm] {D};
+      \node (u) [r, below right=of d] {U} edge [bend right, <-] (d);
+      \node (c) [p, below  left=of u] {C} edge [bend right, <-] (u);
+      \node (t) [r, below  left=of d] {T} edge [bend right, <-] (c) edge [bend left] (d);
 \end{tikzpicture}}
   \caption{Deadlock notions}
   \label{fig:deadlock-graph}
