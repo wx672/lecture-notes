@@ -192,7 +192,7 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
   \end{description}
 \end{frame}
 
-\begin{frame}{Controllers and Peripherals}
+\begin{frame}<article>{Controllers and Peripherals}
   \begin{itemize}
   \item Peripherals are real devices controlled by controller chips
   \item Controllers are processors like the CPU itself, have control registers
@@ -210,15 +210,30 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
 
 \begin{frame}{Motherboard Chipsets}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{chipsets} }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{chipsets} }
     \mode<article>{ \includegraphics[width=.5\textwidth]{chipsets-bw} }
   \end{center}
+  \begin{block}{The northbridge}
+    \begin{enumerate}
+    \item receives a physical memory request
+    \item decides where to route it
+      \begin{itemize}
+      \item[-] to RAM? to video card? to \ldots{}?
+      \item[-] decision made via the \alert{memory address map}
+      \end{itemize}
+    \end{enumerate}
+  \end{block}
 \end{frame}
 
 See also:
-\href{http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map}{\emph{Motherboard
-    Chipsets And The Memory Map}}
-\footnote{\url{http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map}}.
+\begin{itemize}
+\item When is the memory address map built? \texttt{setup()}.
+\item
+  \href{http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map}{\emph{Motherboard
+      Chipsets And The Memory Map}}
+  \footnote{\url{http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map}}.
+\end{itemize}
+
 
 \begin{frame}
   \begin{itemize}
@@ -285,23 +300,6 @@ See also:
   % \end{center}
 \end{frame}
 
-\begin{frame}
-  \begin{block}{the northbridge}
-    \begin{enumerate}
-    \item receives a physical memory request
-    \item decides where to route it
-      \begin{itemize}
-      \item[-] to RAM? to video card? to \ldots{}?
-      \item[-] decision made via the \alert{memory address map}
-      \end{itemize}
-    \end{enumerate}
-  \end{block}
-\end{frame}
-
-\begin{itemize}
-\item When is the memory address map built? \texttt{setup()}.
-\end{itemize}
-
 \section{Bootstrapping}
 \label{sec:bootstrapping}
 
@@ -354,12 +352,12 @@ See also:
 % \end{frame}
 
 \begin{frame}{Why Interrupt?}
-  \begin{block}{While a process is reading a disk file, can we do...}
+  \begin{iblock}{While a process is reading a disk file, can we do...}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.6\textwidth]{interrupt-c}}%
       \mode<article>{ \cfile{figs/pseudo/interrupt.c}}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Modern OS are Interrupt Driven}

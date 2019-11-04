@@ -1,10 +1,10 @@
-#+TITLE:     Computer Networks Textbooks and References 
+#+TITLE:     Computer Networks
+#+SUBTITLE: Textbooks and References
 #+AUTHOR:    WANG Xiaolin
 #+EMAIL:     wx672ster@gmail.com
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:comment d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+OPTIONS: p:nil pri:nil stat:t tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
-#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
 #+CREATOR: Emacs 25.2.2 (Org mode 8.2.10)
 #+DESCRIPTION:
 #+EXCLUDE_TAGS: noexport
@@ -13,10 +13,10 @@
 #+SELECT_TAGS: export
 
 * Textbooks
-  1. Andrew S. Tanenbaum, [[https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1][/Computer Networks, 5e/]], Prentice Hall, 2011.
-  2. W. Richard Stevens, [[https://cs3.swfu.edu.cn/tech/get/PDF/32/Calibre1][/TCP/IP Illustrated, Volume 1, The Protocols/]],
+  1. Andrew S. Tanenbaum, [[https://cs6.swfu.edu.cn/calibre/#book_id=29&library_id=calibre&panel=book_details][/Computer Networks, 5e/]], Prentice Hall, 2011.
+  2. W. Richard Stevens, [[https://cs6.swfu.edu.cn/calibre/#book_id=32&library_id=calibre&panel=book_details][/TCP/IP Illustrated, Volume 1, The Protocols/]],
      Addison-Wesley, 1994. 
-  3. Kurose, Ross, [[https://cs3.swfu.edu.cn/tech/get/PDF/27/Calibre1][/Computer Networking - A Top-Down Approach, 6e/]], Addison-Wesley, 2011. 
+  3. Kurose, Ross, [[https://cs6.swfu.edu.cn/calibre/#book_id=27&library_id=calibre&panel=book_details][/Computer Networking - A Top-Down Approach, 6e/]], Addison-Wesley, 2011. 
 
 * References
 ** Online Course

@@ -1,11 +1,11 @@
-\documentclass[varwidth=30em,crop]{standalone}
+\documentclass[varwidth=20em,crop]{standalone}
 \usepackage{fancyvrb}
 \usepackage{color}
 \usepackage{soul}
 \begin{document}
 \begin{Verbatim}[commandchars=\\\{\}]
 ~$ \color{red}{curl -v cs2.swfu.edu.cn/index.html}
-* Connected to cs2.swfu.edu.cn (202.203.132.242) port \hl{80}
+* Connected to cs2.swfu.edu.cn port \hl{80}
 > GET /index.html HTTP/1.1
 > User-Agent: curl/7.38.0
 > Host: cs2.swfu.edu.cn
@@ -13,3 +13,8 @@
 > 
 \end{Verbatim}
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,24 @@
+\documentclass[varwidth=50em,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+             ┆                        ┌────────┐  ┆    
+┌─────────┐  ┆   ┌─────────────┐  ┆   │ FS     │  ┆   ┌──────────┐
+│ write() ├──┼──>│ sys_write() ├──┼──>│ write  ├──┼──>│ physical │
+└─────────┘  ┆   └─────────────┘  ┆   │ method │  ┆   │ storage  │
+             ┆                        └────────┘  ┆   └──────────┘
+ user space  ┆         VFS           file system  ┆     Hardware
+\end{verbatim}
+\end{document}
+
+% \usepackage{fancyvrb,xcolor}
+% \begin{Verbatim}[commandchars=\\{\}]
+% \end{Verbatim}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

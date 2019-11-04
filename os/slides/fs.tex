@@ -421,28 +421,21 @@ See also:
 \end{frame}
 
 \begin{frame}{Directories}{Two-level Directory Systems}
-  \begin{block}{A separate directory for each user}
+  \begin{iblock}{A separate directory for each user}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.7\textwidth]{mos-figs-6-8}
-      } \mode<article>{
-        \includegraphics[width=.4\textwidth]{mos-figs-6-8}
-      }
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-6-8} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{mos-figs-6-8} }
     \end{center}
     \begin{description}
     \item[Limitation:] hard to access others files
     \end{description}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Directories}{Hierarchical Directory Systems}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{mos-figs-6-9}
-    }
-    \mode<article>{
-      \includegraphics[width=.5\textwidth]{mos-figs-6-9}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-6-9} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-6-9} }
   \end{center}
 \end{frame}
 
@@ -701,17 +694,17 @@ See also: \citetitle[\emph{Wikipedia:FAT}]{wiki:fat}.
 See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 
 \begin{frame}{I-node --- FCB in UNIX}
-  \begin{varwidth}{.64\textwidth}
+  \begin{minipage}{.5\textwidth}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.9\textwidth]{inode-struct2} }%
+      \mode<beamer>{ \includegraphics[width=1.5\textwidth]{inode-struct2} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{inode-struct2} }
     \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.34\textwidth}
-    \vspace{-6em}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{.45\textwidth}
+    \centering
     \begin{scriptsize}
-      \begin{tabular}{c|l}
-        \alert{File type}&\alert{Description}\\\hline
+      \begin{tabular}{cl}\hline
+        \thead{File type}&\thead{Description}\\\hline
         0&Unknown\\
         1&Regular file\\
         2&Directory\\
@@ -719,14 +712,14 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
         4&Block device\\
         5&Named pipe\\
         6&Socket\\
-        7&Symbolic link\\
+        7&Symbolic link\\\hline
       \end{tabular}
-      \vspace{3em}
-      \begin{itemize}
+      \vspace{1em}
+      \begin{description}
       \item[Mode:] 9-bit pattern
-      \end{itemize}
+      \end{description}
     \end{scriptsize}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \paragraph{A little quiz}
@@ -1022,7 +1015,7 @@ output: file descriptor
   \end{block}  
 \end{frame}
 
-\begin{frame}%{What If A File Opened By Multiple Processes?}
+\begin{frame}<article>%{What If A File Opened By Multiple Processes?}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{file-tables} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{file-tables} }
@@ -1238,22 +1231,8 @@ How long file name is implemented?
 See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum2008modern}.
 
 \begin{frame}{UNIX Treats a Directory as a File}
-  \mode<article>{\includegraphics[width=.7\textwidth]{inode-struct}}
-  \mode<beamer>{
-    \includegraphics[width=\textwidth]{inode-struct}
-    \begin{tikzpicture}[remember picture, overlay]
-      \node [scale=.6,xshift=20em,yshift=12em] at (current page.center) {
-        \begin{tabular}{|l|l|}
-          \hline
-          .&2\\\hline
-          ..&2\\\hline
-          bin&11116545\\\hline
-          boot&2\\\hline
-          cdrom&12\\\hline
-          dev&3\\\hline
-          \vdots&\vdots
-        \end{tabular}};      
-    \end{tikzpicture}}
+  \mode<article>{\includegraphics[width=.6\textwidth]{inode-struct}}%
+  \mode<beamer>{\centering \includegraphics[width=.85\textwidth]{inode-struct}}
 \end{frame}
 
 \begin{itemize}
@@ -1266,12 +1245,12 @@ See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum200
 \end{itemize}
 
 \begin{frame}
-  \begin{block}{The steps in looking up \texttt{/usr/ast/mbox}}
+  \begin{iblock}{The steps in looking up \texttt{/usr/ast/mbox}}
     \begin{center}\label{fig:dir-lookup}
       \mode<beamer>{ \includegraphics[width=\textwidth]{04-35} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{04-35} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{itemize}
@@ -1390,21 +1369,21 @@ See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum200
 See also: \citetitle[\emph{Wikipedia:dag}]{wiki:dag}.
 
 \begin{frame}{Hard Links}
-  \begin{block}{Hard links {\pright} the same inode}
+  \begin{iblock}{Hard links {\pright} the same inode}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{hard-link} }%
+      \mode<beamer>{ \includegraphics[width=.9\textwidth]{hard-link} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{hard-link} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Drawback}
+  \begin{iblock}{Drawback}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{04-17} }%
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{04-17} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{04-17} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{itemize}
@@ -1428,12 +1407,12 @@ See also: \citetitle[\emph{Wikipedia:dag}]{wiki:dag}.
 \end{itemize}
 
 \begin{frame}{Symbolic Links}
-  \begin{block}{A symbolic link has its own inode {\pright} a directory entry}
+  \begin{iblock}{A symbolic link has its own inode {\pright} a directory entry}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{soft-link} }%
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{soft-link} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{soft-link} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{\ttfamily link(), unlink(), symlink()}
@@ -1540,7 +1519,7 @@ See also: \citetitle[Sec.~15.7.3, \emph{Journaling}]{silberschatz11essentials}.
     \item so that if the system crashes before it can do its planned work, upon rebooting
       the system can look in the log to see what was going on at the time of the crash and
       finish the job.
-    \item NTFS, EXT3, and ReiserFS use journaling among others
+    \item NTFS, EXT3/4, and ReiserFS use journaling among others
     \end{itemize}
   \end{block}
 \end{frame}
@@ -1559,15 +1538,12 @@ References:
 \subsection{Ext2 File System Layout}
 
 \begin{frame}{Ext2 File System}
-  \begin{block}{Physical Layout}
+  \begin{iblock}{Physical Layout}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{ext2}
-      } \mode<article>{
-        \includegraphics[width=.6\textwidth]{ext2}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{ext2} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{ext2} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also: \citetitle[Sec.~15.7.2, \emph{The Linux ext2fs File
@@ -1699,7 +1675,7 @@ allocation of eight blocks.
 \begin{frame}{Ext2 inode}
   % All inodes are 128 bytes in size
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-11-28} }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-11-28} }
     \mode<article>{ \includegraphics[width=.5\textwidth]{osc-11-28} }
   \end{center}
   % \includegraphics[width=.8\textwidth]{inode}
@@ -1771,8 +1747,8 @@ allocation of eight blocks.
 
 \begin{frame}{Ext2 File Types}
   \begin{center}
-    \begin{tabular}{c|l}
-      File type&Description\\\hline
+    \begin{tabular}{cl}\hline
+      \thead{File type}&\thead{Description}\\\hline
       0&Unknown\\
       1&Regular file\\
       2&Directory\\
@@ -1780,7 +1756,7 @@ allocation of eight blocks.
       4&Block device\\
       5&Named pipe\\
       6&Socket\\
-      7&Symbolic link
+      7&Symbolic link\\\hline
     \end{tabular}
   \end{center}
   \begin{description}
@@ -1893,11 +1869,8 @@ programming\citetitle[Sec.~12.1]{bovet2005understanding}.
 \begin{frame}[fragile]
   \mint{c}|ret = write(fd, buf, len);|
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{vfs-write}
-    } \mode<article>{
-      \includegraphics[width=.8\textwidth]{vfs-write}\label{fig:vfs-write}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{vfs-write} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{vfs-write}\label{fig:vfs-write} }
   \end{center}
 \end{frame}
 
@@ -2306,11 +2279,8 @@ VFS or any filesystem code.
 
 \begin{frame}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{vfs-objs}
-    } \mode<article>{
-      \includegraphics[width=.5\textwidth]{vfs-objs-bw}\label{fig:vfs-objs}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{vfs-objs} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{vfs-objs-bw}\label{fig:vfs-objs} }
   \end{center}
 \end{frame}
 

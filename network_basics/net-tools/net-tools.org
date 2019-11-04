@@ -5,7 +5,6 @@
 #+OPTIONS:   H:3 num:3 toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+OPTIONS:   author:t creator:t timestamp:t
-#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
 #+LINK_UP:

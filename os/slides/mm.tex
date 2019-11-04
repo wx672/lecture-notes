@@ -695,44 +695,6 @@ There are also disadvantages:
 %   \end{center}
 % \end{frame}
 
-\begin{frame}[fragile]{Page Fault}
-  \begin{varwidth}{.48\textwidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-10} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }
-    \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.48\textwidth}
-    \mintinline{nasm}|MOV REG, 32780|?
-    \begin{itemize}
-    \item[\Symbol{➠}] Page fault \& swapping
-    \end{itemize}
-  \end{varwidth}
-\end{frame}
-
-\begin{frame}{Page Fault Handling}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-9-14} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-9-14} }
-  \end{center}
-\end{frame}
-
-% \begin{frame}{Free Frames}
-%   \begin{center}
-%     \includegraphics[width=.9\textwidth]{osc-8-25}\\
-%     \begin{small}
-%       before allocation \qquad\qquad\qquad\qquad after allocation
-%     \end{small}
-%   \end{center}
-% \end{frame}
-
-\begin{frame}{Shared Pages}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-33} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-33} }
-  \end{center}
-\end{frame}
-
 \begin{frame}{Page Table Entry}{Intel i386 Page Table Entry}
   \begin{itemize}
   \item Commonly 4 bytes (32 bits) long
@@ -778,27 +740,56 @@ There are also disadvantages:
   \end{center}
 \end{frame}
 
-\begin{frame}{Multilevel Page Tables}
-%  \begin{minipage}{.54\textwidth}
+\begin{frame}[fragile]{Page Fault}
+  \begin{varwidth}{.48\textwidth}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-10} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }
+    \end{center}
+  \end{varwidth}\hfill
+  \begin{varwidth}{.48\textwidth}
+    \mintinline{nasm}|MOV REG, 32780|?
     \begin{itemize}
-    \item a $1M$-entry page table eats $4M$ memory
-    \item while 100 processes running, $400M$ memory is gone for page tables
-    \item avoid keeping all the page tables in memory all the time
+    \item[\Symbol{➠}] Page fault \& swapping
     \end{itemize}
-    \begin{iblock}{A two-level scheme}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=.6\textwidth]{2-level-paging} }%
-        \mode<article>{ \includegraphics[width=.3\textwidth]{2-level-paging} }
-      \end{center}
-    \end{iblock}    
-    %  \end{minipage}\hfill
-  % \begin{minipage}{.46\textwidth}
-  %   \begin{center}
-  %     \mode<beamer>{ \includegraphics[width=\textwidth]{osc-8-36} }%
-  %     \mode<article>{ \includegraphics[width=.8\textwidth]{osc-8-36} }
-  %   \end{center}
-  %   \label{fig:2levelpaging}
-  % \end{minipage}
+  \end{varwidth}
+\end{frame}
+
+\begin{frame}{Page Fault Handling}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-9-14} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-9-14} }
+  \end{center}
+\end{frame}
+
+% \begin{frame}{Free Frames}
+%   \begin{center}
+%     \includegraphics[width=.9\textwidth]{osc-8-25}\\
+%     \begin{small}
+%       before allocation \qquad\qquad\qquad\qquad after allocation
+%     \end{small}
+%   \end{center}
+% \end{frame}
+
+\begin{frame}{Shared Pages}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-33} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-33} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Multilevel Page Tables}
+  \begin{itemize}
+  \item a $1M$-entry page table eats $4M$ memory
+  \item while 100 processes running, $400M$ memory is gone for page tables
+  \item avoid keeping all the page tables in memory all the time
+  \end{itemize}
+  \begin{iblock}{A two-level scheme}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.6\textwidth]{2-level-paging} }%
+      \mode<article>{ \includegraphics[width=.3\textwidth]{2-level-paging} }
+    \end{center}
+  \end{iblock}
 \end{frame}
 
 \begin{description}
@@ -818,57 +809,11 @@ There are also disadvantages:
   \end{itemize}
 \end{itemize}
 
-% \begin{frame}{Two-level Page-Table Scheme}
-%   \begin{center}
-%     %     \includegraphics[width=\textwidth]{osc-8-38}
-%     \begin{center}
-%       \includegraphics[width=\textwidth]{two-level-paging}
-%     \end{center}
-
-%   \end{center}
-%   %   \begin{small}
-%   %   \begin{itemize}
-%   %   \item[$P_1$] is an index into the outer page table
-%   %   \item[$P_2$] is the displacement within the page of the outer page table
-%   %   \end{itemize}
-%   % \end{small}
-% \end{frame}
-
-% \begin{frame}{Memory protection}
-%   \begin{itemize}
-%   \item Protection bit --- R/W
-%   \item \textcolor{blue}{Valid-invalid} bit
-%     \begin{itemize}
-%     \item Many processes use only a small fraction of the address space available to
-%       them
-%     \item "valid" indicates that the associated page is in the process' logical address
-%       space, and is thus a legal page
-%     \item "invalid" indicates that the page is not in the process' logical address space
-%     \end{itemize}
-%   \end{itemize}
-% \end{frame}
-
-% \begin{frame}{Valid (v) or Invalid (i) Bit}
-%   \begin{center}
-%     \includegraphics[width=.9\textwidth]{osc-8-31}
-%   \end{center}
-% \end{frame}
-
 \begin{frame}{Two-Level Page Tables}{Example}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{2-level-paging-2} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{2-level-paging-2} }
   \end{center}
-  % \begin{minipage}{.3\linewidth}
-  %   \mbox{Don't have to keep all the $1K$ page tables} \mbox{($1M$ pages) in memory. In
-  %     this example} \mbox{only 4 page tables are actually} \mbox{mapped into memory}\\[1ex]
-  %   \begin{center}
-  %     \includegraphics[width=.7\textwidth]{process}
-  %   \end{center}
-  % \end{minipage}\hfill
-  % \begin{minipage}{.68\linewidth}
-  %   \includegraphics[width=\textwidth]{2-level-paging-2}%{mos-figs-4-12}
-  % \end{minipage}
 \end{frame}
 
 \begin{frame}{Problem With 64-bit Systems}
@@ -894,7 +839,7 @@ There are also disadvantages:
   \end{description}
 \end{frame}
 
-\begin{frame}{Inverted Page Tables}{Index with frame number}
+\begin{frame}<article>{Inverted Page Tables}{Index with frame number}
   \begin{iblock}{Inverted Page Table:}
     \begin{itemize}
     \item One entry for each \emph{physical} frame
@@ -914,7 +859,7 @@ There are also disadvantages:
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Inverted Page Tables}{Index with frame number}
   \begin{iblock}{Find index according to entry contents}
     $(pid,\,p)\Rightarrow{}i$
     \begin{center}
@@ -924,7 +869,7 @@ There are also disadvantages:
   \end{iblock}
 \end{frame}
 
-\begin{frame}%{Linear Inverted Page Tables}
+\begin{frame}<article>%{Linear Inverted Page Tables}
   \begin{minipage}[t]{.39\linewidth}
     Std. PTE (32-bit sys.):
     \begin{center}
@@ -963,7 +908,7 @@ There are also disadvantages:
   \end{minipage}
 \end{frame}
 
-\begin{frame}
+\begin{frame}<article>
   \begin{description}
   \item[Inefficient:] Require searching the entire table 
   \end{description}
@@ -995,7 +940,7 @@ There are also disadvantages:
   \end{center}
 \end{frame}
 
-\begin{frame}{Hashed Inverted Page Table}
+\begin{frame}<article>{Hashed Inverted Page Table}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{ipt-hash} }%
     \mode<article>{ \includegraphics[width=.4\textwidth]{ipt-hash} }
@@ -1003,608 +948,611 @@ There are also disadvantages:
   % \includegraphics[width=\textwidth]{hash-table}
 \end{frame}
 
-\subsection{Demand Paging}
+% \begin{comment}
+% \subsection{Demand Paging}
 
-\begin{frame}{Demand Paging}
-  \begin{iblock}{With demand paging, the size of the LAS is no longer constrained by
-      physical memory}
-    \begin{itemize}
-    \item Bring a page into memory only when it is needed
-      \begin{itemize}
-      \item Less I/O needed
-      \item Less memory needed
-      \item Faster response
-      \item More users
-      \end{itemize}
-    \item Page is needed $\Rightarrow$ reference to it
-      \begin{itemize}
-      \item invalid reference $\Rightarrow$ abort
-      \item not-in-memory $\Rightarrow$ bring to memory
-      \end{itemize}
-    \item \alert{Lazy swapper} - never swaps a page into memory unless page will
-      be needed
-      \begin{itemize}
-      \item \alert{Swapper} deals with entire processes
-      \item \alert{Pager (Lazy swapper)} deals with pages
-      \end{itemize}
-    \end{itemize}
-  \end{iblock}
-\end{frame}
-
-\paragraph{More about demand paging}
-
-In the purest form of paging, processes are started up with none of their pages in
-memory. As soon as the CPU tries to fetch the first instruction, it gets a page fault,
-causing the operating system to bring in the page containing the first instruction. Other
-page faults for global variables and the stack usually follow quickly. After a while, the
-process has most of the pages it needs and settles down to run with relatively few page
-faults. This strategy is called \emph{demand paging} because pages are loaded only on
-demand, not in advance\citetitle[Sec.~3.4.8, P.~207]{tanenbaum2008modern}.
-
-\subsection{Copy-on-Write}
-
-\begin{frame}{Copy-on-Write}{More efficient process creation}
-  \begin{varwidth}{.49\textwidth}
-    \begin{itemize}
-    \item Parent and child processes initially share the same pages in memory
-    \item Only the modified page is copied upon modification occurs
-    \item Free pages are allocated from a \emph{pool} of zeroed-out pages
-    \end{itemize}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.49\textwidth}
-    \begin{center}
-      \includegraphics[width=\textwidth]{osc-9-19}
-    \end{center}
-    \begin{center}
-      \includegraphics[width=\textwidth]{osc-9-20}
-    \end{center}
-  \end{varwidth}
-\end{frame}
-
-\subsection{Memory mapped files}
-
-\begin{frame}{Memory Mapped Files}
-  \begin{center}
-    Mapping a file (disk block) to one or more memory pages
-  \end{center}
-  \begin{minipage}{.49\textwidth}
-    \begin{itemize}
-    \item \alert{Improved I/O performance} --- much faster than \emph{read()}
-      and \emph{write()} system calls
-    \item \alert{Lazy loading (demand paging)} --- only a small portion of file
-      is loaded initially
-    \item A mapped file can be shared, like \emph{shared library}
-    \end{itemize}
-  \end{minipage}\quad
-  \begin{minipage}{.45\textwidth}
-    \includegraphics[width=1.15\textwidth]{osc-9-54}
-  \end{minipage}
-\end{frame}
-
-\subsection{Page Replacement Algorithms}
-
-\begin{frame}{Need For Page Replacement}
-  \begin{description}
-  \item[Page replacement:] find some page in memory, but not really in use, swap it out
-  \end{description}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-9-23} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-9-23} }
-  \end{center}
-\end{frame}
-
-Linux calls it the \emph{Page Frame Reclaiming
-  Algorithm}\footnote{\url{http://stackoverflow.com/questions/5889825/page-replacement-algorithm}},
-it's basically LRU with a bias towards non-dirty pages.
-
-See also:
-\begin{itemize}
-\item \citetitle[\emph{Wikipedia: Page replacement algorithm}]{wiki:page-replace}.
-\item \citetitle[Chap.~17, \emph{Page Frame Reclaiming}]{bovet2005understanding}.
-\item PageReplacementDesign\footnote{\url{http://linux-mm.org/PageReplacementDesign}}.
-\end{itemize}
-
-\begin{frame}{Performance Concern}
-  Because disk I/O is so expensive, we must solve two major problems to implement demand
-  paging.
-  \begin{description}
-  \item[Frame-allocation algorithm] If we have multiple processes in memory, we must
-    decide how many frames to allocate to each process.
-  \item[Page-replacement algorithm] When page replacement is required, we must select the
-    frames that are to be replaced.
-  \end{description}
-  \begin{iblock}{Performance}
-    We want an algorithm resulting in lowest page-fault rate
-    \begin{itemize}
-    \item Is the victim page modified?
-    \item Pick a random page to swap out?
-    \item Pick a page from the faulting process' own pages? Or from others?
-    \end{itemize}
-  \end{iblock}
-\end{frame}
-
-\begin{frame}{Page-Fault Frequency Scheme}
-  Establish "acceptable" page-fault rate
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{osc-9-51} }
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-9-51} }
-  \end{center}
-\end{frame}
-
-\begin{frame}{FIFO Page Replacement Algorithm}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{osc-9-29} }
-    \mode<article>{ \includegraphics[width=.6\textwidth]{osc-9-29} }
-  \end{center}
-  \begin{itemize}
-  \item Maintain a linked list (FIFO queue) of all pages
-    \begin{itemize}
-    \item in order they came into memory
-    \end{itemize}
-  \item Page at beginning of list replaced
-  \item Disadvantage
-    \begin{itemize}
-    \item The oldest page may be often used
-    \item Belady's anomaly
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{FIFO Page Replacement Algorithm}{Belady's Anomaly}
-  \begin{itemize}
-  \item Reference string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
-  \item 3 frames (3 pages can be in memory at a time per process)
-    \begin{center}
-      \begin{tabular}{cccc}
-        \fbox{1}&4&5&3\\
-        \fbox{2}&1&\sout{1}&4\\
-        \fbox{3}&2&\sout{2}&\sout{5}
-      \end{tabular}\qquad
-      9 page faults
-    \end{center}
-  \item 4 frames
-    \begin{center}
-      \begin{tabular}{ccc}
-        \fbox{1}&\sout{1}&2\\
-        \fbox{2}&\sout{2}&3\\
-        \fbox{3}&5&4\\
-        \fbox{4}&1&5
-      \end{tabular}\qquad\quad
-      10 page faults
-    \end{center}
-  \item Belady's Anomaly: \alert{more frames $\Rightarrow$ more page faults}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Optimal Page Replacement Algorithm (OPT)}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{osc-9-32} }
-    \mode<article>{ \includegraphics[width=.6\textwidth]{osc-9-32} }
-  \end{center}
-  \begin{itemize}
-  \item Replace page needed at the farthest point in future
-    \begin{itemize}
-    \item Optimal but not feasible
-    \end{itemize}
-  \item Estimate by ...
-    \begin{itemize}
-    \item logging page use on previous runs of process
-    \item although this is impractical, similar to SJF CPU-scheduling, it can be used for
-      comparison studies
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Least Recently Used (LRU) Algorithm}
-  \begin{itemize}
-  \item[FIFO] uses the time when a page was brought into memory
-  \item[OPT] uses the time when a page is to be used
-  \item[LRU] uses the recent past as an approximation of the near future
-  \end{itemize}
-  Replace the page that \emph{has not been used} for the longest period of time
-  \begin{iblock}{Assume recently-used-pages will used again soon}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{osc-9-34} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{osc-9-34} }
-    \end{center}
-  \end{iblock}
-\end{frame}
-
-\begin{frame}{LRU Implementations}
-  \begin{iblock}{\alert{Counters}: record the time of the last reference
-      to each page}
-    \begin{itemize}
-    \item choose page with lowest value counter
-    \item Keep counter in each page table entry
-    \item counter overflow --- periodically zero the counter
-    \item require a \alert{search} of the page table to find the LRU page
-    \item update time-of-use field in the page table \alert{every memory reference!}
-    \end{itemize}
-  \end{iblock}
-  \begin{iblock}{\alert{Stack}: keep a linked list (stack) of pages}
-    \begin{itemize}
-    \item most recently used at top, least (LRU) at bottom
-      \begin{itemize}
-      \item no search for replacement
-      \end{itemize}
-    \item whenever a page is referenced, it's removed from the stack and put on the top
-      \begin{itemize}
-      \item update this list \alert{every memory reference!}
-      \end{itemize}
-    \end{itemize}
-  \end{iblock}
-\end{frame}
-
-\begin{frame}{Second Chance Page Replacement Algorithm}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{mos-figs-4-17}
-    }
-    \mode<article>{
-      \includegraphics[width=.6\textwidth]{mos-figs-4-17}
-    }
-  \end{center}
-  % \begin{center}
-  %   \includegraphics[width=.9\textwidth]{osc-9-38}
-  % \end{center}
-\end{frame}
-
-\subsection{Allocation of Frames}
-
-\begin{frame}{Allocation of Frames}
-  \begin{itemize}
-  \item Each process needs minimum number of pages
-  \item Fixed Allocation
-    \begin{itemize}
-    \item Equal allocation --- e.g., 100 frames and 5 processes, give
-      each process 20 frames.
-    \item Proportional allocation --- Allocate according to the size of process
-      $$a_i=\frac{s_i}{\sum{}s_i}\times{}m$$
-      \begin{description}
-      \item[$S_i$:] size of process $p_i$
-      \item[$m$:] total number of frames
-      \item[$a_i$:] frames allocated to $p_i$
-      \end{description}
-    \end{itemize}
-  \item Priority Allocation --- Use a proportional allocation scheme
-    using priorities rather than size
-    $$\frac{priority_i}{\sum{}priority_i}\quad or\quad (\frac{s_i}{\sum{}s_i},\,\frac{priority_i}{\sum{}priority_i})$$
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Global vs. Local Allocation}
-  If process $P_i$ generates a page fault, it can select a replacement frame
-  \begin{itemize}
-  \item from its own frames --- \alert{Local replacement}
-  \item from the set of all frames; one process can take a frame from another ---
-    \alert{Global replacement}
-    \begin{itemize}
-    \item from a process with lower priority number
-    \end{itemize}
-  \end{itemize}
-  \alert{Global replacement generally results in greater system throughput.}
-\end{frame}
-
-\subsection{Thrashing And Working Set Model}
-
-\begin{frame}{Thrashing}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{thrashing}
-    }
-    \mode<article>{
-      \includegraphics[width=.4\textwidth]{thrashing}
-    }
-  \end{center}
-\end{frame}
-
-\begin{frame}{Thrashing}
-  \begin{enumerate}
-  \item CPU not busy $\Rightarrow$ add more processes
-  \item a process needs more frames $\Rightarrow$ faulting, and taking frames away from
-    others
-  \item these processes also need these pages $\Rightarrow$ also faulting, and taking
-    frames away from others $\Rightarrow$ chain reaction
-  \item more and more processes queueing for the paging device $\Rightarrow$ ready queue
-    is empty $\Rightarrow$ CPU has nothing to do $\Rightarrow$ add more processes
-    $\Rightarrow$ more page faults
-  \item MMU is busy, but no work is getting done, because processes are busy paging ---
-    \alert{thrashing}
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}{Demand Paging and Thrashing}{Locality Model}
-  \begin{minipage}{.5\textwidth}
-    \begin{itemize}
-    \item A \alert{locality} is a set of pages that are actively used together
-    \item Process migrates from one locality to another
-      % \item Localities may overlap
-    \end{itemize}
-  \end{minipage}\hfill
-  \begin{minipage}{.4\textwidth}
-    \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{osc-9-47}
-      } \mode<article>{
-        \includegraphics[width=.7\textwidth]{osc-9-47}
-      }
-      {\tiny locality in a memory reference pattern}
-    \end{center}
-  \end{minipage}
-  
-  \begin{description}
-  \item[Why does thrashing occur?]
-    \begin{small}
-      $$\sum_{i=(0,n)}Locality_i > \textit{total memory size}$$
-    \end{small}
-  \end{description}
-\end{frame}
-
-\begin{frame}{Working-Set Model}
-  \begin{description}
-  \item[Working Set (WS)] The set of pages that a process is currently($\Delta$)
-    using. ($\approx{}$locality)
-  \end{description}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.9\textwidth]{osc-9-49}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{osc-9-49}
-    }
-  \end{center}
-  \begin{iblock}{}
-    \begin{description}
-    \item[$\Delta$:] Working-set window. In this example,
-      \begin{itemize}
-      \item[] $\Delta=10\ \texttt{memory access}$
-      \end{itemize}
-    \item[WSS:] Working-set size.  $WS(t_1)=\{\overbrace{1,\,2,\,5,\,6,\,7}^{WSS=5}\}$
-    \end{description}
-  \end{iblock}
-  \begin{itemize}
-  \item The accuracy of the working set depends on the selection of $\Delta$
-  \item Thrashing, if $\sum{}WSS_i > SIZE_{total\,memory}$
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{The Working-Set Page Replacement Algorithm}
-  \begin{iblock}{To evict a page that is not in the working set}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.9\textwidth]{mos-figs-4-21} }
-      \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-4-21} }
-    \end{center}
-    $$age = \textit{Current virtual time} - \textit{Time of last use}$$
-  \end{iblock}
-\end{frame}
-
-\begin{description}
-\item[Current virtual time] The amount of CPU time a process has actually used since it
-  started is often called its \emph{current virtual time}\citetitle[sec~3.4.8,
-  p~209]{tanenbaum2008modern}.
-\end{description}
-
-The algorithm works as follows. The hardware is assumed to set the \texttt{R} and
-\texttt{M} bits, as discussed earlier. Similarly, a periodic clock interrupt is assumed to
-cause software to run that clears the \texttt{Referenced} bit on every clock tick. On
-every page fault, the page table is scanned to look for a suitable page to
-evict\citetitle[sec~3.4.8, p~210]{tanenbaum2008modern}.
-
-As each entry is processed, the \texttt{R} bit is examined. If it is \texttt{1}, the
-current virtual time is written into the \emph{Time of last use} field in the page table,
-indicating that the page was in use at the time the fault occurred. Since the page has
-been referenced during the current clock tick, it is clearly in the working set and is not
-a candidate for removal ($\mathtt{\tau}$ is assumed to span multiple clock ticks).
-
-If \texttt{R} is \texttt{0}, the page has not been referenced during the current clock
-tick and may be a candidate for removal. To see whether or not it should be removed, its
-age (the current virtual time minus its \emph{Time of last use}) is computed and compared
-to $\mathtt{\tau}$. If the age is greater than $\mathtt{\tau}$, the page is no longer in
-the working set and the new page replaces it. The scan continues updating the remaining
-entries.
-
-However, if \texttt{R} is \texttt{0} but the age is less than or equal to $\mathtt{\tau}$,
-the page is still in the working set. The page is temporarily spared, but the page with
-the greatest age (smallest value of \emph{Time of last use}) is noted. If the entire table
-is scanned without finding a candidate to evict, that means that all pages are in the
-working set. In that case, if one or more pages with $\mathtt{R = 0}$ were found, the one
-with the greatest age is evicted. In the worst case, all pages have been referenced during
-the current clock tick (and thus all have $\mathtt{R = 1}$), so one is chosen at random
-for removal, preferably a clean page, if one exists.
-
-% \begin{frame}{Keeping Track of the Working Set}
-%   \begin{itemize}
-%   \item Approximate with interval timer + a reference bit
-%   \item Example: $\Delta = 10,000$ references
+% \begin{frame}{Demand Paging}
+%   \begin{iblock}{With demand paging, the size of the LAS is no longer constrained by
+%       physical memory}
 %     \begin{itemize}
-%     \item Timer interrupts after every 5000 references
-%     \item Keep in memory 2 bits for each page
-%     \item Whenever a timer interrupts, we copy/clear the reference bits
-%     \item If one of the bits in memory = 1 $\Rightarrow$page in working set
+%     \item Bring a page into memory only when it is needed
+%       \begin{itemize}
+%       \item Less I/O needed
+%       \item Less memory needed
+%       \item Faster response
+%       \item More users
+%       \end{itemize}
+%     \item Page is needed $\Rightarrow$ reference to it
+%       \begin{itemize}
+%       \item invalid reference $\Rightarrow$ abort
+%       \item not-in-memory $\Rightarrow$ bring to memory
+%       \end{itemize}
+%     \item \alert{Lazy swapper} - never swaps a page into memory unless page will
+%       be needed
+%       \begin{itemize}
+%       \item \alert{Swapper} deals with entire processes
+%       \item \alert{Pager (Lazy swapper)} deals with pages
+%       \end{itemize}
 %     \end{itemize}
-%   \item Not completely accurate
+%   \end{iblock}
+% \end{frame}
+
+% \paragraph{More about demand paging}
+
+% In the purest form of paging, processes are started up with none of their pages in
+% memory. As soon as the CPU tries to fetch the first instruction, it gets a page fault,
+% causing the operating system to bring in the page containing the first instruction. Other
+% page faults for global variables and the stack usually follow quickly. After a while, the
+% process has most of the pages it needs and settles down to run with relatively few page
+% faults. This strategy is called \emph{demand paging} because pages are loaded only on
+% demand, not in advance\citetitle[Sec.~3.4.8, P.~207]{tanenbaum2008modern}.
+
+% \subsection{Copy-on-Write}
+
+% \begin{frame}{Copy-on-Write}{More efficient process creation}
+%   \begin{varwidth}{.49\textwidth}
 %     \begin{itemize}
-%     \item Improvement: 10 bits and interrupt every 1000 time units. (Costs higher)
+%     \item Parent and child processes initially share the same pages in memory
+%     \item Only the modified page is copied upon modification occurs
+%     \item Free pages are allocated from a \emph{pool} of zeroed-out pages
+%     \end{itemize}
+%   \end{varwidth}\hfill
+%   \begin{varwidth}{.49\textwidth}
+%     \begin{center}
+%       \includegraphics[width=\textwidth]{osc-9-19}
+%     \end{center}
+%     \begin{center}
+%       \includegraphics[width=\textwidth]{osc-9-20}
+%     \end{center}
+%   \end{varwidth}
+% \end{frame}
+
+% \subsection{Memory mapped files}
+
+% \begin{frame}{Memory Mapped Files}
+%   \begin{center}
+%     Mapping a file (disk block) to one or more memory pages
+%   \end{center}
+%   \begin{minipage}{.49\textwidth}
+%     \begin{itemize}
+%     \item \alert{Improved I/O performance} --- much faster than \emph{read()}
+%       and \emph{write()} system calls
+%     \item \alert{Lazy loading (demand paging)} --- only a small portion of file
+%       is loaded initially
+%     \item A mapped file can be shared, like \emph{shared library}
+%     \end{itemize}
+%   \end{minipage}\quad
+%   \begin{minipage}{.45\textwidth}
+%     \includegraphics[width=1.15\textwidth]{osc-9-54}
+%   \end{minipage}
+% \end{frame}
+
+% \subsection{Page Replacement Algorithms}
+
+% \begin{frame}{Need For Page Replacement}
+%   \begin{description}
+%   \item[Page replacement:] find some page in memory, but not really in use, swap it out
+%   \end{description}
+%   \begin{center}
+%     \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-9-23} }%
+%     \mode<article>{ \includegraphics[width=.4\textwidth]{osc-9-23} }
+%   \end{center}
+% \end{frame}
+
+% Linux calls it the \emph{Page Frame Reclaiming
+%   Algorithm}\footnote{\url{http://stackoverflow.com/questions/5889825/page-replacement-algorithm}},
+% it's basically LRU with a bias towards non-dirty pages.
+
+% See also:
+% \begin{itemize}
+% \item \citetitle[\emph{Wikipedia: Page replacement algorithm}]{wiki:page-replace}.
+% \item \citetitle[Chap.~17, \emph{Page Frame Reclaiming}]{bovet2005understanding}.
+% \item PageReplacementDesign\footnote{\url{http://linux-mm.org/PageReplacementDesign}}.
+% \end{itemize}
+
+% \begin{frame}{Performance Concern}
+%   Because disk I/O is so expensive, we must solve two major problems to implement demand
+%   paging.
+%   \begin{description}
+%   \item[Frame-allocation algorithm] If we have multiple processes in memory, we must
+%     decide how many frames to allocate to each process.
+%   \item[Page-replacement algorithm] When page replacement is required, we must select the
+%     frames that are to be replaced.
+%   \end{description}
+%   \begin{iblock}{Performance}
+%     We want an algorithm resulting in lowest page-fault rate
+%     \begin{itemize}
+%     \item Is the victim page modified?
+%     \item Pick a random page to swap out?
+%     \item Pick a page from the faulting process' own pages? Or from others?
+%     \end{itemize}
+%   \end{iblock}
+% \end{frame}
+
+% \begin{frame}{Page-Fault Frequency Scheme}
+%   Establish "acceptable" page-fault rate
+%   \begin{center}
+%     \mode<beamer>{ \includegraphics[width=\textwidth]{osc-9-51} }
+%     \mode<article>{ \includegraphics[width=.4\textwidth]{osc-9-51} }
+%   \end{center}
+% \end{frame}
+
+% \begin{frame}{FIFO Page Replacement Algorithm}
+%   \begin{center}
+%     \mode<beamer>{ \includegraphics[width=\textwidth]{osc-9-29} }
+%     \mode<article>{ \includegraphics[width=.6\textwidth]{osc-9-29} }
+%   \end{center}
+%   \begin{itemize}
+%   \item Maintain a linked list (FIFO queue) of all pages
+%     \begin{itemize}
+%     \item in order they came into memory
+%     \end{itemize}
+%   \item Page at beginning of list replaced
+%   \item Disadvantage
+%     \begin{itemize}
+%     \item The oldest page may be often used
+%     \item Belady's anomaly
 %     \end{itemize}
 %   \end{itemize}
 % \end{frame}
 
-% \begin{frame}{The Clock Page Replacement Algorithm}
+% \begin{frame}{FIFO Page Replacement Algorithm}{Belady's Anomaly}
+%   \begin{itemize}
+%   \item Reference string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
+%   \item 3 frames (3 pages can be in memory at a time per process)
+%     \begin{center}
+%       \begin{tabular}{cccc}
+%         \fbox{1}&4&5&3\\
+%         \fbox{2}&1&\sout{1}&4\\
+%         \fbox{3}&2&\sout{2}&\sout{5}
+%       \end{tabular}\qquad
+%       9 page faults
+%     \end{center}
+%   \item 4 frames
+%     \begin{center}
+%       \begin{tabular}{ccc}
+%         \fbox{1}&\sout{1}&2\\
+%         \fbox{2}&\sout{2}&3\\
+%         \fbox{3}&5&4\\
+%         \fbox{4}&1&5
+%       \end{tabular}\qquad\quad
+%       10 page faults
+%     \end{center}
+%   \item Belady's Anomaly: \alert{more frames $\Rightarrow$ more page faults}
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Optimal Page Replacement Algorithm (OPT)}
 %   \begin{center}
-%     \includegraphics[width=\textwidth]{mos-figs-4-17}
+%     \mode<beamer>{ \includegraphics[width=\textwidth]{osc-9-32} }
+%     \mode<article>{ \includegraphics[width=.6\textwidth]{osc-9-32} }
+%   \end{center}
+%   \begin{itemize}
+%   \item Replace page needed at the farthest point in future
+%     \begin{itemize}
+%     \item Optimal but not feasible
+%     \end{itemize}
+%   \item Estimate by ...
+%     \begin{itemize}
+%     \item logging page use on previous runs of process
+%     \item although this is impractical, similar to SJF CPU-scheduling, it can be used for
+%       comparison studies
+%     \end{itemize}
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Least Recently Used (LRU) Algorithm}
+%   \begin{itemize}
+%   \item[FIFO] uses the time when a page was brought into memory
+%   \item[OPT] uses the time when a page is to be used
+%   \item[LRU] uses the recent past as an approximation of the near future
+%   \end{itemize}
+%   Replace the page that \emph{has not been used} for the longest period of time
+%   \begin{iblock}{Assume recently-used-pages will used again soon}
+%     \begin{center}
+%       \mode<beamer>{ \includegraphics[width=\textwidth]{osc-9-34} }%
+%       \mode<article>{ \includegraphics[width=.6\textwidth]{osc-9-34} }
+%     \end{center}
+%   \end{iblock}
+% \end{frame}
+
+% \begin{frame}{LRU Implementations}
+%   \begin{iblock}{\alert{Counters}: record the time of the last reference
+%       to each page}
+%     \begin{itemize}
+%     \item choose page with lowest value counter
+%     \item Keep counter in each page table entry
+%     \item counter overflow --- periodically zero the counter
+%     \item require a \alert{search} of the page table to find the LRU page
+%     \item update time-of-use field in the page table \alert{every memory reference!}
+%     \end{itemize}
+%   \end{iblock}
+%   \begin{iblock}{\alert{Stack}: keep a linked list (stack) of pages}
+%     \begin{itemize}
+%     \item most recently used at top, least (LRU) at bottom
+%       \begin{itemize}
+%       \item no search for replacement
+%       \end{itemize}
+%     \item whenever a page is referenced, it's removed from the stack and put on the top
+%       \begin{itemize}
+%       \item update this list \alert{every memory reference!}
+%       \end{itemize}
+%     \end{itemize}
+%   \end{iblock}
+% \end{frame}
+
+% \begin{frame}{Second Chance Page Replacement Algorithm}
+%   \begin{center}
+%     \mode<beamer>{
+%       \includegraphics[width=\textwidth]{mos-figs-4-17}
+%     }
+%     \mode<article>{
+%       \includegraphics[width=.6\textwidth]{mos-figs-4-17}
+%     }
+%   \end{center}
+%   % \begin{center}
+%   %   \includegraphics[width=.9\textwidth]{osc-9-38}
+%   % \end{center}
+% \end{frame}
+
+% \subsection{Allocation of Frames}
+
+% \begin{frame}{Allocation of Frames}
+%   \begin{itemize}
+%   \item Each process needs minimum number of pages
+%   \item Fixed Allocation
+%     \begin{itemize}
+%     \item Equal allocation --- e.g., 100 frames and 5 processes, give
+%       each process 20 frames.
+%     \item Proportional allocation --- Allocate according to the size of process
+%       $$a_i=\frac{s_i}{\sum{}s_i}\times{}m$$
+%       \begin{description}
+%       \item[$S_i$:] size of process $p_i$
+%       \item[$m$:] total number of frames
+%       \item[$a_i$:] frames allocated to $p_i$
+%       \end{description}
+%     \end{itemize}
+%   \item Priority Allocation --- Use a proportional allocation scheme
+%     using priorities rather than size
+%     $$\frac{priority_i}{\sum{}priority_i}\quad or\quad (\frac{s_i}{\sum{}s_i},\,\frac{priority_i}{\sum{}priority_i})$$
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Global vs. Local Allocation}
+%   If process $P_i$ generates a page fault, it can select a replacement frame
+%   \begin{itemize}
+%   \item from its own frames --- \alert{Local replacement}
+%   \item from the set of all frames; one process can take a frame from another ---
+%     \alert{Global replacement}
+%     \begin{itemize}
+%     \item from a process with lower priority number
+%     \end{itemize}
+%   \end{itemize}
+%   \alert{Global replacement generally results in greater system throughput.}
+% \end{frame}
+
+% \subsection{Thrashing And Working Set Model}
+
+% \begin{frame}{Thrashing}
+%   \begin{center}
+%     \mode<beamer>{
+%       \includegraphics[width=\textwidth]{thrashing}
+%     }
+%     \mode<article>{
+%       \includegraphics[width=.4\textwidth]{thrashing}
+%     }
 %   \end{center}
 % \end{frame}
 
-\begin{frame}{The WSClock Page Replacement Algorithm}{Combine Working Set Algorithm With
-    Clock Algorithm}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.5\textwidth]{mos-figs-4-22} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-4-22} }
-  \end{center}
-\end{frame}
+% \begin{frame}{Thrashing}
+%   \begin{enumerate}
+%   \item CPU not busy $\Rightarrow$ add more processes
+%   \item a process needs more frames $\Rightarrow$ faulting, and taking frames away from
+%     others
+%   \item these processes also need these pages $\Rightarrow$ also faulting, and taking
+%     frames away from others $\Rightarrow$ chain reaction
+%   \item more and more processes queueing for the paging device $\Rightarrow$ ready queue
+%     is empty $\Rightarrow$ CPU has nothing to do $\Rightarrow$ add more processes
+%     $\Rightarrow$ more page faults
+%   \item MMU is busy, but no work is getting done, because processes are busy paging ---
+%     \alert{thrashing}
+%   \end{enumerate}
+% \end{frame}
 
-The basic working set algorithm is cumbersome, since the entire page table has to be
-scanned at each page fault until a suitable candidate is located. An improved algorithm,
-that is based on the clock algorithm but also uses the working set information, is called
-\emph{WSClock} (Carr and Hennessey, 1981). Due to its simplicity of implementation and
-good performance, it is widely used in practice\citetitle[Sec~3.4.9,
-P.~211]{tanenbaum2008modern}.
-
-\subsection{Other Issues}
-
-\begin{frame}{Other Issues --- Prepaging}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{osc-9-52} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{osc-9-52} }
-  \end{center}
-  \begin{itemize}
-  \item reduce faulting rate at (re)startup
-    \begin{itemize}
-    \item remember working-set in PCB
-    \end{itemize}
-  \item Not always work
-    \begin{itemize}
-    \item if prepaged pages are unused, I/O and memory was wasted
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Other Issues --- Page Size}%{There is no single best page size}
-  Larger page size
-  \begin{itemize}
-  \item[\alert{\bad}] Bigger internal fragmentation
-  \item[\alert{\bad}] longer I/O time
-  \end{itemize}
-  Smaller page size
-  \begin{itemize}
-  \item[\alert{\bad}] Larger page table
-  \item[\alert{\bad}] more page faults
-    \begin{itemize}
-    \item one page fault for each byte, if $\text{page size} = 1 \text{ Byte}$
-    \item for a $200K$ process, with $\text{page size} = 200K$, only one page fault
-    \end{itemize}
-  \end{itemize}
-  No best answer
-  \begin{itemize}
-    \item[\$] \texttt{getconf PAGESIZE}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Other Issues --- TLB Reach}
-  \begin{itemize}
-  \item Ideally, the working set of each process is stored in the TLB
-    \begin{itemize}
-    \item Otherwise there is a high degree of page faults
-    \end{itemize}
-  \item \alert{TLB Reach} --- The amount of memory accessible from the TLB
-    $$\textit{TLB Reach} = (\textit{TLB Size}) \times (\textit{Page Size})$$
-  \item Increase the page size
-    \begin{itemize}
-    \item[] Internal fragmentation may be increased
-    \end{itemize}
-  \item Provide multiple page sizes
-    \begin{itemize}
-    \item This allows applications that require larger page sizes the opportunity to use
-      them without an increase in fragmentation
-      \begin{itemize}
-      \item UltraSPARC supports page sizes of $8KB$, $64KB$, $512KB$, and $4MB$
-      \item Pentium supports page sizes of $4KB$ and $4MB$
-      \end{itemize}
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Other Issues --- Program Structure}
-  Careful selection of data structures and programming structures can increase locality,
-  i.e. lower the page-fault rate and the number of pages in the working set.
-  \begin{iblock}{Example}
-    \begin{itemize}
-    \item A stack has a good locality, since access is always made to the top
-    \item A hash table has a bad locality, since it's designed to scatter references
-    \item Programming language
-      \begin{itemize}
-      \item Pointers tend to randomize access to memory
-      \item OO programs tend to have a poor locality
-      \end{itemize}
-    \end{itemize}
-  \end{iblock}
-\end{frame}
-
-\begin{frame}{Other Issues --- Program Structure}
-  \begin{iblock}{Example}
-    \begin{itemize}
-    \item \texttt{int[i][j] = int[128][128]}
-    \item Assuming page size is 128 words, then
-    \item Each row (128 words) takes one page
-    \end{itemize}
-    If the process has fewer than 128 frames...\\[1ex]
-    \begin{minipage}[t]{.5\linewidth}
-      \textbf{Program 1:}\\[1ex]
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{mm-pagefault-c} }%
-      \mode<article>{ \cfile{figs/pseudo/mm-pagefault.c} }%
-      Worst case:
-      \begin{itemize}
-      \item[] $128 \times 128 = 16,384$ page faults
-      \end{itemize}
-    \end{minipage}\qquad
-    \begin{minipage}[t]{.4\linewidth}
-      \textbf{Program 2:}\\[1ex]
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mm-pagefault2-c} }%
-      \mode<article>{ \cfile{figs/pseudo/mm-pagefault2.c} }%
-      Worst case:
-      \begin{itemize}
-      \item[] $128$ page faults
-      \end{itemize}
-    \end{minipage}
-  \end{iblock}
-\end{frame}
-
-See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essentials}.
-
-\begin{frame}{Other Issues --- I/O interlock}
-  Sometimes it is necessary to lock pages in memory so that they are not paged out.
-  \begin{iblock}{Example}
-    \begin{itemize}
-    \item The OS
-    \item I/O operation --- the frame into which the I/O device was scheduled to write
-      should not be replaced.
-    \item New page that was just brought in --- looks like the best candidate to be
-      replaced because it was not accessed yet, nor was it modified.
-    \end{itemize}
-  \end{iblock}
-\end{frame}
-
-\begin{frame}{Other Issues --- I/O interlock}{Case 1}
-  \begin{iblock}{Be sure the following sequence of events does not occur:}
-    \begin{enumerate}
-    \item A process issues an I/O request, and then queueing for that I/O device
-    \item The CPU is given to other processes
-    \item These processes cause page faults
-    \item The waiting process' page is unluckily replaced
-    \item When its I/O request is served, the specific frame is now being used by another
-      process
-    \end{enumerate}
-  \end{iblock}
-\end{frame}
-
-\begin{frame}{Other Issues --- I/O interlock}{Case 2}
+% \begin{frame}{Demand Paging and Thrashing}{Locality Model}
+%   \begin{minipage}{.5\textwidth}
+%     \begin{itemize}
+%     \item A \alert{locality} is a set of pages that are actively used together
+%     \item Process migrates from one locality to another
+%       % \item Localities may overlap
+%     \end{itemize}
+%   \end{minipage}\hfill
+%   \begin{minipage}{.4\textwidth}
+%     \begin{center}
+%       \mode<beamer>{
+%         \includegraphics[width=\textwidth]{osc-9-47}
+%       } \mode<article>{
+%         \includegraphics[width=.7\textwidth]{osc-9-47}
+%       }
+%       {\tiny locality in a memory reference pattern}
+%     \end{center}
+%   \end{minipage}
   
-  \begin{iblock}{Another bad sequence of events:}
-    \begin{enumerate}
-    \item A low-priority process faults
-    \item The paging system selects a replacement frame. Then, the necessary page is
-      loaded into memory
-    \item The low-priority process is now ready to continue, and waiting in the ready
-      queue
-    \item A high-priority process faults
-    \item The paging system looks for a replacement
-      \begin{enumerate}
-      \item It sees a page that is in memory but not been referenced nor modified:
-        perfect!
-      \item It doesn't know the page is just brought in for the low-priority process
-      \end{enumerate}
-    \end{enumerate}
-  \end{iblock}
-\end{frame}
+%   \begin{description}
+%   \item[Why does thrashing occur?]
+%     \begin{small}
+%       $$\sum_{i=(0,n)}Locality_i > \textit{total memory size}$$
+%     \end{small}
+%   \end{description}
+% \end{frame}
+
+% \begin{frame}{Working-Set Model}
+%   \begin{description}
+%   \item[Working Set (WS)] The set of pages that a process is currently($\Delta$)
+%     using. ($\approx{}$locality)
+%   \end{description}
+%   \begin{center}
+%     \mode<beamer>{
+%       \includegraphics[width=.9\textwidth]{osc-9-49}
+%     } \mode<article>{
+%       \includegraphics[width=.6\textwidth]{osc-9-49}
+%     }
+%   \end{center}
+%   \begin{iblock}{}
+%     \begin{description}
+%     \item[$\Delta$:] Working-set window. In this example,
+%       \begin{itemize}
+%       \item[] $\Delta=10\ \texttt{memory access}$
+%       \end{itemize}
+%     \item[WSS:] Working-set size.  $WS(t_1)=\{\overbrace{1,\,2,\,5,\,6,\,7}^{WSS=5}\}$
+%     \end{description}
+%   \end{iblock}
+%   \begin{itemize}
+%   \item The accuracy of the working set depends on the selection of $\Delta$
+%   \item Thrashing, if $\sum{}WSS_i > SIZE_{total\,memory}$
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{The Working-Set Page Replacement Algorithm}
+%   \begin{iblock}{To evict a page that is not in the working set}
+%     \begin{center}
+%       \mode<beamer>{ \includegraphics[width=.9\textwidth]{mos-figs-4-21} }
+%       \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-4-21} }
+%     \end{center}
+%     $$age = \textit{Current virtual time} - \textit{Time of last use}$$
+%   \end{iblock}
+% \end{frame}
+
+% \begin{description}
+% \item[Current virtual time] The amount of CPU time a process has actually used since it
+%   started is often called its \emph{current virtual time}\citetitle[sec~3.4.8,
+%   p~209]{tanenbaum2008modern}.
+% \end{description}
+
+% The algorithm works as follows. The hardware is assumed to set the \texttt{R} and
+% \texttt{M} bits, as discussed earlier. Similarly, a periodic clock interrupt is assumed to
+% cause software to run that clears the \texttt{Referenced} bit on every clock tick. On
+% every page fault, the page table is scanned to look for a suitable page to
+% evict\citetitle[sec~3.4.8, p~210]{tanenbaum2008modern}.
+
+% As each entry is processed, the \texttt{R} bit is examined. If it is \texttt{1}, the
+% current virtual time is written into the \emph{Time of last use} field in the page table,
+% indicating that the page was in use at the time the fault occurred. Since the page has
+% been referenced during the current clock tick, it is clearly in the working set and is not
+% a candidate for removal ($\mathtt{\tau}$ is assumed to span multiple clock ticks).
+
+% If \texttt{R} is \texttt{0}, the page has not been referenced during the current clock
+% tick and may be a candidate for removal. To see whether or not it should be removed, its
+% age (the current virtual time minus its \emph{Time of last use}) is computed and compared
+% to $\mathtt{\tau}$. If the age is greater than $\mathtt{\tau}$, the page is no longer in
+% the working set and the new page replaces it. The scan continues updating the remaining
+% entries.
+
+% However, if \texttt{R} is \texttt{0} but the age is less than or equal to $\mathtt{\tau}$,
+% the page is still in the working set. The page is temporarily spared, but the page with
+% the greatest age (smallest value of \emph{Time of last use}) is noted. If the entire table
+% is scanned without finding a candidate to evict, that means that all pages are in the
+% working set. In that case, if one or more pages with $\mathtt{R = 0}$ were found, the one
+% with the greatest age is evicted. In the worst case, all pages have been referenced during
+% the current clock tick (and thus all have $\mathtt{R = 1}$), so one is chosen at random
+% for removal, preferably a clean page, if one exists.
+
+% % \begin{frame}{Keeping Track of the Working Set}
+% %   \begin{itemize}
+% %   \item Approximate with interval timer + a reference bit
+% %   \item Example: $\Delta = 10,000$ references
+% %     \begin{itemize}
+% %     \item Timer interrupts after every 5000 references
+% %     \item Keep in memory 2 bits for each page
+% %     \item Whenever a timer interrupts, we copy/clear the reference bits
+% %     \item If one of the bits in memory = 1 $\Rightarrow$page in working set
+% %     \end{itemize}
+% %   \item Not completely accurate
+% %     \begin{itemize}
+% %     \item Improvement: 10 bits and interrupt every 1000 time units. (Costs higher)
+% %     \end{itemize}
+% %   \end{itemize}
+% % \end{frame}
+
+% % \begin{frame}{The Clock Page Replacement Algorithm}
+% %   \begin{center}
+% %     \includegraphics[width=\textwidth]{mos-figs-4-17}
+% %   \end{center}
+% % \end{frame}
+
+% \begin{frame}{The WSClock Page Replacement Algorithm}{Combine Working Set Algorithm With
+%     Clock Algorithm}
+%   \begin{center}
+%     \mode<beamer>{ \includegraphics[width=.5\textwidth]{mos-figs-4-22} }%
+%     \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-4-22} }
+%   \end{center}
+% \end{frame}
+
+% The basic working set algorithm is cumbersome, since the entire page table has to be
+% scanned at each page fault until a suitable candidate is located. An improved algorithm,
+% that is based on the clock algorithm but also uses the working set information, is called
+% \emph{WSClock} (Carr and Hennessey, 1981). Due to its simplicity of implementation and
+% good performance, it is widely used in practice\citetitle[Sec~3.4.9,
+% P.~211]{tanenbaum2008modern}.
+
+% \subsection{Other Issues}
+
+% \begin{frame}{Other Issues --- Prepaging}
+%   \begin{center}
+%     \mode<beamer>{ \includegraphics[width=\textwidth]{osc-9-52} }%
+%     \mode<article>{ \includegraphics[width=.6\textwidth]{osc-9-52} }
+%   \end{center}
+%   \begin{itemize}
+%   \item reduce faulting rate at (re)startup
+%     \begin{itemize}
+%     \item remember working-set in PCB
+%     \end{itemize}
+%   \item Not always work
+%     \begin{itemize}
+%     \item if prepaged pages are unused, I/O and memory was wasted
+%     \end{itemize}
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Other Issues --- Page Size}%{There is no single best page size}
+%   Larger page size
+%   \begin{itemize}
+%   \item[\alert{\bad}] Bigger internal fragmentation
+%   \item[\alert{\bad}] longer I/O time
+%   \end{itemize}
+%   Smaller page size
+%   \begin{itemize}
+%   \item[\alert{\bad}] Larger page table
+%   \item[\alert{\bad}] more page faults
+%     \begin{itemize}
+%     \item one page fault for each byte, if $\text{page size} = 1 \text{ Byte}$
+%     \item for a $200K$ process, with $\text{page size} = 200K$, only one page fault
+%     \end{itemize}
+%   \end{itemize}
+%   No best answer
+%   \begin{itemize}
+%     \item[\$] \texttt{getconf PAGESIZE}
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Other Issues --- TLB Reach}
+%   \begin{itemize}
+%   \item Ideally, the working set of each process is stored in the TLB
+%     \begin{itemize}
+%     \item Otherwise there is a high degree of page faults
+%     \end{itemize}
+%   \item \alert{TLB Reach} --- The amount of memory accessible from the TLB
+%     $$\textit{TLB Reach} = (\textit{TLB Size}) \times (\textit{Page Size})$$
+%   \item Increase the page size
+%     \begin{itemize}
+%     \item[] Internal fragmentation may be increased
+%     \end{itemize}
+%   \item Provide multiple page sizes
+%     \begin{itemize}
+%     \item This allows applications that require larger page sizes the opportunity to use
+%       them without an increase in fragmentation
+%       \begin{itemize}
+%       \item UltraSPARC supports page sizes of $8KB$, $64KB$, $512KB$, and $4MB$
+%       \item Pentium supports page sizes of $4KB$ and $4MB$
+%       \end{itemize}
+%     \end{itemize}
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Other Issues --- Program Structure}
+%   Careful selection of data structures and programming structures can increase locality,
+%   i.e. lower the page-fault rate and the number of pages in the working set.
+%   \begin{iblock}{Example}
+%     \begin{itemize}
+%     \item A stack has a good locality, since access is always made to the top
+%     \item A hash table has a bad locality, since it's designed to scatter references
+%     \item Programming language
+%       \begin{itemize}
+%       \item Pointers tend to randomize access to memory
+%       \item OO programs tend to have a poor locality
+%       \end{itemize}
+%     \end{itemize}
+%   \end{iblock}
+% \end{frame}
+
+% \begin{frame}{Other Issues --- Program Structure}
+%   \begin{iblock}{Example}
+%     \begin{itemize}
+%     \item \texttt{int[i][j] = int[128][128]}
+%     \item Assuming page size is 128 words, then
+%     \item Each row (128 words) takes one page
+%     \end{itemize}
+%     If the process has fewer than 128 frames...\\[1ex]
+%     \begin{minipage}[t]{.5\linewidth}
+%       \textbf{Program 1:}\\[1ex]
+%       \mode<beamer>{ \includegraphics[width=.8\textwidth]{mm-pagefault-c} }%
+%       \mode<article>{ \cfile{figs/pseudo/mm-pagefault.c} }%
+%       Worst case:
+%       \begin{itemize}
+%       \item[] $128 \times 128 = 16,384$ page faults
+%       \end{itemize}
+%     \end{minipage}\qquad
+%     \begin{minipage}[t]{.4\linewidth}
+%       \textbf{Program 2:}\\[1ex]
+%       \mode<beamer>{ \includegraphics[width=\textwidth]{mm-pagefault2-c} }%
+%       \mode<article>{ \cfile{figs/pseudo/mm-pagefault2.c} }%
+%       Worst case:
+%       \begin{itemize}
+%       \item[] $128$ page faults
+%       \end{itemize}
+%     \end{minipage}
+%   \end{iblock}
+% \end{frame}
+
+% See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essentials}.
+
+% \begin{frame}{Other Issues --- I/O interlock}
+%   Sometimes it is necessary to lock pages in memory so that they are not paged out.
+%   \begin{iblock}{Example}
+%     \begin{itemize}
+%     \item The OS
+%     \item I/O operation --- the frame into which the I/O device was scheduled to write
+%       should not be replaced.
+%     \item New page that was just brought in --- looks like the best candidate to be
+%       replaced because it was not accessed yet, nor was it modified.
+%     \end{itemize}
+%   \end{iblock}
+% \end{frame}
+
+% \begin{frame}{Other Issues --- I/O interlock}{Case 1}
+%   \begin{iblock}{Be sure the following sequence of events does not occur:}
+%     \begin{enumerate}
+%     \item A process issues an I/O request, and then queueing for that I/O device
+%     \item The CPU is given to other processes
+%     \item These processes cause page faults
+%     \item The waiting process' page is unluckily replaced
+%     \item When its I/O request is served, the specific frame is now being used by another
+%       process
+%     \end{enumerate}
+%   \end{iblock}
+% \end{frame}
+
+% \begin{frame}{Other Issues --- I/O interlock}{Case 2}
+  
+%   \begin{iblock}{Another bad sequence of events:}
+%     \begin{enumerate}
+%     \item A low-priority process faults
+%     \item The paging system selects a replacement frame. Then, the necessary page is
+%       loaded into memory
+%     \item The low-priority process is now ready to continue, and waiting in the ready
+%       queue
+%     \item A high-priority process faults
+%     \item The paging system looks for a replacement
+%       \begin{enumerate}
+%       \item It sees a page that is in memory but not been referenced nor modified:
+%         perfect!
+%       \item It doesn't know the page is just brought in for the low-priority process
+%       \end{enumerate}
+%     \end{enumerate}
+%   \end{iblock}
+% \end{frame}
+
+% \end{comment}
 
 \subsection{Segmentation}
 
@@ -1627,7 +1575,7 @@ See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essenti
   \end{varwidth}
 \end{frame}
 
-\begin{frame}{User's View}
+\begin{frame}<article>{User's View}
   \begin{itemize}
   \item A program is a collection of segments
   \item A segment is a logical unit such as:
@@ -1701,7 +1649,7 @@ See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essenti
   \end{center}
 \end{frame}
 
-\begin{frame}{Segmentation Architecture}
+\begin{frame}<article>{Segmentation Architecture}
   \begin{itemize}
   \item Logical address consists of a \alert{two tuple}:
     \begin{center}
@@ -1844,7 +1792,7 @@ See also: \url{http://cseweb.ucsd.edu/classes/fa03/cse120/Lec08.pdf}.
     \end{center}
 \end{frame}
 
-\begin{frame}{Segment Descriptor Tables}
+\begin{frame}<article>{Segment Descriptor Tables}
     All the segments are organized in 2 tables:
     \begin{description}
     \item[GDT] \alert{Global Descriptor Table}

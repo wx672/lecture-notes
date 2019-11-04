@@ -1,0 +1,53 @@
+\documentclass[varwidth=70em,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+Directory inode (128B)                                                      ┌─────┬────────┐
+┌─────────┬─────────┐                                                       │.    │2       │
+│  Type   │  Mode   │                                                       ├─────┼────────┤
+├─────────┼─────────┤                                                       │..   │2       │
+│ User ID │Group ID │                                                       ├─────┼────────┤
+├─────────┼─────────┤                                                       │bin  │11116545│
+│File size│# blocks │                                                       ├─────┼────────┤
+├─────────┼─────────┤                                                       │boot │2       │
+│ # links │  Flags  │                                                       ├─────┼────────┤
+├─────────┴─────────┤                                                       │cdrom│12      │
+│  Timestamps (×3)  │                                                       ├─────┼────────┤
+├───────────────────┤                                                       │dev  │3       │
+│                   │             Directory block                           ├─────┼────────┤
+│Direct blocks (×12)├──────\─────>┌──────┬───────┐                          │...  │...     │
+│                   │             │  .   │inode #│
+├───────────────────┤             ├──────┼───────┤
+│  Single indirect  ├──────────┐  │  ..  │inode #│
+├───────────────────┤          │  ├──────┼───────┤     File inode (128B)
+│  Double indirect  ├──────┐   │  │passwd│inode #├──>┌─────────┬─────────┐
+├───────────────────┤      v   │  ├──────┼───────┤   │  Type   │  Mode   │
+│  Triple indirect  ├─┐   Ptr  │  │fstab │inode #│   ├─────────┼─────────┤
+└───────────────────┘ v    │   │  ├──────┼───────┤   │ User ID │Group ID │
+                     Ptr   v   │  │ ...  │  ...  │   ├─────────┼─────────┤
+                      │   Ptr  │  └──────┴───────┘   │File size│# blocks │
+                      v    │   │                     ├─────────┼─────────┤
+                     Ptr   v   │                     │ # links │  Flags  │
+                      │   Dir  │                     ├─────────┴─────────┤
+                      v   blks │                     │  Timestamps (×3)  │
+                     Ptr       │                     ├───────────────────┤
+                      │        │  Indirect blk       │                   │    ┌────┐
+                      v        └─>┌───────────┐      │Direct blocks (×12)├─\─>│Data│
+                     Dir          │Ptr (x1024)├─┐    │                   │    └────┘
+                     blks         └───────────┘ │    ├───────────────────┤
+                                                v    │  Single indirect  ├─>Ptr─>Data
+                                               Dir   ├───────────────────┤
+                                               blks  │  Double indirect  ├─>Ptr─>Ptr─>Data
+                                                     ├───────────────────┤
+                                                     │  Triple indirect  ├─>Ptr─>Ptr─>Ptr─>Data
+                                                     └───────────────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

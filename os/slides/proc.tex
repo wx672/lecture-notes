@@ -479,12 +479,8 @@ See also: \emph{More about blocking and non-blocking calls}\footnote{\url{http:/
 
 \begin{frame}{Hybrid Implementations}{Combine the advantages of two}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.9\textwidth]{mos-figs-2-14}
-    }
-    \mode<article>{
-      \includegraphics[width=.5\textwidth]{mos-figs-2-14}
-    }
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{mos-figs-2-14} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-2-14} }
   \end{center}
 \end{frame}
 
@@ -709,11 +705,8 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 
 \begin{frame}{Producer-Consumer Problem}
 \begin{center}
-  \mode<beamer>{
-    \includegraphics[width=.9\textwidth]{ipc}
-  } \mode<article>{
-    \includegraphics[width=.4\textwidth]{ipc-bw}
-  }
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{ipc} }
+  \mode<article>{ \includegraphics[width=.4\textwidth]{ipc-bw} }
 \end{center}
 \end{frame}
 
@@ -726,11 +719,8 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \item Producers don't try to add objects to the Buffer when it is full.
   \end{itemize}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{producer-consumer}
-    } \mode<article>{
-      \includegraphics[width=.5\textwidth]{producer-consumer-bw}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{producer-consumer} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{producer-consumer-bw} }
   \end{center}
   \begin{center}
     How to define \alert{full/empty}?
@@ -1329,11 +1319,8 @@ p.~124]{tanenbaum2008modern}.
     \end{itemize}
   \end{itemize}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.7\textwidth]{sem-signaling}
-    } \mode<article>{
-      \includegraphics[width=.4\textwidth]{sem-signaling}
-    }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{sem-signaling} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{sem-signaling} }
   \end{center}
   \begin{center}
     What's the initial value of \texttt{sem}?
@@ -1342,11 +1329,8 @@ p.~124]{tanenbaum2008modern}.
 
 \begin{frame}{Semaphore}{Rendezvous Puzzle}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{rendezvous}
-    } \mode<article>{
-      \includegraphics[width=.4\textwidth]{rendezvous}
-    }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{rendezvous} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{rendezvous} }
   \end{center}
   \begin{itemize}
   \item[Q:] How to guarantee that
@@ -2010,7 +1994,7 @@ user process to use it directly.
     \end{tikzpicture}}
   \begin{itemize}
   \item[?] Put down the left fork and wait for a while if the right one is not available?
-    Similar to CSMA/CD\pause{} --- \alert{Starvation}
+    Similar to CSMA/CD --- \alert{Starvation}
   \end{itemize}
 \end{frame}
 
@@ -2281,9 +2265,6 @@ user process to use it directly.
 
 See also: \citetitle[Sec.~2.4.1.5, \emph{Scheduling Algorithm Goals}, p.~150]{tanenbaum2008modern}.
 
-\subsection{Process Classification}
-\label{sec:proc-class}
-
 \begin{frame}{Process Classification}
   \begin{block}{Traditionally}
     \begin{itemize}
@@ -2323,9 +2304,6 @@ behavior of the processes to decide whether a given process should be considered
 interactive or batch. Of course, the scheduler tends to favor interactive processes over
 batch ones.
 
-\subsection{Process Behavior}
-\label{sec:process-behavior}
-
 \begin{frame}{Process Behavior}{CPU-bound vs. I/O-bound}
   Types of CPU bursts:
   \begin{itemize}
@@ -2341,8 +2319,6 @@ batch ones.
   \end{center}
   As CPUs get faster, processes tend to get more I/O-bound.
 \end{frame}
-
-\subsection{Process Schedulers}
 
 \begin{frame}{Schedulers}
   \begin{description}
@@ -2413,11 +2389,8 @@ batch ones.
 \begin{frame}{Scheduling In Interactive Systems}{Round-Robin
     Scheduling}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{mos-figs-2-41}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{mos-figs-2-41}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-41} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-2-41} }
   \end{center}
   \begin{itemize}
   \item Simple, and most widely used;
@@ -2451,11 +2424,8 @@ batch ones.
 
 \begin{frame}{Thread Scheduling}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{mos-figs-2-43}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{mos-figs-2-43}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-43} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-2-43} }
   \end{center}
   \begin{itemize}
   \item With kernel-level threads, sometimes a full context switch is required
@@ -2550,12 +2520,12 @@ spends too much time in high-end systems running thousands of processes\citetitl
 \end{frame}
 
 \begin{frame}%{Scheduling In Linux 2.6 Kernel}
-  \begin{block}{Each runqueue has two priority arrays}
+  \begin{iblock}{Each runqueue has two priority arrays}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-5-42} }%
       \mode<article>{ \includegraphics[width=.45\textwidth]{osc-5-42} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \subsubsection{Completely Fair Scheduling}
@@ -2734,7 +2704,7 @@ See also: \emph{Discussing the Completely Fair
   \end{block}  
 \end{frame}
 
-\begin{frame}{Introduction to Deadlocks}
+\begin{frame}
   \begin{block}{Deadlock}
     A set of processes is deadlocked if each process in the set is waiting for an event
     that only another process in the set can cause.
@@ -2795,20 +2765,14 @@ See also: \emph{Discussing the Completely Fair
 \begin{frame}{Resource-Allocation Graph}
   \begin{minipage}{.49\linewidth}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.8\textwidth]{osc-7-10}
-      } \mode<article>{
-        \includegraphics[width=.4\textwidth]{osc-7-10}
-      }
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-7-10} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{osc-7-10} }
     \end{center}
   \end{minipage}\hfill
   \begin{minipage}{.49\linewidth}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.8\textwidth]{osc-7-11}
-      } \mode<article>{
-        \includegraphics[width=.4\textwidth]{osc-7-11}
-      }
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-7-11} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{osc-7-11} }
     \end{center}
   \end{minipage}
 \end{frame}
@@ -2820,11 +2784,8 @@ See also: \emph{Discussing the Completely Fair
 \begin{frame}{Resource-Allocation Graph}
   \begin{minipage}{.29\linewidth}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{osc-7-12}
-      } \mode<article>{
-        \includegraphics[width=.8\textwidth]{osc-7-12}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{osc-7-12} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{osc-7-12} }
     \end{center}
   \end{minipage}\hfill
   \begin{minipage}{.69\linewidth}
@@ -2855,12 +2816,8 @@ See also: \emph{Discussing the Completely Fair
 \begin{frame}{Deadlock Detection}{Single Instance of Each Resource Type --- Wait-for
     Graph}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.6\textwidth]{osc-7-35}
-    }
-    \mode<article>{
-      \includegraphics[width=.4\textwidth]{osc-7-35}
-    }
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{osc-7-35} }
+    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-7-35} }
   \end{center}
   \begin{itemize}
   \item \cfbox{violet}{$P_i \rightarrow{} P_j$} if $P_i$ is waiting for $P_j$;
@@ -2873,12 +2830,8 @@ See also: \emph{Discussing the Completely Fair
 
 \begin{frame}{Deadlock Detection}{Several Instances of a Resource Type}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.7\textwidth]{mos-figs-3-7}
-    }
-    \mode<article>{
-      \includegraphics[width=.4\textwidth]{mos-figs-3-7}
-    }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-3-7} }
+    \mode<article>{ \includegraphics[width=.4\textwidth]{mos-figs-3-7} }
   \end{center}
   \begin{itemize}
   \item[] Row n:
@@ -2896,11 +2849,8 @@ See also: \emph{Discussing the Completely Fair
 
 \begin{frame}{Deadlock Detection}{Several Instances of a Resource Type}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{mos-figs-3-6}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{mos-figs-3-6}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-3-6} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-3-6} }
   \end{center}
   \begin{displaymath}
     \sum_{i=1}^nC_{ij}+A_j=E_j
@@ -2952,11 +2902,8 @@ See also: \emph{Discussing the Completely Fair
 
 \begin{frame}{Deadlock Detection}{Several Instances of a Resource Type}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{mos-figs-3-7}
-    } \mode<article>{
-      \includegraphics[width=.5\textwidth]{mos-figs-3-7}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-3-7} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-3-7} }
   \end{center}\pause \mode<beamer>{
     \begin{tikzpicture}[remember picture, overlay]
       \node [opacity=.8,color=red,yshift=1.8em,xshift=7em]
@@ -3014,20 +2961,14 @@ See also: \emph{Discussing the Completely Fair
   \end{description}
   \begin{block}{Unsafe}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{deadlock-avoidance-2}
-      } \mode<article>{
-        \includegraphics[width=.6\textwidth]{deadlock-avoidance-2}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{deadlock-avoidance-2} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{deadlock-avoidance-2} }
     \end{center}
   \end{block}
   \begin{block}{Safe}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{mos-figs-3-9}
-      } \mode<article>{
-        \includegraphics[width=.6\textwidth]{mos-figs-3-9}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-3-9} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-3-9} }
     \end{center}
   \end{block}
 \end{frame}
@@ -3056,22 +2997,16 @@ See also: \emph{Discussing the Completely Fair
     it leads to a safe state.
   \end{description}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{deadlock-banker}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{deadlock-banker}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{deadlock-banker} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{deadlock-banker} }
   \end{center}
   $$unsafe \neq deadlock$$
 \end{frame}
 
 \begin{frame}{Deadlock Avoidance}{The Banker's Algorithm for Multiple Resources}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{mos-figs-3-12}
-    } \mode<article>{
-      \includegraphics[width=.5\textwidth]{mos-figs-3-12}
-    }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-3-12} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-3-12} }
   \end{center}
   \begin{itemize}
   \item[] $ D\rightarrow{}A\rightarrow{}B,C,E$
@@ -3162,12 +3097,8 @@ p.~452]{tanenbaum2008modern} for the \emph{printer daemon} example.
     requests resources in an increasing order of enumeration 
   \end{block}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{mos-figs-3-13}
-    }
-    \mode<article>{
-      \includegraphics[width=.5\textwidth]{mos-figs-3-13}
-    }
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-3-13} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-3-13} }
   \end{center}
   \begin{itemize}
     \item[] It's hard to find an ordering that satisfies everyone.

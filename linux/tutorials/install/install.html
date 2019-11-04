@@ -1,85 +1,13 @@
 <!DOCTYPE html>
 <html lang="cn">
 <head>
-<!-- 2019-10-12 Sat 17:26 -->
+<!-- 2019-12-05 Thu 13:58 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Debian快速安装指导</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="王晓林">
-<link rel="stylesheet" href="https://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
-<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
-<script type="text/javascript" src="http://cs2.swfu.edu.cn/org-info-js/org-info.js">
-/**
- *
- * @source: http://cs2.swfu.edu.cn/org-info-js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in http://cs2.swfu.edu.cn/org-info-js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in http://cs2.swfu.edu.cn/org-info-js/org-info.js.
- *
- */
-</script>
-
-<script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
-<!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "3");
-org_html_manager.set("LINK_HOME", "");
-org_html_manager.set("LINK_UP", "");
-org_html_manager.set("LOCAL_TOC", "1");
-org_html_manager.set("VIEW_BUTTONS", "0");
-org_html_manager.set("MOUSE_HINT", "underline");
-org_html_manager.set("FIXED_TOC", "0");
-org_html_manager.set("TOC", "1");
-org_html_manager.set("VIEW", "plain");
-org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
-</script>
+<link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -134,16 +62,16 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org11516f8">1. UEFI</a></li>
-<li><a href="#org9d642f0">2. 安装</a></li>
-<li><a href="#org6e26ab3">3. 安装配置</a>
+<li><a href="#orgc552f92">1. UEFI</a></li>
+<li><a href="#org2db418b">2. 安装</a></li>
+<li><a href="#org1c853fa">3. 安装配置</a>
 <ul>
-<li><a href="#org49138fb">3.1. 配置</a>
+<li><a href="#org7ca5ea3">3.1. 配置</a>
 <ul>
-<li><a href="#org6f118e4">3.1.1. sudo</a></li>
-<li><a href="#orge274608">3.1.2. dotfile</a></li>
-<li><a href="#org36a9d9c">3.1.3. Auto login</a></li>
-<li><a href="#org34d2f67">3.1.4. 中文语言环境</a></li>
+<li><a href="#orgc549a1c">3.1.1. sudo</a></li>
+<li><a href="#orgb8bc389">3.1.2. dotfile</a></li>
+<li><a href="#orgcd5ddb4">3.1.3. Auto login</a></li>
+<li><a href="#orgb7d3f78">3.1.4. 中文语言环境</a></li>
 </ul>
 </li>
 </ul>
@@ -154,16 +82,17 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#app3">5. 附录：关于硬件配置</a></li>
-<li><a href="#org1ac1a59">6. 附录：LaTeX （非必须）</a></li>
+<li><a href="#org387ca77">6. 附录：LaTeX （非必须）</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org11516f8" class="outline-2">
-<h2 id="org11516f8"><span class="section-number-2">1</span> UEFI</h2>
+<div id="outline-container-orgc552f92" class="outline-2">
+<h2 id="orgc552f92"><span class="section-number-2">1</span> UEFI</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-现在（2018年10月）的电脑都很新潮，在主板上几乎都用UEFI取代了传统的BIOS。关于UEFI设置，我的经验是：
+现在（2018年10月）的电脑都很新潮，在主板上几乎都用UEFI取代了传统的BIOS。关于UEFI设置，我的
+经验是：
 </p>
 <ul class="org-ul">
 <li>把下列和Windows相关的选项都关掉（disable）:
@@ -178,8 +107,8 @@ Technology (Intel RST)，把它设置为AHCI。</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9d642f0" class="outline-2">
-<h2 id="org9d642f0"><span class="section-number-2">2</span> 安装</h2>
+<div id="outline-container-org2db418b" class="outline-2">
+<h2 id="org2db418b"><span class="section-number-2">2</span> 安装</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 安装Debian系统的大致步骤如下：
@@ -248,7 +177,8 @@ sudo sync
 <ol class="org-ol">
 <li>可用空间不够怎么办？删掉哪个分区？如何压缩原来的Windows分区？总之，烦！</li>
 <li>以后，霸道的Windows每次升级、更新，都会让你的Linux消失……</li>
-<li>装了双系统之后，通常（不争气的）你会选用熟悉的Windows系统，渐渐地，过不了多久，你就忘了电脑上还有一个Linux系统。</li>
+<li>装了双系统之后，通常（不争气的）你会选用熟悉的Windows系统，渐渐地，过不了多久，你就忘了电
+脑上还有一个Linux系统。</li>
 </ol>
 <p>
 所以，我很不愿意搭理装双系统的人。
@@ -259,8 +189,8 @@ sudo sync
 </div>
 </div>
 
-<div id="outline-container-org6e26ab3" class="outline-2">
-<h2 id="org6e26ab3"><span class="section-number-2">3</span> 安装配置</h2>
+<div id="outline-container-org1c853fa" class="outline-2">
+<h2 id="org1c853fa"><span class="section-number-2">3</span> 安装配置</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 最小系统装好之后，拔出U盘，重启系统，现在我们讲讲之后的事情……
@@ -273,13 +203,17 @@ sudo sync
 
 <blockquote>
 <p>
-【注意】如果你的笔记本比较新潮，比如我新买的华为Honor Magicbook，没提供有线网接口，而且我们刚装好的最小系统里没有本机的无线网卡驱动，那么，请先参看<a href="#app1">本文末尾的附录：没有有线网卡怎么办？</a>
+【注意】如果你的笔记本比较新潮，比如我新买的华为Honor Magicbook，没提供有线网接口，而且
+我们刚装好的最小系统里没有本机的无线网卡驱动，那么，请先参看<a href="#app1">本文末尾的附录：没有有线网卡怎么办？</a>
 联网之后再继续。
 </p>
 </blockquote>
 
 <p>
-好了，假设你解决了所有的网络问题，现在我们可以继续了……一个“最小系统”干不了多少事情，所以我们先要安装更多的应用程序。注意，安装配置系统是管理员的工作，所以下面的操作都需要以管理员的身份来进行。如果你没有以管理员的身份登录（命令行提示符是 <code>$</code> ），那么你现在就输入命令：
+好了，假设你解决了所有的网络问题，现在我们可以继续了……一个“最小系统”干不了多少事情，所
+以我们先要安装更多的应用程序。注意，安装配置系统是管理员的工作，所以下面的操作都需要以
+管理员的身份来进行。如果你没有以管理员的身份登录（命令行提示符是 <code>$</code> ），那么你现在就输
+入命令：
 </p>
 <pre class="example">
 $ su
@@ -294,7 +228,8 @@ $ su
 </ul>
 
 <p>
-【注意】如果你在安装最小系统的时候没有设置root密码，那么现在显然无法用 <code>su</code> 命令，那么你直接用 <code>sudo</code> 命令就好了。
+【注意】如果你在安装最小系统的时候没有设置root密码，那么现在显然无法用 <code>su</code> 命令，那么
+你直接用 <code>sudo</code> 命令就好了。
 </p>
 
 <p>
@@ -314,7 +249,8 @@ inet 192.168.1.110/24 brd 192.168.1.255 scope global dynamic eth0
 </pre>
 
 <p>
-上面一行中的 <code>192.168.1.110</code> 就是我的 <code>eth0</code> 网卡获取到的IP地址。如果你看不到这样一行，那么先检查一下网线是否插好了，然后敲命令：
+上面一行中的 <code>192.168.1.110</code> 就是我的 <code>eth0</code> 网卡获取到的IP地址。如果你看不到这样一
+行，那么先检查一下网线是否插好了，然后敲命令：
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">dhclient enpXsY
@@ -360,12 +296,13 @@ deb http://mirrors.163.com/debian testing-proposed-updates main non-free contrib
 网络顺畅的话，这一步要花十几分钟的时间。
 </p></li>
 <li><p>
-现在，“机房装了什么，我就要装什么”。那就先把机房系统的软件清单弄到手，在<a href="http://cs2.swfu.edu.cn/~wx672/debian-install/list.laptop">这里</a>。
+现在，“机房装了什么，我就要装什么”。那就先把机房系统的软件清单弄到手，在<a href="https://cs6.swfu.edu.cn/~wx672/debian-install/list.laptop">这里</a>。
 这是我个人Debian笔记本电脑上的软件包列表。用 <code>wget</code> 把<a href="https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/install/deb-pkg-list/laptop">这个软件清单</a>下载：
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #B71C1C;">cd</span>
-wget https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/install/deb-pkg-list/laptop
+
+wget  https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/install/deb-pkg-list/laptop
 </pre>
 </div>
 <p>
@@ -374,6 +311,11 @@ wget https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/
 <ul class="org-ul">
 <li><code>$</code> 代表普通用户；</li>
 <li><code>#</code> 代表root；</li>
+<li>如果<a href="https://gitlab.swfu.edu.cn/">https://gitlab.swfu.edu.cn/</a>这个网址不好使的话，你可以试试：
+<ul class="org-ul">
+<li><a href="https://cs6.swfu.edu.cn/~wx672/debian-install/list.laptop">https://cs6.swfu.edu.cn/~wx672/debian-install/list.laptop</a>, 或者</li>
+<li><a href="https://github.com/wx672/lecture-notes/blob/master/linux/tutorials/install/deb-pkg-list/laptop">https://github.com/wx672/lecture-notes/blob/master/linux/tutorials/install/deb-pkg-list/laptop</a></li>
+</ul></li>
 </ul></li>
 <li><p>
 然后，开始大批量安装软件包：
@@ -384,13 +326,16 @@ wget https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/
 </div>
 
 <p>
-如果网络顺畅的话，这一步大概需要半个小时。通常，安装过程是不需要人为干预的。但有的软件包在安装过程中，会停下来问你「Yes/no」。这种时候，你最好耐心把屏幕提示看明白。一般来讲，
+如果网络顺畅的话，这一步大概需要半个小时。通常，安装过程是不需要人为干预的。但有的软件
+包在安装过程中，会停下来问你「Yes/no」。这种时候，你最好耐心把屏幕提示看明白。一般来讲，
 直接按「回车」就好。
 </p></li>
-<li>一切顺利的话，网卡、声卡、显卡……都不需要额外的操心。但如果运气不太好的话（这通常是人品问题，因为你以学习的名义向家里要钱，最终却为了玩游戏而买了个声卡、显卡都特新潮的游戏机），
+<li>一切顺利的话，网卡、声卡、显卡……都不需要额外的操心。但如果运气不太好的话（这通常是人品
+问题，因为你以学习的名义向家里要钱，最终却为了玩游戏而买了个声卡、显卡都特新潮的游戏机），
 那么……假设你幡然悔悟了，可以看看本文末尾的附录：<a href="#app3">关于硬件配置</a>。</li>
 <li><p>
-如果像我一样，你也是<a href="#app2">用USB无线网卡完成的安装</a>，那么现在你应该可以拔掉USB无线网卡了。同时把刚才添加进 <code>/etc/network/interfaces</code> 文件的四行删除，或者注释掉。重启系统之后，用
+如果像我一样，你也是<a href="#app2">用USB无线网卡完成的安装</a>，那么现在你应该可以拔掉USB无线网卡了。同时
+把刚才添加进 <code>/etc/network/interfaces</code> 文件的四行删除，或者注释掉。重启系统之后，用
 <code>nmtui</code> 来连接无线网：
 </p>
 <div class="org-src-container">
@@ -403,12 +348,12 @@ wget https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/
 </ol>
 </div>
 
-<div id="outline-container-org49138fb" class="outline-3">
-<h3 id="org49138fb"><span class="section-number-3">3.1</span> 配置</h3>
+<div id="outline-container-org7ca5ea3" class="outline-3">
+<h3 id="org7ca5ea3"><span class="section-number-3">3.1</span> 配置</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org6f118e4" class="outline-4">
-<h4 id="org6f118e4"><span class="section-number-4">3.1.1</span> sudo</h4>
+<div id="outline-container-orgc549a1c" class="outline-4">
+<h4 id="orgc549a1c"><span class="section-number-4">3.1.1</span> sudo</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 <code>sudo</code> 的时候总要问密码，是不是很烦？那就不让它问了：
@@ -464,8 +409,8 @@ your-user-name  ALL = NOPASSWD: ALL
 </ol>
 </div>
 </div>
-<div id="outline-container-orge274608" class="outline-4">
-<h4 id="orge274608"><span class="section-number-4">3.1.2</span> dotfile</h4>
+<div id="outline-container-orgb8bc389" class="outline-4">
+<h4 id="orgb8bc389"><span class="section-number-4">3.1.2</span> dotfile</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 现在你的系统和机房的差不多一样了，唯一的差别就是你还没配置呢。
@@ -474,14 +419,19 @@ git（ <b>以普通用户的身份来做</b> ）：
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #B71C1C;">cd</span>
+
 git clone https://gitlab.swfu.edu.cn/wx672/dotfile.git
 <span style="color: #607d8b;">#</span><span style="color: #607d8b;">&#25110;&#32773;</span>
 git clone https://github.com/wx672/dotfile.git
+<span style="color: #607d8b;">#</span><span style="color: #607d8b;">&#25110;&#32773;</span>
+git clone https://cs6.swfu.edu.cn/~wx672/dotfile.git
 </pre>
 </div>
 
 <p>
-上面三个网址应该都可以。 <code>git</code> 是著名的源代码管理工具，也就是版本控制工具。用它来管理配置文件也非常顺手。上面的命令完成之后， <code>ls</code> 一下，应该可以看到，你的 <code>$HOME</code> 目录里多了一个子目录 <code>dotfile</code> ，里面放的都是杂七杂八的配置文件。
+上面三个网址应该都可以。 <code>git</code> 是著名的源代码管理工具，也就是版本控制工具。用它来管理配置文
+件也非常顺手。上面的命令完成之后， <code>ls</code> 一下，应该可以看到，你的 <code>$HOME</code> 目录里多了一个子
+目录 <code>dotfile</code> ，里面放的都是杂七杂八的配置文件。
 </p>
 
 <p>
@@ -528,6 +478,8 @@ ln -sf dotfile/help/dot.* .
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">wget -O .keys.png http://cs2.swfu.edu.cn/~wx672/tex-fun/keys/keys-1.png
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">&#25110;&#32773;</span>
+wget -O .keys.png https://cs6.swfu.edu.cn/~wx672/debian-install/keys.png
 </pre>
 </div>
 <p>
@@ -548,7 +500,7 @@ ln -sf dotfile/help/dot.* .
 先把我的插件包下载下来
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">wget http://cs2.swfu.edu.cn/~wx672/debian-install/elpa.tgz
+<pre class="src src-sh">wget http://cs6.swfu.edu.cn/~wx672/debian-install/elpa.tgz
 </pre>
 </div></li>
 <li><p>
@@ -581,8 +533,8 @@ tar zxf elpa.tgz
 </ol>
 </div>
 </div>
-<div id="outline-container-org36a9d9c" class="outline-4">
-<h4 id="org36a9d9c"><span class="section-number-4">3.1.3</span> Auto login</h4>
+<div id="outline-container-orgcd5ddb4" class="outline-4">
+<h4 id="orgcd5ddb4"><span class="section-number-4">3.1.3</span> Auto login</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 简单起见，我们只讲“怎么做”，先不管“为什么”。（需要sudo，也就是用root身份来做）
@@ -620,8 +572,8 @@ ExecStart=-/sbin/agetty --autologin wx672 --noclear %I $TERM
 </div>
 </div>
 
-<div id="outline-container-org34d2f67" class="outline-4">
-<h4 id="org34d2f67"><span class="section-number-4">3.1.4</span> 中文语言环境</h4>
+<div id="outline-container-orgb7d3f78" class="outline-4">
+<h4 id="orgb7d3f78"><span class="section-number-4">3.1.4</span> 中文语言环境</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p>
 注意，我们其实并不需要一套纯正的中文环境，我们只是需要输入和阅读中文。
@@ -644,7 +596,7 @@ ExecStart=-/sbin/agetty --autologin wx672 --noclear %I $TERM
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #B71C1C;">cd</span>
-wget http://cs2.swfu.edu.cn/~wx672/debian-install/list.chinese
+wget https://cs6.swfu.edu.cn/~wx672/debian-install/list.chinese
 sudo apt install <span style="color: #FFA000;">`cat list.chinese`</span>
 </pre>
 </div></li>
@@ -705,7 +657,8 @@ sudo apt install <span style="color: #FFA000;">`cat list.chinese`</span>
 </p>
 
 <p>
-注意：fcitx依赖于dbus-x11，而显然fcitx软件包的维护者忽略了这个小细节。那么我们就自己把它装上呗：
+注意：fcitx依赖于dbus-x11，而显然fcitx软件包的维护者忽略了这个小细节。那么我们就自己把
+它装上呗：
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">sudo apt install dbus-x11
@@ -717,7 +670,7 @@ sudo apt install <span style="color: #FFA000;">`cat list.chinese`</span>
 </div>
 </div>
 
-<div id="outline-container-org7b327b9" class="outline-2">
+<div id="outline-container-org32fa3f8" class="outline-2">
 <h2 id="app1"><span class="section-number-2">4</span> 附录：没有有线网卡怎么办？</h2>
 <div class="outline-text-2" id="text-app1">
 <p>
@@ -749,11 +702,18 @@ Tethering”，激活里面的USB Tethering功能就行了；</li>
 你就可以获得一个IP地址了，也就是说，你已经成功联网了。
 </p></li>
 </ol></li>
-<li>去找一个USB无线网卡试试。我找到一个Realtek的指甲盖大小的USB无线网卡，不需要驱动，插上就能用。我也尝试过两个比较古老的tp-link无线网卡，不好使。</li>
-<li>另外，如果你真的和我一样，用的是华为Honor Magicbook，那么也许你不必去找USB网卡，可以先试试能否让内置网卡工作。Magicbook的内置网卡是Intel的。既然完成后面的安装步骤之后它能正常工作，那我想，现在使使劲应该也能解决问题吧。但毕竟我还没有亲自尝试过，所以只能先给出一些想法：
+<li>去找一个USB无线网卡试试。我找到一个Realtek的指甲盖大小的USB无线网卡，不需要驱动，插上就
+能用。我也尝试过两个比较古老的tp-link无线网卡，不好使。</li>
+<li>另外，如果你真的和我一样，用的是华为Honor Magicbook，那么也许你不必去找USB网卡，可以先
+试试能否让内置网卡工作。Magicbook的内置网卡是Intel的。既然完成后面的安装步骤之后它能正
+常工作，那我想，现在使使劲应该也能解决问题吧。但毕竟我还没有亲自尝试过，所以只能先给出
+一些想法：
 <ul class="org-ul">
-<li>之所以内置网卡暂时不工作，我怀疑是我们用来安装最小系统的iso文件不够新。它是以Debian稳定版（stretch）为基础做出来的，其中的内核（4.9）和相应固件（firmware-iwlwifi）都偏旧，
-可能尚不支持这么新潮（2018年）的硬件。所以，可以试试把内核和相应固件从稳定版更新到测试版（buster）。在没有网络连接的情况下，显然这需要我们另找办法下载，并手动安装一些软件包，包括：
+<li>之所以内置网卡暂时不工作，我怀疑是我们用来安装最小系统的iso文件不够新。它是以Debian稳
+定版（stretch）为基础做出来的，其中的内核（4.9）和相应固件（firmware-iwlwifi）都偏旧，
+可能尚不支持这么新潮（2018年）的硬件。所以，可以试试把内核和相应固件从稳定版更新到测
+试版（buster）。在没有网络连接的情况下，显然这需要我们另找办法下载，并手动安装一些软
+件包，包括：
 <ul class="org-ul">
 <li><a href="https://packages.debian.org/buster/linux-image-amd64">linux-image-amd64</a></li>
 <li><a href="https://packages.debian.org/buster/firmware-iwlwifi">firmware-iwlwifi</a></li>
@@ -776,16 +736,18 @@ Tethering”，激活里面的USB Tethering功能就行了；</li>
 </ul>
 
 <p>
-完整的DVD安装盘包含3个iso文件，你可以先下载第一个试试。如果里面有了你需要的无线网卡驱动和相关程序，那么激活网卡之后，你就可以直接网络安装了，无需下载其它的iso文件了。
+完整的DVD安装盘包含3个iso文件，你可以先下载第一个试试。如果里面有了你需要的无线网卡驱动
+和相关程序，那么激活网卡之后，你就可以直接网络安装了，无需下载其它的iso文件了。
 </p></li>
 </ol>
 </div>
 
-<div id="outline-container-org7c97cf0" class="outline-3">
+<div id="outline-container-orgd3fa8fc" class="outline-3">
 <h3 id="app2"><span class="section-number-3">4.1</span> 无线联网时的密码设置</h3>
 <div class="outline-text-3" id="text-app2">
 <p>
-无线联网时通常是要输入密码的，所以我们需要修改一个配置文件 <code>/etc/network/interfaces</code> ，很简单，编辑这个小文件：
+无线联网时通常是要输入密码的，所以我们需要修改一个配置文件 <code>/etc/network/interfaces</code> ，很
+简单，编辑这个小文件：
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">sudo nano /etc/network/interfaces
@@ -821,7 +783,8 @@ wpa-psk PASSWORD
 </pre>
 </div>
 <p>
-【注意】把 <code>WLANCARD</code> 换成你自己的无线网卡的名字，网卡的名字通常是w开头的，比如我的无线网卡名字就是 <code>wlp1s0</code> ，那么我用的联网命令就是：
+【注意】把 <code>WLANCARD</code> 换成你自己的无线网卡的名字，网卡的名字通常是w开头的，比如我的无线
+网卡名字就是 <code>wlp1s0</code> ，那么我用的联网命令就是：
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">sudo ifup <span style="color: #EF6C00;">wlp1s0</span>=tmp
@@ -831,7 +794,7 @@ wpa-psk PASSWORD
 </div>
 </div>
 
-<div id="outline-container-orga16636f" class="outline-2">
+<div id="outline-container-org0e95153" class="outline-2">
 <h2 id="app3"><span class="section-number-2">5</span> 附录：关于硬件配置</h2>
 <div class="outline-text-2" id="text-app3">
 <p>
@@ -845,7 +808,8 @@ lspci -vvv
 </div>
 
 <p>
-总之， <code>lspci</code> 能列出你所有外围设备的详细信息。然后，如果你的有线或无线网卡是Realtek，或者Atheros牌子的，那么你需要安装相应的firmware（固件）。
+总之， <code>lspci</code> 能列出你所有外围设备的详细信息。然后，如果
+你的有线或无线网卡是Realtek，或者Atheros牌子的，那么你需要安装相应的firmware（固件）。
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #607d8b;">#</span><span style="color: #607d8b;">&#22914;&#26524;&#26159;Realtek&#32593;&#21345;&#65292;&#23601;&#65306;</span>
@@ -858,14 +822,17 @@ sudo apt install firmware-iwlwifi
 </div>
 
 <p>
-并不是所有的网卡都需要安装相应的固件，甚至上面提到的Realtek, Atheros, Intel网卡，即使不装固件，网卡也可能工作，但未必那么稳定。所以，既然有固件，那还是装上比较好。同样，针对声卡、显卡，Debian库里也有很多固件。下面这条命令可以列出库里所有的固件包：
+并不是所有的网卡都需要安装相应的固件，甚至上面提到的Realtek, Atheros, Intel网卡，即使不
+装固件，网卡也可能工作，但未必那么稳定。所以，既然有固件，那还是装上比较
+好。同样，针对声卡、显卡，Debian库里也有很多固件。下面这条命令可以列出库里所有的固件包：
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">aptitude search ^firmware
 </pre>
 </div>
 <p>
-大概也就三十几个吧。找找有没有和你的硬件相关的。怎么知道是否相关呢？看看固件包的详细信息呗，比如：
+大概也就三十几个吧。找找有没有和你的硬件相关的。怎么知道是否相关呢？看看固件包的详细信
+息呗，比如：
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">apt show firmware-atheros
@@ -876,12 +843,14 @@ sudo apt install firmware-iwlwifi
 </p>
 
 <p>
-关于显卡，听说Nvidia显卡比较难伺候，好在我从来没碰到过，因为只有游戏本才配置这么贵的显卡。如果你（曾经人品不好）不幸碰到了，那么，省事起见，我建议你暂时不要用它，就用主板上内置的（通常是Intel）显卡就好。直到有一天你成了一个熟练的Linux用户之后，再把它激活。
+关于显卡，听说Nvidia显卡比较难伺候，好在我从来没碰到过，因为只有游戏本才配置这么贵的显
+卡。如果你（曾经人品不好）不幸碰到了，那么，省事起见，我建议你暂时不要用它，就用主板上内置
+的（通常是Intel）显卡就好。直到有一天你成了一个熟练的Linux用户之后，再把它激活。
 </p>
 </div>
 </div>
-<div id="outline-container-org1ac1a59" class="outline-2">
-<h2 id="org1ac1a59"><span class="section-number-2">6</span> 附录：LaTeX （非必须）</h2>
+<div id="outline-container-org387ca77" class="outline-2">
+<h2 id="org387ca77"><span class="section-number-2">6</span> 附录：LaTeX （非必须）</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 在Linux平台，你不用非要学习使用LaTeX来排版你的文章、报告、论文，
@@ -910,7 +879,8 @@ $ sudo apt install `cat list.texlive`
 </p>
 <ol class="org-ol">
 <li><p>
-熟悉Emacs的使用。为什么非要用Emacs啊？因为它为编辑LaTeX文件提供了最好的支持。而且，我不想在这里唠唠叨叨，如果你想看我为Emacs做的广告，可以看我在「知乎」上写的一个小答案：
+熟悉Emacs的使用。为什么非要用Emacs啊？因为它为编辑LaTeX文件提供了最好的支持。而且，我不
+想在这里唠唠叨叨，如果你想看我为Emacs做的广告，可以看我在「知乎」上写的一个小答案：
 </p>
 <ul class="org-ul">
 <li><a href="https://www.zhihu.com/question/30955165/answer/70799403">https://www.zhihu.com/question/30955165/answer/70799403</a></li>
@@ -961,7 +931,7 @@ Happy LaTeXing!
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 王晓林</p>
-<p class="date">Created: 2019-10-12 Sat 17:26</p>
+<p class="date">Created: 2019-12-05 Thu 13:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -1,85 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-03-08 Fri 10:23 -->
+<!-- 2019-11-25 Mon 12:36 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Familiar With Linux Networking Command Line Tools</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="WANG Xiaolin">
-<link rel="stylesheet" href="https://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
-<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
-<script type="text/javascript" src="http://cs2.swfu.edu.cn/org-info-js/org-info.js">
-/**
- *
- * @source: http://cs2.swfu.edu.cn/org-info-js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in http://cs2.swfu.edu.cn/org-info-js/org-info.js.
- *
- * Copyright (C) 2012-2019 Free Software Foundation, Inc.
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in http://cs2.swfu.edu.cn/org-info-js/org-info.js.
- *
- */
-</script>
-
-<script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
-<!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "3");
-org_html_manager.set("LINK_HOME", "");
-org_html_manager.set("LINK_UP", "");
-org_html_manager.set("LOCAL_TOC", "1");
-org_html_manager.set("VIEW_BUTTONS", "0");
-org_html_manager.set("MOUSE_HINT", "underline");
-org_html_manager.set("FIXED_TOC", "0");
-org_html_manager.set("TOC", "1");
-org_html_manager.set("VIEW", "plain");
-org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
-</script>
+<link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -134,80 +62,80 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org77dcf6a">1. iproute2, <code>ifconfig</code>, <code>arp</code>, <code>route</code> &#x2014; Configure A Network Interface</a></li>
-<li><a href="#org0c3cf6f">2. ping &#x2014; send ICMP ECHO_REQUEST to network hosts</a></li>
-<li><a href="#org6567c2b">3. route &#x2014; show / manipulate the IP routing table</a></li>
-<li><a href="#org7604ace">4. netstat &#x2014; Print network information</a></li>
-<li><a href="#orgfa2b158">5. tcpdump &#x2014; dump traffic on a network</a>
+<li><a href="#org39c1231">1. iproute2, <code>ifconfig</code>, <code>arp</code>, <code>route</code> &#x2014; Configure A Network Interface</a></li>
+<li><a href="#org7ceb77d">2. ping &#x2014; send ICMP ECHO_REQUEST to network hosts</a></li>
+<li><a href="#org0da55af">3. route &#x2014; show / manipulate the IP routing table</a></li>
+<li><a href="#org1704319">4. netstat &#x2014; Print network information</a></li>
+<li><a href="#org821a93a">5. tcpdump &#x2014; dump traffic on a network</a>
 <ul>
-<li><a href="#org03ac015">5.1. Exercise &#x2014; Get a clear idea about the output</a></li>
-<li><a href="#orge7dbac7">5.2. Basic examples</a></li>
-<li><a href="#orgf469132">5.3. host/src/dst</a></li>
-<li><a href="#orgd20adf7">5.4. proto</a></li>
-<li><a href="#orgf453bdb">5.5. port</a></li>
-<li><a href="#org0e71e5e">5.6. src port, dst port</a></li>
-<li><a href="#org496eb34">5.7. portrange</a></li>
-<li><a href="#org317a211">5.8. src/dst, port, protocol</a></li>
-<li><a href="#org68f3945">5.9. read/write</a></li>
-<li><a href="#orgb895c29">5.10. grouping &#x2014; for complex queries</a></li>
-<li><a href="#orgeede63e">5.11. References</a></li>
+<li><a href="#org3da49f9">5.1. Exercise &#x2014; Get a clear idea about the output</a></li>
+<li><a href="#orgfb82df6">5.2. Basic examples</a></li>
+<li><a href="#org4245d36">5.3. host/src/dst</a></li>
+<li><a href="#org75e0d50">5.4. proto</a></li>
+<li><a href="#org506685d">5.5. port</a></li>
+<li><a href="#org59b7188">5.6. src port, dst port</a></li>
+<li><a href="#org41440ea">5.7. portrange</a></li>
+<li><a href="#org307c378">5.8. src/dst, port, protocol</a></li>
+<li><a href="#org2d139ef">5.9. read/write</a></li>
+<li><a href="#orga455ccc">5.10. grouping &#x2014; for complex queries</a></li>
+<li><a href="#org5e8027f">5.11. References</a></li>
 </ul>
 </li>
-<li><a href="#orgbf53d6c">6. iptables &#x2014; administration tool for IPv4 packet filtering and NAT</a>
+<li><a href="#org24afe61">6. iptables &#x2014; administration tool for IPv4 packet filtering and NAT</a>
 <ul>
-<li><a href="#org2b48b99">6.1. References</a></li>
-<li><a href="#orgb087719">6.2. Big picture</a></li>
-<li><a href="#org01f7d22">6.3. Basic Examples</a></li>
-<li><a href="#orgc22889d">6.4. More Examples</a></li>
+<li><a href="#org4407369">6.1. References</a></li>
+<li><a href="#org953bca7">6.2. Big picture</a></li>
+<li><a href="#orga58e179">6.3. Basic Examples</a></li>
+<li><a href="#org483936b">6.4. More Examples</a></li>
 </ul>
 </li>
-<li><a href="#org15a5578">7. netcat &#x2014; TCP/IP swiss army knife</a>
+<li><a href="#orgf8e73fa">7. netcat &#x2014; TCP/IP swiss army knife</a>
 <ul>
-<li><a href="#org874043f">7.1. Setup a simple C/S chat session</a></li>
-<li><a href="#org7064733">7.2. Transferring Files</a></li>
-<li><a href="#orgfa23c5b">7.3. Other Examples</a></li>
-<li><a href="#org49c7e55">7.4. Telnet-like Usage</a></li>
-<li><a href="#org4e1e3c1">7.5. Works as a Port Scanner too</a></li>
-<li><a href="#org677b3aa">7.6. Grab Port Banners</a></li>
+<li><a href="#org9735cca">7.1. Setup a simple C/S chat session</a></li>
+<li><a href="#org08306cd">7.2. Transferring Files</a></li>
+<li><a href="#orgf43aeef">7.3. Other Examples</a></li>
+<li><a href="#org6bf4547">7.4. Telnet-like Usage</a></li>
+<li><a href="#org163a546">7.5. Works as a Port Scanner too</a></li>
+<li><a href="#org98fa32b">7.6. Grab Port Banners</a></li>
 </ul>
 </li>
-<li><a href="#orgb43bf5c">8. nmap &#x2014; Network exploration tool and security / port scanner</a>
+<li><a href="#org7364b0f">8. nmap &#x2014; Network exploration tool and security / port scanner</a>
 <ul>
-<li><a href="#orgd099b58">8.1. Simple Examples</a></li>
-<li><a href="#org4c57035">8.2. Scanning more than one machine</a></li>
-<li><a href="#org3ee5ece">8.3. Scanning specific ports:</a></li>
-<li><a href="#org59b30d7">8.4. Various Scanning options:</a>
+<li><a href="#org83e0c1b">8.1. Simple Examples</a></li>
+<li><a href="#org1513d88">8.2. Scanning more than one machine</a></li>
+<li><a href="#orga0fc6e1">8.3. Scanning specific ports:</a></li>
+<li><a href="#org9af6caa">8.4. Various Scanning options:</a>
 <ul>
-<li><a href="#org4f40c59">8.4.1. <code>-sS</code></a></li>
-<li><a href="#org27cc71c">8.4.2. <code>-sT</code></a></li>
-<li><a href="#org85d3f01">8.4.3. <code>-sF</code>, <code>-sX</code>, <code>-sN</code></a></li>
-<li><a href="#orgfa83047">8.4.4. <code>-sU</code></a></li>
-<li><a href="#orgbd377ae">8.4.5. <code>-sO</code></a></li>
-<li><a href="#org63f4b58">8.4.6. <code>-sR</code></a></li>
-<li><a href="#orgc5e635f">8.4.7. <code>-sV</code></a></li>
-<li><a href="#org266852e">8.4.8. <code>-sA</code></a></li>
-<li><a href="#org5e8c5c7">8.4.9. <code>-sI</code></a></li>
-<li><a href="#orgd34df5d">8.4.10. <code>-sP</code>: Ping scan</a></li>
-<li><a href="#org38217a0">8.4.11. <code>-sW</code>: Window scan</a></li>
-<li><a href="#orgd473037">8.4.12. <code>-sL</code>: List scan</a></li>
+<li><a href="#org6122615">8.4.1. <code>-sS</code></a></li>
+<li><a href="#orgb6ca27f">8.4.2. <code>-sT</code></a></li>
+<li><a href="#orgf4aa76f">8.4.3. <code>-sF</code>, <code>-sX</code>, <code>-sN</code></a></li>
+<li><a href="#org0616a40">8.4.4. <code>-sU</code></a></li>
+<li><a href="#org913be65">8.4.5. <code>-sO</code></a></li>
+<li><a href="#org12f5e6e">8.4.6. <code>-sR</code></a></li>
+<li><a href="#org8713433">8.4.7. <code>-sV</code></a></li>
+<li><a href="#org3806be8">8.4.8. <code>-sA</code></a></li>
+<li><a href="#orgd2e9d28">8.4.9. <code>-sI</code></a></li>
+<li><a href="#orgd011319">8.4.10. <code>-sP</code>: Ping scan</a></li>
+<li><a href="#org9e97383">8.4.11. <code>-sW</code>: Window scan</a></li>
+<li><a href="#org5ad92d4">8.4.12. <code>-sL</code>: List scan</a></li>
 </ul>
 </li>
-<li><a href="#orgef418c6">8.5. O/S fingerprinting and version detection</a>
+<li><a href="#orgdb0e4d5">8.5. O/S fingerprinting and version detection</a>
 <ul>
-<li><a href="#org3592f54">8.5.1. <code>-O</code></a></li>
-<li><a href="#org47fa1e2">8.5.2. <code>-sV</code></a></li>
-<li><a href="#org8f3bda0">8.5.3. <code>-A</code>: Additional, Advanced, Aggressive option</a></li>
+<li><a href="#org4babee1">8.5.1. <code>-O</code></a></li>
+<li><a href="#org2e8a88f">8.5.2. <code>-sV</code></a></li>
+<li><a href="#org0655b81">8.5.3. <code>-A</code>: Additional, Advanced, Aggressive option</a></li>
 </ul>
 </li>
-<li><a href="#orgb1f3bdf">8.6. Typical scenario</a></li>
+<li><a href="#org4acb33a">8.6. Typical scenario</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org77dcf6a" class="outline-2">
-<h2 id="org77dcf6a"><span class="section-number-2">1</span> iproute2, <code>ifconfig</code>, <code>arp</code>, <code>route</code> &#x2014; Configure A Network Interface</h2>
+<div id="outline-container-org39c1231" class="outline-2">
+<h2 id="org39c1231"><span class="section-number-2">1</span> iproute2, <code>ifconfig</code>, <code>arp</code>, <code>route</code> &#x2014; Configure A Network Interface</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><p>
@@ -232,7 +160,7 @@ To <b>show</b> active network interfaces
 ip addr show eth0
 ip addr show up
 ip -s link
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 ifconfig -a
 ifconfig eth0
 ifconfig
@@ -244,7 +172,7 @@ To <b>assign</b> IP address 192.168.8.8 to <i>eth0</i>
 <div class="org-src-container">
 <pre class="src src-sh">ip addr add 192.168.8.8/24 dev eth0
 ip addr add 192.168.8.9/24 dev eth0 label eth0:1
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 ifconfig eth0 192.168.8.8 netmask 255.255.255.0
 ifconfig eth0:1 192.168.8.9 netmask 255.255.255.0
 </pre>
@@ -261,7 +189,7 @@ To bring <i>eth0</i> up
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">ip link set eth0 up
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 ifconfig eth0 up
 </pre>
 </div></li>
@@ -270,7 +198,7 @@ To bring <i>eth0</i> down
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">ip link set eth0 down
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 ifconfig eth0 down    
 </pre>
 </div></li>
@@ -278,28 +206,28 @@ ifconfig eth0 down
 ARP
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Display the ARP cache</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">Display the ARP cache</span>
 ip neigh show
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 arp -an
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 ip neigh show dev eth0
 ip neigh show 192.168.1.1
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Add a permanent ARP entry</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Add a permanent ARP entry</span>
 ip neigh add 192.168.1.4 lladdr aa:bb:cc:dd:ee:ff dev eth0 nud permanent
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 arp -i eth0 -s 192.168.1.4 aa:bb:cc:dd:ee:ff
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Change an ARP entry</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Change an ARP entry</span>
 ip neigh change 192.168.1.4 lladdr aa:bb:cc:dd:ee:ff dev eth0
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Delete an entry</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Delete an entry</span>
 ip neigh del 192.168.1.4 lladdr aa:bb:cc:dd:ee:ff dev eth0 nud permanent
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 arp -d 192.168.1.4
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Flush the ARP cache</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Flush the ARP cache</span>
 ip neigh flush dev eth0
 </pre>
 </div></li>
@@ -307,53 +235,53 @@ ip neigh flush dev eth0
 </div>
 </div>
 
-<div id="outline-container-org0c3cf6f" class="outline-2">
-<h2 id="org0c3cf6f"><span class="section-number-2">2</span> ping &#x2014; send ICMP ECHO_REQUEST to network hosts</h2>
+<div id="outline-container-org7ceb77d" class="outline-2">
+<h2 id="org7ceb77d"><span class="section-number-2">2</span> ping &#x2014; send ICMP ECHO_REQUEST to network hosts</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 To check network availability to some host, e.g. <i>cs3.swfu.edu.cn</i>, do
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">ping cs3.swfu.edu.cn
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">ping 10 times</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">ping 10 times</span>
 ping -c 10 cs3.swfu.edu.cn
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">ping every 10 seconds</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">ping every 10 seconds</span>
 ping -i 10 cs3.swfu.edu.cn
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org6567c2b" class="outline-2">
-<h2 id="org6567c2b"><span class="section-number-2">3</span> route &#x2014; show / manipulate the IP routing table</h2>
+<div id="outline-container-org0da55af" class="outline-2">
+<h2 id="org0da55af"><span class="section-number-2">3</span> route &#x2014; show / manipulate the IP routing table</h2>
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Check routing table</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">Check routing table</span>
 ip route show
 ip route get 202.203.132.244
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 netstat -rn
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 route -n
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Manually add a new route to a host (e.g. 192.168.1.5) through gateway 192.168.1.1, do</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Manually add a new route to a host (e.g. 192.168.1.5) through gateway 192.168.1.1, do</span>
 ip route add 192.168.1.5/24 via 192.168.1.1
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 route add 192.168.1.5 netmask 255.255.255.255 gw 192.168.1.1
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Manually add a default route through gateway 192.168.1.1, do</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Manually add a default route through gateway 192.168.1.1, do</span>
 ip route add default via 192.168.1.1
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 route add default gw 192.168.1.1
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To manually delete a route</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">To manually delete a route</span>
 ip route del 192.168.1.5/24 via 192.168.1.1
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 route del 192.168.1.5
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To manually delete a default route</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">To manually delete a default route</span>
 ip route del default
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">or</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">or</span>
 route del default
 </pre>
 </div>
@@ -363,61 +291,61 @@ route del default
 </ul>
 </div>
 </div>
-<div id="outline-container-org7604ace" class="outline-2">
-<h2 id="org7604ace"><span class="section-number-2">4</span> netstat &#x2014; Print network information</h2>
+<div id="outline-container-org1704319" class="outline-2">
+<h2 id="org1704319"><span class="section-number-2">4</span> netstat &#x2014; Print network information</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <code>netstat</code> displays all open sockets by default
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">netstat
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Display only TCP connections</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Display only TCP connections</span>
 netstat --tcp --numeric
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Show which program is listening on which port</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Show which program is listening on which port</span>
 netstat --tcp --listening --programs
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Show routing table</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Show routing table</span>
 netstat --route
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Display network statistics</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Display network statistics</span>
 netstat --statistics
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgfa2b158" class="outline-2">
-<h2 id="orgfa2b158"><span class="section-number-2">5</span> tcpdump &#x2014; dump traffic on a network</h2>
+<div id="outline-container-org821a93a" class="outline-2">
+<h2 id="org821a93a"><span class="section-number-2">5</span> tcpdump &#x2014; dump traffic on a network</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 You have to be <i>root</i> (<code>sudo</code>) to execute most <code>tcpdump</code> functions.
 </p>
 </div>
-<div id="outline-container-org03ac015" class="outline-3">
-<h3 id="org03ac015"><span class="section-number-3">5.1</span> Exercise &#x2014; Get a clear idea about the output</h3>
+<div id="outline-container-org3da49f9" class="outline-3">
+<h3 id="org3da49f9"><span class="section-number-3">5.1</span> Exercise &#x2014; Get a clear idea about the output</h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">1. Open a CLI terminal *A*, type:</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">1. Open a CLI terminal *A*, type:</span>
 tcpdump -XS -i lo host localhost
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">2. Open another CLI terminal *B*, and type:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">2. Open another CLI terminal *B*, and type:</span>
 nc -l 3333
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">3. Open one more CLI terminal *C*, type:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">3. Open one more CLI terminal *C*, type:</span>
 nc localhost 3333
 
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">Can you see the 3-way handshake in terminal *A*?</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">Can you see the 3-way handshake in terminal *A*?</span>
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">4. Now, in terminal *B* or *C*, type any single letter to see what you get in terminal *A*.</span>
-<span style="color: #5F7F5F;">#      </span><span style="color: #7F9F7F;">Try to explain what you have seen.</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">4. Now, in terminal *B* or *C*, type any single letter to see what you get in terminal *A*.</span>
+<span style="color: #607d8b;">#      </span><span style="color: #607d8b;">Try to explain what you have seen.</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orge7dbac7" class="outline-3">
-<h3 id="orge7dbac7"><span class="section-number-3">5.2</span> Basic examples</h3>
+<div id="outline-container-orgfb82df6" class="outline-3">
+<h3 id="orgfb82df6"><span class="section-number-3">5.2</span> Basic examples</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-sh">tcpdump -nS
@@ -426,7 +354,7 @@ tcpdump -nnvvXS
 tcpdump -nnvvXS -c2 icmp
 tcpdump ip6
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To capture packets that are above or below a certain size:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">To capture packets that are above or below a certain size:</span>
 tcpdump less 128
 tcpdump greater 256
 tcpdump &gt; 256
@@ -436,28 +364,28 @@ tcpdump &lt;= 128
 </div>
 </div>
 
-<div id="outline-container-orgf469132" class="outline-3">
-<h3 id="orgf469132"><span class="section-number-3">5.3</span> host/src/dst</h3>
+<div id="outline-container-org4245d36" class="outline-3">
+<h3 id="org4245d36"><span class="section-number-3">5.3</span> host/src/dst</h3>
 <div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To print all packets arriving at or departing from cs3:</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">To print all packets arriving at or departing from cs3:</span>
 tcpdump host cs3.swfu.edu.cn
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To print all packets departing from cs3:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">To print all packets departing from cs3:</span>
 tcpdump src  cs3.swfu.edu.cn
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To print all packets arriving at cs3:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">To print all packets arriving at cs3:</span>
 tcpdump dst  cs3.swfu.edu.cn
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgd20adf7" class="outline-3">
-<h3 id="orgd20adf7"><span class="section-number-3">5.4</span> proto</h3>
+<div id="outline-container-org75e0d50" class="outline-3">
+<h3 id="org75e0d50"><span class="section-number-3">5.4</span> proto</h3>
 <div class="outline-text-3" id="text-5-4">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">works for 'tcp', 'udp', and 'icmp'. Note that you don't have to type 'proto'</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">works for 'tcp', 'udp', and 'icmp'. Note that you don't have to type 'proto'</span>
 tcpdump icmp
 tcpdump udp
 tcpdump tcp
@@ -466,19 +394,19 @@ tcpdump tcp
 </div>
 </div>
 
-<div id="outline-container-orgf453bdb" class="outline-3">
-<h3 id="orgf453bdb"><span class="section-number-3">5.5</span> port</h3>
+<div id="outline-container-org506685d" class="outline-3">
+<h3 id="org506685d"><span class="section-number-3">5.5</span> port</h3>
 <div class="outline-text-3" id="text-5-5">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">see only traffic to or from a certain port</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">see only traffic to or from a certain port</span>
 tcpdump port 80
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0e71e5e" class="outline-3">
-<h3 id="org0e71e5e"><span class="section-number-3">5.6</span> src port, dst port</h3>
+<div id="outline-container-org59b7188" class="outline-3">
+<h3 id="org59b7188"><span class="section-number-3">5.6</span> src port, dst port</h3>
 <div class="outline-text-3" id="text-5-6">
 <div class="org-src-container">
 <pre class="src src-sh">tcpdump src port 1025
@@ -488,38 +416,38 @@ tcpdump dst port 80
 </div>
 </div>
 
-<div id="outline-container-org496eb34" class="outline-3">
-<h3 id="org496eb34"><span class="section-number-3">5.7</span> portrange</h3>
+<div id="outline-container-org41440ea" class="outline-3">
+<h3 id="org41440ea"><span class="section-number-3">5.7</span> portrange</h3>
 <div class="outline-text-3" id="text-5-7">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">see traffic to any port in a range</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">see traffic to any port in a range</span>
 tcpdump portrange 21-23
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org317a211" class="outline-3">
-<h3 id="org317a211"><span class="section-number-3">5.8</span> src/dst, port, protocol</h3>
+<div id="outline-container-org307c378" class="outline-3">
+<h3 id="org307c378"><span class="section-number-3">5.8</span> src/dst, port, protocol</h3>
 <div class="outline-text-3" id="text-5-8">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">combine all three</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">combine all three</span>
 tcpdump tcp and dst port 80
 tcpdump tcp dst port 80
 tcpdump tcp port 80
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Capture both DNS packets and TCP packets to/from cs3.swfu.edu.cn</span>
-tcpdump <span style="color: #CC9393;">"(tcp and host cs3.swfu.edu.cn) or udp port 53"</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Capture both DNS packets and TCP packets to/from cs3.swfu.edu.cn</span>
+tcpdump <span style="color: #689f38;">"(tcp and host cs3.swfu.edu.cn) or udp port 53"</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org68f3945" class="outline-3">
-<h3 id="org68f3945"><span class="section-number-3">5.9</span> read/write</h3>
+<div id="outline-container-org2d139ef" class="outline-3">
+<h3 id="org2d139ef"><span class="section-number-3">5.9</span> read/write</h3>
 <div class="outline-text-3" id="text-5-9">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">write output to a file, or read a data file</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">write output to a file, or read a data file</span>
 tcpdump -s 1514 port 80 -w capture_file
 tcpdump -r capture_file
 </pre>
@@ -527,20 +455,20 @@ tcpdump -r capture_file
 </div>
 </div>
 
-<div id="outline-container-orgb895c29" class="outline-3">
-<h3 id="orgb895c29"><span class="section-number-3">5.10</span> grouping &#x2014; for complex queries</h3>
+<div id="outline-container-orga455ccc" class="outline-3">
+<h3 id="orga455ccc"><span class="section-number-3">5.10</span> grouping &#x2014; for complex queries</h3>
 <div class="outline-text-3" id="text-5-10">
 <div class="org-src-container">
 <pre class="src src-sh">tcpdump src 10.0.2.4 and (dst port 3389 or 22)
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">Error? try this:</span>
-tcpdump <span style="color: #CC9393;">'src 10.0.2.4 and (dst port 3389 or 22)'</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">Error? try this:</span>
+tcpdump <span style="color: #689f38;">'src 10.0.2.4 and (dst port 3389 or 22)'</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgeede63e" class="outline-3">
-<h3 id="orgeede63e"><span class="section-number-3">5.11</span> References</h3>
+<div id="outline-container-org5e8027f" class="outline-3">
+<h3 id="org5e8027f"><span class="section-number-3">5.11</span> References</h3>
 <div class="outline-text-3" id="text-5-11">
 <ul class="org-ul">
 <li><a href="http://danielmiessler.com/study/tcpdump/">A tcpdump Tutorial and Primer</a></li>
@@ -553,12 +481,12 @@ tcpdump <span style="color: #CC9393;">'src 10.0.2.4 and (dst port 3389 or 22)'</
 </div>
 </div>
 
-<div id="outline-container-orgbf53d6c" class="outline-2">
-<h2 id="orgbf53d6c"><span class="section-number-2">6</span> iptables &#x2014; administration tool for IPv4 packet filtering and NAT</h2>
+<div id="outline-container-org24afe61" class="outline-2">
+<h2 id="org24afe61"><span class="section-number-2">6</span> iptables &#x2014; administration tool for IPv4 packet filtering and NAT</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org2b48b99" class="outline-3">
-<h3 id="org2b48b99"><span class="section-number-3">6.1</span> References</h3>
+<div id="outline-container-org4407369" class="outline-3">
+<h3 id="org4407369"><span class="section-number-3">6.1</span> References</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li><a href="http://www.netfilter.org/documentation/">http://www.netfilter.org/documentation/</a></li>
@@ -575,8 +503,8 @@ tcpdump <span style="color: #CC9393;">'src 10.0.2.4 and (dst port 3389 or 22)'</
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb087719" class="outline-3">
-<h3 id="orgb087719"><span class="section-number-3">6.2</span> Big picture</h3>
+<div id="outline-container-org953bca7" class="outline-3">
+<h3 id="org953bca7"><span class="section-number-3">6.2</span> Big picture</h3>
 <div class="outline-text-3" id="text-6-2">
 
 <div class="figure">
@@ -586,43 +514,43 @@ tcpdump <span style="color: #CC9393;">'src 10.0.2.4 and (dst port 3389 or 22)'</
 </div>
 </div>
 
-<div id="outline-container-org01f7d22" class="outline-3">
-<h3 id="org01f7d22"><span class="section-number-3">6.3</span> Basic Examples</h3>
+<div id="outline-container-orga58e179" class="outline-3">
+<h3 id="orga58e179"><span class="section-number-3">6.3</span> Basic Examples</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 You have to be <b>root</b> (<code>sudo</code>) to execute iptables functions.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Add a rule into the INPUT chain, to drop all packets from 147.8.212.123, do</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">Add a rule into the INPUT chain, to drop all packets from 147.8.212.123, do</span>
 iptables -A INPUT -s 147.8.212.123 -p all -j DROP
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">To delete this rule, do</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">To delete this rule, do</span>
 iptables -D INPUT -s 147.8.212.123 -p all -j DROP
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Drop ICMP packets from localhost, do</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Drop ICMP packets from localhost, do</span>
 iptables -A INPUT -s 127.0.0.1 -p icmp -j DROP
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Drop ping packets from anywhere except localhost, do</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Drop ping packets from anywhere except localhost, do</span>
 iptables -A INPUT -s ! 127.0.0.1 -p all -j DROP
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Filter a network segment, do</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Filter a network segment, do</span>
 iptables -A INPUT -s 192.168.1.0/24 -p all -j DROP
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc22889d" class="outline-3">
-<h3 id="orgc22889d"><span class="section-number-3">6.4</span> More Examples</h3>
+<div id="outline-container-org483936b" class="outline-3">
+<h3 id="org483936b"><span class="section-number-3">6.4</span> More Examples</h3>
 <div class="outline-text-3" id="text-6-4">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Syn-flood protection</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">Syn-flood protection</span>
 iptables -A FORWARD -p tcp --syn -m limit --limit 1/s -j ACCEPT
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Furtive port scanner proctetion</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Furtive port scanner proctetion</span>
 iptables -A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limit 1/s -j ACCEPT
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Ping of death proctetion</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Ping of death proctetion</span>
 iptables -A FORWARD -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACCEPT
 </pre>
 </div>
@@ -630,88 +558,88 @@ iptables -A FORWARD -p icmp --icmp-type echo-request -m limit --limit 1/s -j ACC
 </div>
 </div>
 
-<div id="outline-container-org15a5578" class="outline-2">
-<h2 id="org15a5578"><span class="section-number-2">7</span> netcat &#x2014; TCP/IP swiss army knife</h2>
+<div id="outline-container-orgf8e73fa" class="outline-2">
+<h2 id="orgf8e73fa"><span class="section-number-2">7</span> netcat &#x2014; TCP/IP swiss army knife</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>From <a href="http://www.g-loaded.eu/2006/11/06/netcat-a-couple-of-useful-examples/">http://www.g-loaded.eu/2006/11/06/netcat-a-couple-of-useful-examples/</a></li>
 </ul>
 </div>
-<div id="outline-container-org874043f" class="outline-3">
-<h3 id="org874043f"><span class="section-number-3">7.1</span> Setup a simple C/S chat session</h3>
+<div id="outline-container-org9735cca" class="outline-3">
+<h3 id="org9735cca"><span class="section-number-3">7.1</span> Setup a simple C/S chat session</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 Suppose the server IP is <code>202.203.132.244</code>
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">At the server side, do</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">At the server side, do</span>
 nc -l 3333
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">At the client side, do</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">At the client side, do</span>
 nc 202.203.132.244 3333
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">Start chatting</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">Start chatting</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org7064733" class="outline-3">
-<h3 id="org7064733"><span class="section-number-3">7.2</span> Transferring Files</h3>
+<div id="outline-container-org08306cd" class="outline-3">
+<h3 id="org08306cd"><span class="section-number-3">7.2</span> Transferring Files</h3>
 <div class="outline-text-3" id="text-7-2">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">1. Similar to the chat example above, at the server side, do</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">1. Similar to the chat example above, at the server side, do</span>
 cat backup.iso | nc -l 3333
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">2. At the client side, do</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">2. At the client side, do</span>
 nc 202.203.132.242 3333 &gt; backup.iso
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">As you may have noticed, netcat does not show any info about the progress of the</span>
-<span style="color: #5F7F5F;">#   </span><span style="color: #7F9F7F;">data transfer. This is inconvenient when dealing with large files. In such cases, a</span>
-<span style="color: #5F7F5F;">#   </span><span style="color: #7F9F7F;">pipe-monitoring utility like =pv= can be used to show a progress indicator. For</span>
-<span style="color: #5F7F5F;">#   </span><span style="color: #7F9F7F;">example, the following shows the total amount of data that has been transfered in</span>
-<span style="color: #5F7F5F;">#   </span><span style="color: #7F9F7F;">real-time on the server side:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">As you may have noticed, netcat does not show any info about the progress of the</span>
+<span style="color: #607d8b;">#   </span><span style="color: #607d8b;">data transfer. This is inconvenient when dealing with large files. In such cases, a</span>
+<span style="color: #607d8b;">#   </span><span style="color: #607d8b;">pipe-monitoring utility like =pv= can be used to show a progress indicator. For</span>
+<span style="color: #607d8b;">#   </span><span style="color: #607d8b;">example, the following shows the total amount of data that has been transfered in</span>
+<span style="color: #607d8b;">#   </span><span style="color: #607d8b;">real-time on the server side:</span>
 cat backup.iso | pv -b | nc -l 3333
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Of course, the same can be implemented on the client side by piping netcat's output through =pv=:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Of course, the same can be implemented on the client side by piping netcat's output through =pv=:</span>
 nc 202.203.132.242 3333 | pv -b &gt; backup.iso
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgfa23c5b" class="outline-3">
-<h3 id="orgfa23c5b"><span class="section-number-3">7.3</span> Other Examples</h3>
+<div id="outline-container-orgf43aeef" class="outline-3">
+<h3 id="orgf43aeef"><span class="section-number-3">7.3</span> Other Examples</h3>
 <div class="outline-text-3" id="text-7-3">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">1. Netcat is extremely useful for creating a partition image and sending it to a remote machine on-the-fly:</span>
-dd <span style="color: #DFAF8F;">if</span>=/dev/hdb5 | gzip -9 | nc -l 3333
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">1. Netcat is extremely useful for creating a partition image and sending it to a remote machine on-the-fly:</span>
+dd <span style="color: #EF6C00;">if</span>=/dev/hdb5 | gzip -9 | nc -l 3333
 
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">On the remote machine, connect to the server and receive the partition image with the following command:</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">On the remote machine, connect to the server and receive the partition image with the following command:</span>
 nc 202.203.132.242 3333 | pv -b &gt; myhdb5partition.img.gz
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">This might not be as classy as the partition backups using =partimage=, but it is efficient.</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">This might not be as classy as the partition backups using =partimage=, but it is efficient.</span>
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">2. Another useful thing is to compress the critical files on the server machine with =tar=</span>
-<span style="color: #5F7F5F;">#      </span><span style="color: #7F9F7F;">and have them pulled by a remote machine:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">2. Another useful thing is to compress the critical files on the server machine with =tar=</span>
+<span style="color: #607d8b;">#      </span><span style="color: #607d8b;">and have them pulled by a remote machine:</span>
 tar -czf - /etc/ | nc -l 3333
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">As you can see, there is a dash in the tar options instead of a filename. This is because</span>
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">tar's output needs to be passed to netcat.</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">As you can see, there is a dash in the tar options instead of a filename. This is because</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">tar's output needs to be passed to netcat.</span>
 
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">On the remote machine, the backup is pulled in the same way as before:</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">On the remote machine, the backup is pulled in the same way as before:</span>
 nc 202.203.132.242 3333 | pv -b &gt; mybackup.tar.gz
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">3. IPv6</span>
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">In terminal A:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">3. IPv6</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">In terminal A:</span>
 nc -6 -l 3333
 
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">In terminal B:</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">In terminal B:</span>
 nc -6 ::1 3333
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org49c7e55" class="outline-3">
-<h3 id="org49c7e55"><span class="section-number-3">7.4</span> Telnet-like Usage</h3>
+<div id="outline-container-org6bf4547" class="outline-3">
+<h3 id="org6bf4547"><span class="section-number-3">7.4</span> Telnet-like Usage</h3>
 <div class="outline-text-3" id="text-7-4">
 <p>
 Netcat can be used in order to talk to servers like telnet does. For example, in order
@@ -726,8 +654,8 @@ DEFINE wn server
 </div>
 </div>
 
-<div id="outline-container-org4e1e3c1" class="outline-3">
-<h3 id="org4e1e3c1"><span class="section-number-3">7.5</span> Works as a Port Scanner too</h3>
+<div id="outline-container-org163a546" class="outline-3">
+<h3 id="org163a546"><span class="section-number-3">7.5</span> Works as a Port Scanner too</h3>
 <div class="outline-text-3" id="text-7-5">
 <p>
 A useful command line flag is <code>-z</code>. When it is used, netcat does not initiate a
@@ -744,8 +672,8 @@ In this example, netcat scanned the 80-90 range of ports.
 </p>
 </div>
 </div>
-<div id="outline-container-org677b3aa" class="outline-3">
-<h3 id="org677b3aa"><span class="section-number-3">7.6</span> Grab Port Banners</h3>
+<div id="outline-container-org98fa32b" class="outline-3">
+<h3 id="org98fa32b"><span class="section-number-3">7.6</span> Grab Port Banners</h3>
 <div class="outline-text-3" id="text-7-6">
 <p>
 So we're interested in knowing what's running behind port 80 and 21. We can use netcat to grab
@@ -767,8 +695,8 @@ nc -v -n 202.203.132.242 21
 </div>
 </div>
 
-<div id="outline-container-orgb43bf5c" class="outline-2">
-<h2 id="orgb43bf5c"><span class="section-number-2">8</span> nmap &#x2014; Network exploration tool and security / port scanner</h2>
+<div id="outline-container-org7364b0f" class="outline-2">
+<h2 id="org7364b0f"><span class="section-number-2">8</span> nmap &#x2014; Network exploration tool and security / port scanner</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 You have to be <b>root</b> to execute most nmap functions.
@@ -781,27 +709,27 @@ You have to be <b>root</b> to execute most nmap functions.
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-orgd099b58" class="outline-3">
-<h3 id="orgd099b58"><span class="section-number-3">8.1</span> Simple Examples</h3>
+<div id="outline-container-org83e0c1b" class="outline-3">
+<h3 id="org83e0c1b"><span class="section-number-3">8.1</span> Simple Examples</h3>
 <div class="outline-text-3" id="text-8-1">
 <div class="org-src-container">
 <pre class="src src-sh">nmap 202.203.132.244
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">no reverse DNS lookup:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">no reverse DNS lookup:</span>
 nmap -n 202.203.132.244
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">verbose:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">verbose:</span>
 nmap -n -v 202.203.132.244
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">even more:</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">even more:</span>
 nmap -n -vv 202.203.132.244
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4c57035" class="outline-3">
-<h3 id="org4c57035"><span class="section-number-3">8.2</span> Scanning more than one machine</h3>
+<div id="outline-container-org1513d88" class="outline-3">
+<h3 id="org1513d88"><span class="section-number-3">8.2</span> Scanning more than one machine</h3>
 <div class="outline-text-3" id="text-8-2">
 <div class="org-src-container">
 <pre class="src src-sh">nmap -n -vv 202.203.132.242,244
@@ -818,8 +746,8 @@ nmap -vv -n 192.168.0,1,2.0-255
 </div>
 </div>
 
-<div id="outline-container-org3ee5ece" class="outline-3">
-<h3 id="org3ee5ece"><span class="section-number-3">8.3</span> Scanning specific ports:</h3>
+<div id="outline-container-orga0fc6e1" class="outline-3">
+<h3 id="orga0fc6e1"><span class="section-number-3">8.3</span> Scanning specific ports:</h3>
 <div class="outline-text-3" id="text-8-3">
 <div class="org-src-container">
 <pre class="src src-sh">nmap -vv -n -p 80 202.203.132.244
@@ -830,8 +758,8 @@ nmap -vv -n -p 21,23,25,80-120 202.203.132.241-244
 </div>
 </div>
 
-<div id="outline-container-org59b30d7" class="outline-3">
-<h3 id="org59b30d7"><span class="section-number-3">8.4</span> Various Scanning options:</h3>
+<div id="outline-container-org9af6caa" class="outline-3">
+<h3 id="org9af6caa"><span class="section-number-3">8.4</span> Various Scanning options:</h3>
 <div class="outline-text-3" id="text-8-4">
 <p>
 There are many scanning options available with Nmap. All have their advantages and
@@ -839,11 +767,11 @@ disadvantages. You should use them according to your requirements.
 </p>
 </div>
 
-<div id="outline-container-org4f40c59" class="outline-4">
-<h4 id="org4f40c59"><span class="section-number-4">8.4.1</span> <code>-sS</code></h4>
+<div id="outline-container-org6122615" class="outline-4">
+<h4 id="org6122615"><span class="section-number-4">8.4.1</span> <code>-sS</code></h4>
 <div class="outline-text-4" id="text-8-4-1">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">SYN scanning (this is the default option)</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">SYN scanning (this is the default option)</span>
 nmap -vv -n -sS 202.203.132.244
 </pre>
 </div>
@@ -867,11 +795,11 @@ destination host's applications. And hence it's a quiet scan.</dd>
 </div>
 </div>
 
-<div id="outline-container-org27cc71c" class="outline-4">
-<h4 id="org27cc71c"><span class="section-number-4">8.4.2</span> <code>-sT</code></h4>
+<div id="outline-container-orgb6ca27f" class="outline-4">
+<h4 id="orgb6ca27f"><span class="section-number-4">8.4.2</span> <code>-sT</code></h4>
 <div class="outline-text-4" id="text-8-4-2">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">TCP connect scanning</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">TCP connect scanning</span>
 nmap -vv -n -sT 202.203.132.244
 </pre>
 </div>
@@ -890,17 +818,17 @@ connection logs are examined.</dd>
 </div>
 </div>
 
-<div id="outline-container-org85d3f01" class="outline-4">
-<h4 id="org85d3f01"><span class="section-number-4">8.4.3</span> <code>-sF</code>, <code>-sX</code>, <code>-sN</code></h4>
+<div id="outline-container-orgf4aa76f" class="outline-4">
+<h4 id="orgf4aa76f"><span class="section-number-4">8.4.3</span> <code>-sF</code>, <code>-sX</code>, <code>-sN</code></h4>
 <div class="outline-text-4" id="text-8-4-3">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">FIN scan</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">FIN scan</span>
 nmap &#8211;vv &#8211;n &#8211;sF 218.194.106.91
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Xmas tree scan</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">Xmas tree scan</span>
 nmap &#8211;vv &#8211;n &#8211;sX 192.168.0.1
 
-<span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">NULL scan</span>
+<span style="color: #607d8b;">### </span><span style="color: #607d8b;">NULL scan</span>
 nmap &#8211;vv &#8211;n &#8211;sN 192.168.0.1
 </pre>
 </div>
@@ -929,11 +857,11 @@ the specific port that was queried.
 </div>
 </div>
 
-<div id="outline-container-orgfa83047" class="outline-4">
-<h4 id="orgfa83047"><span class="section-number-4">8.4.4</span> <code>-sU</code></h4>
+<div id="outline-container-org0616a40" class="outline-4">
+<h4 id="org0616a40"><span class="section-number-4">8.4.4</span> <code>-sU</code></h4>
 <div class="outline-text-4" id="text-8-4-4">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">UDP scan</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">UDP scan</span>
 nmap -vv -n -sU 202.203.132.244
 </pre>
 </div>
@@ -942,11 +870,11 @@ The only scan in the arsenal of Nmap to identify UDP ports.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbd377ae" class="outline-4">
-<h4 id="orgbd377ae"><span class="section-number-4">8.4.5</span> <code>-sO</code></h4>
+<div id="outline-container-org913be65" class="outline-4">
+<h4 id="org913be65"><span class="section-number-4">8.4.5</span> <code>-sO</code></h4>
 <div class="outline-text-4" id="text-8-4-5">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Protocol scan</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">Protocol scan</span>
 nmap -vv -n -sO 202.203.132.244
 </pre>
 </div>
@@ -963,11 +891,11 @@ protocol types in use.</dd>
 </div>
 </div>
 
-<div id="outline-container-org63f4b58" class="outline-4">
-<h4 id="org63f4b58"><span class="section-number-4">8.4.6</span> <code>-sR</code></h4>
+<div id="outline-container-org12f5e6e" class="outline-4">
+<h4 id="org12f5e6e"><span class="section-number-4">8.4.6</span> <code>-sR</code></h4>
 <div class="outline-text-4" id="text-8-4-6">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">RPC scan</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">RPC scan</span>
 nmap -vv -sR 202.203.132.244
 </pre>
 </div>
@@ -982,11 +910,11 @@ It's used to locate and identify RPC applications. It runs automatically during 
 </div>
 </div>
 
-<div id="outline-container-orgc5e635f" class="outline-4">
-<h4 id="orgc5e635f"><span class="section-number-4">8.4.7</span> <code>-sV</code></h4>
+<div id="outline-container-org8713433" class="outline-4">
+<h4 id="org8713433"><span class="section-number-4">8.4.7</span> <code>-sV</code></h4>
 <div class="outline-text-4" id="text-8-4-7">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Version scan</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">Version scan</span>
 nmap &#8211;vv &#8211;sV 202.203.132.244
 </pre>
 </div>
@@ -1003,11 +931,11 @@ application's log file.</dd>
 </div>
 </div>
 
-<div id="outline-container-org266852e" class="outline-4">
-<h4 id="org266852e"><span class="section-number-4">8.4.8</span> <code>-sA</code></h4>
+<div id="outline-container-org3806be8" class="outline-4">
+<h4 id="org3806be8"><span class="section-number-4">8.4.8</span> <code>-sA</code></h4>
 <div class="outline-text-4" id="text-8-4-8">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">ACK scan</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">ACK scan</span>
 nmap &#8211;vv &#8211;sA 218.194.106.91
 </pre>
 </div>
@@ -1024,11 +952,11 @@ identify an open port.</dd>
 </div>
 </div>
 
-<div id="outline-container-org5e8c5c7" class="outline-4">
-<h4 id="org5e8c5c7"><span class="section-number-4">8.4.9</span> <code>-sI</code></h4>
+<div id="outline-container-orgd2e9d28" class="outline-4">
+<h4 id="orgd2e9d28"><span class="section-number-4">8.4.9</span> <code>-sI</code></h4>
 <div class="outline-text-4" id="text-8-4-9">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Idle scan</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">Idle scan</span>
 nmap &#8211;vv &#8211;sI 218.194.106.91
 </pre>
 </div>
@@ -1044,17 +972,17 @@ you to read it in detail.
 </div>
 </div>
 
-<div id="outline-container-orgd34df5d" class="outline-4">
-<h4 id="orgd34df5d"><span class="section-number-4">8.4.10</span> <code>-sP</code>: Ping scan</h4>
+<div id="outline-container-orgd011319" class="outline-4">
+<h4 id="orgd011319"><span class="section-number-4">8.4.10</span> <code>-sP</code>: Ping scan</h4>
 <div class="outline-text-4" id="text-8-4-10">
 <p>
 You must have heard of <i>ping sweep</i>. It's Nmap's ping sweep.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">To check whether this machine is up or not, do</span>
+<pre class="src src-sh"><span style="color: #607d8b;"># </span><span style="color: #607d8b;">To check whether this machine is up or not, do</span>
 nmap &#8211;vv &#8211;sP 192.168.0.10
 
-<span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">To check the whole subnet (254) machines and will tell you which are up.</span>
+<span style="color: #607d8b;"># </span><span style="color: #607d8b;">To check the whole subnet (254) machines and will tell you which are up.</span>
 nmap &#8211;vv &#8211;sP 192.168.0.*
 </pre>
 </div>
@@ -1064,8 +992,8 @@ nmap &#8211;vv &#8211;sP 192.168.0.*
 </div>
 </div>
 
-<div id="outline-container-org38217a0" class="outline-4">
-<h4 id="org38217a0"><span class="section-number-4">8.4.11</span> <code>-sW</code>: Window scan</h4>
+<div id="outline-container-org9e97383" class="outline-4">
+<h4 id="org9e97383"><span class="section-number-4">8.4.11</span> <code>-sW</code>: Window scan</h4>
 <div class="outline-text-4" id="text-8-4-11">
 <p>
 Forget it. As the number of operating systems vulnerable to its methodology is dwindling as
@@ -1074,8 +1002,8 @@ operating systems are upgraded and patched.
 </div>
 </div>
 
-<div id="outline-container-orgd473037" class="outline-4">
-<h4 id="orgd473037"><span class="section-number-4">8.4.12</span> <code>-sL</code>: List scan</h4>
+<div id="outline-container-org5ad92d4" class="outline-4">
+<h4 id="org5ad92d4"><span class="section-number-4">8.4.12</span> <code>-sL</code>: List scan</h4>
 <div class="outline-text-4" id="text-8-4-12">
 <p>
 Would like to say only one line about it that you must use it if a separate application provides
@@ -1085,8 +1013,8 @@ nmap with a list of IP addresses. Rest read yourself.
 </div>
 </div>
 
-<div id="outline-container-orgef418c6" class="outline-3">
-<h3 id="orgef418c6"><span class="section-number-3">8.5</span> O/S fingerprinting and version detection</h3>
+<div id="outline-container-orgdb0e4d5" class="outline-3">
+<h3 id="orgdb0e4d5"><span class="section-number-3">8.5</span> O/S fingerprinting and version detection</h3>
 <div class="outline-text-3" id="text-8-5">
 <p>
 Ok, now you can use various scanning techniques to look for open/closed or filtered/unfiltered
@@ -1094,11 +1022,11 @@ TCP as well as UDP ports. Don't you want to know the remote operating system run
 </p>
 </div>
 
-<div id="outline-container-org3592f54" class="outline-4">
-<h4 id="org3592f54"><span class="section-number-4">8.5.1</span> <code>-O</code></h4>
+<div id="outline-container-org4babee1" class="outline-4">
+<h4 id="org4babee1"><span class="section-number-4">8.5.1</span> <code>-O</code></h4>
 <div class="outline-text-4" id="text-8-5-1">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Operating system fingerprinting</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">Operating system fingerprinting</span>
 nmap -vv -O 202.203.132.241,244
 </pre>
 </div>
@@ -1115,11 +1043,11 @@ won't be able to give the accurate result. In that case you should use some thir
 </div>
 </div>
 
-<div id="outline-container-org47fa1e2" class="outline-4">
-<h4 id="org47fa1e2"><span class="section-number-4">8.5.2</span> <code>-sV</code></h4>
+<div id="outline-container-org2e8a88f" class="outline-4">
+<h4 id="org2e8a88f"><span class="section-number-4">8.5.2</span> <code>-sV</code></h4>
 <div class="outline-text-4" id="text-8-5-2">
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">Version detection</span>
+<pre class="src src-sh"><span style="color: #607d8b;">### </span><span style="color: #607d8b;">Version detection</span>
 nmap -vv -sV 202.203.132.244
 </pre>
 </div>
@@ -1130,8 +1058,8 @@ machine.
 </div>
 </div>
 
-<div id="outline-container-org8f3bda0" class="outline-4">
-<h4 id="org8f3bda0"><span class="section-number-4">8.5.3</span> <code>-A</code>: Additional, Advanced, Aggressive option</h4>
+<div id="outline-container-org0655b81" class="outline-4">
+<h4 id="org0655b81"><span class="section-number-4">8.5.3</span> <code>-A</code>: Additional, Advanced, Aggressive option</h4>
 <div class="outline-text-4" id="text-8-5-3">
 <p>
 Its comprises of both the operating system fingerprinting process (<code>-O</code>) and the version scanning
@@ -1146,8 +1074,8 @@ nmap -vv -A 202.203.132.244
 </div>
 </div>
 
-<div id="outline-container-orgb1f3bdf" class="outline-3">
-<h3 id="orgb1f3bdf"><span class="section-number-3">8.6</span> Typical scenario</h3>
+<div id="outline-container-org4acb33a" class="outline-3">
+<h3 id="org4acb33a"><span class="section-number-3">8.6</span> Typical scenario</h3>
 <div class="outline-text-3" id="text-8-6">
 <ol class="org-ol">
 <li><p>
@@ -1179,8 +1107,8 @@ Tell me what OS they are running? What services are they running?
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: WANG Xiaolin</p>
-<p class="date">Created: 2019-03-08 Fri 10:23</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.1 (<a href="https://orgmode.org">Org</a> mode 9.2.1)</p>
+<p class="date">Created: 2019-11-25 Mon 12:36</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.1 (<a href="https://orgmode.org">Org</a> mode 9.2.6)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

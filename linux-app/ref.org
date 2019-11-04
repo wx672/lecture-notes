@@ -1,0 +1,27 @@
+#+TITLE:     Linux Application Programming
+#+SUBTITLE: Textbooks and References
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+LANGUAGE:  cn
+#+OPTIONS:   H:3 num:nil toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+# (setq org-export-html-use-infojs nil)
+
+* Textbooks
+1. Matthew, Neil and Stones, Richard. [[https://cs6.swfu.edu.cn/calibre/#book_id=39&library_id=calibre&panel=book_details][/Beginning Linux Programming/]], 4^{th} edition, 2008.
+2. Mendel Cooper. [[https://www.tldp.org/LDP/abs/html/][/Advanced Bash Scripting Guide 5.3 Volume 1/]], Lulu.com, 2010.
+
+* References
+1. Stevens, W Richard and Rago, Stephen A. [[https://cs6.swfu.edu.cn/calibre/#book_id=145&library_id=calibre&panel=book_details][/Advanced programming in the UNIX environment/]],
+   Addison-Wesley, 3^{rd} edition, 2013.
+2. Raymond, Eric S. [[https://cs6.swfu.edu.cn/calibre/#book_id=15&library_id=calibre&panel=book_details][/The art of Unix programming/]], Addison-Wesley, 2003. 
+3. Love, R. [[https://cs6.swfu.edu.cn/calibre/#book_id=13&library_id=calibre&panel=book_details][/Linux System Programming: Talking Directly to the Kernel and C Library/]],
+   O'Reilly Media, 2^{nd} edition, 2007.
+4. Kerrisk, Michael. [[https://cs6.swfu.edu.cn/calibre/#book_id=166&library_id=calibre&panel=book_details][/The Linux Programming Interface: A Linux and UNIX System Programming
+   Handbook/]], No Starch Press, 2010.
+5. Bryant, Randal E. and O'Hallaron, David R. [[https://cs6.swfu.edu.cn/calibre/#book_id=33&library_id=calibre&panel=book_details][/Computer Systems: A Programmer's Perspective/]]. Addison-Wesley, 2^{nd} edition, 2010.
+6. [[http://cs241.cs.illinois.edu/coursebook/index.html][CS241 System Programming Coursebook]]

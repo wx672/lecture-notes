@@ -6,8 +6,6 @@
 #+LANGUAGE:  cn
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
-#+STYLE:    <style>code {font-weight:bold; color:darkblue; font-size:100%} body {font-size:14pt;}</style>
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
 #+LINK_UP:   
@@ -131,15 +129,19 @@
    apt update && apt dist-upgrade
    #+END_SRC
    网络顺畅的话，这一步要花十几分钟的时间。
-4. 现在，“机房装了什么，我就要装什么”。那就先把机房系统的软件清单弄到手，在[[http://cs2.swfu.edu.cn/~wx672/debian-install/list.laptop][这里]]。
+4. 现在，“机房装了什么，我就要装什么”。那就先把机房系统的软件清单弄到手，在[[https://cs6.swfu.edu.cn/~wx672/debian-install/list.laptop][这里]]。
    这是我个人Debian笔记本电脑上的软件包列表。用 =wget= 把[[https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/install/deb-pkg-list/laptop][这个软件清单]]下载：
    #+BEGIN_SRC sh
    cd
-   wget https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/install/deb-pkg-list/laptop
+
+   wget  https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/install/deb-pkg-list/laptop
    #+END_SRC
    【注意】这一步要以普通用户的身份来做，不要用root！注意看命令行的提示符：
    - =$= 代表普通用户；
    - =#= 代表root；
+   - 如果[[https://gitlab.swfu.edu.cn/]]这个网址不好使的话，你可以试试：
+     - https://cs6.swfu.edu.cn/~wx672/debian-install/list.laptop, 或者
+     - https://github.com/wx672/lecture-notes/blob/master/linux/tutorials/install/deb-pkg-list/laptop
 5. 然后，开始大批量安装软件包：
    #+BEGIN_SRC sh
    apt-get install $(cat list.laptop)
@@ -191,9 +193,12 @@
 git（ *以普通用户的身份来做* ）：
 #+BEGIN_SRC sh
 cd
+
 git clone https://gitlab.swfu.edu.cn/wx672/dotfile.git
 #或者
 git clone https://github.com/wx672/dotfile.git
+#或者
+git clone https://cs6.swfu.edu.cn/~wx672/dotfile.git
 #+END_SRC
 
 上面三个网址应该都可以。 =git= 是著名的源代码管理工具，也就是版本控制工具。用它来管理配置文
@@ -223,6 +228,8 @@ git clone https://github.com/wx672/dotfile.git
 5) 顺手把我准备好的「帮助墙纸」也下载下来吧。墙纸上列出了我们最常用的快捷键。
    #+BEGIN_SRC sh
    wget -O .keys.png http://cs2.swfu.edu.cn/~wx672/tex-fun/keys/keys-1.png
+   # 或者
+   wget -O .keys.png https://cs6.swfu.edu.cn/~wx672/debian-install/keys.png
    #+END_SRC
    等以后在XWindow环境下，按 =Super-F1= 应该就可以弹出这张墙纸了。
   （ =Super= 键就是键盘左下方的 =Win= 键）
@@ -233,7 +240,7 @@ git clone https://github.com/wx672/dotfile.git
 6) 我的Emacs配置里用到了很多插件，自然你也需要它们，否则Emacs不能正常工作。
    1) 先把我的插件包下载下来
       #+BEGIN_SRC sh
-      wget http://cs2.swfu.edu.cn/~wx672/debian-install/elpa.tgz
+      wget http://cs6.swfu.edu.cn/~wx672/debian-install/elpa.tgz
       #+END_SRC
    2) 放到Emacs的配置文件目录里
       #+BEGIN_SRC sh
@@ -282,7 +289,7 @@ git clone https://github.com/wx672/dotfile.git
 1. 安装中文字体和输入法。
    #+BEGIN_SRC sh
    cd
-   wget http://cs2.swfu.edu.cn/~wx672/debian-install/list.chinese
+   wget https://cs6.swfu.edu.cn/~wx672/debian-install/list.chinese
    sudo apt install `cat list.chinese`
    #+END_SRC
 
@@ -329,7 +336,7 @@ Windows系统我不喜欢，但Windows的中文字体还是不错的。
 如果你和我一样，只装了一个Debian系统，那么就这样：
 #+BEGIN_SRC sh
 #1. 先下载：
-wget http://cs2.swfu.edu.cn/~wx672/debian-install/mstt-chinese.tgz
+wget http://cs6.swfu.edu.cn/~wx672/debian-install/mstt-chinese.tgz
 #2. 解压缩：
 tar zxf mstt-fonts-chinese.tgz
 #3. 放到该放的地方：

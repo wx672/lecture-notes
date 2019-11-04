@@ -981,8 +981,8 @@
 
   \node (fdt) [table node=7,%
   label={above,align=center:{User\\File Descriptor\\Table}}]%
-  { STDIN \nodepart{two} STDOUT \nodepart{three} STDERR \nodepart{four} \nodepart{five}
-    \nodepart{six} \nodepart{seven} \vdots };%
+  { STDIN \nodepart{two} STDOUT \nodepart{three} STDERR \nodepart{four} /etc/passwd \nodepart{five}
+    local \nodepart{six} /etc/passwd \nodepart{seven} \vdots };%
 
   \node at ($(fdt.text west)+(-5pt,0)$) {0};%
   \node at ($(fdt.two west)+(-5pt,0)$) {1};%
@@ -1025,8 +1025,8 @@
   \node (fdt) [table node=7,%
   label={above:{{\scriptsize Proc A}}},%
   label={above,yshift=4ex,align=center:{User\\File Descriptor\\Table}}]%
-  { STDIN \nodepart{two} STDOUT \nodepart{three} STDERR \nodepart{four} \nodepart{five}
-    \nodepart{six} \nodepart{seven} \vdots};
+  { STDIN \nodepart{two} STDOUT \nodepart{three} STDERR \nodepart{four} /etc/passwd \nodepart{five}
+    local \nodepart{six} /etc/passwd \nodepart{seven} \vdots};
 
   \node at ($(fdt.text west)+(-5pt,0)$) {0};%
   \node at ($(fdt.two west)+(-5pt,0)$) {1};%
@@ -1068,8 +1068,8 @@
 
   \node (fdtb) [table node=6, below=of fdt.south,anchor=north,%
   label={above:{{\scriptsize Proc B}}}]%
-  { STDIN \nodepart{two} STDOUT \nodepart{three} STDERR \nodepart{four} \nodepart{five}
-    \nodepart{six} \vdots };
+  { STDIN \nodepart{two} STDOUT \nodepart{three} STDERR \nodepart{four} /etc/passwd \nodepart{five}
+    private \nodepart{six} \vdots };
 
   \draw [arrow] (fdtb.four east)-- (ft.six west);%
   \draw [arrow] (fdtb.five east)-- (ft.ten west);%  
