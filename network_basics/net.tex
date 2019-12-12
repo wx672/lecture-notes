@@ -38,6 +38,43 @@
   \titlepage
 \end{frame}
 
+\begin{frame}<beamer>{Textbooks}
+  \begin{refsection}
+    \nocite{tanenbaum2011computer,kurose2013computer,fall2011tcp}
+    \printbibliography[heading=none]
+  \end{refsection}
+\end{frame}
+
+\begin{frame}{Course Web Links}
+  \begin{description}
+  \item[Course web site] \url{https://cs6.swfu.edu.cn/moodle}
+  \item[Lecture slides] \url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/}
+  \item[Lab exercises] \url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/net-tools/net-tools.html}
+  \item[Cisco Networking Academy] \url{https://www.netacad.com/}
+  \item[Beej's Guides] \url{http://beej.us/guide/}
+  \end{description}
+\end{frame}
+
+\begin{frame}{{\hw\enspace}Homework}
+  \begin{block}{Weekly tech question}
+    \begin{enumerate}
+    \item What was I trying to do?
+    \item How did I do it? (steps)
+    \item The expected output? The real output?
+    \item How did I try to solve it? (steps, books, web links)
+    \item How many hours did I struggle on it?
+    \end{enumerate}
+  \end{block}
+  \begin{itemize}
+  \item[\Large\dejavu ✉] \alert{\ttfamily wx672ster+linux@gmail.com}
+  \item[$\mathbb{E}$] Preferably in English
+  \item[\stackoverflow] in
+    \href{https://stackoverflow.com/questions/39199299/what-is-the-essential-difference-between-compound-command-and-normal-command-inlink}{stackoverflow}
+    style
+  \item[OR] simply show me the tech questions you asked on any website
+  \end{itemize}  
+\end{frame}
+
 \lecture[Introduction]{A Very Brief Internet Tutorial (I)}{intro}
 \section{Introduction}
 
@@ -45,11 +82,8 @@
 
 \begin{frame}{{What's A Computer Network?}}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.9\textwidth]{network}
-    } \mode<article>{
-      \includegraphics[width=.7\textwidth]{network}
-    }
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{network} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{network} }
   \end{center}
 \end{frame}
 
@@ -57,18 +91,15 @@ See also: \citetitle{wiki:network}
 
 % \begin{frame}
 %   \begin{center}
-%     \mode<beamer>{
-%       \includegraphics[height=\textheight]{internet}
-%     } \mode<article>{
-%       \includegraphics[width=.7\textwidth]{internet}
-%     }
+%     \mode<beamer>{ \includegraphics[height=\textheight]{internet} }%
+%     \mode<article>{ \includegraphics[width=.7\textwidth]{internet} }
 %   \end{center}
 % \end{frame}
 
 \subsection[History]{Past and Future}
 
 \begin{frame}[allowframebreaks=.8]{The History of Internet}
-  \begin{itemize}
+  \begin{description}
   \item[1836:] Telegraph
   \item[1858-66:] Transatlantic cable
   \item[1876:] Telephone
@@ -97,8 +128,6 @@ See also: \citetitle{wiki:network}
   \item[1995:] Commercialisation continues apace
   \item[1996:] Microsoft enters
   \item[1998:] \includegraphics[height=.9em]{google}
-  \end{itemize}
-  \begin{description}
   \item[Homework:] Meanwhile, what happened in China?
   \end{description}
 \end{frame}
@@ -110,7 +139,7 @@ See also: \citetitle{rfc2235}
 \begin{frame}{What's The Internet?}
   What pops up in your mind if I say ``Internet''?\pause
   
-  \begin{block}{For me, the answer is...}
+  \begin{iblock}{For me, the answer is...}
     \begin{center}
       \mode<beamer>{\includegraphics[width=.4\textwidth]{google} }%
       \mode<article>{\includegraphics[height=1em]{google} }
@@ -120,7 +149,7 @@ See also: \citetitle{rfc2235}
       \mode<beamer>{\Tcpip{}}%
       \mode<article>{\tcpip}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also: \citetitle{wiki:google, wiki:tcpip}
@@ -214,11 +243,11 @@ See also: \citetitle{wiki:ie, wiki:baidu}
     \mode<beamer>{ \includegraphics[width=\textwidth]{malware} }%
     \mode<article>{ \includegraphics[width=.3\textwidth]{malware} }
   \end{center}\pause
-  \begin{block}{My solution}
+  \begin{iblock}{My solution}
     \begin{center}
       \includegraphics[height=5em]{linuxlogo}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also: \citetitle{wiki:malware, wiki:virus, wiki:adware, wiki:spyware, wiki:worm, wiki:trojan}
@@ -285,7 +314,7 @@ See also: \citetitle{wiki:malware, wiki:virus, wiki:adware, wiki:spyware, wiki:w
 \end{frame}
 
 \begin{frame}{Network Classification}
-  \begin{block}{Connection method}
+  \begin{iblock}{Connection method}
     Wired:
     \begin{center}
       \mode<beamer>{
@@ -312,33 +341,33 @@ See also: \citetitle{wiki:malware, wiki:virus, wiki:adware, wiki:spyware, wiki:w
       \includegraphics[height=1cm]{wlan}\quad
       \includegraphics[height=1cm]{bluz}}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Scale}
+  \begin{iblock}{Scale}
       \small{PAN}, \large{LAN}, \Large{CAN}, \LARGE{MAN}, \Huge{WAN} ...
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Topology}
+  \begin{iblock}{Topology}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{topo} }%
       \mode<article>{ \includegraphics[width=.3\textwidth]{topo} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also: \citetitle{wiki:topo}
 
 \begin{frame}
-  \begin{block}{Network Architecture}
+  \begin{iblock}{Network Architecture}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{arch} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{arch} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also: \citetitle{wiki:netarch}
@@ -352,7 +381,7 @@ See also: \citetitle{wiki:netarch}
       Router:&\includegraphics[width=1cm]{router}\\\midrule
       Link&&&
       Bridge:&\raisebox{-7pt}{\includegraphics[width=1cm]{bridge}}&
-      Switch:&\raisebox{-7pt}{\includegraphics[width=1cm]{switch}}\\\midrule
+      Switch:&\raisebox{-7pt}{\includegraphics[width=1cm]{cisco-switch}}\\\midrule
       PHY&NIC:&\raisebox{-5pt}{\includegraphics[width=1cm]{nic}}&
       Repeater:&\raisebox{-5pt}{\includegraphics[width=1cm]{repeater}}&
       Hub:&\raisebox{-7pt}{\includegraphics[width=1cm]{hub}}\\\midrule
@@ -378,9 +407,10 @@ module. The \emph{protocol} field in the IP header, and the port number in TCP/U
 serve in a similar way.
 
 \begin{frame}{What's {\tcpip{}}?}
-  \begin{block}{A set of protocols designed for the Internet}
-    Protocol --- a rule, a treaty, an agreement ...
-  \end{block}
+  \begin{description}
+  \item[TCP/IP] A set of protocols designed for the Internet
+  \item[protocol] a rule, a treaty, an agreement ...
+  \end{description}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{protocol} }%
     \mode<article>{ \includegraphics[width=.4\textwidth]{protocol} }
@@ -388,12 +418,12 @@ serve in a similar way.
 \end{frame}
 
 \begin{frame}{{\tcpip{}} Protocol Stack}
-  \begin{block}{Every networked computer has it inside}
+  \begin{iblock}{Every networked computer has it inside}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{stack} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{stack} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also: \citetitle[Sec.~1.3, \emph{Network Software}]{tanenbaum2011computer}.
@@ -473,7 +503,7 @@ Interfaces between layers (primitives, functions)
 \end{itemize}
 
 \begin{frame}{Layered Design Example}
-  \begin{block}{Taking an airplane trip}
+  \begin{iblock}{Taking an airplane trip}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.6\textwidth]{airtrip} }%
       \mode<article>{ \includegraphics[width=.3\textwidth]{airtrip} }
@@ -483,7 +513,7 @@ Interfaces between layers (primitives, functions)
     \item has some functions
     \item provides services to its upper layer
     \end{enumerate}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also:
@@ -537,20 +567,20 @@ See also \citetitle{rfc1122}.
 
 \begin{frame}%{Layered Design}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{translator} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{translator} }\label{fig:translator}
+    \mode<beamer>{ \includegraphics[height=\textheight]{trump-kim-en} }%translator
+    \mode<article>{ \includegraphics[width=.6\textwidth]{trump-kim-en}}\label{fig:translator}%
   \end{center}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Each protocol is completely independent of the other ones}
+  \begin{iblock}{Each protocol is completely independent of the other ones}
     For example
     \begin{itemize}
     \item The translators (L2) can switch from Dutch to Finnish without touching L1 or L3
     \item The secretaries (L1) can switch from email to telephone without disturbing (or
       even informing) the other layers
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 An analogy may help explain the idea of multilayer communication. Imagine two philosophers
@@ -683,18 +713,18 @@ layer above.
 \end{frame}
 
 \begin{frame}{Examples}
-  \begin{block}{Unicast, carrying an IP packet}
+  \begin{iblock}{Unicast, carrying an IP packet}
     \mode<beamer>{\includegraphics[width=\textwidth]{ethframe3}}%
     \mode<article>{\includegraphics[width=.6\textwidth]{ethframe3}}
-  \end{block}
-  \begin{block}{Unicast, carrying an ARP packet}
+  \end{iblock}
+  \begin{iblock}{Unicast, carrying an ARP packet}
     \mode<beamer>{\includegraphics[width=\textwidth]{ethframe2}}%
     \mode<article>{\includegraphics[width=.6\textwidth]{ethframe2}}
-  \end{block}
-  \begin{block}{Broadcast, carrying an ARP packet}
+  \end{iblock}
+  \begin{iblock}{Broadcast, carrying an ARP packet}
     \mode<beamer>{\includegraphics[width=\textwidth]{ethframe}}%
     \mode<article>{\includegraphics[width=.6\textwidth]{ethframe}}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{description}
@@ -724,7 +754,7 @@ layer above.
   \begin{description}
   \item[ARP] Looking up the ARP table to find the destination MAC address.
   \end{description}
-  \begin{block}{Example ARP table}
+  \begin{iblock}{Example ARP table}
     \hspace{2em}{\ttfamily
       \begin{tabular}{lr}
         \toprule
@@ -733,7 +763,7 @@ layer above.
         223.1.2.3 & 08-00-5A-21-A7-22\\
         223.1.2.4 & 08-00-10-99-AC-54\\\bottomrule
       \end{tabular}}
-  \end{block}
+  \end{iblock}
   \mode<beamer>{
     \begin{tikzpicture}[remember picture, overlay]
       \node [red,opacity=.3,anchor=south east,scale=.7] at (current page.south east)%
@@ -742,7 +772,7 @@ layer above.
 \end{frame}
 
 \begin{frame}{Where does the ARP table come from?}
-  \begin{block}{Example ARP Request}
+  \begin{iblock}{Example ARP Request}
     \begin{center}
       \begin{tabular}{l>{\ttfamily}r}
         \toprule
@@ -752,9 +782,9 @@ layer above.
         Target Eth Address & FF-FF-FF-FF-FF-FF\\\bottomrule
       \end{tabular}
     \end{center}
-  \end{block}
+  \end{iblock}
 
-  \begin{block}{Example ARP Response}
+  \begin{iblock}{Example ARP Response}
     \begin{center}
       \begin{tabular}{l>{\ttfamily}r}
         \toprule
@@ -764,7 +794,7 @@ layer above.
         Target Eth Address & 08-00-39-00-2F-C3\\\bottomrule
       \end{tabular}
     \end{center}
-  \end{block}
+  \end{iblock}
   \mode<beamer>{
   \begin{tikzpicture}[remember picture, overlay]
     \node [red,opacity=.3,anchor=south east,scale=.4] at (current page.south east)%
@@ -773,7 +803,7 @@ layer above.
 \end{frame}
   
 \begin{frame}%{ARP}{Where does the ARP table come from?}
-  \begin{block}{The updated table}
+  \begin{iblock}{The updated table}
     \begin{center}{\ttfamily
       \begin{tabular}{lr}
         \toprule
@@ -784,7 +814,7 @@ layer above.
         223.1.2.4 & 08-00-10-99-AC-54\\\bottomrule
       \end{tabular}}
     \end{center}
-  \end{block}
+  \end{iblock}
   \mode<beamer>{
   \begin{tikzpicture}[remember picture, overlay]
     \node [red,opacity=.3,anchor=south east,scale=.5] at (current page.south east)%
@@ -824,7 +854,7 @@ layer above.
       \mode<beamer>{ \includegraphics[height=.3\textheight]{direct-routing} }%
       \mode<article>{ \includegraphics[width=.2\textwidth]{direct-routing} }
     \end{center}
-  \begin{block}{Addresses in an Ethernet frame for an IP packet from A to B}
+  \begin{iblock}{Addresses in an Ethernet frame for an IP packet from A to B}
     \begin{center}
       \begin{tabular}{ccc}
         \toprule
@@ -833,13 +863,13 @@ layer above.
         Eth & A & B\\\bottomrule
       \end{tabular}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Is IP Necessary?}
   \begin{center}
-    \includegraphics[width=.3\textwidth]{without-ip}\qquad
-    \includegraphics[width=.3\textwidth]{with-ip}\\[1em]
+    \includegraphics[width=.25\textwidth]{without-ip}\qquad
+    \includegraphics[width=.25\textwidth]{with-ip}\\[1em]
     \includegraphics[width=.25\textwidth]{dual-stack}
   \end{center}
 \end{frame}
@@ -858,7 +888,7 @@ layer above.
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Addresses in an Ethernet frame for an IP packet from A to E (before D)}
+  \begin{iblock}{Addresses in an Ethernet frame for an IP packet from A to E (before D)}
     \begin{center}
       \begin{tabular}{ccc}
         \toprule
@@ -867,8 +897,8 @@ layer above.
         Eth & A & D \\\bottomrule
       \end{tabular}
     \end{center}
-  \end{block}
-  \begin{block}{Addresses in an Ethernet frame for an IP packet from A to E (after D)}
+  \end{iblock}
+  \begin{iblock}{Addresses in an Ethernet frame for an IP packet from A to E (after D)}
     \begin{center}
       \begin{tabular}{ccc}
         \toprule
@@ -877,7 +907,7 @@ layer above.
         Eth & D & E \\\bottomrule
       \end{tabular}
     \end{center}
-  \end{block}
+  \end{iblock}
   \mode<beamer>{
     \begin{tikzpicture}[remember picture, overlay]%
       \node [opacity=.2,anchor=center,scale=.8,yshift=-1ex] at (current page.south)
@@ -917,12 +947,12 @@ layer above.
 \end{frame}
 
 \begin{frame}%{IP Address}
-  \begin{block}{Address classes}
+  \begin{iblock}{Address classes}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{ipv4addr} }%
       \mode<article>{ \includegraphics[width=.6\textwidth]{ipv4addr} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Prefix}
@@ -953,29 +983,29 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
 
 \begin{frame}{Names}
   People refer to computers by names, not numbers.
-  \begin{block}{\texttt{/etc/hosts}}
+  \begin{iblock}{\texttt{/etc/hosts}}
     \begin{center}{\ttfamily
       \begin{tabular}{lll}
         127.0.0.1 & localhost&\\
         202.203.132.245 & cs3.swfu.edu.cn & cs3\\
       \end{tabular}}
     \end{center}
-  \end{block}
+  \end{iblock}
 
-  \begin{block}{\texttt{/etc/networks}}
+  \begin{iblock}{\texttt{/etc/networks}}
     \begin{center}
       \texttt{localnet}\qquad \texttt{202.203.132.192}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{IP Route Table}
-  \begin{block}{Example IP Route Table}
+  \begin{iblock}{Example IP Route Table}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.7\textwidth]{route-table} }%
       \mode<article>{ \includegraphics[width=.3\textwidth]{route-table} }
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item[\char`~\$] \texttt{man route}
   \end{itemize}
@@ -987,7 +1017,7 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
     \mode<article>{ \includegraphics[width=.3\textwidth]{direct-routing-2} }
   \end{center}
 
-  \begin{block}{The route table inside alpha (simplified)}
+  \begin{iblock}{The route table inside alpha (simplified)}
     \begin{center}
       \begin{tabular}{llcc}
         \toprule
@@ -995,7 +1025,7 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
         \texttt{development} & \texttt{direct} & & \texttt{1}\\\bottomrule
       \end{tabular}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Homework}
@@ -1013,7 +1043,7 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
 \end{frame}
 
 \begin{frame}{Indirect Routing Details}
-  \begin{block}{The route table inside alpha}
+  \begin{iblock}{The route table inside alpha}
     \begin{center}{\ttfamily
       \begin{tabular}{llcc}
         \toprule
@@ -1023,9 +1053,9 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
         223.1.4 & indirect & 223.1.2.4 & 1\\\bottomrule
       \end{tabular}}
     \end{center}
-  \end{block}
+  \end{iblock}
 
-  \begin{block}{The route table inside delta}
+  \begin{iblock}{The route table inside delta}
     \begin{center}{\ttfamily
       \begin{tabular}{llcc}
         \toprule
@@ -1035,7 +1065,7 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
         223.1.4 & direct & & 2\\\bottomrule
       \end{tabular}}
     \end{center}
-  \end{block}
+  \end{iblock}
   \mode<beamer>{%
   \begin{tikzpicture}[remember picture, overlay]
     \node [scale=.5,opacity=.1,red,anchor=south] at (current page.south)
@@ -1128,13 +1158,13 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
   \begin{description}
   \item[Subnet mask] is a bitmask used to identify the network and node parts of the address.
   \end{description}
-  \begin{block}{Default Subnet Masks}
+  \begin{iblock}{Default Subnet Masks}
     \begin{tabular}{l>{\ttfamily}l>{\ttfamily}l}
       Class A & 255.0.0.0 &     11111111.0.0.0\\
       Class B & 255.255.0.0 &   11111111.11111111.0.0\\
       Class C & 255.255.255.0 & 11111111.11111111.11111111.0
     \end{tabular}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Example}
@@ -1165,7 +1195,7 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
 See detailed explanation in \citetitle[P.445]{tanenbaum2011computer}.
 
 \begin{frame}{$\mathbf{2^n-2}$}
-  \begin{block}{Example}
+  \begin{iblock}{Example}
     \begin{tabular}{r>{\ttfamily}c}\toprule
       IP address:&\begin{tabular}{c@{.}c@{.}c@{.}c}
                     11001010&11001011&10000100&11110001\\
@@ -1176,7 +1206,7 @@ See detailed explanation in \citetitle[P.445]{tanenbaum2011computer}.
                      255&255&255&192
                    \end{tabular}\\\bottomrule
     \end{tabular}
-  \end{block}
+  \end{iblock}
 
   \begin{itemize}
   \item There are $2^2-2 = 2$ subnets
@@ -1186,14 +1216,14 @@ See detailed explanation in \citetitle[P.445]{tanenbaum2011computer}.
 \end{frame}
 
 \begin{frame}{Subnet Calculator}
-  \begin{block}{free IP subnet calculators}
+  \begin{iblock}{free IP subnet calculators}
     Try:
     \begin{itemize}
     \item[\char`~\$]  \texttt{subnetcalc 202.203.132.244/26}
     \item[\char`~\$]  \texttt{ipcalc 202.203.132.244/26}
     \item[\char`~\$]  \texttt{sipcalc 202.203.132.244/26}
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Quiz}
@@ -1222,14 +1252,14 @@ See detailed explanation in \citetitle[P.445]{tanenbaum2011computer}.
   \item[CIDR] An IP addressing scheme that replaces the older system
     based on classes A, B and C.
   \end{description}
-  \begin{block}{Why?}
+  \begin{iblock}{Why?}
     With a new network being connected to the Internet every 30 minutes the Internet was
     faced with two critical problems:
     \begin{itemize}
     \item Running out of IP addresses
     \item Running out of capacity in the global routing tables
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 From \url{https://searchnetworking.techtarget.com/definition/CIDR}:
@@ -1332,8 +1362,7 @@ been replaced by 10 lines of subnets.
     \mode<beamer>{ \hspace{2cm}\includegraphics[width=.8\textwidth]{route-aggregation} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{route-aggregation} }
   \end{center}
-  \vspace*{1em}
-  \begin{block}{IP address assignments}{\scriptsize\ttfamily
+  \begin{iblock}{IP address assignments}{\scriptsize\ttfamily
       \begin{tabular}{lllll}\toprule
         \textrm{University}&\textrm{First address}&\textrm{Last address}&\textrm{How many}&\textrm{Prefix}\\\midrule
         Cambridge&192.24.0.0&192.24.7.255&2048&192.24.0.0/21\\
@@ -1341,10 +1370,10 @@ been replaced by 10 lines of subnets.
         (Available)&192.24.12.0&192.24.15.255&1024&192.24.12.0/22\\
         Oxford&192.24.16.0&192.24.31.255&4096&192.24.16.0/20\\\bottomrule
       \end{tabular}}
-  \end{block}
+  \end{iblock}
   \mode<beamer>{
     \begin{tikzpicture}[remember picture, overlay]
-      \node [scale=.6,opacity=.7,font=\ttfamily,anchor=west,align=center] at (current
+      \node [scale=.6,opacity=.7,font=\ttfamily,anchor=west,align=center, yshift=-1em] at (current
       page.west) {
         London\\
         \begin{tabular}{llll}\toprule
@@ -1377,7 +1406,7 @@ should look like this:
 While the routing table inside the router in New York...
 
 \begin{frame}
-  \begin{block}{The Router in New York}
+  \begin{iblock}{The Router in New York}
     Option 1:
     \begin{center}{\ttfamily
         \begin{tabular}{llll}
@@ -1400,7 +1429,7 @@ While the routing table inside the router in New York...
           \ldots&\ldots&\ldots&\ldots\\\bottomrule
         \end{tabular}}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 Obviously option 2 is better since it presents a smaller routing table comparing with the
@@ -1428,14 +1457,14 @@ The router in New York
 The /22 is a subnet inside /19.
 
 % \begin{frame}
-%   \begin{block}{User Impacts}
+%   \begin{iblock}{User Impacts}
 %     \begin{itemize}
 %     \item The Internet is currently a mixture of both "CIDR-ized" addresses and old Class
 %       A, B and C addresses.
 %     \item Almost all new routers support CIDR and the Internet authorities strongly
 %       encourage all users to implement the CIDR addressing scheme.
 %     \end{itemize}
-%   \end{block}
+%   \end{iblock}
 % \end{frame}
 
 \begin{frame}{CIDR References}
@@ -1502,7 +1531,7 @@ the appropriate laptop by consulting the NAT table.
 
 
 \begin{frame}{Why IPv6?}
-  \begin{block}{No enough addresses!}
+  \begin{iblock}{No enough addresses!}
     Kidding? We have:
     \begin{itemize}
     \item $2^{32}$ address space
@@ -1516,7 +1545,7 @@ the appropriate laptop by consulting the NAT table.
     \item Europe: 14 September 2012
     \item Latin America: 10 June 2014
     \end{itemize}
-  \end{block}
+  \end{iblock}
   So, we need a larger address space ($2^{128}$).
   \mode<beamer>{
   \tikz[baseline,overlay]{
@@ -1525,14 +1554,14 @@ the appropriate laptop by consulting the NAT table.
 \end{frame}
 
 \begin{frame}{$2^{128}$}
-  \begin{block}{Why such a high number of bits?}
+  \begin{iblock}{Why such a high number of bits?}
     For a larger address space
     \begin{itemize}
     \item Think about mobile phones, cars (inside devices), toasters, refrigerators, light
       switches, and so on\ldots
     \end{itemize}
-  \end{block}
-  \begin{block}{Why not higher?}
+  \end{iblock}
+  \begin{iblock}{Why not higher?}
     \begin{itemize}
     \item More bits {\dejavu ➠} bigger header {\dejavu ➠} more overhead
     \item max MTU on Ethernet is 1500 octets
@@ -1552,22 +1581,22 @@ the appropriate laptop by consulting the NAT table.
         IPv6 & 1280 & 40 & 3.8\% \\\bottomrule
       \end{tabular}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Why not IPv5?}
+  \begin{iblock}{Why not IPv5?}
     \begin{itemize}
     \item[4:] is already used for IPv4
     \item[5:] is reserved for the Stream Protocol (STP, RFC 1819 / Internet Stream
       Protocol Version 2) (which never really made it to the public)
     \item[6:] The next free number. Hence IPv6 was born!
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{More than a larger address space ($2^{128}$)}
+  \begin{iblock}{More than a larger address space ($2^{128}$)}
     \begin{itemize}
     \item Simplified header makes routing faster
     \item End-to-end connectivity
@@ -1579,7 +1608,7 @@ the appropriate laptop by consulting the NAT table.
     \item Extensibility
     \item and more ...
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \subsubsection{The IPv6 header}
@@ -1616,35 +1645,35 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
 \subsubsection{IPv6 addresses}
 
 \begin{frame}{IPv6 Addresses}
- \begin{block}{A real life address example}{\ttfamily
+ \begin{iblock}{A real life address example}{\ttfamily
     \begin{itemize}
     \item[] 3ffe:ffff:0100:f101:0210:a4ff:fee3:9566
     \item[{\dejavu ➥}]
       3ffe:ffff:\underline{100}:f101:\underline{210}:a4ff:fee3:9566
     \end{itemize}}
- \end{block}
- \begin{block}{More simplifications}{\ttfamily
+ \end{iblock}
+ \begin{iblock}{More simplifications}{\ttfamily
     \begin{itemize}
     \item[] 3ffe:ffff:100:f101\underline{:0:0:0:}1
     \item[{\dejavu ➥}] 3ffe:ffff:100:f101\underline{::}1
     \end{itemize}}
- \end{block}
- \begin{block}{The biggest simplification}
+ \end{iblock}
+ \begin{iblock}{The biggest simplification}
    IPv6 localhost address{\ttfamily
      \begin{itemize}
      \item[] 0000:0000:0000:0000:0000:0000:0000:0001\quad {\dejavu ➠}\quad ::1
      \end{itemize}}
- \end{block}
+ \end{iblock}
 \end{frame}
 
 % \begin{frame}
-%   \begin{block}{What about \texttt{3ffe:ffff\uline{:0:}f101\uline{:0:0:0:}1}}
+%   \begin{iblock}{What about \texttt{3ffe:ffff\uline{:0:}f101\uline{:0:0:0:}1}}
 %     \begin{itemize}
 %     \item[\alert{\ding{56}}] \texttt{3ffe:ffff\uline{::}f101\uline{::}1}
 %     \item[\ding{52}] \texttt{3ffe:ffff\uline{:0:}f101\uline{::}1}
 %     \item[\ding{52}] \texttt{3ffe:ffff\uline{::}f101\uline{:0:0:0:}1}
 %     \end{itemize}
-%   \end{block}
+%   \end{iblock}
 % \end{frame}
 
 % \begin{frame}{Quiz}
@@ -1663,7 +1692,7 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
 % \end{frame}
   
 % \begin{frame}
-%   \begin{block}{IPv6calc}
+%   \begin{iblock}{IPv6calc}
 %     \begin{itemize}
 %     \item \texttt{ipv6calc --showinfo -i -m ::1}
 %     \item \texttt{ipv6calc --showinfo -m 127.0.0.1}
@@ -1672,7 +1701,7 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
 %     \item \texttt{ipv6calc --addr\_to\_uncompressed ::1}
 %     \item \texttt{man ipv6calc}
 %     \end{itemize}
-%   \end{block}
+%   \end{iblock}
 % \end{frame}
   
 \begin{frame}{Address types}
@@ -1711,7 +1740,7 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
 \end{frame}
 
 % \begin{frame}{Link local address type}
-  %   \begin{block}{They begin with:}
+  %   \begin{iblock}{They begin with:}
   %     \begin{tabular}[h]{l}
   %       \texttt{fe8x}: $\gets{}$ currently the only one in use\\
   %       \texttt{fe9x}:\\
@@ -1720,7 +1749,7 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
   %     \end{tabular}
       
   %     (where \texttt{x} is any hex character, normally \texttt{0})
-  %   \end{block}
+  %   \end{iblock}
   % \end{frame}
 
 % \begin{frame}{Global unicast addresses}
@@ -1738,7 +1767,7 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
 % \end{frame}
 
 % \begin{frame}{Global Unicast Addresses}
-%   \begin{block}{Subtypes}
+%   \begin{iblock}{Subtypes}
 %     \begin{tabular}[h]{llll}
 %       Prefix & Assignment & RFC \\\hline
 %       \texttt{3ffe::/16} & 6bone testing & RFC2471 \\
@@ -1747,7 +1776,7 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
 %       \texttt{2001::/16} & Assigned by ISP & RFC2450 \\
 %       \texttt{2001:0DB8::/32} & EXAMPLENET-WF &\\
 %     \end{tabular}
-%   \end{block}
+%   \end{iblock}
 % \end{frame}
 
 % \begin{frame}{Multicast addresses}{types, scopes}
@@ -1774,16 +1803,16 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
 %   \end{frame}
 
 %   \begin{frame}{Multicast addresses}{Solicited node link-local multicast address}
-  %   \begin{block}{Used for address resolution}
+  %   \begin{iblock}{Used for address resolution}
   %   $$\underbrace{ff02:0:0:0:0:1:ff}_{104bits\
   %     prefix}\underbrace{xx:xxxx}_{
   %     \begin{subarray}{l}
   %       lower\ 24bits\\
   %       of\ dest\_addr
   %     \end{subarray}}$$
-  %   \end{block}
+  %   \end{iblock}
     
-  %   \begin{block}{Example: link-local nodes $A$ and $B$}
+  %   \begin{iblock}{Example: link-local nodes $A$ and $B$}
   %     \begin{itemize}
   %     \item $A\Rightarrow{}$\texttt{fe80::2aa:ff:fe\uline{28:9c5a}}
   %     \item $B$ wants $A$'s MAC address. So, $B$ should address to:
@@ -1791,7 +1820,7 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
   %         \texttt{ff02:0:0:0:0:1:ff\uline{28:9c5a}}
   %       \end{center}
   %     \end{itemize}
-  %   \end{block}
+  %   \end{iblock}
   % \end{frame}
 
 \begin{frame}{Anycast addresses}
@@ -1803,14 +1832,14 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
     Unicast&Multicast&Broadcast&Anycast\\
     1-to-1&1-to-n&1-to-all&1-to-$\frac{1}{n}$\\
   \end{tabular}
-  \begin{block}{Anycast}
+  \begin{iblock}{Anycast}
     \begin{itemize}
     \item is assigned to more than one interface
     \item a packet sent to an anycast address is routed to the "nearest" interface having
       that address
     \item is allocated from the unicast address space
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 % \begin{frame}{Anycast addresses}
@@ -1863,22 +1892,22 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
 
 % \begin{frame}{Matching a route}{Looking up the routing table}
 %   The route with the biggest prefix length matches first.
-%   \begin{block}{Example Routing Table}
+%   \begin{iblock}{Example Routing Table}
 %     \begin{scriptsize}
 %       \begin{tabular}{lllllll}
 %         \texttt{3ffe:ffff:100::/48} & \texttt{::} & U & 1 & 0 &0 & sit1\\
 %         \texttt{2000::/3} & \texttt{::192.88.99.1} & UG & 1 & 0 & 0 & tun6to4\\
 %       \end{tabular}      
 %     \end{scriptsize}
-%   \end{block}
-%   \begin{block}{}
+%   \end{iblock}
+%   \begin{iblock}{}
 %     \begin{scriptsize}
 %       \begin{tabular}{lll}
 %         \texttt{3ffe:ffff:100:1:2:3:4:5/48} & $\Rightarrow$ & routed through device sit1\\
 %         \texttt{3ffe:ffff:200:1:2:3:4:5/48} & $\Rightarrow$ & routed through device tun6to4\\
 %       \end{tabular}      
 %     \end{scriptsize}
-%   \end{block}
+%   \end{iblock}
 % \end{frame}
 
 % \begin{frame}{IPv4 vs. IPv6}
@@ -1913,7 +1942,7 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
 % \end{frame}
 
 % \begin{frame}
-%   \begin{block}{Something to try}
+%   \begin{iblock}{Something to try}
 %     \begin{tabular}{l}
 %       $\sim$\$ \texttt{/sbin/ifconfig}\\
 %       $\sim$\$ \texttt{ping6 -c5 ::1}\\
@@ -1925,7 +1954,7 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
 %       $\sim$\$ \texttt{cat /proc/net/ipv6\_route}\\
 %       $\sim$\$ \texttt{ssh ::1 80}\\
 %     \end{tabular}
-%   \end{block}
+%   \end{iblock}
 % \end{frame}
 
 % todo:
@@ -1970,7 +1999,7 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
   \end{description}
   \begin{columns}[b]
     \begin{column}{.45\linewidth}
-      \begin{block}{Transparent bridging}
+      \begin{iblock}{Transparent bridging}
         Uses a forwarding database to send frames across network segments
         \begin{itemize}
         \item Learning
@@ -1979,7 +2008,7 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
         \item Filtering
         \item Aging
         \end{itemize}
-      \end{block}
+      \end{iblock}
     \end{column}
     \begin{column}{.55\linewidth}
       \includegraphics[width=\textwidth]{switch}
@@ -2113,7 +2142,7 @@ See also: \citetitle{web:switch, web:tb, wiki:stp}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Bridging vs. Routing}
+  \begin{iblock}{Bridging vs. Routing}
     \begin{itemize}
     \item A switch connects devices to create a network
     \item A router connects networks
@@ -2128,7 +2157,7 @@ See also: \citetitle{web:switch, web:tb, wiki:stp}
         relearn, flooding&more efficient\\\bottomrule
       \end{tabular}
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item to put multiple segments into one bridged network, or
   \item to divide it into different networks interconnected by routers
@@ -2167,12 +2196,12 @@ See also: \citetitle{web:switch, web:tb, wiki:stp}
 \end{frame}
 
 \begin{frame}{Quick Start}
-  \begin{block}{Debian/Ubuntu users can do:}
+  \begin{iblock}{Debian/Ubuntu users can do:}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{quick} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{quick} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Terminology}
@@ -2271,7 +2300,7 @@ See also: \citetitle{wiki:iptables}
 
 \begin{frame}{\scalebox{3}{\ding{37}}\quad \raisebox{9pt}{vs.}\quad \scalebox{3}{\ding{41}}}
   \begin{minipage}[t]{.47\linewidth}
-    \begin{block}{Circuit switching (\ding{37})}
+    \begin{iblock}{Circuit switching (\ding{37})}
       \begin{itemize}
       \item[\good] guaranteed performance
       \item[\good] fast transfers (once circuit is established)
@@ -2279,10 +2308,10 @@ See also: \citetitle{wiki:iptables}
       \item[\textcolor{red}{\bad}] connection setup adds delay
       \item[\textcolor{red}{\bad}] recovery from failure is slow
       \end{itemize}
-    \end{block}
+    \end{iblock}
   \end{minipage}\hfill
   \begin{minipage}[t]{.47\linewidth}
-    \begin{block}{Packet switching (\ding{41})}
+    \begin{iblock}{Packet switching (\ding{41})}
       \begin{itemize}
       \item[\textcolor{red}{\bad}] no guaranteed performance
       \item[\textcolor{red}{\bad}] header overhead per packet
@@ -2291,7 +2320,7 @@ See also: \citetitle{wiki:iptables}
       \item[\good] no connection setup
       \item[\good] can ``route around trouble''
       \end{itemize}
-    \end{block}
+    \end{iblock}
   \end{minipage}
 \end{frame}
 
@@ -2316,15 +2345,15 @@ See also:
   \item[TCP/UDP:] process {\Large {\dejavu ↔}} process
   \end{description}
 
-  \begin{block}{IP provides \emph{unreliable} service}
+  \begin{iblock}{IP provides \emph{unreliable} service}
     \emph{Best-effort, no guarantee}
     \begin{itemize}
     \item[?] segment delivery
     \item[?] orderly delivery of segments
     \item[?] the integrity of the data in the segments
     \end{itemize}
-  \end{block}
-  \begin{block}{TCP provides \emph{reliable} data transfer}
+  \end{iblock}
+  \begin{iblock}{TCP provides \emph{reliable} data transfer}
     \emph{You receive none or you receive it correctly and orderly}.
     \begin{itemize}
     \item[{\dejavu ✔}] correctness --- acknowledgement, checksum
@@ -2333,7 +2362,7 @@ See also:
     \item[{\dejavu ✔}] flow control --- sliding window
     \item[{\dejavu ✔}] congestion control 
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \paragraph{Why doesn't IP provides reliable service?}
@@ -2362,7 +2391,7 @@ Datagram Protocol (UDP) are usually recommended instead. \citetitle[Sec.~2, \emp
       \includegraphics[width=.7\textwidth]{tcp-socket}
     }
   \end{center}
-  \begin{block}{Port numbers}
+  \begin{iblock}{Port numbers}
     \begin{description}
     \item[port range:] 0 \char`~{} 65535
     \item[well-known ports:] 0 \char`~{} 1023
@@ -2375,7 +2404,7 @@ Datagram Protocol (UDP) are usually recommended instead. \citetitle[Sec.~2, \emp
         IMAP4&143&&&&
       \end{tabular}
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \paragraph{Connections}
@@ -2634,13 +2663,13 @@ all the data received.
     \item Terminal B: \texttt{nc localhost 3333}
     \end{itemize}
   \end{minipage}
-  \begin{block}{tcpdump output in terminal C:}
+  \begin{iblock}{tcpdump output in terminal C:}
     \texttt{\char`~\$ sudo tcpdump -i lo -S port 3333}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{tcpdump} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{tcpdump} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \mode<article>{\clearpage}
@@ -2743,18 +2772,18 @@ changes:\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}
     \mode<beamer>{ \includegraphics[width=\textwidth]{sliding_window} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{sliding_window} }
   \end{center}
-  \begin{block}{The sliding window serves several purposes:}
+  \begin{iblock}{The sliding window serves several purposes:}
     \begin{itemize}
     \item guarantees the reliable delivery of data
     \item ensures that the data is delivered in order
     \item enforces flow control between the sender and the receiver.
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}<beamer>
   \begin{center}
-    \includegraphics[width=\textwidth]{slidingwindow-ast}
+    \includegraphics[height=\textheight]{slidingwindow-ast}
   \end{center}
 \end{frame}
 
@@ -2819,20 +2848,16 @@ changes:\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}
 
 
 \begin{frame}
-  \begin{block}{ACK lost?}
+  \begin{iblock}{ACK lost?}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.7\textwidth]{tcp-ack-lost}
-      }
+      \mode<beamer>{ \includegraphics[height=.9\textheight]{tcp-ack-lost} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}[plain]
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.9\textwidth]{tcp-ack-lost2}
-    }
+    \mode<beamer>{ \includegraphics[height=\textheight]{tcp-ack-lost2} }
   \end{center}
 \end{frame}
 
@@ -2844,15 +2869,12 @@ changes:\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}
 \end{minipage}
 
 \begin{frame}
-  \begin{block}{Selective-repeat}
+  \begin{iblock}{Selective-repeat}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{tcp-sr}
-      } \mode<article>{
-        \includegraphics[width=.7\textwidth]{tcp-sr}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{tcp-sr} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{tcp-sr} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 The SR receiver will acknowledge a correctly received packet whether or not it is in
@@ -2863,11 +2885,8 @@ p.~225]{kurose2013computer}
 
 \begin{frame}[plain]
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.9\textwidth]{tcp-sr2}
-    } \mode<article>{
-      \includegraphics[width=.7\textwidth]{tcp-sr2}
-    }
+    \mode<beamer>{ \includegraphics[height=\textheight]{tcp-sr2} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{tcp-sr2} }
   \end{center}
 \end{frame}
 
@@ -2941,21 +2960,21 @@ See also \citetitle[Sec.~2.7, \emph{Socket Programming: Creating Network
     \mode<beamer>{ \includegraphics[width=\textwidth]{udpClient-py} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{udpClient-py} }
   \end{center}
-  \begin{block}{\texttt{socket(AF\_INET, SOCK\_DGRAM)}}
+  \begin{iblock}{\texttt{socket(AF\_INET, SOCK\_DGRAM)}}
     \begin{itemize}
     \item \texttt{AF\_INET}: using IPv4
     \item \texttt{SOCK\_DGRAM}: UDP socket
     \item \texttt{clientPort} will be generated automatically
     \end{itemize}
-  \end{block}
-  \begin{block}{\texttt{clientSocket.sendto(message,(serverName, serverPort))}}
+  \end{iblock}
+  \begin{iblock}{\texttt{clientSocket.sendto(message,(serverName, serverPort))}}
     \begin{enumerate}
     \item attaches both the destination address \texttt{(serverName, serverPort)} and the
       source address \texttt{(clientIP, clientPort)} to the message
     \item send the message
     \end{enumerate}
-  \end{block}
-  \begin{block}{\texttt{modifiedMessage, serverAddress = clientSocket.recvfrom(2048)}}
+  \end{iblock}
+  \begin{iblock}{\texttt{modifiedMessage, serverAddress = clientSocket.recvfrom(2048)}}
     \begin{enumerate}
     \item puts the received message data into \texttt{modifiedMessage}
     \item puts the source address \texttt{(IP, Port)} into \texttt{serverAddress}
@@ -2963,7 +2982,7 @@ See also \citetitle[Sec.~2.7, \emph{Socket Programming: Creating Network
     \begin{itemize}
     \item \texttt{2048}: buffer size
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{UDPServer.py}
@@ -2971,22 +2990,22 @@ See also \citetitle[Sec.~2.7, \emph{Socket Programming: Creating Network
     \mode<beamer>{ \includegraphics[width=\textwidth]{udpServer-py} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{udpServer-py} }
   \end{center}
-  \begin{block}{\texttt{serverSocket.bind(('', serverPort))}}
+  \begin{iblock}{\texttt{serverSocket.bind(('', serverPort))}}
     \begin{itemize}
     \item explicitly assigns \texttt{12000} to the server's socket
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \subsubsection{TCP}
 
 \begin{frame}\mode<beamer>{\frametitle{TCP Sockets}}
-  \begin{block}{Two Sockets at the Server}
+  \begin{iblock}{Two Sockets at the Server}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.7\textwidth]{tcpsocket} }%
       \mode<article>{ \includegraphics[width=.3\textwidth]{tcpsocket} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{TCPClient.py}
@@ -3007,19 +3026,19 @@ See also \citetitle[Sec.~2.7, \emph{Socket Programming: Creating Network
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{tcpServer-py} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{tcpServer-py} }
   \end{center}
-  \begin{small}
+  \begin{footnotesize}
     \begin{itemize}
     \item \texttt{serverSocket}: the welcoming socket
     \item \texttt{connectionSocket}: a socket dedicated to this particular client
     \item \texttt{listen(backlog)}: the server listens for connection requests.
       \begin{itemize}
-      \item \texttt{backlog}: how many non-\texttt{accept()}-ed connections are allowed to be
-        queueing
+      \item \texttt{backlog}: {\scriptsize how many non-\texttt{accept()}-ed connections
+          are allowed to be queueing}
       \end{itemize}
     \item \texttt{accept()}: whenever a connection request coming, creates a new
       \texttt{connectionSocket} (handshaking is done here)
     \end{itemize}
-  \end{small}
+  \end{footnotesize}
 \end{frame}
 
 \paragraph{More details}
@@ -3083,24 +3102,24 @@ See also \citetitle[Sec.~2.7, \emph{Socket Programming: Creating Network
 \end{frame}
 
 \begin{frame}{HTTP Request}
-  \begin{block}{URL}
+  \begin{iblock}{URL}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{Url} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{Url} }
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{http-Req} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{http-Req} }
   \end{center}
-  \begin{block}{Verbs}
+  \begin{iblock}{Verbs}
     \begin{tabular}{lllll}
       \textcolor{Green}{GET}&\textcolor{Red}{POST}&
       \textcolor{Red}{PUT}&\textcolor{Red}{PATCH}&\\
       \textcolor{Green}{HEAD}&\textcolor{Green}{OPTIONS}&
       \textcolor{Red}{DELETE}&\textcolor{Green}{TRACE}&CONNECT
     \end{tabular}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{HTTP Response}
@@ -3137,7 +3156,7 @@ See also \citetitle[Sec.~2.7, \emph{Socket Programming: Creating Network
 \end{frame}
 
 \begin{frame}{HTTP Transaction}
-  \begin{block}{Non-persistent --- separate TCP connection}
+  \begin{iblock}{Non-persistent --- separate TCP connection}
     \begin{center}
       \mode<beamer>{
         \includegraphics[width=\textwidth]{http-transaction}
@@ -3145,11 +3164,11 @@ See also \citetitle[Sec.~2.7, \emph{Socket Programming: Creating Network
         \includegraphics[width=.7\textwidth]{http-transaction}
       }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Persistent --- same TCP connection}
+  \begin{iblock}{Persistent --- same TCP connection}
     \begin{center}
       \mode<beamer>{
         \includegraphics[width=\textwidth]{persistent-transaction}
@@ -3157,41 +3176,38 @@ See also \citetitle[Sec.~2.7, \emph{Socket Programming: Creating Network
         \includegraphics[width=.7\textwidth]{persistent-transaction}
       }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \href{http://blog.catchpoint.com/2010/09/17/anatomyhttp/}{Anatomy of an HTTP Transaction}
 
 \begin{frame}{Stateless Protocol}
   A HTTP server maintains no information about the clients.
-  \begin{block}{Advantages}
+  \begin{iblock}{Advantages}
     \begin{itemize}
     \item Simplifies server design
     \item Save server resources (RAM...)
     \item Serve more users
     \end{itemize}
-  \end{block}
-  \begin{block}{Disadvantages}
+  \end{iblock}
+  \begin{iblock}{Disadvantages}
     \begin{itemize}
     \item Missing information
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Keeping User State With Cookies}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{cookie}
-    } \mode<article>{
-      \includegraphics[width=.7\textwidth]{cookie}
-    }
+    \mode<beamer>{ \includegraphics[height=.9\textheight]{cookie} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{cookie} }
   \end{center}
 \end{frame}
 
 See also \citetitle[Sec.~2.2.4, \emph{User-Server Interaction: Cookies}]{kurose2013computer}
 
 \begin{frame}{HTTP/2}
-  \begin{block}{Quoted from \url{http://http2.github.io/faq/}}
+  \begin{iblock}{Quoted from \url{http://http2.github.io/faq/}}
     \begin{itemize}
     \item is binary, instead of textual
     \item is fully multiplexed, instead of ordered and blocking
@@ -3199,7 +3215,7 @@ See also \citetitle[Sec.~2.2.4, \emph{User-Server Interaction: Cookies}]{kurose2
     \item uses header compression to reduce overhead
     \item allows servers to “push” responses proactively into client caches
     \end{itemize}
-  \end{block}
+  \end{iblock}
   \begin{description}
   \item[May 2015] Publish HTTP/2 as RFC7540/7541
   \end{description}
@@ -3232,7 +3248,7 @@ See also:
 
 \begin{frame}{\includegraphics[height=2em]{lamp-logo}}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{lamp} }%
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{lamp} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{lamp} }
   \end{center}
 \end{frame}
@@ -3255,13 +3271,13 @@ See also:
 \subsection{DNS}
 
 \begin{frame}\mode<beamer>{\frametitle{DNS}}\framesubtitle{Names and Addresses}
-  \begin{block}{RFC 791, page 7:}
+  \begin{iblock}{RFC 791, page 7:}
     \begin{description}
     \item[A name] indicates what we seek
     \item[An address] indicates where it is
     \item[A route] indicates how to get there
     \end{description}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item A name (hostname) can be assigned to any device that has an IP address.
   \item The network software doesn't require names, but they do make it easier for humans
@@ -3270,12 +3286,12 @@ See also:
 \end{frame}
 
 \begin{frame}
-  \begin{block}{\$ \texttt{ssh username@cs3.swfu.edu.cn}}
+  \begin{iblock}{\$ \texttt{ssh username@cs3.swfu.edu.cn}}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.6\textwidth]{resolver} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{resolver} }
     \end{center}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item Resolver is normally part of the application
     \begin{itemize}
@@ -3297,12 +3313,12 @@ See also:
 \end{frame}
 
 \begin{frame}{The DNS Name Space Is Hierarchical}
-  \begin{block}{The domain hierarchy is similar to the UNIX filesystem}
+  \begin{iblock}{The domain hierarchy is similar to the UNIX filesystem}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{dns_tree.eps} }%
       \mode<article>{ \includegraphics[width=.8\textwidth]{dns_tree.eps} }
     \end{center}\label{fig:dns_tree}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item Organizational: \texttt{com}, \texttt{edu}, \texttt{gov}, \texttt{mil}, \texttt{net},
     \texttt{org}, \texttt{int}
@@ -3311,16 +3327,16 @@ See also:
 \end{frame}
 
 \begin{frame}{Translating Names Into Addresses}
-  \begin{block}{Two common ways:}
+  \begin{iblock}{Two common ways:}
     \begin{description}
     \item[Host table] The old way. \texttt{/etc/hosts}
     \item[DNS] A distributed database system --- Domain Name Service (DNS)
     \end{description}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{The Host Table}
-  \begin{block}{\texttt{/etc/hosts}}
+  \begin{iblock}{\texttt{/etc/hosts}}
     \begin{center}
       \begin{tabular}{lll}
         \texttt{127.0.0.1}&localhost&\\
@@ -3328,8 +3344,8 @@ See also:
         \texttt{202.203.132.242}&cs2.swfu.edu.cn&cs2
       \end{tabular}
     \end{center}
-  \end{block}
-  \begin{block}{It's still widely used, because:}
+  \end{iblock}
+  \begin{iblock}{It's still widely used, because:}
     \begin{itemize}
     \item The important hosts on the local network
       \begin{itemize}
@@ -3338,25 +3354,25 @@ See also:
     \item NIS host database
     \item Local intranet
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 See also: \citetitle[\emph{RFC 952}]{rfc952}
 
 \begin{frame}{All hosts connected to the Internet should use DNS}
-  \begin{block}{The old host table system is inadequate for the global Internet for two
+  \begin{iblock}{The old host table system is inadequate for the global Internet for two
       reasons:}
     \begin{enumerate}
     \item inability to scale
     \item lack of an automated update process.
     \end{enumerate}
-  \end{block}
-  \begin{block}{Old story}
+  \end{iblock}
+  \begin{iblock}{Old story}
     Prior to adopting DNS, the Network Information Center (NIC) maintained a large table
     of Internet hosts called the NIC host table. Hosts included in the table were called
     registered hosts, and the NIC placed hostnames and addresses into this file for all
     sites on the Internet.
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Domain Name System}
@@ -3388,27 +3404,27 @@ See also: \citetitle[\emph{RFC 952}]{rfc952}
 \end{frame}
 
 \begin{frame}{Recursive Query}
-  \begin{block}{\texttt{flits.cs.vu.nl} wants to know the IP address of
+  \begin{iblock}{\texttt{flits.cs.vu.nl} wants to know the IP address of
       \texttt{linda.cs.yale.edu}}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{dns-recur} }%
       \mode<article>{ \includegraphics[width=.8\textwidth]{dns-recur} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Non-recursive Query}
-  \begin{block}{The remote server tells the local server who to ask next}
+  \begin{iblock}{The remote server tells the local server who to ask next}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{dns-nonrecur} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{dns-nonrecur} }
     \end{center}
     \label{fig:non_recursive}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 % \begin{frame}{Name Servers}
-%   \begin{block}{The three main categories of name servers are:}
+%   \begin{iblock}{The three main categories of name servers are:}
 %     \begin{description}
 %     \item[Primary server:] gets its information from a disk file
 %       \begin{itemize}
@@ -3428,11 +3444,11 @@ See also: \citetitle[\emph{RFC 952}]{rfc952}
 %     \item[Caching-only server:] it just remembers the answers to previous lookups in case
 %       the same lookup is performed again.
 %     \end{description}
-%   \end{block}
+%   \end{iblock}
 % \end{frame}
 
 % \begin{frame}
-%   \begin{block}{With DNS, information is automatically disseminated, and only to those who
+%   \begin{iblock}{With DNS, information is automatically disseminated, and only to those who
 %       are interested.}
 %     \begin{itemize}
 %     \item If a DNS server receives a request for information about a host for which it has
@@ -3446,7 +3462,7 @@ See also: \citetitle[\emph{RFC 952}]{rfc952}
 %     \item The next time the local server receives a request for this information, it
 %       answers the request itself.
 %     \end{itemize}
-%   \end{block}
+%   \end{iblock}
 % \end{frame}
 
 \begin{frame}{DNS Message Format}
@@ -3456,13 +3472,13 @@ See also: \citetitle[\emph{RFC 952}]{rfc952}
   \end{center}
   Flags:
   \begin{multicols}{2}{\scriptsize    
-      \begin{itemize}
+      \begin{description}
       \item[QR:] Query/Response
         \begin{itemize}
         \item[0:] {\scriptsize query}
         \item[1:] {\scriptsize response}
         \end{itemize}
-    \item[OPCODE:] operation type
+      \item[OPCODE:] operation type
         \begin{itemize}
         \item[0] {\scriptsize a standard query}
         \item[1] {\scriptsize an inverse query}
@@ -3477,7 +3493,7 @@ See also: \citetitle[\emph{RFC 952}]{rfc952}
         \item[0] {\scriptsize no error}
         \item[3] {\scriptsize name error}
         \end{itemize}
-    \end{itemize}}
+    \end{description}}
 \end{multicols}
 \end{frame}
 
@@ -3499,13 +3515,13 @@ See also: \citetitle[Sec.~14.4, \emph{A Simple Example}, p196]{fall2011tcp}
 
 \begin{frame}{Resource Records Example}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{dns-rr2} }%
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{dns-rr2} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{dns-rr2} }
   \end{center}
 \end{frame}
 
 \begin{frame}{Resource Records}
-  \begin{block}{What's associated with a domain name?}
+  \begin{iblock}{What's associated with a domain name?}
     \begin{small}
     \begin{tabular}{@{}llp{.5\textwidth}@{}}\toprule
       \textbf{Type}&\textbf{Meaning}&\textbf{Value}\\\midrule
@@ -3519,7 +3535,7 @@ See also: \citetitle[Sec.~14.4, \emph{A Simple Example}, p196]{fall2011tcp}
       % TXT&TeXT&Uninterpreted ASCII text\\\hline
     \end{tabular}
     \end{small}
-  \end{block}
+  \end{iblock}
   When a resolver gives a domain name to DNS, what it gets back are the \emph{resource records}
   associated with that name.
 \end{frame}
@@ -3527,7 +3543,7 @@ See also: \citetitle[Sec.~14.4, \emph{A Simple Example}, p196]{fall2011tcp}
 See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
 
   % \begin{frame}
-  %   \begin{block}{Resolver}
+  %   \begin{iblock}{Resolver}
   %     \begin{itemize}
   %     \item The resolver does not exist as a distinct process running
   %       on the computer.
@@ -3537,7 +3553,7 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
   %     \item This library knows how to ask the name server for host
   %       information.
   %     \end{itemize}
-  %   \end{block}
+  %   \end{iblock}
   %   \begin{description}
   %   \item[Resolve-only system:] Under BIND, all computers use resolver
   %     code, but not all computers run the name server process. A
@@ -3565,14 +3581,14 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
 % \end{frame}
 
   % \begin{frame}
-  %   \begin{block}{Network Information Service, NIS, Yellow Pages}
+  %   \begin{iblock}{Network Information Service, NIS, Yellow Pages}
   %     \begin{itemize}
   %     \item for distributing system configuration data such as user
   %       and host names between computers on a network.
   %     \item an administrative database system developed by Sun
   %       Microsystems.
   %     \end{itemize}
-  %   \end{block}
+  %   \end{iblock}
   %   \begin{itemize}
   %   \item It provides central control and automatic dissemination of
   %     important administrative files.
@@ -3585,7 +3601,7 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
   % \end{frame}
 
   % \begin{frame}
-  %   \begin{block}{NIS and DNS have similarities and differences.}
+  %   \begin{iblock}{NIS and DNS have similarities and differences.}
   %     \begin{itemize}
   %     \item Like DNS, NIS overcomes the problem of accurately distributing the host table.
   %     \item Unlike DNS, it provides service only for local area networks.
@@ -3602,7 +3618,7 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
   %         accessible to the NIS clients.
   %       \end{itemize}
   %     \end{itemize}
-  %   \end{block}
+  %   \end{iblock}
   % \end{frame}
 
 \begin{frame}{DNS References}
@@ -3616,13 +3632,13 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
 \subsection{Mail}
 
 \begin{frame}{E-mail Protocols}
-  \begin{block}{Proprietary protocols:}
+  \begin{iblock}{Proprietary protocols:}
     \begin{description}
     \item[Microsoft:] Outlook client $\Longleftrightarrow$ Exchange server
     \item[IBM:] Notes client $\Longleftrightarrow$ Domino server
     \end{description}
-  \end{block}
-  \begin{block}{Open standards:}
+  \end{iblock}
+  \begin{iblock}{Open standards:}
     \begin{description}
     \item[SMTP:] Simple Mail Transfer Protocol, RFC2821
     \item[POP3:] Post Office Protocol, RFC1939
@@ -3630,44 +3646,44 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
       RFC2048, RFC2049
     \item[IMAP4:] Interactive Mail Access Protocol, RFC3501
     \end{description}
-  \end{block}
+  \end{iblock}
 \end{frame}
   
 \subsubsection{SMTP}
 
 \begin{frame}{SMTP Transports A Mail Object}
-  \begin{block}{A Mail Object}
+  \begin{iblock}{A Mail Object}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.9\textwidth]{mail_obj} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{mail_obj} }
     \end{center} \label{fig:mail_obj}
-  \end{block}  
+  \end{iblock}  
 \end{frame}
 
 \begin{frame}
-  \begin{block}{A Physical Mail}
+  \begin{iblock}{A Physical Mail}
     \begin{center}
       \mode<beamer>{ \fbox{\includegraphics[width=.52\textwidth]{mail-letter}} }%
       \mode<article>{ \fbox{\includegraphics[width=.3\textwidth]{mail-letter}} }
     \end{center} \label{fig:letter}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}%{SMTP}
-  \begin{block}{The SMTP Basic Structure}
+  \begin{iblock}{The SMTP Basic Structure}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{smtp_model} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{smtp_model} }
     \end{center}
     \label{fig:smtp_model}
-  \end{block}
+  \end{iblock}
   \begin{itemize}
   \item TCP, port 25
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Unix File System}
+  \begin{iblock}{Unix File System}
     \begin{center}
       \mode<beamer>{
         \includegraphics[width=\textwidth]{cs3}
@@ -3676,16 +3692,16 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
       }
     \end{center}
     \label{fig:cs3}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}%{SMTP Commands}
-  \begin{block}{SMTP Commands}
+  \begin{iblock}{SMTP Commands}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{smtp_cmds} }%
       \mode<article>{ \includegraphics[width=.6\textwidth]{smtp_cmds} }
     \end{center}
-  \end{block}
+  \end{iblock}
   \label{fig:smtp_cmds}
   \begin{itemize}
   \item More commands can be available, depending on your SMTP server configuration.
@@ -3693,13 +3709,13 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
 \end{frame}
   
 \begin{frame}{A Simple Protocol}
-  \begin{block}{A SMTP Session}
+  \begin{iblock}{A SMTP Session}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.9\textwidth]{smtp_session} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{smtp_session} }
     \end{center}
     \label{fig:smtp_session}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
@@ -3722,7 +3738,7 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
     from the server to the user's local mail reader.
   \end{minipage}\hfill
   \begin{minipage}{.32\linewidth}
-    \begin{block}{A POP3 Session}
+    \begin{iblock}{A POP3 Session}
     \begin{center}
       \mode<beamer>{
         \includegraphics[width=\columnwidth]{pop3_session}
@@ -3731,7 +3747,7 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
       }
     \end{center}
     \label{fig:pop3_session}
-  \end{block}
+  \end{iblock}
   \end{minipage}
 \end{frame}
   
@@ -3741,7 +3757,7 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
   \begin{itemize}
   \item port 143
   \end{itemize}
-  \begin{block}{Advantages over POP3}
+  \begin{iblock}{Advantages over POP3}
     \begin{itemize}
     \item Both connected and disconnected modes of operation
     \item Multiple clients can simultaneously connect to the same mailbox
@@ -3751,27 +3767,27 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
     \item Server-side searches
     \item A built-in extension mechanism
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{An IMAP session}
+  \begin{iblock}{An IMAP session}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{imap_session} }%
+      \mode<beamer>{ \includegraphics[width=.9\textwidth]{imap_session} }%
       \mode<article>{ \includegraphics[width=.6\textwidth]{imap_session} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
   
 \begin{frame}
-  \begin{block}{Disadvantages of IMAP}
+  \begin{iblock}{Disadvantages of IMAP}
     \begin{itemize}
     \item IMAP is a very heavy and complicated protocol
     \item IMAP generally results in higher server loads than POP3
     \item Server-side searches can potentially use lots of server resources when searching
       massive mailboxes
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \subsubsection{MIME}
@@ -3790,12 +3806,12 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{A Typical Mail Header}
+  \begin{iblock}{A Typical Mail Header}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.95\textwidth]{mail_header} }%
+      \mode<beamer>{ \includegraphics[width=.9\textwidth]{mail_header} }%
       \mode<article>{ \includegraphics[width=.6\textwidth]{mail_header} }
     \end{center} \label{fig:mail_header}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \subsubsection{Spam}
@@ -3828,13 +3844,13 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Relayed Mail Scenario}
+  \begin{iblock}{Relayed Mail Scenario}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.85\textwidth]{smtp-relay} }%
+      \mode<beamer>{ \includegraphics[width=.75\textwidth]{smtp-relay} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{smtp-relay} }
     \end{center}
     \label{fig:relay}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 %  \begin{frame}
@@ -3874,20 +3890,20 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
 \end{frame}
 
 \begin{frame}{An Active FTP Session}
-  \begin{block}{Control session}
+  \begin{iblock}{Control session}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textheight]{ftp-actv-ctl} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{ftp-actv-ctl} }
     \end{center}
-  \end{block}
-  \begin{block}{To see FTP data session:}
+  \end{iblock}
+  \begin{iblock}{To see FTP data session:}
     \begin{itemize}
     \item[] \texttt{wx672@cs3:\char`~\$}\quad\textcolor{violet}{\texttt{nc -l \$((100*256+0))}}
       % \begin{itemize}
       % \item[] $100\times{}256+0=25600$
       % \end{itemize}
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 % \texttt{PORT h1,h2,h3,h4,p1,p2}
@@ -3896,20 +3912,20 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
 % \end{itemize}
             
 \begin{frame}{A Passive FTP Session}
-  \begin{block}{Control session}
+  \begin{iblock}{Control session}
     \begin{center}
       \mode<beamer>{ \includegraphics[height=.6\textheight]{ftp-psv-ctl} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{ftp-psv-ctl} }
     \end{center}
-  \end{block}
-  \begin{block}{To see FTP data session:}
+  \end{iblock}
+  \begin{iblock}{To see FTP data session:}
     \begin{itemize}
     \item[] \texttt{wx672@cs3:\char`~\$}\quad\textcolor{violet}{\texttt{nc cs2 \$((36*256+5))}}
       % \begin{itemize}
       % \item[] $36\times{}256+5=9221$
       % \end{itemize}
     \end{itemize}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Active FTP vs. Passive FTP}
@@ -3921,12 +3937,12 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
 \end{frame}
 
 \begin{frame}{Why Passive Mode?}
-  \begin{block}{Active mode doesn't work with firewall}
+  \begin{iblock}{Active mode doesn't work with firewall}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{ftp-firewall} }%
       \mode<article>{ \includegraphics[width=.8\textwidth]{ftp-firewall} }
     \end{center}
-  \end{block}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{FTP References}

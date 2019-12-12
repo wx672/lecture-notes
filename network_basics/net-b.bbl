@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.0 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -19,7 +19,152 @@
 
 \refsection{1}
   \datalist[entry]{none/global//global/global}
-    \entry{wiki:ethernet}{online}{}
+    \entry{tanenbaum2011computer}{book}{}
+      \name{author}{2}{}{%
+        {{hash=92bc8f2b5a926e6cc80dfae03d2751e5}{%
+           family={Tanenbaum},
+           familyi={T\bibinitperiod},
+           given={A.S.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2e14921ea1b5af8b148dae96c2f100f0}{%
+           family={Wetherall},
+           familyi={W\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Prentice Hall}%
+      }
+      \strng{namehash}{f5a31ae68ec79f3099675439ece611b1}
+      \strng{fullhash}{a833a2a1f156ae428de4e6d7a6804954}
+      \strng{bibnamehash}{a833a2a1f156ae428de4e6d7a6804954}
+      \strng{authorbibnamehash}{a833a2a1f156ae428de4e6d7a6804954}
+      \strng{authornamehash}{f5a31ae68ec79f3099675439ece611b1}
+      \strng{authorfullhash}{a833a2a1f156ae428de4e6d7a6804954}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780132126953}
+      \field{langid}{english}
+      \field{title}{Computer Networks}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1
+      \endverb
+      \keyw{tanenbaum2011computer}
+    \endentry
+    \entry{kurose2013computer}{book}{}
+      \name{author}{2}{}{%
+        {{hash=f7e2a538f9154730045515525a52bb35}{%
+           family={Kurose},
+           familyi={K\bibinitperiod},
+           given={J.F.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5ed2f212850e37b6106e182f449b74ca}{%
+           family={Ross},
+           familyi={R\bibinitperiod},
+           given={K.W.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{f24e4ac456416d2ae7904782f827d22a}
+      \strng{fullhash}{7af9d40c3e74f82452e1c82d887d7fb0}
+      \strng{bibnamehash}{7af9d40c3e74f82452e1c82d887d7fb0}
+      \strng{authorbibnamehash}{7af9d40c3e74f82452e1c82d887d7fb0}
+      \strng{authornamehash}{f24e4ac456416d2ae7904782f827d22a}
+      \strng{authorfullhash}{7af9d40c3e74f82452e1c82d887d7fb0}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780132856201}
+      \field{langid}{english}
+      \field{series}{Always learning}
+      \field{title}{Computer Networking: A Top-down Approach}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/27/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/27/Calibre1
+      \endverb
+      \keyw{kurose2013computer}
+    \endentry
+    \entry{fall2011tcp}{book}{}
+      \name{author}{2}{}{%
+        {{hash=51472b93fbf08fddd4dc0307af2c440a}{%
+           family={Fall},
+           familyi={F\bibinitperiod},
+           given={K.R.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=3cb4a6cccfba017024da983af65c091e}{%
+           family={Stevens},
+           familyi={S\bibinitperiod},
+           given={W.R.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Education}%
+      }
+      \strng{namehash}{86fb63eae1a2f7c53799241ff8cbafb0}
+      \strng{fullhash}{410593d3190252b8a3f029082d2ef64a}
+      \strng{bibnamehash}{410593d3190252b8a3f029082d2ef64a}
+      \strng{authorbibnamehash}{410593d3190252b8a3f029082d2ef64a}
+      \strng{authornamehash}{86fb63eae1a2f7c53799241ff8cbafb0}
+      \strng{authorfullhash}{410593d3190252b8a3f029082d2ef64a}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780132808187}
+      \field{langid}{english}
+      \field{series}{Addison-Wesley Professional Computing Series}
+      \field{title}{TCP/IP Illustrated, Volume 1: The Protocols}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/32/Calibre1
+      \endverb
+      \verb{url}
+      \verb https://cs3.swfu.edu.cn/tech/get/PDF/32/Calibre1
+      \endverb
+      \keyw{fall2011tcp}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{10}
+  \datalist[entry]{none/global//global/global}
+    \entry{wiki:tcp}{online}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -40,7 +185,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Ethernet --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Transmission Control Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -48,14 +193,14 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Ethernet&oldid=648082976
+      \verb http://en.wikipedia.org/w/index.php?title=Transmission\_Control\_Protocol&oldid=647944260
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Ethernet&oldid=648082976
+      \verb http://en.wikipedia.org/w/index.php?title=Transmission%5C_Control%5C_Protocol&oldid=647944260
       \endverb
-      \keyw{wiki:ethernet}
+      \keyw{wiki:tcp}
     \endentry
-    \entry{wiki:ethframe}{online}{}
+    \entry{wiki:udp}{online}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -76,7 +221,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Ethernet frame --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{User Datagram Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -84,14 +229,14 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Ethernet_frame&oldid=653337888
+      \verb http://en.wikipedia.org/w/index.php?title=User\_Datagram\_Protocol&oldid=643803508
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Ethernet_frame&oldid=653337888
+      \verb http://en.wikipedia.org/w/index.php?title=User%5C_Datagram%5C_Protocol&oldid=643803508
       \endverb
-      \keyw{wiki:ethframe}
+      \keyw{wiki:udp}
     \endentry
-    \entry{wiki:csmacd}{online}{}
+    \entry{wiki:checksum}{online}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -112,7 +257,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Carrier sense multiple access with collision detection --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Checksum --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -120,24 +265,19 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Carrier_sense_multiple_access_with_collision_detection&oldid=648771859
+      \verb http://en.wikipedia.org/w/index.php?title=Checksum&oldid=645584712
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Carrier_sense_multiple_access_with_collision_detection&oldid=648771859
+      \verb http://en.wikipedia.org/w/index.php?title=Checksum&oldid=645584712
       \endverb
-      \keyw{wiki:csmacd}
+      \keyw{wiki:checksum}
     \endentry
-    \entry{rfc1042}{online}{}
-      \name{author}{2}{}{%
+    \entry{rfc793}{online}{}
+      \name{author}{1}{}{%
         {{hash=22c8db2c59b26571094b7dab5cefad0e}{%
            family={Postel},
            familyi={P\bibinitperiod},
            given={J.},
-           giveni={J\bibinitperiod}}}%
-        {{hash=7ad9be8953b23bfa92233ddf45221e2b}{%
-           family={Reynolds},
-           familyi={R\bibinitperiod},
-           given={J.K.},
            giveni={J\bibinitperiod}}}%
       }
       \list{institution}{1}{%
@@ -155,48 +295,110 @@
       \list{publisher}{1}{%
         {RFC Editor}%
       }
-      \strng{namehash}{e0bf8451aa6df82cd740fdf9091cefd6}
-      \strng{fullhash}{6f8b48db96d8415425ad8c91ea61d7e8}
-      \strng{bibnamehash}{6f8b48db96d8415425ad8c91ea61d7e8}
-      \strng{authorbibnamehash}{6f8b48db96d8415425ad8c91ea61d7e8}
-      \strng{authornamehash}{e0bf8451aa6df82cd740fdf9091cefd6}
-      \strng{authorfullhash}{6f8b48db96d8415425ad8c91ea61d7e8}
+      \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{bibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authorbibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authornamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
+      \field{extraname}{1}
       \field{sortinit}{4}
       \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This RFC specifies a standard method of encapsulating the Internet Protocol (IP) datagrams and Address Resolution Protocol (ARP) requests and replies on IEEE 802 Networks to allow compatible and interoperable implementations. This RFC specifies a protocol standard for the Internet community.}
-      \field{howpublished}{RFC 1042 (Internet Standard)}
+      \field{howpublished}{RFC 793 (Internet Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
-      \field{month}{2}
-      \field{number}{1042}
+      \field{month}{9}
+      \field{note}{Updated by RFCs 1122, 3168, 6093, 6528}
+      \field{number}{793}
       \field{series}{Internet Request for Comments}
-      \field{title}{{Standard for the transmission of IP datagrams over IEEE 802 networks}}
+      \field{title}{{Transmission Control Protocol}}
       \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
-      \field{year}{1988}
+      \field{year}{1981}
       \field{dateera}{ce}
       \true{nocite}
-      \field{pages}{1\bibrangedash 15}
-      \range{pages}{15}
+      \field{pages}{1\bibrangedash 91}
+      \range{pages}{91}
       \verb{doi}
-      \verb 10.17487/RFC1042
+      \verb 10.17487/RFC0793
       \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc1042.txt
+      \verb https://www.rfc-editor.org/rfc/rfc793.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc1042.txt
+      \verb https://www.rfc-editor.org/rfc/rfc793.txt
       \endverb
-      \keyw{IP-IEEE}
+      \keyw{TCP,TCP,Updated by RFCs 1122,3168,6093,6528}
+    \endentry
+    \entry{rfc768}{online}{}
+      \name{author}{1}{}{%
+        {{hash=22c8db2c59b26571094b7dab5cefad0e}{%
+           family={Postel},
+           familyi={P\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {RFC Editor}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{location}{1}{%
+        {Fremont, CA, USA}%
+      }
+      \list{organization}{1}{%
+        {RFC Editor}%
+      }
+      \list{publisher}{1}{%
+        {RFC Editor}%
+      }
+      \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{bibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authorbibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authornamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
+      \field{extraname}{2}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{RFC 768 (Internet Standard)}
+      \field{issn}{2070-1721}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{number}{768}
+      \field{series}{Internet Request for Comments}
+      \field{title}{{User Datagram Protocol}}
+      \field{type}{RFC}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1980}
+      \field{dateera}{ce}
+      \true{nocite}
+      \field{pages}{1\bibrangedash 3}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.17487/RFC0768
+      \endverb
+      \verb{urlraw}
+      \verb https://www.rfc-editor.org/rfc/rfc768.txt
+      \endverb
+      \verb{url}
+      \verb https://www.rfc-editor.org/rfc/rfc768.txt
+      \endverb
+      \keyw{UDP,UDP}
     \endentry
   \enddatalist
 \endrefsection
 
-\refsection{10}
+\refsection{11}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:socket}{online}{}
       \name{author}{1}{}{%
@@ -226,10 +428,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Network_socket&oldid=643452418
+      \verb http://en.wikipedia.org/w/index.php?title=Network\_socket&oldid=643452418
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Network_socket&oldid=643452418
+      \verb http://en.wikipedia.org/w/index.php?title=Network%5C_socket&oldid=643452418
       \endverb
       \keyw{wiki:socket}
     \endentry
@@ -273,7 +475,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{11}
+\refsection{12}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:http}{online}{}
       \name{author}{1}{}{%
@@ -304,10 +506,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Hypertext_Transfer_Protocol&oldid=648108367
+      \verb http://en.wikipedia.org/w/index.php?title=Hypertext\_Transfer\_Protocol&oldid=648108367
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Hypertext_Transfer_Protocol&oldid=648108367
+      \verb http://en.wikipedia.org/w/index.php?title=Hypertext%5C_Transfer%5C_Protocol&oldid=648108367
       \endverb
       \keyw{wiki:http}
     \endentry
@@ -376,10 +578,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=HTTP_cookie&oldid=648216857
+      \verb http://en.wikipedia.org/w/index.php?title=HTTP\_cookie&oldid=648216857
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=HTTP_cookie&oldid=648216857
+      \verb http://en.wikipedia.org/w/index.php?title=HTTP%5C_cookie&oldid=648216857
       \endverb
       \keyw{wiki:cookie}
     \endentry
@@ -412,10 +614,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Stateless_protocol&oldid=645610703
+      \verb http://en.wikipedia.org/w/index.php?title=Stateless\_protocol&oldid=645610703
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Stateless_protocol&oldid=645610703
+      \verb http://en.wikipedia.org/w/index.php?title=Stateless%5C_protocol&oldid=645610703
       \endverb
       \keyw{wiki:stateless}
     \endentry
@@ -484,10 +686,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=LAMP_(software_bundle)&oldid=646364288
+      \verb http://en.wikipedia.org/w/index.php?title=LAMP\_(software\_bundle)&oldid=646364288
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=LAMP_(software_bundle)&oldid=646364288
+      \verb http://en.wikipedia.org/w/index.php?title=LAMP%5C_(software%5C_bundle)&oldid=646364288
       \endverb
       \keyw{wiki:lamp}
     \endentry
@@ -723,7 +925,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{12}
+\refsection{13}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:dns}{online}{}
       \name{author}{1}{}{%
@@ -753,10 +955,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Domain_Name_System&oldid=656963793
+      \verb http://en.wikipedia.org/w/index.php?title=Domain\_Name\_System&oldid=656963793
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Domain_Name_System&oldid=656963793
+      \verb http://en.wikipedia.org/w/index.php?title=Domain%5C_Name%5C_System&oldid=656963793
       \endverb
       \keyw{wiki:dns}
     \endentry
@@ -889,7 +1091,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{13}
+\refsection{14}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:smtp}{online}{}
       \name{author}{1}{}{%
@@ -920,10 +1122,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Simple_Mail_Transfer_Protocol&oldid=646541423
+      \verb http://en.wikipedia.org/w/index.php?title=Simple\_Mail\_Transfer\_Protocol&oldid=646541423
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Simple_Mail_Transfer_Protocol&oldid=646541423
+      \verb http://en.wikipedia.org/w/index.php?title=Simple%5C_Mail%5C_Transfer%5C_Protocol&oldid=646541423
       \endverb
       \keyw{wiki:smtp}
     \endentry
@@ -956,10 +1158,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Post_Office_Protocol&oldid=645436521
+      \verb http://en.wikipedia.org/w/index.php?title=Post\_Office\_Protocol&oldid=645436521
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Post_Office_Protocol&oldid=645436521
+      \verb http://en.wikipedia.org/w/index.php?title=Post%5C_Office%5C_Protocol&oldid=645436521
       \endverb
       \keyw{wiki:pop}
     \endentry
@@ -992,10 +1194,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Internet_Message_Access_Protocol&oldid=647958613
+      \verb http://en.wikipedia.org/w/index.php?title=Internet\_Message\_Access\_Protocol&oldid=647958613
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Internet_Message_Access_Protocol&oldid=647958613
+      \verb http://en.wikipedia.org/w/index.php?title=Internet%5C_Message%5C_Access%5C_Protocol&oldid=647958613
       \endverb
       \keyw{wiki:imap}
     \endentry
@@ -1296,7 +1498,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{14}
+\refsection{15}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:ftp}{online}{}
       \name{author}{1}{}{%
@@ -1326,10 +1528,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=File_Transfer_Protocol&oldid=647883278
+      \verb http://en.wikipedia.org/w/index.php?title=File\_Transfer\_Protocol&oldid=647883278
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=File_Transfer_Protocol&oldid=647883278
+      \verb http://en.wikipedia.org/w/index.php?title=File%5C_Transfer%5C_Protocol&oldid=647883278
       \endverb
       \keyw{wiki:ftp}
     \endentry
@@ -1464,7 +1666,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{15}
+\refsection{16}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:bt}{online}{}
       \name{author}{1}{}{%
@@ -1544,6 +1746,185 @@
 
 \refsection{2}
   \datalist[entry]{none/global//global/global}
+    \entry{wiki:ethernet}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Ethernet --- Wikipedia{,} The Free Encyclopedia}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Ethernet&oldid=648082976
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Ethernet&oldid=648082976
+      \endverb
+      \keyw{wiki:ethernet}
+    \endentry
+    \entry{wiki:ethframe}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Ethernet frame --- Wikipedia{,} The Free Encyclopedia}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Ethernet\_frame&oldid=653337888
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Ethernet%5C_frame&oldid=653337888
+      \endverb
+      \keyw{wiki:ethframe}
+    \endentry
+    \entry{wiki:csmacd}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{3}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Carrier sense multiple access with collision detection --- Wikipedia{,} The Free Encyclopedia}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Carrier\_sense\_multiple\_access\_with\_collision\_detection&oldid=648771859
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Carrier%5C_sense%5C_multiple%5C_access%5C_with%5C_collision%5C_detection&oldid=648771859
+      \endverb
+      \keyw{wiki:csmacd}
+    \endentry
+    \entry{rfc1042}{online}{}
+      \name{author}{2}{}{%
+        {{hash=22c8db2c59b26571094b7dab5cefad0e}{%
+           family={Postel},
+           familyi={P\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7ad9be8953b23bfa92233ddf45221e2b}{%
+           family={Reynolds},
+           familyi={R\bibinitperiod},
+           given={J.K.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {RFC Editor}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{location}{1}{%
+        {Fremont, CA, USA}%
+      }
+      \list{organization}{1}{%
+        {RFC Editor}%
+      }
+      \list{publisher}{1}{%
+        {RFC Editor}%
+      }
+      \strng{namehash}{e0bf8451aa6df82cd740fdf9091cefd6}
+      \strng{fullhash}{6f8b48db96d8415425ad8c91ea61d7e8}
+      \strng{bibnamehash}{6f8b48db96d8415425ad8c91ea61d7e8}
+      \strng{authorbibnamehash}{6f8b48db96d8415425ad8c91ea61d7e8}
+      \strng{authornamehash}{e0bf8451aa6df82cd740fdf9091cefd6}
+      \strng{authorfullhash}{6f8b48db96d8415425ad8c91ea61d7e8}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This RFC specifies a standard method of encapsulating the Internet Protocol (IP) datagrams and Address Resolution Protocol (ARP) requests and replies on IEEE 802 Networks to allow compatible and interoperable implementations. This RFC specifies a protocol standard for the Internet community.}
+      \field{howpublished}{RFC 1042 (Internet Standard)}
+      \field{issn}{2070-1721}
+      \field{langid}{english}
+      \field{month}{2}
+      \field{number}{1042}
+      \field{series}{Internet Request for Comments}
+      \field{title}{{Standard for the transmission of IP datagrams over IEEE 802 networks}}
+      \field{type}{RFC}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1988}
+      \field{dateera}{ce}
+      \true{nocite}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.17487/RFC1042
+      \endverb
+      \verb{urlraw}
+      \verb https://www.rfc-editor.org/rfc/rfc1042.txt
+      \endverb
+      \verb{url}
+      \verb https://www.rfc-editor.org/rfc/rfc1042.txt
+      \endverb
+      \keyw{IP-IEEE}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{3}
+  \datalist[entry]{none/global//global/global}
     \entry{wiki:arp}{online}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
@@ -1572,10 +1953,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Address_Resolution_Protocol&oldid=647148843
+      \verb http://en.wikipedia.org/w/index.php?title=Address\_Resolution\_Protocol&oldid=647148843
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Address_Resolution_Protocol&oldid=647148843
+      \verb http://en.wikipedia.org/w/index.php?title=Address%5C_Resolution%5C_Protocol&oldid=647148843
       \endverb
       \keyw{wiki:arp}
     \endentry
@@ -1644,7 +2025,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{3}
+\refsection{4}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:ip}{online}{}
       \name{author}{1}{}{%
@@ -1675,10 +2056,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Internet_Protocol&oldid=645719875
+      \verb http://en.wikipedia.org/w/index.php?title=Internet\_Protocol&oldid=645719875
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Internet_Protocol&oldid=645719875
+      \verb http://en.wikipedia.org/w/index.php?title=Internet%5C_Protocol&oldid=645719875
       \endverb
       \keyw{wiki:ip}
     \endentry
@@ -1711,10 +2092,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=IP_address&oldid=651153507
+      \verb http://en.wikipedia.org/w/index.php?title=IP\_address&oldid=651153507
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=IP_address&oldid=651153507
+      \verb http://en.wikipedia.org/w/index.php?title=IP%5C_address&oldid=651153507
       \endverb
       \keyw{wiki:ipaddr}
     \endentry
@@ -1808,17 +2189,17 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=IPv4_header_checksum&oldid=645516564
+      \verb http://en.wikipedia.org/w/index.php?title=IPv4\_header\_checksum&oldid=645516564
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=IPv4_header_checksum&oldid=645516564
+      \verb http://en.wikipedia.org/w/index.php?title=IPv4%5C_header%5C_checksum&oldid=645516564
       \endverb
       \keyw{wiki:ipv4hdrchksum}
     \endentry
   \enddatalist
 \endrefsection
 
-\refsection{4}
+\refsection{5}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:subnet}{online}{}
       \name{author}{1}{}{%
@@ -1885,10 +2266,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=IPv4_subnetting_reference&oldid=652583338
+      \verb http://en.wikipedia.org/w/index.php?title=IPv4\_subnetting\_reference&oldid=652583338
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=IPv4_subnetting_reference&oldid=652583338
+      \verb http://en.wikipedia.org/w/index.php?title=IPv4%5C_subnetting%5C_reference&oldid=652583338
       \endverb
       \keyw{wiki:ipv4subnetref}
     \endentry
@@ -1921,10 +2302,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Private_network&oldid=649931709
+      \verb http://en.wikipedia.org/w/index.php?title=Private\_network&oldid=649931709
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Private_network&oldid=649931709
+      \verb http://en.wikipedia.org/w/index.php?title=Private%5C_network&oldid=649931709
       \endverb
       \keyw{wiki:privatenet}
     \endentry
@@ -2059,7 +2440,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{5}
+\refsection{6}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:cidr}{online}{}
       \name{author}{1}{}{%
@@ -2089,10 +2470,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Classless_Inter-Domain_Routing&oldid=641285826
+      \verb http://en.wikipedia.org/w/index.php?title=Classless\_Inter-Domain\_Routing&oldid=641285826
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Classless_Inter-Domain_Routing&oldid=641285826
+      \verb http://en.wikipedia.org/w/index.php?title=Classless%5C_Inter-Domain%5C_Routing&oldid=641285826
       \endverb
       \keyw{wiki:cidr}
     \endentry
@@ -2165,7 +2546,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{6}
+\refsection{7}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:ipv6}{online}{}
       \name{author}{1}{}{%
@@ -2232,10 +2613,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=IPv6_packet&oldid=651199118
+      \verb http://en.wikipedia.org/w/index.php?title=IPv6\_packet&oldid=651199118
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=IPv6_packet&oldid=651199118
+      \verb http://en.wikipedia.org/w/index.php?title=IPv6%5C_packet&oldid=651199118
       \endverb
       \keyw{wiki:ipv6pkt}
     \endentry
@@ -2268,10 +2649,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=IPv6_address&oldid=645435688
+      \verb http://en.wikipedia.org/w/index.php?title=IPv6\_address&oldid=645435688
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=IPv6_address&oldid=645435688
+      \verb http://en.wikipedia.org/w/index.php?title=IPv6%5C_address&oldid=645435688
       \endverb
       \keyw{wiki:ipv6addr}
     \endentry
@@ -2412,7 +2793,7 @@
   \enddatalist
 \endrefsection
 
-\refsection{7}
+\refsection{8}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:router}{online}{}
       \name{author}{1}{}{%
@@ -2443,10 +2824,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Router_(computing)&oldid=646784918
+      \verb http://en.wikipedia.org/w/index.php?title=Router\_(computing)&oldid=646784918
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Router_(computing)&oldid=646784918
+      \verb http://en.wikipedia.org/w/index.php?title=Router%5C_(computing)&oldid=646784918
       \endverb
       \keyw{wiki:router}
     \endentry
@@ -2479,10 +2860,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Routing_table&oldid=644938703
+      \verb http://en.wikipedia.org/w/index.php?title=Routing\_table&oldid=644938703
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Routing_table&oldid=644938703
+      \verb http://en.wikipedia.org/w/index.php?title=Routing%5C_table&oldid=644938703
       \endverb
       \keyw{wiki:routingtable}
     \endentry
@@ -2515,10 +2896,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Network_switch&oldid=646928384
+      \verb http://en.wikipedia.org/w/index.php?title=Network\_switch&oldid=646928384
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Network_switch&oldid=646928384
+      \verb http://en.wikipedia.org/w/index.php?title=Network%5C_switch&oldid=646928384
       \endverb
       \keyw{wiki:switch}
     \endentry
@@ -2551,17 +2932,17 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=LAN_switching&oldid=651228780
+      \verb http://en.wikipedia.org/w/index.php?title=LAN\_switching&oldid=651228780
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=LAN_switching&oldid=651228780
+      \verb http://en.wikipedia.org/w/index.php?title=LAN%5C_switching&oldid=651228780
       \endverb
       \keyw{wiki:lanswitching}
     \endentry
   \enddatalist
 \endrefsection
 
-\refsection{8}
+\refsection{9}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:nat}{online}{}
       \name{author}{1}{}{%
@@ -2591,10 +2972,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Network_address_translation&oldid=652836698
+      \verb http://en.wikipedia.org/w/index.php?title=Network\_address\_translation&oldid=652836698
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Network_address_translation&oldid=652836698
+      \verb http://en.wikipedia.org/w/index.php?title=Network%5C_address%5C_translation&oldid=652836698
       \endverb
       \keyw{wiki:nat}
     \endentry
@@ -2740,242 +3121,6 @@
       \verb https://en.wikipedia.org/w/index.php?title=Iptables&oldid=817424711
       \endverb
       \keyw{wiki:iptables}
-    \endentry
-  \enddatalist
-\endrefsection
-
-\refsection{9}
-  \datalist[entry]{none/global//global/global}
-    \entry{wiki:tcp}{online}{}
-      \name{author}{1}{}{%
-        {{hash=9c677286866aad38f8e9b660f5411814}{%
-           family={Wikipedia},
-           familyi={W\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
-      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{extraname}{1}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Transmission Control Protocol --- Wikipedia{,} The Free Encyclopedia}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \true{nocite}
-      \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Transmission_Control_Protocol&oldid=647944260
-      \endverb
-      \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Transmission_Control_Protocol&oldid=647944260
-      \endverb
-      \keyw{wiki:tcp}
-    \endentry
-    \entry{wiki:udp}{online}{}
-      \name{author}{1}{}{%
-        {{hash=9c677286866aad38f8e9b660f5411814}{%
-           family={Wikipedia},
-           familyi={W\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
-      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{extraname}{2}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{User Datagram Protocol --- Wikipedia{,} The Free Encyclopedia}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \true{nocite}
-      \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=User_Datagram_Protocol&oldid=643803508
-      \endverb
-      \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=User_Datagram_Protocol&oldid=643803508
-      \endverb
-      \keyw{wiki:udp}
-    \endentry
-    \entry{wiki:checksum}{online}{}
-      \name{author}{1}{}{%
-        {{hash=9c677286866aad38f8e9b660f5411814}{%
-           family={Wikipedia},
-           familyi={W\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
-      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{extraname}{3}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Checksum --- Wikipedia{,} The Free Encyclopedia}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \true{nocite}
-      \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Checksum&oldid=645584712
-      \endverb
-      \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Checksum&oldid=645584712
-      \endverb
-      \keyw{wiki:checksum}
-    \endentry
-    \entry{rfc793}{online}{}
-      \name{author}{1}{}{%
-        {{hash=22c8db2c59b26571094b7dab5cefad0e}{%
-           family={Postel},
-           familyi={P\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{bibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{authorbibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{authornamehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
-      \field{extraname}{1}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{RFC 793 (Internet Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{9}
-      \field{note}{Updated by RFCs 1122, 3168, 6093, 6528}
-      \field{number}{793}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Transmission Control Protocol}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1981}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 91}
-      \range{pages}{91}
-      \verb{doi}
-      \verb 10.17487/RFC0793
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc793.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc793.txt
-      \endverb
-      \keyw{TCP,TCP,Updated by RFCs 1122,3168,6093,6528}
-    \endentry
-    \entry{rfc768}{online}{}
-      \name{author}{1}{}{%
-        {{hash=22c8db2c59b26571094b7dab5cefad0e}{%
-           family={Postel},
-           familyi={P\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{bibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{authorbibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{authornamehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
-      \field{extraname}{2}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{RFC 768 (Internet Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{8}
-      \field{number}{768}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{User Datagram Protocol}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1980}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 3}
-      \range{pages}{3}
-      \verb{doi}
-      \verb 10.17487/RFC0768
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc768.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc768.txt
-      \endverb
-      \keyw{UDP,UDP}
     \endentry
   \enddatalist
 \endrefsection
