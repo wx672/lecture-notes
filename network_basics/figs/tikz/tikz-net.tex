@@ -6,6 +6,60 @@
 
 \listoffigures
 \clearpage
+\tikzsetnextfilename{trump-kim-en}
+\begin{figure}
+  \centering\resizebox{\textwidth}{!}{
+    \begin{tikzpicture}[%
+      decoration={amplitude=1.5pt}, penciline={jag ratio=1},%
+      chain/.style={on chain},%
+      node distance=5mm,%
+      tight/.style={outer sep=-3mm, inner sep=0pt}%
+      ]
+
+      {[start chain=1 going below,%
+        every on chain/.style={join={by ->, decorate,%
+            "{\purisa Ask for service}" {scale=.4, inner sep=2pt},%
+          }},%
+        every node/.style={inner sep=0pt,align=center, minimum height=1.3cm}]%
+    
+        \node (trump) [chain,label={-120,scale=.4,label distance=-9mm:{\boss}}] {\trump};%
+    
+        \node (trmale) [chain,label={left,scale=.4:{\cnwp}},%
+        label={-120,scale=.4,label distance=-9mm:{\translator}}] {\trmale};%
+    
+        \node (secmale) [chain,label={-120,scale=.4,label distance=-9mm:{\secretary}}] {\secmale};
+      }
+  
+      {[start chain=2 going below,%
+        every on chain/.style={join={by <-,decorate,%
+            "{\purisa Provide service}"' {scale=.4, inner sep=2pt}}},%
+        every node/.style={inner sep=0pt,align=center, minimum height=1.3cm}]%
+
+        \node (kim) [chain,right=2.5cm of trump,%
+        label={-60,scale=.4,label distance=-9mm:{\boss}}] {\kim}%
+        edge [decorate,dashed,<->, "{\purisa Topic}" {scale=.5, tight},%
+        "\protocol"' {scale=.5, tight}] (trump);%
+
+        \node (trfemale) [chain, label={right,scale=.4,xshift=-1em:{\cnwp}},%
+        label={-60,scale=.4,label distance=-9mm:{\translator}}] {\trfemale}%
+        edge [decorate,dashed,<->,"{\cnfont 中文}" {scale=.5, tight},%
+        "\protocol"' {scale=.5, tight}] (trmale);%
+
+        \node (secfemale) [chain, label={-60,scale=.4,label distance=-9mm:{\secretary}}]%
+        {\secfemale} edge [decorate,dashed,<->, "{\purisa Fax}" {scale=.5, tight},%
+        "\protocol"' {scale=.5, tight}] (secmale);%
+      }
+  
+      \node [ellipse callout, callout absolute pointer={(kim.80)},%
+      above right=5pt of kim, xshift=-15pt, scale=.4, draw] {\krwp};%
+
+      \node [ellipse callout, callout absolute pointer={(trump.110)}, align=center,%
+      above left=5pt of trump, xshift=10pt, scale=.4, draw] {\enwp};%
+
+      \path [draw,->,decorate] (secmale) |- ($(secfemale.south)+(0,-3mm)$) -- (secfemale);
+\end{tikzpicture}}
+\caption{Layered design\label{fig:trump-kim}}
+\end{figure}
 
 \tikzsetnextfilename{hierarchy-subnet}
 \begin{figure}

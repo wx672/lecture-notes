@@ -71,7 +71,7 @@
 # 而且去掉了容易出毛病的花哨界面，只用 =startx= + =sawfish= 。
 # 这也许不算完美，但它简单、可靠、高效。除此之外，你还需要什么呢？
   
-最小系统装好之后，拔出U盘，重启系统，现在我们讲讲之后的事情……
+最小系统装好之后，拔出U盘，重启系统。现在我们讲讲之后的事情……
 1. 第一件事当然是把网线插好，启动你崭新的Debian，在屏幕提示下，输入用户名、密码。
    之后，你就可以通过输入命令来让电脑为你工作了。
 
@@ -134,17 +134,16 @@
    #+BEGIN_SRC sh
    cd
 
-   wget  https://gitlab.swfu.edu.cn/wx672/lecture_notes/blob/master/linux/tutorials/install/deb-pkg-list/laptop
+   wget  https://cs6.swfu.edu.cn/~wx672/lecture_notes/linux/tutorials/install/deb-pkg-list/laptop
    #+END_SRC
    【注意】这一步要以普通用户的身份来做，不要用root！注意看命令行的提示符：
    - =$= 代表普通用户；
    - =#= 代表root；
-   - 如果[[https://gitlab.swfu.edu.cn/]]这个网址不好使的话，你可以试试：
-     - https://cs6.swfu.edu.cn/~wx672/debian-install/list.laptop, 或者
+   - 如果[[https://cs6.swfu.edu.cn/]]这个网址不好使的话，你可以试试：
      - https://github.com/wx672/lecture-notes/blob/master/linux/tutorials/install/deb-pkg-list/laptop
 5. 然后，开始大批量安装软件包：
    #+BEGIN_SRC sh
-   apt-get install $(cat list.laptop)
+   apt-get install $(cat laptop)
    #+END_SRC
    
    如果网络顺畅的话，这一步大概需要半个小时。通常，安装过程是不需要人为干预的。但有的软件
@@ -187,18 +186,16 @@
    #+BEGIN_SRC sh
    exit
    #+END_SRC
-*** dotfile
+*** COMMENT dotfile
 现在你的系统和机房的差不多一样了，唯一的差别就是你还没配置呢。
 配置是个琐碎事，比较省事的办法就是把我的配置文件拷贝过来。最省事的拷贝方式就是
 git（ *以普通用户的身份来做* ）：
 #+BEGIN_SRC sh
 cd
 
-git clone https://gitlab.swfu.edu.cn/wx672/dotfile.git
-#或者
 git clone https://github.com/wx672/dotfile.git
 #或者
-git clone https://cs6.swfu.edu.cn/~wx672/dotfile.git
+git clone https://cs6.swfu.edu.cn/~wx672/dotfile/.git
 #+END_SRC
 
 上面三个网址应该都可以。 =git= 是著名的源代码管理工具，也就是版本控制工具。用它来管理配置文
@@ -227,16 +224,14 @@ git clone https://cs6.swfu.edu.cn/~wx672/dotfile.git
    现在用 =ls -al= 检查一下，我们需要的配置文件（也就是‘点’开头的文件）应该都在 =$HOME= 目录里了。
 5) 顺手把我准备好的「帮助墙纸」也下载下来吧。墙纸上列出了我们最常用的快捷键。
    #+BEGIN_SRC sh
-   wget -O .keys.png http://cs2.swfu.edu.cn/~wx672/tex-fun/keys/keys-1.png
-   # 或者
    wget -O .keys.png https://cs6.swfu.edu.cn/~wx672/debian-install/keys.png
    #+END_SRC
    等以后在XWindow环境下，按 =Super-F1= 应该就可以弹出这张墙纸了。
   （ =Super= 键就是键盘左下方的 =Win= 键）
 
-  【注意】 由于网络管控加强了， =cs2.swfu.edu.cn= 的域名解析被关掉了，所以，你要修改一下
-   =/etc/hosts= 文件。很简单，在这个文件里添加如下一行：
-   : 202.203.132.242  cs2.swfu.edu.cn
+  # 【注意】 由于网络管控加强了， =cs2.swfu.edu.cn= 的域名解析被关掉了，所以，你要修改一下
+  #  =/etc/hosts= 文件。很简单，在这个文件里添加如下一行：
+  #  : 202.203.132.242  cs2.swfu.edu.cn
 6) 我的Emacs配置里用到了很多插件，自然你也需要它们，否则Emacs不能正常工作。
    1) 先把我的插件包下载下来
       #+BEGIN_SRC sh
@@ -369,7 +364,7 @@ sudo apt install the-32bit-lib-package
 :END:
 
 办法很多：
-1. 用Android手机的USB Tethering功能。以我自己的手机系统为例（LineageOS 15.1/Android 8.1），
+1. 用Android手机的USB Tethering功能。以我自己的手机系统为例（LineageOS 16.0/Android 9），
    很简单，
    1) 用USB线连接手机和电脑；
    2) 在手机的「系统设置」里有个搜索框，在里面输入“tethering”，马上就能找到“Hotspot &

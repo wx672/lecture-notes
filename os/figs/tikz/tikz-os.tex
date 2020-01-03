@@ -7,6 +7,40 @@
 \listoffigures
 \clearpage
 
+\tikzsetnextfilename{choose-os}
+\begin{figure}
+  \centering\resizebox{\textwidth}{!}{
+    \begin{tikzpicture}[%
+      node font=\purisa,%
+      decoration={amplitude=1.2pt}, penciline={jag ratio=1.2},%
+      every node/.style = {thick,decorate,align=center},%
+      every path/.style = {decorate}]      
+
+      \node (root) {Do you fear technology?};
+      \node (yes1) [below left=0pt of root] {Yes} edge (root);
+      \node (no1) [below right=0pt of root] {No} edge (root);
+
+      \node (rich) [below left=0pt of yes1] {Is your daddy rich?} edge (yes1);
+      \node (yes2) [below left=0pt of rich] {Yes} edge (rich);
+      \node (no2) [below right=0pt of rich] {No} edge (rich);
+      \node [below=3mm of yes2,scale=2] {\apple} edge (yes2);
+      \node [below=3mm of no2,scale=2] {\chrome} edge (no2);
+      
+      \node (freedom) [below right=0pt of no1] {Do you care about\\freedom/privacy?} edge (no1);
+      \node (yes3) [below left=0pt of freedom] {Yes} edge (freedom);
+      \node (no3) [below right=0pt of freedom] {No}  edge (freedom);
+      \node (life) [below=2mm of yes3] {Do you have a life?} edge (yes3);
+      \node (yes4) [below left=0pt of life] {Yes} edge (life);
+      \node (no4) [below right=0pt of life] {No}  edge (life);
+      \node [below left=2mm of yes4,scale=2] {\ubuntu} edge (yes4);
+      \node [below=3mm of yes4,scale=2] {\debian} edge (yes4);
+      \node [below right=2mm of yes4,scale=2] {\fedoralight} edge (yes4);
+      \node [below=3mm of no4,scale=2] {\arch} edge (no4);
+      \node [below=3mm of no3,scale=2] {\windows} edge (no3);
+    \end{tikzpicture}}
+  \caption{Choosing an OS\label{fig:choose-os}}  
+\end{figure}
+
 \tikzsetnextfilename{kernel-block}
 \begin{figure}
   \centering\resizebox{\textwidth}{!}{

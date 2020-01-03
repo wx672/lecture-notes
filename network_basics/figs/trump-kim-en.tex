@@ -1,0 +1,79 @@
+\documentclass{standalone}
+
+\usepackage{settings}
+\usepackage{tikz-penciline}
+
+\newcommand\trump{\includegraphics[width=3em]{trump-kim1}}
+\newcommand\kim{\includegraphics[width=3em]{trump-kim2}}
+\newcommand\trmale{\includegraphics[width=3em]{trump-kim3}}
+\newcommand\trfemale{\includegraphics[width=3em]{trump-kim4}}
+\newcommand\secmale{\includegraphics[width=3em]{trump-kim5}}
+\newcommand\secfemale{\includegraphics[width=3em]{trump-kim5}}
+\newCJKfontfamily\korea{Noto Serif CJK KR}
+\setCJKmainfont{AiNiChuanYueRenHai}
+\newfontfamily\humor{Humor Sans}
+\newfontfamily\purisa{Purisa}
+
+\newcommand\worldpeace{{\korea 세계평화！}}
+\newcommand\protocol{{\purisa Protocol}}
+\newcommand\boss{{\purisa Boss}}
+\newcommand\translator{{\purisa Translator}}
+\newcommand\secretary{{\purisa Secretary}}
+
+\begin{document}
+\begin{tikzpicture}[%
+  decoration={amplitude=1.5pt}, penciline={jag ratio=1},% thick,%
+  chain/.style={on chain},
+  node distance=5mm,
+  tight/.style={outer sep=-3mm, inner sep=0pt}
+  ]  
+
+  {[start chain=1 going below,%
+    every on chain/.style={join={by ->, decorate,%
+        "{\purisa Ask for service}" {scale=.4, inner sep=2pt},%
+        % ""' {scale=.4, inner sep=2pt}
+      }},%
+    every node/.style={inner sep=0pt,align=center, minimum height=1.3cm}]
+    
+    \node [chain,label={-120,scale=.4,label distance=-9mm:{\boss}}] (trump) {\trump};
+    
+    \node [chain,label={left,scale=.4:{世\\界\\和\\平}},%
+    label={-120,scale=.4,label distance=-9mm:{\translator}},
+    ] (trmale) {\trmale};%
+    
+    \node [chain,label={-120,scale=.4,label distance=-9mm:{\secretary}}] (secmale) {\secmale};
+  }
+  
+  {[start chain=2 going below,%
+    every on chain/.style={join={by <-,decorate,%
+        %"" {scale=.4, inner sep=2pt},%
+        "{\purisa Provide service}"' {scale=.4, inner sep=2pt}}},%
+    every node/.style={inner sep=0pt,align=center, minimum height=1.3cm}]%
+
+    \node [chain,right=2.5cm of trump,%
+    label={-60,scale=.4,label distance=-9mm:{\boss}}] (kim) {\kim}%
+    edge [decorate,dashed,<->,"{\purisa Topic}" {scale=.5, tight}, "\protocol"' {scale=.5, tight}] (trump);%
+
+    \node [chain, label={right,scale=.4,xshift=-1em:{世\\界\\和\\平}},%
+    label={-60,scale=.4,label distance=-9mm:{\translator}}]%
+    (trfemale) {\trfemale}
+    edge [decorate,dashed,<->,"中文" {scale=.5, tight}, "\protocol"' {scale=.5, tight}] (trmale);%
+
+    \node [chain, label={-60,scale=.4,label distance=-9mm:{\secretary}}] (secfemale) {\secfemale}
+    edge [decorate,dashed,<->, "{\purisa Fax}" {scale=.5, tight}, "\protocol"' {scale=.5, tight}] (secmale);%
+  }
+  
+  \node [ellipse callout, callout absolute pointer={(kim.80)},
+  above right=5pt of kim, xshift=-15pt, scale=.4, draw] (wp) {\worldpeace};
+
+  \node [ellipse callout, callout absolute pointer={(trump.110)}, align=center,
+  above left=5pt of trump, xshift=10pt, scale=.4, draw] (wp) {\humor{World}\\\humor{peace!}};
+
+  \path [draw,->,decorate] (secmale) |- ($(secfemale.south)+(0,-3mm)$) -- (secfemale);
+
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

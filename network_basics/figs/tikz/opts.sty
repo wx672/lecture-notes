@@ -2,7 +2,11 @@
 \ProvidesPackage{opts}
 
 \RequirePackage{fullpage}
-\RequirePackage{wx672cjk}
+\RequirePackage{wx672fonts}
+
+\newCJKfontfamily\krfont{Noto Serif CJK KR}
+\newCJKfontfamily\cnfont{AiNiChuanYueRenHai}
+
 \RequirePackage{wx672tikz-external}
 \RequirePackage{tikz-uml}
 
@@ -12,19 +16,21 @@
 \renewcommand{\listfigurename}{List of Figures}
 \renewcommand{\figurename}{Fig.}
 
-%\tikzset{external/force remake}
 
-% \tikzset{%
-%   name node/.style={rectangle,draw,inner sep=3pt,node distance=3ex,minimum width=2.8em},%
-%   king/.style={name node,node distance=3ex,thick},%
-%   tbox/.style={rectangle,inner sep=0pt,node distance=0pt,scale=.7,align=left},%
-%   every label/.style={scale=.7,inner sep=0pt},%
-%   tuli/.style={rectangle,inner sep=2pt,node distance=.1ex,scale=.6,align=left},%
-%   dy/.style={name node,minimum width=2.8em,node distance=0pt},%
-%   blood/.style={->,dashed},%
-%   bloodr/.style={<-,dashed},%
-%   throne/.style={->,thick},%
-%   throner/.style={<-,thick},%
-%   unusual/.style={->,dotted,thick},%
-%   unusualr/.style={<-,dotted,thick},%
-% }
+% for trump-kim-en
+\newcommand\trump{\includegraphics[width=3em]{imgs/trump-kim1}}
+\newcommand\kim{\includegraphics[width=3em]{imgs/trump-kim2}}
+\newcommand\trmale{\includegraphics[width=3em]{imgs/trump-kim3}}
+\newcommand\trfemale{\includegraphics[width=3em]{imgs/trump-kim4}}
+\newcommand\secmale{\includegraphics[width=3em]{imgs/trump-kim5}}
+\newcommand\secfemale{\includegraphics[width=3em]{imgs/trump-kim5}}
+
+\newcommand\cnwp{{\cnfont 世\\界\\和\\平}}
+\newcommand\krwp{{\krfont 세계평화！}}
+\newcommand\enwp{\humor{World}\\\humor{peace!}}
+\newcommand\protocol{{\purisa Protocol}}
+\newcommand\boss{{\purisa Boss}}
+\newcommand\translator{{\purisa Translator}}
+\newcommand\secretary{{\purisa Secretary}}
+
+%\tikzset{external/force remake}
