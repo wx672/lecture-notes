@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2018-12-27 Thu 10:49 -->
+<!-- 2020-03-24 Tue 10:20 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Debian Installation Quick Guide</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="WANG Xiaolin">
-<link rel="stylesheet" href="https://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
-<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
+<link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -63,16 +62,16 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdb88070">1. UEFI</a></li>
-<li><a href="#org23536a6">2. Install a Debian minimal system</a></li>
-<li><a href="#org824300c">3. More than minimal</a>
+<li><a href="#org9ef3ff6">1. UEFI</a></li>
+<li><a href="#org4e53241">2. Install a Debian minimal system</a></li>
+<li><a href="#orgf6682c2">3. More than minimal</a>
 <ul>
-<li><a href="#orgb6676af">3.1. Configuration</a>
+<li><a href="#orgc0ba262">3.1. Configuration</a>
 <ul>
-<li><a href="#orga77e4f2">3.1.1. sudo</a></li>
-<li><a href="#orgad65582">3.1.2. dotfile</a></li>
-<li><a href="#orgc102064">3.1.3. Auto login</a></li>
-<li><a href="#org3d7bb55">3.1.4. Backlight</a></li>
+<li><a href="#org3f2b1e0">3.1.1. sudo</a></li>
+<li><a href="#orgc6c86ec">3.1.2. dotfile</a></li>
+<li><a href="#org1afd93a">3.1.3. Auto login</a></li>
+<li><a href="#org35dc40c">3.1.4. Backlight</a></li>
 </ul>
 </li>
 </ul>
@@ -81,8 +80,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgdb88070" class="outline-2">
-<h2 id="orgdb88070"><span class="section-number-2">1</span> UEFI</h2>
+<div id="outline-container-org9ef3ff6" class="outline-2">
+<h2 id="org9ef3ff6"><span class="section-number-2">1</span> UEFI</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 By the time I wrote this short installation guide <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun&gt;</span></span>,
@@ -113,8 +112,8 @@ especially <a href="https://www.debian.org/releases/stretch/amd64/ch03s06.html.e
 </div>
 </div>
 
-<div id="outline-container-org23536a6" class="outline-2">
-<h2 id="org23536a6"><span class="section-number-2">2</span> Install a Debian minimal system</h2>
+<div id="outline-container-org4e53241" class="outline-2">
+<h2 id="org4e53241"><span class="section-number-2">2</span> Install a Debian minimal system</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>Preparing a bootable USB stick.
@@ -131,8 +130,8 @@ Preparing the bootable USB stick is quite simple with a Debian machine.
 <pre class="example">
 sudo cp debian-9.5.0-amd64-netinst.iso /dev/sdX
 sudo sync
-
 </pre>
+
 <p>
 <b>Caution</b>
 </p>
@@ -161,8 +160,8 @@ Installation Guide</i></a>, especally the following sections:
 </div>
 </div>
 
-<div id="outline-container-org824300c" class="outline-2">
-<h2 id="org824300c"><span class="section-number-2">3</span> More than minimal</h2>
+<div id="outline-container-orgf6682c2" class="outline-2">
+<h2 id="orgf6682c2"><span class="section-number-2">3</span> More than minimal</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 You can't expect too much from a minimal system, right? So, let there be more
@@ -176,8 +175,8 @@ Now, you need to be <i>root</i> to install software. Just type at the prompt:
 </p>
 <pre class="example">
 su
-
 </pre>
+
 <p>
 followed by the <i>root password</i> which was set during the minimal system
 installation. If the password was inputted correctly, now the command line prompt
@@ -188,8 +187,8 @@ Plug in the Ethernet cable, and check if the network is ok. Type at the <code>#<
 </p>
 <pre class="example">
 ip a
-
 </pre>
+
 <p>
 In the screen output, you should find a network card named <code>ethX</code> or <code>enpXsY</code> where <code>X</code>
 and <code>Y</code> are small numbers. For example, on my Debian laptop I got something like the
@@ -228,8 +227,8 @@ Type the following command to request an IP address from the local DHCP server:
 </p>
 <pre class="example">
 dhclient enpXsY
-
 </pre>
+
 <p>
 <b>Caution:</b>  make sure you replace the <code>X</code> and <code>Y</code> with proper numbers.
 </p></li>
@@ -238,8 +237,7 @@ dhclient enpXsY
 Use <code>ping</code> command to make sure your netwrk is working well. For example,
 </p>
 <pre class="example">
-ping cs2.swfu.edu.cn
-
+ping cs6.swfu.edu.cn
 </pre></li>
 </ol></li>
 
@@ -248,8 +246,8 @@ Edit <code>/etc/apt/sources.list</code> file.
 </p>
 <pre class="example">
 nano /etc/apt/sources.list
-
 </pre>
+
 <p>
 You just need the following 3 lines in this file:
 </p>
@@ -257,8 +255,8 @@ You just need the following 3 lines in this file:
 deb http://mirrors.163.com/debian testing main non-free contrib
 deb http://mirrors.163.com/debian testing-updates main non-free contrib
 deb http://mirrors.163.com/debian testing-proposed-updates main non-free contrib
-
 </pre>
+
 <p>
 Use <code>Ctrl-o</code> to save, and <code>Ctrl-x</code> to quit nano.
 </p></li>
@@ -267,8 +265,8 @@ Now, type the following command to upgrade your still minimal Debian system:
 </p>
 <pre class="example">
 apt update &amp;&amp; apt dist-upgrade
-
 </pre>
+
 <p>
 This step takes usually about 20 minutes if your network is not too slow.
 </p></li>
@@ -280,21 +278,16 @@ should type <code>exit</code> to quit the root shell. When you see the <code>$</
 now download the software list file using <code>wget</code>:      
 </p>
 <pre class="example">
-wget http://cs2.swfu.edu.cn/~wx672/debian-install/list.laptop
-
+wget http://cs6.swfu.edu.cn/~wx672/debian-install/list.laptop
 </pre></li>
 <li><p>
 Install all the software packages listed in the file in batch.
 </p>
 <pre class="example">
 su
-apt install `cat list.laptop`
-
+apt install $(cat list.laptop)
 </pre>
-<p>
-<b>Caution:</b> See the single quote mark? It's a <code>`</code> (around the uppper left corner on
-your keyboard), not a <code>'</code> (the one next to the <code>Enter</code> key).
-</p>
+
 
 <p>
 This step takes about an hour with a speedy network connection.
@@ -308,12 +301,12 @@ you are not sure, just type <code>Enter</code> to let it go.
 </ol>
 </div>
 
-<div id="outline-container-orgb6676af" class="outline-3">
-<h3 id="orgb6676af"><span class="section-number-3">3.1</span> Configuration</h3>
+<div id="outline-container-orgc0ba262" class="outline-3">
+<h3 id="orgc0ba262"><span class="section-number-3">3.1</span> Configuration</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-orga77e4f2" class="outline-4">
-<h4 id="orga77e4f2"><span class="section-number-4">3.1.1</span> sudo</h4>
+<div id="outline-container-org3f2b1e0" class="outline-4">
+<h4 id="org3f2b1e0"><span class="section-number-4">3.1.1</span> sudo</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 If you don't want to be asked for password whenever using <code>sudo</code>, you can do the following:
@@ -324,8 +317,8 @@ Working as <i>root</i>
 </p>
 <pre class="example">
 su
-
 </pre>
+
 <p>
 input root password.
 </p></li>
@@ -334,8 +327,8 @@ Create a new file in <code>/etc/sudoers.d/</code> directory.
 </p>
 <pre class="example">
 nano /etc/sudoers.d/your-user-name
-
 </pre>
+
 <p>
 <b>Caution:</b> Replace <code>your-user-name</code> with your real username.
 </p></li>
@@ -344,8 +337,8 @@ Add the following line into the file you are editing:
 </p>
 <pre class="example">
 your-user-name  ALL = NOPASSWD: ALL
-
 </pre>
+
 <p>
 <b>Caution:</b> Replace <code>your-user-name</code> with your real username.
 </p>
@@ -358,21 +351,19 @@ Change the mode of that file to <code>0440</code>.
 </p>
 <pre class="example">
 chmod 0440 /etc/sudoers.d/your-user-name
-
 </pre></li>
 <li><p>
 Quit root shell
 </p>
 <pre class="example">
 exit
-
 </pre></li>
 <li>Now, try <code>sudo ls</code>, you shouldn't be asked for password any longer.</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-orgad65582" class="outline-4">
-<h4 id="orgad65582"><span class="section-number-4">3.1.2</span> dotfile</h4>
+<div id="outline-container-orgc6c86ec" class="outline-4">
+<h4 id="orgc6c86ec"><span class="section-number-4">3.1.2</span> dotfile</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <p>
 Now, your Debian system is almost the same as the lab ones, except that you haven't done
@@ -381,10 +372,10 @@ you can copy my ready-to-use config files via git. As a <i>non-root</i> user, do
 </p>
 <pre class="example">
 cd
-git clone http://cs2.swfu.edu.cn/~wx672/dotfile/.git
+git clone https://github.com/wx672/dotfile.git
 ls
-
 </pre>
+
 <p>
 Now you should see a new directory <code>dotfile</code> sitting in your <code>$HOME</code> directory with all
 necessory config files in it. Still some more things to do&#x2026;
@@ -395,14 +386,12 @@ Make sure you are in your <code>$HOME</code>.
 </p>
 <pre class="example">
 cd
-
 </pre></li>
 <li><p>
 Remove some old files.
 </p>
 <pre class="example">
 rm -f .bash*
-
 </pre></li>
 <li><p>
 Link the config files in directory <code>dotfile</code> to your <code>$HOME</code>.
@@ -411,8 +400,8 @@ Link the config files in directory <code>dotfile</code> to your <code>$HOME</cod
 ln -sf dotfile/dot.* ./
 ln -sf dotfile/help/dot.* ./
 ls
-
 </pre>
+
 <p>
 You should find that there are lots of <code>dot.</code> prefixed files in your <code>$HOME</code> directory.
 </p></li>
@@ -422,8 +411,8 @@ Rename these <code>dot.*</code> files.
 <pre class="example">
 rename 's/dot//' dot.*
 ls -al
-
 </pre>
+
 <p>
 All the <code>dot.*</code> files should be replaced by <code>.</code> prefixed files now.
 </p></li>
@@ -431,9 +420,9 @@ All the <code>dot.*</code> files should be replaced by <code>.</code> prefixed f
 Grab my wallpaper.
 </p>
 <pre class="example">
-$ wget -O .keys.png http://cs2.swfu.edu.cn/~wx672/tex-fun/keys/keys-1.png
-
+$ wget -O .keys.png https://cs6.swfu.edu.cn/~wx672/debian-install/keys.png
 </pre>
+
 <p>
 After reboot (don't do it now) you should be able to bring up this wallpaper by typing
 <code>Super-F1</code>. (<code>Super</code> key can be found at the lower left area of your keyboard. It's
@@ -443,19 +432,18 @@ usually marked as a <code>Win</code> key.)
 Grab my Emacs packages.
 </p>
 <pre class="example">
-wget http://cs2.swfu.edu.cn/~wx672/debian-install/elpa.tgz
+wget http://cs6.swfu.edu.cn/~wx672/debian-install/elpa.tgz
 mv elpa.tgz ~/.emacs.d/
 cd ~/.emacs.d
 tar zxf elpa.tgz
-
 </pre></li>
 <li><p>
 Emacs test run
 </p>
 <pre class="example">
 emacs --debug-init
-
 </pre>
+
 <p>
 If you see error messages, let me know (wx672ster@gmail.com).
 </p></li>
@@ -463,8 +451,8 @@ If you see error messages, let me know (wx672ster@gmail.com).
 </div>
 </div>
 
-<div id="outline-container-orgc102064" class="outline-4">
-<h4 id="orgc102064"><span class="section-number-4">3.1.3</span> Auto login</h4>
+<div id="outline-container-org1afd93a" class="outline-4">
+<h4 id="org1afd93a"><span class="section-number-4">3.1.3</span> Auto login</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <p>
 If you don't want to input username/password every time when you start your system, you
@@ -473,8 +461,8 @@ can do like this:
 <pre class="example">
 sudo cp -r ~/dotfile/etc/systemd/system/getty@tty1.service.d/ /etc/systemd/system/
 sudo nano /etc/systemd/system/getty@tty1.service.d/override.conf
-
 </pre>
+
 <p>
 There are just three lines in this file:
 </p>
@@ -482,8 +470,8 @@ There are just three lines in this file:
 [Service]
 ExecStart=
 ExecStart=-/sbin/agetty --autologin wx672 --noclear %I $TERM
-
 </pre>
+
 <p>
 <b>Caution:</b> Replace <code>wx672</code> with your own username.
 </p>
@@ -493,8 +481,8 @@ Now, it's time to reboot your system.
 </p>
 <pre class="example">
 sudo reboot
-
 </pre>
+
 
 <p>
 Now what? Well, it actually depends on what you want to do with your new
@@ -503,8 +491,8 @@ don't need it.
 </p>
 </div>
 </div>
-<div id="outline-container-org3d7bb55" class="outline-4">
-<h4 id="org3d7bb55"><span class="section-number-4">3.1.4</span> Backlight</h4>
+<div id="outline-container-org35dc40c" class="outline-4">
+<h4 id="org35dc40c"><span class="section-number-4">3.1.4</span> Backlight</h4>
 <div class="outline-text-4" id="text-3-1-4">
 <p>
 Usually there are function keys for changing screen backlight on laptops. If these keys
@@ -518,8 +506,8 @@ use <code>brightnessctl</code> to change backlight at the command line
 <pre class="example">
 brightnessctl set 20%-
 brightnessctl set +20%
-
 </pre>
+
 <p>
 if the above commands work, now you can&#x2026;
 </p></li>
@@ -530,8 +518,8 @@ related to <code>brightnessctl</code> already in the file like the following:
 <pre class="example">
 ;"XF86MonBrightnessDown" '(system "brightnessctl set 10%-")
 ;"XF86MonBrightnessUp" '(system "brightnessctl set +10%")
-
 </pre>
+
 <p>
 You just need to uncomment these two lines to make them effective. That's to say remove
 the semicolon at the beginning of the lines so that they look like the following:
@@ -539,7 +527,6 @@ the semicolon at the beginning of the lines so that they look like the following
 <pre class="example">
 "XF86MonBrightnessDown" '(system "brightnessctl set 10%-")
 "XF86MonBrightnessUp" '(system "brightnessctl set +10%")
-
 </pre></li>
 <li>Press <code>Ctrl-Alt-Backspace</code> to restart X. These keys should function well now.</li>
 </ol>
@@ -550,7 +537,7 @@ the semicolon at the beginning of the lines so that they look like the following
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: WANG Xiaolin</p>
-<p class="date">Created: 2018-12-27 Thu 10:49</p>
+<p class="date">Created: 2020-03-24 Tue 10:20</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

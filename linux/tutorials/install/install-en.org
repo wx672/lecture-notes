@@ -95,7 +95,7 @@ application programs.
       *Caution:*  make sure you replace the =X= and =Y= with proper numbers.
    3) Now, type command =ip a= again to check if your card got an IP address. If so,
    4) Use =ping= command to make sure your netwrk is working well. For example,
-      : ping cs2.swfu.edu.cn
+      : ping cs6.swfu.edu.cn
 
 4. Edit =/etc/apt/sources.list= file.
    : nano /etc/apt/sources.list
@@ -111,12 +111,10 @@ application programs.
    1) Get the software list. *Caution:* /Do NOT be ROOT to do this step!/ That means you
       should type =exit= to quit the root shell. When you see the =$= prompt, you can
       now download the software list file using =wget=:      
-      : wget http://cs2.swfu.edu.cn/~wx672/debian-install/list.laptop
+      : wget http://cs6.swfu.edu.cn/~wx672/debian-install/list.laptop
    2) Install all the software packages listed in the file in batch.
       : su
-      : apt install `cat list.laptop`
-      *Caution:* See the single quote mark? It's a =`= (around the uppper left corner on
-      your keyboard), not a ='= (the one next to the =Enter= key).
+      : apt install $(cat list.laptop)
 
       This step takes about an hour with a speedy network connection.
 
@@ -148,7 +146,7 @@ Now, your Debian system is almost the same as the lab ones, except that you have
 configurations for those software you just installed. To make the configuration easier,
 you can copy my ready-to-use config files via git. As a /non-root/ user, do:
 : cd
-: git clone http://cs2.swfu.edu.cn/~wx672/dotfile/.git
+: git clone https://github.com/wx672/dotfile.git
 : ls
 Now you should see a new directory =dotfile= sitting in your =$HOME= directory with all
 necessory config files in it. Still some more things to do...
@@ -166,12 +164,12 @@ necessory config files in it. Still some more things to do...
    : ls -al
    All the =dot.*= files should be replaced by =.= prefixed files now.
 5) Grab my wallpaper.
-   : $ wget -O .keys.png http://cs2.swfu.edu.cn/~wx672/tex-fun/keys/keys-1.png
+   : $ wget -O .keys.png https://cs6.swfu.edu.cn/~wx672/debian-install/keys.png
    After reboot (don't do it now) you should be able to bring up this wallpaper by typing
    =Super-F1=. (=Super= key can be found at the lower left area of your keyboard. It's
    usually marked as a =Win= key.)
 6) Grab my Emacs packages.
-   : wget http://cs2.swfu.edu.cn/~wx672/debian-install/elpa.tgz
+   : wget http://cs6.swfu.edu.cn/~wx672/debian-install/elpa.tgz
    : mv elpa.tgz ~/.emacs.d/
    : cd ~/.emacs.d
    : tar zxf elpa.tgz

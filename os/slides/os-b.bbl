@@ -227,7 +227,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Interrupt --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Interrupt --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -263,7 +263,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{System call --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{System call --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -304,7 +304,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Process (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Process (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -340,7 +340,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Thread (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Thread (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -376,7 +376,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Process control block --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Process control block --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -416,7 +416,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Peterson's algorithm --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Peterson's algorithm --- Wikipedia, The Free Encyclopedia}
       \field{usera}{Z}
       \field{userd}{english}
       \field{userf}{english}
@@ -451,7 +451,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Inter-process communication --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Inter-process communication --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -487,7 +487,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Semaphore (programming) --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Semaphore (programming) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -527,7 +527,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Scheduling (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Scheduling (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -567,7 +567,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Deadlock --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Deadlock --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -608,7 +608,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Memory management --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Memory management --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -644,7 +644,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Virtual memory --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Virtual memory --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -685,7 +685,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{File system --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{File system --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -721,7 +721,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Computer file --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Computer file --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -757,7 +757,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Inode --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Inode --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -793,7 +793,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Ext2 --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Ext2 --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -829,7 +829,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Virtual file system --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Virtual file system --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
