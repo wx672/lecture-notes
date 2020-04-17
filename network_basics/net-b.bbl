@@ -48,6 +48,7 @@
       \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{edition}{5}
       \field{isbn}{9780132126953}
       \field{langid}{english}
       \field{title}{Computer Networks}
@@ -58,10 +59,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/29/calibre
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/29/calibre
       \endverb
       \keyw{tanenbaum2011computer}
     \endentry
@@ -185,7 +186,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Transmission Control Protocol --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Transmission Control Protocol --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -221,7 +222,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{User Datagram Protocol --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{User Datagram Protocol --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -257,7 +258,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Checksum --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Checksum --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -281,19 +282,16 @@
            giveni={J\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
       \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
@@ -301,101 +299,33 @@
       \strng{authorbibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
       \strng{authornamehash}{22c8db2c59b26571094b7dab5cefad0e}
       \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
-      \field{extraname}{1}
       \field{sortinit}{4}
       \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{RFC 793 (Internet Standard)}
-      \field{issn}{2070-1721}
+      \field{howpublished}{RFC 793 (INTERNET STANDARD)}
       \field{langid}{english}
       \field{month}{9}
       \field{note}{Updated by RFCs 1122, 3168, 6093, 6528}
       \field{number}{793}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{Transmission Control Protocol}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{1981}
       \field{dateera}{ce}
       \true{nocite}
-      \field{pages}{1\bibrangedash 91}
-      \range{pages}{91}
-      \verb{doi}
-      \verb 10.17487/RFC0793
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc793.txt
+      \verb http://www.ietf.org/rfc/rfc793.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc793.txt
+      \verb http://www.ietf.org/rfc/rfc793.txt
       \endverb
-      \keyw{TCP,TCP,Updated by RFCs 1122,3168,6093,6528}
-    \endentry
-    \entry{rfc768}{online}{}
-      \name{author}{1}{}{%
-        {{hash=22c8db2c59b26571094b7dab5cefad0e}{%
-           family={Postel},
-           familyi={P\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{bibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{authorbibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{authornamehash}{22c8db2c59b26571094b7dab5cefad0e}
-      \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
-      \field{extraname}{2}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{RFC 768 (Internet Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{8}
-      \field{number}{768}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{User Datagram Protocol}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1980}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 3}
-      \range{pages}{3}
-      \verb{doi}
-      \verb 10.17487/RFC0768
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc768.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc768.txt
-      \endverb
-      \keyw{UDP,UDP}
+      \keyw{rfc793,Updated by RFCs 1122,3168,6093,6528}
     \endentry
   \enddatalist
+  \missing{rfc768}
 \endrefsection
 
 \refsection{11}
@@ -420,7 +350,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Network socket --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Network socket --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -498,7 +428,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Hypertext Transfer Protocol --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Hypertext Transfer Protocol --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -534,7 +464,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{HTTP/2 --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{HTTP/2 --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -570,7 +500,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{HTTP cookie --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{HTTP cookie --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -606,7 +536,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Stateless protocol --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Stateless protocol --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -642,7 +572,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{HTML --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{HTML --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -678,7 +608,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{LAMP (software bundle) --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{LAMP (software bundle) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -693,236 +623,10 @@
       \endverb
       \keyw{wiki:lamp}
     \endentry
-    \entry{rfc2616}{online}{}
-      \name{author}{7}{}{%
-        {{hash=a6155135a306bddfc30cc4f52d1924e6}{%
-           family={Fielding},
-           familyi={F\bibinitperiod},
-           given={R.},
-           giveni={R\bibinitperiod}}}%
-        {{hash=4991b9e5bfacbd86d4f778b16c57f9fa}{%
-           family={Gettys},
-           familyi={G\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-        {{hash=678f2bf9948e77716864ffb3316b8959}{%
-           family={Mogul},
-           familyi={M\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-        {{hash=b5c17667af68a58038b624101ab91e1f}{%
-           family={Frystyk},
-           familyi={F\bibinitperiod},
-           given={H.},
-           giveni={H\bibinitperiod}}}%
-        {{hash=6c0c9e27a4c2f882efbbe395bd186936}{%
-           family={Masinter},
-           familyi={M\bibinitperiod},
-           given={L.},
-           giveni={L\bibinitperiod}}}%
-        {{hash=b02d4916a516d9ce8550642ddd60faaa}{%
-           family={Leach},
-           familyi={L\bibinitperiod},
-           given={P.},
-           giveni={P\bibinitperiod}}}%
-        {{hash=89ce6361749d05e9c8f47cae979594e9}{%
-           family={Berners-Lee},
-           familyi={B\bibinithyphendelim L\bibinitperiod},
-           given={T.},
-           giveni={T\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{55d7afa00010e0ea88cf7be388134e11}
-      \strng{fullhash}{501d697aaf6038399aa1ef25e9bc5e35}
-      \strng{bibnamehash}{039e9b5d7cff4e7f534cc90b23b8d6a4}
-      \strng{authorbibnamehash}{039e9b5d7cff4e7f534cc90b23b8d6a4}
-      \strng{authornamehash}{55d7afa00010e0ea88cf7be388134e11}
-      \strng{authorfullhash}{501d697aaf6038399aa1ef25e9bc5e35}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{HTTP has been in use by the World-Wide Web global information initiative since 1990. This specification defines the protocol referred to as ``HTTP/1.1'', and is an update to RFC 2068. [STANDARDS-TRACK]}
-      \field{howpublished}{RFC 2616 (Draft Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{6}
-      \field{note}{Obsoleted by RFCs 7230, 7231, 7232, 7233, 7234, 7235, updated by RFCs 2817, 5785, 6266, 6585}
-      \field{number}{2616}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Hypertext Transfer Protocol -- HTTP/1.1}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1999}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 176}
-      \range{pages}{176}
-      \verb{doi}
-      \verb 10.17487/RFC2616
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc2616.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc2616.txt
-      \endverb
-      \keyw{HTTP,World Wide Web,WWW,hypermedia,Obsoleted by RFCs 7230,7231,7232,7233,7234,7235,updated by RFCs 2817,5785,6266,6585}
-    \endentry
-    \entry{rfc7540}{online}{}
-      \name{author}{3}{}{%
-        {{hash=515f14596b2eb08a80cd2546b60311c0}{%
-           family={Belshe},
-           familyi={B\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
-        {{hash=a2761c0b0b641b80f08bb40ed41b232d}{%
-           family={Peon},
-           familyi={P\bibinitperiod},
-           given={R.},
-           giveni={R\bibinitperiod}}}%
-        {{hash=ad90158683de73b665d9fed14cadc12c}{%
-           family={{Thomson (Ed.)}},
-           familyi={T\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{a9c5a8690840379b342f4c40c784986b}
-      \strng{fullhash}{f4e4591f57515df8b586de202ca12def}
-      \strng{bibnamehash}{f4e4591f57515df8b586de202ca12def}
-      \strng{authorbibnamehash}{f4e4591f57515df8b586de202ca12def}
-      \strng{authornamehash}{a9c5a8690840379b342f4c40c784986b}
-      \strng{authorfullhash}{f4e4591f57515df8b586de202ca12def}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This specification describes an optimized expression of the semantics of the Hypertext Transfer Protocol (HTTP), referred to as HTTP version 2 (HTTP/2). HTTP/2 enables a more efficient use of network resources and a reduced perception of latency by introducing header field compression and allowing multiple concurrent exchanges on the same connection. It also introduces unsolicited push of representations from servers to clients. This specification is an alternative to, but does not obsolete, the HTTP/1.1 message syntax. HTTP's existing semantics remain unchanged.}
-      \field{howpublished}{RFC 7540 (Proposed Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{5}
-      \field{number}{7540}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Hypertext Transfer Protocol Version 2 (HTTP/2)}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 96}
-      \range{pages}{96}
-      \verb{doi}
-      \verb 10.17487/RFC7540
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc7540.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc7540.txt
-      \endverb
-      \keyw{HTTP,SPDY,Web}
-    \endentry
-    \entry{rfc7541}{online}{}
-      \name{author}{2}{}{%
-        {{hash=a2761c0b0b641b80f08bb40ed41b232d}{%
-           family={Peon},
-           familyi={P\bibinitperiod},
-           given={R.},
-           giveni={R\bibinitperiod}}}%
-        {{hash=6b6d447a64bf695bec218cb63558d3a0}{%
-           family={Ruellan},
-           familyi={R\bibinitperiod},
-           given={H.},
-           giveni={H\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{5e4d3e404b30d3e985b17cfbe05b7c12}
-      \strng{fullhash}{56e9b23c28441d6690c913bd94dbfa9e}
-      \strng{bibnamehash}{56e9b23c28441d6690c913bd94dbfa9e}
-      \strng{authorbibnamehash}{56e9b23c28441d6690c913bd94dbfa9e}
-      \strng{authornamehash}{5e4d3e404b30d3e985b17cfbe05b7c12}
-      \strng{authorfullhash}{56e9b23c28441d6690c913bd94dbfa9e}
-      \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This specification defines HPACK, a compression format for efficiently representing HTTP header fields, to be used in HTTP/2.}
-      \field{howpublished}{RFC 7541 (Proposed Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{5}
-      \field{number}{7541}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{HPACK: Header Compression for HTTP/2}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 55}
-      \range{pages}{55}
-      \verb{doi}
-      \verb 10.17487/RFC7541
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc7541.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc7541.txt
-      \endverb
-      \keyw{HTTP,Header}
-    \endentry
   \enddatalist
+  \missing{rfc2616}
+  \missing{rfc7540}
+  \missing{rfc7541}
 \endrefsection
 
 \refsection{13}
@@ -947,7 +651,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Domain Name System --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Domain Name System --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -962,133 +666,9 @@
       \endverb
       \keyw{wiki:dns}
     \endentry
-    \entry{rfc1034}{online}{}
-      \name{author}{1}{}{%
-        {{hash=ce74bc1d31bbd7df2d2472f6fb53cb36}{%
-           family={Mockapetris},
-           familyi={M\bibinitperiod},
-           given={P.V.},
-           giveni={P\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \strng{fullhash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \strng{bibnamehash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \strng{authorbibnamehash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \strng{authornamehash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \strng{authorfullhash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \field{extraname}{1}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This RFC is the revised basic definition of The Domain Name System. It obsoletes RFC-882. This memo describes the domain style names and their used for host address look up and electronic mail forwarding. It discusses the clients and servers in the domain name system and the protocol used between them.}
-      \field{howpublished}{RFC 1034 (Internet Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{11}
-      \field{note}{Updated by RFCs 1101, 1183, 1348, 1876, 1982, 2065, 2181, 2308, 2535, 4033, 4034, 4035, 4343, 4035, 4592, 5936, 8020}
-      \field{number}{1034}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Domain names - concepts and facilities}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1987}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 55}
-      \range{pages}{55}
-      \verb{doi}
-      \verb 10.17487/RFC1034
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc1034.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc1034.txt
-      \endverb
-      \keyw{DOMAIN,Updated by RFCs 1101,1183,1348,1876,1982,2065,2181,2308,2535,4033,4034,4035,4343,4035,4592,5936,8020}
-    \endentry
-    \entry{rfc1035}{online}{}
-      \name{author}{1}{}{%
-        {{hash=ce74bc1d31bbd7df2d2472f6fb53cb36}{%
-           family={Mockapetris},
-           familyi={M\bibinitperiod},
-           given={P.V.},
-           giveni={P\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \strng{fullhash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \strng{bibnamehash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \strng{authorbibnamehash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \strng{authornamehash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \strng{authorfullhash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \field{extraname}{2}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This RFC is the revised specification of the protocol and format used in the implementation of the Domain Name System. It obsoletes RFC-883. This memo documents the details of the domain name client - server communication.}
-      \field{howpublished}{RFC 1035 (Internet Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{11}
-      \field{note}{Updated by RFCs 1101, 1183, 1348, 1876, 1982, 1995, 1996, 2065, 2136, 2181, 2137, 2308, 2535, 2673, 2845, 3425, 3658, 4033, 4034, 4035, 4343, 5936, 5966, 6604, 7766}
-      \field{number}{1035}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Domain names - implementation and specification}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1987}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 55}
-      \range{pages}{55}
-      \verb{doi}
-      \verb 10.17487/RFC1035
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc1035.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc1035.txt
-      \endverb
-      \keyw{DOMAIN,DNS,Updated by RFCs 1101,1183,1348,1876,1982,1995,1996,2065,2136,2181,2137,2308,2535,2673,2845,3425,3658,4033,4034,4035,4343,5936,5966,6604,7766}
-    \endentry
   \enddatalist
+  \missing{rfc1034}
+  \missing{rfc1035}
 \endrefsection
 
 \refsection{14}
@@ -1114,7 +694,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Simple Mail Transfer Protocol --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Simple Mail Transfer Protocol --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1150,7 +730,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Post Office Protocol --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Post Office Protocol --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1186,7 +766,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Internet Message Access Protocol --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Internet Message Access Protocol --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1222,7 +802,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{MIME --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{MIME --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1237,265 +817,11 @@
       \endverb
       \keyw{wiki:mime}
     \endentry
-    \entry{rfc2821}{online}{}
-      \name{author}{1}{}{%
-        {{hash=6ecfb9bd6542c3f2a6f2aa09dda01429}{%
-           family={{Klensin (Ed.)}},
-           familyi={K\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{6ecfb9bd6542c3f2a6f2aa09dda01429}
-      \strng{fullhash}{6ecfb9bd6542c3f2a6f2aa09dda01429}
-      \strng{bibnamehash}{6ecfb9bd6542c3f2a6f2aa09dda01429}
-      \strng{authorbibnamehash}{6ecfb9bd6542c3f2a6f2aa09dda01429}
-      \strng{authornamehash}{6ecfb9bd6542c3f2a6f2aa09dda01429}
-      \strng{authorfullhash}{6ecfb9bd6542c3f2a6f2aa09dda01429}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This document is a self-contained specification of the basic protocol for the Internet electronic mail transport. [STANDARDS-TRACK]}
-      \field{howpublished}{RFC 2821 (Proposed Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{4}
-      \field{note}{Obsoleted by RFC 5321, updated by RFC 5336}
-      \field{number}{2821}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Simple Mail Transfer Protocol}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2001}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 79}
-      \range{pages}{79}
-      \verb{doi}
-      \verb 10.17487/RFC2821
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc2821.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc2821.txt
-      \endverb
-      \keyw{SMTP,Obsoleted by RFC 5321,updated by RFC 5336}
-    \endentry
-    \entry{rfc1939}{online}{}
-      \name{author}{2}{}{%
-        {{hash=f93b7a0a85f31b40ea6d934070d265fa}{%
-           family={Myers},
-           familyi={M\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-        {{hash=caadcd22dff831d965b49be4bbf93133}{%
-           family={Rose},
-           familyi={R\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{0694a944905ed5fc1cbfde95aaa3f56c}
-      \strng{fullhash}{56da38c5dc232de47560c80269694729}
-      \strng{bibnamehash}{56da38c5dc232de47560c80269694729}
-      \strng{authorbibnamehash}{56da38c5dc232de47560c80269694729}
-      \strng{authornamehash}{0694a944905ed5fc1cbfde95aaa3f56c}
-      \strng{authorfullhash}{56da38c5dc232de47560c80269694729}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{The Post Office Protocol - Version 3 (POP3) is intended to permit a workstation to dynamically access a maildrop on a server host in a useful fashion. [STANDARDS-TRACK]}
-      \field{howpublished}{RFC 1939 (Internet Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{5}
-      \field{note}{Updated by RFCs 1957, 2449, 6186, 8314}
-      \field{number}{1939}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Post Office Protocol - Version 3}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1996}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 23}
-      \range{pages}{23}
-      \verb{doi}
-      \verb 10.17487/RFC1939
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc1939.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc1939.txt
-      \endverb
-      \keyw{POP3,POP3,Updated by RFCs 1957,2449,6186,8314}
-    \endentry
-    \entry{rfc3501}{online}{}
-      \name{author}{1}{}{%
-        {{hash=55811a2868ed9d11d73d45edf58c77ff}{%
-           family={Crispin},
-           familyi={C\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{55811a2868ed9d11d73d45edf58c77ff}
-      \strng{fullhash}{55811a2868ed9d11d73d45edf58c77ff}
-      \strng{bibnamehash}{55811a2868ed9d11d73d45edf58c77ff}
-      \strng{authorbibnamehash}{55811a2868ed9d11d73d45edf58c77ff}
-      \strng{authornamehash}{55811a2868ed9d11d73d45edf58c77ff}
-      \strng{authorfullhash}{55811a2868ed9d11d73d45edf58c77ff}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{The Internet Message Access Protocol, Version 4rev1 (IMAP4rev1) allows a client to access and manipulate electronic mail messages on a server. IMAP4rev1 permits manipulation of mailboxes (remote message folders) in a way that is functionally equivalent to local folders. IMAP4rev1 also provides the capability for an offline client to resynchronize with the server. IMAP4rev1 includes operations for creating, deleting, and renaming mailboxes, checking for new messages, permanently removing messages, setting and clearing flags, RFC 2822 and RFC 2045 parsing, searching, and selective fetching of message attributes, texts, and portions thereof. Messages in IMAP4rev1 are accessed by the use of numbers. These numbers are either message sequence numbers or unique identifiers. IMAP4rev1 supports a single server. A mechanism for accessing configuration information to support multiple IMAP4rev1 servers is discussed in RFC 2244. IMAP4rev1 does not specify a means of posting mail; this function is handled by a mail transfer protocol such as RFC 2821. [STANDARDS-TRACK]}
-      \field{howpublished}{RFC 3501 (Proposed Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{3}
-      \field{note}{Updated by RFCs 4466, 4469, 4551, 5032, 5182, 5738, 6186, 6858, 7817, 8314, 8437, 8474}
-      \field{number}{3501}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{INTERNET MESSAGE ACCESS PROTOCOL - VERSION 4rev1}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2003}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 108}
-      \range{pages}{108}
-      \verb{doi}
-      \verb 10.17487/RFC3501
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc3501.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc3501.txt
-      \endverb
-      \keyw{IMAPv4,imap,imapv4rev1,Updated by RFCs 4466,4469,4551,5032,5182,5738,6186,6858,7817,8314,8437,8474}
-    \endentry
-    \entry{rfc2045}{online}{}
-      \name{author}{2}{}{%
-        {{hash=c577f2f6b942928459a1a66bf012f813}{%
-           family={Freed},
-           familyi={F\bibinitperiod},
-           given={N.},
-           giveni={N\bibinitperiod}}}%
-        {{hash=e614af73ef2303af7d285e39fb0b6378}{%
-           family={Borenstein},
-           familyi={B\bibinitperiod},
-           given={N.},
-           giveni={N\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{78377879a1f343cd6224005dab7126b6}
-      \strng{fullhash}{24f978a4c8b84f8fd939ff2a624421e1}
-      \strng{bibnamehash}{24f978a4c8b84f8fd939ff2a624421e1}
-      \strng{authorbibnamehash}{24f978a4c8b84f8fd939ff2a624421e1}
-      \strng{authornamehash}{78377879a1f343cd6224005dab7126b6}
-      \strng{authorfullhash}{24f978a4c8b84f8fd939ff2a624421e1}
-      \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This initial document specifies the various headers used to describe the structure of MIME messages. [STANDARDS-TRACK]}
-      \field{howpublished}{RFC 2045 (Draft Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{11}
-      \field{note}{Updated by RFCs 2184, 2231, 5335, 6532}
-      \field{number}{2045}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1996}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 31}
-      \range{pages}{31}
-      \verb{doi}
-      \verb 10.17487/RFC2045
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc2045.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc2045.txt
-      \endverb
-      \keyw{MIME,media,types,headers,Updated by RFCs 2184,2231,5335,6532}
-    \endentry
   \enddatalist
+  \missing{rfc1939}
+  \missing{rfc2045}
+  \missing{rfc2821}
+  \missing{rfc3501}
 \endrefsection
 
 \refsection{15}
@@ -1520,7 +846,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{File Transfer Protocol --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{File Transfer Protocol --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1535,135 +861,9 @@
       \endverb
       \keyw{wiki:ftp}
     \endentry
-    \entry{rfc959}{online}{}
-      \name{author}{2}{}{%
-        {{hash=22c8db2c59b26571094b7dab5cefad0e}{%
-           family={Postel},
-           familyi={P\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-        {{hash=207069055be2efce2eb8e018d953a86c}{%
-           family={Reynolds},
-           familyi={R\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{e0bf8451aa6df82cd740fdf9091cefd6}
-      \strng{fullhash}{330601ee94b8cb3e3cf8031af576dd69}
-      \strng{bibnamehash}{330601ee94b8cb3e3cf8031af576dd69}
-      \strng{authorbibnamehash}{330601ee94b8cb3e3cf8031af576dd69}
-      \strng{authornamehash}{e0bf8451aa6df82cd740fdf9091cefd6}
-      \strng{authorfullhash}{330601ee94b8cb3e3cf8031af576dd69}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This memo is the official specification of the File Transfer Protocol (FTP) for the DARPA Internet community. The primary intent is to clarify and correct the documentation of the FTP specification, not to change the protocol. The following new optional commands are included in this edition of the specification: Change to Parent Directory (CDUP), Structure Mount (SMNT), Store Unique (STOU), Remove Directory (RMD), Make Directory (MKD), Print Directory (PWD), and System (SYST). Note that this specification is compatible with the previous edition.}
-      \field{howpublished}{RFC 959 (Internet Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{10}
-      \field{note}{Updated by RFCs 2228, 2640, 2773, 3659, 5797, 7151}
-      \field{number}{959}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{File Transfer Protocol}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1985}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 69}
-      \range{pages}{69}
-      \verb{doi}
-      \verb 10.17487/RFC0959
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc959.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc959.txt
-      \endverb
-      \keyw{FTP,Updated by RFCs 2228,2640,2773,3659,5797,7151}
-    \endentry
-    \entry{rfc1579}{online}{}
-      \name{author}{1}{}{%
-        {{hash=d2cbac2be17ec2c4a3786792786dce43}{%
-           family={Bellovin},
-           familyi={B\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{d2cbac2be17ec2c4a3786792786dce43}
-      \strng{fullhash}{d2cbac2be17ec2c4a3786792786dce43}
-      \strng{bibnamehash}{d2cbac2be17ec2c4a3786792786dce43}
-      \strng{authorbibnamehash}{d2cbac2be17ec2c4a3786792786dce43}
-      \strng{authornamehash}{d2cbac2be17ec2c4a3786792786dce43}
-      \strng{authorfullhash}{d2cbac2be17ec2c4a3786792786dce43}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This memo describes a suggested change to the behavior of FTP client programs. This document provides information for the Internet community. This memo provides information for the Internet community. This memo does not specify an Internet standard of any kind.}
-      \field{howpublished}{RFC 1579 (Informational)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{2}
-      \field{number}{1579}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Firewall-Friendly FTP}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1994}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 4}
-      \range{pages}{4}
-      \verb{doi}
-      \verb 10.17487/RFC1579
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc1579.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc1579.txt
-      \endverb
-      \keyw{file,transfer,PORT,PASV,Security}
-    \endentry
   \enddatalist
+  \missing{rfc1579}
+  \missing{rfc959}
 \endrefsection
 
 \refsection{16}
@@ -1688,7 +888,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{BitTorrent --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{BitTorrent --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1767,7 +967,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Ethernet --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Ethernet --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1803,7 +1003,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Ethernet frame --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Ethernet frame --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1839,7 +1039,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Carrier sense multiple access with collision detection --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Carrier sense multiple access with collision detection --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1854,73 +1054,8 @@
       \endverb
       \keyw{wiki:csmacd}
     \endentry
-    \entry{rfc1042}{online}{}
-      \name{author}{2}{}{%
-        {{hash=22c8db2c59b26571094b7dab5cefad0e}{%
-           family={Postel},
-           familyi={P\bibinitperiod},
-           given={J.},
-           giveni={J\bibinitperiod}}}%
-        {{hash=7ad9be8953b23bfa92233ddf45221e2b}{%
-           family={Reynolds},
-           familyi={R\bibinitperiod},
-           given={J.K.},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{e0bf8451aa6df82cd740fdf9091cefd6}
-      \strng{fullhash}{6f8b48db96d8415425ad8c91ea61d7e8}
-      \strng{bibnamehash}{6f8b48db96d8415425ad8c91ea61d7e8}
-      \strng{authorbibnamehash}{6f8b48db96d8415425ad8c91ea61d7e8}
-      \strng{authornamehash}{e0bf8451aa6df82cd740fdf9091cefd6}
-      \strng{authorfullhash}{6f8b48db96d8415425ad8c91ea61d7e8}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This RFC specifies a standard method of encapsulating the Internet Protocol (IP) datagrams and Address Resolution Protocol (ARP) requests and replies on IEEE 802 Networks to allow compatible and interoperable implementations. This RFC specifies a protocol standard for the Internet community.}
-      \field{howpublished}{RFC 1042 (Internet Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{2}
-      \field{number}{1042}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Standard for the transmission of IP datagrams over IEEE 802 networks}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1988}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 15}
-      \range{pages}{15}
-      \verb{doi}
-      \verb 10.17487/RFC1042
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc1042.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc1042.txt
-      \endverb
-      \keyw{IP-IEEE}
-    \endentry
   \enddatalist
+  \missing{rfc1042}
 \endrefsection
 
 \refsection{3}
@@ -1945,7 +1080,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Address Resolution Protocol --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Address Resolution Protocol --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1960,69 +1095,8 @@
       \endverb
       \keyw{wiki:arp}
     \endentry
-    \entry{rfc826}{online}{}
-      \name{author}{1}{}{%
-        {{hash=dc2906f60715af2efcaf4f90e9b1f433}{%
-           family={Plummer},
-           familyi={P\bibinitperiod},
-           given={D.},
-           giveni={D\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{dc2906f60715af2efcaf4f90e9b1f433}
-      \strng{fullhash}{dc2906f60715af2efcaf4f90e9b1f433}
-      \strng{bibnamehash}{dc2906f60715af2efcaf4f90e9b1f433}
-      \strng{authorbibnamehash}{dc2906f60715af2efcaf4f90e9b1f433}
-      \strng{authornamehash}{dc2906f60715af2efcaf4f90e9b1f433}
-      \strng{authorfullhash}{dc2906f60715af2efcaf4f90e9b1f433}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{The purpose of this RFC is to present a method of Converting Protocol Addresses (e.g., IP addresses) to Local Network Addresses (e.g., Ethernet addresses). This is an issue of general concern in the ARPA Internet Community at this time. The method proposed here is presented for your consideration and comment. This is not the specification of an Internet Standard.}
-      \field{howpublished}{RFC 826 (Internet Standard)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{11}
-      \field{note}{Updated by RFCs 5227, 5494}
-      \field{number}{826}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{An Ethernet Address Resolution Protocol: Or Converting Network Protocol Addresses to 48.bit Ethernet Address for Transmission on Ethernet Hardware}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1982}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 10}
-      \range{pages}{10}
-      \verb{doi}
-      \verb 10.17487/RFC0826
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc826.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc826.txt
-      \endverb
-      \keyw{ARP,Updated by RFCs 5227,5494}
-    \endentry
   \enddatalist
+  \missing{rfc826}
 \endrefsection
 
 \refsection{4}
@@ -2048,7 +1122,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Internet Protocol --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Internet Protocol --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2084,7 +1158,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IP address --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{IP address --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2108,19 +1182,16 @@
            giveni={J\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
       \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
@@ -2132,33 +1203,26 @@
       \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{RFC 791 (Internet Standard)}
-      \field{issn}{2070-1721}
+      \field{howpublished}{RFC 791 (INTERNET STANDARD)}
       \field{langid}{english}
       \field{month}{9}
       \field{note}{Updated by RFCs 1349, 2474, 6864}
       \field{number}{791}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{Internet Protocol}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{1981}
       \field{dateera}{ce}
       \true{nocite}
-      \field{pages}{1\bibrangedash 51}
-      \range{pages}{51}
-      \verb{doi}
-      \verb 10.17487/RFC0791
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc791.txt
+      \verb http://www.ietf.org/rfc/rfc791.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc791.txt
+      \verb http://www.ietf.org/rfc/rfc791.txt
       \endverb
-      \keyw{IP,IPv4,Updated by RFCs 1349,2474,6864}
+      \keyw{rfc791,Updated by RFCs 1349,2474,6864}
     \endentry
     \entry{wiki:ipv4hdrchksum}{online}{}
       \name{author}{1}{}{%
@@ -2181,7 +1245,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IPv4 header checksum --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{IPv4 header checksum --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2222,7 +1286,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Subnetwork --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Subnetwork --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2258,7 +1322,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IPv4 subnetting reference --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{IPv4 subnetting reference --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2294,7 +1358,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Private network --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Private network --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2308,67 +1372,6 @@
       \verb http://en.wikipedia.org/w/index.php?title=Private%5C_network&oldid=649931709
       \endverb
       \keyw{wiki:privatenet}
-    \endentry
-    \entry{rfc917}{online}{}
-      \name{author}{1}{}{%
-        {{hash=eed83917534e526c997d89c7c176e032}{%
-           family={Mogul},
-           familyi={M\bibinitperiod},
-           given={J.C.},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{eed83917534e526c997d89c7c176e032}
-      \strng{fullhash}{eed83917534e526c997d89c7c176e032}
-      \strng{bibnamehash}{eed83917534e526c997d89c7c176e032}
-      \strng{authorbibnamehash}{eed83917534e526c997d89c7c176e032}
-      \strng{authornamehash}{eed83917534e526c997d89c7c176e032}
-      \strng{authorfullhash}{eed83917534e526c997d89c7c176e032}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This memo discusses subnets and proposes procedures for the use of subnets, including approaches to solving the problems that arise, particularly that of routing. A subnet of an Internet network is a logically visible sub-section of a single Internet network. For administrative or technical reasons, many organizations have chosen to divide one Internet network into several subnets, instead of acquiring a set of Internet network numbers. This RFC suggests a proposed protocol for the ARPA-Internet community, and requests discussion and suggestions for improvements.}
-      \field{howpublished}{RFC 917}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{10}
-      \field{number}{917}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Internet subnets}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1984}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 22}
-      \range{pages}{22}
-      \verb{doi}
-      \verb 10.17487/RFC0917
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc917.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc917.txt
-      \endverb
-      \keyw{rfc917}
     \endentry
     \entry{rfc950}{online}{}
       \name{author}{2}{}{%
@@ -2384,19 +1387,16 @@
            giveni={J\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{f3340eebb214da4838c2d107fc48f3a1}
       \strng{fullhash}{1e5a2afbeaf5df23b1204bcf418bd0a5}
@@ -2408,36 +1408,29 @@
       \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This memo discusses the utility of ``subnets'' of Internet networks, which are logically visible sub-sections of a single Internet network. For administrative or technical reasons, many organizations have chosen to divide one Internet network into several subnets, instead of acquiring a set of Internet network numbers. This memo specifies procedures for the use of subnets. These procedures are for hosts (e.g., workstations). The procedures used in and between subnet gateways are not fully described. Important motivation and background information for a subnetting standard is provided in RFC-940. This RFC specifies a protocol for the ARPA-Internet community. If subnetting is implemented it is strongly recommended that these procedures be followed.}
-      \field{howpublished}{RFC 950 (Internet Standard)}
-      \field{issn}{2070-1721}
+      \field{howpublished}{RFC 950 (INTERNET STANDARD)}
       \field{langid}{english}
       \field{month}{8}
       \field{note}{Updated by RFC 6918}
       \field{number}{950}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{Internet Standard Subnetting Procedure}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{1985}
       \field{dateera}{ce}
       \true{nocite}
-      \field{pages}{1\bibrangedash 18}
-      \range{pages}{18}
-      \verb{doi}
-      \verb 10.17487/RFC0950
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc950.txt
+      \verb http://www.ietf.org/rfc/rfc950.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc950.txt
+      \verb http://www.ietf.org/rfc/rfc950.txt
       \endverb
-      \keyw{Address,Updated by RFC 6918}
+      \keyw{rfc950,Updated by RFC 6918}
     \endentry
   \enddatalist
+  \missing{rfc917}
 \endrefsection
 
 \refsection{6}
@@ -2462,7 +1455,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Classless Inter-Domain Routing --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Classless Inter-Domain Routing --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2477,73 +1470,8 @@
       \endverb
       \keyw{wiki:cidr}
     \endentry
-    \entry{rfc4632}{online}{}
-      \name{author}{2}{}{%
-        {{hash=1b5b5435886729ac1e73db0819ca958b}{%
-           family={Fuller},
-           familyi={F\bibinitperiod},
-           given={V.},
-           giveni={V\bibinitperiod}}}%
-        {{hash=317adb20c6b3ea65befa45a219f6410d}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={T.},
-           giveni={T\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{a74cd0492dfe9cd7c7173a72c6ffc0eb}
-      \strng{fullhash}{5c807ff50f8ee66d8f7222e393c8508c}
-      \strng{bibnamehash}{5c807ff50f8ee66d8f7222e393c8508c}
-      \strng{authorbibnamehash}{5c807ff50f8ee66d8f7222e393c8508c}
-      \strng{authornamehash}{a74cd0492dfe9cd7c7173a72c6ffc0eb}
-      \strng{authorfullhash}{5c807ff50f8ee66d8f7222e393c8508c}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This memo discusses the strategy for address assignment of the existing 32-bit IPv4 address space with a view toward conserving the address space and limiting the growth rate of global routing state. This document obsoletes the original Classless Inter-domain Routing (CIDR) spec in RFC 1519, with changes made both to clarify the concepts it introduced and, after more than twelve years, to update the Internet community on the results of deploying the technology described. This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.}
-      \field{howpublished}{RFC 4632 (Best Current Practice)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{8}
-      \field{number}{4632}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{Classless Inter-domain Routing (CIDR): The Internet Address Assignment and Aggregation Plan}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2006}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 27}
-      \range{pages}{27}
-      \verb{doi}
-      \verb 10.17487/RFC4632
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc4632.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc4632.txt
-      \endverb
-      \keyw{CIDR-STRA,global routing state}
-    \endentry
   \enddatalist
+  \missing{rfc4632}
 \endrefsection
 
 \refsection{7}
@@ -2569,7 +1497,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IPv6 --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{IPv6 --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2605,7 +1533,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IPv6 packet --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{IPv6 packet --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2641,7 +1569,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IPv6 address --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{IPv6 address --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2670,19 +1598,16 @@
            giveni={R\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{b45bc2e5349f21efe483e5e25142d3d3}
       \strng{fullhash}{9d9b4641d8b62852c01a0710d0ae6f42}
@@ -2694,34 +1619,26 @@
       \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This document specifies version 6 of the Internet Protocol (IPv6), also sometimes referred to as IP Next Generation or IPng. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 2460 (Draft Standard)}
-      \field{issn}{2070-1721}
       \field{langid}{english}
       \field{month}{12}
-      \field{note}{Obsoleted by RFC 8200, updated by RFCs 5095, 5722, 5871, 6437, 6564, 6935, 6946, 7045, 7112}
+      \field{note}{Updated by RFCs 5095, 5722, 5871, 6437, 6564, 6935, 6946, 7045, 7112}
       \field{number}{2460}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{Internet Protocol, Version 6 (IPv6) Specification}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{1998}
       \field{dateera}{ce}
       \true{nocite}
-      \field{pages}{1\bibrangedash 39}
-      \range{pages}{39}
-      \verb{doi}
-      \verb 10.17487/RFC2460
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc2460.txt
+      \verb http://www.ietf.org/rfc/rfc2460.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc2460.txt
+      \verb http://www.ietf.org/rfc/rfc2460.txt
       \endverb
-      \keyw{IPV6,internet,protocol,next,generation,ipng,Obsoleted by RFC 8200,updated by RFCs 5095,5722,5871,6437,6564,6935,6946,7045,7112}
+      \keyw{rfc2460,Updated by RFCs 5095,5722,5871,6437,6564,6935,6946,7045,7112}
     \endentry
     \entry{rfc4291}{online}{}
       \name{author}{2}{}{%
@@ -2737,19 +1654,16 @@
            giveni={S\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{b4e3c2a71f32f605570693fc771c8318}
       \strng{fullhash}{3eba58c4dd67813b8bf4956b527bd6b2}
@@ -2761,34 +1675,26 @@
       \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This specification defines the addressing architecture of the IP Version 6 (IPv6) protocol. The document includes the IPv6 addressing model, text representations of IPv6 addresses, definition of IPv6 unicast addresses, anycast addresses, and multicast addresses, and an IPv6 node's required addresses. This document obsoletes RFC 3513, ``IP Version 6 Addressing Architecture''. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 4291 (Draft Standard)}
-      \field{issn}{2070-1721}
       \field{langid}{english}
       \field{month}{2}
-      \field{note}{Updated by RFCs 5952, 6052, 7136, 7346, 7371, 8064}
+      \field{note}{Updated by RFCs 5952, 6052, 7136, 7346, 7371}
       \field{number}{4291}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{IP Version 6 Addressing Architecture}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2006}
       \field{dateera}{ce}
       \true{nocite}
-      \field{pages}{1\bibrangedash 25}
-      \range{pages}{25}
-      \verb{doi}
-      \verb 10.17487/RFC4291
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc4291.txt
+      \verb http://www.ietf.org/rfc/rfc4291.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc4291.txt
+      \verb http://www.ietf.org/rfc/rfc4291.txt
       \endverb
-      \keyw{internet protocol version 6,unicast,anycast,multicast,node,Updated by RFCs 5952,6052,7136,7346,7371,8064}
+      \keyw{rfc4291,Updated by RFCs 5952,6052,7136,7346,7371}
     \endentry
   \enddatalist
 \endrefsection
@@ -2816,7 +1722,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Router (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Router (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2852,7 +1758,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Routing table --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Routing table --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2888,7 +1794,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Network switch --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Network switch --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2924,7 +1830,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{LAN switching --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{LAN switching --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2964,7 +1870,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Network address translation --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Network address translation --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2978,73 +1884,6 @@
       \verb http://en.wikipedia.org/w/index.php?title=Network%5C_address%5C_translation&oldid=652836698
       \endverb
       \keyw{wiki:nat}
-    \endentry
-    \entry{rfc1631}{online}{}
-      \name{author}{2}{}{%
-        {{hash=2fa8b02823f6cda06fb32a600a23797d}{%
-           family={Egevang},
-           familyi={E\bibinitperiod},
-           given={K.},
-           giveni={K\bibinitperiod}}}%
-        {{hash=0121a805e38bf7e86fb23a088c2f4eab}{%
-           family={Francis},
-           familyi={F\bibinitperiod},
-           given={P.},
-           giveni={P\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{1f12a2dbf692dde3984f35ee1f8e3e87}
-      \strng{fullhash}{8a405a1dbe7a3a8c065b3ce421c1093e}
-      \strng{bibnamehash}{8a405a1dbe7a3a8c065b3ce421c1093e}
-      \strng{authorbibnamehash}{8a405a1dbe7a3a8c065b3ce421c1093e}
-      \strng{authornamehash}{1f12a2dbf692dde3984f35ee1f8e3e87}
-      \strng{authorfullhash}{8a405a1dbe7a3a8c065b3ce421c1093e}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This memo proposes another short-term solution, address reuse, that complements CIDR or even makes it unnecessary. The address reuse solution is to place Network Address Translators (NAT) at the borders of stub domains. This memo provides information for the Internet community. This memo does not specify an Internet standard of any kind.}
-      \field{howpublished}{RFC 1631 (Informational)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{5}
-      \field{note}{Obsoleted by RFC 3022}
-      \field{number}{1631}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{The IP Network Address Translator (NAT)}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1994}
-      \field{dateera}{ce}
-      \true{nocite}
-      \field{pages}{1\bibrangedash 10}
-      \range{pages}{10}
-      \verb{doi}
-      \verb 10.17487/RFC1631
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc1631.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc1631.txt
-      \endverb
-      \keyw{Internet Protocol,Obsoleted by RFC 3022}
     \endentry
     \entry{web:nat}{online}{}
       \name{author}{1}{}{%
@@ -3107,7 +1946,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Iptables --- Wikipedia{,} The Free Encyclopedia}
+      \field{title}{Iptables --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3123,6 +1962,7 @@
       \keyw{wiki:iptables}
     \endentry
   \enddatalist
+  \missing{rfc1631}
 \endrefsection
 \endinput
 

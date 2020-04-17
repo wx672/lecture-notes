@@ -1,0 +1,278 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{rfc1180}{online}{}
+      \name{author}{2}{}{%
+        {{hash=1ea4d1004834d5ddb2cb0faf78d938bd}{%
+           family={Socolofsky},
+           familyi={S\bibinitperiod},
+           given={T.J.},
+           giveni={T\bibinitperiod}}}%
+        {{hash=20a48138eb5f958c7d5ca1206bc17748}{%
+           family={Kale},
+           familyi={K\bibinitperiod},
+           given={C.J.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {IETF}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{organization}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \list{publisher}{1}{%
+        {IETF}%
+      }
+      \strng{namehash}{75aac230a1fc1b462f04b6b39229cf24}
+      \strng{fullhash}{a10bad6b381e336f58fe52b36a2ed603}
+      \strng{bibnamehash}{a10bad6b381e336f58fe52b36a2ed603}
+      \strng{authorbibnamehash}{a10bad6b381e336f58fe52b36a2ed603}
+      \strng{authornamehash}{75aac230a1fc1b462f04b6b39229cf24}
+      \strng{authorfullhash}{a10bad6b381e336f58fe52b36a2ed603}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{RFC 1180 (Informational)}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{month}{1}
+      \field{number}{1180}
+      \field{series}{Request for Comments}
+      \field{title}{{TCP/IP tutorial}}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1991}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://www.ietf.org/rfc/rfc1180.txt
+      \endverb
+      \verb{url}
+      \verb http://www.ietf.org/rfc/rfc1180.txt
+      \endverb
+      \keyw{rfc1180}
+    \endentry
+    \entry{rfc791}{online}{}
+      \name{author}{1}{}{%
+        {{hash=22c8db2c59b26571094b7dab5cefad0e}{%
+           family={Postel},
+           familyi={P\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {IETF}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{organization}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \list{publisher}{1}{%
+        {IETF}%
+      }
+      \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{bibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authorbibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authornamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
+      \field{extraname}{1}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{RFC 791 (INTERNET STANDARD)}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{month}{9}
+      \field{note}{Updated by RFCs 1349, 2474, 6864}
+      \field{number}{791}
+      \field{series}{Request for Comments}
+      \field{title}{{Internet Protocol}}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1981}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://www.ietf.org/rfc/rfc791.txt
+      \endverb
+      \verb{url}
+      \verb http://www.ietf.org/rfc/rfc791.txt
+      \endverb
+      \keyw{rfc791,Updated by RFCs 1349,2474,6864}
+    \endentry
+    \entry{rfc793}{online}{}
+      \name{author}{1}{}{%
+        {{hash=22c8db2c59b26571094b7dab5cefad0e}{%
+           family={Postel},
+           familyi={P\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {IETF}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{organization}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \list{publisher}{1}{%
+        {IETF}%
+      }
+      \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{bibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authorbibnamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authornamehash}{22c8db2c59b26571094b7dab5cefad0e}
+      \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
+      \field{extraname}{2}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{RFC 793 (INTERNET STANDARD)}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{month}{9}
+      \field{note}{Updated by RFCs 1122, 3168, 6093, 6528}
+      \field{number}{793}
+      \field{series}{Request for Comments}
+      \field{title}{{Transmission Control Protocol}}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1981}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://www.ietf.org/rfc/rfc793.txt
+      \endverb
+      \verb{url}
+      \verb http://www.ietf.org/rfc/rfc793.txt
+      \endverb
+      \keyw{rfc793,Updated by RFCs 1122,3168,6093,6528}
+    \endentry
+    \entry{tanenbaum2011computer}{book}{}
+      \name{author}{2}{}{%
+        {{hash=92bc8f2b5a926e6cc80dfae03d2751e5}{%
+           family={Tanenbaum},
+           familyi={T\bibinitperiod},
+           given={A.S.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2e14921ea1b5af8b148dae96c2f100f0}{%
+           family={Wetherall},
+           familyi={W\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Prentice Hall}%
+      }
+      \strng{namehash}{f5a31ae68ec79f3099675439ece611b1}
+      \strng{fullhash}{a833a2a1f156ae428de4e6d7a6804954}
+      \strng{bibnamehash}{a833a2a1f156ae428de4e6d7a6804954}
+      \strng{authorbibnamehash}{a833a2a1f156ae428de4e6d7a6804954}
+      \strng{authornamehash}{f5a31ae68ec79f3099675439ece611b1}
+      \strng{authorfullhash}{a833a2a1f156ae428de4e6d7a6804954}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{5}
+      \field{isbn}{9780132126953}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{title}{Computer Networks}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/29/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/29/calibre
+      \endverb
+      \keyw{tanenbaum2011computer}
+    \endentry
+    \entry{kurose2013computer}{book}{}
+      \name{author}{2}{}{%
+        {{hash=f7e2a538f9154730045515525a52bb35}{%
+           family={Kurose},
+           familyi={K\bibinitperiod},
+           given={J.F.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=5ed2f212850e37b6106e182f449b74ca}{%
+           family={Ross},
+           familyi={R\bibinitperiod},
+           given={K.W.},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{f24e4ac456416d2ae7904782f827d22a}
+      \strng{fullhash}{7af9d40c3e74f82452e1c82d887d7fb0}
+      \strng{bibnamehash}{7af9d40c3e74f82452e1c82d887d7fb0}
+      \strng{authorbibnamehash}{7af9d40c3e74f82452e1c82d887d7fb0}
+      \strng{authornamehash}{f24e4ac456416d2ae7904782f827d22a}
+      \strng{authorfullhash}{7af9d40c3e74f82452e1c82d887d7fb0}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780132856201}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{series}{Always learning}
+      \field{title}{Computer Networking: A Top-down Approach}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/27/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/27/calibre
+      \endverb
+      \keyw{kurose2013computer}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

@@ -1,0 +1,74 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t broken-links:nil
+#+options: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t title:t toc:t
+#+options: todo:t |:t
+#+title: Computer Networks Seminar Minutes
+#+author: WANG Xiaolin
+#+language: en
+#+select_tags: export
+#+exclude_tags: noexport
+#+creator: Emacs 26.1 (Org mode 9.3.6)
+
+Class time schedule
+- 10am, every Monday
+- 2pm, every other Tuesday starting tomorrow [2020-04-21 Tue]
+- 10am, every other Wednesday starting [2020-04-29 Wed]
+  
+* [2020-04-20 Mon]
+- Q: :: We are new in this subject. we don't know anything about this subject. But we are very
+   much interested about our Computer Networking subject. Sir, We are new in this subject,
+   that why we don't know anythings, How can we ask you question?
+
+- A: :: Good point. You've learnt nothing yet. So there should be full of questions in your
+  mind. But why can't you pop up a single question? It's because you're expecting that all
+  the questions can be answered automatically in the class.
+
+  Why bother to think of a question if the answer is so cheap? Thus you don't think.
+  Learning is about thinking. But you seem happy with learning without thinking.  We go to
+  class, we listen, and we forget everything after class. We've been happily calling this
+  'learning' for more than ten years.  Yes, we are happy to cheat ourself as always.
+   
+- Q: :: what do you expect from me? Yes, teacher we want Video tutorial. maybe it more easy to
+  understand our subject.
+
+- A: :: As a Chinese, you know my oral English is terrible, right? Honestly it's not so
+  practical to expect a good video from me. Hopefully, there are plenty of video tutorials
+  available on youtube.
+
+- Q: :: No, sir, we want teach from you. We need online live class from you. I think it is best
+  for us.
+
+- A: :: what do you mean 'teaching from me'? 2 hrs of live video, twice a week?  I don't
+  like that because it's kind of cheating.  We can spend these 2 hours more efficiently
+  rather than just pretend watching the video for 2 hours, right?
+
+  If you really want to watch the videos, why don't do it after class?  it's very bad to
+  pretend to learn something. If you really want to learn, learn it in the right way.
+
+- Q: :: how to begin my study? What should we do first?
+
+- A: :: you go through the slides, handouts, textbooks, videos, and come here with your
+  questions.
+
+- Q: :: when come here with my question sir,class time?
+
+- A: :: Any time.
+   
+- Q: :: Sir, I want to install this moodle apk in my mobile but It's not work
+
+- A: :: Try it in a web browser on a PC.
+   
+- Q: :: Sir, can you explain topology. i can't understand properly.
+
+- A: :: Well, you can say it's the /shape/ of a network. Some popular topologies are shown on
+  page 23 of the slides.
+    
+- Q: :: Sir, What is Computer Networking...??? How can it work in Computer?
+
+- A: :: Obviously, we have to connect the computers, devices together, right? But that's not
+  all.  Network is not about connection, it's about communication.  Over the network,
+  computers can talk to each other.
+
+  Want to know more? The purpose of this course is to explain more on it.
+  what's it look like? How they communicate?
+* [2020-04-21 Tue]

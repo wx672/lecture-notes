@@ -1,0 +1,237 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{tanenbaum2015modern}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2414455c999bc471f803cd14fdea939d}{%
+           family={Tanenbaum},
+           familyi={T\bibinitperiod},
+           given={Andrew\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall Press}%
+      }
+      \strng{namehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{fullhash}{2414455c999bc471f803cd14fdea939d}
+      \strng{bibnamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{authorbibnamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{authornamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{authorfullhash}{2414455c999bc471f803cd14fdea939d}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4}
+      \field{langid}{english}
+      \field{title}{Modern Operating Systems}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/4/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/4/calibre
+      \endverb
+      \keyw{tanenbaum2015modern}
+    \endentry
+    \entry{tanenbaum2011operating}{book}{}
+      \name{author}{2}{}{%
+        {{hash=92bc8f2b5a926e6cc80dfae03d2751e5}{%
+           family={Tanenbaum},
+           familyi={T\bibinitperiod},
+           given={A.S.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6faedc97df3accb11c65527a6b71b996}{%
+           family={Woodhull},
+           familyi={W\bibinitperiod},
+           given={A.S.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Education}%
+      }
+      \strng{namehash}{f5a31ae68ec79f3099675439ece611b1}
+      \strng{fullhash}{3f020b8ef184516e406839bbaea3fc70}
+      \strng{bibnamehash}{3f020b8ef184516e406839bbaea3fc70}
+      \strng{authorbibnamehash}{3f020b8ef184516e406839bbaea3fc70}
+      \strng{authornamehash}{f5a31ae68ec79f3099675439ece611b1}
+      \strng{authorfullhash}{3f020b8ef184516e406839bbaea3fc70}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780133002058}
+      \field{langid}{english}
+      \field{title}{Operating Systems Design and Implementation}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/175/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/175/calibre
+      \endverb
+      \keyw{tanenbaum2011operating}
+    \endentry
+    \entry{silberschatz13essentials}{book}{}
+      \name{author}{3}{}{%
+        {{hash=4f34927dfbed9f6425b40ef776942177}{%
+           family={Silberschatz},
+           familyi={S\bibinitperiod}}}%
+        {{hash=f4d673ffd940c82d92eb33a866608f22}{%
+           family={Galvin},
+           familyi={G\bibinitperiod}}}%
+        {{hash=0fc12a0b906a3d2131f0f3e2b958321e}{%
+           family={Gagne},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
+      \strng{fullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{bibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{authorbibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{authornamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
+      \strng{authorfullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \field{sortinit}{7}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{langid}{english}
+      \field{title}{Operating System Concepts Essentials}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/1/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/1/calibre
+      \endverb
+      \keyw{silberschatz13essentials}
+    \endentry
+    \entry{kerrisk:2010:lpi:1869911}{book}{}
+      \name{author}{1}{}{%
+        {{hash=7f32f61adec784489cc0fa2cefa610a3}{%
+           family={Kerrisk},
+           familyi={K\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {No Starch Press}%
+      }
+      \strng{namehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{fullhash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{bibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authorbibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authornamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authorfullhash}{7f32f61adec784489cc0fa2cefa610a3}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{The Linux Programming Interface: A Linux and UNIX System Programming Handbook}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/166/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/166/calibre
+      \endverb
+      \keyw{kerrisk:2010:lpi:1869911}
+    \endentry
+    \entry{matthew2008beginning}{book}{}
+      \name{author}{2}{}{%
+        {{hash=71b0550cc21f34d5270381c62bec8e49}{%
+           family={Matthew},
+           familyi={M\bibinitperiod},
+           given={Neil},
+           giveni={N\bibinitperiod}}}%
+        {{hash=4419c9e69c561da228a7e02ebdd5e60b}{%
+           family={Stones},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{2b017aa24f11f2abd1235a5dd1f850e5}
+      \strng{fullhash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{bibnamehash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{authorbibnamehash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{authornamehash}{2b017aa24f11f2abd1235a5dd1f850e5}
+      \strng{authorfullhash}{c2388d8b76c1d7a119e8863298934f79}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{title}{Beginning linux programming}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2008}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/39/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/39/calibre
+      \endverb
+      \keyw{matthew2008beginning}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

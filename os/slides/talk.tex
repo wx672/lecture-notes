@@ -1,5 +1,7 @@
 \documentclass{wx672ctexart}
 
+\usepackage{wx672bib}
+\addbibresource{bib/os.bib}
 \usepackage{wx672hyperref,wx672tikz}
 \usepackage{amsmath,amsfonts,amssymb}
 
@@ -50,13 +52,16 @@
 \tableofcontents
 
 \begin{itemize}
-\item 幻灯片：\url{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/os/slides/os-b.pdf}
-\item 打印版：\url{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/os/slides/os-a.pdf}
-\item 教材：\url{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/os/ref.html}
-\item 实验：\url{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/os/lab.html}
-\item 代码：\url{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/os/src/}
-\item Debian安装指导：\url{https://cs6.swfu.edu.cn/\~wx672/debian-install/install.html}
+\item 幻灯片：\url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/os/slides/os-b.pdf}
+\item 打印版：\url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/os/slides/os-a.pdf}
+\item 教材：\url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/os/ref.html}
+\item 实验：\url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html}
+\item 代码：\url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/os/src/}
+\item Debian安装指导：\url{https://cs6.swfu.edu.cn/~wx672/debian-install/install.html}
 \end{itemize}
+
+\printbibliography[title={参考书目}]
+
 \clearpage
 \section{老生常谈}
 \label{sec:orgaeba803}
@@ -429,12 +434,13 @@ Unix，它提供给用户的界面是终端（terminal）。所谓terminal，就
 \subsection{OS简史}
 \label{sec:org0af235d}
 
-看看幻灯片第12页上这张画\mpic{pg_0012}，左边的帅哥明显是个程序员，手里拿着他的程序。古代没
-有硬盘，程序都是记录在长长的纸带上，像一大卷卫生纸。纸上打孔的地方代表0，没打孔就代表1，于
-是长纸带上就密密麻麻地布满了程序。为了能运行程序，他要把纸带拿到机房来，放到Card reader里面，
-然后纸带上的程序就被读了出来，并被写到磁带上（Tape drive就是磁带机）。美女显然是看机房的，
-她取过磁带，放到中间主机的磁带机里，然后开动主机。主机从Input tape读取程序，进行运算，再把
-输出结果写到Output tape上。最后，打印出来，交给帅哥。
+看看幻灯片第12页上这张画\mpic{pg_0012}\citetitle[Sec.~1.2.2]{tanenbaum2015modern}，左边的帅
+哥明显是个程序员，手里拿着他的程序。古代没有硬盘，程序都是记录在长长的纸带上，像一大卷卫生
+纸。纸上打孔的地方代表0，没打孔就代表1，于是长纸带上就密密麻麻地布满了程序。为了能运行程序，
+他要把纸带拿到机房来，放到Card reader里面，然后纸带上的程序就被读了出来，并被写到磁带上
+（Tape drive就是磁带机）。美女显然是看机房的，她取过磁带，放到中间主机的磁带机里，然后开动
+主机。主机从Input tape读取程序，进行运算，再把输出结果写到Output tape上。最后，打印出来，交
+给帅哥。
 
 古代的电脑就是这样工作的。那么，请告诉我，操作系统在哪儿？其实很简单，想想谁是Resource
 manager？谁在控制程序？很显然，是美女！如果有若干帅哥排队的话，她决定先运行谁的程序。如果
@@ -590,15 +596,16 @@ Smart card，就是我们说的智能卡，它上面也有系统吗？也许007�
 \subsection{系统分层}
 \label{sec:org73e4df6}\mpic{pg_0018}
 
-其实，这张图与前面第8页上的图是一回事，从下到上还是硬件、OS、应用程序这三层。只不过它把各
-层内的细节略微扩展了一下。我们先看看最下面的硬件部分。Physical devices涵盖了包括CPU在内的
-所有硬件设备。Microarchitecture，所谓“微架构”，是专门在说CPU。我们知道，不同厂家研发出来的
-CPU显然是不一样的。集成电路的设计是一项庞大的工程，各个厂家都有自己的研发团队，设计出来的
-产品当然也是千差万别。这种设计上的差别，用我们的行话来讲，就是“架构（architecture）不同”。
-不同架构的CPU，支持的指令集（instruction set）也不一样。什么意思呢？我们知道，CPU是用来运
-行程序的，而程序是由一条一条指令组成的。那么，所谓“运行程序”，就是CPU拿过来一条指令，执行
-它，然后再去拿下一条。当把程序中的所有指令都执行完了，程序就结束了。既然CPU能执行指令，那
-么说明它肯定能“看懂”指令。就因为它能“看懂”，所以我们才把它叫“电脑”嘛。
+其实，这张图\citetitle[Chap.~1]{tanenbaum2011operating}与前面第8页上的图是一回事，从下到上
+还是硬件、OS、应用程序这三层。只不过它把各层内的细节略微扩展了一下。我们先看看最下面的硬件
+部分。Physical devices涵盖了包括CPU在内的所有硬件设备。Microarchitecture，所谓“微架构”，是
+专门在说CPU。我们知道，不同厂家研发出来的CPU显然是不一样的。集成电路的设计是一项庞大的工程，
+各个厂家都有自己的研发团队，设计出来的产品当然也是千差万别。这种设计上的差别，用我们的行话
+来讲，就是“架构（architecture）不同”。不同架构的CPU，支持的指令集（instruction set）也不一
+样。什么意思呢？我们知道，CPU是用来运行程序的，而程序是由一条一条指令组成的。那么，所谓“运
+行程序”，就是CPU拿过来一条指令，执行它，然后再去拿下一条。当把程序中的所有指令都执行完了，
+程序就结束了。既然CPU能执行指令，那么说明它肯定能“看懂”指令。就因为它能“看懂”，所以我们才把
+它叫“电脑”嘛。
 
 那么问题来了，它到底能看懂多少，看懂哪些指令呢？打个比方吧，小孩子能听懂什么，完全取决于教
 育。西洋爹妈教的是英文，孩子就懂英文；东洋爹妈教日文，孩子就懂日文；昆明爹妈教马普，孩子就
@@ -626,7 +633,7 @@ Fetch -> Decode -> Execute
 \end{verbatim}
 
 Fetch，就是去内存里拿过来一条指令；Decode，就是“看懂”这条指令，操作码是什么，操作数有哪些；
-Execute，就是执行指令。
+Execute，就是执行指令\citetitle[Sec.~1.3.1]{tanenbaum2015modern}。
 
 我们在电脑主板上看到的CPU是个方形的芯片，行话叫package。在这个package里，除了CPU还可能有其
 它的东西，比如MMU。随着集成电路技术的发展，芯片的集成度会越来越高，package里的东西也会越来
@@ -666,7 +673,7 @@ Bus这个词比电脑要古老得多，当公交车讲。大家想过没有，�
 线路跑，它就不再被认为是Bus了。电脑里的信息也是各走各的线路，地址信息走Address bus；数据
 走Data bus；控制信息走Control bus。
 
-\mpic{pg_0021}\mpic{pg_0022}现在我们来详细看看幻灯片上的这张图，图上画出了电脑里面的代表性
+\mpic{pg_0021}\mpic{pg_0022}现在我们来详细看看幻灯片上的这张图\citetitle[Sec.~1.3]{tanenbaum2015modern}，图上画出了电脑里面的代表性
 硬件设备，还有Bus。虽然只画了一根粗线，你要把它想象成三根Bus。图上，除了CPU和内存，剩下的那
 些都叫“外围设备”（Peripherals）。所有的外围设备，在结构上都是由两部分组成，机械部分和控制部
 分。如果你拆过硬盘的话，你会看到，里面除了那一摞圆片之外，还有一块电路板，板上是有芯片的，
@@ -1010,15 +1017,17 @@ Interrupt vector table，中断指针表。Vector这个词在前面第\ref{sec:o
 \subsubsection{How?}
 \label{sec:org1956c94}
 
-\mpic{pg_0033}幻灯片第33页，这是硬件中断的原理图。图左边是CPU，最右边是排好顺序的中断源，也就是硬件设备，
-号码越小，优先级越高。每个设备都连到“中断控制器”（Interrupt controller）上。图上有两个中断
-控制器芯片，一主（master）一从（slave），显然是因为一片不够用嘛。假设现在有多个设备发出了
-中断请求（IRQ），那么控制器的作用就凸显出来了，按优先级给它们排序，然后，显然是把优先级最
-高的那个IRQ发给CPU。CPU收到以后，按照号码去查中断表，顺着表里的指针找到中断处理程
-序，处理完中断以后给中断控制器发个信号（ACK，Acknowledgment，回应），表示完事了。硬件中断
-的处理过程大致如此。
+\mpic{pg_0033}幻灯片第33页，这是硬件中断的原理
+图\citetitle[Sec.~2.6.8]{tanenbaum2011operating}。图左边是CPU，最右边是排好顺序的中断源，也
+就是硬件设备，号码越小，优先级越高。每个设备都连到“中断控制器”（Interrupt controller）上。
+图上有两个中断控制器芯片，一主（master）一从（slave），显然是因为一片不够用嘛。假设现在有多
+个设备发出了中断请求（IRQ），那么控制器的作用就凸显出来了，按优先级给它们排序，然后，显然是
+把优先级最高的那个IRQ发给CPU。CPU收到以后，按照号码去查中断表，顺着表里的指针找到中断处理程
+序，处理完中断以后给中断控制器发个信号（ACK，Acknowledgment，回应），表示完事了。硬件中断的
+处理过程大致如此。
 
-\mpic{pg_0034}幻灯片第34页，左边这张图是说硬件中断；右边的是说软件中断。先看左边的吧，有1、2、3、4步：
+\mpic{pg_0034}幻灯片第34页\citetitle[Sec.~1.3.4]{tanenbaum2015modern}，左边这张图是说硬件中
+断；右边的是说软件中断。先看左边的吧，有1、2、3、4步：
 \begin{enumerate}
 \item CPU正在执行一条指令，比方说是，要读取硬盘上的文件。硬盘控制器收到读盘请求后，就读盘呗。
 读完了的时候……注意，这个“读完了”是有讲究的，分两种情况：
@@ -1040,7 +1049,7 @@ buffer（缓存区里）。如果buffer满了，就算是暂时读完了，因�
 \item 完事之后，再将CPU还给用户进程。
 \end{enumerate}
 
-\mpic{pg_0035}再看幻灯片第35页，中断时序图。图上画了两个方波，上面的是CPU的，下面的是某I/O设备，比如网卡
+\mpic{pg_0035}再看幻灯片第35页，中断时序图\citetitle[Sec.~1.2.1]{silberschatz13essentials}。图上画了两个方波，上面的是CPU的，下面的是某I/O设备，比如网卡
 吧。一开始，CPU忙着什么程序（User process executing），网卡呢，闲着（idle）。忽然，网卡收
 到了接收（或者发送）数据的请求（I/O request），于是它忙起来了（transferring）。等网卡接收
 完了数据（transfer done），或者说buffer满了，它发出中断请求（IRQ），然后就又闲下来了。CPU
@@ -1210,9 +1219,10 @@ syscall简单包装了一下。有什么好处呢？至少你不用知道 \textt
 一条指令嘛。
 \end{enumerate}
 
-\mpic{pg_0041}幻灯片第41页是在上一页的基础上，又翻了一次版。通过一个具体的例子， \texttt{read(3)} ，来详解
-syscall的过程。注意， \texttt{read(3)} 就是 \texttt{read(2)} 的wrapper。 \texttt{man 2 read}
-的话，可以看到它的函数原型（prototype）：
+\mpic{pg_0041}幻灯片第41页是在上一页的基础上，又翻了一次版。通过一个具体的例
+子， \texttt{read(3)} ，来详解syscall的过程\citetitle[Sec.~1.6]{tanenbaum2015modern}。注
+意， \texttt{read(3)} 就是 \texttt{read(2)} 的wrapper。 \texttt{man 2 read}的话，可以看到它
+的函数原型（prototype）：
 \begin{ccode}
 #include <unistd.h>
 
@@ -1824,7 +1834,9 @@ execl("/bin/nosuchimage", "xz", "somefile", NULL);
 \subsection{中断总结}
 \label{sec:orgcae015f}
 
-\mpic{pg_0047}这张幻灯片把软、硬件中断的过程大致总结了一下。先看看左边的硬件中断过程，明显是以读硬盘为例：
+\mpic{pg_0047}这张幻灯片把软、硬件中断的过程大致总结了一
+下\citetitle[Sec.~2.6.8]{tanenbaum2011operating}。先看看左边的硬件中断过程，明显是以读硬盘
+为例：
 \begin{enumerate}
 \item 外围设备给中断控制器（interrupt controller）发信号。就是幻灯片第33页上的那张图；
 \item 中断控制器
@@ -2050,9 +2062,9 @@ Back from f
 \subsection{进程的状态}
 \label{sec:orgc104fab}
 
-\mpic{pg_0060}幻灯片第60页上画的是进程状态变化图。进程的一生就在就绪（Ready）、运行
-（Running）、阻塞（Blocked）这三种状态间变来变去。有的书还会画上启动（Start）和结束
-（Exit）。
+\mpic{pg_0060}幻灯片第60页上画的是进程状态变化
+图\citetitle[Sec.~2.1.5]{tanenbaum2015modern}。进程的一生就在就绪（Ready）、运行（Running）、
+阻塞（Blocked）这三种状态间变来变去。有的书还会画上启动（Start）和结束（Exit）。
 \begin{itemize}
 \item 就绪，就是准备好了呗。准备好干什么了？准备好使用CPU了。系统里就一个CPU，有成百上千的进程
 都要抢着用，那么，就排队呗，所有想用CPU的进程都会被加入到就绪队列（Ready queue）里；
@@ -2075,7 +2087,8 @@ Back from f
 \subsection{进程的切换}
 \label{sec:org2e02322}
 
-\mpic{pg_0062}幻灯片第62页上画的是进程的切换过程。图上左右两边是 P\textsubscript{0},
+\mpic{pg_0062}幻灯片第62页上画的是进程的切换过
+程\citetitle[Sec.~3.1.3]{silberschatz13essentials}。图上左右两边是 P\textsubscript{0},
 P\textsubscript{1} 两个进程，中间是操作系统。一开始，P\textsubscript{0} 在运行，过了一会儿，
 也许是发生了中断，也许是它调用了syscall，总之它的运行要暂时终止，要让出CPU了。这
 时， OS会save state into PCB\textsubscript{0}, 也就是把CPU当前的运行状态（也就
@@ -2099,7 +2112,7 @@ P\textsubscript{1} 两个进程，中间是操作系统。一开始，P\textsubs
 \subsection{进程与线程的对比}
 \label{sec:org6fb2679}
 
-现在来看看幻灯片第65页，\mpic{pg_0065}
+现在来看看幻灯片第65页\citetitle[Sec.~2.2.2]{tanenbaum2015modern}，\mpic{pg_0065}
 \begin{itemize}
 \item 单线程，就是用一份资源干一份活；
 \item 多线程，就是用一份资源干多份活；
@@ -2134,11 +2147,11 @@ OS看不到进程内部有多少根“线”，那么它当然只能以进程为
 \subsection{线程的应用场景}
 \label{sec:org14dd2df}
 
-现在来看看幻灯片第69页上的例子。这是个web server，里面有几个线程啊？我听到有
-不少粗心的家伙在喊“三个”。分明是四个嘛，一个dispatcher，三个worker。Dispatcher就类似于公司
-一楼大厅里貌美如花、笑容可掬的神仙姐姐，外面进来的人先要由她接待，搞明白来人的需求之后，把
-来人交给某个worker。Worker负责具体为用户提供服务。三个worker线程不够用的话，进程会根据需要
-产生出更多的worker。
+现在来看看幻灯片第69页上的例子\citetitle[Sec.~2.2.1]{tanenbaum2015modern}。这是个web
+server，里面有几个线程啊？我听到有不少粗心的家伙在喊“三个”。分明是四个嘛，一个dispatcher，
+三个worker。Dispatcher就类似于公司一楼大厅里貌美如花、笑容可掬的神仙姐姐，外面进来的人先要
+由她接待，搞明白来人的需求之后，把来人交给某个worker。Worker负责具体为用户提供服务。三
+个worker线程不够用的话，进程会根据需要产生出更多的worker。
 
 看看幻灯片下方的两小段伪代码（pseudocode），左边的是dispatcher，右边的是worker。Dispatcher
 的工作很简单：\mpic{pg_0069}
@@ -2180,7 +2193,7 @@ Worker的工作：
 \subsection{线程的特点}
 \label{sec:org5eeb628}
 
-\mpic{pg_0071}幻灯片第71页列出了多线程的若干优点：
+\mpic{pg_0071}幻灯片第71页列出了多线程的若干优点：\mpic{pg_0073}
 \begin{enumerate}
 \item 响应快，你按下存盘按钮之后，敲键盘照样有反应。再有，上面讲到的web服务器，如果是单线程的，
 所有的用户请求就要排长队了吧？其实，实际情况并非如此。以前的web服务器都是单线程的，但多
@@ -2196,9 +2209,9 @@ Worker的工作：
 \item 多线程可以充分利用多处理器的优点。一个线程一个核，想必转起来比较快呗。
 \end{enumerate}
 
-\mpic{pg_0073}看看幻灯片第73页，线程的状态变化与进程的（
-第\ref{sec:orgc104fab}节）毫无二致，不再赘述。\mpic{pg_0074}幻灯片第74页，为啥一个线程一个栈？前面
-讲\hyperref[org182bc9a]{幻灯片第67页}的时候也说过了，不再赘述。
+看看幻灯片第73页，线程的状态变化与进程的（第\ref{sec:orgc104fab}节）毫无二致，不再赘
+述。\mpic{pg_0074}幻灯片第74页\citetitle[Sec.~2.2.2]{tanenbaum2015modern}，为啥一个线程一个
+栈？前面讲\hyperref[org182bc9a]{幻灯片第67页}的时候也说过了，不再赘述。
 
 \subsection{线程的操作函数}
 \label{sec:org52789ca}
@@ -2209,57 +2222,68 @@ pthread\_join} 。POSIX, Potable Operating System Interface for Unix，是IEEE�
 准，目的就是让程序能在众多的Unix系统之间跨平台。POSIX名声很响，开源、免费、质量好，不仅用
 于Unix，Windows也支持。所以，我们编程应该尽量采用POSIX函数库。 \texttt{pthread} 库里提供了60多个
 函数，你可以 \texttt{man 7 pthreads} ，看看总体介绍。我们在这里就说说最常用的两个函数，找找感觉。
+\mpic{pg_0077}
 
-代码\ref{orged18cb3}所示，就是幻灯片第78页上的例子的完整版。编译，运行：
+%代码\ref{orged18cb3}所示，就是
+幻灯片第78页上例子的完整版在：\url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/os/src/proc/thread1.c}
+
+编译，运行：
 \begin{shellcode}
 gcc -Wall thread1.c -o thread1 -pthread
 ./thread1
 \end{shellcode}
 
-\begin{ccode}
-#include <pthread.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
+% \begin{ccode}
+% #include <pthread.h>
+% #include <stdlib.h>
+% #include <unistd.h>
+% #include <stdio.h>
 
-void *hello(void *arg)
-{
-  int i;
-  for( i=0; i<20; i++ ){
-	puts("Thread says hi!");
-	sleep(1);
-  }
-  return NULL;
-}
+% void *hello(void *arg)
+% {
+%   int i;
+%   for( i=0; i<20; i++ ){
+% 	puts("Thread says hi!");
+% 	sleep(1);
+%   }
+%   return NULL;
+% }
 
-int main(void)
-{
-  pthread_t t;
-  if( pthread_create(&t, NULL, hello, NULL) ){
-	perror("error creating thread.");
-	abort();
-  }
+% int main(void)
+% {
+%   pthread_t t;
+%   if( pthread_create(&t, NULL, hello, NULL) ){
+% 	perror("error creating thread.");
+% 	abort();
+%   }
 
-  if( pthread_join(t, NULL) ){
-	perror("error joining thread.");
-	abort();
-  }
-  exit(0);
-}
-\end{ccode}
-\captionof{listing}{\label{orged18cb3}pthread example}
+%   if( pthread_join(t, NULL) ){
+% 	perror("error joining thread.");
+% 	abort();
+%   }
+%   exit(0);
+% }
+% \end{ccode}
+% \captionof{listing}{\label{orged18cb3}pthread example}
 
-\mpic{pg_0077}\mpic{pg_0078}\mpic{pg_0079}
-这段程序里，咱就关心两个函数， \texttt{pthread\_create(3)}和\texttt{pthread\_join(3)}。
+\mpic{pg_0078}
+这段程序里，咱就关心两个函数：
+\begin{enumerate}
+\item \texttt{pthread\_create(3)}
+\item \texttt{pthread\_join(3)}
+\end{enumerate}
 
 \subsubsection{\texttt{pthread\_create(3)}}
 \label{sec:org2b71dd6}
 
 顾名思义，这是要产生一个线程。函数原型是这样：
+
 \begin{ccode}
 int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine) (void *), void *arg);
 \end{ccode}
+
 这函数携带四个参数：
+
 \begin{enumerate}
 \item \texttt{pthread\_t *thread}, 一个指针，指向一个 \texttt{pthread\_t} 类型的东西，实际上就是个整型数，也
 就是thread id，线程号。你要产生一个新线程，线程号放什么地方，你要先准备好。这个号码以后
@@ -2276,13 +2300,14 @@ int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_
 系列函数的时候，我们见过类似的东西。如果不携带任何参数，就置成 \texttt{NULL} 。
 \end{enumerate}
 
-虽然 \texttt{pthread\_create(3)} 的函数原型看着有点狰狞，但用起来并不繁琐。代码\ref{orged18cb3}中的第
-19行，
+虽然 \texttt{pthread\_create(3)} 的函数原型看着有点狰狞，但用起来并不繁琐。
+% 代码\ref{orged18cb3}中的第19行，
+
 \begin{ccode}
 pthread_create(&t, NULL, hello, NULL)
 \end{ccode}
 很简单吧。如果 \texttt{man 3 pthread\_create} 的话，在手册的最后，你可以找到一个稍长点的例子，也不
-复杂，你该试试。
+复杂，你该试试。\mpic{pg_0079}
 
 \subsubsection{\texttt{pthread\_join(3)}}
 \label{sec:orgddafdfd}
@@ -2291,10 +2316,10 @@ pthread_create(&t, NULL, hello, NULL)
 的 \texttt{wait(3)} 。前面第\ref{sec:org4961f8d}节中我们说过， \texttt{wait(3)} 是父进程在
 等子进程结束，好为它收尸。多数情况下，即使不等，也没啥大问题，顶多产生个把僵尸而已。
 而 \texttt{pthread\_join(3)} 则不然，如果主线程不等子线程结束的话，十之八九要出大问题。比如
-程序\ref{orged18cb3}中，如果把第24-27行注释掉，再编译运行的话，程序就输出不了20行“Thread
-says hi!” 了。为啥会这样？因为子线程要每隔1秒才输出一次，而主线程（或者说进程）在产生子线程
-之后，1秒都不等，马上就结束了。子线程是整个进程的一部分，既然进程都不在了，子线程自然也就
-（还没来得及做事就）消失了。所以， \texttt{pthread\_join(3)} 是万万不可省略的。
+把幻灯片第78页上的\texttt{pthread\_join(3)}那一小部分注释掉，再编译运行的话，程序就输出不
+了20行“Thread says hi!” 了。为啥会这样？因为子线程要每隔1秒才输出一次，而主线程（或者说进程）
+在产生子线程之后，1秒都不等，马上就结束了。子线程是整个进程的一部分，既然进程都不在了，子线
+程自然也就（还没来得及做事就）消失了。所以， \texttt{pthread\_join(3)} 是万万不可省略的。
 
 我们的教学网站上还有几个线程的例子，大家该逐一去试试。
 \begin{itemize}
@@ -2349,10 +2374,10 @@ syscalls实际上就是要修改内核。换言之，广告中的第一条，“
 \end{enumerate}
 
 \mpic{pg_0083}综上所述，user-level threads的缺陷是大大的，没有内核的参与，多线程根本不可能
-实现。现在我们来看看幻灯片第83页上的两张图。左边的是user-level threads，线程相关信息都在进
-程内部。右边的是kernel-level threads，线程相关信息都在内核里。既然如此，那么关于线程的所有
-操作（产生、管理、调度，等等）肯定都需要OS插手，也就是调用syscall。这样做的好
-处：\mpic{pg_0086}
+实现。现在我们来看看幻灯片第83页上的两张图\citetitle[Sec.~2.2.4]{tanenbaum2015modern}。左边
+的是user-level threads，线程相关信息都在进程内部。右边的是kernel-level threads，线程相关信
+息都在内核里。既然如此，那么关于线程的所有操作（产生、管理、调度，等等）肯定都需要OS插手，
+也就是调用syscall。这样做的好处：\mpic{pg_0086}
 \begin{enumerate}
 \item 内核对线程了如指掌。这样一来，至少调度起来不再盲目，你是单线程，就给你10ms；你有100个线
 程，就给你1000ms；
@@ -2365,9 +2390,9 @@ syscalls实际上就是要修改内核。换言之，广告中的第一条，“
 \item 内核的复杂度明显增加了。显然，既要管理进程，还要管理线程嘛。
 \end{enumerate}
 
-\mpic{pg_0087}那么，能不能把user-level thread和kernel-level thread结合起来，扬长避短呢？这么明显的事情，
-肯定早有人想到了。据说当年的Sun Solaris就实践过这个想法，效果不甚理想，扬长避短谈何容易，
-搞不好就扬短避长了。
+\mpic{pg_0087}那么，能不能把user-level thread和kernel-level thread结合起来，扬长避短呢？这
+么明显的事情，肯定早有人想到了。据说当年的Sun Solaris就实践过这个想法，效果不甚理想，扬长避
+短谈何容易，搞不好就扬短避长了\citetitle[Sec.~2.2.6]{tanenbaum2015modern}。
 
 另外，并不是所有程序员都喜欢线程这个概念，因为它提高了编程的复杂度。复杂度的增高，意味着出
 错的机会增加了。前面说过，Apache提供多进程和多线程两个版本的服务器，就是因为这个原因。幻灯
@@ -2725,8 +2750,8 @@ passing，也就是网络传输方式。网络传输也可以（而且经常）�
 \label{sec:pipe}
 
 Pipe是进程间通信的常用工具。幻灯片第105页是以“\texttt{ls | wc -l}”这个小命令为例，来说明它
-的实现机制。很显然，\texttt{ls}在这里是生产者，\texttt{wc}是消费者，它们两位通过一根大管子
-来传递信息。注意三点：
+的实现机制\citetitle[Sec.~44.1]{kerrisk:2010:lpi:1869911}。很显然，\texttt{ls}在这里是生产
+者，\texttt{wc}是消费者，它们两位通过一根大管子来传递信息。注意三点：
 \begin{enumerate}
 \item Pipe里的信息传输是单向的；
 \item Pipe里传输的是字节流（byte stream）。Byte stream这个概念在Unix里很重要。
@@ -2799,7 +2824,7 @@ Unix命令的运行结果通常都是输出到屏幕上，也就是STDOUT，标�
 \subsubsection{\texttt{pipe(2)}}
 \label{sec:pipe2}
 
-前面我们介绍的是pipe的工作原理，现在来看看怎么用\texttt{pipe(2)} syscall来编程。
+前面我们介绍的是pipe的工作原理，现在来看看怎么用\texttt{pipe(2)} syscall来编程\citetitle[Sec.~44.2]{kerrisk:2010:lpi:1869911}。
 \mpic{pg_0108}幻灯片第107页上，首先给出的就是它的prototype，函数原型。
 \begin{ccode}
 #include <unistd.h>
@@ -2839,6 +2864,36 @@ Pipe是用来做进程间通信的，所以显然要有两个进程参与。\mfi
 \subsubsection{Named Pipe (FIFO)}
 \label{sec:fifo}
 
+In Unix, everything is a file。这句话我们提过很多次了，既然什么东西都可以是文件，那么在内存
+里开辟出来，用于进程间通信的buffer当然也可以是文件了。没错，所谓named pipe，有名字的管子，
+也叫FIFO，本质上就是这样一个带名字的buffer。为啥要给buffer起名字呢？因为，上一节中讲的普通
+没名字pipe并不能满足所有的需求。没名字的pipe只能在父、子进程间使用。如果是素不相识的两个进
+程，无名pipe就不好使了。因为，一个进程创建了pipe，别人都不知道它的存在，当然就找不到它，当
+然也就没法用它。子进程之所以能找到它，是因为\texttt{fork(2)}之后，子进程天然就继承了老爸
+的pipe，所以爷俩共用一个管子就顺理成章了。
+
+\mpic{pg_0110}我们来看看幻灯片第109页上的小例子。
+\begin{enumerate}
+\item \texttt{mkfifo myfifo}，这是要在当前目录里创建一个新管子，名字叫\texttt{myfifo}。之后，
+  用\texttt{ls -lF myfifo}看一眼的话，输出结果大致是下面这个样子：
+\begin{verbatim}
+prw-r--r-- 1 wx672 wx672 0 Apr 17 14:45 myfifo|
+\end{verbatim}
+  注意打头和结尾的两个字母：
+  \begin{itemize}
+  \item[\texttt{p}] 代表pipe；
+  \item[\texttt{|}] 也是代表pipe。因为\texttt{ls}的时候加了选项“\texttt{-F}”，所以文件名的结
+    尾处会标出文件类型。
+  \end{itemize}
+\item \texttt{echo hello > myfifo}，这是要把\texttt{hello}这个字符串写到管子里去；
+\item \texttt{cat myfifo}，这是要从管子里读取数据；
+\item \texttt{echo hello | tee myfifo}，这是先把\texttt{hello}写进无名pipe里去。在pipe的另
+  一头，用\texttt{tee}分叉输出，既输出到屏幕，还输出给\texttt{myfifo}；
+\item \texttt{wc myfifo}，用\texttt{wc}处理\texttt{myfifo}里的东西，也就是计算字数。
+\end{enumerate}
+
+再看看幻灯片第110页上的小程序，它的完整版
+在\citetitle[Sec.~13.6, p544]{matthew2008beginning}。
 
 \end{document}
 

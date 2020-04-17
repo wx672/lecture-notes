@@ -1,14 +1,17 @@
 #+TITLE: Network Project Week
 #+AUTHOR: Xiaolin Wang
 #+EMAIL: wx672ster+net@gmail.com
+#+DATE: June 2019
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
-#+OPTIONS: creator:comment d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
+#+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+OPTIONS: p:nil pri:nil stat:t tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
 #+DESCRIPTION: Network lab tutorial week
 #+EXCLUDE_TAGS: noexport
 #+KEYWORDS: ssh, tmux, http, ftp, smtp, iptables, network, networking
 #+LANGUAGE: en
 #+SELECT_TAGS: export
+#+LATEX_HEADER: \usepackage{wx672common,wx672fonts}
+#+LATEX_HEADER: \pagestyle{plain}
 
 * Caution
   - You are *required* to write your report with [[http://orgmode.org/][=Emacs org-mode=]]
@@ -37,8 +40,8 @@
     - Late reports will be penalized 20% per day.
   - MS-word file will *NOT* be accepted.
   - Cheating will result in automatic failure of this work.
-* SSH
-** Installation
+* SSH (25 pts)
+** Installation (5 pts)
    In our Debian system, =openssh-server= and =openssh-client= are installed by
    default. And the =ssh server= should have been running. You can check it by
    : nmap localhost
@@ -56,7 +59,7 @@
    install. So you have to install them by
    : sudo aptitude install openssh-client openssh-server
 
-** Basic usage
+** Basic usage (5 pts)
    : ssh user@server
    You've tried connecting your own =ssh server= in previous section. Now you can try
    =ssh= into your neighbor's system.
@@ -69,7 +72,7 @@
    : ssh user@server w
    : ssh user@server free
 
-** SSH without password
+** SSH without password (5 pts)
    If you want to login to =cs3.swfu.edu.cn= without being asked for password
    every time, you can do the following:
    1. Generate a new keypair
@@ -84,22 +87,23 @@
       : rm -rf ~/.ssh
       This password-less setup should only be used within your own private computer,
       e.g. your laptop. *DO NOT USE IT AT ANY PUBLIC COMPUTER!!!*
-** Port forwarding
+** Port forwarding (5 pts)
 *** Reverse port forwarding
 
-    #+BEGIN_EXAMPLE
-                                                                 Firewall
-                                                               (Home router)
-                                                                     ▒           ┌──────┐
-     ┌─────┐  (2)  ┌─────────┐      (1)                              ▒           │      │
-     │ You ── ssh ───> cs3   ╘════< ssh -R 3333:localhost:22 cs3.swfu.edu.cn <═══╛      │
-     └─────┘       │    │      (3)                                                 Home │
-                   │    │ ┌────────────────> ssh -p 3333 localhost ─────────────>   PC  │
-                   │    v │                                                             │
-                   │   3333  ╒═══════════════════<<<═════════════════════════════╕      │
-                   └─────────┘                                       ▒           │      │
-                                                                     ▒           └──────┘
-    #+END_EXAMPLE
+#+LATEX: \verbatimfont{\tiny\dejavu}
+#+BEGIN_EXAMPLE
+                                                             Firewall
+                                                           (Home router)
+                                                                 ▒           ┌──────┐
+ ┌─────┐  (2)  ┌─────────┐      (1)                              ▒           │      │
+ │ You ── ssh ───> cs3   ╘════< ssh -R 3333:localhost:22 cs3.swfu.edu.cn <═══╛      │
+ └─────┘       │    │      (3)                                                 Home │
+               │    │ ┌────────────────> ssh -p 3333 localhost ─────────────>   PC  │
+               │    v │                                                             │
+               │   3333  ╒═══════════════════<<<═════════════════════════════╕      │
+               └─────────┘                                       ▒           │      │
+                                                                 ▒           └──────┘
+#+END_EXAMPLE
 
     As long as you can login to =cs3=, this setup enables you to access your home PC from
     anywhere!
@@ -115,17 +119,18 @@
 
 *** Local port forwarding
 
-    #+BEGIN_EXAMPLE
-    ┌─────────┐
-    │         │    (1)                        ┌─────┐
-    │   You   ╘══> ssh cs3 -L 3333:cs2:80 >═══╛ cs3 │   ┌────────┐
-    │    │                                          │   │        │
-    │ (2)│ ┌────> curl -v http://localhost:3333 ────────> cs2:80 │
-    │    v │                                        │   │        │
-    │   3333  ╒═════════════>>>═══════════════╕     │   └────────┘
-    │         │                               └─────┘
-    └─────────┘
-    #+END_EXAMPLE
+#+LATEX: \verbatimfont{\small\dejavu}
+#+BEGIN_EXAMPLE
+┌─────────┐
+│         │    (1)                        ┌─────┐
+│   You   ╘══> ssh cs3 -L 3333:cs2:80 >═══╛ cs3 │   ┌────────┐
+│    │                                          │   │        │
+│ (2)│ ┌────> curl -v http://localhost:3333 ────────> cs2:80 │
+│    v │                                        │   │        │
+│   3333  ╒═════════════>>>═══════════════╕     │   └────────┘
+│         │                               └─────┘
+└─────────┘
+#+END_EXAMPLE
 
     1. At your PC (usually restricted), do
        : ssh user@cs3.swfu.edu.cn -L 3333:cs2.swfu.edu.cn:80
@@ -142,7 +147,7 @@
     - [[http://www.aptivate.org/en/blog/2010/03/10/ssh-port-forwarding/][SSH Port Forwarding]]
     - [[http://www.onlamp.com/pub/a/onlamp/excerpt/ssh_11/index3.html][SSH, The Secure Shell: The Definitive Guide --- SSH Port Forwarding]]
 
-** Pair working with SSH+Tmux
+** Pair working with SSH+Tmux (5 pts)
    Suppose Alice and Bob are both sitting in our A7 lab. And they're working on a
    cooperative project. Sometimes they have to edit a file, e.g. =helloworld.c=
    together. How? Very easy...
@@ -178,7 +183,7 @@
     Now, you are sitting in the lab. Please feel free to work together to get the following
     tasks done.
 
-* HTTP
+* HTTP (15 pts)
 ** Install Apache2
    : sudo aptitude install apache2
 
@@ -191,8 +196,8 @@
      - How to write a homepage? (=/var/www/index.html=)
      - How to give every user a homepage? (=~/public_html/index.html=)
 
-* Email
-** SMTP
+* Email (15 pts)
+** SMTP (8 pts)
 *** Install Exim4
     : sudo aptitude install exim4
 
@@ -204,7 +209,7 @@
       - Is my exim4 working well? (=/var/log/exim4/=)
       - How to send/receive emails? (=mail=, =mutt=, =nc server 25=)
 
-** POP3/IMAP4
+** POP3/IMAP4 (7 pts)
 *** Install Dovecot roundcube
     : sudo aptitude install dovecot-imapd dovecot-pop3d roundcube
 
@@ -216,7 +221,7 @@
       - Is my dovecot working well? (=/var/log/mail.*/=)
       - How to send/receive emails? (=/usr/share/doc/roundcube-core/=)
 
-* FTP
+* FTP (15 pts)
 ** Install vsftpd lftp
    : sudo aptitude install vsftpd lftp
 ** Play with it
@@ -226,7 +231,7 @@
      - Is my vsftpd working well? (=/var/log/vsftpd.log=)
      - How to transfer files? (=lftp=)
 
-* IPTables
+* IPTables (30 pts)
 ** Writing a simple rule set
    If you try the following commands:
 

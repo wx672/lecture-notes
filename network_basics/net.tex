@@ -66,7 +66,7 @@
     \end{enumerate}
   \end{block}
   \begin{itemize}
-  \item[\Large\dejavu ✉] \alert{\ttfamily wx672ster+linux@gmail.com}
+  \item[\Large\dejavu ✉] \alert{\ttfamily wx672ster+net@gmail.com}
   \item[$\mathbb{E}$] Preferably in English
   \item[\stackoverflow] in
     \href{https://stackoverflow.com/questions/39199299/what-is-the-essential-difference-between-compound-command-and-normal-command-inlink}{stackoverflow}
@@ -209,7 +209,7 @@ See also \citetitle{wiki:googleproducts}
 \begin{frame}{Choosing The Right Tools}
   \mode<beamer>{
     \begin{center}
-      \begin{tabular}{ccc}
+      \begin{tabular}{c@{\qquad\qquad}c@{\qquad\qquad}c}
         \raisebox{1ex}{\scalebox{5}{\win}}%
         &\includegraphics[height=5em]{linuxlogo}%
         &\includegraphics[height=5em]{applelogo}\\
@@ -222,9 +222,10 @@ See also \citetitle{wiki:googleproducts}
         &&\\
         \scalebox{5}{\googleg}%
         &\textcolor{gray}{{\Huge vs.}}%
-        &\scalebox{5}{\baidu}\hspace{-3.2em}\textbf{\LARGE\textcolor{white}{du}}
+        &\scalebox{5}{\baidu}\hspace{-1.7em}\textbf{\LARGE\textcolor{white}{du}}
       \end{tabular}
-    \end{center}} \mode<article>{
+    \end{center}}%
+  \mode<article>{
     \begin{center}
       \begin{tabular}{ccc}
         \win[false] & \linux & \apple[false] \\\hline
@@ -287,12 +288,12 @@ See also: \citetitle{wiki:malware, wiki:virus, wiki:adware, wiki:spyware, wiki:w
   \begin{enumerate}
   \item try \includegraphics[height=1.5em]{linuxlogo}
   \item get a \href{https://mail.google.com}{gmail} account
-  \item recommend a good
-    \href{https://chrome.google.com/webstore/category/apps?utm_source=chrome-ntp-icon}{chrome
-    extension} to me via gmail
-  \item in \href{https://plus.google.com}{google plus}, share an interesting post to me
+  % \item recommend a good
+  %   \href{https://chrome.google.com/webstore/category/apps?utm_source=chrome-ntp-icon}{chrome
+  %   extension} to me via gmail
+  % \item in \href{https://plus.google.com}{google plus}, share an interesting post to me
   \item add your class timetable into \href{https://calendar.google.com}{google calendar},
-    and then share your calendar to me
+    and then share your calendar to me via gmail
   \item in \href{https://youtube.com}{youtube}, find a video you like and share it to me
   \end{enumerate}
 \end{frame}
@@ -576,8 +577,8 @@ See also \citetitle{rfc1122}.
   \begin{iblock}{Each protocol is completely independent of the other ones}
     For example
     \begin{itemize}
-    \item The translators (L2) can switch from Dutch to Finnish without touching L1 or L3
-    \item The secretaries (L1) can switch from email to telephone without disturbing (or
+    \item The translators (L2) can switch from Chinese to Finnish without touching L1 or L3
+    \item The secretaries (L1) can switch from fax to email without disturbing (or
       even informing) the other layers
     \end{itemize}
   \end{iblock}
@@ -668,6 +669,7 @@ layer above.
 \subsection{Terminology}
   
 \begin{frame}{The Name Of A Unit Of Data}
+  \vspace*{-5em}
   \begin{minipage}{.4\linewidth}
     \begin{itemize}
     \item[A] Application message
@@ -2011,7 +2013,8 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
       \end{iblock}
     \end{column}
     \begin{column}{.55\linewidth}
-      \includegraphics[width=\textwidth]{switch}
+      \mode<beamer>{\includegraphics[width=\textwidth]{switch}}%
+      \mode<article>{\includegraphics[width=.5\textwidth]{switch}}%
     \end{column}
   \end{columns}
 \end{frame}
