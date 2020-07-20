@@ -1,0 +1,508 @@
+\mode*
+\lecture[sched]{sched}{sched}
+
+\section{Process Scheduling}
+
+\subsection{Multitasking}
+
+\begin{frame}\mode<beamer>{\frametitle{Multitasking}}
+  \begin{enumerate}
+  \item Cooperative multitasking
+    \begin{description}
+    \item[Yielding] a process voluntarily suspends itself
+    \end{description}
+  \item Preemptive multitasking
+    \begin{description}
+    \item[Preemption] involuntarily suspending a running process
+    \item[Timeslice] the time a process runs before it's preempted
+      \begin{itemize}
+      \item usually dynamically calculated
+      \item used as a configurable system policy
+      \end{itemize}
+      But Linux's scheduler is different
+    \end{description}
+  \end{enumerate}
+\end{frame}
+
+\subsection{Linux's Process Scheduler}
+
+\begin{frame}\mode<beamer>{\frametitle{Linux's Process Scheduler}}
+  \begin{description}
+  \item[up to 2.4:] simple, scaled poorly
+    \begin{multicols}{2}
+      \begin{itemize}
+      \item $O(n)$
+      \item non-preemptive
+      \item single run queue (cache? SMP?)
+      \end{itemize}
+    \end{multicols}
+  \item[from 2.5 on:] $O(1)$ scheduler
+    \begin{itemize}
+    \item 140 priority lists --- scaled well
+    \item one run queue per CPU --- true SMP support
+    \item preemptive
+    \item ideal for large server workloads
+    \item showed latency on desktop systems
+    \end{itemize}
+  \item[from 2.6.23 on:] Completely Fair Scheduler (CFS)
+    \begin{itemize}
+    \item improved interactive performance
+    \end{itemize}
+  \end{description}
+\end{frame}
+
+\begin{description}
+\item[up to 2.4:] \citetitle[Sec.~7.2, \emph{The Scheduling
+    Algorithm}]{bovet2005understanding} The scheduling algorithm used in earlier versions
+  of Linux was quite simple and straightforward: at every process switch the kernel
+  scanned the list of runnable processes, computed their priorities, and selected the
+  "best" process to run. The main drawback of that algorithm is that the time spent in
+  choosing the best process depends on the number of runnable processes; therefore, the
+  algorithm is too costly, that is, it spends too much time in high-end systems running
+  thousands of processes.
+  \begin{description}
+  \item[No true SMP] all processes share the same run-queue
+  \item[Cold cache] if a process is re-scheduled to another CPU
+  \end{description}
+\end{description}
+
+\subsection{Scheduling Policy}
+
+\begin{frame}\mode<beamer>{\frametitle{Scheduling Policy}}
+  Must attempt to satisfy two conflicting goals:
+  \begin{enumerate}
+  \item fast process response time (low latency)
+  \item maximal system utilization (high throughput)
+  \end{enumerate}
+  \vspace{1em}
+  
+  Linux tries
+  \begin{enumerate}
+  \item favoring I/O-bound processes over CPU-bound processes
+  \item doesn't neglect CPU-bound processes
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Process Priority}
+  Usually,
+  \begin{itemize}
+  \item processes with a higher priority run before those with a lower priority
+  \item processes with the same priority are scheduled \emph{round-robin}
+  \item processes with a higher priority receive a longer time-slice
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+    Linux implements two priority ranges:
+  \begin{enumerate}
+  \item \textbf{Nice value}: $-20 \sim+19$ (default 0)
+    \begin{itemize}
+    \item large value $\Rightarrow$ lower priority
+    \item lower value $\Rightarrow$ higher priority  $\Rightarrow$ get larger proportion
+      of a CPU
+    \item[\$] \texttt{ps -el}
+    \end{itemize}
+    The \emph{nice value} can be used as 
+    \begin{itemize}
+    \item a control over the \emph{absolute} time-slice (e.g. MAC OS X), or
+    \item a control over the \emph{proportion} of time-slice (Linux)
+    \end{itemize}
+  \item \textbf{Real-time}: $0\sim99$
+    \begin{itemize}
+    \item higher value $\Rightarrow$ greater priority
+    \item[\$] \texttt{ps -eo state,uid,pid,rtprio,time,comm}
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Time-slice}
+  \begin{description}
+  \item[too long:] poor interactive performance
+  \item[too short:] context switch overhead
+  \item[I/O-bound processes:] don't need longer time-slices (prefer short queuing time)
+  \item[CPU-bound processes:] prefer longer time-slices (to keep their caches hot)
+  \end{description}
+  Apparently, any long time-slice would result in poor interactive performance.
+\end{frame}
+
+\begin{frame}{Problems With Nice Value}
+  \begin{multicols}{2}
+    \texttt{if} two processes A and B
+    \begin{itemize}
+    \item[A:] $NI=0, t=100ms$
+    \item[B:] $NI=20, t=5ms$
+    \end{itemize}\vfill\columnbreak
+    \texttt{then}, the CPU share
+    \begin{itemize}
+    \item[A:] gets $\frac{100}{105} = 95\%$
+    \item[B:] gets $\frac{5}{105} = 5\%$
+    \end{itemize}
+  \end{multicols}
+  \begin{block}{What if two $B_{ni=20}$ running?}
+    \begin{description}
+    \item[Good news:] Each gets $50\%$
+    \item[Bad news:] This '50\%' is $\frac{5}{10}$, NOT $\frac{52.5}{105}$
+    \end{description}
+    Context switch twice every 10ms!
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{multicols}{2}
+    Comparing
+    \begin{itemize}
+    \item[] $P_{ni=0}$ gets 100ms
+    \item[] $P_{ni=1}$ gets 95ms
+    \end{itemize}\vfill\columnbreak
+    With
+    \begin{itemize}
+    \item[] $P_{ni=19}$ gets 10ms
+    \item[] $P_{ni=20}$ gets 5ms
+    \end{itemize}
+  \end{multicols}
+  This behavior means that ``nicing down a process by one'' has wildly different effects
+  depending on the starting nice value.
+\end{frame}
+
+\subsubsection{Linux's CFS}
+
+\begin{frame}{Completely Fair Scheduler (CFS)}
+  For a perfect (unreal) multitasking CPU
+  \begin{itemize}
+  \item $n$ runnable processes can run at the same time
+  \item each process should receive $\frac{1}{n}$ of CPU power
+  \end{itemize}
+  
+  For a real world CPU
+  \begin{itemize}
+  \item can run only a single task at once --- unfair
+    \begin{itemize}
+    \item[\Smiley] while one task is running
+    \item[\Frowny\Frowny] the others have to wait
+    \end{itemize}
+  \item \texttt{p->wait\_runtime} is the amount of time the task should now run on the CPU
+    for it becomes completely fair and balanced.
+    \begin{itemize}
+    \item[\Smiley] on ideal CPU, the \texttt{p->wait\_runtime} value would always be zero
+    \end{itemize}
+  \item CFS always tries to run the task with the largest \texttt{p->wait\_runtime} value
+  \end{itemize}
+\end{frame}
+
+\begin{itemize}
+\item \href{http://kerneltrap.org/node/8208}{kerneltrap: Linux: Discussing the Completely
+    Fair Scheduler}
+\end{itemize}
+
+\begin{frame}{CFS}
+  In practice it works like this:
+  \begin{itemize}
+  \item While a task is using the CPU, its \texttt{wait\_runtime} decreases
+    \begin{center}
+      \texttt{wait\_runtime = wait\_runtime - time\_running}
+    \end{center}
+  \item[if:] its $\mathtt{wait\_runtime \ne \mathtt{MIN}_{wait\_runtime}}$
+    (among all processes)
+  \item[then:] it gets preempted
+  \item Newly woken tasks (\texttt{wait\_runtime = 0}) are put into the tree more and more
+    to the right
+  \item slowly but surely giving a chance for every task to become the 'leftmost task' and
+    thus get on the CPU within a deterministic amount of time
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{cfs1} }
+    \mode<article>{ \includegraphics[width=.5\textwidth]{cfs1} }
+  \end{center}
+  \begin{itemize}
+  \item the run queue is sorted by waiting time with a red-black tree
+  \item the leftmost node in the tree is picked by the scheduler
+  \end{itemize}
+\end{frame}
+
+\begin{itemize}
+\item An outstanding feature of the Linux scheduler is that it does not require the
+  concept of time slices, at least not in the traditional way. Classical schedulers
+  compute time slices for each process in the system and allow them to run until their
+  time slice is used up. When all time slices of all processes have been used up, they
+  need to be recalculated again. The current scheduler, in contrast, considers only the
+  wait time of a process --- that is, how long it has been sitting around in the run-queue
+  and was ready to be executed. The task with the gravest need for CPU time is
+  scheduled. \citetitle[p84]{mauerer2008professional}
+
+  ... but what do \emph{fair} and \emph{unfair} with respect to CPU time mean? Consider an
+  ideal computer that can run an arbitrary number of tasks in parallel: If $N$ processes
+  are present on the system, then each one gets $\frac{1}{N}$ of the total computational
+  power, and all tasks really execute physically parallel. Suppose that a task requires 10
+  minutes to complete its work. If 5 such tasks are simultaneously present on a perfect
+  CPU, each will get 20 percent of the computational power, which means that it will be
+  running for 50 instead of 10 minutes. However, all 5 tasks will finish their job after
+  exactly this time span, and none of them will have ever been inactive!
+
+  If multitasking is simulated by running one process after another, then the process that
+  is currently running is favored over those waiting to be picked by the scheduler --- the
+  poor waiting processes are being treated unfairly. The unfairness is directly
+  proportional to the waiting time.
+
+  Every time the scheduler is called, it picks the task with the highest waiting time and
+  gives the CPU to it. If this happens often enough, no large unfairness will accumulate
+  for tasks, and the unfairness will be evenly distributed among all tasks in the system.
+\end{itemize}
+
+\begin{frame}{The virtual clock}
+  Time passes slower on this clock than in real time
+  \begin{itemize}
+  \item[] more processes waiting $\Rightarrow$ more slower
+  \end{itemize}
+  \begin{block}{Example}
+    \begin{itemize}
+    \item[if:] 4 processes in run queue
+    \item[then:] the virtual clock speed is $\frac{1}{4}$ of the real clock
+    \item[if:] a process sitting in the queue for 20s in real time
+    \item[then:] resulting to 5s in virtual time
+    \item[if:] the 4 processes executing for 5s each
+    \item[then:] the CPU will be busy for 20s in real time
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item The virtual clock is a per process clock. Whenever the CPU comes, this
+  clock starts ticking. And it stops ticking immediately when the CPU is going away.
+\end{itemize}
+
+\begin{frame}
+  \begin{block}{To sort tasks on the red-black tree}
+    \begin{center}
+      \texttt{fair\_clock - wait\_runtime}
+    \end{center}
+    \begin{description}
+    \item[\texttt{fair\_clock}] The virtual time, e.g. 5s in the previous example
+    \item[\texttt{wait\_runtime}] Fairness imbalance measure 
+    \end{description}
+  \end{block}
+  \begin{block}{To move a node rightward in the red-black tree}
+    \begin{center}
+      \texttt{wait\_runtime = wait\_runtime - time\_running}
+    \end{center}
+    \begin{description}
+    \item[\texttt{time\_running}] When a task is allowed to run, the interval during which
+      it has been running
+    \end{description}
+  \end{block}
+\end{frame}
+
+\begin{frame}{CFS}
+  \begin{block}{Example: }
+    Assuming \emph{targeted latency} is 20ms. If we have
+    \begin{description}
+    \item[2 processes:] each gets 10ms
+    \item[4 processes:] each gets 5ms
+    \item[20 processes:] each gets 1ms
+    \item[$\infty$ processes:] each gets 1ms (to avoid unacceptable context switching costs)
+    \end{description}
+  \end{block}
+\end{frame}
+
+See also: \citetitle[Sec.~4.4, \emph{The Linux Scheduling Algorithm}, p49]{love2010linux}
+
+% \begin{frame}{Linux's CFS}
+%   \begin{itemize}
+% %  \item Doesn't require the concept of time-slices
+%   \item Assign a \emph{proportion} of CPU to processes
+%     \begin{itemize}
+%     \item[] rather than directly assign time-slices to processes
+%     \end{itemize}
+%   \item The amount of CPU time that a process receives is a function of the load of the
+%     system
+%   \item The nice value acts as a \emph{weight}
+%   \end{itemize}
+  
+%   \begin{itemize}
+%   \item[Q:] Can a runnable process immediately preempt the running process?
+%   \item[A:] CFS decides it based on \emph{the percentage of CPU the newly runnable process
+%     has consumed}.
+%     \begin{itemize}
+%     \item[if:] it has consumed a smaller proportion than the running process
+%     \item[then:] it runs immediately
+%     \item[else:] it is scheduled to run at a later time
+%     \end{itemize}
+%   \end{itemize}
+% \end{frame}
+
+\begin{frame}{Example}
+  A system with two processes running:
+  \begin{enumerate}
+  \item a text editor, say, Emacs (I/O-bound)
+  \item gcc is compiling the kernel source (CPU-bound)
+  \end{enumerate}
+  \begin{itemize}
+  \item[if:] they both have the same nice value
+  \item[then:] the proportion they get would be 50\%-50\%
+  \end{itemize}
+  Consequence:
+  \begin{itemize}
+  \item Emacs uses far less than 50\% of CPU
+  \item gcc can enjoy more than 50\% of CPU freely
+  \end{itemize}
+  When Emacs wakes up
+  \begin{enumerate}
+  \item CFS notes that it has 50\% of CPU, but uses very little of it (far less than gcc)
+  \item CFS preempts gcc and enables Emacs to run immediately
+  \end{enumerate}
+  Thus, better interactive performance.
+\end{frame}
+
+\subsection{Linux Scheduling Algorithm}
+
+\begin{frame}{Scheduler Classes}
+  Different, pluggable algorithms coexist 
+  \begin{itemize}
+  \item Each algorithm schedules its own type of processes
+  \item Each scheduler class has a priority
+  \end{itemize}
+  \begin{description}
+  \item[\texttt{SCHED\_FIFO}]
+  \item[\texttt{SCHED\_RR}]
+  \item[\texttt{SCHED\_NORMAL}] 
+  \end{description}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{Example: nice value difference}
+    Assume:
+    \begin{enumerate}
+    \item nice value 5 pts up results in a $\frac{1}{3}$ penalty
+    \item targeted latency is again 20ms
+    \item 2 processes in the system
+    \end{enumerate}
+    Then:
+    \begin{itemize}
+    \item $P_{ni=0}$ gets 15ms; $P_{ni=5}$ gets 5ms
+    \item $P_{ni=10}$ gets 15ms; $P_{ni=15}$ gets 5ms
+    \end{itemize}
+    \begin{itemize}
+    \item Absolute nice values no longer affect scheduling decision
+    \item Relative nice values does
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+See also: \citetitle[Sec.~4.4, \emph{The Linux Scheduling Algorithm}, p49]{love2010linux}
+
+\subsection{The Linux Scheduling Implementation}
+
+Ref: \citetitle[Sec.~4.5, \emph{The Linux Scheduling Implementation}]{love2010linux}
+
+\begin{itemize}
+\item \href{https://en.wikipedia.org/wiki/Completely\_Fair\_Scheduler}{Wikipedia: Completely
+  Fair Scheduler}
+\item \href{http://www.ibm.com/developerworks/linux/library/l-cfs/}{IBM developerworks:
+    Multiprocessing with the Completely Fair Scheduler}
+\item
+  \href{http://embeddeddev.wordpress.com/2011/11/23/scheduling-in-the-linux-kernel/}{Scheduling
+    in the Linux kernel – RSDL/SD}
+\item \href{http://kerneltrap.org/node/8059}{kerneltrap: Linux: The Completely Fair
+    Scheduler}
+\end{itemize}
+
+See also: \citetitle[Sec.~7.2, \emph{Preemption}]{bovet2005understanding}.
+
+\begin{frame}{Base Time Quantum}
+  \begin{block}{$O(1)$ scheduler}
+    \begin{small}
+      \begin{equation*}
+        \genfrac{}{}{0pt}{}{\text{base time quantum}}{(\text{ms})}=
+        \begin{cases}
+          (140 - \text{static priority})\times{}20& if\ \text{static priority} < 120,\\
+          (140 - \text{static priority})\times{}5& if\ \text{static priority} \ge 120.
+        \end{cases}
+      \end{equation*}
+    \end{small}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Major Components of CFS}
+  \begin{itemize}
+  \item Time Accounting
+  \item Process Selection
+  \item The Scheduler Entry Point
+  \item Sleeping and Waking Up
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Time accounting}
+  \begin{description}
+  \item[\texttt{sched\_entity}] keeps track of process accounting (\texttt{task\_struct -> se})
+  \end{description}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{se} }
+    \mode<article>{ \includegraphics[width=.7\textwidth]{se} }
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{The Virtual Runtime}
+    \begin{description}
+    \item[\texttt{vruntime}] stores the \emph{virtual runtime} of a process. On an ideal
+      processor, all tasks' \texttt{vruntime} would be identical.
+    \end{description}
+    Accounting is done in \texttt{update\_curr()} and \texttt{\_\_update\_curr()}
+  \end{block}
+\end{frame}
+
+\begin{itemize}
+\item \texttt{update\_curr()} (Line
+  \href{http://lxr.linux.no/linux+v2.6.34/kernel/sched\_fair.c\#L518}{518} in
+  \texttt{kernel/sched\_fair.c}) 
+\item \texttt{\_\_update\_curr()} (Line
+  \href{http://lxr.linux.no/linux+v2.6.34/kernel/sched\_fair.c\#L503}{503} in
+  \texttt{kernel/sched\_fair.c}) 
+\item \citetitle[p51-p52]{love2010linux}
+\end{itemize}
+
+\begin{frame}{Process Selection}
+  \begin{description}
+  \item[The core of CFS algorithm] Pick the process with the smallest \texttt{vruntime}
+  \end{description}
+  \begin{itemize}
+  \item run the process represented by the leftmost node in the \texttt{rbtree}
+  \end{itemize}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{pick-next-entity} }
+    \mode<article>{ \includegraphics[width=.8\textwidth]{pick-next-entity} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Adding Processes to the Tree}
+  \begin{itemize}
+  \item Happens when a process wakes up or is created
+  \item \texttt{enqueue\_entity()} and \texttt{\_\_enqueue\_entity()}
+  \end{itemize}
+\end{frame}
+
+See also: \citetitle[p54-55]{love2010linux}
+
+\begin{frame}{Removing Processes from the Tree}
+  \begin{itemize}
+  \item Happens when a process blocks or terminates
+  \item \texttt{dequeue\_entity()} and \texttt{\_\_dequeue\_entity()}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The Scheduler Entry Point}
+  
+\end{frame}
+
+\begin{frame}{Sleeping and Waking Up}
+  
+\end{frame}
+
+
+\mode<all>
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "kernel-b"
+%%% End:

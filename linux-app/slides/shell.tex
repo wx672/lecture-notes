@@ -5,32 +5,35 @@
 \section{Shell Basics}
 \label{sec:basic-commands}
 
-\begin{frame}{Shell}
-  \begin{itemize}
-  \item[\shell] A command line interpreter
-  \item[\shell] A programming language
-  \end{itemize}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.5\textwidth]{sys-arch} }%
-    \mode<article>{ \includegraphics[width=.2\textwidth]{sys-arch} }
-  \end{center}
+\begin{frame}
+  \begin{minipage}{.4\linewidth}
+    \begin{iblock}{Shell}
+      \begin{itemize}
+      \item[\shell] A command line interpreter
+      \item[\shell] A programming language
+      \end{itemize}
+    \end{iblock}
+  \end{minipage}\qquad
+  \begin{minipage}{.4\linewidth}
+    \includegraphics[width=\textwidth]{sys-arch}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Directory Structure}
-  \includegraphics[width=\linewidth]{cs2}
-  
-  \begin{center}\small
-    \begin{tabular}{r@{\qquad}>{\ttfamily}l}
-      \hline
-      \thead{Todo}  & \thead{How}  \\\hline
-      Where am I?   & pwd          \\
-      What's in it? & ls           \\
-      Move around?  & cd           \\
-      Disk usage?   & du, df       \\
-      USB drive?    & lsblk, mount \\
-      New folder?   & mkdir        \\
-      \hline
-    \end{tabular}
+  \begin{center}
+    \includegraphics[width=.7\linewidth]{cs2}\\[2ex]%
+    {\footnotesize
+      \begin{tabular}{r@{\qquad}>{\ttfamily}l}
+        \hline
+        \thead{Todo}  & \thead{How}  \\\hline
+        Where am I?   & pwd          \\
+        What's in it? & ls           \\
+        Move around?  & cd           \\
+        Disk usage?   & du, df       \\
+        USB drive?    & lsblk, mount \\
+        New folder?   & mkdir        \\
+        \hline
+      \end{tabular}}
   \end{center}
 \end{frame}
 
@@ -135,13 +138,10 @@
 \end{frame}
 
 \begin{frame}{Understanding ``\texttt{ls -l}''}
-  \begin{minipage}{.71\linewidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{ls-l} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{ls-l} }
-    \end{center}
-  \end{minipage}\quad
-  \begin{minipage}{.25\linewidth}\scriptsize
+  \begin{minipage}{.65\linewidth}
+    \includegraphics[width=\textwidth]{ls-l}
+  \end{minipage}
+  \begin{minipage}{.3\linewidth}\scriptsize
     \begin{tabular}{c@{\;-\;}l}
       d& directory\\
       -& regular file\\
@@ -154,11 +154,9 @@
   \end{minipage}
 
   \begin{iblock}{9-bit permission}
-    \begin{minipage}{.27\linewidth}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{9bit} }%
-        \mode<article>{ \includegraphics[width=.6\textwidth]{9bit} }
-      \end{center}
+    \begin{minipage}{.2\linewidth}
+      \centering
+      \includegraphics[width=\textwidth]{9bit}
     \end{minipage}\quad
     \begin{minipage}{.5\linewidth}\small
       \begin{tabular}{l@{\qquad}l}
@@ -428,10 +426,9 @@
 \end{frame}
 
 \begin{frame}{\texttt{case}}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{n2-sh} }%
-    \mode<article>{\shellfile{../src/n2.sh}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{n2-sh} }%
+  \mode<article>{\shellfile{../src/n2.sh}}
 \end{frame}
 
 \begin{frame}{\texttt{select}}
@@ -442,15 +439,16 @@
 \end{frame}
 
 \begin{frame}{Functions}
-  \mode<beamer>{ \includegraphics[width=\textwidth]{func-sh} }%
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{func-sh} }%
   \mode<article>{\shellfile{../src/func.sh}}
 \end{frame}
 
 \begin{frame}{Array}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{wallpaper-sh} }%
-    \mode<article>{\shellfile{../src/wallpaper.sh}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{wallpaper-sh} }%
+  \mode<article>{\shellfile{../src/wallpaper.sh}}
+
   \begin{itemize}
   \item[\hw] Change wallpaper every 5 mins?
   \end{itemize}

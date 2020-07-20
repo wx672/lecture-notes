@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.9 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -21,34 +21,39 @@
   \datalist[entry]{none/global//global/global}
     \entry{tanenbaum2008modern}{book}{}
       \name{author}{1}{}{%
-        {{hash=5fec945e2e4e128e1f94258b75085d2d}{%
+        {{hash=2414455c999bc471f803cd14fdea939d}{%
            family={Tanenbaum},
            familyi={T\bibinitperiod},
            given={Andrew\bibnamedelima S.},
            giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
       }
+      \list{language}{1}{%
+        {english}%
+      }
       \list{publisher}{1}{%
         {Prentice Hall Press}%
       }
-      \strng{namehash}{5fec945e2e4e128e1f94258b75085d2d}
-      \strng{fullhash}{5fec945e2e4e128e1f94258b75085d2d}
-      \strng{bibnamehash}{5fec945e2e4e128e1f94258b75085d2d}
-      \strng{authorbibnamehash}{5fec945e2e4e128e1f94258b75085d2d}
-      \strng{authornamehash}{5fec945e2e4e128e1f94258b75085d2d}
-      \strng{authorfullhash}{5fec945e2e4e128e1f94258b75085d2d}
+      \strng{namehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{fullhash}{2414455c999bc471f803cd14fdea939d}
+      \strng{bibnamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{authorbibnamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{authornamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{authorfullhash}{2414455c999bc471f803cd14fdea939d}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{3}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Modern Operating Systems}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2007}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/4/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/4/Calibre1
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{tanenbaum2008modern}
     \endentry
     \entry{silberschatz11essentials}{book}{}
       \name{author}{3}{}{%
@@ -62,6 +67,9 @@
            family={Gagne},
            familyi={G\bibinitperiod}}}%
       }
+      \list{language}{1}{%
+        {english}%
+      }
       \list{publisher}{1}{%
         {John Wiley \& Sons}%
       }
@@ -72,45 +80,20 @@
       \strng{authornamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
       \strng{authorfullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
       \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Operating System Concepts Essentials}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2011}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
-      \endverb
-    \endentry
-    \entry{zouhengming09}{book}{}
-      \name{author}{1}{}{%
-        {{hash=be7bd4ddf5d28e79cc32e96758036ac9}{%
-           family={邹恒明},
-           familyi={邹\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {机械工业出版社}%
-      }
-      \strng{namehash}{be7bd4ddf5d28e79cc32e96758036ac9}
-      \strng{fullhash}{be7bd4ddf5d28e79cc32e96758036ac9}
-      \strng{bibnamehash}{be7bd4ddf5d28e79cc32e96758036ac9}
-      \strng{authorbibnamehash}{be7bd4ddf5d28e79cc32e96758036ac9}
-      \strng{authornamehash}{be7bd4ddf5d28e79cc32e96758036ac9}
-      \strng{authorfullhash}{be7bd4ddf5d28e79cc32e96758036ac9}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{计算机的心智：操作系统之哲学原理}
-      \field{year}{2009}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/82/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/82/Calibre1
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{silberschatz11essentials}
     \endentry
   \enddatalist
 \endrefsection
@@ -135,6 +118,9 @@
            given={Alessandro},
            giveni={A\bibinitperiod}}}%
       }
+      \list{language}{1}{%
+        {english}%
+      }
       \list{publisher}{1}{%
         {O'Reilly}%
       }
@@ -145,155 +131,177 @@
       \strng{authornamehash}{6e4199b3024d681757cab2ddcea8a638}
       \strng{authorfullhash}{212042be31105560b7f3b53bf5bb196d}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{3}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Linux Device Drivers}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2005}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/45/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/45/Calibre1
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{corbet05ldd}
     \endentry
     \entry{bovet2005understanding}{book}{}
       \name{author}{2}{}{%
-        {{hash=fa27fa2e45812b8ebdcefbbace72dad8}{%
+        {{hash=4e6ca956728eb9b26ad462fad9dacebd}{%
            family={Bovet},
            familyi={B\bibinitperiod},
            given={D.P.},
            giveni={D\bibinitperiod}}}%
-        {{hash=6acdb1d85e9e66f8529528646372bf1c}{%
+        {{hash=6176f6b4412f69e77474b086d0602918}{%
            family={Cesati},
            familyi={C\bibinitperiod},
            given={M.},
            giveni={M\bibinitperiod}}}%
       }
+      \list{language}{1}{%
+        {english}%
+      }
       \list{publisher}{1}{%
         {OReilly}%
       }
-      \strng{namehash}{c6558b33ee234d36e753b4b8d3c10f99}
-      \strng{fullhash}{c6558b33ee234d36e753b4b8d3c10f99}
-      \strng{bibnamehash}{c6558b33ee234d36e753b4b8d3c10f99}
-      \strng{authorbibnamehash}{c6558b33ee234d36e753b4b8d3c10f99}
-      \strng{authornamehash}{c6558b33ee234d36e753b4b8d3c10f99}
-      \strng{authorfullhash}{c6558b33ee234d36e753b4b8d3c10f99}
+      \strng{namehash}{98936862f22b163b51b14525285c6d69}
+      \strng{fullhash}{a98d08854c8f941be39faef502dc8019}
+      \strng{bibnamehash}{a98d08854c8f941be39faef502dc8019}
+      \strng{authorbibnamehash}{a98d08854c8f941be39faef502dc8019}
+      \strng{authornamehash}{98936862f22b163b51b14525285c6d69}
+      \strng{authorfullhash}{a98d08854c8f941be39faef502dc8019}
       \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{3}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Understanding The Linux Kernel}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2005}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{bovet2005understanding}
     \endentry
     \entry{mauerer2008professional}{book}{}
       \name{author}{1}{}{%
-        {{hash=94e687d10b275206ed48744534b73f87}{%
+        {{hash=97208baf9cdd177adef3cbe7e24d6391}{%
            family={Mauerer},
            familyi={M\bibinitperiod},
            given={W.},
            giveni={W\bibinitperiod}}}%
       }
+      \list{language}{1}{%
+        {english}%
+      }
       \list{publisher}{1}{%
         {John Wiley \& Sons}%
       }
-      \strng{namehash}{94e687d10b275206ed48744534b73f87}
-      \strng{fullhash}{94e687d10b275206ed48744534b73f87}
-      \strng{bibnamehash}{94e687d10b275206ed48744534b73f87}
-      \strng{authorbibnamehash}{94e687d10b275206ed48744534b73f87}
-      \strng{authornamehash}{94e687d10b275206ed48744534b73f87}
-      \strng{authorfullhash}{94e687d10b275206ed48744534b73f87}
+      \strng{namehash}{97208baf9cdd177adef3cbe7e24d6391}
+      \strng{fullhash}{97208baf9cdd177adef3cbe7e24d6391}
+      \strng{bibnamehash}{97208baf9cdd177adef3cbe7e24d6391}
+      \strng{authorbibnamehash}{97208baf9cdd177adef3cbe7e24d6391}
+      \strng{authornamehash}{97208baf9cdd177adef3cbe7e24d6391}
+      \strng{authorfullhash}{97208baf9cdd177adef3cbe7e24d6391}
       \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Professional Linux Kernel Architecture}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2008}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/10/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/10/Calibre1
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{mauerer2008professional}
     \endentry
     \entry{love2010linux}{book}{}
       \name{author}{1}{}{%
-        {{hash=a40c808f8f2dd65c5e3d951206e5da65}{%
+        {{hash=2716e80b99ab44d63f50300bfb213d81}{%
            family={Love},
            familyi={L\bibinitperiod},
            given={R.},
            giveni={R\bibinitperiod}}}%
       }
+      \list{language}{1}{%
+        {english}%
+      }
       \list{publisher}{1}{%
         {Addison-Wesley}%
       }
-      \strng{namehash}{a40c808f8f2dd65c5e3d951206e5da65}
-      \strng{fullhash}{a40c808f8f2dd65c5e3d951206e5da65}
-      \strng{bibnamehash}{a40c808f8f2dd65c5e3d951206e5da65}
-      \strng{authorbibnamehash}{a40c808f8f2dd65c5e3d951206e5da65}
-      \strng{authornamehash}{a40c808f8f2dd65c5e3d951206e5da65}
-      \strng{authorfullhash}{a40c808f8f2dd65c5e3d951206e5da65}
+      \strng{namehash}{2716e80b99ab44d63f50300bfb213d81}
+      \strng{fullhash}{2716e80b99ab44d63f50300bfb213d81}
+      \strng{bibnamehash}{2716e80b99ab44d63f50300bfb213d81}
+      \strng{authorbibnamehash}{2716e80b99ab44d63f50300bfb213d81}
+      \strng{authornamehash}{2716e80b99ab44d63f50300bfb213d81}
+      \strng{authorfullhash}{2716e80b99ab44d63f50300bfb213d81}
       \field{sortinit}{4}
-      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{series}{Developer's Library}
       \field{title}{Linux Kernel Development}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2010}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/12/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/12/Calibre1
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{love2010linux}
     \endentry
     \entry{rodriguez2005linux}{book}{}
       \name{author}{3}{}{%
-        {{hash=8c72ff1fd1a7cb97a01a85d471a24d3b}{%
+        {{hash=cf08c3b145eb926d127a7b4ba64dab31}{%
            family={Rodriguez},
            familyi={R\bibinitperiod},
            given={C.S.},
            giveni={C\bibinitperiod}}}%
-        {{hash=36e97d0b6bf37afe62df6b211831b97d}{%
+        {{hash=c63d4b532915c2df1ff0581efa885d8c}{%
            family={Fischer},
            familyi={F\bibinitperiod},
            given={G.},
            giveni={G\bibinitperiod}}}%
-        {{hash=14372d02306489b64fb4f49c5c86a7c4}{%
+        {{hash=349877c77f92be7c9b4b5322f2c21b35}{%
            family={Smolski},
            familyi={S\bibinitperiod},
            given={S.},
            giveni={S\bibinitperiod}}}%
       }
+      \list{language}{1}{%
+        {english}%
+      }
       \list{publisher}{1}{%
         {Prentice Hall Professional Technical Reference}%
       }
-      \strng{namehash}{70a01a73ceaec558041c6881a0c53b98}
-      \strng{fullhash}{0d1df0f49836b4d66f4fe06acd031348}
-      \strng{bibnamehash}{0d1df0f49836b4d66f4fe06acd031348}
-      \strng{authorbibnamehash}{0d1df0f49836b4d66f4fe06acd031348}
-      \strng{authornamehash}{70a01a73ceaec558041c6881a0c53b98}
-      \strng{authorfullhash}{0d1df0f49836b4d66f4fe06acd031348}
+      \strng{namehash}{135476c1992dd4258e57781cbefaac17}
+      \strng{fullhash}{a35528c2d244e37b0368654700f436fa}
+      \strng{bibnamehash}{a35528c2d244e37b0368654700f436fa}
+      \strng{authorbibnamehash}{a35528c2d244e37b0368654700f436fa}
+      \strng{authornamehash}{135476c1992dd4258e57781cbefaac17}
+      \strng{authorfullhash}{a35528c2d244e37b0368654700f436fa}
       \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{The Linux kernel primer: a top-down approach for x86 and PowerPC architectures}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2005}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/34/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/34/Calibre1
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{rodriguez2005linux}
     \endentry
   \enddatalist
 \endrefsection
@@ -302,33 +310,44 @@
   \datalist[entry]{none/global//global/global}
     \entry{bartlett2009programming}{book}{}
       \name{author}{1}{}{%
-        {{hash=d4eb00f4ebc62f9ae6bbfdd4912c2068}{%
+        {{hash=a2555f3b30d6f1fe4716c89cfc387cd4}{%
            family={Bartlett},
            familyi={B\bibinitperiod},
            given={J.},
            giveni={J\bibinitperiod}}}%
       }
+      \list{language}{1}{%
+        {english}%
+      }
       \list{publisher}{1}{%
         {University Press of Florida}%
       }
-      \strng{namehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
-      \strng{fullhash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
-      \strng{bibnamehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
-      \strng{authorbibnamehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
-      \strng{authornamehash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
-      \strng{authorfullhash}{d4eb00f4ebc62f9ae6bbfdd4912c2068}
+      \strng{namehash}{a2555f3b30d6f1fe4716c89cfc387cd4}
+      \strng{fullhash}{a2555f3b30d6f1fe4716c89cfc387cd4}
+      \strng{bibnamehash}{a2555f3b30d6f1fe4716c89cfc387cd4}
+      \strng{authorbibnamehash}{a2555f3b30d6f1fe4716c89cfc387cd4}
+      \strng{authornamehash}{a2555f3b30d6f1fe4716c89cfc387cd4}
+      \strng{authorfullhash}{a2555f3b30d6f1fe4716c89cfc387cd4}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Programming from the Ground Up}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2009}
+      \field{dateera}{ce}
+      \true{nocite}
       \verb{urlraw}
       \verb http://books.google.com.hk/books?id=E4J8RAAACAAJ
       \endverb
       \verb{url}
       \verb http://books.google.com.hk/books?id=E4J8RAAACAAJ
       \endverb
+      \keyw{bartlett2009programming}
     \endentry
     \entry{carter06:_pc_assem_languag}{book}{}
       \name{author}{1}{}{%
@@ -337,6 +356,9 @@
            familyi={C\bibinitperiod},
            given={Paul},
            giveni={P\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
       }
       \list{publisher}{1}{%
         {www.drpaulcarter.com}%
@@ -348,23 +370,34 @@
       \strng{authornamehash}{2639fbe0632cade3350c590f8d791587}
       \strng{authorfullhash}{2639fbe0632cade3350c590f8d791587}
       \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{PC Assembly Language}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2006}
+      \field{dateera}{ce}
+      \true{nocite}
       \verb{urlraw}
       \verb http://www.drpaulcarter.com/pcasm/
       \endverb
       \verb{url}
       \verb http://www.drpaulcarter.com/pcasm/
       \endverb
+      \keyw{carter06:_pc_assem_languag}
     \endentry
     \entry{x86assemblymanual}{misc}{}
       \name{author}{1}{}{%
         {{hash=30162ed78b6c10f731411f2fc440c24f}{%
            family={Oracle},
            familyi={O\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
       }
       \strng{namehash}{30162ed78b6c10f731411f2fc440c24f}
       \strng{fullhash}{30162ed78b6c10f731411f2fc440c24f}
@@ -373,23 +406,29 @@
       \strng{authornamehash}{30162ed78b6c10f731411f2fc440c24f}
       \strng{authorfullhash}{30162ed78b6c10f731411f2fc440c24f}
       \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{howpublished}{http://docs.oracle.com/cd/E19253-01/817-5477/817-5477.pdf}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{x86 Assembly Language Reference Manual}
+      \field{usera}{Z}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2012}
-      \verb{urlraw}
-      \verb http://docs.oracle.com/cd/E19253-01/817-5477/817-5477.pdf
-      \endverb
-      \verb{url}
-      \verb http://docs.oracle.com/cd/E19253-01/817-5477/817-5477.pdf
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{x86assemblymanual}
     \endentry
     \entry{wikibooks-gas}{misc}{}
       \name{author}{1}{}{%
         {{hash=5886004bd42dfe6ea957dc7e00167fcc}{%
            family={Wikibooks},
            familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
       }
       \strng{namehash}{5886004bd42dfe6ea957dc7e00167fcc}
       \strng{fullhash}{5886004bd42dfe6ea957dc7e00167fcc}
@@ -398,42 +437,51 @@
       \strng{authornamehash}{5886004bd42dfe6ea957dc7e00167fcc}
       \strng{authorfullhash}{5886004bd42dfe6ea957dc7e00167fcc}
       \field{sortinit}{4}
-      \field{sortinithash}{11cdaee3b18e01d77f3f428b13c1fc76}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{howpublished}{http://en.wikibooks.org/wiki/X86\_Assembly/GAS\_Syntax}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{GAS Syntax}
+      \field{usera}{Z}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2012}
-      \verb{urlraw}
-      \verb http://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax
-      \endverb
-      \verb{url}
-      \verb http://en.wikibooks.org/wiki/X86_Assembly/GAS_Syntax
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{wikibooks-gas}
     \endentry
     \entry{howto:gcc-inline-asm}{misc}{}
       \name{author}{1}{}{%
-        {{hash=414ea760c7fee2e286274be211640a59}{%
+        {{hash=84e5bfbc12ed4a420d4c487d1bae7ac0}{%
            family={ibiblio.org},
            familyi={i\bibinitperiod}}}%
       }
-      \strng{namehash}{414ea760c7fee2e286274be211640a59}
-      \strng{fullhash}{414ea760c7fee2e286274be211640a59}
-      \strng{bibnamehash}{414ea760c7fee2e286274be211640a59}
-      \strng{authorbibnamehash}{414ea760c7fee2e286274be211640a59}
-      \strng{authornamehash}{414ea760c7fee2e286274be211640a59}
-      \strng{authorfullhash}{414ea760c7fee2e286274be211640a59}
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{84e5bfbc12ed4a420d4c487d1bae7ac0}
+      \strng{fullhash}{84e5bfbc12ed4a420d4c487d1bae7ac0}
+      \strng{bibnamehash}{84e5bfbc12ed4a420d4c487d1bae7ac0}
+      \strng{authorbibnamehash}{84e5bfbc12ed4a420d4c487d1bae7ac0}
+      \strng{authornamehash}{84e5bfbc12ed4a420d4c487d1bae7ac0}
+      \strng{authorfullhash}{84e5bfbc12ed4a420d4c487d1bae7ac0}
       \field{sortinit}{5}
-      \field{sortinithash}{3c19c3776b658b3558e9e2e4840c01e2}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{howpublished}{http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{GCC Inline Assembly HOWTO}
+      \field{usera}{Z}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2012}
-      \verb{urlraw}
-      \verb http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html
-      \endverb
-      \verb{url}
-      \verb http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{howto:gcc-inline-asm}
     \endentry
     \entry{x86-inline-asm-linux}{misc}{}
       \name{author}{1}{}{%
@@ -443,6 +491,9 @@
            given={IBM},
            giveni={I\bibinitperiod}}}%
       }
+      \list{language}{1}{%
+        {english}%
+      }
       \strng{namehash}{c43b23f58cbf28c0a9e10d7ced223b7a}
       \strng{fullhash}{c43b23f58cbf28c0a9e10d7ced223b7a}
       \strng{bibnamehash}{c43b23f58cbf28c0a9e10d7ced223b7a}
@@ -450,23 +501,29 @@
       \strng{authornamehash}{c43b23f58cbf28c0a9e10d7ced223b7a}
       \strng{authorfullhash}{c43b23f58cbf28c0a9e10d7ced223b7a}
       \field{sortinit}{6}
-      \field{sortinithash}{57e57fb8451e7fcfa45d1e069f6d3136}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{howpublished}{http://www.ibm.com/developerworks/linux/library/l-ia/index.html}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Inline assembly for x86 in Linux}
+      \field{usera}{Z}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2012}
-      \verb{urlraw}
-      \verb http://www.ibm.com/developerworks/linux/library/l-ia/index.html
-      \endverb
-      \verb{url}
-      \verb http://www.ibm.com/developerworks/linux/library/l-ia/index.html
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{x86-inline-asm-linux}
     \endentry
     \entry{stack:gcc-gen-asm}{misc}{}
       \name{author}{1}{}{%
         {{hash=257281f9b2aa93be7c12f5c49e122ca3}{%
            family={Stackoverflow},
            familyi={S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
       }
       \strng{namehash}{257281f9b2aa93be7c12f5c49e122ca3}
       \strng{fullhash}{257281f9b2aa93be7c12f5c49e122ca3}
@@ -475,30 +532,36 @@
       \strng{authornamehash}{257281f9b2aa93be7c12f5c49e122ca3}
       \strng{authorfullhash}{257281f9b2aa93be7c12f5c49e122ca3}
       \field{sortinit}{7}
-      \field{sortinithash}{c818dd9105a2852444fc9f5e145c294e}
+      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{howpublished}{http://stackoverflow.com/questions/8478491/understanding-base-pointer-and-stack-pointers-in-context-with-gcc-output}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Understanding gcc generated assembly}
+      \field{usera}{Z}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2012}
-      \verb{urlraw}
-      \verb http://stackoverflow.com/questions/8478491/understanding-base-pointer-and-stack-pointers-in-context-with-gcc-output
-      \endverb
-      \verb{url}
-      \verb http://stackoverflow.com/questions/8478491/understanding-base-pointer-and-stack-pointers-in-context-with-gcc-output
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{stack:gcc-gen-asm}
     \endentry
   \enddatalist
 \endrefsection
 
 \refsection{4}
   \datalist[entry]{none/global//global/global}
-    \entry{Kroah-Hartman:1053063}{book}{}
+    \entry{kroah-hartman:1053063}{book}{}
       \name{author}{1}{}{%
         {{hash=8edf24ea3e75c726f2c163493ab3e3c3}{%
            family={Kroah-Hartman},
            familyi={K\bibinithyphendelim H\bibinitperiod},
            given={Greg},
            giveni={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
       }
       \list{publisher}{1}{%
         {O'Reilly}%
@@ -510,51 +573,34 @@
       \strng{authornamehash}{8edf24ea3e75c726f2c163493ab3e3c3}
       \strng{authorfullhash}{8edf24ea3e75c726f2c163493ab3e3c3}
       \field{sortinit}{1}
-      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{{Linux Kernel in a Nutshell: A Desktop Quick Reference}}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
       \field{year}{2007}
+      \field{dateera}{ce}
+      \true{nocite}
       \verb{urlraw}
       \verb http://www.kroah.com/lkn/
       \endverb
       \verb{url}
       \verb http://www.kroah.com/lkn/
       \endverb
-    \endentry
-    \entry{yuyuan2009orange}{book}{}
-      \name{author}{1}{}{%
-        {{hash=6bd3ec8d773585effb6c0719f377cb04}{%
-           family={于渊},
-           familyi={于\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {电子工业出版社}%
-      }
-      \strng{namehash}{6bd3ec8d773585effb6c0719f377cb04}
-      \strng{fullhash}{6bd3ec8d773585effb6c0719f377cb04}
-      \strng{bibnamehash}{6bd3ec8d773585effb6c0719f377cb04}
-      \strng{authorbibnamehash}{6bd3ec8d773585effb6c0719f377cb04}
-      \strng{authornamehash}{6bd3ec8d773585effb6c0719f377cb04}
-      \strng{authorfullhash}{6bd3ec8d773585effb6c0719f377cb04}
-      \field{sortinit}{2}
-      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Orange'S：一个操作系统的实现}
-      \field{year}{2009}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/2/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/2/Calibre1
-      \endverb
+      \keyw{kroah-hartman:1053063}
     \endentry
     \entry{zhenggang2016}{book}{}
       \name{author}{1}{}{%
         {{hash=a1a361ddd91c8bdf31a230b7c5e80df0}{%
            family={郑钢},
            familyi={郑\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {chinese}%
       }
       \list{publisher}{1}{%
         {人民邮电出版社}%
@@ -565,18 +611,87 @@
       \strng{authorbibnamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
       \strng{authornamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
       \strng{authorfullhash}{a1a361ddd91c8bdf31a230b7c5e80df0}
-      \field{sortinit}{3}
-      \field{sortinithash}{a4b52e5432884761f50fb9571273b93e}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{1}
       \field{title}{操作系统真象还原}
+      \field{usera}{M}
+      \field{userd}{chinese}
+      \field{userf}{chinese}
       \field{year}{2016}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/158/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/158/Calibre1
-      \endverb
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{zhenggang2016}
+    \endentry
+    \entry{linuxkernelart13}{book}{}
+      \name{author}{1}{}{%
+        {{hash=bed1fe53bac82e0a18c65d54b800bdf6}{%
+           family={新设计团队},
+           familyi={新\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {chinese}%
+      }
+      \list{publisher}{1}{%
+        {机械工业出版社}%
+      }
+      \strng{namehash}{bed1fe53bac82e0a18c65d54b800bdf6}
+      \strng{fullhash}{bed1fe53bac82e0a18c65d54b800bdf6}
+      \strng{bibnamehash}{bed1fe53bac82e0a18c65d54b800bdf6}
+      \strng{authorbibnamehash}{bed1fe53bac82e0a18c65d54b800bdf6}
+      \strng{authornamehash}{bed1fe53bac82e0a18c65d54b800bdf6}
+      \strng{authorfullhash}{bed1fe53bac82e0a18c65d54b800bdf6}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{1}
+      \field{month}{5}
+      \field{title}{Linux内核设计的艺术}
+      \field{usera}{M}
+      \field{userd}{chinese}
+      \field{userf}{chinese}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{linuxkernelart13}
+    \endentry
+    \entry{yuyuan2009orange}{book}{}
+      \name{author}{1}{}{%
+        {{hash=6bd3ec8d773585effb6c0719f377cb04}{%
+           family={于渊},
+           familyi={于\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {chinese}%
+      }
+      \list{publisher}{1}{%
+        {电子工业出版社}%
+      }
+      \strng{namehash}{6bd3ec8d773585effb6c0719f377cb04}
+      \strng{fullhash}{6bd3ec8d773585effb6c0719f377cb04}
+      \strng{bibnamehash}{6bd3ec8d773585effb6c0719f377cb04}
+      \strng{authorbibnamehash}{6bd3ec8d773585effb6c0719f377cb04}
+      \strng{authornamehash}{6bd3ec8d773585effb6c0719f377cb04}
+      \strng{authorfullhash}{6bd3ec8d773585effb6c0719f377cb04}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{1}
+      \field{title}{Orange'S：一个操作系统的实现}
+      \field{usera}{M}
+      \field{userd}{chinese}
+      \field{userf}{chinese}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{yuyuan2009orange}
     \endentry
   \enddatalist
 \endrefsection

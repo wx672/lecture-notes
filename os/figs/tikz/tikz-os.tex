@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{opts}
+\usegdlibrary{layered}
 
 \begin{document}
 
@@ -10,34 +11,27 @@
 \tikzsetnextfilename{choose-os}
 \begin{figure}
   \centering\resizebox{\textwidth}{!}{
-    \begin{tikzpicture}[%
+    \begin{tikzpicture} [%
       node font=\purisa,%
       decoration={amplitude=1.2pt}, penciline={jag ratio=1.2},%
       every node/.style = {thick,decorate,align=center},%
-      every path/.style = {decorate}]      
-
-      \node (root) {Do you fear technology?};
-      \node (yes1) [below left=0pt of root] {Yes} edge (root);
-      \node (no1) [below right=0pt of root] {No} edge (root);
-
-      \node (rich) [below left=0pt of yes1] {Is your daddy rich?} edge (yes1);
-      \node (yes2) [below left=0pt of rich] {Yes} edge (rich);
-      \node (no2) [below right=0pt of rich] {No} edge (rich);
-      \node [below=3mm of yes2,scale=2] {\apple} edge (yes2);
-      \node [below=3mm of no2,scale=2] {\chrome} edge (no2);
-      
-      \node (freedom) [below right=0pt of no1] {Do you care about\\freedom/privacy?} edge (no1);
-      \node (yes3) [below left=0pt of freedom] {Yes} edge (freedom);
-      \node (no3) [below right=0pt of freedom] {No}  edge (freedom);
-      \node (life) [below=2mm of yes3] {Do you have a life?} edge (yes3);
-      \node (yes4) [below left=0pt of life] {Yes} edge (life);
-      \node (no4) [below right=0pt of life] {No}  edge (life);
-      \node [below left=2mm of yes4,scale=2] {\ubuntu} edge (yes4);
-      \node [below=3mm of yes4,scale=2] {\debian} edge (yes4);
-      \node [below right=2mm of yes4,scale=2] {\fedoralight} edge (yes4);
-      \node [below=3mm of no4,scale=2] {\arch} edge (no4);
-      \node [below=3mm of no3,scale=2] {\windows} edge (no3);
-    \end{tikzpicture}}
+      icon/.style = {scale=2}
+      ]
+      \graph [layered layout,
+      edge quotes mid, edges={nodes={font=\footnotesize, fill=white, inner sep=1pt},decorate},
+      level distance=1.5cm, sibling distance=2cm]
+      {
+        "Do you fear technology?" ->
+        {
+          "Is your daddy rich?" [>"Yes"] -> {"\apple" [>"Yes",icon], "\chrome" [>"No",icon]},
+          "Do you care about\\freedom/privacy?" [>"No"]
+          -> {"Do you have a life?" [>"Yes"] -- {
+              "" [>"Yes", inner sep=0pt] -> {"\ubuntu" [icon],"\debian"
+                [icon],"\fedoralight" [icon]}, "\arch" [>"No",icon]},
+            "\windows" [>"No",icon]};
+        };
+      };
+\end{tikzpicture}}
   \caption{Choosing an OS\label{fig:choose-os}}  
 \end{figure}
 
@@ -114,8 +108,7 @@
   \draw [arrow] (hwctrl) -- (hw);
   \draw [arrow] (fs.east) -- (fs -| proc.west);%
 \end{tikzpicture}}
-  \caption{OS overview}
-  \label{fig:kernel-block}
+  \caption{OS overview\label{fig:kernel-block}}  
 \end{figure}
 
 \tikzsetnextfilename{chipsets}
@@ -159,8 +152,7 @@
   \node (a9) [harrow,above=5pt of a6.north,anchor=south,rotate=20,inner xsep=.6cm,xshift=0pt] {};
   \node (a10) [harrow,below=10pt of a6.south,anchor=north,rotate=160,inner xsep=.6cm,xshift=2pt] {};
 \end{tikzpicture}  
-  \caption{Motherboard chipsets}
-  \label{fig:chipsets}
+  \caption{Motherboard chipsets\label{fig:chipsets}}  
 \end{figure}
 
 \tikzsetnextfilename{chipsets-bw}
@@ -207,8 +199,7 @@
     \node (a10) [harrow,below=10pt of a6.south,anchor=north,rotate=160,inner
     xsep=.6cm,xshift=2pt] {};%
   \end{tikzpicture}
-  \caption{Motherboard chipsets (bw version)}
-  \label{fig:chipsets-bw}
+  \caption{Motherboard chipsets (bw version)\label{fig:chipsets-bw}}  
 \end{figure}
 
 \tikzsetnextfilename{mos-figs-1-6}
@@ -226,8 +217,7 @@
   \node [on chain] (d2e) [arrow] {};%
   \node [on chain,decorate] (exec) {Execute\\unit};%
 \end{tikzpicture}  
-  \caption{CPU's working cycle}
-  \label{fig:mos-figs-1-6}
+  \caption{CPU's working cycle\label{fig:mos-figs-1-6}}  
 \end{figure}
 
 \tikzsetnextfilename{boot}
@@ -279,8 +269,7 @@
       xshift=-5pt,align=left,scale=.6,gray!90,draw=none] {Switch to\\Protected Mode};%
       \draw [arrow,>=stealth,thin,gray!90] (switch.south west)--(kinit1.east);
     \end{tikzpicture}}
-  \caption{Bootstrapping}
-  \label{fig:boot}
+  \caption{Bootstrapping\label{fig:boot}}  
 \end{figure}
 
 \tikzsetnextfilename{boot-bw}
@@ -332,8 +321,7 @@
       xshift=-5pt,align=left,scale=.6,draw=none] {Switch to\\Protected Mode};%
       \draw [arrow,>=stealth,thin] (switch.south west)--(kinit1.east);
     \end{tikzpicture}}
-  \caption{Bootstrapping (bw version)}
-  \label{fig:boot-bw}
+  \caption{Bootstrapping (bw version)\label{fig:boot-bw}}  
 \end{figure}
 
 \tikzsetnextfilename{mos-figs-1-20}
@@ -367,8 +355,7 @@
   \draw [arrow] ($(gap.north) + (.5cm,0)$)-- +(0,-5mm);%
 
 \end{tikzpicture}}
-  \caption{Process' virtual address space}
-  \label{fig:mos-figs-1-20}
+  \caption{Process' virtual address space\label{fig:mos-figs-1-20}}  
 \end{figure}
 
 \tikzsetnextfilename{mm-process}
@@ -383,65 +370,50 @@
   \node at (current page.south) [yshift=2cm,scale=3,align=center]%
   {\humor{the size of a process}\\\humor{(text + data + bss) is}\\\humor{established at compile time}};
 \end{tikzpicture}}
-  \caption{UNIX view of a process}
-  \label{fig:mm-process}
+  \caption{UNIX view of a process\label{fig:mm-process}}  
 \end{figure}
 
 \tikzsetnextfilename{process-creation}
 \begin{figure}
   \centering\resizebox{.5\textwidth}{!} {
-\begin{tikzpicture}[ decoration={amplitude=1pt}, penciline={jag ratio=1},%
-  node distance=5mm, ultra thick,font=\purisa, %
-  every node/.style ={inner sep=2pt},%
-  every edge/.style ={draw,gray!80,decorate,->},%
-  every edge quotes/.style ={font=\purisa\tiny,sloped,auto}%
-  ]%
-  \node (exit) {exit()};%
-  \node (exec) [left=of exit] {exec()};%
-  \node (fork) [above left=of exec, xshift=15pt] {fork()};%
-  \node (wait) [above right=of exit, xshift=-15pt] {wait()};%
-  \node (any)  [above right=of fork, xshift=-6pt] {anything()};%
-
-  \path
-  (fork) edge ["parent" near end,bend left] (any.west)%
-  (any.east)  edge [bend left] (wait)%
-  (fork) edge ["child"' near end,bend right] (exec)%
-  (exec) edge  (exit)%
-  (exit) edge [bend right] (wait);%
-\end{tikzpicture} }
-  \caption{Process creation}
-  \label{fig:process-creation}
+    \begin{tikzpicture}[%
+      decoration={amplitude=1pt}, penciline={jag ratio=1},%
+      node font=\purisa, %
+      ]%
+      \graph [layered layout,grow'=right,
+      edges={sloped,auto,nodes={font=\tiny, fill=white, inner sep=1pt},decorate}]
+      {
+        "fork()" -> {
+          "whatever()" [>"parent" near start],
+          "exec()" [>"child"] -> "exit()"}
+        -> "wait()";
+      };
+    \end{tikzpicture}}
+  \caption{Process creation\label{fig:process-creation}}  
 \end{figure}
 
 \tikzsetnextfilename{thread-operations}
 \begin{figure}
   \centering\resizebox{.5\textwidth}{!}{
-\begin{tikzpicture}[auto, decoration={amplitude=1.5pt}, penciline={jag ratio=2}]%
-  \tikzset{%
-    main node/.style = {decorate,draw,ultra thick,inner sep=2pt,scale=1.5,%
-      node distance=10em,align=center,% text width=5em,text centered,minimum size=4mm,
-    },%
-    every edge/.style = {draw,decorate,ultra thick,->},%
-    every edge quotes/.style={opacity=.9,font=\purisa\footnotesize}
-  }
-  
-  \node [main node,circle] (start) {Start\\with one\\thread\\running};
-  \node [main node] (t1) [above right=of start] {thread1};
-  \node [main node] (t2)       [right=of start] {thread2};
-  \node [main node] (t3) [below right=of start] {thread3};
-  \node [main node,circle] (end) [right=of t2] {end};
-  \node [main node] (yield) [right=of t1] {release\\CPU};
-  \node [main node] (join) [right=of t3] {wait for\\a thread\\to exit};
-  \path%
-  (start.north) edge ["thread\_create()" near end,sloped,bend left=10,] (t1.west)%
-  (start.south) edge ["thread\_create()"' near end,sloped,bend right=10,rotate=7] (t3.west)%
-  (start) edge ["thread\_create()"] (t2)%
-  (t1) edge ["thread\_exit()"' near end,sloped,bend left=20,rotate=-6] (end)%
-  edge ["thread\_yield()"] (yield)%
-  (t3) edge ["thread\_exit()"  near end,sloped,bend right=20,rotate=4] (end)%
-  edge ["thread\_join()"'] (join)%
-  (t2) edge ["thread\_exit()"] (end);%
-\end{tikzpicture}}
+
+    \begin{tikzpicture}[%
+      decoration={amplitude=1pt}, penciline={jag ratio=1},%
+      node font=\purisa, %
+      ]%
+      \graph [layered layout,grow'=right,level distance=6cm,sibling distance=3cm,
+      nodes={align=center,draw,font=\LARGE,decorate},
+      edges={sloped,auto,nodes={font=\small, fill=white, inner sep=1pt},decorate}]
+      {
+        "Start\\with one\\thread\\running" -> ["thread\_create()"]
+        {"thread1", "thread2", "thread3"};
+        
+        "thread1" -> ["thread\_yield()"] "Release\\CPU";
+
+        {"thread1","thread2","thread3"} -> ["thread\_exit()"] "End";
+
+        "thread3" -> ["thread\_join()"] "Wait for\\a thread\\to exit";
+      };
+    \end{tikzpicture}}    
   \caption{Thread operations}
   \label{fig:thread-operations}
 \end{figure}
@@ -465,32 +437,28 @@
     (.6,.3) [anchor=west] {Deadlock!};
   \end{scope}
 \end{tikzpicture}}
-  \caption{Deadlock --- Resource issues}
-  \label{fig:deadlock-resource}
+  \caption{Deadlock --- Resource issues\label{fig:deadlock-resource}}  
 \end{figure}
   
-\tikzsetnextfilename{deadlock-graph}
 \begin{figure}
   \centering\resizebox{.6\textwidth}{!}{
-    \begin{tikzpicture}[%
-      r/.style={rectangle, draw,thick},
-      p/.style={circle, draw, thick},
-      every edge quotes/.style={auto=right,font=\footnotesize},
-      every label quotes/.style={below},
-      every edge/.style={draw,->, >=stealth, thick}]
-
-      \node (a) [p] {A};
-      \node (r) [r, below=of a] {R} edge ["has"](a);
-      \node (s) [r, right=of a] {S};
-      \node (b) [p, below=of s] {B} edge ["wants"](s);
-
-      \node (d) [p, right=2.7cm of s,yshift=6mm] {D};
-      \node (u) [r, below right=of d] {U} edge [bend right, <-] (d);
-      \node (c) [p, below  left=of u] {C} edge [bend right, <-] (u);
-      \node (t) [r, below  left=of d] {T} edge [bend right, <-] (c) edge [bend left] (d);
-\end{tikzpicture}}
-  \caption{Deadlock notions}
-  \label{fig:deadlock-graph}
+    \tikzsetnextfilename{deadlock-graph-a}
+    \begin{tikzpicture}
+      \graph [layered layout,grow'=up, nodes={draw}, edge quotes mid, level distance=1.2cm,
+      edges={auto,nodes={font=\tiny, fill=white, inner sep=1pt, align=center}}]
+      {
+        R -> ["owned by"] A [circle];
+        B [circle] -> ["wants"] S;
+      };
+    \end{tikzpicture}
+    \tikzsetnextfilename{deadlock-graph-b}
+    \begin{tikzpicture}
+      \graph [simple necklace layout,grow'=down, nodes={draw}]
+      {
+        D [circle] -> U -> C [circle] -> T -> D;
+      };
+    \end{tikzpicture}}
+  \caption{Deadlock notions\label{fig:deadlock-graph}}  
 \end{figure}
 
 \tikzsetnextfilename{deadlock-banker}
@@ -512,8 +480,7 @@
     at (.81,.45) [anchor=west,rotate=30,scale=3.2] {unsafe!};
     \end{scope}
 \end{tikzpicture}}
-  \caption{Deadlock --- Banker algorithm}
-  \label{fig:deadlock-banker}
+  \caption{Deadlock --- Banker algorithm\label{fig:deadlock-banker}}  
 \end{figure}
 
 \tikzsetnextfilename{deadlock-avoidance}
@@ -546,8 +513,7 @@
     -- (.395,.62) -- (.5,.62) -- cycle;
   \end{scope}
 \end{tikzpicture}}  
-  \caption{Deadlock avoidance}
-  \label{fig:deadlock-avoidance}
+  \caption{Deadlock avoidance\label{fig:deadlock-avoidance}}  
 \end{figure}
 
 \tikzsetnextfilename{deadlock-avoidance-2}
@@ -568,106 +534,39 @@
     \node at (.365,.55) [color=red,text opacity=.3,scale=2.5,rotate=15] {unsafe};%
   \end{scope}
 \end{tikzpicture}}
-  \caption{Deadlock avoidance}
-  \label{fig:deadlock-avoidance-2}
+  \caption{Deadlock avoidance\label{fig:deadlock-avoidance-2}}  
 \end{figure}
 
 \tikzsetnextfilename{ipc}
 \begin{figure}
   \centering\resizebox{.6\textwidth}{!}{
-\begin{tikzpicture}[auto,node distance=0pt,%
-  textnode/.style ={circle,fill=blue!20,align=center,inner sep=1pt,minimum size=4mm,draw},%
-  arrow/.style = {single arrow,single arrow head indent=1ex,%
-    align=center,scale=.6,draw,fill=orange!30}] 
-  
-  {[start chain]%
-    \node [on chain, textnode] (compiler) {compiler};%
-    \node [on chain, arrow] (asm) {Assembly\\code};%
-    \node [on chain, textnode] (assembler) {assembler};%
-    \node [on chain, arrow] (obj) {Object\\module};%
-    \node [on chain, textnode] (loader) {loader};%
-  }
+    \begin{tikzpicture}[decoration={amplitude=1.2pt}, penciline={jag ratio=1.2},%
+      every node/.style = {thick,draw,decorate,align=center,font=\purisa} ]
+      \graph [layered layout, component direction=down, grow=right,%
+      level distance=4cm, component sep=1.5cm,%
+      edges={nodes={font=\footnotesize, draw=none},decorate}]
+      {
+        "Process\\wants\\printing" [nudge right=1cm] -> ["File"] "Printer\\daemon";
 
-  {[start chain]%
-    \node [on chain, textnode] (print) [above=1cm of asm] {Process\\wants\\printing};%
-    \node [on chain, arrow, draw] (file) {{\Large file}};%
-    \node [on chain, textnode] (printer) {Printer\\daemon};%
-  }
-\end{tikzpicture}}
-\caption{Producers and consumers}
-  \label{fig:ipc}
-\end{figure}
-
-\tikzsetnextfilename{ipc-bw}
-\begin{figure}
-  \centering\resizebox{.6\textwidth}{!}{
-\begin{tikzpicture}[auto,node distance=0pt,%
-  textnode/.style ={circle,align=center,inner sep=1pt,minimum size=4mm,draw},%
-  arrow/.style = {single arrow,single arrow head indent=1ex,align=center,scale=.6,draw}]   
-
-  {[start chain]%
-    \node [on chain, textnode] (compiler) {compiler};%
-    \node [on chain, arrow] (asm) {Assembly\\code};%
-    \node [on chain, textnode] (assembler) {assembler};%
-    \node [on chain, arrow] (obj) {Object\\module};%
-    \node [on chain, textnode] (loader) {loader};%
-  }
-  {[start chain]%
-    \node [on chain, textnode] (print) [above=1cm of asm] {Process\\wants\\printing};%
-    \node [on chain, arrow, draw] (file) {{\Large file}};%
-    \node [on chain, textnode] (printer) {Printer\\daemon};%
-  }  
-\end{tikzpicture}}
-  \caption{Producers and consumers (bw version)}
-  \label{fig:ipc-bw}
+        "Compiler" -> ["Assembly\\code"] "Assembler" -> ["Object\\module"] "Loader";
+      };
+    \end{tikzpicture}}
+\caption{Producers and consumers\label{fig:ipc}}
 \end{figure}
 
 \tikzsetnextfilename{circular}
 \begin{figure}
   \centering\resizebox{.5\textwidth}{!}{
-    \begin{tikzpicture} [%
-      every node/.style = {circle,font=\fontspec{Humor Sans},minimum width=28pt},
-      % pinnode/.style = {circle,minimum width=25pt},%
-      every pin/.style = {minimum size=0pt, pin distance=1mm, inner sep=1pt,%
-        pin edge={gray!50,thick,dashed}}]%
-  
-  {[start chain=circle placed {at =(\tikzchaincount*45:1.3)}]
-    \foreach \n in {1,...,8} \node (N\n) [on chain,fill=gray!30] {};
-  }
-  
-  \foreach \angle/\label in {0/c, 45/b, 90/a}%
-  \node [fill=blue!40] (N\angle) at (\angle:1.3) {\LARGE\label};%
-
-  \node [pin=270:{\tiny out}] at (90:1.3) {};%
-  \node [pin=135:{\tiny in}] at (315:1.3) {};%
-
-\end{tikzpicture}}
-  \caption{A circular array}
-  \label{fig:circular}
-\end{figure}
-
-\tikzsetnextfilename{circular-bw}
-\begin{figure}
-  \centering\resizebox{.5\textwidth}{!}{
-    \begin{tikzpicture} [%
-      every node/.style = {circle,font=\fontspec{Humor Sans},minimum width=28pt},
-      % pinnode/.style = {circle,minimum width=25pt},%
-      every pin/.style = {minimum size=0pt, pin distance=1mm, inner sep=1pt,%
-        pin edge={gray!50,thick,dashed}}]%
-  
-  {[start chain=circle placed {at =(\tikzchaincount*45:1.3)}]
-    \foreach \n in {1,...,8} \node (N\n) [on chain,draw] {};
-  }
-  
-  \foreach \angle/\label in {0/c, 45/b, 90/a}%
-  \node (N\angle) at (\angle:1.3) {\LARGE\label};%
-
-  \node [pin=270:{\tiny out}] at (90:1.3) {};%
-  \node [pin=135:{\tiny in}] at (315:1.3) {};%
-
-\end{tikzpicture}}
-  \caption{A circular array (bw version)}
-  \label{fig:circular-bw}
+    \begin{tikzpicture}[inner sep=1pt, every pin/.style = {
+        minimum size=0pt, pin distance=1mm, inner sep=1pt,font=\tiny\fontspec{Humor Sans},%
+        pin edge={gray!50,dashed}}]
+      \graph[simple necklace layout, grow'=down, node sep=0pt, node distance=0pt,
+      nodes={draw,circle,font=\LARGE\fontspec{Humor Sans},minimum width=8mm}]
+      {
+        A [pin=270:out,fill=gray!10] -- B [fill=gray!10] -- C [fill=gray!10] -- "" [pin=130:in] -- "" -- "" -- "" -- "";
+      };
+    \end{tikzpicture}}
+  \caption{A circular array\label{fig:circular}}
 \end{figure}
 
 \tikzsetnextfilename{mm-realmode}
@@ -690,69 +589,46 @@
     \node at (.86,.1) {MS-DOS};%
   \end{scope}
 \end{tikzpicture}}
-  \caption{Real mode memory layouts}
-  \label{fig:mm-realmode}
+  \caption{Real mode memory layouts\label{fig:mm-realmode}}  
 \end{figure}
 
 \tikzsetnextfilename{tool-chain}
 \begin{figure}
   \centering
   \begin{tikzpicture}[auto,%
-    % decoration={random steps,segment length=7pt,amplitude=.7pt},
-    tool/.style = {draw,decorate,align=center,fill=orange!20,ellipse},
-    file/.style = {draw,decorate,align=center,fill=blue!10,rectangle},
-    line/.style = {draw,decorate,thick, -latex', shorten >=2pt},
+    tool/.style = {draw,align=center,fill=orange!20,ellipse},%
+    file/.style = {draw,align=center,fill=blue!10,rectangle},%
     every label/.style = {font=\ttfamily}]
+        
+    \graph[layered layout, nodes={draw,align=center}]
+    {%
+      {"C source code\\(\texttt{hello.c})" [file],%
+        "Include files, macros\\(\texttt{e.g. stdio.h})" [file]} 
+      -> "C preprocessor\\(\texttt{cpp})" [label={0:\begin{tabular}{l}
+                                                      \textdollar{} cpp hello.c\\
+                                                      \textdollar{} gcc -E hello.c
+                                                    \end{tabular}},tool]
+      -> "Extended C source code\\(\texttt{hello.i})" [file]
+      -> gcc [as={Compiler\\(\texttt{gcc})},label={0:\begin{tabular}{l}
+                                                       \textdollar{} cc1 hello.i -o hello.s\\
+                                                       \textdollar{} gcc -S hello.c
+                                                     \end{tabular}},tool]
+      -> "ASM source code\\(\texttt{hello.s})" [file]
+      -> as [as={Assembler\\(\texttt{as})},label={0:\begin{tabular}{l}
+                                                      \textdollar{} as hello.s -o hello.o\\
+                                                      \textdollar{} gcc -c hello.c
+                                                    \end{tabular}},tool]
+      -> obj [file, as={Object code\\(\texttt{hello.o})}];%
 
-    \matrix [row sep=5mm]%column sep=-1cm, 
-    {
-      % \node (emacs)[tool,%
-      % %label={\includegraphics[scale=.5]{programmer}},%
-      % label={0:\textdollar{} emacs hello.c}] {Editor\\(\texttt{emacs})};\\%
-      \node (hello-c) [file] {C source code\\(\texttt{hello.c})};\\%
-      \node (cpp) [tool,label={0:\begin{tabular}{l}
-          \$ cpp hello.c\\
-          \$ gcc -E hello.c
-        \end{tabular}}] {C Preprocessor\\(\texttt{cpp})};\\%
-      \node (helloext) [file] {Extended C source code\\(\texttt{hello.i})};\\%
-      \node (gcc) [tool,label={0:\begin{tabular}{l}
-          \textdollar{} cc1 hello.i -o hello.s\\
-          \textdollar{} gcc -S hello.c
-        \end{tabular}}] {Compiler\\(\texttt{gcc})};\\%
-      \node (hello-s) [file] {ASM source code\\(\texttt{hello.s})};\\%
-      \node (as) [tool,label={0:\begin{tabular}{l}
-          \textdollar{} as hello.s -o hello.o\\
-          \textdollar{} gcc -c hello.c
-        \end{tabular}}] {Assembler\\(\texttt{as})};\\%
-      \node (hello-o) [file] {Object code\\(\texttt{hello.o})};\\%
-      \node (ld) [tool,label={0:\begin{tabular}{l}
-          \$ ld hello.o LIBs\\
-          \$ gcc -o hello hello.c
-        \end{tabular}}] {Linker\\(\texttt{ld})};\\%
-      \node (hello) [file] {Executable program\\(\texttt{hello})};\\%
-      % \node (gdb) [tool,label={0:\begin{tabular}{l}
-      %   \$ gcc -g hello.c -o hello\\
-      %   \$ gdb hello
-      % \end{tabular}}] {Debugger\\(\texttt{gdb})};\\%
-  };
- \node (stdio-h) [right=2mm of hello-c,file] {Include files, macros\\(\texttt{e.g. stdio.h})};%
- \node (printf) [right=2mm of hello-o,file] {Libraries\\(\texttt{e.g. printf})};
+      {obj, "Libraries\\(\texttt{e.g. printf})" [file]}
+      -> ld [as={Linker\\(\texttt{ld})},label={0:\begin{tabular}{l}
+                                                   \textdollar{} ld hello.o LIBs\\
+                                                   \textdollar{} gcc -o hello hello.c
+                                                 \end{tabular}},tool]
+      -> hello [as={Executable program\\(\texttt{hello})},file];%
+    };
 
-  \begin{scope}[every path/.style=line]
-    % \path (emacs) -- (hello-c);
-    \path (hello-c) -- (cpp);
-    \path (stdio-h) -- (cpp);
-    \path (cpp) -- (helloext);
-    \path (helloext) -- (gcc);
-    \path (gcc) -- (hello-s);
-    \path (hello-s) -- (as);
-    \path (as) -- (hello-o);
-    \path (hello-o) -- (ld);
-    \path (printf) -- (ld);
-    \path (ld) -- (hello);
-    % \path (hello) -- (gdb);
-  \end{scope}
-  \begin{scope}[every path/.style={decorate,decoration={brace,amplitude=10pt,mirror,raise=4pt}}]
+    \begin{scope}[every path/.style={decorate,decoration={brace,amplitude=10pt,mirror,raise=4pt}}]
       \draw ($(gcc.north west)+(-5mm,0)$) -- ($(as.south west)+(-5mm,0)$)%
       node [black,midway,xshift=-2cm,align=center] {Compile\\time};
 
@@ -763,10 +639,9 @@
       \draw [decoration={amplitude=5pt}]%
       ($(hello.north west)+(-1mm,0)$) -- ($(hello.south west)+(-1mm,0)$)%
       node [black,midway,xshift=-1.2cm,align=center] {Run\\time};
-  \end{scope}
-\end{tikzpicture}
-  \caption{Tool chain}
-  \label{fig:tool-chain}
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Tool chain\label{fig:tool-chain}}  
 \end{figure}
 
 \tikzsetnextfilename{mm-relocation}
@@ -800,8 +675,7 @@
     % \draw[red,ultra thick,rounded corners] (0.62,0.65) rectangle (0.78,0.75);
   \end{scope}
 \end{tikzpicture}}
-  \caption{Relocation}
-  \label{fig:mm-relocation}
+  \caption{Relocation\label{fig:mm-relocation}}  
 \end{figure}
 
 \tikzsetnextfilename{mm-fit}
@@ -838,8 +712,7 @@
   label=left:{\scriptsize 150}] (l2) {{\scriptsize 50}};%
   \draw (l2.south west) -- ++(0,2pt);%  
 \end{tikzpicture}}
-  \caption{First fit, best fit, worst fit}
-  \label{fig:mm-fit}
+  \caption{First fit, best fit, worst fit\label{fig:mm-fit}}  
 \end{figure}
 
 \tikzsetnextfilename{mm-frag}
@@ -884,30 +757,7 @@
   edge [external edge] ($(aa.south west) + (0,-.5cm)$)%
   edge [external edge] ($(bb.south west) + (0,-1cm)$);%
 \end{tikzpicture}  
-  \caption{Memory fragmentation}
-  \label{fig:mm-frag}
-\end{figure}
-
-\tikzsetnextfilename{2-level-paging-big}
-\begin{figure}
-  \centering\resizebox{\textwidth}{!}{
-\begin{tikzpicture}[every node/.style = {inner sep=0}]
-  %%% background image
-  \node[anchor=south west] (image) at (0,0)%
-  {\includegraphics[width=\paperwidth]{mos-figs-4-12}};
-
-  \begin{scope}[x={(image.south east)},y={(image.north west)}]%
-    % %%% grid
-    % \draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);%
-    % \foreach \x in {0,1,...,9} { \node [xy,anchor=north] at (\x/10,0) {0.\x}; }%
-    % \foreach \y in {0,1,...,9} { \node [xy,anchor=east] at (0,\y/10) {0.\y}; }%
-
-    \node at (.05,.6) [anchor=south west,blue!50] {\includegraphics[scale=1.5]{process}};
-  \end{scope}
-
-\end{tikzpicture}}
-  \caption{Two-level paging}
-  \label{fig:2-level-paging-big}
+  \caption{Memory fragmentation\label{fig:mm-frag}}  
 \end{figure}
 
 \tikzsetnextfilename{mm-seg}
@@ -928,8 +778,7 @@
     \node at (.6,.54) [color=gray,scale=8] {\ding{224}};
   \end{scope}
 \end{tikzpicture}}
-  \caption{Memory segmentation}
-  \label{fig:mm-seg}
+  \caption{Memory segmentation\label{fig:mm-seg}}
 \end{figure}
 
 \tikzsetnextfilename{seg-trans}
@@ -956,8 +805,7 @@
       $(0,1222)\Rightarrow{}\,\text{Trap!}$};
   \end{scope}
 \end{tikzpicture}}
-  \caption{Memory segmentation --- Address translation}
-  \label{fig:seg-trans}
+  \caption{Memory segmentation --- Address translation\label{fig:seg-trans}}
 \end{figure}
 
 \tikzsetnextfilename{fs-tables}
@@ -1001,8 +849,7 @@
     \draw [arrow] (ft.four east) -- (it.four west);
 
 \end{tikzpicture}  
-  \caption{File system tables}
-  \label{fig:fs-tables}
+  \caption{File system tables\label{fig:fs-tables}}  
 \end{figure}
 
 \tikzsetnextfilename{file-tables2}
@@ -1044,8 +891,7 @@
   \draw [arrow] (ft.four east)--(it.four west);%
   \draw [arrow] (ft.six east)--(it.two west);%
 \end{tikzpicture}  
-  \caption{File tables}
-  \label{fig:file-tables2}
+  \caption{File tables\label{fig:file-tables2}}  
 \end{figure}
 
 \tikzsetnextfilename{file-tables3}
@@ -1108,8 +954,7 @@
   \draw [arrow] (fdtb.four east)-- (ft.six west);%
   \draw [arrow] (fdtb.five east)-- (ft.ten west);%  
 \end{tikzpicture}  
-  \caption{File tables}
-  \label{fig:file-tables3}
+  \caption{File tables\label{fig:file-tables3}}  
 \end{figure}
 
 \tikzsetnextfilename{vfs-objs}
@@ -1169,8 +1014,7 @@
   \draw [arrow,dotted] (sb) -- (disk.-13);
   \draw [arrow,dotted] (inode.north) |- ($(disk.east) + (0,.7cm)$);
 \end{tikzpicture}  
-  \caption{VFS objects}
-  \label{fig:vfs-objs}
+  \caption{VFS objects\label{fig:vfs-objs}}  
 \end{figure}
 
 \tikzsetnextfilename{vfs-objs-bw}
@@ -1230,8 +1074,7 @@
   \draw [arrow,dotted] (sb) -- (disk.-13);
   \draw [arrow,dotted] (inode.north) |- ($(disk.east) + (0,.7cm)$);
 \end{tikzpicture}  
-  \caption{VFS objects}
-  \label{fig:vfs-objs-bw}
+  \caption{VFS objects\label{fig:vfs-objs-bw}}  
 \end{figure}
 
 \tikzsetnextfilename{vfs-cp}
@@ -1264,8 +1107,7 @@
   \node (test2) [draw=none,below=1ex of dos,scale=.5] {/floppy/TEST};%
 
 \end{tikzpicture}  
-  \caption{VFS file copy}
-  \label{fig:vfs-cp}
+  \caption{VFS file copy\label{fig:vfs-cp}}  
 \end{figure}
 
 \tikzsetnextfilename{vfs-cp-bw}
@@ -1296,8 +1138,7 @@
   \node (test2) [draw=none,below=1ex of dos,scale=.5] {/floppy/TEST};%
 
 \end{tikzpicture}  
-  \caption{VFS file copy (bw version)}
-  \label{fig:vfs-cp-bw}
+  \caption{VFS file copy (bw version)\label{fig:vfs-cp-bw}}  
 \end{figure}
 
 \tikzsetnextfilename{dma-handshaking}
@@ -1327,8 +1168,7 @@
     \end{umlcall}
   \end{umlseqdiag}
 \end{tikzpicture}
-  \caption{DMA handshaking}
-  \label{fig:dma-handshaking}
+  \caption{DMA handshaking\label{fig:dma-handshaking}}  
 \end{figure}
 
 \tikzsetnextfilename{handshaking}
@@ -1359,8 +1199,7 @@
     \end{umlcall}
   \end{umlseqdiag}
 \end{tikzpicture}
-  \caption{Handshaking}
-  \label{fig:handshaking}
+  \caption{Handshaking\label{fig:handshaking}}  
 \end{figure}
 
 \end{document}

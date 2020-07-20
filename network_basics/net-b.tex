@@ -1,2 +1,26 @@
 \documentclass{wx672beamer}
-\input{net.tex}
+
+\usepackage{wx672b} % wx672common, wx672fonts, wx672bib loaded here
+\usepackage{wx672tikz}
+\usepackage{wx672minted}
+
+\input{pre}
+
+% \includeonlylecture{intro}
+% \includeonlyframes{current}
+
+\begin{document}
+\mode<all>
+\include{title}
+\include{intro}
+\include{tutorial}
+\include{tcp}
+\include{app}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+

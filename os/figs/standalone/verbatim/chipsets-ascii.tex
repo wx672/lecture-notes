@@ -1,30 +1,28 @@
 \documentclass[varwidth=41em,crop]{standalone}
-\usepackage{wx672fonts}
+
+\usepackage{fontspec}
 \setmonofont{DejaVu Sans Mono}
+
 \begin{document}
 \begin{verbatim}
-                            ┌──────────────┐
-                            │ Intel Core 2 │
-                            │  Processor   │
-                            │    (CPU)     │
-                            └──────────────┘
-                                   │
-                             Front Side Bus
-                                   │
- ┌────────────┐    DDR2     ┌─────────────┐     ┌───────────────┐
- │ System RAM │<───────────>│ Northbridge │<───>│ Graphics Card │
- └────────────┘   Channel   │    Chip     │     └───────────────┘
-                            └─────────────┘
-                                   │
-                             DMI Interface
-                                   │
-┌─────────────────────┐     ┌─────────────┐     ┌──────────────────┐
-│ BIOS (flash memory) │<───>│             │<───>│ Power management │
-├─────────────────────┤     │ Southbridge │     ├──────────────────┤
-│ Serial ATA Ports    │<───>│    Chip     │<───>│ Clock generation │
-├─────────────────────┤     │             │     ├──────────────────┤
-│ USB Ports           │<───>│             │<───>│     PCI Bus      │
-└─────────────────────┘     └─────────────┘     └──────────────────┘
+                           ┌─────┐
+                           │ CPU │
+                           └─────┘
+                              │
+                        Front Side Bus
+                              │
+               DDR2    ┌─────────────┐
+ System RAM <─────────>│ Northbridge │<─> Graphics Card
+              Channel  │    Chip     │
+                       └─────────────┘
+                              │
+                        DMI Interface
+                              │
+                       ┌─────────────┐
+BIOS (flash memory) <─>│ Southbridge │<─> Power management
+   Serial ATA Ports <─>│    Chip     │<─> Clock generation
+          USB Ports <─>│             │<─> PCI Bus
+                       └─────────────┘
 \end{verbatim}
 \end{document}
 

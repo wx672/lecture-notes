@@ -24,9 +24,7 @@
 \end{frame}
 
 \begin{frame}<beamer>{What's in the OS?}
-  \begin{center}
-    \includegraphics[height=.85\textheight]{kernel-block}
-  \end{center}
+  \centering \includegraphics[height=.85\textheight]{kernel-block}
 \end{frame}
 
 \begin{figure}
@@ -37,7 +35,7 @@
 
 \begin{frame}{Choosing an OS}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{choose-os} }%
+    \mode<beamer>{ \includegraphics[height=.9\textheight]{choose-os} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{choose-os} }
   \end{center}
 \end{frame}
@@ -68,7 +66,7 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
 
 \begin{frame}{History of Operating Systems}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-2} }%
+    \mode<beamer>{ \includegraphics[height=.9\textheight]{mos-figs-1-2} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-2} }
   \end{center}
 \end{frame}
@@ -187,7 +185,7 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
 
 \begin{frame}{System Bus}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-5} }%
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-1-5} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-5} }
   \end{center}
   \begin{description}
@@ -208,16 +206,16 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
   \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[label=current]
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-11} }%
+    \mode<beamer>{ \includegraphics[height=.9\textheight]{mos-figs-1-11} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-11} }
   \end{center}
 \end{frame}
 
 \begin{frame}{Motherboard Chipsets}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{chipsets} }
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{chipsets} }
     \mode<article>{ \includegraphics[width=.5\textwidth]{chipsets-bw} }
   \end{center}
   \begin{block}{The northbridge}
@@ -276,7 +274,7 @@ See also:
 \footnote{\url{http://download.intel.com/design/processor/datashts/31559205.pdf}}.
 
 \begin{frame}[plain]
-  \begin{minipage}{.65\linewidth}
+  \begin{minipage}{.55\linewidth}
     \begin{block}{Some physical memory addresses are mapped away!}
       \begin{itemize}
       \item only the addresses, not the spaces
@@ -297,14 +295,9 @@ See also:
       This is why 32-bit OSes have problems using 4 gigs of RAM.
     \end{block}
   \end{minipage}\quad
-  \begin{minipage}{.3\linewidth}
-    \tikz[baseline,overlay]{
-      \node [xshift=1.5cm,yshift=-1cm] at (0,0) {
-        \includegraphics[scale=0.62]{boot-mem}}}
+  \begin{minipage}{.35\linewidth}
+    \includegraphics[scale=.7]{boot-mem}
   \end{minipage}
-  % \begin{center}
-  %   What if you don't have 4G RAM?
-  % \end{center}
 \end{frame}
 
 \section{Bootstrapping}
@@ -384,7 +377,7 @@ See also:
 
 \begin{frame}{Programmable Interrupt Controllers}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{int-osdi-34}}%
+    \mode<beamer>{ \includegraphics[height=.9\textheight]{int-osdi-34}}%
     \mode<article>{ \includegraphics[width=.5\textwidth]{int-osdi-34}}
   \end{center}
 \end{frame}
@@ -427,9 +420,9 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
   \end{itemize}
 \end{frame}
 
-\begin{frame}%{System Calls}
+\begin{frame}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.75\textwidth]{mos-figs-1-19} }%
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{mos-figs-1-19} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }
   \end{center}
 \end{frame}
@@ -441,9 +434,9 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
   \end{center}
 \end{frame}
 
-\begin{frame}%{System Calls}
+\begin{frame}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{osdi2-1-18} }%
+    \mode<beamer>{ \includegraphics[width=1.01\textwidth]{osdi2-1-18} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{osdi2-1-18} }
   \end{center}
 \end{frame}
@@ -455,7 +448,7 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
 \begin{frame}
   \begin{iblock}{The 11 steps in making the system call \texttt{read(fd,buffer,nbytes)}}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.85\textwidth]{mos-figs-1-18} }%
+      \mode<beamer>{ \includegraphics[height=.9\textheight]{mos-figs-1-18} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-18} }
     \end{center}
   \end{iblock}

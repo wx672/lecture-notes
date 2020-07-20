@@ -54,6 +54,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{CS241 System Programming Coursebook}
       \field{usera}{M}
       \field{userd}{english}
@@ -99,6 +100,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Beginning linux programming}
       \field{usera}{M}
       \field{userd}{english}
@@ -107,10 +109,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/39/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/39/calibre
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/39/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/39/calibre
       \endverb
       \keyw{matthew2008beginning}
     \endentry
@@ -139,6 +141,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Advanced Bash Scripting Guide 5.3 Volume 1}
       \field{usera}{M}
       \field{userd}{english}
@@ -179,6 +182,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{The art of Unix programming}
       \field{usera}{M}
       \field{userd}{english}
@@ -187,10 +191,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/15/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/#book_id=15&library_id=calibre&panel=book_details
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/15/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/#book_id=15&library_id=calibre&panel=book_details
       \endverb
       \keyw{raymond2003art}
     \endentry
@@ -224,6 +228,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Advanced programming in the UNIX environment}
       \field{usera}{M}
       \field{userd}{english}
@@ -232,10 +237,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/145/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/#book_id=145&library_id=calibre&panel=book_details
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/145/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/#book_id=145&library_id=calibre&panel=book_details
       \endverb
       \keyw{stevens2013advanced}
     \endentry
@@ -264,6 +269,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Linux System Programming: Talking Directly to the Kernel and C Library}
       \field{usera}{M}
       \field{userd}{english}
@@ -271,12 +277,6 @@
       \field{year}{2007}
       \field{dateera}{ce}
       \true{nocite}
-      \verb{urlraw}
-      \verb http://cs3.swfu.edu.cn:8080/get/PDF/13/Calibre1
-      \endverb
-      \verb{url}
-      \verb http://cs3.swfu.edu.cn:8080/get/PDF/13/Calibre1
-      \endverb
       \keyw{love:2007:lsp:1205435}
     \endentry
     \entry{kerrisk:2010:lpi:1869911}{book}{}
@@ -304,6 +304,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{The Linux Programming Interface: A Linux and UNIX System Programming Handbook}
       \field{usera}{M}
       \field{userd}{english}
@@ -312,10 +313,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/166/calibre
       \endverb
       \verb{url}
-      \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/166/calibre
       \endverb
       \keyw{kerrisk:2010:lpi:1869911}
     \endentry
@@ -353,6 +354,7 @@
       \field{labeltitlesource}{title}
       \field{edition}{2}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Computer Systems: A Programmer's Perspective}
       \field{usera}{M}
       \field{userd}{english}
@@ -361,10 +363,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/33/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/#book_id=33&library_id=calibre&panel=book_details
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/33/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/#book_id=33&library_id=calibre&panel=book_details
       \endverb
       \keyw{bryant2010computersystems}
     \endentry
@@ -373,7 +375,7 @@
 
 \refsection{2}
   \datalist[entry]{none/global//global/global}
-    \entry{wiki:peterson}{misc}{}
+    \entry{wiki:peterson}{online}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -393,13 +395,20 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Peterson's algorithm --- Wikipedia{,} The Free Encyclopedia}
-      \field{usera}{Z}
+      \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2015}
       \field{dateera}{ce}
       \true{nocite}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s\_algorithm&oldid=646078826
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s%5C_algorithm&oldid=646078826
+      \endverb
       \keyw{wiki:peterson}
     \endentry
   \enddatalist

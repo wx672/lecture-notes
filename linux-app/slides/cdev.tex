@@ -67,10 +67,9 @@
 \label{sec:tool-chain}
 
 \begin{frame}{Compilation}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{tool-chain} }%
-    \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain-bw} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{tool-chain} }%
+  \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain-bw} }
 \end{frame}
 
 \begin{description}
@@ -222,9 +221,9 @@
 
 \begin{frame}{The \texttt{\#define} Instruction}
   \begin{iblock}{Always put \alert{\{ \}} around all multi-statement macros!}
-    \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.8\textwidth]{die-wrong-c}\tikzmark{die-wrong}
+    \centering
+    \mode<beamer>{
+        \includegraphics[width=.6\textwidth]{die-wrong-c}\tikzmark{die-wrong}
         \begin{tikzpicture}[remember picture,overlay,opacity=.3]
           \node (wrong) [scale=5] at ($(pic cs:die-wrong)+(0,3)$) {\wrong};
         \end{tikzpicture}}%
@@ -233,13 +232,11 @@
         \begin{tikzpicture}[remember picture,overlay,opacity=.3]
           \node (wrong) [scale=5] at ($(pic cs:die-wronga)+(0,2)$) {\wrong};
         \end{tikzpicture}}
-    \end{center}
   \end{iblock}
   \begin{iblock}{}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{die-right-c}\tikzmark{die-right} }%
-      \mode<article>{ \includegraphics[width=.4\textwidth]{die-right-c-bw}\tikzmark{die-right} }
-    \end{center}
+    \centering
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{die-right-c}\tikzmark{die-right} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{die-right-c-bw}\tikzmark{die-right} }
   \end{iblock}
   \begin{description}
   \item[Why?] \cmd{gcc -E}
@@ -251,18 +248,17 @@
 
 \begin{frame}[fragile=singleslide]
   \begin{iblock}{Always put \alert{( )} around the parameters of a macro!}
-    \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{sqr-wrong-c}\tikzmark{sqr-wrong}
-        \begin{tikzpicture}[remember picture,overlay,opacity=.3]
-          \node [scale=5] at ($(pic cs:sqr-wrong)+(-6,4.5)$) {\RedCross};
-        \end{tikzpicture} }%
-      \mode<article>{
-        \includegraphics[width=.5\textwidth]{sqr-wrong-c-bw}\tikzmark{sqr-wronga}
-        \begin{tikzpicture}[remember picture,overlay,opacity=.3]
-          \node [scale=5] at ($(pic cs:sqr-wronga)+(-4,3.2)$) {\RedCross};
-        \end{tikzpicture} }
-    \end{center}
+    \centering
+    \mode<beamer>{
+      \includegraphics[width=.8\textwidth]{sqr-wrong-c}\tikzmark{sqr-wrong}
+      \begin{tikzpicture}[remember picture,overlay,opacity=.3]
+        \node [scale=5] at ($(pic cs:sqr-wrong)+(-6,4.5)$) {\RedCross};
+      \end{tikzpicture} }%
+    \mode<article>{
+      \includegraphics[width=.5\textwidth]{sqr-wrong-c-bw}\tikzmark{sqr-wronga}
+      \begin{tikzpicture}[remember picture,overlay,opacity=.3]
+        \node [scale=5] at ($(pic cs:sqr-wronga)+(-4,3.2)$) {\RedCross};
+      \end{tikzpicture} }
   \end{iblock}
   \begin{itemize}
   \item[\correct] \mintinline{c}{#define SQR(x) ((x) * (x))}
@@ -352,43 +348,38 @@
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Dynamic Linking}
+  \begin{minipage}{.35\linewidth}
+    \begin{iblock}{Dynamic Linking}
     \begin{itemize}
     \item Only one copy in memory
     \item Don't have to re-link after a library update
     \end{itemize}
-  \end{block}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{dynamic-linking} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{dynamic-linking} }
-  \end{center}
+  \end{iblock}
+  \end{minipage}
+  \begin{minipage}{.6\linewidth}
+    \includegraphics[width=\textwidth]{dynamic-linking}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Build A Static Library}{Source codes}
-  \begin{minipage}[t]{.47\linewidth}
+  \begin{minipage}[t]{.35\linewidth}
     \begin{iblock}{\texttt{main.c}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{main-c} }%
-        \mode<article>{\cfile{../src/static/main.c}}
-      \end{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{main-c} }%
+      \mode<article>{\cfile{../src/static/main.c}}
     \end{iblock}
     \begin{iblock}{\texttt{lib.h}}
-      \mode<beamer>{\includegraphics[width=.5\textwidth]{lib-h}}%
+      \mode<beamer>{\includegraphics[width=.6\textwidth]{lib-h}}%
       \mode<article>{\cfile{../src/static/lib.h}}
     \end{iblock}
   \end{minipage}\qquad
-  \begin{minipage}[t]{.43\linewidth}
+  \begin{minipage}[t]{.4\linewidth}
     \begin{iblock}{\texttt{hello.c}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{hello-c} }%
-        \mode<article>{\cfile{../src/static/hello.c}}
-      \end{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hello-c} }%
+      \mode<article>{\cfile{../src/static/hello.c}}
     \end{iblock}
     \begin{iblock}{\texttt{hi.c}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c} }%
-        \mode<article>{\cfile{../src/static/hi.c}}
-      \end{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c} }%
+      \mode<article>{\cfile{../src/static/hi.c}}
     \end{iblock}
   \end{minipage}
 \end{frame}
@@ -411,26 +402,23 @@
 \end{frame}
 
 \begin{frame}{Build A Static Library}{Makefile}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{makefile-a} }%
-    \mode<article>{\mkfile{../src/static/Makefile}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.8\textheight]{makefile-a} }%
+  \mode<article>{\mkfile{../src/static/Makefile}}
 \end{frame}
 
 \begin{frame}{Build A Shared Library}{Source codes}
-  \begin{iblock}{\texttt{hello.c}}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello-c-so} }%
+  \begin{minipage}{.65\linewidth}
+    \begin{iblock}{\texttt{hello.c}}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hello-c-so} }%
       \mode<article>{\cfile{../src/shared/hello.c}}
-    \end{center}
-  \end{iblock}
-  \begin{minipage}{.35\linewidth}
+    \end{iblock}
+  \end{minipage}\quad
+  \begin{minipage}{.3\linewidth}
     \begin{iblock}{\texttt{hello.h}}
       \mode<beamer>{ \includegraphics[width=\textwidth]{hello-h-so} }%
       \mode<article>{\cfile{../src/shared/hello.h}}
     \end{iblock}
-  \end{minipage}\qquad
-  \begin{minipage}{.36\linewidth}
     \begin{iblock}{\texttt{hi.c}}
       \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c-so} }%
       \mode<article>{\cfile{../src/shared/hi.c}}
@@ -460,10 +448,9 @@
 \end{frame}
 
 \begin{frame}{Build A Shared Library}{Makefile}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{makefile-so} }%
-    \mode<article>{\mkfile{../src/shared/Makefile}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.85\textwidth]{makefile-so} }%
+  \mode<article>{\mkfile{../src/shared/Makefile}}
 \end{frame}
 
 \begin{description}
@@ -563,7 +550,7 @@
     \end{description}
   \end{iblock}
   \begin{description}
-  \item[make:] help you maintain your programs.
+  \item[make:] help you maintain your programs
   \end{description}
 \end{frame}
 
@@ -582,15 +569,14 @@
 \end{frame}
 
 \begin{frame}{Makefile}
-  \begin{minipage}{.75\linewidth}
-    \mode<beamer>{ \includegraphics[width=1.1\textwidth]{Makefile2-mk} }%
+  \begin{minipage}{.7\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{Makefile2-mk} }%
     \mode<article>{\mkfile{figs/Makefile2}}
-  \end{minipage}
+  \end{minipage}\hfill
   \begin{minipage}{.2\linewidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{make-dir-tree} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{make-dir-tree} }
-    \end{center}
+    \centering
+    \mode<beamer>{ \includegraphics[width=\textwidth]{make-dir-tree} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{make-dir-tree} }
   \end{minipage}
 \end{frame}
 
@@ -640,20 +626,18 @@
 \label{sec:manual-pages}
 
 \begin{frame}{Man page}{Layout}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{manpage-txt} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{manpage-txt} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.65\textwidth]{manpage-txt} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{manpage-txt} }
 \end{frame}
 
 \begin{frame}{Man Page}{Groff source code}
-  \begin{minipage}[b]{.6\linewidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=1.6\textwidth]{manpage-1} }%
-      \mode<article>{ \includegraphics[width=1.2\textwidth]{manpage-1-bw} }
-    \end{center}
-  \end{minipage}
-  \begin{minipage}[b]{.35\linewidth}\ttfamily
+  \begin{minipage}[b]{.7\linewidth}
+    \centering
+    \mode<beamer>{ \includegraphics[width=1.2\textwidth]{manpage-1} }%
+    \mode<article>{ \includegraphics[width=\textwidth]{manpage-1-bw} }
+  \end{minipage}\hfill
+  \begin{minipage}[b]{.3\linewidth}\ttfamily\small
     \begin{itemize}
     \item[\$] man 7 groff
     \item[\$] man txt2man
@@ -676,14 +660,14 @@
 \label{sec:pointers-c}
 
 \begin{frame}{Pointers}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{ptr1-code-c} }%
-    \mode<article>{\cfile{../src/ptr1-code.c}}
-  \end{center}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{ptr1} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{ptr1} }
-  \end{center}
+  \mode<beamer>{\centering
+    \includegraphics[width=.8\textwidth]{ptr1-code-c}\\[2ex]
+    \includegraphics[width=.8\textwidth]{ptr1}
+  }%
+  \mode<article>{\centering
+    \cfile{../src/ptr1-code.c}
+    \includegraphics[width=.6\textwidth]{ptr1}
+  }
 \end{frame}
 
 \begin{frame}{Pointer Operators}
@@ -707,36 +691,34 @@
   \end{block}
 \end{frame}
 
-\begin{frame}
-  \begin{iblock}{Example}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.9\textwidth]{ptr2-code-c} }%
-      \mode<article>{\cfile{../src/ptr2-code.c}}
-    \end{center}
-  \end{iblock}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{ptr2} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{ptr2} }
-  \end{center}
+\begin{frame}{Example}
+  \mode<beamer>{\centering
+    \includegraphics[width=.8\textwidth]{ptr2-code-c}\\[2ex]
+    \includegraphics[width=.8\textwidth]{ptr2}
+  }%
+  \mode<article>{\centering
+    \cfile{../src/ptr2-code.c}\\[2ex]
+    \includegraphics[width=.4\textwidth]{ptr2}
+  }
 \end{frame}
 
 \begin{frame}
   \begin{iblock}{Invalid operation}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.7\textwidth]{ptr2-wrong1-c} }%
-      \mode<article>{\cfile{../src/ptr2-wrong1.c}}
-    \end{center}
-    \mode<article>{
-      In the \texttt{printf()} statement, it's trying to treat \texttt{i} as a pointer.
+    \mode<beamer>{\centering\includegraphics[width=.7\textwidth]{ptr2-wrong1-c} }%
+    \mode<article>{%
+      \cfile{../src/ptr2-wrong1.c}%
+    
+      In the \texttt{printf()} statement, it's trying to treat \texttt{i} as a pointer.%
     }
   \end{iblock}
   \begin{iblock}{Invalid memory access}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{ptr2-wrong2-c} }%
-      \mode<article>{ \cfile{../src/ptr2-wrong2.c} }
-    \end{center}
-    \mode<article>{This is trying to treat the value of \texttt{p} as a memory
-      address. But the memory address \texttt{5} is not accessible by this program.}
+    \mode<beamer>{\centering\includegraphics[width=.9\textwidth]{ptr2-wrong2-c} }%
+    \mode<article>{%
+      \cfile{../src/ptr2-wrong2.c}%
+      
+      This is trying to treat the value of \texttt{p} as a memory address. But the memory
+      address \texttt{5} is not accessible by this program.%
+    }
   \end{iblock}
 \end{frame}
 
@@ -758,12 +740,11 @@
 
 \begin{frame}
   \begin{iblock}{Solution 1: return}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.7\textwidth]{ptr4-ok-c}%
-        \begin{tikzpicture}[remember picture,overlay]
-          \node at ($(pic cs:ptr4ok)+(0,2)$) [opacity=.4,scale=10] {\correct};
-        \end{tikzpicture}}%
-    \end{center}
+    \mode<beamer>{\centering\includegraphics[width=.6\textwidth]{ptr4-ok-c}%
+      \begin{tikzpicture}[remember picture,overlay]
+        \node at ($(pic cs:ptr4ok)+(0,2)$) [opacity=.4,scale=10] {\correct};
+      \end{tikzpicture}}%
+
     \mode<article>{\cfile{../src/ptr4-ok.c}%
       \begin{enumerate}
       \item read the \emph{value} of \texttt{count}, and pass it to \texttt{inc\_count()};
@@ -776,12 +757,11 @@
 
 \begin{frame}%{Pointers as Function Arguments}
   \begin{iblock}{Solution 2: Call by reference}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.6\textwidth]{ptr4-c}%
-        \begin{tikzpicture}[remember picture,overlay]
-          \node at ($(pic cs:ptr4)+(0,2)$) [opacity=.4,scale=10] {\correct};
-        \end{tikzpicture}}%
-    \end{center}
+    \mode<beamer>{\centering\includegraphics[width=.5\textwidth]{ptr4-c}%
+      \begin{tikzpicture}[remember picture,overlay]
+        \node at ($(pic cs:ptr4)+(0,2)$) [opacity=.4,scale=10] {\correct};
+      \end{tikzpicture}}%
+
     \mode<article>{\cfile{../src/ptr4.c}%
       \begin{enumerate}
       \item pass the address of \texttt{count} to \texttt{inc\_count()};
@@ -805,7 +785,7 @@
     \mode<beamer>{%
       \includegraphics[width=\textwidth]{array2-2-c}\tikzmark{array2-2}
       \begin{tikzpicture}[remember picture,overlay]
-        \node at ($(pic cs:array2-2)+(-.68,.95)$) [ellipse,opacity=.4,red,draw,thick,minimum
+        \node at ($(pic cs:array2-2)+(-.85,1.1)$) [ellipse,opacity=.4,red,draw,thick,minimum
         width=1cm] {};
       \end{tikzpicture}}%
     \mode<article>{%
@@ -821,10 +801,9 @@
         a}'' is \texttt{2} rather than \texttt{8}. This means \texttt{pa} is \emph{two
         ints} ahead of \texttt{a}.}
   \end{minipage}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{array2-3} }%
+  \centering
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{array2-3} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{array2-3} }
-  \end{center}
 \end{frame}
 
 \begin{frame}{Passing Arrays to Functions}
@@ -833,9 +812,9 @@
     pointer.
   \end{block}
   \begin{center}
-    \begin{minipage}{.53\linewidth}
+    \begin{minipage}{.4\linewidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{array3-1-c} }%
-    \end{minipage}\quad
+    \end{minipage}\hfill
     \begin{minipage}{.4\linewidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{array3-2-c} }%
     \end{minipage}
@@ -862,9 +841,7 @@
 \end{frame}
 
 \begin{frame}{Arrays Of Pointers}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{array4-c} }%
-  \end{center}
+  \mode<beamer>{\centering \includegraphics[width=.6\textwidth]{array4-c} }%
   \mode<article>{ \cfile{../src/array4.c} }
 \end{frame}
 
@@ -917,10 +894,9 @@ b = c; /* Wrong! 'b[]' cannot be reassigned (pointing to elsewhere). */
 
 \begin{frame}{\texttt{getopt} --- The Standard Way}
   \begin{iblock}{\CMD{man 3 getopt}}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.9\textwidth]{getopt-c} }%
-      \mode<article>{\cfile{../src/getopt.c}}
-    \end{center}
+    \centering
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{getopt-c} }%
+    \mode<article>{\cfile{../src/getopt.c}}
   \end{iblock}\ttfamily
   \begin{itemize}
   \item[\$] ./a.out -h -l -fhello
@@ -944,10 +920,9 @@ b = c; /* Wrong! 'b[]' cannot be reassigned (pointing to elsewhere). */
 
 \begin{frame}{Environment Variable}
   \begin{minipage}{.5\linewidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{env-c} }%
-      \mode<article>{ \cfile{../src/env.c} }
-    \end{center}
+    \centering
+    \mode<beamer>{ \includegraphics[width=\textwidth]{env-c} }%
+    \mode<article>{ \cfile{../src/env.c} }
   \end{minipage}\quad
   \begin{minipage}{.45\linewidth}
   \ttfamily
@@ -962,10 +937,9 @@ b = c; /* Wrong! 'b[]' cannot be reassigned (pointing to elsewhere). */
 \citetitle[p.147, Sec~4.2 The \texttt{environ} Variable]{matthew2008beginning}
 
 \begin{frame}{Time and Date}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{time-c} }%
-    \mode<article>{ \cfile{../src/time.c} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{time-c} }%
+  \mode<article>{ \cfile{../src/time.c} }
   \begin{itemize}
   \item January 1 1970 --- start of the Unix epoch
   \item[\$] \cmd{man 3 time}
@@ -997,16 +971,14 @@ b = c; /* Wrong! 'b[]' cannot be reassigned (pointing to elsewhere). */
 
 \begin{frame}{Logging}
   \begin{iblock}{\ttfamily syslog.c}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{syslog-c} }%
-      \mode<article>{\cfile{../src/syslog.c}}
-    \end{center}
+    \centering
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{syslog-c} }%
+    \mode<article>{\cfile{../src/syslog.c}}
   \end{iblock}
   \begin{iblock}{\ttfamily logger.sh}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{logger-sh} }%
-      \mode<article>{\shellfile{../src/logger.sh}}
-    \end{center}
+    \centering
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{logger-sh} }%
+    \mode<article>{\shellfile{../src/logger.sh}}
   \end{iblock}
   % \ttfamily
   % \begin{itemize}
@@ -1034,20 +1006,19 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
   Systems}]{bryant2010computersystems}.
 
 \begin{frame}{A Computer System}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-1} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-1-1} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-1-1} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-1-1} }
 \end{frame}
 
 \subsection{Hardware}
 \label{sec:cpu}
 
 \begin{frame}{CPU Working Cycle}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.6\textwidth]{mos-figs-1-6} }%
-    \mode<article>{ \includegraphics[width=.3\textwidth]{mos-figs-1-6} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.5\textwidth]{mos-figs-1-6} }%
+  \mode<article>{ \includegraphics[width=.3\textwidth]{mos-figs-1-6} }
+
   \begin{enumerate}
   \item Fetch the first instruction from memory
   \item Decode it to determine its type and operands
@@ -1068,10 +1039,10 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
 \end{frame}
 
 \begin{frame}{System Bus}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-5} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-5} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-1-5} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-5} }
+
   \begin{description}
   \item[Address Bus:] specifies the memory locations (addresses) for the
     data transfers
@@ -1091,17 +1062,15 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
 \end{frame}
 
 \begin{frame}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-11} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-11} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-1-11} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-11} }
 \end{frame}
 
 \begin{frame}{Motherboard Chipsets}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{chipsets} }
-    \mode<article>{ \includegraphics[width=.5\textwidth]{chipsets-bw} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=\textwidth]{chipsets} }
+  \mode<article>{ \includegraphics[width=.5\textwidth]{chipsets-bw} }
 \end{frame}
 
 See also:
@@ -1143,7 +1112,7 @@ See also:
 \footnote{\url{http://download.intel.com/design/processor/datashts/31559205.pdf}}.
 
 \begin{frame}[plain]
-  \begin{minipage}{.65\linewidth}
+  \begin{minipage}{.5\linewidth}
     \begin{block}{Some physical memory addresses are mapped away!}
       \begin{itemize}
       \item only the addresses, not the spaces
@@ -1163,15 +1132,10 @@ See also:
       \end{itemize}
       This is why 32-bit OSes have problems using 4 GiB of RAM.
     \end{block}
-  \end{minipage}\quad
-  \begin{minipage}{.3\linewidth}
-    \tikz[baseline,overlay]{
-      \node [xshift=1.4cm,yshift=-1cm] at (0,0) {
-        \includegraphics[scale=0.6]{boot-mem}}}
+  \end{minipage}\hfill
+  \begin{minipage}{.45\linewidth}
+    \includegraphics[width=\textwidth]{boot-mem}
   \end{minipage}
-  % \begin{center}
-  %   What if you don't have 4G RAM?
-  % \end{center}
 \end{frame}
 
 \begin{frame}
@@ -1265,10 +1229,9 @@ See also:
 \end{frame}
 
 \begin{frame}{Programmable Interrupt Controllers}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{int-osdi-34}}%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{int-osdi-34}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{int-osdi-34}}%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{int-osdi-34}}
 \end{frame}
 
 \begin{frame}{Interrupt Processing}
@@ -1311,24 +1274,21 @@ See also:
 \end{frame}
 
 \begin{frame}%{System Calls}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.75\textwidth]{mos-figs-1-19} }
-    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=\textheight]{mos-figs-1-19} }
+  \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }
 \end{frame}
 
 \begin{frame}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[height=\textheight]{syscall} }%
-    \mode<article>{ \includegraphics[width=.45\textwidth]{syscall} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=\textheight]{syscall} }%
+  \mode<article>{ \includegraphics[width=.45\textwidth]{syscall} }
 \end{frame}
 
 \begin{frame}{The 11 steps in making a system call}{\texttt{read(fd,buffer,nbytes)}}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-1-18} }%
+  \centering
+    \mode<beamer>{ \includegraphics[height=.8\textheight]{mos-figs-1-18} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-18} }
-  \end{center}
 \end{frame}
 
 \begin{frame}{Example}{Linux \texttt{INT 80h}}
@@ -1344,10 +1304,9 @@ See also:
 \end{frame}
 
 \begin{frame}{Example}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello32-asm} }%
-    \mode<article>{ \nasmfile{../src/hello32.asm} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{hello32-asm} }%
+  \mode<article>{ \nasmfile{../src/hello32.asm} }
   \begin{iblock}{}
     \ttfamily\footnotesize
     \begin{enumerate}
@@ -1363,11 +1322,11 @@ See also:
 \nasmfile{../src/hello64.s}
 
 \begin{frame}{System Call Examples}
-  \begin{minipage}{.55\linewidth}
+  \begin{minipage}{.5\linewidth}
     \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
     \mode<article>{ \cfile{../src/write.c}}
   \end{minipage}\quad
-  \begin{minipage}{.4\linewidth}\ttfamily\footnotesize
+  \begin{minipage}{.45\linewidth}\ttfamily\footnotesize
     \begin{itemize}
     \item Actually, \texttt{write()} is a wrapper function in glibc.
     \item[\$] man 2 write
@@ -1398,10 +1357,9 @@ See also:
 
 \begin{frame}
   \begin{iblock}{\cmd{execve()}}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{fork-exec} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{fork-exec-bw} }
-    \end{center}
+    \centering
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{fork-exec} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{fork-exec-bw} }
   \end{iblock}\ttfamily
   \begin{itemize}
   \item[\$] man 2 execve

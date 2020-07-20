@@ -105,12 +105,9 @@
 \end{frame}
 
 \begin{frame}{\cmd{cp}}
-  \begin{center}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.95\textwidth]{cp-syscall-c} }%
-      \mode<article>{\cfile{../src/cp-syscall.c}}
-    \end{center}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{cp-syscall-c} }%
+  \mode<article>{\cfile{../src/cp-syscall.c}}
 \end{frame}
 
 \begin{frame}{\texttt{stdio} --- The Standard I/O Library}
@@ -218,10 +215,10 @@
 \end{frame}
 
 \begin{frame}{Implementing Files}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-alloc-contiguous} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{file-alloc-contiguous} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.55\textwidth]{file-alloc-contiguous} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{file-alloc-contiguous} }
+
   \begin{block}{Contiguous Allocation}
     \begin{multicols}{2}
       \begin{itemize}
@@ -234,10 +231,10 @@
 \end{frame}
 
 \begin{frame}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-alloc-chained} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{file-alloc-chained} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.55\textwidth]{file-alloc-chained} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{file-alloc-chained} }
+
   \begin{block}{Linked List (Chained) Allocation}
     A pointer in each disk block
     \begin{multicols}{2}
@@ -255,17 +252,16 @@
   \item[Linked List (Chained) Allocation] Though there is no external fragmentation,
     consolidation is still preferred.
   \end{description}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{file-alloc-chained2} }%
-    \mode<article>{\label{fig:chained2} \includegraphics[width=.5\textwidth]{file-alloc-chained2} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-alloc-chained2} }%
+  \mode<article>{\label{fig:chained2} \includegraphics[width=.5\textwidth]{file-alloc-chained2} }
 \end{frame}
 
 \begin{frame}
   \begin{itemize}
   \item[FAT:] Linked list allocation with a table in RAM
   \end{itemize}
-  \begin{minipage}{.59\textwidth}
+  \begin{minipage}{.6\textwidth}
     \begin{block}{}
       \begin{itemize}
       \item Taking the pointer out of each disk block, and putting it into a table in
@@ -276,8 +272,8 @@
         $$disk\nearrow{}\Rightarrow FAT\nearrow{}\Rightarrow RAM_{used}\nearrow$$
       \end{itemize}
     \end{block}
-  \end{minipage}\quad
-  \begin{minipage}{.35\textwidth}
+  \end{minipage}\hfill
+  \begin{minipage}{.3\textwidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{fat} }%
       \mode<article>{ \includegraphics[width=.8\textwidth]{fat} }
   \end{minipage}
@@ -286,10 +282,10 @@
 See also: \citetitle[\emph{Wikipedia:FAT}]{wiki:fat}.
 
 \begin{frame}{Indexed Allocation}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-alloc-idx} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{file-alloc-idx} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{file-alloc-idx} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{file-alloc-idx} }
+
   \begin{description}
   \item[I-node] A data structure for each file. An i-node is in memory \emph{only if} the
     file is open
@@ -300,13 +296,11 @@ See also: \citetitle[\emph{Wikipedia:FAT}]{wiki:fat}.
 See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 
 \begin{frame}<beamer>{I-node}
-  \begin{tikzpicture}[remember picture, overlay]
-    \node [scale=.8,anchor=south west] at (current page.south west)
-    {\includegraphics{osc-11-28}};
-        
-    \node [scale=.7,xshift=-5em,yshift=-5em,anchor=north east,align=left]
-    at (current page.north east) {%
-      \begin{tabular}{cl}\hline
+  \begin{minipage}{.6\linewidth}
+    \includegraphics[width=\textwidth]{osc-11-28}
+  \end{minipage}\hfill
+  \begin{minipage}{.35\linewidth}\small
+    \begin{tabular}{cl}\hline
         \thead{File type}&\thead{Description}\\\hline
         0&Unknown\\
         1&Regular file\\
@@ -316,8 +310,9 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
         5&Named pipe\\
         6&Socket\\
         7&Symbolic link\\\hline
-      \end{tabular}\\[1ex]\textbf{Mode:} 9-bit pattern};
-  \end{tikzpicture}
+    \end{tabular}\\[1ex]
+    \textbf{Mode:} 9-bit pattern
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{UNIX Treats a Directory as a File}
@@ -350,10 +345,9 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \end{itemize}
   \end{description}
   The steps in looking up \texttt{/usr/ast/mbox}
-  \begin{center}\label{fig:dir-lookup}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{04-35} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{04-35} }
-  \end{center}
+  \centering\label{fig:dir-lookup}
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{04-35} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{04-35} }
 \end{frame}
 
 \begin{frame}
@@ -382,10 +376,9 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \item[] fd3 = open("/etc/passwd", O\_WRONLY);
     \end{itemize}
   \end{iblock}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.6\textwidth]{file-tables2} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{file-tables2} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.5\textwidth]{file-tables2} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{file-tables2} }
 \end{frame}
 
 \begin{frame}
@@ -395,10 +388,9 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
     \item[] fd2 = open("private", O\_RDONLY);
     \end{itemize}
   \end{iblock}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-tables3} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{file-tables3} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.55\textwidth]{file-tables3} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{file-tables3} }
 \end{frame}
 
 \section{Directories}

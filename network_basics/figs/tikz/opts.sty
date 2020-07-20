@@ -2,7 +2,7 @@
 \ProvidesPackage{opts}
 
 \RequirePackage{fullpage}
-\RequirePackage{wx672fonts}
+\RequirePackage{wx672fonts,wx672nerd}
 
 \newCJKfontfamily\krfont{Noto Serif CJK KR}
 \newCJKfontfamily\cnfont{AiNiChuanYueRenHai}
@@ -16,7 +16,6 @@
 \renewcommand{\listfigurename}{List of Figures}
 \renewcommand{\figurename}{Fig.}
 
-
 % for trump-kim-en
 \newcommand\trump{\includegraphics[width=3em]{imgs/trump-kim1}}
 \newcommand\kim{\includegraphics[width=3em]{imgs/trump-kim2}}
@@ -25,7 +24,10 @@
 \newcommand\secmale{\includegraphics[width=3em]{imgs/trump-kim5}}
 \newcommand\secfemale{\includegraphics[width=3em]{imgs/trump-kim5}}
 
-\newcommand\cnwp{{\cnfont 世\\界\\和\\平}}
+\newcommand\cnwp{{\cnfont
+    \begin{tabular}{c}
+      世\\[-1ex]界\\[-1ex]和\\[-1ex]平
+    \end{tabular}}}%
 \newcommand\krwp{{\krfont 세계평화！}}
 \newcommand\enwp{\humor{World}\\\humor{peace!}}
 \newcommand\protocol{{\purisa Protocol}}

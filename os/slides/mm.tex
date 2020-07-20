@@ -26,18 +26,16 @@
     \item Every program simply saw the physical memory
     \item mono-programming without swapping or paging
     \end{itemize}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mm-realmode} }%
-      \mode<article>{ \includegraphics[width=.5\textwidth]{mm-realmode} }
-    \end{center}
+    \centering
+    \mode<beamer>{ \includegraphics[width=.85\textwidth]{mm-realmode} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{mm-realmode} }
   \end{iblock}
 \end{frame}
 
 \begin{frame}{Basic Memory Management}{Relocation Problem}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mm-relocation} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mm-relocation} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{mm-relocation} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{mm-relocation} }
 \end{frame}
 
 \begin{enumerate}
@@ -65,27 +63,23 @@
   \item[Base register] holds the smallest legal physical memory address
   \item[Limit register] contains the size of the range
   \end{description}
-  \begin{varwidth}{.48\textwidth}
-    \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{osc-8-5}
-      } \mode<article>{
-        \includegraphics[width=.7\textwidth]{osc-8-5}
-      }
-    \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.45\textwidth}
+  \begin{minipage}{.4\textwidth}
+    \centering
+    \mode<beamer>{ \includegraphics[width=\textwidth]{osc-8-5} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{osc-8-5} }
+  \end{minipage}\quad
+  \begin{minipage}{.55\textwidth}
     A pair of \texttt{base} and \texttt{limit} registers define the logical address space
     \begin{center}
-      \cfbox{violet}{\texttt{JMP 28}}
+      \fbox{\texttt{JMP 28}}
     \end{center}
     \begin{center}
       {\rotatebox{270}{\huge \Symbol{➠}}}
     \end{center}
     \begin{center}
-      \cfbox{violet}{\texttt{JMP 300068}}
+      \fbox{\texttt{JMP 300068}}
     \end{center}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Memory Protection}{Base and limit registers}
@@ -100,7 +94,7 @@
 \end{frame}
 
 \begin{frame}{UNIX View of a Process' Memory}
-  \begin{varwidth}{.48\textwidth}
+  \begin{minipage}{.48\textwidth}
     \begin{center}
       \mode<beamer>{
         \includegraphics[width=\textwidth]{mm-process}
@@ -108,8 +102,8 @@
         \includegraphics[width=.7\textwidth]{mm-process}
       }
     \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.48\textwidth}
+  \end{minipage}\hfill
+  \begin{minipage}{.48\textwidth}
     \begin{itemize}
     \item[text:] program code
     \item[data:] initialized global and static data
@@ -117,7 +111,7 @@
     \item[heap:] dynamically allocated with \texttt{malloc, new}
     \item[stack:] local variables
     \end{itemize}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Stack vs. Heap}
@@ -142,27 +136,24 @@
 
 \begin{frame}{Multi-step Processing of a User Program}{When is space
     allocated?}
-  \begin{minipage}{.4\textwidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{tool-chain} }%osc-8-7
-      \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain} }
-    \end{center}
+  \begin{minipage}{.37\textwidth}
+    \centering
+    \mode<beamer>{ \includegraphics[width=\textwidth]{tool-chain} }%osc-8-7
+    \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain} }
     \label{reg}
-  \end{minipage}
+  \end{minipage}\quad
   \begin{minipage}{.55\textwidth}
-    \begin{small}
-      \begin{description}
-      \item[Static:] before program start running
-        \begin{itemize}
-        \item Compile time
-        \item Load time
-        \end{itemize}
-      \item[Dynamic:] as program runs
-        \begin{itemize}
-        \item Execution time
-        \end{itemize}
-      \end{description}
-    \end{small}
+    \begin{description}
+    \item[Static:] before program start running
+      \begin{itemize}
+      \item Compile time
+      \item Load time
+      \end{itemize}
+    \item[Dynamic:] as program runs
+      \begin{itemize}
+      \item Execution time
+      \end{itemize}
+    \end{description}
   \end{minipage}
 \end{frame}
 
@@ -312,10 +303,9 @@ See also:
 \end{frame}
 
 \begin{frame}{Dynamic Linking}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.75\textwidth]{dynamic-linking2} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{dynamic-linking2} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{dynamic-linking2} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{dynamic-linking2} }
 \end{frame}
 
 \paragraph{More about dynamic linking}
@@ -368,30 +358,24 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}{Build A Static Library}{Source codes}
-  \begin{minipage}[t]{.47\linewidth}
+  \begin{minipage}[t]{.35\linewidth}
     \begin{iblock}{\texttt{main.c}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{main-c} }%
-        \mode<article>{\cfile{../src/mm/hello/static/main.c}}
-      \end{center}
+      \centering \mode<beamer>{ \includegraphics[width=\textwidth]{main-c} }%
+      \mode<article>{\cfile{../src/mm/hello/static/main.c}}
     \end{iblock}
     \begin{iblock}{\texttt{lib.h}}
-      \mode<beamer>{\includegraphics[width=.5\textwidth]{lib-h}}%
+      \mode<beamer>{\includegraphics[width=.6\textwidth]{lib-h}}%
       \mode<article>{\cfile{../src/mm/hello/static/lib.h}}
     \end{iblock}
   \end{minipage}\qquad
   \begin{minipage}[t]{.43\linewidth}
     \begin{iblock}{\texttt{hello.c}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{hello-c} }%
-        \mode<article>{\cfile{../src/mm/hello/static/hello.c}}
-      \end{center}
+      \centering \mode<beamer>{ \includegraphics[width=\textwidth]{hello-c} }%
+      \mode<article>{\cfile{../src/mm/hello/static/hello.c}}
     \end{iblock}
     \begin{iblock}{\texttt{hi.c}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c} }%
-        \mode<article>{\cfile{../src/mm/hello/static/hi.c}}
-      \end{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c} }%
+      \mode<article>{\cfile{../src/mm/hello/static/hi.c}}
     \end{iblock}
   \end{minipage}
 \end{frame}
@@ -414,26 +398,24 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}{Build A Static Library}{Makefile}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{makefile-a} }%
-    \mode<article>{\mkfile{../src/mm/hello/static/Makefile}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{makefile-a} }%
+  \mode<article>{\mkfile{../src/mm/hello/static/Makefile}}
 \end{frame}
 
 \begin{frame}{Build A Shared Library}{Source codes}
   \begin{iblock}{\texttt{hello.c}}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello-c-so} }%
+    \centering
+      \mode<beamer>{ \includegraphics[width=.65\textwidth]{hello-c-so} }%
       \mode<article>{\cfile{../src/mm/hello/shared/hello.c}}
-    \end{center}
   \end{iblock}
-  \begin{minipage}{.35\linewidth}
+  \begin{minipage}{.3\linewidth}
     \begin{iblock}{\texttt{hello.h}}
       \mode<beamer>{ \includegraphics[width=\textwidth]{hello-h-so} }%
       \mode<article>{\cfile{../src/mm/hello/shared/hello.h}}
     \end{iblock}
   \end{minipage}\qquad
-  \begin{minipage}{.36\linewidth}
+  \begin{minipage}{.3\linewidth}
     \begin{iblock}{\texttt{hi.c}}
       \mode<beamer>{ \includegraphics[width=\textwidth]{hi-c-so} }%
       \mode<article>{\cfile{../src/mm/hello/shared/hi.c}}
@@ -463,10 +445,9 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}{Build A Shared Library}{Makefile}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{makefile-so} }%
-    \mode<article>{\mkfile{../src/mm/hello/shared/Makefile}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{makefile-so} }%
+  \mode<article>{\mkfile{../src/mm/hello/shared/Makefile}}
 \end{frame}
 
 \begin{frame}{GNU C Library}
@@ -517,17 +498,15 @@ There are also disadvantages:
   \item deals with logical addresses
   \item never sees the real physical addresses
   \end{itemize}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-10} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-10} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{osc-8-10} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-10} }
 \end{frame}
 
 \begin{frame}{MMU}{Memory Management Unit}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-9} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{mos-figs-4-9} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{mos-figs-4-9} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{mos-figs-4-9} }
 \end{frame}
 
 \begin{frame}{Memory Protection}
@@ -542,7 +521,7 @@ There are also disadvantages:
 
 \begin{frame}{Swapping}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-14} }%
+    \mode<beamer>{ \includegraphics[width=.55\textwidth]{osc-8-14} }%
     \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-14} }
   \end{center}
   \begin{iblock}{Major part of swap time is transfer time}
@@ -558,7 +537,7 @@ There are also disadvantages:
 
 \begin{frame}{Contiguous Memory Allocation}{Multiple-partition allocation}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-5} }%
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-4-5} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-4-5} }
   \end{center}
   Operating system maintains information about:
@@ -569,10 +548,9 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}{Dynamic Storage-Allocation Problem}{First Fit, Best Fit, Worst Fit}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mm-fit} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{mm-fit} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=\textwidth]{mm-fit} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{mm-fit} }
 \end{frame}
 
 \begin{frame}%{Dynamic Storage-Allocation Problem}
@@ -597,10 +575,10 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}{Fragmentation}
-  \begin{varwidth}{.3\textwidth}
+  \begin{minipage}{.35\textwidth}
     \includegraphics[width=\textwidth]{mm-frag}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.66\textwidth}
+  \end{minipage}\hfill
+  \begin{minipage}{.6\textwidth}
     \begin{iblock}{Reduce external fragmentation by}
       \begin{itemize}
       \item \alert{Compaction} is possible only if relocation is dynamic,
@@ -612,19 +590,17 @@ There are also disadvantages:
         \end{itemize}
       \end{itemize}
     \end{iblock}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \section{Virtual Memory}
 
 \begin{frame}{Virtual Memory}{Logical memory can be much larger than physical memory}
-  \begin{varwidth}{.48\textwidth}
-    \begin{center}
+  \begin{minipage}{.4\textwidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-10} }%
       \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }
-    \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.48\textwidth}
+  \end{minipage}\hfill
+  \begin{minipage}{.48\textwidth}
     \begin{iblock}{Address translation}
       $$\genfrac{}{}{0pt}{}{virtual}{address}
       \xrightarrow{\alert{page\,table}}
@@ -637,7 +613,7 @@ There are also disadvantages:
       $$\genfrac{}{}{0pt}{}{20500_{vir}}{(20k+20)_{vir}}
       \xrightarrow{map\,to} \genfrac{}{}{0pt}{}{12308_{phy}}{(12k+20)_{phy}}$$
     \end{iblock}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 % \begin{frame}{Virtual Memory}{Memory Mapping}
@@ -668,24 +644,20 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}
-  \begin{varwidth}{.65\textwidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-11} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-11} }
-    \end{center}
+  \begin{minipage}{.55\textwidth}
+    \centering \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-11} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-11} }
     \label{fig:paging}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.35\textwidth}
-    \begin{small}
-      \begin{tabular}{rl}
-        Virtual pages:  &16\\
-        Page size:      &4k\\
-        Virtual memory:& 64K\\
-        Physical frames:&8\\
-        Physical memory:&32K
-      \end{tabular}
-    \end{small}
-  \end{varwidth}
+  \end{minipage}\hfill
+  \begin{minipage}{.35\textwidth}
+    \begin{tabular}{rl}
+      Virtual pages:  &16\\
+      Page size:      &4k\\
+      Virtual memory:& 64K\\
+      Physical frames:&8\\
+      Physical memory:&32K
+    \end{tabular}
+  \end{minipage}
 \end{frame}
 
 % \begin{frame}{Valid-Invalid Bit}{When Some Pages Are Not In Memory}
@@ -707,10 +679,9 @@ There are also disadvantages:
     \item[] Could address $1M\times{}4KB=4GB$ memory
     \end{itemize}
   \end{itemize}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{i386pte} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{i386pte} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{i386pte} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{i386pte} }
 \end{frame}
 
 \begin{frame}{Page Table}
@@ -734,32 +705,29 @@ There are also disadvantages:
   \item[80-20 rule] Only a small fraction of the PTEs are heavily read; the rest are
     barely used at all
   \end{description}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-28} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-28} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{osc-8-28} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-28} }
 \end{frame}
 
 \begin{frame}[fragile]{Page Fault}
-  \begin{varwidth}{.48\textwidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-10} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }
-    \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.48\textwidth}
+  \begin{minipage}{.44\textwidth}
+    \centering
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-10} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }
+  \end{minipage}\hfill
+  \begin{minipage}{.4\textwidth}
     \mintinline{nasm}|MOV REG, 32780|?
     \begin{itemize}
     \item[\Symbol{➠}] Page fault \& swapping
     \end{itemize}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Page Fault Handling}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-9-14} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-9-14} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.65\textwidth]{osc-9-14} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{osc-9-14} }
 \end{frame}
 
 % \begin{frame}{Free Frames}
@@ -772,10 +740,9 @@ There are also disadvantages:
 % \end{frame}
 
 \begin{frame}{Shared Pages}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-33} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-33} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.57\textwidth]{osc-8-33} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-33} }
 \end{frame}
 
 \begin{frame}{Multilevel Page Tables}
@@ -810,10 +777,9 @@ There are also disadvantages:
 \end{itemize}
 
 \begin{frame}{Two-Level Page Tables}{Example}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{2-level-paging-2} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{2-level-paging-2} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.87\textheight]{2-level-paging-2} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{2-level-paging-2} }
 \end{frame}
 
 \begin{frame}{Problem With 64-bit Systems}
@@ -860,13 +826,12 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}{Inverted Page Tables}{Index with frame number}
-  \begin{iblock}{Find index according to entry contents}
-    $(pid,\,p)\Rightarrow{}i$
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-8-43} }%
-      \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-43} }
-    \end{center}
-  \end{iblock}
+  \begin{description}
+  \item[$(pid,\,p)\Rightarrow{}i$] \quad Find index according to entry contents
+  \end{description}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.65\textwidth]{osc-8-43} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-43} }
 \end{frame}
 
 \begin{frame}<article>%{Linear Inverted Page Tables}
@@ -934,10 +899,9 @@ There are also disadvantages:
     $\Rightarrow{}$page table entries
   \item Since collisions may occur, the page table must do chaining
   \end{itemize}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{osc-8-41} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-41} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.85\textwidth]{osc-8-41} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-41} }
 \end{frame}
 
 \begin{frame}<article>{Hashed Inverted Page Table}
@@ -990,21 +954,21 @@ There are also disadvantages:
 % \subsection{Copy-on-Write}
 
 % \begin{frame}{Copy-on-Write}{More efficient process creation}
-%   \begin{varwidth}{.49\textwidth}
+%   \begin{minipage}{.49\textwidth}
 %     \begin{itemize}
 %     \item Parent and child processes initially share the same pages in memory
 %     \item Only the modified page is copied upon modification occurs
 %     \item Free pages are allocated from a \emph{pool} of zeroed-out pages
 %     \end{itemize}
-%   \end{varwidth}\hfill
-%   \begin{varwidth}{.49\textwidth}
+%   \end{minipage}\hfill
+%   \begin{minipage}{.49\textwidth}
 %     \begin{center}
 %       \includegraphics[width=\textwidth]{osc-9-19}
 %     \end{center}
 %     \begin{center}
 %       \includegraphics[width=\textwidth]{osc-9-20}
 %     \end{center}
-%   \end{varwidth}
+%   \end{minipage}
 % \end{frame}
 
 % \subsection{Memory mapped files}
@@ -1557,22 +1521,22 @@ There are also disadvantages:
 \subsection{Segmentation}
 
 \begin{frame}{Two Views of A Virtual Address Space}
-  \begin{varwidth}{.45\textwidth}
+  \begin{minipage}{.45\textwidth}
     \begin{iblock}{One-dimensional}
       a linear array of bytes
       \begin{center}
         \includegraphics[width=.9\textwidth]{memory1}
       \end{center}
     \end{iblock}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.45\textwidth}
+  \end{minipage}\hfill
+  \begin{minipage}{.45\textwidth}
     \begin{iblock}{Two-dimensional}
       a collection of variable-sized segments
       \begin{center}
-        \includegraphics[width=.75\textwidth]{osc-8-45}
+        \includegraphics[width=.65\textwidth]{osc-8-45}
       \end{center}
     \end{iblock}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}<article>{User's View}
@@ -1643,10 +1607,9 @@ There are also disadvantages:
 %   \end{frame}
 
 \begin{frame}{Logical And Physical View of Segmentation}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{mm-seg} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{mm-seg} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{mm-seg} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{mm-seg} }
 \end{frame}
 
 \begin{frame}<article>{Segmentation Architecture}
@@ -1673,18 +1636,16 @@ There are also disadvantages:
 \end{frame}
 
 \begin{frame}{Segmentation hardware}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-8-49} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-49} }
-    \label{fig:segmentation-hardware}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-8-49} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-49} }
+  \label{fig:segmentation-hardware}
 \end{frame}
 
 \begin{frame}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.85\textwidth]{seg-trans} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{seg-trans} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{seg-trans} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{seg-trans} }
 \end{frame}
 
 \begin{frame}
@@ -2017,14 +1978,9 @@ See also:
 % \end{frame}
 
 \begin{frame}{Paging In Linux}{4-level paging for both 32-bit and 64-bit}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{4-level-paging}
-    }
-    \mode<article>{
-      \includegraphics[width=.5\textwidth]{4-level-paging}
-    }
-  \end{center}
+  \centering%
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{4-level-paging} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{4-level-paging} }
   % \mode<beamer>{
   %   \begin{tikzpicture}[remember picture, overlay]    
   %     \node [scale=.7,xshift=-19.8em,yshift=-4em] (b) at (current page.center) {cr3};

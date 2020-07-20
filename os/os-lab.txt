@@ -1,0 +1,16 @@
+实验1：CLI basics
+实验2：vim/emacs tutorials
+实验3：C dev tool chains
+实验4：Makefile
+实验5：Proc file system
+实验6：Kernel compilation
+实验7：Kernel modules
+实验8：System calls
+实验9：Processes
+实验10：Threads
+实验11：Signals
+实验12：Pipes
+实验13：Message queues
+实验14：Semaphores
+实验15：Shared memory
+实验16：Ext2 file system

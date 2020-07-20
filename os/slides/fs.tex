@@ -78,7 +78,7 @@
 See also \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2008modern}.
 
 \begin{frame}{The Operating Structure}
-  \begin{varwidth}{.25\textwidth}
+  \begin{minipage}{.25\textwidth}
     \begin{center}
       \begin{tabular}{c}
         {\small\fbox{APPs}}\\
@@ -94,8 +94,8 @@ See also \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2008modern}.
         {\small\fbox{Devices}}
       \end{tabular}
     \end{center}
-  \end{varwidth}\quad
-  \begin{varwidth}{.7\textwidth}
+  \end{minipage}\quad
+  \begin{minipage}{.7\textwidth}
     \begin{block}{Example --- To create a file}
       \begin{enumerate}
       \item \alert{APP} calls \texttt{creat()}
@@ -121,7 +121,7 @@ See also \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2008modern}.
         % \item an entry is made in the \alert{per-process open-file table}
       \end{enumerate}
     \end{block}
-  \end{varwidth}
+  \end{minipage}
   \begin{block}{Benefit of layered design}
     The I/O control and sometimes the basic file system code can be used by multiple file
     systems.
@@ -198,27 +198,11 @@ See also \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2008modern}.
 \end{frame}
 
 \begin{frame}
-  \begin{block}{Binary files}
-    \begin{center}
-      \mode<beamer>{
-        \begin{center}
-          \includegraphics[width=.75\textwidth]{mos-figs-6-3}
-        \end{center}
-        \begin{center}
-          \tiny{\hspace{-6em}An UNIX executable file
-            \qquad\qquad\qquad\qquad\qquad\qquad\qquad An UNIX archive}
-        \end{center}
-      } \mode<article>{
-        \begin{center}
-          \includegraphics[width=.6\textwidth]{mos-figs-6-3}
-        \end{center}
-        \begin{itemize}
-        \item[(a)] An UNIX executable file
-        \item[(b)] An UNIX archive file
-        \end{itemize}
-      }
-    \end{center}
-  \end{block}
+  \begin{iblock}{Binary files}
+    \centering
+    \mode<beamer>{ \includegraphics[width=.55\textwidth]{mos-figs-6-3} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-6-3} }
+  \end{iblock}
 \end{frame}
 
 See also:
@@ -256,12 +240,11 @@ See also:
 \end{frame}
 
 \begin{frame}
-  \begin{minipage}[t]{.53\linewidth}
+  \begin{minipage}[t]{.5\linewidth}
     \begin{block}{\texttt{write()}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
-        \mode<article>{\cfile{../src/fs/write.c}}
-      \end{center}
+      \centering
+      \mode<beamer>{ \includegraphics[width=\textwidth]{write-c} }%
+      \mode<article>{\cfile{../src/fs/write.c}}
     \end{block}
     \ttfamily
     \begin{itemize}
@@ -269,12 +252,11 @@ See also:
     \item[\$] man 3 write
     \end{itemize}
   \end{minipage}\qquad
-  \begin{minipage}[t]{.37\linewidth}
+  \begin{minipage}[t]{.35\linewidth}
     \begin{block}{\texttt{read()}}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{read-c} }%
-        \mode<article>{\cfile{../src/fs/read.c}}
-      \end{center}
+      \centering
+      \mode<beamer>{ \includegraphics[width=\textwidth]{read-c} }%
+      \mode<article>{\cfile{../src/fs/read.c}}
     \end{block}
     \ttfamily
     \begin{itemize}
@@ -289,12 +271,9 @@ See also:
 \end{frame}
 
 \begin{frame}{\cmd{cp}}
-  \begin{center}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.95\textwidth]{cp-syscall-c} }%
-      \mode<article>{\cfile{../src/fs/cp-syscall.c}}
-    \end{center}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{cp-syscall-c} }%
+  \mode<article>{\cfile{../src/fs/cp-syscall.c}}
 \end{frame}
 
 \begin{frame}{\texttt{stdio} --- The Standard I/O Library}
@@ -344,7 +323,7 @@ See also:
 
 \begin{frame}{\texttt{cp} --- {\small With} \texttt{stdio}}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.6\textwidth]{cp-libc-c} }%
+    \mode<beamer>{ \includegraphics[width=.5\textwidth]{cp-libc-c} }%
     \mode<article>{\cfile{../src/fs/cp-libc.c}}
   \end{center}
   \begin{description}
@@ -433,17 +412,15 @@ See also:
 \end{frame}
 
 \begin{frame}{Directories}{Hierarchical Directory Systems}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-6-9} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-6-9} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{mos-figs-6-9} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-6-9} }
 \end{frame}
 
 \begin{frame}{Directories}{Path Names}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{cs3} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{cs3} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.8\textheight]{cs3} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{cs3} }
 \end{frame}
 
 \begin{frame}{Directories}{Directory Operations}
@@ -459,14 +436,14 @@ See also:
 \begin{frame}{\ttfamily ls}
   \mode<beamer>{%
     \begin{tikzpicture}[remember picture, overlay]%
-      \node [scale=.27,opacity=.5,anchor=east] at (current page.east)%
+      \node [scale=.3,opacity=.5,anchor=east] at (current page.east)%
       {\includegraphics{ls-real}};
     \end{tikzpicture}}
   
-  \begin{minipage}{.6\linewidth}
+  \begin{minipage}{.5\linewidth}
     \mode<beamer>{ \includegraphics[width=\textwidth]{ls-c} }%
     \mode<article>{\cfile{../src/fs/ls.c}}
-  \end{minipage}\quad
+  \end{minipage}\qquad
   \begin{minipage}{.35\linewidth}
     \begin{description}
     \item[The real \texttt{ls.c}?] 
@@ -489,14 +466,13 @@ See also:
     \begin{itemize}
     \item[\$] \cmd{apt source coreutils}
     \end{itemize}}
-  \end{minipage}  
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{\ttfamily mkdir(), chdir(), rmdir(), getcwd()}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{mkdir-c} }%
-    \mode<article>{\cfile{../src/fs/mkdir.c}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{mkdir-c} }%
+  \mode<article>{\cfile{../src/fs/mkdir.c}}
 \end{frame}
 
 \section{File System Implementation}
@@ -605,11 +581,8 @@ is first touched.
   \item[Linked List (Chained) Allocation] A pointer in each disk block
   \end{description}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{file-alloc-chained}
-    } \mode<article>{
-      \includegraphics[width=.5\textwidth]{file-alloc-chained}
-    }
+    \mode<beamer>{ \includegraphics[width=.65\textwidth]{file-alloc-chained} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{file-alloc-chained} }
   \end{center}
   \begin{multicols}{3}
     \begin{itemize}
@@ -635,20 +608,16 @@ systems periodically consolidate files (fig.  \ref{fig:chained2})\citetitle[Sec.
   \item[Linked List (Chained) Allocation] Though there is no external fragmentation,
     consolidation is still preferred.
   \end{description}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{file-alloc-chained2}
-    } \mode<article>{\label{fig:chained2}
-      \includegraphics[width=.5\textwidth]{file-alloc-chained2}
-    }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-alloc-chained2} }%
+  \mode<article>{\label{fig:chained2} \includegraphics[width=.5\textwidth]{file-alloc-chained2} }
 \end{frame}
 
 \begin{frame}
   \begin{itemize}
   \item[FAT:] Linked list allocation with a table in RAM
   \end{itemize}
-  \begin{varwidth}{.59\textwidth}
+  \begin{minipage}{.65\textwidth}
     \begin{block}{}
       \begin{itemize}
       \item Taking the pointer out of each disk block, and putting it into a table in
@@ -659,31 +628,22 @@ systems periodically consolidate files (fig.  \ref{fig:chained2})\citetitle[Sec.
         $$disk\nearrow{}\Rightarrow FAT\nearrow{}\Rightarrow RAM_{used}\nearrow$$
       \end{itemize}
     \end{block}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.39\textwidth}
-    \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{fat}
-      } \mode<article>{
-        \includegraphics[width=.8\textwidth]{fat}
-      }
-    \end{center}
-  \end{varwidth}
+  \end{minipage}\hfill
+  \begin{minipage}{.3\textwidth}
+    \centering
+    \mode<beamer>{ \includegraphics[width=\textwidth]{fat} }
+    \mode<article>{ \includegraphics[width=.8\textwidth]{fat} }
+  \end{minipage}
 \end{frame}
 
 See also: \citetitle[\emph{Wikipedia:FAT}]{wiki:fat}.
 
 \begin{frame}
-  \begin{description}
-  \item[Indexed Allocation]
-  \end{description}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{file-alloc-idx}
-    } \mode<article>{
-      \includegraphics[width=.4\textwidth]{file-alloc-idx}
-    }
-  \end{center}
+  \begin{iblock}{Indexed Allocation}
+    \centering%
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-alloc-idx} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{file-alloc-idx} }    
+  \end{iblock}
   \begin{description}
   \item[I-node] A data structure for each file. An i-node is in memory \emph{only if} the
     file is open
@@ -694,31 +654,28 @@ See also: \citetitle[\emph{Wikipedia:FAT}]{wiki:fat}.
 See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
 
 \begin{frame}{I-node --- FCB in UNIX}
-  \begin{minipage}{.5\textwidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=1.5\textwidth]{inode-struct2} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{inode-struct2} }
-    \end{center}
+  \begin{minipage}[t]{.4\textwidth}
+    \centering
+    \mode<beamer>{ \includegraphics[width=1.4\textwidth]{inode-struct2} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{inode-struct2} }
   \end{minipage}\hfill
   \begin{minipage}[b]{.45\textwidth}
     \centering
-    \begin{scriptsize}
-      \begin{tabular}{cl}\hline
-        \thead{File type}&\thead{Description}\\\hline
-        0&Unknown\\
-        1&Regular file\\
-        2&Directory\\
-        3&Character device\\
-        4&Block device\\
-        5&Named pipe\\
-        6&Socket\\
-        7&Symbolic link\\\hline
-      \end{tabular}
-      \vspace{1em}
-      \begin{description}
-      \item[Mode:] 9-bit pattern
-      \end{description}
-    \end{scriptsize}
+    \begin{tabular}{cl}\hline
+      \thead{File type}&\thead{Description}\\\hline
+      0&Unknown\\
+      1&Regular file\\
+      2&Directory\\
+      3&Character device\\
+      4&Block device\\
+      5&Named pipe\\
+      6&Socket\\
+      7&Symbolic link\\\hline
+    \end{tabular}
+    \vspace{1em}
+    \begin{description}
+    \item[Mode:] 9-bit pattern
+    \end{description}
   \end{minipage}
 \end{frame}
 
@@ -756,10 +713,9 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \item[Given:] block size is 1KB; pointer size is 4B
   \item[Addressing:] byte offset 9000; byte offset 350,000
   \end{description}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.75\textwidth]{inode-calc2} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{inode-calc2} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.65\textwidth]{inode-calc2} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{inode-calc2} }
 \end{frame}
 
 Several block entries in the inode are 0, meaning that the logical block entries contain
@@ -808,10 +764,9 @@ Find them in the kernel source
   \end{description}
 
 \begin{frame}{UNIX In-Core Data Structure}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.6\textwidth]{fs-tables} }
-    \mode<article>{ \includegraphics[width=.4\textwidth]{fs-tables}\label{fig:tables} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.5\textwidth]{fs-tables} }
+  \mode<article>{ \includegraphics[width=.4\textwidth]{fs-tables}\label{fig:tables} }
   \begin{block}{\texttt{open()}/\texttt{creat()}}
     \begin{enumerate}
     \item add entry in each table
@@ -1030,10 +985,9 @@ output: file descriptor
     \item[] \texttt{fd3 = open("/etc/passwd", O\_WRONLY);}
     \end{itemize}
   \end{block}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.65\textwidth]{file-tables2} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{file-tables2} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.5\textwidth]{file-tables2} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{file-tables2} }
 \end{frame}
 
 See also:
@@ -1050,20 +1004,18 @@ See also:
     \item[] \texttt{fd2 = open("private", O\_RDONLY);}
     \end{itemize}
   \end{block}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{file-tables3} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{file-tables3} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.5\textwidth]{file-tables3} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{file-tables3} }
 \end{frame}
 
 \begin{frame}{Why File Table?}
   To allow a parent and child to share a file position, but to provide unrelated processes
   with their own values.
   \label{fig:filetable}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-10-33} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-10-33} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{mos-10-33} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{mos-10-33} }
 \end{frame}
 
 \begin{frame}{Why File Table?}
@@ -1187,10 +1139,10 @@ sector size\citetitle{wiki:fat}.
 \end{frame}
 
 \begin{frame}{How Long A File Name Can Be?}
-  \begin{center}\label{fig:filename}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{04-15} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{04-15} }
-  \end{center}
+  \label{fig:filename}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.75\textwidth]{dir1} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{dir1} }
 \end{frame}
 
 How long file name is implemented?
@@ -1231,8 +1183,8 @@ How long file name is implemented?
 See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum2008modern}.
 
 \begin{frame}{UNIX Treats a Directory as a File}
-  \mode<article>{\includegraphics[width=.6\textwidth]{inode-struct}}%
-  \mode<beamer>{\centering \includegraphics[width=.85\textwidth]{inode-struct}}
+  \mode<beamer>{\centering \includegraphics[height=.9\textheight]{inode-struct}}%
+  \mode<article>{\includegraphics[width=.6\textwidth]{inode-struct}}
 \end{frame}
 
 \begin{itemize}
@@ -1247,8 +1199,8 @@ See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum200
 \begin{frame}
   \begin{iblock}{The steps in looking up \texttt{/usr/ast/mbox}}
     \begin{center}\label{fig:dir-lookup}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{04-35} }%
-      \mode<article>{ \includegraphics[width=.5\textwidth]{04-35} }
+      \mode<beamer>{ \includegraphics[width=.9\textwidth]{dir-traverse} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{dir-traverse} }
     \end{center}
   \end{iblock}
 \end{frame}
@@ -1356,14 +1308,9 @@ See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum200
 \end{frame}
 
 \begin{frame}{Shared Files}{Hard Links vs. Soft Links}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.7\textwidth]{mos-figs-6-18}
-    }
-    \mode<article>{
-      \includegraphics[width=.4\textwidth]{mos-figs-6-18}
-    }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{mos-figs-6-18} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{mos-figs-6-18} }
 \end{frame}
 
 See also: \citetitle[\emph{Wikipedia:dag}]{wiki:dag}.
@@ -1380,8 +1327,8 @@ See also: \citetitle[\emph{Wikipedia:dag}]{wiki:dag}.
 \begin{frame}
   \begin{iblock}{Drawback}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{04-17} }%
-      \mode<article>{ \includegraphics[width=.4\textwidth]{04-17} }
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{hardlink-cons} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{hardlink-cons} }
     \end{center}
   \end{iblock}
 \end{frame}
@@ -1425,10 +1372,9 @@ See also: \citetitle[\emph{Wikipedia:dag}]{wiki:dag}.
 \subsection{Disk Space Management}
 
 \begin{frame}{Disk Space Management}{Statistics}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{04-20} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{04-20} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{blksz} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{blksz} }
 \end{frame}
 
 See also: \citetitle[Sec.~4.4.1, \emph{Disk Space Management}]{tanenbaum2008modern}.
@@ -1448,24 +1394,18 @@ See also: \citetitle[Sec.~4.4.1, \emph{Disk Space Management}]{tanenbaum2008mode
 \end{frame}
 
 \begin{frame}{Keeping Track of Free Blocks}
-  \begin{varwidth}{.4\textwidth}
+  \begin{minipage}{.4\textwidth}
     \alert{1.} Linked List
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=.7\textwidth]{osc-11-33}
-      } \mode<article>{
-        \includegraphics[width=.4\textwidth]{osc-11-33}
-      }
+      \mode<beamer>{ \includegraphics[width=.55\textwidth]{osc-11-33} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{osc-11-33} }
     \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.5\textwidth}
+  \end{minipage}\hfill
+  \begin{minipage}{.5\textwidth}
     \alert{2.} Bit map (n blocks)
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{fs-bitmap}
-      } \mode<article>{
-        \includegraphics[width=.5\textwidth]{fs-bitmap}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{fs-bitmap} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{fs-bitmap} }
     \end{center}
     \begin{equation*}
       bit[i]=
@@ -1474,7 +1414,7 @@ See also: \citetitle[Sec.~4.4.1, \emph{Disk Space Management}]{tanenbaum2008mode
         1\Rightarrow{}block[i]\ is\ occupied
       \end{cases}
     \end{equation*}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Journaling File Systems}
@@ -1625,14 +1565,10 @@ See also: \citetitle[Sec.~15.7.2, \emph{The Linux ext2fs File
 \end{frame}
 
 \begin{frame}{Ext2 Block Allocation Policies}
-  \begin{center}\label{fig:ext2blockalloc}
-    \mode<beamer>{
-      \includegraphics[width=.9\textwidth]{ext2blockalloc}
-    }
-    \mode<article>{
-      \includegraphics[width=.6\textwidth]{ext2blockalloc}
-    }
-  \end{center}
+  \label{fig:ext2blockalloc}%
+  \centering%
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{ext2blockalloc} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{ext2blockalloc} }
 \end{frame}
 
 \paragraph{More about block bitmap}
@@ -1673,12 +1609,9 @@ allocation of eight blocks.
 \subsection{Ext2 Inode}
 
 \begin{frame}{Ext2 inode}
-  % All inodes are 128 bytes in size
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-11-28} }
-    \mode<article>{ \includegraphics[width=.5\textwidth]{osc-11-28} }
-  \end{center}
-  % \includegraphics[width=.8\textwidth]{inode}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{osc-11-28} }
+  \mode<article>{ \includegraphics[width=.5\textwidth]{osc-11-28} }
 \end{frame}
 
 \begin{frame}
@@ -1775,20 +1708,20 @@ allocation of eight blocks.
     \mode<beamer>{ \includegraphics[width=\textwidth]{ext2dir2} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{ext2dir2} }
   \end{center}
-  \begin{varwidth}{.39\textwidth}
+  \begin{minipage}{.39\textwidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{ext2dir} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{ext2dir} }
     \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.55\textwidth}
+  \end{minipage}\hfill
+  \begin{minipage}{.55\textwidth}
     \begin{itemize}
     \item Directories are special files
     \item ``\texttt{.}'' and ``\texttt{..}'' first
     \item Padding to $4\times{}$
     \item inode number is 0 --- deleted file
     \end{itemize}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 Directory files are stored on disk just like normal files, although their contents are
@@ -1895,12 +1828,8 @@ details\citetitle[Sec.~13.2, P.~262]{love2010linux}.
     \end{itemize}
   \end{block}
   \begin{center}\label{fig:vfs}
-    \mode<beamer>{
-      \includegraphics[width=.8\textwidth]{04-18}
-    }
-    \mode<article>{
-      \includegraphics[width=.5\textwidth]{04-18}
-    }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{vfs2} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{vfs2} }
   \end{center}
 \end{frame}
 
@@ -2027,14 +1956,10 @@ See also: \citetitle[Sec.~13.13, \emph{Data Structures Associated with Filesyste
 \end{frame}
 
 \begin{frame}{VFS Operation}{\texttt{read()}}
-  \label{fig:vfs2}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.9\textwidth]{mos-04-19}
-    } \mode<article>{
-      \includegraphics[width=.5\textwidth]{mos-04-19}
-    }
-  \end{center}
+  \label{fig:vfs2}%
+  \centering%
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{mos-04-19} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{mos-04-19} }
 \end{frame}
 
 To understand how the VFS works, let us run through an example chronologically. When the
@@ -2278,10 +2203,9 @@ VFS or any filesystem code.
 \end{frame}
 
 \begin{frame}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{vfs-objs} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{vfs-objs-bw}\label{fig:vfs-objs} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{vfs-objs} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{vfs-objs-bw}\label{fig:vfs-objs} }
 \end{frame}
 
 Fig.~\ref{fig:vfs-objs} illustrates with a simple example how processes interact with

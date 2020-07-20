@@ -86,7 +86,7 @@ communication to enable processes to interact in safe and predictable ways.
 % \includegraphics[width=\textwidth]{mos-figs-2-4}
 
 \begin{frame}{Process Control Block (PCB)}
-  \begin{varwidth}{.7\textwidth}
+  \begin{minipage}{.7\textwidth}
     \begin{block}{Implementation}
         A process is \alert{the collection of data structures} that fully describes how far
         the execution of the program has progressed.
@@ -95,13 +95,13 @@ communication to enable processes to interact in safe and predictable ways.
         \item \texttt{task\_struct} in \linux{}
         \end{itemize}
       \end{block}
-    \end{varwidth}\quad
-    \begin{varwidth}{.2\textwidth}
+    \end{minipage}\quad
+    \begin{minipage}{.2\textwidth}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=1.5\textwidth]{pcb} }%
         \mode<article>{ \includegraphics[width=\textwidth]{pcb} }
       \end{center}      
-    \end{varwidth}
+    \end{minipage}
 \end{frame}
 
 To manage processes, the kernel must have a clear picture of what each process is
@@ -201,10 +201,8 @@ See also: \citetitle[Sec.~3.2.1, \emph{Process State}]{bovet2005understanding}.
 \label{sec:cpu-switch-from}
 
 \begin{frame}{CPU Switch From Process To Process}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{cpu-switch} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{cpu-switch} }
-  \end{center}
+  \mode<beamer>{\centering\includegraphics[height=.9\textheight]{cpu-switch} }%
+  \mode<article>{\centering\includegraphics[width=.7\textwidth]{cpu-switch} }
 \end{frame}
 
 See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
@@ -264,7 +262,7 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
     \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-2-10} }
   \end{center}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-11} }%
+    \mode<beamer>{ \includegraphics[width=.75\textwidth]{mos-figs-2-11} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-2-11} }
   \end{center}
 \end{frame}
@@ -338,9 +336,8 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
     systems.
   \end{description}
   \begin{block}{Some of the Pthreads function calls}
-    \begin{center}
-      \begin{small}
-        \begin{tabularx}{\textwidth}{>{\ttfamily}lX}
+    \begin{center}{\small
+        \begin{tabular}{>{\ttfamily}ll}
           \hline
           \thead{Thread call}&\thead{Description}\\\hline
           pthread\_create&Create a new thread\\
@@ -349,8 +346,7 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
           pthread\_yield&Release the CPU to let another thread run\\
           pthread\_attr\_init&Create and initialize a thread's attribute structure\\
           pthread\_attr\_destroy&Remove a thread's attribute structure\\\hline
-        \end{tabularx}
-      \end{small}
+        \end{tabular}}
     \end{center}
   \end{block}
 \end{frame}
@@ -386,7 +382,7 @@ See also:
 
 \begin{frame}{Pthreads}{Example 2}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{thread3} }%
+    \mode<beamer>{ \includegraphics[height=.88\textheight]{thread3} }%
     \mode<article>{\cfile{../src/proc/thread3.c}}
   \end{center}
 \end{frame}
@@ -581,9 +577,8 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \item[\texttt{clone()}] creates a separate process that shares the address space of the
     calling process. The cloned task behaves \emph{much like} a separate thread.
   \end{description}
-  \begin{center}
-    \includegraphics[width=.5\textwidth]{syscall}
-  \end{center}
+
+  \centering\includegraphics[width=.45\textwidth]{syscall}
 \end{frame}
 
 \begin{frame}{The \texttt{clone()} System Call}
@@ -633,16 +628,16 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 
 \begin{frame}{\texttt{clone()} Example}
   \mode<beamer>{
-    \includegraphics[width=\textwidth]{clone2}
+    \includegraphics[width=.8\textwidth]{clone2}
     \pause 
     \begin{iblock}{Stack grows downwards}
       \includegraphics[width=\textwidth]{child-stack-c}
     \end{iblock}
     \begin{tikzpicture}[remember picture, overlay]
-      \node [anchor=east,yshift=2em,rotate=-20,scale=6,text opacity=0.6,color=red] at
+      \node [anchor=east,xshift=-8em,yshift=3em,rotate=-20,scale=6,text opacity=0.6,color=red] at
       (current page.east) {\Symbol{✘}};
       \node at (current page.south east)
-      [anchor=east,yshift=3em,scale=8,text opacity=0.6,color=Green] {\Symbol{✔}};
+      [anchor=east,xshift=-3em,yshift=3em,scale=8,text opacity=0.6,color=Green] {\Symbol{✔}};
     \end{tikzpicture}}%
   \mode<article>{ \cfile{../src/proc/clone.c}}
 \end{frame}
@@ -704,10 +699,9 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \end{frame}
 
 \begin{frame}{Producer-Consumer Problem}
-\begin{center}
+  \centering
   \mode<beamer>{ \includegraphics[width=.9\textwidth]{ipc} }
-  \mode<article>{ \includegraphics[width=.4\textwidth]{ipc-bw} }
-\end{center}
+  \mode<article>{ \includegraphics[width=.4\textwidth]{ipc} }
 \end{frame}
 
 \subsection{Shared Memory}
@@ -728,16 +722,17 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \end{frame}
 
 \begin{frame}{Producer-Consumer Problem}{--- Bounded-Buffer Problem (Circular Array)}
-  \begin{minipage}{.65\linewidth}
+  \begin{minipage}{.5\linewidth}
   \begin{description}
   \item[Front(out):] the first full position
   \item[Rear(in):] the next free position
   \end{description}
   \end{minipage}\quad
-  \begin{minipage}{.3\linewidth}
+  \begin{minipage}{.45\linewidth}
     \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{circular-bw} }
+    \mode<article>{ \includegraphics[width=.7\textwidth]{circular} }
   \end{minipage}
+  
   Full or empty when ``$front == rear$''?
 \end{frame}
 
@@ -762,7 +757,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \end{frame}
 
 \begin{frame}{Bounded-Buffer Problem}
-  \begin{minipage}{.6\linewidth}
+  \begin{minipage}{.5\linewidth}
     \begin{block}{Producer:}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-1-c} }%
@@ -775,11 +770,11 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
         \mode<article>{ \cfile{figs/pseudo/bounded-buffer-2.c} }
       \end{center}
     \end{block}
-  \end{minipage}\quad
-  \begin{minipage}{.3\linewidth}
+  \end{minipage}\qquad
+  \begin{minipage}{.4\linewidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
-      \mode<article>{ \includegraphics[width=\textwidth]{circular-bw} }
+      \mode<article>{ \includegraphics[width=\textwidth]{circular} }
     \end{center}
   \end{minipage}
 \end{frame}
@@ -796,7 +791,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \item[\$] \cmd{ls | wc -l}
   \end{itemize}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{pipe-ls-wc} }%
+    \mode<beamer>{ \includegraphics[width=.75\textwidth]{pipe-ls-wc} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{pipe-ls-wc} }
   \end{center}
   \begin{itemize}
@@ -807,12 +802,12 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \ttfamily
   \begin{block}{tee}
     \begin{center}
-      \begin{minipage}{.35\linewidth}
+      \begin{minipage}{.3\linewidth}
         \begin{itemize}
         \item[\$] ls | tee ls.out
         \end{itemize}
       \end{minipage}\quad
-      \begin{minipage}{.55\linewidth}
+      \begin{minipage}{.4\linewidth}
         \mode<beamer>{ \includegraphics[width=\textwidth]{tee} }%
         \mode<article>{ \includegraphics[width=.6\textwidth]{tee} }
       \end{minipage}
@@ -846,11 +841,11 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 
 \begin{frame}{\texttt{pipe()}}
   \begin{center}
-    \begin{minipage}{.35\linewidth}
+    \begin{minipage}{.3\linewidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{pipe-prototype-c} }%
       \mode<article>{\cfile{../src/proc/pipe-prototype.c}}
     \end{minipage}\quad
-    \begin{minipage}{.35\linewidth}
+    \begin{minipage}{.3\linewidth}
       \mode<beamer>{ \includegraphics[width=\textwidth]{pipe1} }%
       \mode<article>{ \includegraphics[width=.8\textwidth]{pipe1} }
     \end{minipage}
@@ -859,7 +854,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \item[\texttt{pipe()} + \texttt{fork()}]
   \end{description}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{pipe2} }%
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{pipe2} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{pipe2} }
   \end{center}
 \end{frame}
@@ -926,7 +921,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \end{itemize}
 
 \begin{frame}
-  \mode<beamer>{ \includegraphics[width=\textwidth]{simple_pipe-c} }%
+  \mode<beamer>{ \includegraphics[height=\textheight]{simple_pipe-c} }%
   \mode<article>{\cfile{../src/proc/simple_pipe.c}}
 \end{frame}
 
@@ -975,7 +970,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \end{itemize}
 
 \begin{frame}{IPC With FIFO}
-  \mode<beamer>{ \includegraphics[width=.9\textwidth]{fifo2-ipc} }%
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{fifo2-ipc} }%
   \mode<article>{\cfile{../src/proc/fifo2.c}}
 \end{frame}
 
@@ -1017,18 +1012,15 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \label{sec:message-queues}
 
 \begin{frame}{Message Queues}
-  \begin{center}
-    \begin{minipage}{.3\linewidth}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{mq} }%
-        \mode<article>{ \includegraphics[width=.6\textwidth]{mq} }
-      \end{center}
-    \end{minipage}\qquad
-    \begin{minipage}{.3\linewidth}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{circular-bw} }
-    \end{minipage}
-  \end{center}
+  \centering
+  \begin{minipage}{.25\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mq} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mq} }
+  \end{minipage}\qquad
+  \begin{minipage}{.4\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{circular} }
+  \end{minipage}
 \end{frame}
 
 \begin{itemize}
@@ -1047,10 +1039,9 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \end{frame}
 
 \begin{frame}{Message Queues}{Receive}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=\textwidth]{mq-recv} }%
+  \centering
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{mq-recv} }%
   \mode<article>{\cfile{../src/proc/mq-recv.c}}
-\end{center}
 \end{frame}
 
 \begin{frame}{Relationship Between Kernel Data Structures}
@@ -1065,21 +1056,20 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 
 \begin{frame}{Race Conditions}
   \begin{block}{Now, let's have two producers}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-2-18} }%
-      \mode<article>{ \includegraphics[width=.45\textwidth]{mos-figs-2-18} }
-    \end{center}
+    \centering
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-2-18} }%
+    \mode<article>{ \includegraphics[width=.45\textwidth]{mos-figs-2-18} }
   \end{block}
 \end{frame}
 
 \begin{frame}{Race Conditions}{Two producers}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.6\textwidth]{two-producer-c} }%
+    \mode<beamer>{ \includegraphics[width=.4\textwidth]{two-producer-c} }%
     \mode<article>{ \cfile{figs/pseudo/two-producer.c} }
   \end{center}
   \begin{block}{Process A and B do the same thing:}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{two-producer-2-c} }%
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{two-producer-2-c} }%
       \mode<article>{ \cfile{figs/pseudo/two-producer-2.c} }
     \end{center}
   \end{block}
@@ -1163,7 +1153,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 
 \begin{frame}{Mutual Exclusion With Busy Waiting}{Peterson's Solution}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{peterson} }%
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{peterson} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{peterson-bw} }
   \end{center}
   \begin{refsection}
@@ -1410,10 +1400,9 @@ statement b2
 \end{frame}
 
 \begin{frame}{Example: Signaling With Semaphore}% 
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{thread-semaphore} }%
-    \mode<article>{\cfile{../src/proc/thread-semaphore.c}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.55\textwidth]{thread-semaphore} }%
+  \mode<article>{\cfile{../src/proc/thread-semaphore.c}}
 \end{frame}
 
 \begin{itemize}
@@ -1447,7 +1436,7 @@ statement b2
 \end{frame}
 
 \begin{frame}{\texttt{i++} {\small can go wrong!}}
-  \mode<beamer>{\centering\includegraphics[width=.9\textwidth]{atomic-non} }%
+  \mode<beamer>{\centering\includegraphics[height=.9\textheight]{atomic-non} }%
   \mode<article>{\cfile{../src/proc/atomic-non.c}}
 \end{frame}
 
@@ -1477,10 +1466,9 @@ statement b2
 \end{frame}
 
 \begin{frame}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.85\textwidth]{atomic-mutex} }%
+  \centering
+  \mode<beamer>{ \includegraphics[height=\textheight]{atomic-mutex} }%
   \mode<article>{\cfile{../src/proc/atomic-mutex.c}}
-\end{center}
 \end{frame}
 
 \begin{frame}
@@ -1531,7 +1519,7 @@ access some common resources.
 \begin{frame}{Barrier}
   % the little book of semaphores
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{barrier} }%
+    \mode<beamer>{ \includegraphics[width=.65\textwidth]{barrier} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{barrier} }
   \end{center}
   \begin{enumerate}
@@ -1552,24 +1540,23 @@ access some common resources.
 \end{frame}
 
 \begin{frame}{Barrier Solution}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.4\textwidth]{barrier-1-py} }%
+  \begin{minipage}{.4\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{barrier-1-py} }%
     \mode<article>{ \pyfile{figs/pseudo/barrier-1.py} }
-  \end{center}
-  \begin{footnotesize}
-    \begin{description}
-    \item[count:] keeps track of how many threads have arrived
-    \item[mutex:] provides exclusive access to \texttt{count}
-    \item[barrier:] is locked ($\le 0$) until all threads arrive%; then it should be
-      %unlocked ($\ge 1$)
-    \end{description}
-    When \texttt{barrier.value<0},
-    \begin{itemize}
-    \item[] \texttt{barrier.value == Number of queueing processes}
-    \end{itemize}
-  \end{footnotesize}
+  \end{minipage}
+  \begin{minipage}{.57\linewidth}
+    {\footnotesize
+      \begin{description}
+      \item[count:] keeps track of how many threads have arrived
+      \item[mutex:] provides exclusive access to \texttt{count}
+      \item[barrier:] is locked ($\le 0$) until all threads arrive%; then it should be
+        % unlocked ($\ge 1$)
+      \item[When \texttt{barrier.value<0},]\,\\ \texttt{barrier.value == Number of queueing processes}
+      \end{description}
+    }
+  \end{minipage}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{barrier-2} }%
+    \mode<beamer>{ \includegraphics[width=.78\textwidth]{barrier-2} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{barrier-2-bw} }
   \end{center}
   \pause
@@ -1578,13 +1565,12 @@ access some common resources.
   \end{center}
   \mode<beamer>{
     \begin{tikzpicture}[remember picture, overlay]
-      \node [scale=10,text opacity=0.3,color=red,yshift=-.8em,xshift=-.4em] at (current
+      \node [scale=10,text opacity=0.3,color=red,yshift=-.5em,xshift=-.4em] at (current
       page.center) {\Symbol{✔}};
 
-      \node [scale=2.2,text opacity=0.3,color=red,yshift=-3em,xshift=3em,rotate=20] at
+      \node [scale=2.2,text opacity=0.3,color=red,yshift=-2em,xshift=3em,rotate=20] at
       (current page.center) {Deadlock!};
-    \end{tikzpicture}
-  }
+    \end{tikzpicture} }
 \end{frame}
 
 \begin{frame}{Barrier Solution}
@@ -1902,10 +1888,9 @@ user process to use it directly.
 \end{frame}
 
 \begin{frame}{Message Passing}{The producer-consumer problem}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{msg-passing-c} }%
-    \mode<article>{ \cfile{figs/pseudo/msg-passing.c} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{msg-passing-c} }%
+  \mode<article>{ \cfile{figs/pseudo/msg-passing.c} }
 \end{frame}
 
 \begin{frame}{Sockets}
@@ -1943,17 +1928,15 @@ user process to use it directly.
 \end{frame}
 
 \begin{frame}{Stream Sockets}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.6\textwidth]{socket-stream} }%
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{socket-stream} }%
   \mode<article>{ \includegraphics[width=.6\textwidth]{socket-stream} }
-\end{center}
 \end{frame}
 
 \begin{frame}{Datagram Sockets}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.8\textwidth]{socket-datagram} }%
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{socket-datagram} }%
   \mode<article>{ \includegraphics[width=.6\textwidth]{socket-datagram} }
-\end{center}
 \end{frame}
 
 \subsection{Classical IPC Problems}
@@ -1999,43 +1982,43 @@ user process to use it directly.
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{With One Mutex}
-  \begin{minipage}{.47\linewidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{dining-mutex-c} }%
-      \mode<article>{ \cfile{figs/pseudo/dining-mutex.c} }
-    \end{center}
-  \end{minipage} \hfill
-  \begin{minipage}{.49\linewidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.7\textwidth]{dphil-0} }%
-      \mode<article>{ \includegraphics[width=.5\textwidth]{dphil-0} }
-    \end{center}
+  \centering
+  \begin{minipage}{.42\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{dining-mutex-c} }%
+    \mode<article>{ \cfile{figs/pseudo/dining-mutex.c} }
+  \end{minipage} \quad
+  \begin{minipage}{.5\linewidth}
+    \mode<beamer>{\centering \includegraphics[width=.5\textwidth]{dphil-0} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{dphil-0} } \pause
+    \begin{itemize}
+    \item[\Bad] Only one philosopher can eat at a time.
+    \item[?] How about 2 mutexes? 5 mutexes?
+    \end{itemize}
   \end{minipage}
-  \pause
-  \begin{itemize}
-  \item[\Bad] Only one philosopher can eat at a time.
-  \item[?] How about 2 mutexes? 5 mutexes?
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{AST Solution (Part 1)}
 \begin{iblock}{A philosopher may only move into eating state if neither neighbor is
     eating}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.85\textwidth]{dphil-1-c} }%
-    \mode<article>{ \cfile{figs/pseudo/dphil-1.c} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.75\textwidth]{dphil-1-c} }%
+  \mode<article>{ \cfile{figs/pseudo/dphil-1.c} }
 \end{iblock}
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{AST Solution (Part 2)}
-  \mode<beamer>{ \centering\includegraphics[width=.9\textwidth]{dphil-2-c} }%
-  \mode<article>{ \cfile{figs/pseudo/dphil-2.c} }
+  \begin{minipage}{.75\linewidth}
+    \mode<beamer>{ \centering\includegraphics[width=\textwidth]{dphil-2-c} }%
+    \mode<article>{ \cfile{figs/pseudo/dphil-2.c} }
+  \end{minipage}\quad
+  \begin{minipage}{.2\linewidth}
+    \centering \includegraphics[width=\textwidth]{dphil-0}
+  \end{minipage}
   \pause
   \mode<beamer>{%
     \begin{tikzpicture}[remember picture, overlay]%
-      \node [rotate=15,scale=5,text opacity=0.4,color=red,xshift=-.4]
-      at (current page.center) {Starvation!};
+      \node [anchor=west,rotate=30,scale=5,yshift=-1.5em,text opacity=0.4,color=red]
+      at (current page.west) {Starvation!};
     \end{tikzpicture}}
 \end{frame}
 
@@ -2122,10 +2105,9 @@ user process to use it directly.
 \end{frame}
 
 \begin{frame}{The Readers-Writers Problem}{No starvation}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{reader-writer-2} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{reader-writer-2-bw} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{reader-writer-2} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{reader-writer-2-bw} }
 \end{frame}
 
 \subsubsection{The Sleeping Barber Problem}
@@ -2147,20 +2129,15 @@ user process to use it directly.
 \end{frame}
 
 \begin{frame}{Solution}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.9\textwidth]{barber-1}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{barber-1-bw}
-    }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{barber-1} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{barber-1-bw} }
 \end{frame}
 
 \begin{frame}{Solution2}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{barber-2} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{barber-2-bw} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{barber-2} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{barber-2-bw} }
 \end{frame}
 
 \begin{frame}\mode<beamer>{\frametitle{References}}
@@ -2187,10 +2164,9 @@ user process to use it directly.
 \end{frame}
 
 \begin{frame}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{queues} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{queues} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=\textheight]{queues} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{queues} }
 \end{frame}
 
 \begin{itemize}
@@ -2199,10 +2175,9 @@ user process to use it directly.
 \end{itemize}
 
 \begin{frame}{Queueing Diagram}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.95\textwidth]{queueing-dia} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{queueing-dia} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{queueing-dia} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{queueing-dia} }
 \end{frame}
 
 \subsection{Scheduling}
@@ -2311,11 +2286,8 @@ batch ones.
   \item short bursts -- I/O bound (i.e. emacs)
   \end{itemize}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{mos-figs-2-37}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{mos-figs-2-37}
-    }
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{mos-figs-2-37} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-2-37} }
   \end{center}
   As CPUs get faster, processes tend to get more I/O-bound.
 \end{frame}
@@ -2406,7 +2378,7 @@ batch ones.
 
 \begin{frame}{Scheduling In Interactive Systems}{Priority Scheduling}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-42} }%
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-2-42} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-2-42} }
   \end{center}
   \begin{itemize}
@@ -2424,7 +2396,7 @@ batch ones.
 
 \begin{frame}{Thread Scheduling}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-2-43} }%
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-2-43} }%
     \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-2-43} }
   \end{center}
   \begin{itemize}
@@ -2456,10 +2428,9 @@ batch ones.
   \item \alert{nice value} range ($100\sim{}139$), for fair preemptive scheduling among
     multiple processes
   \end{enumerate}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-5-41} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-5-41} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{osc-5-41} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{osc-5-41} }
 \end{frame}
 
 \begin{frame}{In Linux, Process Priority is Dynamic}
@@ -2649,10 +2620,9 @@ See also: \emph{Discussing the Completely Fair
 \end{frame}
 
 \begin{frame}{Resources}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{deadlock-resource} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{deadlock-resource} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{deadlock-resource} }%
+  \mode<article>{ \includegraphics[width=.7\textwidth]{deadlock-resource} }
 \end{frame}
 
 \begin{frame}{Resources}
@@ -2749,8 +2719,8 @@ See also: \emph{Discussing the Completely Fair
 
 \begin{frame}{Resource-Allocation Graph}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.6\textwidth]{deadlock-graph} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{deadlock-graph} }
+    \includegraphics[width=.3\textwidth]{deadlock-graph-a}\qquad
+    \includegraphics[width=.3\textwidth]{deadlock-graph-b}
   \end{center}
   \begin{block}{Strategies for dealing with Deadlocks}
     \begin{enumerate}
@@ -2815,10 +2785,9 @@ See also: \emph{Discussing the Completely Fair
 
 \begin{frame}{Deadlock Detection}{Single Instance of Each Resource Type --- Wait-for
     Graph}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.6\textwidth]{osc-7-35} }
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-7-35} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.5\textwidth]{osc-7-35} }
+  \mode<article>{ \includegraphics[width=.4\textwidth]{osc-7-35} }
   \begin{itemize}
   \item \cfbox{violet}{$P_i \rightarrow{} P_j$} if $P_i$ is waiting for $P_j$;
   \item Periodically invoke an algorithm that searches for a cycle in the graph. If there
@@ -2829,29 +2798,33 @@ See also: \emph{Discussing the Completely Fair
 \end{frame}
 
 \begin{frame}{Deadlock Detection}{Several Instances of a Resource Type}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-3-7} }
-    \mode<article>{ \includegraphics[width=.4\textwidth]{mos-figs-3-7} }
-  \end{center}
-  \begin{itemize}
-  \item[] Row n:
-    \begin{itemize}
-    \item[C:] current allocation to process n
-    \item[R:] current requirement of process n
-    \end{itemize}
-  \item[] Column m:
-    \begin{itemize}
-    \item[C:] current allocation of resource class m
-    \item[R:] current requirement of resource class m
-    \end{itemize}
-  \end{itemize}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{mos-figs-3-7} }
+  \mode<article>{ \includegraphics[width=.4\textwidth]{mos-figs-3-7} }
+
+  \begin{minipage}[t]{.45\linewidth}
+    \begin{iblock}{Row n:}
+      \begin{itemize}
+      \item[C:] current allocation to process n
+      \item[R:] current requirement of process n
+      \end{itemize}
+    \end{iblock}
+  \end{minipage}
+  \begin{minipage}[t]{.54\linewidth}
+    \begin{iblock}{Column m:}
+      \begin{itemize}
+      \item[C:] current allocation of resource class m
+      \item[R:] current requirement of resource class m
+      \end{itemize}
+    \end{iblock}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Deadlock Detection}{Several Instances of a Resource Type}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-3-6} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-3-6} }
-  \end{center}
+  {\centering
+    \mode<beamer>{ \includegraphics[width=.75\textwidth]{mos-figs-3-6} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-3-6} }}
+
   \begin{displaymath}
     \sum_{i=1}^nC_{ij}+A_j=E_j
   \end{displaymath}
@@ -2902,11 +2875,11 @@ See also: \emph{Discussing the Completely Fair
 
 \begin{frame}{Deadlock Detection}{Several Instances of a Resource Type}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-3-7} }%
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-3-7} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-3-7} }
   \end{center}\pause \mode<beamer>{
     \begin{tikzpicture}[remember picture, overlay]
-      \node [opacity=.8,color=red,yshift=1.8em,xshift=7em]
+      \node [opacity=.8,color=red,yshift=1.5em,xshift=7em]
       at (current page.center) {$A\qquad\qquad\qquad R$};
       \node [opacity=.8,color=red,yshift=0.6em,xshift=7em]
       at (current page.center) {$(2\;1\;0\;0)\ge R_3, (2\;1\;0\;0)$};\pause
@@ -2960,16 +2933,14 @@ See also: \emph{Discussing the Completely Fair
     \item[Assuming] $E=10$
   \end{description}
   \begin{block}{Unsafe}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{deadlock-avoidance-2} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{deadlock-avoidance-2} }
-    \end{center}
+    \centering
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{deadlock-avoidance-2} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{deadlock-avoidance-2} }
   \end{block}
   \begin{block}{Safe}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-3-9} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-3-9} }
-    \end{center}
+    \centering
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-3-9} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-3-9} }
   \end{block}
 \end{frame}
 

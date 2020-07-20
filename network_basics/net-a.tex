@@ -1,10 +1,18 @@
-\documentclass[svgnames,table,override]{wx672handouts}
+\documentclass{wx672handouts}
 
-% \setjobnamebeamerversion{net-b} % only needed when include slides into article
+\input{pre}
 
-% \usepackage{todonotes}
-% \addtolength{\oddsidemargin}{-15pt}
-% \addtolength{\marginparsep}{5pt}
-% \newcommand{\Marginpar}[1]{\marginpar{\raggedright{\footnotesize \emph{#1}}}}
+\begin{document}
+\mode<all>
+\include{title}
+\include{intro}
+\include{tutorial}
+\include{tcp}
+\include{app}
 
-\input{net.tex}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

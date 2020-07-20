@@ -53,6 +53,7 @@
       \field{labeltitlesource}{title}
       \field{edition}{2}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Computer Systems: A Programmer's Perspective}
       \field{usera}{M}
       \field{userd}{english}
@@ -60,10 +61,10 @@
       \field{year}{2010}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/33/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/#book_id=33&library_id=calibre&panel=book_details
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/33/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/#book_id=33&library_id=calibre&panel=book_details
       \endverb
       \keyw{bryant2010computersystems}
     \endentry
@@ -93,18 +94,13 @@
       \field{labeltitlesource}{title}
       \field{edition}{3}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Modern Operating Systems}
       \field{usera}{M}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2007}
       \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/4/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/4/Calibre1
-      \endverb
       \keyw{tanenbaum2008modern}
     \endentry
     \entry{bovet2005understanding}{book}{}
@@ -138,18 +134,13 @@
       \field{labeltitlesource}{title}
       \field{edition}{3}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Understanding The Linux Kernel}
       \field{usera}{M}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2005}
       \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
-      \endverb
       \keyw{bovet2005understanding}
     \endentry
     \entry{wiki:process}{online}{}
@@ -173,7 +164,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Process (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Process (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -212,6 +204,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{The Linux Programming Interface: A Linux and UNIX System Programming Handbook}
       \field{usera}{M}
       \field{userd}{english}
@@ -219,10 +212,10 @@
       \field{year}{2010}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/166/calibre
       \endverb
       \verb{url}
-      \verb http://cs3.swfu.edu.cn:8080/get/PDF/166/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/166/calibre
       \endverb
       \keyw{kerrisk:2010:lpi:1869911}
     \endentry
@@ -256,6 +249,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Beginning linux programming}
       \field{usera}{M}
       \field{userd}{english}
@@ -263,10 +257,10 @@
       \field{year}{2008}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/39/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/39/calibre
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/39/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/39/calibre
       \endverb
       \keyw{matthew2008beginning}
     \endentry
@@ -295,18 +289,13 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{The Little Book of Semaphores}
       \field{usera}{M}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2008}
       \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/83/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/83/Calibre1
-      \endverb
       \keyw{downey2008semaphores}
     \endentry
     \entry{silberschatz11essentials}{book}{}
@@ -339,18 +328,13 @@
       \field{labeltitlesource}{title}
       \field{edition}{1}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Operating System Concepts Essentials}
       \field{usera}{M}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2011}
       \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
-      \endverb
       \keyw{silberschatz11essentials}
     \endentry
     \entry{love2010linux}{book}{}
@@ -378,6 +362,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{series}{Developer's Library}
       \field{title}{Linux Kernel Development}
       \field{usera}{M}
@@ -385,12 +370,6 @@
       \field{userf}{english}
       \field{year}{2010}
       \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/12/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/12/Calibre1
-      \endverb
       \keyw{love2010linux}
     \endentry
     \entry{wiki:compiler}{online}{}
@@ -414,7 +393,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Compiler --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Compiler --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -449,17 +429,18 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Assembly language --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Assembly language --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Assembly_language&oldid=661185928
+      \verb http://en.wikipedia.org/w/index.php?title=Assembly\_language&oldid=661185928
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Assembly_language&oldid=661185928
+      \verb http://en.wikipedia.org/w/index.php?title=Assembly%5C_language&oldid=661185928
       \endverb
       \keyw{wiki:assembler}
     \endentry
@@ -484,17 +465,18 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Linker (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Linker (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2015}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Linker_(computing)&oldid=652892136
+      \verb http://en.wikipedia.org/w/index.php?title=Linker\_(computing)&oldid=652892136
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Linker_(computing)&oldid=652892136
+      \verb http://en.wikipedia.org/w/index.php?title=Linker%5C_(computing)&oldid=652892136
       \endverb
       \keyw{wiki:linker}
     \endentry
@@ -519,17 +501,18 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Loader (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Loader (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2012}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Loader_(computing)&oldid=520743198
+      \verb http://en.wikipedia.org/w/index.php?title=Loader\_(computing)&oldid=520743198
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Loader_(computing)&oldid=520743198
+      \verb http://en.wikipedia.org/w/index.php?title=Loader%5C_(computing)&oldid=520743198
       \endverb
       \keyw{wiki:loader}
     \endentry
@@ -554,17 +537,18 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Dynamic linker --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Dynamic linker --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2012}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Dynamic_linker&oldid=517400345
+      \verb http://en.wikipedia.org/w/index.php?title=Dynamic\_linker&oldid=517400345
       \endverb
       \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Dynamic_linker&oldid=517400345
+      \verb http://en.wikipedia.org/w/index.php?title=Dynamic%5C_linker&oldid=517400345
       \endverb
       \keyw{wiki:dynamic-linker}
     \endentry
@@ -594,6 +578,7 @@
       \field{labeltitlesource}{title}
       \field{isbn}{9781558604964}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{series}{Operating Systems Series}
       \field{title}{Linkers and Loaders}
       \field{usera}{M}
@@ -601,48 +586,7 @@
       \field{userf}{english}
       \field{year}{2000}
       \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/36/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/36/Calibre1
-      \endverb
       \keyw{levine2000linkers}
-    \endentry
-    \entry{wiki:page-replace}{online}{}
-      \name{author}{1}{}{%
-        {{hash=9c677286866aad38f8e9b660f5411814}{%
-           family={Wikipedia},
-           familyi={W\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
-      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{extraname}{7}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Page replacement algorithm --- Wikipedia{,} The Free Encyclopedia}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Page\_replacement\_algorithm&oldid=656936753
-      \endverb
-      \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Page%5C_replacement%5C_algorithm&oldid=656936753
-      \endverb
-      \keyw{wiki:page-replace}
     \endentry
     \entry{intel86}{misc}{}
       \name{author}{1}{}{%
@@ -659,12 +603,13 @@
       \strng{authorbibnamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
       \strng{authornamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
       \strng{authorfullhash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{http://pdos.csail.mit.edu/6.828/2004/readings/i386/toc.htm}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{INTEL 80386 Programmer's Reference Manual}
       \field{usera}{Z}
       \field{userd}{english}
@@ -688,13 +633,14 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{extraname}{8}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{extraname}{7}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Executable and Linkable Format --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Executable and Linkable Format --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -723,13 +669,14 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{extraname}{9}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{extraname}{8}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Open (system call) --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Open (system call) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -758,13 +705,14 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{extraname}{10}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{extraname}{9}
+      \field{sortinit}{3}
+      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{File descriptor --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{File descriptor --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -804,21 +752,52 @@
       \field{labeltitlesource}{title}
       \field{edition}{7}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Operating Systems: Internals and Design Principles}
       \field{usera}{M}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2011}
       \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/7/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/7/Calibre1
-      \endverb
       \keyw{stallings11os}
     \endentry
     \entry{wiki:fat}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{extraname}{10}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{title}{File Allocation Table --- Wikipedia, The Free Encyclopedia}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=File\_Allocation\_Table&oldid=661104239
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=File%5C_Allocation%5C_Table&oldid=661104239
+      \endverb
+      \keyw{wiki:fat}
+    \endentry
+    \entry{wiki:inode}{online}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -839,42 +818,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{File Allocation Table --- Wikipedia{,} The Free Encyclopedia}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=File_Allocation_Table&oldid=661104239
-      \endverb
-      \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=File_Allocation_Table&oldid=661104239
-      \endverb
-      \keyw{wiki:fat}
-    \endentry
-    \entry{wiki:inode}{online}{}
-      \name{author}{1}{}{%
-        {{hash=9c677286866aad38f8e9b660f5411814}{%
-           family={Wikipedia},
-           familyi={W\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
-      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{extraname}{12}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Inode --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Inode --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -908,11 +853,12 @@
       \strng{authorbibnamehash}{f93fd761a7f1a32977f071f98a83b383}
       \strng{authornamehash}{f93fd761a7f1a32977f071f98a83b383}
       \strng{authorfullhash}{f93fd761a7f1a32977f071f98a83b383}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{series}{Prentice-Hall software series}
       \field{title}{The design of the UNIX operating system}
       \field{usera}{M}
@@ -920,12 +866,6 @@
       \field{userf}{english}
       \field{year}{1986}
       \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/8/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/8/Calibre1
-      \endverb
       \keyw{bach1986design}
     \endentry
     \entry{thompson78uniximplementation}{article}{}
@@ -945,12 +885,13 @@
       \strng{authorbibnamehash}{2ac0bcb42345d5b16d94d80fdd2159be}
       \strng{authornamehash}{2ac0bcb42345d5b16d94d80fdd2159be}
       \strng{authorfullhash}{2ac0bcb42345d5b16d94d80fdd2159be}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{4}
+      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Bell System Technical Journal}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Unix Implementation}
       \field{usera}{J}
       \field{userd}{english}
@@ -977,13 +918,14 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{extraname}{13}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{extraname}{12}
+      \field{sortinit}{5}
+      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Directed acyclic graph --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Directed acyclic graph --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1017,11 +959,12 @@
       \strng{authorbibnamehash}{4a848d05cb0d92fab590e8cc94c3a0f7}
       \strng{authornamehash}{4a848d05cb0d92fab590e8cc94c3a0f7}
       \strng{authorfullhash}{4a848d05cb0d92fab590e8cc94c3a0f7}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{The Second Extended File System Internal Layout}
       \field{usera}{M}
       \field{userd}{english}
@@ -1056,11 +999,12 @@
       \strng{authorbibnamehash}{fec8919724373fd96701c8f6158b8507}
       \strng{authornamehash}{fec8919724373fd96701c8f6158b8507}
       \strng{authorfullhash}{fec8919724373fd96701c8f6158b8507}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{The Linux Kernel}
       \field{usera}{M}
       \field{userd}{english}
@@ -1102,12 +1046,13 @@
       \strng{authorbibnamehash}{a82645170a5838b9296b3f15a3962265}
       \strng{authornamehash}{37ba248fe1cc240e1d02ffc1dcedadda}
       \strng{authorfullhash}{a82645170a5838b9296b3f15a3962265}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Dutch International Symposium on Linux}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Design and Implementation of the Second Extended Filesystem}
       \field{usera}{J}
       \field{userd}{english}
@@ -1139,12 +1084,13 @@
       \strng{authorbibnamehash}{9e142d24b7c7fe4199234dadc866c1d2}
       \strng{authornamehash}{9e142d24b7c7fe4199234dadc866c1d2}
       \strng{authorfullhash}{9e142d24b7c7fe4199234dadc866c1d2}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinit}{6}
+      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{http://homepage.smc.edu/morgan\_david/cs40/analyze-ext2.htm}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Analyzing a filesystem}
       \field{usera}{Z}
       \field{userd}{english}
@@ -1184,6 +1130,7 @@
       \field{labeltitlesource}{title}
       \field{edition}{3}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Modern Operating Systems}
       \field{usera}{M}
       \field{userd}{english}
@@ -1191,12 +1138,6 @@
       \field{year}{2007}
       \field{dateera}{ce}
       \true{nocite}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/4/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/4/Calibre1
-      \endverb
       \keyw{tanenbaum2008modern}
     \endentry
     \entry{silberschatz11essentials}{book}{}
@@ -1229,6 +1170,7 @@
       \field{labeltitlesource}{title}
       \field{edition}{1}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Operating System Concepts Essentials}
       \field{usera}{M}
       \field{userd}{english}
@@ -1236,12 +1178,6 @@
       \field{year}{2011}
       \field{dateera}{ce}
       \true{nocite}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
-      \endverb
       \keyw{silberschatz11essentials}
     \endentry
     \entry{bovet2005understanding}{book}{}
@@ -1275,6 +1211,7 @@
       \field{labeltitlesource}{title}
       \field{edition}{3}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Understanding The Linux Kernel}
       \field{usera}{M}
       \field{userd}{english}
@@ -1282,12 +1219,6 @@
       \field{year}{2005}
       \field{dateera}{ce}
       \true{nocite}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
-      \endverb
       \keyw{bovet2005understanding}
     \endentry
     \entry{cs241}{book}{}
@@ -1325,6 +1256,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{CS241 System Programming Coursebook}
       \field{usera}{M}
       \field{userd}{english}
@@ -1339,121 +1271,6 @@
       \verb http://cs241.cs.illinois.edu/coursebook/index.html
       \endverb
       \keyw{cs241}
-    \endentry
-    \entry{zhenggang2016}{book}{}
-      \name{author}{1}{}{%
-        {{hash=a1a361ddd91c8bdf31a230b7c5e80df0}{%
-           family={郑钢},
-           familyi={郑\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {chinese}%
-      }
-      \list{publisher}{1}{%
-        {人民邮电出版社}%
-      }
-      \strng{namehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
-      \strng{fullhash}{a1a361ddd91c8bdf31a230b7c5e80df0}
-      \strng{bibnamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
-      \strng{authorbibnamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
-      \strng{authornamehash}{a1a361ddd91c8bdf31a230b7c5e80df0}
-      \strng{authorfullhash}{a1a361ddd91c8bdf31a230b7c5e80df0}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{操作系统真象还原}
-      \field{usera}{M}
-      \field{userd}{chinese}
-      \field{userf}{chinese}
-      \field{year}{2016}
-      \field{dateera}{ce}
-      \true{nocite}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/158/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/158/Calibre1
-      \endverb
-      \keyw{zhenggang2016}
-    \endentry
-    \entry{linuxkernelart13}{book}{}
-      \name{author}{1}{}{%
-        {{hash=bed1fe53bac82e0a18c65d54b800bdf6}{%
-           family={新设计团队},
-           familyi={新\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {chinese}%
-      }
-      \list{publisher}{1}{%
-        {机械工业出版社}%
-      }
-      \strng{namehash}{bed1fe53bac82e0a18c65d54b800bdf6}
-      \strng{fullhash}{bed1fe53bac82e0a18c65d54b800bdf6}
-      \strng{bibnamehash}{bed1fe53bac82e0a18c65d54b800bdf6}
-      \strng{authorbibnamehash}{bed1fe53bac82e0a18c65d54b800bdf6}
-      \strng{authornamehash}{bed1fe53bac82e0a18c65d54b800bdf6}
-      \strng{authorfullhash}{bed1fe53bac82e0a18c65d54b800bdf6}
-      \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{month}{5}
-      \field{title}{Linux内核设计的艺术}
-      \field{usera}{M}
-      \field{userd}{chinese}
-      \field{userf}{chinese}
-      \field{year}{2013}
-      \field{dateera}{ce}
-      \true{nocite}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/14/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/14/Calibre1
-      \endverb
-      \keyw{linuxkernelart13}
-    \endentry
-    \entry{yuyuan2009orange}{book}{}
-      \name{author}{1}{}{%
-        {{hash=6bd3ec8d773585effb6c0719f377cb04}{%
-           family={于渊},
-           familyi={于\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {chinese}%
-      }
-      \list{publisher}{1}{%
-        {电子工业出版社}%
-      }
-      \strng{namehash}{6bd3ec8d773585effb6c0719f377cb04}
-      \strng{fullhash}{6bd3ec8d773585effb6c0719f377cb04}
-      \strng{bibnamehash}{6bd3ec8d773585effb6c0719f377cb04}
-      \strng{authorbibnamehash}{6bd3ec8d773585effb6c0719f377cb04}
-      \strng{authornamehash}{6bd3ec8d773585effb6c0719f377cb04}
-      \strng{authorfullhash}{6bd3ec8d773585effb6c0719f377cb04}
-      \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Orange'S：一个操作系统的实现}
-      \field{usera}{M}
-      \field{userd}{chinese}
-      \field{userf}{chinese}
-      \field{year}{2009}
-      \field{dateera}{ce}
-      \true{nocite}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/2/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/2/Calibre1
-      \endverb
-      \keyw{yuyuan2009orange}
     \endentry
   \enddatalist
 \endrefsection
@@ -1481,7 +1298,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Interrupt --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Interrupt --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1517,7 +1335,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{System call --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{System call --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1558,7 +1377,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Process (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Process (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1593,7 +1413,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Thread (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Thread (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1629,7 +1450,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Process control block --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Process control block --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1649,7 +1471,7 @@
 
 \refsection{4}
   \datalist[entry]{none/global//global/global}
-    \entry{wiki:peterson}{misc}{}
+    \entry{wiki:peterson}{online}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -1669,13 +1491,20 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Peterson's algorithm --- Wikipedia{,} The Free Encyclopedia}
-      \field{usera}{Z}
+      \field{lansortorder}{4}
+      \field{title}{Peterson's algorithm --- Wikipedia, The Free Encyclopedia}
+      \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2015}
       \field{dateera}{ce}
       \true{nocite}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s\_algorithm&oldid=646078826
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s%5C_algorithm&oldid=646078826
+      \endverb
       \keyw{wiki:peterson}
     \endentry
   \enddatalist
@@ -1704,7 +1533,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Inter-process communication --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Inter-process communication --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1740,7 +1570,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Semaphore (programming) --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Semaphore (programming) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1780,7 +1611,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Scheduling (computing) --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Scheduling (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1820,7 +1652,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Deadlock --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Deadlock --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1861,7 +1694,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Memory management --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Memory management --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1897,7 +1731,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Virtual memory --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Virtual memory --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1938,7 +1773,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{File system --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{File system --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1974,7 +1810,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Computer file --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Computer file --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2010,7 +1847,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Inode --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Inode --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2045,7 +1883,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Ext2 --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Ext2 --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2081,7 +1920,8 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Virtual file system --- Wikipedia{,} The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Virtual file system --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}

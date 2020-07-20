@@ -1,20 +1,21 @@
 \documentclass{article}
 
 \usepackage{opts}
+\usegdlibrary{trees,phylogenetics}
 
 \begin{document}
 
 \listoffigures
 \clearpage
+
 \tikzsetnextfilename{trump-kim-en}
 \begin{figure}
-  \centering\resizebox{\textwidth}{!}{
+  \centering\resizebox{.8\textwidth}{!}{
     \begin{tikzpicture}[%
       decoration={amplitude=1.5pt}, penciline={jag ratio=1},%
       chain/.style={on chain},%
       node distance=5mm,%
-      tight/.style={outer sep=-3mm, inner sep=0pt}%
-      ]
+      tight/.style={outer sep=-3mm, inner sep=0pt}]
 
       {[start chain=1 going below,%
         every on chain/.style={join={by ->, decorate,%
@@ -25,7 +26,7 @@
         \node (trump) [chain,label={-120,scale=.4,label distance=-9mm:{\boss}}] {\trump};%
     
         \node (trmale) [chain,label={left,scale=.4:{\cnwp}},%
-        label={-120,scale=.4,label distance=-9mm:{\translator}}] {\trmale};%
+        label={-105,scale=.4,label distance=-6mm:{\translator}}] {\trmale};%
     
         \node (secmale) [chain,label={-120,scale=.4,label distance=-9mm:{\secretary}}] {\secmale};
       }
@@ -94,6 +95,29 @@
 \end{tikzpicture}
   \caption{Subnet hierarchy}
   \label{fig:subnet}
+\end{figure}
+
+\tikzsetnextfilename{subnet-194}
+\begin{figure}%\resizebox{\textwidth}{!}{
+  \centering
+    \begin{tikzpicture}
+    \graph [phylogenetic tree layout,grow'=right, sibling distance=.5cm,
+    nodes={inner sep=0pt,font=\ttfamily},
+    empty nodes, edge quotes mid, length=3,
+    edges={nodes={sloped,fill=white}}]%
+    {
+      16 [as={194.24.0.0/16},inner sep=2pt] -- {
+        17a [>"194.24.0.0/17"] -- {
+          18a [>"192.24.0.0/18"] -- {
+            19a [>"194.24.0.0/19"] -- {
+              20a [>"194.24.0.0/20"] -- {
+                21a [>"194.24.0.0/21"],
+                21b [>"194.24.8.0/21"] -- {22a [>"194.24.8.0/22"], 22b [>"194.24.12.0/22"]}},
+              20b [>"194.24.16.0/20"]}, 19b [>"194.24.32.0/19"]},
+          18b [>"194.24.64.0/18"]}, 17b [>"194.24.128.0/17"]}
+    };
+  \end{tikzpicture}
+  \caption{Subnetting example - 194.24.0.0/16\label{fig:subnet-194}}%}
 \end{figure}
 
 \tikzsetnextfilename{State}

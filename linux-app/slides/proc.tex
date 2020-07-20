@@ -50,10 +50,9 @@ A program is a file sitting in your hard disk. Two forms:
 \end{frame}
 
 \begin{frame}{Problem With Real Mode}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mm-relocation} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mm-relocation} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{mm-relocation} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{mm-relocation} }
 \end{frame}
 
 \begin{frame}{Protected mode}
@@ -75,13 +74,11 @@ A program is a file sitting in your hard disk. Two forms:
   \item[Base register] holds the smallest legal physical memory address
   \item[Limit register] contains the size of the range
   \end{description}
-  \begin{varwidth}{.48\textwidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{osc-8-5} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{osc-8-5} }
-    \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.45\textwidth}
+  \begin{minipage}{.4\textwidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{osc-8-5} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{osc-8-5} }
+  \end{minipage}\hfill
+  \begin{minipage}{.45\textwidth}
     A pair of \texttt{base} and \texttt{limit} registers define the logical address space
     \begin{center}
       \cfbox{violet}{\texttt{JMP 28}}
@@ -92,7 +89,7 @@ A program is a file sitting in your hard disk. Two forms:
     \begin{center}
       \cfbox{violet}{\texttt{JMP 300068}}
     \end{center}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Memory Protection}{Base and limit registers}
@@ -103,13 +100,13 @@ A program is a file sitting in your hard disk. Two forms:
 \end{frame}
 
 \begin{frame}{UNIX View of a Process' Memory}
-  \begin{varwidth}{.48\textwidth}
+  \begin{minipage}{.48\textwidth}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=\textwidth]{mm-process} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{mm-process} }
     \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.48\textwidth}
+  \end{minipage}\hfill
+  \begin{minipage}{.48\textwidth}
     \begin{itemize}
     \item[text:] program code
     \item[data:] initialized global and static data
@@ -117,7 +114,7 @@ A program is a file sitting in your hard disk. Two forms:
     \item[heap:] dynamically allocated with \texttt{malloc, new}
     \item[stack:] local variables
     \end{itemize}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Stack vs. Heap}
@@ -142,11 +139,9 @@ A program is a file sitting in your hard disk. Two forms:
 
 \begin{frame}{Multi-step Processing of a User Program}{When is space
     allocated?}
-  \begin{minipage}{.4\textwidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{tool-chain-mm} }%osc-8-7
-      \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain-mm} }
-    \end{center}
+  \begin{minipage}{.3\textwidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{tool-chain-mm} }%osc-8-7
+    \mode<article>{ \includegraphics[width=.9\textwidth]{tool-chain-mm} }
     \label{reg}
   \end{minipage}
   \begin{minipage}{.55\textwidth}
@@ -257,13 +252,11 @@ See also:
 \end{itemize}
 
 \begin{frame}{Virtual Memory}{Logical memory can be much larger than physical memory}
-  \begin{varwidth}{.48\textwidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-10} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }
-    \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.48\textwidth}
+  \begin{minipage}{.48\textwidth}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }
+  \end{minipage}\hfill
+  \begin{minipage}{.48\textwidth}
     \begin{block}{Address translation}
       $$\genfrac{}{}{0pt}{}{virtual}{address}
       \xrightarrow{\alert{page\,table}}
@@ -276,7 +269,7 @@ See also:
       $$\genfrac{}{}{0pt}{}{20500_{vir}}{(20k+20)_{vir}}
       \xrightarrow{map\,to} \genfrac{}{}{0pt}{}{12308_{phy}}{(12k+20)_{phy}}$$
     \end{block}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Paging}{Address Translation Scheme}
@@ -299,53 +292,46 @@ See also:
 \end{frame}
 
 \begin{frame}
-  \begin{varwidth}{.65\textwidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-11} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-11} }
-    \end{center}
+  \begin{minipage}{.55\textwidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-11} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-11} }
     \label{fig:paging}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.35\textwidth}
-    \begin{small}
-      \begin{tabular}{rl}
-        Virtual pages:  &16\\
-        Page size:      &4k\\
-        Virtual memory: & 64K\\
-        Physical frames:&8\\
-        Physical memory:&32K
-      \end{tabular}
-    \end{small}
-  \end{varwidth}
+  \end{minipage}\hfill
+  \begin{minipage}{.4\textwidth}
+    \begin{tabular}{rl}
+      Virtual pages:  &16\\
+      Page size:      &4k\\
+      Virtual memory: & 64K\\
+      Physical frames:&8\\
+      Physical memory:&32K
+    \end{tabular}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}[fragile]{Page Fault}
-  \begin{varwidth}{.48\textwidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-10} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }
-    \end{center}
-  \end{varwidth}\hfill
-  \begin{varwidth}{.48\textwidth}
+  \begin{minipage}{.4\textwidth}
+    \centering
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-4-10} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{mos-figs-4-10} }
+  \end{minipage}\hfill
+  \begin{minipage}{.48\textwidth}
     \mintinline{nasm}|MOV REG, 32780|?
     \begin{itemize}
     \item[\Symbol{➠}] Page fault \& swapping
     \end{itemize}
-  \end{varwidth}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Page Fault Handling}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-9-14} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-9-14} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-9-14} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{osc-9-14} }
 \end{frame}
 
 \begin{frame}{Shared Pages}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-33} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-33} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{osc-8-33} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{osc-8-33} }
 \end{frame}
 
 \begin{frame}{Page Table Entry}{Intel i386 Page Table Entry}
@@ -360,10 +346,9 @@ See also:
     \item[] Could address $1M\times{}4KB=4GB$ memory
     \end{itemize}
   \end{itemize}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{i386pte} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{i386pte} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.75\textwidth]{i386pte} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{i386pte} }
 \end{frame}
 
 \begin{frame}{Page Table}
@@ -387,10 +372,9 @@ See also:
   \item[80-20 rule] Only a small fraction of the PTEs are heavily read; the rest are
     barely used at all
   \end{description}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-8-28} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-28} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.55\textwidth]{osc-8-28} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{osc-8-28} }
 \end{frame}
 
 \begin{frame}{Multilevel Page Tables}
@@ -425,10 +409,9 @@ See also:
 \end{itemize}
 
 \begin{frame}{Two-Level Page Tables}{Example}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{2-level-paging-2} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{2-level-paging-2} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.65\textwidth]{2-level-paging-2} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{2-level-paging-2} }
 \end{frame}
 
 \begin{frame}{Pentium Paging}{Linear Address $\Rightarrow$ Physical Address}
@@ -480,10 +463,9 @@ See also:
 \end{itemize}
 
 \begin{frame}{Paging In Linux}{4-level paging for both 32-bit and 64-bit}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{4-level-paging} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{4-level-paging} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{4-level-paging} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{4-level-paging} }
 \end{frame}
 
 \begin{frame}%{Paging In Linux}
@@ -534,7 +516,7 @@ See also:
 \end{frame}
 
 \begin{frame}{Process Control Block (PCB)}
-  \begin{varwidth}{.7\textwidth}
+  \begin{minipage}{.7\textwidth}
     \begin{block}{Implementation}
         A process is \alert{the collection of data structures} that fully describes how far
         the execution of the program has progressed.
@@ -543,20 +525,19 @@ See also:
         \item \texttt{task\_struct} in \linux{}
         \end{itemize}
       \end{block}
-    \end{varwidth}\quad
-    \begin{varwidth}{.2\textwidth}
+    \end{minipage}\quad
+    \begin{minipage}{.2\textwidth}
       \begin{center}
         \mode<beamer>{ \includegraphics[width=1.5\textwidth]{pcb} }%
         \mode<article>{ \includegraphics[width=\textwidth]{pcb} }
       \end{center}      
-    \end{varwidth}
+    \end{minipage}
 \end{frame}
 
 \begin{frame}{Process Creation}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{process-creation} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{process-creation} }
-  \end{center}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{process-creation} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{process-creation} }
+
   \begin{itemize}
   \item When a process is created, it is almost identical to its parent
     \begin{itemize}
@@ -575,24 +556,21 @@ See also:
 \end{frame}
 
 \begin{frame}{CPU Switch From Process To Process}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{cpu-switch} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{cpu-switch} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{cpu-switch} }%
+  \mode<article>{ \includegraphics[width=.7\textwidth]{cpu-switch} }
 \end{frame}
 
 \begin{frame}{Forking in C}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork-c} }%
-    \mode<article>{ \cfile{../src/fork.c} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork-c} }%
+  \mode<article>{ \cfile{../src/fork.c} }
 \end{frame}
 
 \begin{frame}{\texttt{exec()}}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{fork-exec-osc} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{fork-exec-osc-bw} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{fork-exec-osc} }%
+  \mode<article>{ \includegraphics[width=.4\textwidth]{fork-exec-osc-bw} }
 \end{frame}
 
 \paragraph{More about \texttt{argv[0]}}
@@ -705,10 +683,9 @@ See also:
 \end{frame}
 
 \begin{frame}{Pthreads}{Example 1}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{thread1} }%
-    \mode<article>{\cfile{../src/thread1.c}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.85\textwidth]{thread1} }%
+  \mode<article>{\cfile{../src/thread1.c}}
 \end{frame}
 
 \begin{frame}{Pthreads}
@@ -728,10 +705,9 @@ See also:
 \end{frame}
 
 \begin{frame}{Pthreads}{Example 2}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{thread2} }%
-    \mode<article>{\cfile{../src/thread2.c}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{thread2} }%
+  \mode<article>{\cfile{../src/thread2.c}}
 \end{frame}
 
 \begin{frame}{Linux Threads}
@@ -758,10 +734,7 @@ See also:
   \item[\texttt{clone()}] creates a separate process that shares the address space of the
     calling process. The cloned task behaves \emph{much like} a separate thread.
   \end{description}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.55\textwidth]{syscall} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{syscall} }
-  \end{center}
+  \centering \includegraphics[width=.4\textwidth]{syscall}  
 \end{frame}
 
 \begin{frame}{\texttt{clone()}}
@@ -812,10 +785,10 @@ See also:
 
 \begin{frame}{\texttt{clone()} Example}
   \mode<beamer>{
-    \includegraphics[width=\textwidth]{clone2}
+    \centering\includegraphics[width=.85\textwidth]{clone2}
     \pause 
     \begin{iblock}{Stack grows downwards}
-      \includegraphics[width=\textwidth]{child-stack-c}
+      \centering\includegraphics[width=.85\textwidth]{child-stack-c}
     \end{iblock}
     \begin{tikzpicture}[remember picture, overlay]
       \node [anchor=east,yshift=2em,rotate=-20,scale=6,text opacity=0.6,color=red] at
@@ -879,10 +852,9 @@ See also:
 \end{frame}
 
 \begin{frame}{Example}{SIGINT}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.85\textwidth]{shell2-c} }%
+  \centering
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{shell2-c} }%
   \mode<article>{\cfile{../src/shell2.c}}
-\end{center}
 \end{frame}
 
 \begin{itemize}
@@ -890,10 +862,9 @@ See also:
 \end{itemize}
 
 \begin{frame}{Example}{SIGUSR1}
-  \begin{center}
+  \centering
   \mode<beamer>{ \includegraphics[width=.7\textwidth]{sigusr-c} }%
   \mode<article>{\cfile{../src/sigusr.c}} 
-  \end{center}
   \ttfamily
   \begin{itemize}
   \item[\$] kill -USR1 <PID>

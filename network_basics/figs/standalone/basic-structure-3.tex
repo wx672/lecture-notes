@@ -1,0 +1,34 @@
+\documentclass[varwidth,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+┌──────────────────────────┬
+│    network applications  │Application layer
+│                          │
+│...  ╲ │ ╱  ..  ╲ │ ╱  ...├
+│     ┌───┐      ┌───┐     │
+│     │TCP│      │UDP│     │Transport layer
+│     └───┘      └───┘     │ 
+│         ╲      ╱         ├
+│         ┌──────┐         │
+│         │  IP  │         │
+│  ┌───┐  └*─────┘         │Network layer
+│  │ARP│   │               │
+│  └───┘   │               │
+│      ╲   │               ├
+│      ┌────┐              │
+│      │ENET│              │Network interface layer
+│      └──@─┘              │ 
+└─────────┼────────────────┴
+          │
+──────────o────Ethernet Cable─────
+\end{verbatim}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

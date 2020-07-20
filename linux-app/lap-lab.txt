@@ -1,0 +1,16 @@
+实验1：Shell commands
+实验2：vim/emacs tutorials
+实验3：Shell programming 1
+实验4：Shell programming 2
+实验5：Shell programming 3
+实验6：Shell programming 4
+实验7：C development tool chains
+实验8：Make and Makefile
+实验9：Git version control
+实验10：File operations
+实验11：Processes
+实验12：Threads
+实验13：Signals
+实验14：Pipe, Message queues
+实验15：Semaphores
+实验16：Sockets

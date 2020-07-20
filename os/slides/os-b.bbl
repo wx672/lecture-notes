@@ -45,6 +45,7 @@
       \field{labeltitlesource}{title}
       \field{edition}{3}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Modern Operating Systems}
       \field{usera}{M}
       \field{userd}{english}
@@ -52,12 +53,6 @@
       \field{year}{2007}
       \field{dateera}{ce}
       \true{nocite}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/4/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/4/Calibre1
-      \endverb
       \keyw{tanenbaum2008modern}
     \endentry
     \entry{silberschatz11essentials}{book}{}
@@ -90,6 +85,7 @@
       \field{labeltitlesource}{title}
       \field{edition}{1}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Operating System Concepts Essentials}
       \field{usera}{M}
       \field{userd}{english}
@@ -97,12 +93,6 @@
       \field{year}{2011}
       \field{dateera}{ce}
       \true{nocite}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/1/Calibre1
-      \endverb
       \keyw{silberschatz11essentials}
     \endentry
     \entry{bovet2005understanding}{book}{}
@@ -136,6 +126,7 @@
       \field{labeltitlesource}{title}
       \field{edition}{3}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Understanding The Linux Kernel}
       \field{usera}{M}
       \field{userd}{english}
@@ -143,12 +134,6 @@
       \field{year}{2005}
       \field{dateera}{ce}
       \true{nocite}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/11/Calibre1
-      \endverb
       \keyw{bovet2005understanding}
     \endentry
     \entry{cs241}{book}{}
@@ -186,6 +171,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{CS241 System Programming Coursebook}
       \field{usera}{M}
       \field{userd}{english}
@@ -227,6 +213,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Interrupt --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -263,6 +250,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{System call --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -304,6 +292,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Process (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -340,6 +329,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Thread (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -376,6 +366,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Process control block --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -396,7 +387,7 @@
 
 \refsection{4}
   \datalist[entry]{none/global//global/global}
-    \entry{wiki:peterson}{misc}{}
+    \entry{wiki:peterson}{online}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -416,13 +407,20 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Peterson's algorithm --- Wikipedia, The Free Encyclopedia}
-      \field{usera}{Z}
+      \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2015}
       \field{dateera}{ce}
       \true{nocite}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s\_algorithm&oldid=646078826
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Peterson%27s%5C_algorithm&oldid=646078826
+      \endverb
       \keyw{wiki:peterson}
     \endentry
   \enddatalist
@@ -451,6 +449,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Inter-process communication --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -487,6 +486,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Semaphore (programming) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -527,6 +527,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Scheduling (computing) --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -567,6 +568,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Deadlock --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -608,6 +610,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Memory management --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -644,6 +647,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Virtual memory --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -685,6 +689,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{File system --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -721,6 +726,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Computer file --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -757,6 +763,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Inode --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -793,6 +800,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Ext2 --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
@@ -829,6 +837,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Virtual file system --- Wikipedia, The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}

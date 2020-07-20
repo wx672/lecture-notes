@@ -1,8 +1,20 @@
 \documentclass{wx672handouts}
 
-% \setjobnamebeamerversion{kernel-b} % only needed when include slides into article
+\input{pre}
 
-\input{kernel.tex}
+% \includeonlylecture{intro}
+
+\begin{document}
+\mode<all>
+\include{title}
+\include{intro}
+\include{toolkit}
+\include{boot}
+\include{mem}
+\include{proc}
+\include{sched}
+
+\end{document}
 
 %%% Local Variables:
 %%% mode: latex

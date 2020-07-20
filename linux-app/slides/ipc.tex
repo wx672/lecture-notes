@@ -38,10 +38,9 @@
 \end{frame}
 
 \begin{frame}{Producer-Consumer Problem}
-\begin{center}
+  \centering
   \mode<beamer>{ \includegraphics[width=.9\textwidth]{ipc} }%
-  \mode<article>{ \includegraphics[width=.4\textwidth]{ipc-bw} }
-\end{center}
+  \mode<article>{ \includegraphics[width=.4\textwidth]{ipc} }
 \end{frame}
 
 \begin{frame}{Producer-Consumer Problem}
@@ -92,25 +91,19 @@
 \end{frame}
 
 \begin{frame}{Bounded-Buffer Problem}
-  \begin{minipage}{.6\linewidth}
+  \begin{minipage}{.45\linewidth}
     \begin{iblock}{Producer:}
-      \begin{center}
         \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-1} }%
         \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-1-bw} }
-      \end{center}
     \end{iblock}
     \begin{iblock}{Consumer:}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-2} }%
-        \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-2-bw} }
-      \end{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{bounded-buffer-2} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{bounded-buffer-2-bw} }
     \end{iblock}
   \end{minipage}\hfill
-  \begin{minipage}{.28\linewidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
-      \mode<article>{ \includegraphics[width=\textwidth]{circular-bw} }
-    \end{center}
+  \begin{minipage}{.35\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
+    \mode<article>{ \includegraphics[width=\textwidth]{circular-bw} }
   \end{minipage}
 \end{frame}
 
@@ -125,10 +118,10 @@
   \begin{itemize}
   \item[\$] \cmd{ls | wc -l}
   \end{itemize}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{pipe-ls-wc} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{pipe-ls-wc} }
-  \end{center}
+  \centering%
+  \mode<beamer>{ \includegraphics[width=.65\textwidth]{pipe-ls-wc} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{pipe-ls-wc} }
+
   \begin{itemize}
   \item A pipe is a byte stream
   \item Unidirectional
@@ -136,17 +129,15 @@
   \end{itemize}
   \ttfamily
   \begin{iblock}{\texttt{tee}}
-    \begin{center}
-      \begin{minipage}{.35\linewidth}
-        \begin{itemize}
-        \item[\$] ls | tee ls.out
-        \end{itemize}
-      \end{minipage}\quad
-      \begin{minipage}{.55\linewidth}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{tee} }%
-        \mode<article>{ \includegraphics[width=.6\textwidth]{tee} }
-      \end{minipage}
-    \end{center}
+    \begin{minipage}{.35\linewidth}
+      \begin{itemize}
+      \item[\$] ls | tee ls.out
+      \end{itemize}
+    \end{minipage}\quad
+    \begin{minipage}{.45\linewidth}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{tee} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{tee} }
+    \end{minipage}
   \end{iblock}
 \end{frame}
 
@@ -175,23 +166,21 @@
 \end{frame}
 
 \begin{frame}{\texttt{pipe()}}
-  \begin{center}
-    \begin{minipage}{.35\linewidth}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{pipe-prototype-c} }%
-      \mode<article>{\cfile{../src/pseudo/pipe-prototype.c}}
-    \end{minipage}\quad
-    \begin{minipage}{.35\linewidth}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{pipe1} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{pipe1} }
-    \end{minipage}
-  \end{center}
+  \begin{minipage}{.3\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{pipe-prototype-c} }%
+    \mode<article>{\cfile{../src/pseudo/pipe-prototype.c}}
+  \end{minipage}\quad
+  \begin{minipage}{.3\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{pipe1} }%
+    \mode<article>{ \includegraphics[width=.8\textwidth]{pipe1} }
+  \end{minipage}
+
   \begin{description}
   \item[\texttt{pipe()} + \texttt{fork()}]
   \end{description}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{pipe2} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{pipe2} }
-  \end{center}
+  \centering%
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{pipe2} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{pipe2} }
 \end{frame}
 
 \begin{itemize}
@@ -256,7 +245,7 @@
 \end{itemize}
 
 \begin{frame}
-  \mode<beamer>{ \includegraphics[width=\textwidth]{simple_pipe-c} }%
+  \mode<beamer>{ \includegraphics[height=\textheight]{simple_pipe-c} }%
   \mode<article>{\cfile{../src/simple_pipe.c}}
 \end{frame}
 
@@ -287,23 +276,22 @@
 \end{itemize}
 
 \begin{frame}{Example}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.8\textwidth]{popen3} }%
+  \centering%
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{popen3} }%
   \mode<article>{\cfile{../src/popen3.c}}
-\end{center}
-\begin{itemize}
-\item[\$] \cmd{ps ax | cat}
-\end{itemize}
+
+  \begin{itemize}
+  \item[\$] \cmd{ps ax | cat}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Example}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.9\textwidth]{popen2} }%
+  \centering%
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{popen2} }%
   \mode<article>{\cfile{../src/popen2.c}}
-\end{center}
-\begin{itemize}
-\item[\$] \cmd{echo -n hello | od -c}
-\end{itemize}
+  \begin{itemize}
+  \item[\$] \cmd{echo -n hello | od -c}
+  \end{itemize}
 \end{frame}
 
 
@@ -346,11 +334,11 @@
 \end{itemize}
 
 \begin{frame}{IPC With FIFO}
-  \mode<beamer>{ \includegraphics[width=.9\textwidth]{fifo2-ipc} }%
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{fifo2-ipc} }%
   \mode<article>{\cfile{../src/fifo2.c}}
 \end{frame}
 
-\begin{frame}{}{}
+\begin{frame}
   {\ttfamily
     \begin{itemize}
     \item[\$] watch 'lsof -n.1 /tmp/myfifo'
@@ -388,18 +376,15 @@
 \label{sec:message-queues}
 
 \begin{frame}{Message Queues}
-  \begin{center}
-    \begin{minipage}{.3\linewidth}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=\textwidth]{mq} }%
-        \mode<article>{ \includegraphics[width=.6\textwidth]{mq} }
-      \end{center}
-    \end{minipage}\qquad
-    \begin{minipage}{.3\linewidth}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{circular-bw} }
-    \end{minipage}
-  \end{center}
+  \centering%
+  \begin{minipage}{.2\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{mq} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{mq} }
+  \end{minipage}\qquad
+  \begin{minipage}{.3\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{circular} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{circular-bw} }
+  \end{minipage}
 \end{frame}
 
 \begin{itemize}
@@ -411,17 +396,15 @@
 \end{itemize}
 
 \begin{frame}{Message Queues}{Send}
-\begin{center}
+  \centering
   \mode<beamer>{ \includegraphics[width=\textwidth]{mq-send} }%
   \mode<article>{\cfile{../src/mq-send.c}}
-\end{center}
 \end{frame}
 
 \begin{frame}{Message Queues}{Receive}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=\textwidth]{mq-recv} }%
+  \centering
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{mq-recv} }%
   \mode<article>{\cfile{../src/mq-recv.c}}
-\end{center}
 \end{frame}
 
 \begin{frame}{Relationship Between Kernel Data Structures}
@@ -435,10 +418,9 @@
 \label{sec:semaphores}
 
 \begin{frame}{Race Conditions}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-2-18} }%
-    \mode<article>{ \includegraphics[width=.45\textwidth]{mos-figs-2-18} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-2-18} }%
+  \mode<article>{ \includegraphics[width=.45\textwidth]{mos-figs-2-18} }
 \end{frame}
 
 \begin{frame}{Mutual Exclusion}
@@ -475,10 +457,9 @@
 \end{frame}
 
 \begin{frame}{Mutual Exclusion With Busy Waiting}{Peterson's Solution}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{peterson} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{peterson-bw} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.85\textwidth]{peterson} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{peterson-bw} }
   \begin{refsection}
     \nocite{wiki:peterson}
     \printbibliography[heading=none]
@@ -494,7 +475,7 @@
 \end{frame}
 
 \begin{frame}
-  \mode<beamer>{ \includegraphics[width=\textwidth]{lock2-sigint-c} }%
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{lock2-sigint-c} }%
   \mode<article>{\cfile{../src/lock2-sigint.c}}
   \begin{itemize}
   \item[\Bad] \texttt{sigint()} is too crude to be reliable. Need a more sophisticated design.
@@ -506,19 +487,13 @@
 % \end{itemize}
 
 \begin{frame}{What is a Semaphore?\,\includegraphics[width=1em]{semaphore-papa}}
-  \begin{center}
-    \begin{minipage}{.4\linewidth}
-      \begin{itemize}
-      \item A locking mechanism
-      \item An integer or ADT
-      \end{itemize}
-    \end{minipage}\quad
-    \begin{minipage}{.45\linewidth}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{down-up} }%
-      \mode<article>{ \includegraphics[width=\textwidth]{down-up-bw} }
-    \end{minipage}
-  \end{center}
-  \begin{center}\ttfamily\small
+  \begin{minipage}{.5\linewidth}
+    \begin{itemize}
+    \item A locking mechanism
+    \item An integer or ADT
+    \end{itemize}
+    \vspace*{2ex}
+    \ttfamily\small
     \begin{tabular}{ll}\hline
       \multicolumn2{c}{\emph{Atomic} Operations}\\\hline
       P()         &V()\\
@@ -527,12 +502,17 @@
       Decrement() &Increment()\\
       ...         &...\\\hline
     \end{tabular}
-  \end{center}
-  More meaningful names:
-  \begin{itemize}
-  \item \texttt{increment\_and\_wake\_a\_waiting\_process\_if\_any()}
-  \item \texttt{decrement\_and\_block\_if\_the\_result\_is\_negative()}
-  \end{itemize}
+  \end{minipage}\hfill
+  \begin{minipage}{.45\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{down-up} }%
+    \mode<article>{ \includegraphics[width=\textwidth]{down-up-bw} }
+  \end{minipage}
+  \begin{iblock}{More meaningful names:}
+    \begin{itemize}
+    \item \texttt{increment\_and\_wake\_a\_waiting\_process\_if\_any()}
+    \item \texttt{decrement\_and\_block\_if\_the\_result\_is\_negative()}
+    \end{itemize}
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Using Semaphore For Signaling}
@@ -555,10 +535,9 @@
 \end{frame}
 
 \begin{frame}{Example}% Signaling with semaphore
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.63\textwidth]{thread3} }%
-    \mode<article>{\cfile{../src/thread3.c}}
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{thread3} }%
+  \mode<article>{\cfile{../src/thread3.c}}
 \end{frame}
 
 \begin{itemize}
@@ -567,10 +546,9 @@
 \end{itemize}
 
 \begin{frame}{\texttt{i++} {\small can go wrong!}}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.9\textwidth]{atomic-non} }%
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{atomic-non} }%
   \mode<article>{\cfile{../src/atomic-non.c}}
-\end{center}
 \end{frame}
 
 \begin{frame}{Atomic}
@@ -598,10 +576,9 @@
 \end{frame}
 
 \begin{frame}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.75\textwidth]{atomic-mutex} }%
+  \centering%
+  \mode<beamer>{ \includegraphics[height=\textheight]{atomic-mutex} }%
   \mode<article>{\cfile{../src/atomic-mutex.c}}
-\end{center}
 \end{frame}
 
 \begin{frame}
@@ -613,15 +590,17 @@
 
 \begin{frame}{Barrier}
   % the little book of semaphores
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{barrier} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{barrier} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.6\textwidth]{barrier} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{barrier} }
+
+  {\small
   \begin{enumerate}
   \item Processes approaching a barrier
   \item All processes but one blocked at the barrier
   \item When the last process arrives at the barrier, all of them are let through
-  \end{enumerate}
+  \end{enumerate}}
+
   \begin{iblock}{Synchronization requirement:}
     \begin{center}\ttfamily
       \begin{tabular}{l}
@@ -635,57 +614,57 @@
 \end{frame}
 
 \begin{frame}{Barrier Solution}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.4\textwidth]{barrier-1} }%
+  \begin{minipage}{.38\linewidth}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{barrier-1} }%
     \mode<article>{ \includegraphics[width=.4\textwidth]{barrier-1} }
-  \end{center}
-  \begin{small}
+  \end{minipage}\hfill
+  \begin{minipage}{.6\linewidth}
+    \footnotesize%
     \begin{description}
     \item[count:] keeps track of how many threads have arrived
     \item[mutex:] provides exclusive access to \texttt{count}
     \item[barrier:] is locked ($\le 0$) until all threads arrive
     \end{description}
-    When \texttt{barrier.value < 0},
-    \begin{center}
-      \texttt{barrier.value == Number of queueing processes}
-    \end{center}
-  \end{small}
+  \end{minipage}
+  \vspace*{2ex}
+  \begin{description}
+  \item[When \texttt{barrier.value < 0},] \,\\
+    \ttfamily barrier.value == Number of queueing processes
+  \end{description}
+
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{barrier-2} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{barrier-2-bw} }
-  \end{center}
-  \pause
-  \begin{center}
+    \pause%
     \alert{Only one thread can pass the barrier!}
   \end{center}
+  
   \mode<beamer>{
     \begin{tikzpicture}[remember picture, overlay]
-      \node [scale=10,text opacity=0.3,color=red,yshift=-.8em,xshift=-.4em] at (current
+      \node [scale=10,text opacity=0.3,color=red,yshift=-.4em,xshift=-.4em] at (current
       page.center) {\Symbol{✔}};
 
-      \node [scale=2.2,text opacity=0.3,color=red,yshift=-3em,xshift=3em,rotate=20] at
+      \node [scale=2.2,text opacity=0.3,color=red,yshift=-1.5em,xshift=3em,rotate=20] at
       (current page.center) {Deadlock!};
     \end{tikzpicture}}
 \end{frame}
 
 \begin{frame}{Barrier Solution}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{barrier-3} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{barrier-3-bw} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{barrier-3} }%
+  \mode<article>{ \includegraphics[width=.5\textwidth]{barrier-3-bw} }
+
   \mode<beamer>{ \pause
-    \begin{center}
+    {\centering
       {\danger} \alert{Blocking on a semaphore while holding a
-        mutex!} {\danger} 
-    \end{center}
+        mutex!} {\danger}}
+
     \begin{tikzpicture}[remember picture, overlay]
       \node [rotate=40,scale=3.5,text opacity=0.3,color=red,xshift=2.2em,yshift=-1em] at
       (current page.center) {Deadlock!};
     \end{tikzpicture}}%
   \mode<article>{
-    \begin{center}
-      \danger{} Blocking on a semaphore while holding a mutex!\danger{}
-    \end{center}}
+    \centering \danger{} Blocking on a semaphore while holding a mutex!\danger{}}
 \end{frame}
 
 \begin{frame}%{Barrier Solution}
@@ -742,45 +721,39 @@
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{With One Mutex}
-  \begin{minipage}{.49\linewidth}
-    \begin{center}
+  \begin{minipage}{.5\linewidth}
+    \centering
       \mode<beamer>{ \includegraphics[width=\textwidth]{dining-mutex} }%
       \mode<article>{ \includegraphics[width=.7\textwidth]{dining-mutex-bw} }
-    \end{center}
   \end{minipage} \hfill
-  \begin{minipage}{.49\linewidth}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.7\textwidth]{dphil-0} }%
-      \mode<article>{ \includegraphics[width=.5\textwidth]{dphil-0} }
-    \end{center}
+  \begin{minipage}{.45\linewidth}
+    \centering%
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{dphil-0} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{dphil-0} } \pause
+    \begin{itemize}
+    \item[\Bad] Only one philosopher can eat at a time.
+    \item[?] How about 2 mutexes, 5 mutexes?
+    \end{itemize}
   \end{minipage}
-  \pause
-  \begin{itemize}
-  \item Only one philosopher can eat at a time.
-  \item How about 2 mutexes? 5 mutexes?
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{AST Solution (Part 1)}
-\begin{iblock}{A philosopher may only move into eating state if neither neighbor is
-    eating}
+  A philosopher may only move into eating state if neither neighbor is eating
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.85\textwidth]{dphil-1} }%
+    \mode<beamer>{ \includegraphics[width=.75\textwidth]{dphil-1} }%
     \mode<article>{ \includegraphics[width=.8\textwidth]{dphil-1-bw} }
   \end{center}
-\end{iblock}
 \end{frame}
 
 \begin{frame}{The Dining Philosophers Problem}{AST Solution (Part 2)}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{dphil-2} }%
+    \mode<beamer>{ \includegraphics[width=.85\textwidth]{dphil-2} }%
     \mode<article>{ \includegraphics[width=.9\textwidth]{dphil-2-bw} }
   \end{center}\pause
   \mode<beamer>{
-    \begin{tikzpicture}[remember picture, overlay]
+    \tikz [remember picture, overlay]
       \node [rotate=15,scale=5,text opacity=0.4,color=red,xshift=-.4]
-      at (current page.center) {Starvation!};
-    \end{tikzpicture}}
+      at (current page.center) {Starvation!};}
 \end{frame}
 
 \begin{itemize}
@@ -849,7 +822,7 @@
     another process is writing to it.
   \end{description}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.85\textwidth]{reader-writer-1} }%
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{reader-writer-1} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{reader-writer-1-bw} }
   \end{center}
   \pause
@@ -858,49 +831,45 @@
     reading.
   \end{description}
   \mode<beamer>{
-    \begin{tikzpicture}[remember picture, overlay]
+    \tikz [remember picture, overlay]
       \node [rotate=15,scale=5,text opacity=0.4,color=red,xshift=-.3em,yshift=-.1em] at
-      (current page.center) {Starvation!};
-    \end{tikzpicture}}
+      (current page.center) {Starvation!};}
 \end{frame}
 
 \begin{frame}{The Readers-Writers Problem}{No starvation}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{reader-writer-2} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{reader-writer-2-bw} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{reader-writer-2} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{reader-writer-2-bw} }
 \end{frame}
 
 \subsection{The Sleeping Barber Problem}
 \label{sec:sleep-barb-probl}
 
 \begin{frame}{The Sleeping Barber Problem}
-  \begin{minipage}[m]{.35\linewidth}
+  \begin{minipage}[m]{.45\linewidth}
     \mode<beamer>{ \includegraphics[width=\textwidth]{mos-slides-2-44} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{mos-slides-2-44} }
   \end{minipage}\quad
-  \begin{minipage}[m]{.6\linewidth}
-    \begin{block}{Where's the problem?}
+  \begin{minipage}[m]{.5\linewidth}
+    \begin{iblock}{Where's the problem?}
       \begin{itemize}
-      \item the barber saw an empty room right before a customer arrives the waiting room;
-      \item Several customer could race for a single chair;
+      \item the barber saw an empty room right before a customer arrives the waiting room
+      \item Several customer could race for a single chair
       \end{itemize}
-    \end{block}
+    \end{iblock}
   \end{minipage}
 \end{frame}
 
 \begin{frame}{Solution}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{barber-1} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{barber-1-bw} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.8\textwidth]{barber-1} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{barber-1-bw} }
 \end{frame}
 
 \begin{frame}{Solution2}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{barber-2} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{barber-2-bw} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[width=.9\textwidth]{barber-2} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{barber-2-bw} }
 \end{frame}
 
 % \begin{frame}\mode<beamer>{\frametitle{References}}
@@ -970,10 +939,9 @@
 \end{frame}
 
 \begin{frame}{Message Passing}{The producer-consumer problem}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{msg-passing} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{msg-passing-bw} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.85\textheight]{msg-passing} }%
+  \mode<article>{ \includegraphics[width=.7\textwidth]{msg-passing-bw} }
 \end{frame}
 
 \begin{frame}{A TCP Connection}
@@ -999,7 +967,7 @@
 
 \begin{frame}{Sockets}
   To create a socket:
-  \begin{center}
+  \begin{center}\LARGE
     \texttt{fd = socket(domain, type, protocol)}
   \end{center}
   \begin{description}
@@ -1070,17 +1038,15 @@
 \label{sec:stream-sockets}
 
 \begin{frame}{Stream Sockets}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.6\textwidth]{socket-stream} }%
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{socket-stream} }%
   \mode<article>{ \includegraphics[width=.6\textwidth]{socket-stream} }
-\end{center}
 \end{frame}
 
 \begin{frame}{Two Sockets at the Server}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{tcpsocket} }%
-    \mode<article>{ \includegraphics[width=.3\textwidth]{tcpsocket} }
-  \end{center}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{tcpsocket} }%
+  \mode<article>{ \includegraphics[width=.3\textwidth]{tcpsocket} }
 \end{frame}
 
 \begin{frame}{Socket System Calls}
@@ -1136,10 +1102,9 @@
 \label{sec:datagram-sockets}
 
 \begin{frame}{Datagram Sockets}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=.8\textwidth]{socket-datagram} }%
+  \centering%
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{socket-datagram} }%
   \mode<article>{ \includegraphics[width=.6\textwidth]{socket-datagram} }
-\end{center}
 \end{frame}
 
 \subsection{Unix Domain Sockets}
@@ -1152,34 +1117,21 @@
 \end{center}
 \end{frame}
 
-\begin{frame}
-  \begin{description}
-  \item[Stream server] 
-  \end{description}
-  \mode<beamer>{ \includegraphics[width=\textwidth]{us-xfr-sv} }%
+\begin{frame}{Stream Server}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{us-xfr-sv} }%
   \mode<article>{\cfile{../src/us_xfr_sv.c}}
 \end{frame}
 
-\begin{frame}
-  \begin{description}
-  \item[Stream client] 
-  \end{description}
+\begin{frame}{Stream Client}
   \mode<beamer>{ \includegraphics[width=\textwidth]{us-xfr-cl} }%
   \mode<article>{\cfile{../src/us_xfr_cl.c}}
 \end{frame}
 
-\begin{frame}
-  \begin{description}
-  \item[Datagram server] 
-  \end{description}
-
+\begin{frame}{Datagram Server}
 \end{frame}
 
-\begin{frame}
-  \begin{description}
-  \item[Datagram client] 
-  \end{description}
-
+\begin{frame}{Datagram Client}
 \end{frame}
 
 \subsection{Internet Sockets}
@@ -1221,16 +1173,14 @@ their arguments unchanged. \citetitle[Sec.~59.2]{kerrisk:2010:lpi:1869911}
 
 \begin{frame}{Socket Addresses}
   \begin{iblock}{IPv4}
-    \begin{center}
-      \mode<beamer>{\includegraphics[width=.8\textwidth]{sockaddr_in-c}}%
-      \mode<article>{\cfile{../src/pseudo/sockaddr_in.c}}
-    \end{center}
+    \centering
+    \mode<beamer>{\includegraphics[width=.7\textwidth]{sockaddr_in-c}}%
+    \mode<article>{\cfile{../src/pseudo/sockaddr_in.c}}
   \end{iblock}
   \begin{iblock}{IPv6}
-    \begin{center}
-      \mode<beamer>{\includegraphics[width=.75\textwidth]{sockaddr_in6-c}}%
-      \mode<article>{\cfile{../src/pseudo/sockaddr_in6.c}}
-    \end{center}
+    \centering
+    \mode<beamer>{\includegraphics[width=.65\textwidth]{sockaddr_in6-c}}%
+    \mode<article>{\cfile{../src/pseudo/sockaddr_in6.c}}
   \end{iblock}
 \end{frame}
 
