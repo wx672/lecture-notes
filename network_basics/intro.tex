@@ -139,9 +139,7 @@ See also \citetitle{wiki:googleproducts}
         \raisebox{2ex}{\scalebox{5}{\ie}}%
         &\includegraphics[height=5em]{firefox}%
         &\includegraphics[height=5em]{gchrome}\\[2ex]
-        \scalebox{5}{\googleg}%
-        &\textcolor{gray}{{\Huge vs.}}%
-        &\scalebox{5}{\baidu}%\hspace{-1.7em}\textbf{\LARGE\textcolor{red}{du}}
+        \multicolumn{3}{c}{\scalebox{3}{\googleg}\quad\textcolor{gray}{{\Large vs.}}\quad\scalebox{3}{\baidu}}
       \end{tabularx}
     \end{center}}%
   \mode<article>{
@@ -149,7 +147,7 @@ See also \citetitle{wiki:googleproducts}
       \begin{tabular}{ccc}
         \win[false] & \linux & \apple[false] \\
         \ie[false] & \firefox & \chrome[false] \\
-        \googleg[false] & vs. & \baidu[false]
+        \multicolumn{3}{c}{\googleg[false] vs. \baidu[false]}
       \end{tabular}
     \end{center}}
 \end{frame}
@@ -158,14 +156,24 @@ See also: \citetitle{wiki:ie, wiki:baidu}
 
 \subsubsection{Safe Surfing}
 
-\begin{frame}{Dangerous}
+\begin{frame}<beamer>{Danger}
   \centering
-  \mode<beamer>{ \includegraphics[width=.6\textwidth]{malware} }%
-  \mode<article>{ \includegraphics[width=.3\textwidth]{malware} }\pause
+  \includegraphics[width=.6\textwidth]{malware}\pause
   \begin{iblock}{My solution}
     \centering\includegraphics[height=5em]{linuxlogo}
   \end{iblock}
 \end{frame}
+
+\begin{minipage}{.6\linewidth}
+  \begin{iblock}{Danger}
+    \includegraphics[width=.5\textwidth]{malware}
+  \end{iblock}
+\end{minipage}\qquad
+\begin{minipage}{.3\linewidth}
+  \begin{iblock}{Solution}
+    \centering\includegraphics[height=5em]{linuxlogo}
+  \end{iblock}
+\end{minipage}
 
 See also: \citetitle{wiki:malware, wiki:virus, wiki:adware, wiki:spyware, wiki:worm, wiki:trojan}
   
@@ -305,10 +313,23 @@ See also: \citetitle{wiki:netarch}
 
 \subsection{Network Architecture}
 
-\begin{frame}{\tcpip{}}
-  \centering
-  \mode<beamer>{ \includegraphics[height=.9\textheight]{basic-structure-3} }%
-  \mode<article>{ \includegraphics[width=.2\textwidth]{basic-structure-3} }
+\begin{frame}
+  \begin{minipage}[t]{.47\linewidth}
+    \begin{iblock}{What's a Protocol?}
+      A rule, a treaty, an agreement, ...
+      \begin{center}
+        \includegraphics[width=\textwidth]{protocol}%
+      \end{center}
+    \end{iblock}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{.47\linewidth}
+    \begin{iblock}{What's \tcpip{}?}
+      A set of protocols designed for the Internet
+      \begin{center}
+        \includegraphics[width=\textwidth]{basic-structure-3}%
+      \end{center}
+    \end{iblock}
+  \end{minipage}
 \end{frame}
 
 See also: \citetitle{wiki:tcpip, rfc1180}
@@ -318,16 +339,6 @@ incoming packets will face a 1-to-N situation. The value of the \emph{type} fiel
 Ethernet frame determines whether the Ethernet frame is passed to the ARP or the IP
 module. The \emph{protocol} field in the IP header, and the port number in TCP/UDP header
 serve in a similar way.
-
-\begin{frame}{What's {\tcpip{}}?}
-  \begin{description}
-  \item[TCP/IP] A set of protocols designed for the Internet
-  \item[protocol] a rule, a treaty, an agreement ...
-  \end{description}
-  \centering
-  \mode<beamer>{ \includegraphics[width=.65\textwidth]{protocol} }%
-  \mode<article>{ \includegraphics[width=.4\textwidth]{protocol} }
-\end{frame}
 
 \begin{frame}{{\tcpip{}} Protocol Stack}
   \begin{iblock}{Every networked computer has it inside}
@@ -341,6 +352,115 @@ serve in a similar way.
 See also: \citetitle[Sec.~1.3, \emph{Network Software}]{tanenbaum2011computer}.
 
 TCP/IP means everything related to TCP and IP.
+
+\begin{frame}
+  \begin{minipage}{.6\linewidth}
+    \centering%
+    \mode<beamer>{%
+      \includegraphics[height=\textheight]{trump-kim-en} }%translator
+    \mode<article>{%
+      \includegraphics[width=.6\textwidth]{trump-kim-en}}\label{fig:translator}%
+  \end{minipage}\quad
+  \begin{minipage}{.35\linewidth}
+    Each protocol is completely independent of the other ones
+    \begin{itemize}
+    \item The translators (L2) can switch from Chinese to Finnish without touching L1 or
+      L3
+    \item The secretaries (L1) can switch from fax to email without disturbing (or even
+      informing) the other layers
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{Layered Design Example}
+  \begin{minipage}{.5\linewidth}
+    \begin{iblock}{Taking an airplane trip}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{airtrip} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{airtrip} }
+    \end{iblock}
+  \end{minipage}\qquad
+  \begin{minipage}{.4\linewidth}
+    Each layer
+    \begin{enumerate}
+    \item has some functions
+    \item provides services to its upper layer
+    \end{enumerate}
+  \end{minipage}
+\end{frame}
+
+See also:
+\begin{itemize}
+\item \citetitle[Sec.~1.5.1, \emph{Layered Architecture}]{kurose2013computer}
+\item \citetitle[Sec.~1.3.2, \emph{Design Issues for the Layers}]{tanenbaum2011computer}
+\end{itemize}
+
+\paragraph{Layered design}
+
+\begin{itemize}
+\item Reduce design complexity
+\item Serve as a black box to its upper layer
+  \begin{itemize}
+  \item Black box examples: information hiding, abstract data type, data encapsulation,
+    object oriented programming
+  \end{itemize}
+\end{itemize}
+  
+\paragraph{Design issues}
+
+\begin{multicols}{2}
+  \begin{itemize}
+  \item Reliability
+    \begin{itemize}
+    \item never lost data --- by means of acknowledgement
+    \item Error detection/correction
+    \item Routing
+    \end{itemize}
+  \item Evolution
+    \begin{itemize}
+    \item Protocol layering
+    \item Addressing
+    \item Internetworking: disassembling, transmitting, reassembling
+    \item Scalability
+    \end{itemize}
+  \item Resource allocation
+    \begin{itemize}
+    \item Statistical multiplexing
+    \item Flow control
+    \item Congestion
+    \item QoS
+    \end{itemize}
+  \item Security
+    \begin{itemize}
+    \item Authentication
+    \item Integrety
+    \end{itemize}
+  \end{itemize}
+\end{multicols}
+
+See also \citetitle{rfc1122}.
+
+An analogy may help explain the idea of multilayer communication. Imagine two philosophers
+(peer processes in layer 3), one of whom speaks Urdu and English and one of whom speaks
+Chinese and French. Since they have no common language, they each engage a translator
+(peer processes at layer 2), each of whom in turn contacts a secretary (peer processes in
+layer 1). Philosopher 1 wishes to convey his affection for oryctolagus cuniculus to his
+peer. To do so, he passes a message (in English) across the 2/3 interface to his
+translator, saying ``I like rabbits,'' as illustrated in Fig.~\ref{fig:translator}. The
+translators have agreed on a neutral language known to both of them, Dutch, so the message
+is converted to ``Ik vind konijnen leuk.'' The choice of the language is the layer 2
+protocol and is up to the layer 2 peer processes.\citetitle[Sec.~1.3, \emph{Network Software},
+p.~31]{tanenbaum2011computer}
+
+The translator then gives the message to a secretary for transmission, for example, by
+email (the layer 1 protocol). When the message arrives at the other secretary, it is
+passed to the local translator, who translates it into French and passes it across the 2/3
+interface to the second philosopher. Note that each protocol is completely independent of
+the other ones as long as the interfaces are not changed. The translators can switch from
+Dutch to, say, Finnish, at will, provided that they both agree and neither changes his
+interface with either layer 1 or layer 3. Similarly, the secretaries can switch from email
+to telephone without disturbing (or even informing) the other layers. Each process may add
+some information intended only for its peer. This information is not passed up to the
+layer above.
 
 % \begin{frame}{Layered Design}
 %   \begin{center}
@@ -411,110 +531,6 @@ Interfaces between layers (primitives, functions)
   (e.g. Linux vs. Windows)
 \item Protocol changes have no effects on it's upper/lower layers
 \end{itemize}
-
-\begin{frame}{Layered Design Example}
-  \begin{iblock}{Taking an airplane trip}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.6\textwidth]{airtrip} }%
-      \mode<article>{ \includegraphics[width=.3\textwidth]{airtrip} }
-    \end{center}
-    Each layer
-    \begin{enumerate}
-    \item has some functions
-    \item provides services to its upper layer
-    \end{enumerate}
-  \end{iblock}
-\end{frame}
-
-See also:
-\begin{itemize}
-\item \citetitle[Sec.~1.5.1, \emph{Layered Architecture}]{kurose2013computer}
-\item \citetitle[Sec.~1.3.2, \emph{Design Issues for the Layers}]{tanenbaum2011computer}
-\end{itemize}
-
-\paragraph{Layered design}
-
-\begin{itemize}
-\item Reduce design complexity
-\item Serve as a black box to its upper layer
-  \begin{itemize}
-  \item Black box examples: information hiding, abstract data type, data encapsulation,
-    object oriented programming
-  \end{itemize}
-\end{itemize}
-  
-\paragraph{Design issues}
-
-\begin{itemize}
-\item Reliability
-  \begin{itemize}
-  \item never lost data --- by means of acknowledgement
-  \item Error detection/correction
-  \item Routing
-  \end{itemize}
-\item Evolution
-  \begin{itemize}
-  \item Protocol layering
-  \item Addressing
-  \item Internetworking: disassembling, transmitting, reassembling
-  \item Scalability
-  \end{itemize}
-\item Resource allocation
-  \begin{itemize}
-  \item Statistical multiplexing
-  \item Flow control
-  \item Congestion
-  \item QoS
-  \end{itemize}
-\item Security
-  \begin{itemize}
-  \item Authentication
-  \item Integrety
-  \end{itemize}
-\end{itemize}
-
-See also \citetitle{rfc1122}.
-
-\begin{frame}
-  \begin{minipage}{.6\linewidth}
-    \centering \mode<beamer>{ \includegraphics[height=\textheight]{trump-kim-en}
-    }%translator
-    \mode<article>{
-      \includegraphics[width=.6\textwidth]{trump-kim-en}}\label{fig:translator}%
-  \end{minipage}\quad
-  \begin{minipage}{.35\linewidth}
-    Each protocol is completely independent of the other ones
-    \begin{itemize}
-    \item The translators (L2) can switch from Chinese to Finnish without touching L1 or
-      L3
-    \item The secretaries (L1) can switch from fax to email without disturbing (or even
-      informing) the other layers
-    \end{itemize}
-  \end{minipage}
-\end{frame}
-
-An analogy may help explain the idea of multilayer communication. Imagine two philosophers
-(peer processes in layer 3), one of whom speaks Urdu and English and one of whom speaks
-Chinese and French. Since they have no common language, they each engage a translator
-(peer processes at layer 2), each of whom in turn contacts a secretary (peer processes in
-layer 1). Philosopher 1 wishes to convey his affection for oryctolagus cuniculus to his
-peer. To do so, he passes a message (in English) across the 2/3 interface to his
-translator, saying ``I like rabbits,'' as illustrated in Fig.~\ref{fig:translator}. The
-translators have agreed on a neutral language known to both of them, Dutch, so the message
-is converted to ``Ik vind konijnen leuk.'' The choice of the language is the layer 2
-protocol and is up to the layer 2 peer processes.\citetitle[Sec.~1.3, \emph{Network Software},
-p.~31]{tanenbaum2011computer}
-
-The translator then gives the message to a secretary for transmission, for example, by
-email (the layer 1 protocol). When the message arrives at the other secretary, it is
-passed to the local translator, who translates it into French and passes it across the 2/3
-interface to the second philosopher. Note that each protocol is completely independent of
-the other ones as long as the interfaces are not changed. The translators can switch from
-Dutch to, say, Finnish, at will, provided that they both agree and neither changes his
-interface with either layer 1 or layer 3. Similarly, the secretaries can switch from email
-to telephone without disturbing (or even informing) the other layers. Each process may add
-some information intended only for its peer. This information is not passed up to the
-layer above.
 
 \mode<all>
 %%% Local Variables:

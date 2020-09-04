@@ -1,0 +1,47 @@
+\documentclass{standalone}
+
+\usepackage{settings}
+
+\newfontfamily\nerd{DejaVu Sans Mono Nerd Font Complete}%
+
+\newcommand\mail{\nerd }
+
+\begin{document}
+
+\begin{tikzpicture}[%
+  every node/.style={inner sep=0pt},%
+  chain/.style={on chain,join, scale=.6},%
+  every label quotes/.style={label position=-70},%
+  mail/.style={fill=white},%
+  every path/.style={ultra thick}]%
+  
+  {[start chain=1]%
+    \node [chain] (src) {\pcman[.7]};%
+    \foreach \i in {1,2,3,4} \node [chain] (po\i) ["R\i"] {\router};
+  }
+  
+  {[start chain=2]%
+    \node [chain,above=of po2] (po5) ["R5"] {\router};%
+    
+    \foreach \i in {6,7} \node [chain] (po\i) ["R\i"] {\router};
+  }
+  
+  {[start chain=3]%
+    \node [chain,above=of po5] (po8) ["R8"] {\router};%
+    \foreach \i in {9,10,11} \node [chain] (po\i) ["R\i"] {\router};%
+    \node [chain] (dst) {\pcwoman};
+  }
+  
+  \draw (po1)--(po8) (po2)--(po5)--(po8) (po3)--(po6)--(po9) (po4)--(po7)--(po10) (po4)--(po11);
+
+  \foreach \i/\j in {src/po1, po5/po6, po6/po7, po11/dst}
+  \path (\i)--(\j) node [midway, mail] {\mail};
+
+  \foreach \i/\j in {1/5, 7/11} \path[draw] (po\i)--(po\j) node [midway, mail] {\mail};
+
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

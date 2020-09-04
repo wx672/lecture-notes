@@ -387,9 +387,9 @@ See also:
   \end{center}
 \end{frame}
 
-\begin{frame}{Pthreads}
-  With or without \texttt{pthread\_join()}? Check it by yourself.
-\end{frame}
+% \begin{frame}{Pthreads}
+%   With or without \texttt{pthread\_join()}? Check it by yourself.
+% \end{frame}
 
 \subsection{User-Level Threads vs. Kernel-level Threads}
 \label{sec:user-threads-vs}
@@ -977,7 +977,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \begin{frame}{}{}
   {\ttfamily
     \begin{itemize}
-    \item[\$] watch 'lsof -n.1 /tmp/myfifo'
+    \item[\$] watch -n.1 'lsof /tmp/myfifo'
     \item[\$] ./a.out O\_RDONLY
     \item[\$] ./a.out O\_WRONLY
     \item[\$] ./a.out O\_RDONLY O\_NONBLOCK
@@ -992,15 +992,15 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
       \item Returns an error (-1) if FIFO not open
       \item Okay if someone's reading the FIFO
       \end{itemize}
-    \item If opened with \texttt{O\_RDWR}, the result is undefined
+    \item If opened with \texttt{O\_RDWR}, the result is undefined.  \mode<article>{If you
+        do want to pass data in both directions, it's much better to use a pair of FIFOs
+        or pipes, one for each direction.}
     \end{itemize}
   \end{block}
 \end{frame}
 
 \begin{itemize}
-\item If opened with \texttt{O\_RDWR}, the result is undefined. If you do want to pass
-  data in both directions, it's much better to use a pair of FIFOs or pipes, one for each
-  direction.
+%\item If opened with \texttt{O\_RDWR}, the result is undefined. 
 \item There are four legal combinations of \texttt{O\_RDONLY}, \texttt{O\_WRONLY}, and the
   \texttt{O\_NONBLOCK} flag. 
 \end{itemize}
@@ -1044,7 +1044,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \mode<article>{\cfile{../src/proc/mq-recv.c}}
 \end{frame}
 
-\begin{frame}{Relationship Between Kernel Data Structures}
+\begin{frame}<article>{Relationship Between Kernel Data Structures}
 \begin{center}
   \mode<beamer>{ \includegraphics[width=.8\textwidth]{msgq} }%
   \mode<article>{ \includegraphics[width=.6\textwidth]{msgq} }
@@ -1914,6 +1914,15 @@ user process to use it directly.
   \item[Protocol] always 0
   \end{description}
 \end{frame}
+
+Sockets vs. pipes \citetitle[Chap.~15, \emph{Sockets}]{matthew2008beginning}:
+\begin{itemize}
+\item The socket interface is an extension of the concept of a pipe which can be used
+  across network.
+\item Sockets are created and used differently from pipes because they make a clear
+  distinction between client and server. The socket mechanism can implement multiple
+  clients attached to a single server. You cannot do that with a pipe.
+\end{itemize}
 
 \begin{frame}{Socket System Calls}
   \begin{description}

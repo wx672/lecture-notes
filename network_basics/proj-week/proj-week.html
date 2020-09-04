@@ -1,689 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-06-21 Fri 12:35 -->
+<!-- 2021-01-12 Tue 10:10 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Network Project Week</title>
+<title>Hacking with Linux networking command line tools</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="Xiaolin Wang">
 <meta name="description" content="Network lab tutorial week"
 >
 <meta name="keywords" content="ssh, tmux, http, ftp, smtp, iptables, network, networking">
-<link rel="stylesheet" href="https://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css">
-<style>code {font-family:Monospace; font-size:90%; background-color: #eee} body {font-size:14pt}</style>
+<link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Network Project Week</h1>
+<h1 class="title">Hacking with Linux networking command line tools</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2636b54">1. Caution</a></li>
-<li><a href="#org0963bfb">2. SSH</a>
-<ul>
-<li><a href="#orgd213b13">2.1. Installation</a></li>
-<li><a href="#org9833beb">2.2. Basic usage</a></li>
-<li><a href="#org94859f0">2.3. SSH without password</a></li>
-<li><a href="#org1da6958">2.4. Port forwarding</a>
-<ul>
-<li><a href="#orgbe7fc73">2.4.1. Reverse port forwarding</a></li>
-<li><a href="#org030c716">2.4.2. Local port forwarding</a></li>
-<li><a href="#orgd8760de">2.4.3. References</a></li>
-</ul>
-</li>
-<li><a href="#org762a7dd">2.5. Pair working with SSH+Tmux</a>
-<ul>
-<li><a href="#org15c08ec">2.5.1. Case 1</a></li>
-<li><a href="#orgd186132">2.5.2. Case 2</a></li>
-<li><a href="#orgdb6efe6">2.5.3. More</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgf015960">3. HTTP</a>
-<ul>
-<li><a href="#orgf62fcba">3.1. Install Apache2</a></li>
-<li><a href="#orgd88d151">3.2. Play with it</a></li>
-</ul>
-</li>
-<li><a href="#orge5896c0">4. Email</a>
-<ul>
-<li><a href="#orgbddbc2e">4.1. SMTP</a>
-<ul>
-<li><a href="#orgc24bca6">4.1.1. Install Exim4</a></li>
-<li><a href="#org0d0e77f">4.1.2. Play with it</a></li>
-</ul>
-</li>
-<li><a href="#org839aabd">4.2. POP3/IMAP4</a>
-<ul>
-<li><a href="#org61b2fa9">4.2.1. Install Dovecot roundcube</a></li>
-<li><a href="#org5e7fc53">4.2.2. Play with it</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org3362525">5. FTP</a>
-<ul>
-<li><a href="#org6e1ff6b">5.1. Install vsftpd lftp</a></li>
-<li><a href="#org2233986">5.2. Play with it</a></li>
-</ul>
-</li>
-<li><a href="#org04ceab2">6. IPTables</a>
-<ul>
-<li><a href="#org5631f60">6.1. Writing a simple rule set</a></li>
-<li><a href="#orga1d4cc3">6.2. Your tasks</a></li>
-<li><a href="#orgb1aa405">6.3. References</a></li>
-</ul>
-</li>
+<li><a href="#org262325f">1. Caution</a></li>
+<li><a href="#orge17a2c9">2. <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2636b54" class="outline-2">
-<h2 id="org2636b54"><span class="section-number-2">1</span> Caution</h2>
+<div id="outline-container-org262325f" class="outline-2">
+<h2 id="org262325f"><span class="section-number-2">1</span> Caution</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li>You are <b>required</b> to write your report with <a href="http://orgmode.org/"><code>Emacs org-mode</code></a>
+<li>You are <b>required</b> to write your report with <a href="http://orgmode.org/"><code>Emacs org-mode</code></a> on a Linux system.
 <ul class="org-ul">
-<li>Org-mode Tutorials
+<li>Org-mode tutorials
 <ul class="org-ul">
 <li><a href="http://orgmode.org/worg/org-tutorials/orgtutorial_dto.php">David O'Toole Org tutorial</a></li>
 <li><a href="http://orgmode.org/worg/org-tutorials/index.php">More org-mode tutorials</a></li>
 <li><code>info org</code></li>
-</ul></li>
 <li><a href="http://emacser.com/">Emacs中文网</a></li>
 </ul></li>
-<li>You have to submit your report as a <code>tar ball</code> which have both an <a href="20141156xxx.org"><code>org file</code></a> and a
-generated <a href="20141156xxx.html"><code>html file</code></a> included.
-<ul class="org-ul">
-<li>Report template: <a href="20141156xxx.org"><code>org file</code></a>, <a href="20141156xxx.html"><code>html file</code></a></li>
+</ul></li>
 <li><p>
-A small tutorial about writing lab report: <a href="tutorial.ttyrec"><code>tutorial.ttyrec</code></a>. To view it:
+You have to submit your report as a <code>tar ball</code> in which the following files should be
+included:
+</p>
+<ol class="org-ol">
+<li>an <a href="20201152xxx.org"><code>org file</code></a> and a generated <a href="20201152xxx.html"><code>html file</code></a>;</li>
+<li>your bash script for HTTP demostration;</li>
+<li>a <code>ttyrec</code> file recording your operations;</li>
+</ol>
+
+<hr>
+<dl class="org-dl">
+<dt>Here's how</dt><dd><ol class="org-ol">
+<li><p>
+make a directory, e.g. 20201159xxx, put all the required files in it.
 </p>
 <pre class="example">
-ttyplay tutorial.ttyrec
+mkdir  20201159xxx
+mv  tmux-http.sh  *.org  *.html  *ttyrec  20201159xxx
+</pre></li>
+
+<li><p>
+make a tar ball.
+</p>
+<pre class="example">
+tar  zcf  20201159xxx.tgz  20201159xxx
+ls  -l  # make sure your tar ball is smaller than 1MB in size         
+</pre></li>
+
+<li>upload the <code>tgz</code> file to our <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=349">moodle site</a>.</li>
+</ol></dd>
+</dl>
+<hr></li>
+
+<li><p>
+Here is a short tutorial about writing lab report: <a href="tutorial.ttyrec"><code>tutorial.ttyrec</code></a>. To view it:
+</p>
+
+<pre class="example">
+ttyplay  tutorial.ttyrec
 </pre>
+
 
 <p>
 Feel free to make your own <code>ttyrec</code> file while doing this lab work. For example:
 </p>
-<pre class="example">
-ttyrec my-ssh-lab-work.ttyrec
-ttyrec my-http-lab-work.ttyrec
-ttyrec my-email-lab-work.ttyrec
-ttyrec my-ftp-lab-work.ttyrec
-ttyrec my-iptables-lab-work.ttyrec
+
+<pre class="example" id="orgea84504">
+ttyrec  20201159xxx-http.ttyrec
+ttyrec  20201159xxx-email.ttyrec
+ttyrec  20201159xxx-ftp.ttyrec
 </pre></li>
-<li>This file itself is generated from an <a href="proj-week.org">org file (proj-week.org)</a>. You can take it as an example.</li>
-</ul></li>
-<li><b>Deadline:</b> <code>2019-06-28 (Fri), 23:59</code>
+
+<li>Report template: <a href="20201152xxx.org"><code>org file</code></a>, <a href="20201152xxx.html"><code>html file</code></a></li>
+<li>This page itself is generated from an <a href="proj-week.org">org file (proj-week.org)</a>. You can take it as an example.</li>
+
+<li><b>Deadline:</b> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-01-20 Wed&gt; </span></span> 
 <ul class="org-ul">
-<li>Submit your report as a <code>tgz</code> file <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=1548">here</a>. In your <code>tgz</code> file, there must be:
-<ul class="org-ul">
+<li>Submit your report as a <code>tgz</code> file <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=349">here</a>. In your <code>tgz</code> file, there must be:
+<ol class="org-ol">
 <li>an org file</li>
-<li>an html file</li>
-<li>optionally one or more <code>ttyrec</code> files</li>
-</ul></li>
+<li>a html file</li>
+<li>a bash script</li>
+<li>one or more <code>ttyrec</code> files</li>
+</ol></li>
 <li>Late reports will be penalized 20% per day.</li>
 </ul></li>
-<li>MS-word file will <b>NOT</b> be accepted.</li>
-<li>Cheating will result in automatic failure of this work.</li>
+
+<li>MS-word file will <b>NOT</b> be accepted. Cheating will result in automatic failure of this
+work.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0963bfb" class="outline-2">
-<h2 id="org0963bfb"><span class="section-number-2">2</span> SSH</h2>
+
+<div id="outline-container-orge17a2c9" class="outline-2">
+<h2 id="orge17a2c9"><span class="section-number-2">2</span> <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></h2>
 <div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgd213b13" class="outline-3">
-<h3 id="orgd213b13"><span class="section-number-3">2.1</span> Installation</h3>
-<div class="outline-text-3" id="text-2-1">
 <p>
-In our Debian system, <code>openssh-server</code> and <code>openssh-client</code> are installed by
-default. And the <code>ssh server</code> should have been running. You can check it by
+Here are the bash scripts I used in the class for demostrating how some protocols work.
 </p>
-<pre class="example">
-nmap localhost
-</pre>
-
-<p>
-The output of the above command should contain the following line:
-</p>
-<pre class="example">
-22/tcp    open    ssh
-</pre>
-
-<p>
-And you should be able to connect to your local <code>ssh server</code> by
-</p>
-<pre class="example">
-ssh username@localhost
-</pre>
-
-<p>
-<b>NOTE:</b> You should change <code>username</code> to your real user name (should be <code>stud</code> in the
-lab).
-</p>
-
-<p>
-If you cannot find the <code>ssh server</code> nor can you find the <code>ssh</code> command, you should
-check whether the <code>openssh-server</code> and <code>openssh=client</code> are installed by
-</p>
-<pre class="example">
-aptitude search '~i openssh'
-</pre>
-
-<p>
-If you cannot see any outputs, that means you haven't got the necessary packages
-install. So you have to install them by
-</p>
-<pre class="example">
-sudo aptitude install openssh-client openssh-server
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org9833beb" class="outline-3">
-<h3 id="org9833beb"><span class="section-number-3">2.2</span> Basic usage</h3>
-<div class="outline-text-3" id="text-2-2">
-<pre class="example">
-ssh user@server
-</pre>
-
-<p>
-You've tried connecting your own <code>ssh server</code> in previous section. Now you can try
-<code>ssh</code> into your neighbor's system.
-</p>
-
-<p>
-And you can also try
-</p>
-<pre class="example">
-ssh user@server [command]
-</pre>
-
-<p>
-Where <code>command</code> could be any valid <code>shell command</code>, for example
-</p>
-<pre class="example">
-ssh user@server ls -l
-ssh user@server df
-ssh user@server w
-ssh user@server free
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org94859f0" class="outline-3">
-<h3 id="org94859f0"><span class="section-number-3">2.3</span> SSH without password</h3>
-<div class="outline-text-3" id="text-2-3">
-<p>
-If you want to login to <code>cs3.swfu.edu.cn</code> without being asked for password
-every time, you can do the following:
-</p>
-<ol class="org-ol">
-<li><p>
-Generate a new keypair
-</p>
-<pre class="example">
-ssk-keygen -t rsa
-</pre></li>
-<li><p>
-Copy the keyfile to remote machine (<code>cs3.swfu.edu.cn</code>).
-</p>
-<pre class="example">
-ssh-copy-id username@cs3.swfu.edu.cn
-</pre></li>
-<li><p>
-Login to <code>cs3</code> without password prompt
-</p>
-<pre class="example">
-ssh username@cs3.swfu.edu.cn
-</pre></li>
-<li><p>
-<b>CAUTION!</b> If you are doing the above steps at a lab PC, now you <b>must</b> remove the <code>key
-      file</code>, otherwise everybody using this PC can login to your <code>cs3 account</code> without a
-password!
-</p>
-<pre class="example">
-rm -rf ~/.ssh
-</pre>
-
-<p>
-This password-less setup should only be used within your own private computer,
-e.g. your laptop. <b>DO NOT USE IT AT ANY PUBLIC COMPUTER!!!</b>
-</p></li>
-</ol>
-</div>
-</div>
-<div id="outline-container-org1da6958" class="outline-3">
-<h3 id="org1da6958"><span class="section-number-3">2.4</span> Port forwarding</h3>
-<div class="outline-text-3" id="text-2-4">
-</div>
-<div id="outline-container-orgbe7fc73" class="outline-4">
-<h4 id="orgbe7fc73"><span class="section-number-4">2.4.1</span> Reverse port forwarding</h4>
-<div class="outline-text-4" id="text-2-4-1">
-<pre class="example">
-                                                            Firewall
-                                                          (Home router)
-                                                                ▒           ┌──────┐
-┌─────┐  (2)  ┌─────────┐      (1)                              ▒           │      │
-│ You ── ssh ───&gt; cs3   ╘════&lt; ssh -R 3333:localhost:22 cs3.swfu.edu.cn &lt;═══╛      │
-└─────┘       │    │      (3)                                                 Home │
-              │    │ ┌────────────────&gt; ssh -p 3333 localhost ─────────────&gt;   PC  │
-              │    v │                                                             │
-              │   3333  ╒═══════════════════&lt;&lt;&lt;═════════════════════════════╕      │
-              └─────────┘                                       ▒           │      │
-                                                                ▒           └──────┘
-</pre>
-
-<p>
-As long as you can login to <code>cs3</code>, this setup enables you to access your home PC from
-anywhere!
-</p>
-
-<ol class="org-ol">
-<li><p>
-At your home PC, do
-</p>
-<pre class="example">
-ssh -R 3333:localhost:22 cs3user@cs3.swfu.edu.cn
-</pre>
-
-<p>
-This will open up a <i>reverse ssh tunnel</i> to <code>cs3.swfu.edu.cn</code>.
-</p></li>
-<li><p>
-At <code>cs3</code>, do
-</p>
-<pre class="example">
-ssh -p 3333 homeuser@localhost
-</pre>
-
-<p>
-Now, a connection is made from <code>cs3:22</code> to <code>your-home-pc:3333</code>.
-</p></li>
-<li><b>Your task:</b> use <code>netstat</code> at both local and remote side to figure out the TCP
-connections in this setup.</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-org030c716" class="outline-4">
-<h4 id="org030c716"><span class="section-number-4">2.4.2</span> Local port forwarding</h4>
-<div class="outline-text-4" id="text-2-4-2">
-<pre class="example">
-┌─────────┐
-│         │    (1)                        ┌─────┐
-│   You   ╘══&gt; ssh cs3 -L 3333:cs2:80 &gt;═══╛ cs3 │   ┌────────┐
-│    │                                          │   │        │
-│ (2)│ ┌────&gt; curl -v http://localhost:3333 ────────&gt; cs2:80 │
-│    v │                                        │   │        │
-│   3333  ╒═════════════&gt;&gt;&gt;═══════════════╕     │   └────────┘
-│         │                               └─────┘
-└─────────┘
-</pre>
-
-<ol class="org-ol">
-<li><p>
-At your PC (usually restricted), do
-</p>
-<pre class="example">
-ssh user@cs3.swfu.edu.cn -L 3333:cs2.swfu.edu.cn:80
-</pre>
-
-<p>
-Local machine listens on port 3333, and forward traffic to <code>cs2</code> on port 80.  That
-means you can open a web browser, and visit <a href="http://localhost:3333"><code>http://localhost:3333</code></a>. You should see
-the same page as <a href="http://cs2.swfu.edu.cn"><code>http://cs2.swfu.edu.cn</code></a>
-</p></li>
-<li><b>Your task:</b> use <code>netstat</code> at both local and remote side to figure out the TCP
-connections in this setup.</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-orgd8760de" class="outline-4">
-<h4 id="orgd8760de"><span class="section-number-4">2.4.3</span> References</h4>
-<div class="outline-text-4" id="text-2-4-3">
 <ul class="org-ul">
-<li><a href="https://www.grid5000.fr/mediawiki/index.php/SSH#Tips">SSH Tips</a></li>
-<li><a href="http://matt.might.net/articles/ssh-hacks/">SSH: More than secure shell</a></li>
-<li><a href="https://serversforhackers.com/ssh-tricks">SSH Tricks</a></li>
-<li><a href="http://www.aptivate.org/en/blog/2010/03/10/ssh-port-forwarding/">SSH Port Forwarding</a></li>
-<li><a href="http://www.onlamp.com/pub/a/onlamp/excerpt/ssh_11/index3.html">SSH, The Secure Shell: The Definitive Guide &#x2014; SSH Port Forwarding</a></li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org762a7dd" class="outline-3">
-<h3 id="org762a7dd"><span class="section-number-3">2.5</span> Pair working with SSH+Tmux</h3>
-<div class="outline-text-3" id="text-2-5">
-<p>
-Suppose Alice and Bob are both sitting in our A7 lab. And they're working on a
-cooperative project. Sometimes they have to edit a file, e.g. <code>helloworld.c</code>
-together. How? Very easy&#x2026;
-</p>
-</div>
-<div id="outline-container-org15c08ec" class="outline-4">
-<h4 id="org15c08ec"><span class="section-number-4">2.5.1</span> Case 1</h4>
-<div class="outline-text-4" id="text-2-5-1">
-<p>
-If both Alice and Bob use the same username (e.g. <code>stud</code>) to work together,
-</p>
-<ol class="org-ol">
-<li><p>
-Bob opens a terminal. At the command prompt, he types:
-</p>
-<pre class="example">
-tmux new -s pair
-</pre></li>
-<li><p>
-Alice logins to Bob's machine via SSH:
-</p>
-<pre class="example">
-ssh stud@bob.ip.address
-tmux a -t pair
-</pre></li>
-<li>Now, they're sharing the same tmux session, and can co-edit their <code>helloworld.c</code> in
-it.</li>
-</ol>
-</div>
-</div>
-<div id="outline-container-orgd186132" class="outline-4">
-<h4 id="orgd186132"><span class="section-number-4">2.5.2</span> Case 2</h4>
-<div class="outline-text-4" id="text-2-5-2">
-<p>
-If Alice and Bob use different username, for example, they both have accounts in <code>cs3</code>
-server, and want to do co-working there, they can use a shared socket to achieve this.
-</p>
-<ol class="org-ol">
-<li><p>
-Bob logins to <code>cs3</code>, and starts a tmux session with a shared socket.
-</p>
-<pre class="example">
-ssh bob@cs3.swfu.edu.cn
-tmux -S /tmp/bob new -s bob
-chmod 777 /tmp/bob
-</pre></li>
-<li><p>
-Alice ssh into <code>cs3</code>, and attach to Bob's tmux session
-</p>
-<pre class="example">
-ssh alice@cs3.swfu.edu.cn
-tmux -S /tmp/bob a -t bob
-</pre></li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-orgdb6efe6" class="outline-4">
-<h4 id="orgdb6efe6"><span class="section-number-4">2.5.3</span> More</h4>
-<div class="outline-text-4" id="text-2-5-3">
-<ul class="org-ul">
-<li><code>man ssh</code></li>
-<li><code>man tmux</code></li>
-<li><a href="http://www.zeespencer.com/building-a-remote-pairing-setup/">Build a Command Line Remote Pairing Setup</a></li>
-<li><a href="http://blog.stevenhaddox.com/2012/04/11/remote-pairing-with-ssh-tmux-vim">Remote Pairing With SSH, Tmux, and Vim</a></li>
-<li><a href="http://collectiveidea.com/blog/archives/2014/02/18/a-simple-pair-programming-setup-with-ssh-and-tmux/">A Simple Pair Programming Setup with SSH and Tmux</a></li>
-<li><a href="http://evan.tiggerpalace.com/articles/2011/10/17/some-people-call-me-the-remote-pairing-guy-/">Some people call me "the remote pairing guy"&#x2026;</a></li>
-<li>Googling <code>ssh tmux pair working</code></li>
+<li><a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-3way.handshake.sh">TCP three-way handshake</a></li>
+<li><a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-udp.sh">UDP</a></li>
+<li><a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-smtp.sh">SMTP</a> (need a SMTP server)</li>
+<li><a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-ftp.sh">FTP</a> (need a FTP server)</li>
 </ul>
 
-<p>
-Now, you are sitting in the lab. Please feel free to work together to get the following
-tasks done.
-</p>
-</div>
-</div>
-</div>
-</div>
+<hr>
 
-<div id="outline-container-orgf015960" class="outline-2">
-<h2 id="orgf015960"><span class="section-number-2">3</span> HTTP</h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-orgf62fcba" class="outline-3">
-<h3 id="orgf62fcba"><span class="section-number-3">3.1</span> Install Apache2</h3>
-<div class="outline-text-3" id="text-3-1">
-<pre class="example">
-sudo aptitude install apache2
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgd88d151" class="outline-3">
-<h3 id="orgd88d151"><span class="section-number-3">3.2</span> Play with it</h3>
-<div class="outline-text-3" id="text-3-2">
 <dl class="org-dl">
-<dt>Your tasks</dt><dd>Create your own website
-<ul class="org-ul">
-<li>How do I know my web server is running? (<code>nmap</code>, <code>systemctl status apache2</code>)</li>
-<li>How to configure it? (<code>/usr/share/doc/apache2/</code>, <code>/etc/apache2/</code>)</li>
-<li>Is my apache2 working well? (<code>/var/log/apache2/</code>)</li>
-<li>Where is my homepage? (<code>/var/www/</code>)</li>
-<li>How to write a homepage? (<code>/var/www/index.html</code>)</li>
-<li>How to give every user a homepage? (<code>~/public_html/index.html</code>)</li>
-</ul></dd>
-</dl>
-</div>
-</div>
-</div>
+<dt>Your tasks</dt><dd><ol class="org-ol">
+<li>Run the above scripts to get familar with these tools, and get a thorough understanding about these protocols;</li>
 
-<div id="outline-container-orge5896c0" class="outline-2">
-<h2 id="orge5896c0"><span class="section-number-2">4</span> Email</h2>
-<div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-orgbddbc2e" class="outline-3">
-<h3 id="orgbddbc2e"><span class="section-number-3">4.1</span> SMTP</h3>
-<div class="outline-text-3" id="text-4-1">
-</div>
-<div id="outline-container-orgc24bca6" class="outline-4">
-<h4 id="orgc24bca6"><span class="section-number-4">4.1.1</span> Install Exim4</h4>
-<div class="outline-text-4" id="text-4-1-1">
-<pre class="example">
-sudo aptitude install exim4
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org0d0e77f" class="outline-4">
-<h4 id="org0d0e77f"><span class="section-number-4">4.1.2</span> Play with it</h4>
-<div class="outline-text-4" id="text-4-1-2">
-<dl class="org-dl">
-<dt>Your tasks</dt><dd><ul class="org-ul">
-<li>How do I know my SMTP server is running? (<code>nmap</code>, <code>systemctl status exim4</code>)</li>
-<li>How to configure it? (<code>/usr/share/doc/exim4/</code>, <code>/etc/exim4/</code>,
-<code>sudo dpkg-reconfigure exim4-config</code>)</li>
-<li>Is my exim4 working well? (<code>/var/log/exim4/</code>)</li>
-<li>How to send/receive emails? (<code>mail</code>, <code>mutt</code>, <code>nc server 25</code>)</li>
-</ul></dd>
-</dl>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org839aabd" class="outline-3">
-<h3 id="org839aabd"><span class="section-number-3">4.2</span> POP3/IMAP4</h3>
-<div class="outline-text-3" id="text-4-2">
-</div>
-<div id="outline-container-org61b2fa9" class="outline-4">
-<h4 id="org61b2fa9"><span class="section-number-4">4.2.1</span> Install Dovecot roundcube</h4>
-<div class="outline-text-4" id="text-4-2-1">
-<pre class="example">
-sudo aptitude install dovecot-imapd dovecot-pop3d roundcube
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org5e7fc53" class="outline-4">
-<h4 id="org5e7fc53"><span class="section-number-4">4.2.2</span> Play with it</h4>
-<div class="outline-text-4" id="text-4-2-2">
-<dl class="org-dl">
-<dt>Your tasks</dt><dd><ul class="org-ul">
-<li>How do I know my POP3/IMAP4 server is running? (<code>nmap</code>, <code>systemctl status dovecot</code>)</li>
-<li>How to configure it? (<code>/usr/share/doc/dovecot*/</code>, <code>/etc/dovecot/</code>,
-<code>/usr/share/doc/roundcube-core</code>, <code>/etc/roundcube</code>)</li>
-<li>Is my dovecot working well? (<code>/var/log/mail.*/</code>)</li>
-<li>How to send/receive emails? (<code>/usr/share/doc/roundcube-core/</code>)</li>
-</ul></dd>
-</dl>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org3362525" class="outline-2">
-<h2 id="org3362525"><span class="section-number-2">5</span> FTP</h2>
-<div class="outline-text-2" id="text-5">
-</div>
-<div id="outline-container-org6e1ff6b" class="outline-3">
-<h3 id="org6e1ff6b"><span class="section-number-3">5.1</span> Install vsftpd lftp</h3>
-<div class="outline-text-3" id="text-5-1">
-<pre class="example">
-sudo aptitude install vsftpd lftp
-</pre>
-</div>
-</div>
-<div id="outline-container-org2233986" class="outline-3">
-<h3 id="org2233986"><span class="section-number-3">5.2</span> Play with it</h3>
-<div class="outline-text-3" id="text-5-2">
-<dl class="org-dl">
-<dt>Your tasks</dt><dd><ul class="org-ul">
-<li>How do I know my FTP server is running? (<code>nmap</code>, <code>systemctl status vsftpd</code>)</li>
-<li>How to configure it? (<code>/usr/share/doc/vsftpd/</code>, <code>/etc/vsftpd.conf</code>)</li>
-<li>Is my vsftpd working well? (<code>/var/log/vsftpd.log</code>)</li>
-<li>How to transfer files? (<code>lftp</code>)</li>
-</ul></dd>
-</dl>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org04ceab2" class="outline-2">
-<h2 id="org04ceab2"><span class="section-number-2">6</span> IPTables</h2>
-<div class="outline-text-2" id="text-6">
-</div>
-<div id="outline-container-org5631f60" class="outline-3">
-<h3 id="org5631f60"><span class="section-number-3">6.1</span> Writing a simple rule set</h3>
-<div class="outline-text-3" id="text-6-1">
-<p>
-If you try the following commands:
+<li><p>
+Packet analysis. Upon running the following command:
 </p>
 
 <pre class="example">
-$ sudo iptables -P INPUT ACCEPT
-$ sudo iptables -F
-$ sudo iptables -A INPUT -i lo -j ACCEPT
-$ sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-$ sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-$ sudo iptables -P INPUT DROP
-$ sudo iptables -P FORWARD DROP
-$ sudo iptables -P OUTPUT ACCEPT
-$ sudo iptables -L -v
+sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
 </pre>
 
+
 <p>
-You will get the following output:
+the following packet is captured:
 </p>
-<pre class="example">
-Chain INPUT (policy DROP 0 packets, 0 bytes)
-pkts bytes target   prot opt in   out  source     destination
- 0     0   ACCEPT   all  --  lo   any  anywhere   anywhere
- 0     0   ACCEPT   all  --  any  any  anywhere   anywhere   state RELATED,ESTABLISHED
- 0     0   ACCEPT   tcp  --  any  any  anywhere   anywhere   tcp dpt:ssh
-Chain FORWARD (policy DROP 0 packets, 0 bytes)
-pkts bytes target     prot opt in     out     source   destination
-Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
-pkts bytes target     prot opt in     out     source   destination
+
+<pre class="example" id="org727bdbf">
+08:34:10.790666 IP (tos 0x0, ttl 64, id 12824, offset 0, flags [DF], proto TCP (6),
+length 64)
+    127.0.0.1.46668 &gt; 127.0.0.1.3333: Flags [P.], seq 2400005725:2400005737, ack 373279396,
+    win 512, options [nop,nop,TS val 3259949783 ecr 3259896343], length 12
+        0x0000:  4500 0040 3218 4000 4006 0a9e 7f00 0001  E..@2.@.@.......
+        0x0010:  7f00 0001 b64c 0d05 8f0d 2e5d 163f caa4  .....L.....].?..
+        0x0020:  8018 0200 fe34 0000 0101 080a c24e e2d7  .....4.......N..
+        0x0030:  c24e 1217 6865 6c6c 6f20 776f 726c 640a  .N..hello.world.
 </pre>
 
-<p>
-Read the following short tutorial to know why:
-</p>
-<ul class="org-ul">
-<li><a href="http://wiki.centos.org/HowTos/Network/IPTables#head-724ed81dbcd2b82b5fd3f648142796f3ce60c730">Writing a simple rule set</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orga1d4cc3" class="outline-3">
-<h3 id="orga1d4cc3"><span class="section-number-3">6.2</span> Your tasks</h3>
-<div class="outline-text-3" id="text-6-2">
 <ol class="org-ol">
-<li>How to block all connections from your next desk?</li>
-<li>How to block only SSH connections from your next desk?</li>
-<li>How to block all other than SSH connections from your next desk?</li>
-</ol>
-</div>
-</div>
+<li>Tell me the meaning of each option used in the previous command;</li>
 
-<div id="outline-container-orgb1aa405" class="outline-3">
-<h3 id="orgb1aa405"><span class="section-number-3">6.3</span> References</h3>
-<div class="outline-text-3" id="text-6-3">
-<ul class="org-ul">
-<li><a href="https://help.ubuntu.com/community/IptablesHowTo">Iptables Howto</a></li>
-<li><a href="http://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/">The Beginner’s Guide to iptables, the Linux Firewall</a></li>
-<li>google <a href="https://www.google.com/#q=iptables%20tutorial&amp;oq=iptables%20&amp;aqs=chrome.2.69i57j0l5.9165j0j7&amp;sourceid=chrome&amp;es_sm=93&amp;ie=UTF-8&amp;qscrl=1"><code>iptables tutorial</code></a></li>
-</ul>
-</div>
+<li>Please analyze this captured packet and explain it to me as detailed as you can.</li>
+</ol></li>
+
+<li>Write a similar script showing how HTTP works (you need <code>curl</code>);</li>
+
+<li>Record your HTTP demo session with <code>ttyrec</code>.</li>
+</ol></dd>
+</dl>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Xiaolin Wang</p>
-<p class="date">Created: 2019-06-21 Fri 12:35</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.1 (<a href="https://orgmode.org">Org</a> mode 9.2.4)</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2021-01-12 Tue 10:10</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

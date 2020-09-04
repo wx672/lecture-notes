@@ -1,5 +1,10 @@
 /*
  * sudo aptitude install libgtk-3-dev libgtk2.0-dev
+ * 
+ * gcc `pkg-config --cflags gtk+-3.0` -o hello-gtk3 hello-gtk.c `pkg-config --libs gtk+-3.0`
+ *
+ * gcc `pkg-config --cflags gtk+-2.0` -o hello-gtk2 hello-gtk.c `pkg-config --libs gtk+-2.0`
+ *
  */
 
 #include <gtk/gtk.h>

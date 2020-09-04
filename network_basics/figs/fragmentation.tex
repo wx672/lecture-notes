@@ -1,0 +1,29 @@
+\documentclass[varwidth=60em,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+% total: 4000 bytes
+% header: 20 bytes
+% data: 3980 bytes
+% path MTU: 1500 bytes
+
+\begin{verbatim}
+ ID D M Offset                                Data                                 
+├──┼─┼─┼──────┼────────────────────────────────────────────────────────────────┤
+│88│0│0│  0   │                            3980 bytes                          │
+└──┴─┴─┴──────┴────────────────────────────────────────────────────────────────┘
+
+ ID D M Offset    Data      ID D M Offset    Data      ID D M Offset    Data   
+├──┼─┼─┼──────┼──────────┤ ├──┼─┼─┼──────┼──────────┤ ├──┼─┼─┼──────┼──────────┤
+│88│0│1│  0   │1480 bytes│ │88│0│1│ 185  │1480 bytes│ │88│0│0│ 370  │1020 bytes│
+└──┴─┴─┴──────┴──────────┘ └──┴─┴─┴──────┴──────────┘ └──┴─┴─┴──────┴──────────┘
+        Fragment 1                 Fragment 2                 Fragment 3
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

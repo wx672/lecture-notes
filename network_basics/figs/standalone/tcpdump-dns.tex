@@ -1,5 +1,5 @@
 \documentclass[varwidth=31.5em,crop]{standalone}
-\usepackage{fancyvrb,xcolor}
+\usepackage{fancyvrb,xcolor,array}
 \begin{document}
 \begin{Verbatim}[commandchars=\\\{\}]
 ~$ \color{violet}{host -a cs2.swfu.edu.cn}
@@ -13,13 +13,18 @@
 \vspace{-1.5em}
 \hrulefill
 \begin{center}
-  \begin{tabular}{rcl}
-    \texttt{34035}&--&id\\
-    \texttt{+}&--&rd=1\\
-    \texttt{ANY?}&--& query type\\
-    \texttt{33/49}&--&UDP payload length\\
-    \texttt{1/0/0}&--&\textbf{1} answer RR; \textbf{0} authority RR; \textbf{0} additional RR.\\
-    \texttt{A}&--&IPv4 address
+  \begin{tabular}{>{\ttfamily}rc>{\sffamily}l}
+    34035&--&id\\
+    +&--&rd=1\\
+    ANY?&--& query type\\
+    33/49&--&UDP payload length\\
+    1/0/0&--&1 answer; 0 authority; 0 additional\\
+    A&--&IPv4 address
   \end{tabular}
 \end{center}
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

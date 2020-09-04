@@ -2,8 +2,7 @@
 #+OPTIONS: c:nil creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+OPTIONS: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t title:t toc:t
 #+OPTIONS: todo:t |:t
-#+TITLE: Shadowsocks in Debian
-#+DATE: <2018-08-31 Fri>
+#+TITLE: Shadowsocksr in Debian
 #+AUTHOR:  
 #+EMAIL: 
 #+LANGUAGE: cn
@@ -18,48 +17,61 @@
 要求：
 1. 客户端：自行安装；
 2. 服务器端：可以搜免费的；可以买现成的；也可以买墙外的云服务，自己安装服务器端；
-3. 浏览器插件：自行安装。
+3. Chrome/Firefox浏览器插件：自行安装。Qutebrowser不需要插件，但配置文件(=config.py=)里要加上如下两行：
+   #+begin_src python
+   c.content.proxy = "socks://localhost:1080/"
 
+   config.bind('<Ctrl-a><Ctrl-s>', 'config-cycle content.proxy none socks://localhost:1080', mode='normal')
+   #+end_src
+   之后，就可以用 =Ctrl-a Ctrl-s= 来开关代理了。
 * 客户端安装
-: sudo apt install shadowsocks-libev
+
+先下载 =ssr.tgz= 。然后，
+#+begin_src sh
+tar zxf ssr.tgz -C ~/.local/share/
+#+end_src
+
 * 客户端配置
-Example: =/etc/shadowsocks-libev/config.json=
+
+把你买来的 =json= 文件都放到 =~/.local/share/fyvvv/= 目录里。然后，要逐一检查一下这些
+=json= 文件，格式必须是下面这样：
+
 #+BEGIN_SRC Javascript -n
 {
-    "server":"127.0.0.1",
-    "server_port":8388,
-    "local_port":1080,
-    "password":"fuPodNics",
-    "timeout":60,
-    "method":"chacha20-ietf-poly1305"
+  "server":"xxx",
+  "server_port":2020,
+  "local_address":"127.0.0.1",
+  "local_port":1080,
+  "password":"xxx",
+  "timeout":300,
+  "udp_timeout":60,
+  "method":"chacha20-ietf",
+  "protocol":"auth_aes128_md5",
+  "protocol_param":"xxx",
+  "obfs":"tls1.2_ticket_auth",
+  "obfsparam":"1742755549.msn.microsoft.com",
+  "fast_open":false,
+  "workers":1,
+  "remarks":"xxx",
+  "group":"xxx"
 }
 #+END_SRC
-简单注释：
-1. 左花括号
-2. 服务器的IP地址或域名；
-3. 服务器端的端口号。本地客户端将向服务器的这个端口发起服务请求；
-4. 客户端的端口号。本机的网络应用程序，比如浏览器，将向这个端口发起服务请求；
-5. 客户端连接服务器端所需的密码；
-6. 如果60秒还连不上服务器，就报错；
-7. 加密方式；
-8. 右花括号。
 
-补充说明：
-1. 以上八行中的第2、3、5、7行信息都是由服务器端决定的。比如说，如果你是花钱买的现成服务，那
-   么实际上你花钱买的（除了流量）就是这几条信息。第4行，客户端的端口号，默认都是1080，可以自
-   己改，但通常没必要；
-2. 如果是买的现成服务，那么通常服务器的数量不止一个。你应该为每个服务器都单写一个配置文件。
-   这样如果一个服务器连不上了，你可以迅速切换到另一个。比如说，你原来用的是
-   =/etc/shadowsocks-libev/a.json=:
-   : ss-local -v -c /etc/shadowsocks-libev/a.json
-   后来忽然连不上了，那么你可以按 =Ctrl-c= 终止这个进程。然后再另起一个：
-   : ss-local -v -c /etc/shadowsocks-libev/b.json
-3. 把你的所有配置文件都放在一个目录里，通常是 =/etc/shadowsocks-libev/= 。
-   
+现在，你可以启动代理了。
+: ssr myconfigfile.json
+
+
 * Chrome浏览器插件的安装配置
+
+首先，我强烈建议你使用qutebrowser，较之于Chrome，它有很多优势：
+1. 小巧，节约系统资源；
+2. 支持纯键盘操作；
+3. 配置简单。
+   
+如果你非要用Chrome，那么接着往下看……
 插件的作用是让你的浏览器“该翻墙的时候翻墙，不该翻墙的时候就不翻墙”，所以严格讲，它不是必需
 的。在没有插件的情况下，使用下面这两条命令你就已经可以翻墙了：
-: ss-local -v -c /etc/shadowsocks-libev/b.json
+: ssr myconfigfile.json
 : google-chrome --proxy-server='socks5://127.0.0.1:1080'
 
 Chrome浏览器的插件通常只能从[[https://chrome.google.com/webstore/category/extensions?utm_source=chrome-ntp-icon][Chrome Web Store]]安装。很不幸，访问这个网站就要先能翻墙才行。办
@@ -71,7 +83,8 @@ Chrome浏览器的插件通常只能从[[https://chrome.google.com/webstore/cate
 2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
 2018-08-31 19:37:50 ERROR: server_recv_cb_recv: Connection reset by peer
 #+END_EXAMPLE
-那么，就换c.json、d.json……试试。
+
+那么，就换个 =json= 文件试试。
 
 1. 安装插件Switchy Omega
    - https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?utm_source=chrome-ntp-icon
@@ -88,5 +101,5 @@ Chrome浏览器的插件通常只能从[[https://chrome.google.com/webstore/cate
 
 简单总结一下要点：
  1. 要先启动本地代理：
-    : ss-local -v -c /etc/shadowsocks-libev/b.json
+    : ssr myconfigfile.json
  2. 要把浏览器插件配置好。

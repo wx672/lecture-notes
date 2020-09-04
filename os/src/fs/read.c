@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdlib.h>
 
 int main(void)
 {
@@ -8,7 +9,7 @@ int main(void)
 
   write(1, buffer, 10);
 
-  return 0;
+  return EXIT_SUCCESS;
 }
 
 /* Local Variables: */

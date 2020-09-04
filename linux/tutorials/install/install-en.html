@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-03-24 Tue 10:20 -->
+<!-- 2020-11-03 Tue 12:57 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Debian Installation Quick Guide</title>
@@ -9,50 +9,26 @@
 <meta name="author" content="WANG Xiaolin">
 <link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2020 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
@@ -62,16 +38,18 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9ef3ff6">1. UEFI</a></li>
-<li><a href="#org4e53241">2. Install a Debian minimal system</a></li>
-<li><a href="#orgf6682c2">3. More than minimal</a>
+<li><a href="#orgb0118ac">1. UEFI</a></li>
+<li><a href="#orgb9b5cee">2. Install a Debian minimal system</a></li>
+<li><a href="#org71cce4d">3. More than minimal</a>
 <ul>
-<li><a href="#orgc0ba262">3.1. Configuration</a>
+<li><a href="#org80fc2a3">3.1. Good news</a></li>
+<li><a href="#orgd3227a9">3.2. The old way</a></li>
+<li><a href="#org76662e1">3.3. Configuration</a>
 <ul>
-<li><a href="#org3f2b1e0">3.1.1. sudo</a></li>
-<li><a href="#orgc6c86ec">3.1.2. dotfile</a></li>
-<li><a href="#org1afd93a">3.1.3. Auto login</a></li>
-<li><a href="#org35dc40c">3.1.4. Backlight</a></li>
+<li><a href="#org9cd8a7b">3.3.1. sudo</a></li>
+<li><a href="#org8eccf39">3.3.2. dotfile</a></li>
+<li><a href="#org256dce6">3.3.3. Auto login</a></li>
+<li><a href="#org301ec67">3.3.4. Screen backlight</a></li>
 </ul>
 </li>
 </ul>
@@ -80,8 +58,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org9ef3ff6" class="outline-2">
-<h2 id="org9ef3ff6"><span class="section-number-2">1</span> UEFI</h2>
+<div id="outline-container-orgb0118ac" class="outline-2">
+<h2 id="orgb0118ac"><span class="section-number-2">1</span> UEFI</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 By the time I wrote this short installation guide <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun&gt;</span></span>,
@@ -112,8 +90,8 @@ especially <a href="https://www.debian.org/releases/stretch/amd64/ch03s06.html.e
 </div>
 </div>
 
-<div id="outline-container-org4e53241" class="outline-2">
-<h2 id="org4e53241"><span class="section-number-2">2</span> Install a Debian minimal system</h2>
+<div id="outline-container-orgb9b5cee" class="outline-2">
+<h2 id="orgb9b5cee"><span class="section-number-2">2</span> Install a Debian minimal system</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>Preparing a bootable USB stick.
@@ -129,7 +107,7 @@ Preparing the bootable USB stick is quite simple with a Debian machine.
 </p>
 <pre class="example">
 sudo cp debian-9.5.0-amd64-netinst.iso /dev/sdX
-sudo sync
+sync
 </pre>
 
 <p>
@@ -142,7 +120,7 @@ the command <code>lsblk</code> to check it for sure.</li>
 </ul></li>
 </ol></li>
 <li>Unplug the Ethernet cable, and then reboot your laptop from USB stick. Following the
-screen instructions, it takes probably half an hour to get a <i>minimal</i> Debian
+screen instructions, it takes approximately half an hour to get a <i>minimal</i> Debian
 system installed.
 <ul class="org-ul">
 <li>The only tricky part of the installation is how to partition your hard
@@ -154,15 +132,105 @@ Installation Guide</i></a>, especally the following sections:
 <li><a href="https://www.debian.org/releases/stretch/amd64/ch03s05.html.en">Section 3.5 <i>Pre-Partitioning for Multi-Boot Systems</i></a></li>
 <li><a href="https://www.debian.org/releases/stretch/amd64/ch06s03.html.en#di-partition">Section 6.3.3 <i>Partitioning and Mount Point Selection</i></a></li>
 </ul></li>
+<li>When you are prompted "Loading missing firmware", choose &lt;No&gt; to bypass it.</li>
+<li>When you see "Configure the network", choose "Cancel" until you see "Do not configure
+the network at this time".</li>
+<li>When you are prompted "Root password:", don't set root password, just hit &lt;ENTER&gt; to
+bypass this step.</li>
+<li>When you are asked "continue without a network mirror?", choose &lt;Yes&gt;.</li>
 </ul></li>
-<li>Now, unplug the USB stick, and reboot.</li>
+<li>When the installation of minimal system is done, unplug the USB stick and reboot.</li>
 </ol>
 </div>
 </div>
 
-<div id="outline-container-orgf6682c2" class="outline-2">
-<h2 id="orgf6682c2"><span class="section-number-2">3</span> More than minimal</h2>
+<div id="outline-container-org71cce4d" class="outline-2">
+<h2 id="org71cce4d"><span class="section-number-2">3</span> More than minimal</h2>
 <div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org80fc2a3" class="outline-3">
+<h3 id="org80fc2a3"><span class="section-number-3">3.1</span> Good news</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Now you can just download and run <a href="https://cs6.swfu.edu.cn/~wx672/debian-install/install.sh">this little script</a> to finish the full installation.
+</p>
+<ul class="org-ul">
+<li><p>
+download:
+</p>
+<pre class="example">
+cd
+scp fai@cs6.swfu.edu.cn:install.sh ./
+fai@cs6.swfu.edu.cn's password: fai
+</pre></li>
+
+<li><p>
+to run it:
+</p>
+<pre class="example">
+chmod +x install.sh
+./install.sh
+</pre></li>
+
+<li><p>
+Upon finishing the installation, reboot. If everything goes well, you should see a black
+screen with a rather big mouse cursor showing at the center of your screen, and nothing
+else.
+</p>
+
+<p>
+NOTE: If the big mouse cursor doesn't shown up as expected, that probably means the Xorg
+doesn't work well. This usually has something to do with the graphic card driver
+(Nvidia?). In this unlucky case, try disable Nvidia graphic card by removing its driver,
+and use the built-in graphic card instead.
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">sudo apt purge xserver-xorg-video-nvidia xserver-xorg-video-nouveau
+</pre>
+</div>
+
+<p>
+use command <code>lspci</code> to find out what built-in graphic card you have.
+In case of an Intel card:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">sudo apt install xserver-xorg-video-intel
+</pre>
+</div>
+
+<p>
+For an AMD card:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">sudo apt install xserver-xorg-video-amdgpu
+</pre>
+</div></li>
+</ul>
+
+
+<p>
+After that, reboot. If it's still not working, google for more help.
+</p>
+
+<p>
+If you are lucky enough to see the big mouse cursor showing at the center of the black screen, you can:
+</p>
+<ol class="org-ol">
+<li><code>Super-t</code> to bring up a terminal.</li>
+<li><code>Super-F1</code> to show the cheat sheet.</li>
+<li>use <code>nmtui</code> to activate your wifi.</li>
+<li>trigger Chinese input (fcitx) by hitting <code>Shift-space</code>. If it doesn't work, you can try <code>fcitx-configtool</code>.</li>
+</ol>
+
+<p>
+Have fun!
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd3227a9" class="outline-3">
+<h3 id="orgd3227a9"><span class="section-number-3">3.2</span> The old way</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 You can't expect too much from a minimal system, right? So, let there be more
 application programs.
@@ -194,7 +262,7 @@ In the screen output, you should find a network card named <code>ethX</code> or 
 and <code>Y</code> are small numbers. For example, on my Debian laptop I got something like the
 following:
 </p>
-<pre class="example">
+<pre class="example" id="org1dcae97">
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 ...
      link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
      inet 127.0.0.1/8 scope host lo
@@ -278,14 +346,14 @@ should type <code>exit</code> to quit the root shell. When you see the <code>$</
 now download the software list file using <code>wget</code>:      
 </p>
 <pre class="example">
-wget http://cs6.swfu.edu.cn/~wx672/debian-install/list.laptop
+wget http://cs6.swfu.edu.cn/~wx672/debian-install/01-important
 </pre></li>
 <li><p>
 Install all the software packages listed in the file in batch.
 </p>
 <pre class="example">
 su
-apt install $(cat list.laptop)
+apt install $(cat 01-important)
 </pre>
 
 
@@ -297,17 +365,39 @@ This step takes about an hour with a speedy network connection.
 Somewhere in the installation process, you will be asked to answer [Yes/no], if
 you are not sure, just type <code>Enter</code> to let it go.
 </p></li>
+<li><p>
+Now, install some more though not mandatory. Again, <i>Do NOT be ROOT to use wget!</i>
+</p>
+<pre class="example">
+wget http://cs6.swfu.edu.cn/~wx672/debian-install/02-recommend
+</pre>
+
+
+<p>
+If you need Chinese support:
+</p>
+<pre class="example">
+wget http://cs6.swfu.edu.cn/~wx672/debian-install/03-chinese
+</pre>
+
+
+<pre class="example">
+su
+apt install $(cat 02-recommend)
+apt install $(cat 03-chinese)
+</pre></li>
 </ol></li>
 </ol>
 </div>
-
-<div id="outline-container-orgc0ba262" class="outline-3">
-<h3 id="orgc0ba262"><span class="section-number-3">3.1</span> Configuration</h3>
-<div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org3f2b1e0" class="outline-4">
-<h4 id="org3f2b1e0"><span class="section-number-4">3.1.1</span> sudo</h4>
-<div class="outline-text-4" id="text-3-1-1">
+
+<div id="outline-container-org76662e1" class="outline-3">
+<h3 id="org76662e1"><span class="section-number-3">3.3</span> Configuration</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-org9cd8a7b" class="outline-4">
+<h4 id="org9cd8a7b"><span class="section-number-4">3.3.1</span> sudo</h4>
+<div class="outline-text-4" id="text-3-3-1">
 <p>
 If you don't want to be asked for password whenever using <code>sudo</code>, you can do the following:
 </p>
@@ -362,9 +452,9 @@ exit
 </ol>
 </div>
 </div>
-<div id="outline-container-orgc6c86ec" class="outline-4">
-<h4 id="orgc6c86ec"><span class="section-number-4">3.1.2</span> dotfile</h4>
-<div class="outline-text-4" id="text-3-1-2">
+<div id="outline-container-org8eccf39" class="outline-4">
+<h4 id="org8eccf39"><span class="section-number-4">3.3.2</span> dotfile</h4>
+<div class="outline-text-4" id="text-3-3-2">
 <p>
 Now, your Debian system is almost the same as the lab ones, except that you haven't done
 configurations for those software you just installed. To make the configuration easier,
@@ -417,18 +507,6 @@ ls -al
 All the <code>dot.*</code> files should be replaced by <code>.</code> prefixed files now.
 </p></li>
 <li><p>
-Grab my wallpaper.
-</p>
-<pre class="example">
-$ wget -O .keys.png https://cs6.swfu.edu.cn/~wx672/debian-install/keys.png
-</pre>
-
-<p>
-After reboot (don't do it now) you should be able to bring up this wallpaper by typing
-<code>Super-F1</code>. (<code>Super</code> key can be found at the lower left area of your keyboard. It's
-usually marked as a <code>Win</code> key.)
-</p></li>
-<li><p>
 Grab my Emacs packages.
 </p>
 <pre class="example">
@@ -451,9 +529,9 @@ If you see error messages, let me know (wx672ster@gmail.com).
 </div>
 </div>
 
-<div id="outline-container-org1afd93a" class="outline-4">
-<h4 id="org1afd93a"><span class="section-number-4">3.1.3</span> Auto login</h4>
-<div class="outline-text-4" id="text-3-1-3">
+<div id="outline-container-org256dce6" class="outline-4">
+<h4 id="org256dce6"><span class="section-number-4">3.3.3</span> Auto login</h4>
+<div class="outline-text-4" id="text-3-3-3">
 <p>
 If you don't want to input username/password every time when you start your system, you
 can do like this:
@@ -491,9 +569,9 @@ don't need it.
 </p>
 </div>
 </div>
-<div id="outline-container-org35dc40c" class="outline-4">
-<h4 id="org35dc40c"><span class="section-number-4">3.1.4</span> Backlight</h4>
-<div class="outline-text-4" id="text-3-1-4">
+<div id="outline-container-org301ec67" class="outline-4">
+<h4 id="org301ec67"><span class="section-number-4">3.3.4</span> Screen backlight</h4>
+<div class="outline-text-4" id="text-3-3-4">
 <p>
 Usually there are function keys for changing screen backlight on laptops. If these keys
 don't work, you can try:
@@ -537,8 +615,8 @@ the semicolon at the beginning of the lines so that they look like the following
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: WANG Xiaolin</p>
-<p class="date">Created: 2020-03-24 Tue 10:20</p>
-<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+<p class="date">Created: 2020-11-03 Tue 12:57</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

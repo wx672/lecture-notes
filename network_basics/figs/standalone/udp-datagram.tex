@@ -1,20 +1,17 @@
 \documentclass[varwidth,crop]{standalone}
-\usepackage{wx672fonts}
+\usepackage{fontspec}
 \setmonofont{DejaVu Sans Mono}
 
 \begin{document}
 \begin{verbatim}
- 0      7 8     15 16    23 24    31
-├────────┼────────┼────────┼────────┤
-│     Source      │   Destination   │
-│      Port       │      Port       │
-├────────┼────────┼────────┼────────┤
-│                 │                 │
+    0        1        2        3
+├────────┴────────┼────────┴────────┤
+│    Src Port     │    Dst Port     │
+├─────────────────┼─────────────────┤
 │     Length      │    Checksum     │
-├────────┼────────┼────────┼────────┘
-│
-│          data octets ...
-└──────────────── ...
+├─────────────────┴─────────────────┘
+│              Data ...
+└────────────────────────────┄┄
 \end{verbatim}
 \end{document}
 

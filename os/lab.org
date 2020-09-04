@@ -15,8 +15,6 @@
 
 * References - noexport                        :noexport:
   - [[http://www.ibm.com/developerworks/linux/library/l-system-calls/][Kernel command using Linux system calls]]
-  # - [[https://cs2.swfu.edu.cn/pub/resources/Books/OS/webcourses/uregina/www.cs.uregina.ca/Links/class-info/330/]]
-  # - [[https://cs2.swfu.edu.cn/pub/resources/Books/programming/c/c-tut/www.cs.cf.ac.uk/Dave/C/node1.html]]
   - [[http://www.ibm.com/developerworks/linux/library/l-proc.html][Access the Linux kernel using the /proc filesystem]]
   - [[http://beej.us/guide/bgipc/output/html/singlepage/bgipc.html][/Beej's Guide to Unix IPC/]], v1.1.2, Brian "Beej Jorgensen" Hall, 2010
   - [[http://cs2.swfu.edu.cn/pub/resources/Books/Linux/WILEY-Beginning_Linux_Programming_Third_Edition.pdf][Beginning Linux Programming]], 3e, N.Matthew, R.Stones, Wiley, 2004
@@ -59,10 +57,10 @@
 * Approaching to the Linux kernel
 ** proc file-system
    - *Reference*
-     - [[http://www.ibm.com/developerworks/linux/library/l-proc.html][Access the Linux kernel using the /proc filesystem]]
+     - [[https://developer.ibm.com/technologies/linux/articles/l-proc/][Access the Linux kernel using the /proc filesystem]] (last visited: [2020-11-20 Fri])
      - =man proc=
-     - =ttyplay= [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/ttyrec/2.1-ttyrec][=2.1-ttyrec=]]
-     - =ttyplay= [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/ttyrec/submit.ttyrec][=submit.ttyrec=]]
+     - =ttyplay= [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/os/ttyrec/2.1-ttyrec][=2.1-ttyrec=]] (last visited: [2020-11-20 Fri])
+     - =ttyplay= [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/os/ttyrec/submit.ttyrec][=submit.ttyrec=]] (last visited: [2020-11-20 Fri])
    - *Questions*
      1. What's the CPU type and model? (=/proc/cpuinfo=)
      2. What version of the Linux kernel are you using? (=uname=)
@@ -85,17 +83,17 @@
      4. Have you learnt anything? Or your time was just wasted?
 ** Play with the kernel
    - *Help for beginners*
-     - /Debian Linux Kernel Handbook/, 2012. (Chapter 4, [[http://kernel-handbook.alioth.debian.org/ch-common-tasks.html][/Common kernel-related tasks/]])
+     - /Debian Linux Kernel Handbook/, 2012. (Chapter 4, [[https://kernel-team.pages.debian.net/kernel-handbook/ch-common-tasks.html][/Common kernel-related tasks/]])  (last visited: [2020-11-20 Fri])
+       : sudo apt install debian-kernel-handbook
      - Kroah-Hartman, Greg. [[http://www.kroah.com/lkn/][/Linux Kernel in a Nutshell: A Desktop Quick Reference/]],
-       O'Reilly, 2007.
-     - R. Love. [[https://cs3.swfu.edu.cn/tech/get/PDF/12/Calibre1][/Linux Kernel Development/]]. Developer’s
-       Library. Addison-Wesley, 2010. (Chapter 2, /Getting start with the kernel/)
-     - [[http://kernelnewbies.org/][/Linux Kernel Newbies/]], 2013.
-     - [[https://courses.linuxchix.org/kernel-hacking-2002.html][/LinuxChix Kernel Hacking Lessons/]], 2002.
-     - [[http://www.win.tue.nl/~aeb/linux/lk/lk.html#toc2][/The Linux kernel/]], Andries Brouwer, 2003. (Chapter 2, [[http://www.win.tue.nl/~aeb/linux/lk/lk-2.html][/The Kernel Source/]])
+       O'Reilly, 2007.  (last visited: [2020-11-20 Fri])
+       - [[https://cs6.swfu.edu.cn/calibre/get/PDF/46/calibre][cs6 calibre]]
+     - R. Love. [[https://cs6.swfu.edu.cn/calibre/get/PDF/12/calibre][/Linux Kernel Development/]]. Developer’s
+       Library. Addison-Wesley, 2010. (Chapter 2, /Getting start with the kernel/)  (last visited: [2020-11-20 Fri])
+     - [[http://www.win.tue.nl/~aeb/linux/lk/lk.html#toc2][/The Linux kernel/]], Andries Brouwer, 2003. (Chapter 2, [[http://www.win.tue.nl/~aeb/linux/lk/lk-2.html][/The Kernel Source/]])  (last visited: [2020-11-20 Fri])
    - *How to get around in the source code tree?* The kernel source is in
         =/usr/src/= directory if you installed it with =sudo apt install linux-source=. There are several ways to browse this huge repository:
-     1. [[https://elixir.bootlin.com/linux/latest/source][https://elixir.bootlin.com]]
+     1. [[https://elixir.bootlin.com/linux/latest/source][https://elixir.bootlin.com]] (last visited: [2020-11-20 Fri])
      2. global (=man global=)
      3. cscope (=man cscope=)
      4. ctags (=man ctags=)
@@ -112,7 +110,7 @@
         - =include/asm-generic/unistd.h=
         - =arch/x86_64/entry.S=
         - =kernel/printk.c=
-     2. Finish lesson 2-6 of [[https://courses.linuxchix.org/kernel-hacking-2002.html][LinuxChix Kernel Hacking Lessons]]. And you are
+     2. Finish lesson 2-6 of [[https://courses.linuxchix.org/kernel-hacking-2002.html][LinuxChix Kernel Hacking Lessons]] (last visited: [2020-11-20 Fri]). And you are
         encouraged to go through lesson 7-9, though it's not mandatory.
    - *Sum up:* In your email message, please answer the following questions.
      1. How many hours you spent in this section?
@@ -122,9 +120,9 @@
 
 ** Hello, kernel module!
    - *Reference* 
-     - [[http://tldp.org/LDP/lkmpg/2.6/html/lkmpg.html#AEN119][The Linux Kernel Module Programming Guide]], 2007
-     - [[http://www.ibm.com/developerworks/linux/library/l-proc/index.html][Access the Linux kernel using the /proc filesystem]], 2006
-     - [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/linux/c/c_dev.html#sec-6][A =Makefile= tutorial]], 2013
+     - [[http://tldp.org/LDP/lkmpg/2.6/html/lkmpg.html#AEN119][The Linux Kernel Module Programming Guide]], 2007.  (last visited: [2020-11-20 Fri])
+     - [[https://developer.ibm.com/technologies/linux/articles/l-proc/][Access the Linux kernel using the /proc filesystem]], 2006.  (last visited: [2020-11-20 Fri])
+     - [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/linux/c/c_dev.html#sec-6][A =Makefile= tutorial]], 2013. (last visited: [2020-11-20 Fri])
    - *Quick start*
      1) Find out the right kernel headers package matching your running kernel:
         : uname -a
@@ -134,7 +132,7 @@
      2) Make a directory to store your =Hello, world!= kernel module
         : mkdir hello-lkm && cd hello-lkm
      3) In =hello-lkm= directory, write a [[file:src/hello-lkm/hello-1.c][hello-1.c]]. (See [[http://tldp.org/LDP/lkmpg/2.6/html/lkmpg.html#AEN119][The Linux Kernel Module
-        Programming Guide]] chapter 2 for details.)
+        Programming Guide]] chapter 2 for details.)  (last visited: [2020-11-20 Fri])
      4) Write a [[file:src/hello-lkm/Makefile][Makefile]]
      5) make
         : make
@@ -174,8 +172,8 @@
      4. Have you learnt anything? Or your time was just wasted?
 * Process Management
   - *Reference*
-    - [[http://www.yolinux.com/TUTORIALS/ForkExecProcesses.html][Fork, Exec and Process control]]
-    - [[http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html][POSIX thread (pthread) libraries]]
+    - [[http://www.yolinux.com/TUTORIALS/ForkExecProcesses.html][Fork, Exec and Process control]] (last visited: [2020-11-20 Fri])
+    - [[http://www.yolinux.com/TUTORIALS/LinuxTutorialPosixThreads.html][POSIX thread (pthread) libraries]] (last visited: [2020-11-20 Fri])
   - *Command line* 
     Get a sense of the following commands:
     1. =ps=
@@ -210,7 +208,7 @@
            : w = waitpid(cpid, &status, WUNTRACED | WCONTINUED);
      2. =system()=, =fork()=, =exec()=
  
-        Compile and run the following 4 programs. Tell me what they do? And [[http://stackoverflow.com/questions/1697440/difference-between-system-and-exec-in-linux][their differences]]?
+        Compile and run the following 4 programs. Tell me what they do? And [[http://stackoverflow.com/questions/1697440/difference-between-system-and-exec-in-linux][their differences]] (last visited: [2020-11-20 Fri])?
         #+BEGIN_SRC c
         #include <stdlib.h>
         #include <stdio.h>
@@ -287,7 +285,7 @@
       - *Your task:*
         - Write a similar program that leaves 5 zombies.
         - Tell me what's the difference between a [[http://en.wikipedia.org/wiki/Zombie_process][zombie process]] and a [[http://en.wikipedia.org/wiki/Orphan_process][orphan process]]?
-        - Read [[http://cs2.swfu.edu.cn/calibre/browse/book/39][Beginning Linux Programming]], Chapter 11, page 503 to learn how to avoid
+        - Read [[https://cs6.swfu.edu.cn/calibre/get/PDF/39/calibre][Beginning Linux Programming]] (last visited: [2020-11-20 Fri]), Chapter 11, page 503 to learn how to avoid
               zombies with =waitpid()= system call. And correct the above program.
         - Tell me the difference between =exit()= and =return=.
    - *Sum up:*  In your email message, please answer the following questions.
@@ -317,14 +315,14 @@
 
 ** IPC
    - *Reference:* 
-     [[http://beej.us/guide/bgipc/][/Beej's Guide to Unix IPC/]]
+     [[http://beej.us/guide/bgipc/][/Beej's Guide to Unix IPC/]] (last visited: [2020-11-20 Fri])
 *** Signals
     - *Reference*
       - /Beej's Guide to Unix IPC/, [[http://beej.us/guide/bgipc/html/multi/signals.html][section 3]]
       - [[file:/usr/src/linux/include/asm-generic/signal.h][signal.h]]
-      - [[http://bytes.com/topic/c/answers/220198-how-understand-function-prototype-signal][How to understand function prototype signal()]]
-      - [[http://www.newty.de/fpt/intro.html][The Function Pointer Tutorials]]
-      - [[http://en.wikipedia.org/wiki/Typedef][typedef]]
+      - [[http://bytes.com/topic/c/answers/220198-how-understand-function-prototype-signal][How to understand function prototype signal()]] (last visited: [2020-11-20 Fri])
+      - [[http://www.newty.de/fpt/intro.html][The Function Pointer Tutorials]] (last visited: [2020-11-20 Fri])
+      - [[http://en.wikipedia.org/wiki/Typedef][typedef]] (last visited: [2020-11-20 Fri])
       - =man 2 signal=, =man 7 signal=
       - =man sigaction=
       - =kill, killall=
@@ -460,7 +458,7 @@
 
 * Memory management
   - *Reference*
-    [[http://www.informit.com/articles/article.aspx?p%3D173438][User-Level Memory Management in Linux Programming]], 2004.
+    [[https://www.informit.com/articles/article.aspx?p=173438][User-Level Memory Management in Linux Programming]], 2004. (last visited: [2020-11-20 Fri])
 ** Basic commands
    1. top
       : top
@@ -561,10 +559,10 @@
     
 * File System 
   - *Reference*
-    - [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/ext2-analysis.html][Ext2 file system analysis]]
-    - [[http://www.nongnu.org/ext2-doc/ext2.html][Ext2 documentation]]
-    - [[http://www.ibm.com/developerworks/linux/library/l-linux-filesystem/][Anatomy of the Linux file system]]
-    - [[http://www.haifux.org/lectures/119/linux-2.4-vfs/index.html][The VFS (Virtual File System) in Linux Kernel V2.4 --- A Play In 5 Acts]]
+    - [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/os/ext2-analysis.html][Ext2 file system analysis]] (last visited: [2020-11-20 Fri])
+    - [[http://www.nongnu.org/ext2-doc/ext2.html][Ext2 documentation]] (last visited: [2020-11-20 Fri])
+    - [[https://developer.ibm.com/technologies/systems/tutorials/l-linux-filesystem/][Anatomy of the Linux file system]] (last visited: [2020-11-20 Fri])
+    - [[http://www.haifux.org/lectures/119/linux-2.4-vfs/index.html][The VFS (Virtual File System) in Linux Kernel V2.4 --- A Play In 5 Acts]] (last visited: [2020-11-20 Fri])
 ** File system creation
    1. Create a initialized file
       : dd if=/dev/zero of=fs.img bs=1k count=10000
@@ -591,7 +589,7 @@
        3. Use =fsck= to get some details about your USB disk.
 ** Finding a file with =hexdump=
    Follow the instructions in
-   http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/ext2-analysis.html#sec-3
+   [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/os/ext2-analysis.html#sec-3]] (last visited: [2020-11-20 Fri])
    to learn how to find a file with =hexdump= in your newly created file system.
    And then answer this question:
    - After you do '=cat hello=' at the command line, you will see on the screen the

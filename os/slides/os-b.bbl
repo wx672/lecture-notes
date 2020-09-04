@@ -40,7 +40,7 @@
       \strng{authornamehash}{2414455c999bc471f803cd14fdea939d}
       \strng{authorfullhash}{2414455c999bc471f803cd14fdea939d}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{3}
@@ -80,7 +80,7 @@
       \strng{authornamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
       \strng{authorfullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{1}
@@ -121,7 +121,7 @@
       \strng{authornamehash}{98936862f22b163b51b14525285c6d69}
       \strng{authorfullhash}{a98d08854c8f941be39faef502dc8019}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{3}
@@ -167,7 +167,7 @@
       \strng{authornamehash}{86038ebedc34a61f7fb0fa7c20088f0a}
       \strng{authorfullhash}{71825fffcb152935f4fa5388976e3ea9}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
@@ -209,12 +209,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Interrupt --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Interrupt --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -246,12 +246,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{System call --- Wikipedia, The Free Encyclopedia}
+      \field{title}{System call --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -288,12 +288,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Process (computing) --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Process (computing) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -325,12 +325,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Thread (computing) --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Thread (computing) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -362,12 +362,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Process control block --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Process control block --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -403,12 +403,12 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Peterson's algorithm --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Peterson's algorithm --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -445,12 +445,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Inter-process communication --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Inter-process communication --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -482,12 +482,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Semaphore (programming) --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Semaphore (programming) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -523,12 +523,12 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Scheduling (computing) --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Scheduling (computing) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -564,12 +564,12 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Deadlock --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Deadlock --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -606,12 +606,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Memory management --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Memory management --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -643,12 +643,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Virtual memory --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Virtual memory --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -685,12 +685,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{File system --- Wikipedia, The Free Encyclopedia}
+      \field{title}{File system --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -722,12 +722,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Computer file --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Computer file --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -759,12 +759,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Inode --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Inode --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -796,12 +796,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{4}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Ext2 --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Ext2 --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -833,12 +833,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{5}
       \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
       \field{lansortorder}{4}
-      \field{title}{Virtual file system --- Wikipedia, The Free Encyclopedia}
+      \field{title}{Virtual file system --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}

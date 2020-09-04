@@ -46,5 +46,6 @@ int main(int argc, char **argv)
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra mq-send.c -o mq-send -lrt" */
+/* compile-command: "gcc -Wall mq-send.c -o mq-send -lrt" */
+/* From: "ltpi, Listing 52-4" */
 /* End: */

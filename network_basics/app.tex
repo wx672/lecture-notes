@@ -11,7 +11,7 @@
   \mode<article>{ \includegraphics[width=.5\textwidth]{HTTP} }
 \end{frame}
 
-\begin{frame}{HTTP Request}
+\begin{frame}{HTTP Request (URL + Verb)}
   \begin{iblock}{URL}
     \centering
     \mode<beamer>{ \includegraphics[width=\textwidth]{Url} }%
@@ -19,7 +19,7 @@
   \end{iblock}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.9\textwidth]{http-Req} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{http-Req} }
+    \mode<article>{ \includegraphics[width=.7\textwidth]{http-Req} }
   \end{center}
   \begin{iblock}{Verbs}
     \begin{tabular}{lllll}
@@ -31,7 +31,7 @@
   \end{iblock}
 \end{frame}
 
-\begin{frame}{HTTP Response}
+\begin{frame}{HTTP Response (Status Code + Message Body)}
   \centering
   \mode<beamer>{ \includegraphics[height=.9\textheight]{http-Res} }%
   \mode<article>{ \includegraphics[width=.5\textwidth]{http-Res} }
@@ -66,11 +66,8 @@
 \begin{frame}{HTTP Transaction}
   \begin{iblock}{Non-persistent --- separate TCP connection}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{http-transaction}
-      } \mode<article>{
-        \includegraphics[width=.7\textwidth]{http-transaction}
-      }
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{http-transaction} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{http-transaction} }
     \end{center}
   \end{iblock}
 \end{frame}
@@ -78,11 +75,8 @@
 \begin{frame}
   \begin{iblock}{Persistent --- same TCP connection}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{persistent-transaction}
-      } \mode<article>{
-        \includegraphics[width=.7\textwidth]{persistent-transaction}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{persistent-transaction} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{persistent-transaction} }
     \end{center}
   \end{iblock}
 \end{frame}
@@ -90,26 +84,20 @@
 \href{http://blog.catchpoint.com/2010/09/17/anatomyhttp/}{Anatomy of an HTTP Transaction}
 
 \begin{frame}{Stateless Protocol}
-  A HTTP server maintains no information about the clients.
-  \begin{iblock}{Advantages}
+  \begin{minipage}{.35\linewidth}
+    A HTTP server maintains no information about the clients.
     \begin{itemize}
-    \item Simplifies server design
-    \item Save server resources (RAM...)
-    \item Serve more users
+    \item[\good] Simplifies server design
+    \item[\good] Save server resources
+    \item[\good] Serve more users
+    \item[\Bad] Missing information
     \end{itemize}
-  \end{iblock}
-  \begin{iblock}{Disadvantages}
-    \begin{itemize}
-    \item Missing information
-    \end{itemize}
-  \end{iblock}
-\end{frame}
-
-\begin{frame}{Keeping User State With Cookies}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[height=.9\textheight]{cookie} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{cookie} }
-  \end{center}
+  \end{minipage}\hfill
+  \begin{minipage}{.6\linewidth}
+    Keeping user state with cookies
+    
+    \includegraphics[width=1.1\textwidth]{cookie}
+  \end{minipage}  
 \end{frame}
 
 See also \citetitle[Sec.~2.2.4, \emph{User-Server Interaction: Cookies}]{kurose2013computer}
@@ -160,11 +148,10 @@ See also:
   \mode<article>{ \includegraphics[width=.5\textwidth]{lamp} }
 \end{frame}
 
-\paragraph{Questions}
-
-  \begin{enumerate}
-  \item What about HTTP over UDP?
-  \end{enumerate}
+Questions:
+\begin{enumerate}
+\item What about HTTP over UDP?
+\end{enumerate}
 
 \begin{frame}[allowframebreaks]{HTTP References}
   \begin{refsection}
@@ -189,6 +176,20 @@ See also:
   \item A name (hostname) can be assigned to any device that has an IP address.
   \item The network software doesn't require names, but they do make it easier for humans
     to use the network.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The DNS Name Space Is Hierarchical}
+  \begin{iblock}{The domain hierarchy is similar to the UNIX filesystem}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{dns_tree.eps} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{dns_tree.eps} }
+    \end{center}\label{fig:dns_tree}
+  \end{iblock}
+  \begin{itemize}
+  \item Organizational: \texttt{com}, \texttt{edu}, \texttt{gov}, \texttt{mil}, \texttt{net},
+    \texttt{org}, \texttt{int}
+  \item Geographic: \texttt{cn}, \texttt{us}, \texttt{uk}, \texttt{jp}, \texttt{de}, etc.
   \end{itemize}
 \end{frame}
 
@@ -218,70 +219,51 @@ See also:
   \end{center}
 \end{frame}
 
-\begin{frame}{The DNS Name Space Is Hierarchical}
-  \begin{iblock}{The domain hierarchy is similar to the UNIX filesystem}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{dns_tree.eps} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{dns_tree.eps} }
-    \end{center}\label{fig:dns_tree}
-  \end{iblock}
+\begin{frame}{Translating Names Into Addresses}
+  Two common ways:
+  \begin{description}
+  \item[Host table] The old way --- \texttt{/etc/hosts}
+  \item[DNS] A distributed database system --- Domain Name Service (DNS)
+  \end{description}
+\end{frame}
+
+\begin{frame}{The Host Table --- \texttt{/etc/hosts}}
+  \begin{center}\ttfamily
+    \begin{tabular}{lll}
+      127.0.0.1       & localhost &                 \\
+      39.129.9.40     & cs6       & cs6.swfu.edu.cn \\
+      202.203.132.245 & cs3       & cs3.swfu.edu.cn \\
+      202.203.132.242 & cs2       & cs2.swfu.edu.cn
+    \end{tabular}
+  \end{center}
+  It's still widely used, because:
   \begin{itemize}
-  \item Organizational: \texttt{com}, \texttt{edu}, \texttt{gov}, \texttt{mil}, \texttt{net},
-    \texttt{org}, \texttt{int}
-  \item Geographic: \texttt{cn}, \texttt{us}, \texttt{uk}, \texttt{jp}, \texttt{de}, etc.
+  \item The important hosts on the local network
+  \item NIS host database
+  \item Local intranet
+  \item In case DNS is not running
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Translating Names Into Addresses}
-  \begin{iblock}{Two common ways:}
-    \begin{description}
-    \item[Host table] The old way. \texttt{/etc/hosts}
-    \item[DNS] A distributed database system --- Domain Name Service (DNS)
-    \end{description}
-  \end{iblock}
-\end{frame}
-
-\begin{frame}{The Host Table}
-  \begin{iblock}{\texttt{/etc/hosts}}
-    \begin{center}
-      \begin{tabular}{lll}
-        \texttt{127.0.0.1}&localhost&\\
-        \texttt{202.203.132.245}&cs3.swfu.edu.cn&cs3\\
-        \texttt{202.203.132.242}&cs2.swfu.edu.cn&cs2
-      \end{tabular}
-    \end{center}
-  \end{iblock}
-  \begin{iblock}{It's still widely used, because:}
-    \begin{itemize}
-    \item The important hosts on the local network
-      \begin{itemize}
-      \item In case DNS is not running
-      \end{itemize}
-    \item NIS host database
-    \item Local intranet
-    \end{itemize}
-  \end{iblock}
-\end{frame}
-
-See also: \citetitle[\emph{RFC 952}]{rfc952}
+See also \citetitle[\emph{RFC 952}]{rfc952}
 
 \begin{frame}{All hosts connected to the Internet should use DNS}
-  \begin{iblock}{The old host table system is inadequate for the global Internet for two
-      reasons:}
+  \begin{iblock}{The old host table system is inadequate for the global Internet}
     \begin{enumerate}
-    \item inability to scale
-    \item lack of an automated update process.
+    \item[\Bad] Inability to scale
+    \item[\Bad] Lack of an automated update process.
     \end{enumerate}
-  \end{iblock}
-  \begin{iblock}{Old story}
-    Prior to adopting DNS, the Network Information Center (NIC) maintained a large table
-    of Internet hosts called the NIC host table. Hosts included in the table were called
-    registered hosts, and the NIC placed hostnames and addresses into this file for all
-    sites on the Internet.
+
+    \begin{description}
+    \item[Old story] Prior to adopting DNS, the Network Information Center (NIC)
+      maintained a large table of Internet hosts called the NIC host table. Hosts included
+      in the table were called registered hosts, and the NIC placed hostnames and
+      addresses into this file for all sites on the Internet.
+    \end{description}    
   \end{iblock}
 \end{frame}
 
-\begin{frame}{Domain Name System}
+\begin{frame}{Domain Name System (DNS)}
   \begin{itemize}
   \item Scales well
     \begin{itemize}
@@ -309,23 +291,18 @@ See also: \citetitle[\emph{RFC 952}]{rfc952}
   \end{description}
 \end{frame}
 
-\begin{frame}{Recursive Query}
-  \begin{iblock}{\texttt{flits.cs.vu.nl} wants to know the IP address of
-      \texttt{linda.cs.yale.edu}}
+\begin{frame}
+  \begin{iblock}{Recursive query}
+    \texttt{cs6.swfu.edu.cn} wants to know the IP address of \texttt{sale.plant.nuts.com}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{dns-recur} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{dns-recur} }
+      \includegraphics[width=\textwidth]{dns-recur}
     \end{center}
   \end{iblock}
-\end{frame}
-
-\begin{frame}{Non-recursive Query}
-  \begin{iblock}{The remote server tells the local server who to ask next}
+  \begin{iblock}{Non-recursive query}
+    The remote server tells the local server who to ask next
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{dns-nonrecur} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{dns-nonrecur} }
+      \includegraphics[width=.8\textwidth]{dns-nonrecur}\label{fig:non_recursive}
     \end{center}
-    \label{fig:non_recursive}
   \end{iblock}
 \end{frame}
 
@@ -371,60 +348,6 @@ See also: \citetitle[\emph{RFC 952}]{rfc952}
 %   \end{iblock}
 % \end{frame}
 
-\begin{frame}{DNS Message Format}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth,height=.35\textheight]{dns-hdr} }%
-    \mode<article>{ \includegraphics[width=.6\textwidth]{dns-hdr} }
-  \end{center}
-  Flags:
-  \begin{multicols}{2}{\scriptsize    
-      \begin{description}
-      \item[QR:] Query/Response
-        \begin{itemize}
-        \item[0:] {\scriptsize query}
-        \item[1:] {\scriptsize response}
-        \end{itemize}
-      \item[OPCODE:] operation type
-        \begin{itemize}
-        \item[0] {\scriptsize a standard query}
-        \item[1] {\scriptsize an inverse query}
-        \item[2] {\scriptsize server status request}
-        \end{itemize}
-      \item[AA:] authoritative answer
-      \item[TC:] truncated. only the first 512 bytes of reply was returned
-      \item[RD:] Recursion Desired
-      \item[RA:] Recursion Available
-      \item[RCODE:] return code. common values:
-        \begin{itemize}
-        \item[0] {\scriptsize no error}
-        \item[3] {\scriptsize name error}
-        \end{itemize}
-    \end{description}}
-\end{multicols}
-\end{frame}
-
-\begin{frame}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{dns-rr-swfu} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{dns-rr-swfu} }
-  \end{center}
-\end{frame}
-
-\begin{frame}{tcpdump}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{tcpdump-dns} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{tcpdump-dns} }
-  \end{center}
-\end{frame}
-
-See also: \citetitle[Sec.~14.4, \emph{A Simple Example}, p196]{fall2011tcp}
-
-\begin{frame}{Resource Records Example}
-  \centering
-  \mode<beamer>{ \includegraphics[height=.9\textheight]{dns-rr2} }%
-  \mode<article>{ \includegraphics[width=.6\textwidth]{dns-rr2} }
-\end{frame}
-
 \begin{frame}{Resource Records}
   \begin{iblock}{What's associated with a domain name?}
     \begin{small}
@@ -446,6 +369,59 @@ See also: \citetitle[Sec.~14.4, \emph{A Simple Example}, p196]{fall2011tcp}
 \end{frame}
 
 See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
+
+\begin{frame}{Resource Records Example}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{dns-rr2} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{dns-rr2} }
+\end{frame}
+
+\begin{frame}{DNS Message Format}
+  \begin{center}
+    \includegraphics[width=\textwidth]{dns-hdr}
+  \end{center}
+
+  \begin{multicols}{2}{\scriptsize 
+      \begin{description}
+      \item[QR:] Query/Response
+        \begin{itemize}
+        \item[0:] {\scriptsize query}
+        \item[1:] {\scriptsize response}
+        \end{itemize}
+      \item[OPCODE:] operation type
+        \begin{itemize}
+        \item[0:] {\scriptsize a standard query}
+        \item[1:] {\scriptsize an inverse query}
+        \item[2:] {\scriptsize server status request}
+        \end{itemize}
+      \item[AA:] authoritative answer
+      \item[TC:] truncated. only the first 512 bytes of reply was returned
+      \item[RD:] Recursion Desired
+      \item[RA:] Recursion Available
+      \item[RCODE:] return code. common values:
+        \begin{itemize}
+        \item[0:] {\scriptsize no error}
+        \item[3:] {\scriptsize name error}
+        \end{itemize}
+      \end{description}}
+\end{multicols}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{dns-rr-swfu} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{dns-rr-swfu} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{tcpdump}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{tcpdump-dns} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{tcpdump-dns} }
+  \end{center}
+\end{frame}
+
+See also: \citetitle[Sec.~14.4, \emph{A Simple Example}, p196]{fall2011tcp}
 
   % \begin{frame}
   %   \begin{iblock}{Resolver}
@@ -631,7 +607,7 @@ See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
     The POP protocols verify the user's login name and password, and move the user's mail
     from the server to the user's local mail reader.
   \end{minipage}\hfill
-  \begin{minipage}{.2\linewidth}
+  \begin{minipage}{.25\linewidth}
     \begin{iblock}{A POP3 Session}
       \centering
       \mode<beamer>{ \includegraphics[width=\columnwidth]{pop3_session} }%
@@ -857,20 +833,23 @@ See also \citetitle[Sec.~2.6.1, \emph{P2P File Distribution}]{kurose2013computer
 \item[peers] --- download chunks of the file from one another.
 \item[seeder] --- the peer who has all the chunks (the whole file).
 \item[leecher] --- the peer who takes without giving.
+\item[Brief workflow:] \,
+  \begin{itemize}
+  \item When a peer joins a swarm, it registers itself with the tracker;
+  \item A peer periodically informs the tracker that it's still in the swarm;
+  \item While a peer downloads chunks, it also uploads chunks to others;
+  \item When a new peer joins a swarm, the tracker randomly select some peers (say 50)
+    from the swarm, and sends their IP addresses to the new peer;
+  \item the new peer makes TCP connections with all these 50 peers. Now they're neighbors;
+  \item Neighbors ask periodically each other for the list of chunks they have;
+  \item Usually each one has a different list, and according to it, they request for
+    chunks they don't have from each other (rarest first);
+  \item higher upload rate results in higher download rate. Leechers will be
+    \emph{choked}.
+  \end{itemize}
 \end{description}
 
-\begin{itemize}
-\item When a peer joins a swarm, it registers itself with the tracker;
-\item A peer periodically informs the tracker that it's still in the swarm;
-\item While a peer downloads chunks, it also uploads chunks to others;
-\item When a new peer joins a swarm, the tracker randomly select some peers (say 50)
-  from the swarm, and sends their IP addresses to the new peer;
-\item the new peer makes TCP connections with all these 50 peers. Now they're neighbors;
-\item Neighbors ask periodically each other for the list of chunks they have;
-\item Usually each one has a different list, and according to it, they request for chunks they
-  don't have from each other (rarest first);
-\item higher upload rate results in higher download rate. Leechers will be \emph{choked}.
-\end{itemize}
+
 
 \begin{frame}{P2P References}
   \begin{refsection}

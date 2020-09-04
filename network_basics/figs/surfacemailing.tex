@@ -1,0 +1,46 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{settings}
+
+\newfontfamily\nerd{DejaVu Sans Mono Nerd Font Complete}
+\newcommand\home{\Huge\nerd }
+\newcommand\mail{\nerd }
+\newcommand\postoffice{\includegraphics[width=3em]{postoffice2}}
+
+\begin{document}
+
+\begin{tikzpicture}[%
+  every node/.style={inner sep=0pt},
+  chain/.style={on chain,join,thick},
+  every label quotes/.style={label position=-85,fill=white},
+  every edge quotes/.style={fill=white},
+  every edge/.style={thick,draw},
+  mail/.style={fill=white}
+  ]
+  {[start chain=1]
+    \node [chain] (src) {\home};
+    \node [chain] (po1) ["昆明"] {\postoffice} edge ["\mail"] (src);
+    \node [chain] (po2) ["贵阳"] {\postoffice};
+    \node [chain] (po3) ["南宁"] {\postoffice};
+    \node [chain] (po33) ["广州"] {\postoffice};
+  }
+  {[start chain=2]
+    \node [chain,above=of po2] (po4) ["重庆"]
+    {\postoffice} edge ["\mail"] (po1) edge (po2) edge (po4);
+    \node [chain] (po5) ["武汉"] {\postoffice} edge (po3)  edge ["\mail"] (po4);
+    \node [chain] (po6) ["上海"] {\postoffice} edge (po33) edge ["\mail"] (po5);
+  }
+  {[start chain=3, on background layer]
+    \node [chain,above=of po4] (po7) ["成都"] {\postoffice} edge (po4) edge (po1);
+    \node [chain] (po8) ["西安"] {\postoffice} edge (po5);
+    \node [chain] (po9) ["太原"] {\postoffice} edge (po6);
+    \node [chain] (po99) ["北京"] {\postoffice} edge ["\mail"] (po6) edge (po33);
+    \node [chain] (dst) {\home} edge ["\mail"] (po99);
+  }
+  
+\end{tikzpicture}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

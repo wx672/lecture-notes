@@ -64,7 +64,7 @@
 \subsection{Terminology}
   
 \begin{frame}{The Name Of A Unit Of Data}
-  \vspace*{-5em}
+  \mode<beamer>{\vspace*{-5em}}
   \begin{minipage}{.47\linewidth}
     \begin{itemize}
     \item[APP] Application message
@@ -108,15 +108,18 @@
 
 \begin{frame}{Examples}
   \begin{iblock}{Unicast, carrying an IP packet}
-    \mode<beamer>{\includegraphics[width=\textwidth]{ethframe3}}%
+    \centering
+    \mode<beamer>{\includegraphics[width=.9\textwidth]{ethframe3}}%
     \mode<article>{\includegraphics[width=.6\textwidth]{ethframe3}}
   \end{iblock}
   \begin{iblock}{Unicast, carrying an ARP packet}
-    \mode<beamer>{\includegraphics[width=\textwidth]{ethframe2}}%
+    \centering
+    \mode<beamer>{\includegraphics[width=.9\textwidth]{ethframe2}}%
     \mode<article>{\includegraphics[width=.6\textwidth]{ethframe2}}
   \end{iblock}
   \begin{iblock}{Broadcast, carrying an ARP packet}
-    \mode<beamer>{\includegraphics[width=\textwidth]{ethframe}}%
+    \centering
+    \mode<beamer>{\includegraphics[width=.9\textwidth]{ethframe}}%
     \mode<article>{\includegraphics[width=.6\textwidth]{ethframe}}
   \end{iblock}
 \end{frame}
@@ -160,7 +163,7 @@
         \end{tabular}}
     \end{iblock}
   \end{minipage}\quad
-  \begin{minipage}{.3\linewidth}
+  \begin{minipage}{.4\linewidth}
     \includegraphics[width=\textwidth]{basic-structure}
   \end{minipage}
 \end{frame}
@@ -229,20 +232,22 @@
 \end{frame}
 
 \begin{frame}{Direct Routing---IP is overhead}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[height=.3\textheight]{direct-routing} }%
-      \mode<article>{ \includegraphics[width=.2\textwidth]{direct-routing} }
-    \end{center}
-  \begin{iblock}{Addresses in an Ethernet frame for an IP packet from A to B}
-    \begin{center}
-      \begin{tabular}{ccc}
-        \toprule
-        address & source & destination\\\midrule
-        IP & A & B\\
-        Eth & A & B\\\bottomrule
-      \end{tabular}
-    \end{center}
-  \end{iblock}
+  \begin{minipage}{.4\linewidth}
+    \mode<beamer>{\includegraphics[width=\textwidth]{direct-routing}}%
+    \mode<article>{\includegraphics[width=.5\textwidth]{direct-routing}}
+  \end{minipage}\qquad
+  \begin{minipage}{.4\linewidth}
+    \begin{iblock}{A \(\Rightarrow\) B}
+      \begin{center}
+        \begin{tabular}{ccc}
+          \toprule
+          Address & Source & Destination\\\midrule
+          IP & A & B\\
+          Eth & A & B\\\bottomrule
+        \end{tabular}
+      \end{center}
+    \end{iblock}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Is IP Necessary?}
@@ -265,32 +270,41 @@
     \end{tikzpicture}}
 \end{frame}
 
-\begin{frame}
-  \begin{iblock}{Addresses in an Ethernet frame for an IP packet from A to E (before D)}
-    \begin{center}
-      \begin{tabular}{ccc}
-        \toprule
-        address & source & destination\\\midrule
-        IP & A & E \\
-        Eth & A & D \\\bottomrule
-      \end{tabular}
-    \end{center}
-  \end{iblock}
-  \begin{iblock}{Addresses in an Ethernet frame for an IP packet from A to E (after D)}
-    \begin{center}
-      \begin{tabular}{ccc}
-        \toprule
-        address & source & destination\\\midrule
-        IP & A & E \\
-        Eth & D & E \\\bottomrule
-      \end{tabular}
-    \end{center}
-  \end{iblock}
-  \mode<beamer>{
-    \begin{tikzpicture}[remember picture, overlay]%
-      \node [opacity=.2,anchor=center,scale=.8,yshift=-1ex] at (current page.south)
-      {\includegraphics{indirect-routing}};
-    \end{tikzpicture}}
+\begin{frame}{A \(\Rightarrow\) E}
+  \begin{minipage}{.45\linewidth}
+    \begin{iblock}{Before D}
+      \begin{center}
+        \begin{tabular}{ccc}
+          \toprule
+          address & source & destination\\\midrule
+          IP & A & E \\
+          Eth & A & D \\\bottomrule
+        \end{tabular}
+      \end{center}
+    \end{iblock}
+  \end{minipage}\qquad
+  \begin{minipage}{.45\linewidth}
+    \begin{iblock}{After D}
+      \begin{center}
+        \begin{tabular}{ccc}
+          \toprule
+          address & source & destination\\\midrule
+          IP & A & E \\
+          Eth & D & E \\\bottomrule
+        \end{tabular}
+      \end{center}
+    \end{iblock}
+  \end{minipage}
+  \mode<beamer>{\begin{iblock}{}
+      \begin{center}
+        \includegraphics[width=.5\linewidth]{indirect-routing}
+      \end{center}
+    \end{iblock}}
+  % \mode<beamer>{
+  %   \begin{tikzpicture}[remember picture, overlay]%
+  %     \node [opacity=.2,anchor=center,scale=.8,yshift=-1ex] at (current page.south)
+  %     {\includegraphics{indirect-routing}};
+  %   \end{tikzpicture}}
 \end{frame}
 
 \begin{frame}{IP Module Routing Rules}
@@ -331,10 +345,29 @@
   \end{iblock}
 \end{frame}
 
-\begin{frame}{Prefix}
-  \centering
-  \mode<beamer>{\includegraphics[width=\textwidth]{prefix2}}%
-  \mode<article>{\includegraphics[width=.7\textwidth]{prefix2}}
+\begin{frame}{Network bits?}
+  \begin{iblock}{Do maths on the first 8 bits}
+    \begin{description}
+    \item[Dst IP:] \texttt{11000000.10101000.10101000.10101000}
+    \end{description}
+    
+    \begin{center}
+      Example route table\\
+      \ttfamily
+      \begin{tabular}{lcc}
+        \hline
+        Destination& Gateway& Iface\\\hline
+        00001010.00000000.00000000.00000000& *& 1\\
+        10101100.00010000.00000000.00000000& *& 2\\
+        11000000.10101000.10101000.00000000& *& 3\\\hline
+      \end{tabular}
+    \end{center}
+  \end{iblock}
+      
+  \begin{iblock}{Prefix --- A faster way to decide network bits}
+    \centering \mode<beamer>{ \includegraphics[width=.8\textwidth]{prefix2} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{prefix2} }
+  \end{iblock}
 \end{frame}
 
 \begin{frame}{Special IP Addresses}
@@ -387,20 +420,21 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
 \end{frame}
 
 \begin{frame}{Direct Routing Details}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[height=.5\textheight]{direct-routing-2} }%
-    \mode<article>{ \includegraphics[width=.3\textwidth]{direct-routing-2} }
-  \end{center}
-
-  \begin{iblock}{The route table inside alpha (simplified)}
-    \begin{center}
-      \begin{tabular}{llcc}
-        \toprule
-        network & flag & router & interface\\\midrule
-        \texttt{development} & \texttt{direct} & & \texttt{1}\\\bottomrule
-      \end{tabular}
-    \end{center}
-  \end{iblock}
+  \begin{minipage}{.4\linewidth}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{direct-routing-2} }%
+    \mode<article>{ \includegraphics[width=.6\textwidth]{direct-routing-2} }
+  \end{minipage}\quad
+  \begin{minipage}{.55\linewidth}
+    \begin{iblock}{The route table inside alpha (simplified)}
+      \begin{center}\ttfamily
+        \begin{tabular}{llcc}
+          \toprule
+          network & flag & router & interface\\\midrule
+          development & direct & * & 1\\\bottomrule
+        \end{tabular}
+      \end{center}
+    \end{iblock}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Homework}
@@ -415,26 +449,26 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
   \mode<article>{ \includegraphics[width=.75\textwidth]{indirect-routing-2} }
 \end{frame}
 
-\begin{frame}{Indirect Routing Details}
+\begin{frame}<beamer>{Indirect Routing Details}
   \begin{minipage}{.5\linewidth}
     \begin{iblock}{The route table inside alpha}
       {\small\ttfamily
-        \begin{tabular}{llcc}
+        \begin{tabular}{llll}
           \toprule
-          \textrm{network} & \textrm{flag} & \textrm{router} & \textrm{interface}\\\midrule
-          223.1.2 & direct & & 1\\
-          223.1.3 & indirect & 223.1.2.4 & 1\\
-          223.1.4 & indirect & 223.1.2.4 & 1\\\bottomrule
+          Network & Flag     & Router    & Iface \\\midrule
+          223.1.2 & direct   & *         & 1         \\
+          223.1.3 & indirect & 223.1.2.4 & 1         \\
+          223.1.4 & indirect & 223.1.2.4 & 1         \\\bottomrule
         \end{tabular}}
     \end{iblock}
     \begin{iblock}{The route table inside delta}
       {\small\ttfamily
-        \begin{tabular}{llcc}
+        \begin{tabular}{llll}
           \toprule
-          \textrm{network} & \textrm{flag} & \textrm{router} & \textrm{interface} \\\midrule
-          223.1.2 & direct & & 1\\
-          223.1.3 & direct & & 3\\
-          223.1.4 & direct & & 2\\\bottomrule
+          Network & Flag     & Router    & Iface \\\midrule
+          223.1.2 & direct   & *         & 1         \\
+          223.1.3 & direct   & *         & 3         \\
+          223.1.4 & direct   & *         & 2         \\\bottomrule
         \end{tabular}}
     \end{iblock}
   \end{minipage}\hfill
@@ -451,6 +485,13 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
   \end{tikzpicture}
 \end{frame}
 
+\begin{frame}{Mail vs. E-mail}
+  \begin{center}
+    \includegraphics[width=.47\textwidth]{surfacemailing}\hfill
+    \includegraphics[width=.5\textwidth]{router4-tikz}
+  \end{center}
+\end{frame}
+
 \begin{frame}{Managing The Routes}
   \begin{itemize}
   \item Manually maintained by administrator
@@ -463,6 +504,12 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{ipv4-hdr} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{ipv4-hdr} }
+  \end{center}
+\end{frame}
+
+\begin{frame}{Fragmentation And Reassembly}
+  \begin{center}
+    \includegraphics[width=\linewidth]{fragmentation}
   \end{center}
 \end{frame}
 
@@ -536,14 +583,35 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
   \end{iblock}
 \end{frame}
 
-\begin{frame}{Example}
+\begin{frame}
+  \begin{block}{Example: Subnetting a Class B Network}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{subnet-172.12.0.0.pdf} }%
+      \mode<article>{ \includegraphics[width=.5\textwidth]{subnet-172.12.0.0.pdf} }
+    \end{center}
+    \CMD{sipcalc -n64 172.12.0.0/22}
+  \end{block}
+  \begin{center}\ttfamily
+    \begin{tabular}{lclc}
+      \hline
+      Dst&GW&Mask&IF\\\hline
+      172.12.0.0&*&255.255.252.0&1\\
+      172.12.4.0&*&255.255.252.0&2\\
+      172.12.8.0&*&255.255.252.0&3\\
+      \ldots\ldots&&&\\
+      Default&*&0.0.0.0&0\\\hline
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Example: VLSM}
   \begin{minipage}{.5\linewidth}
-    \includegraphics[width=1.2\textwidth]{subnetting-example}\\[3ex]
-    {\centering\small
-      \begin{tabular}{rl@{.}l@{.}l@{.}l}
-        CS:&10000000&11010000&1xxxxxxx&xxxxxxxx\\
-        EE:&10000000&11010000&00xxxxxx&xxxxxxxx\\
-        ART:&10000000&11010000&011xxxxx&xxxxxxxx\\
+    \includegraphics[width=1.2\textwidth]{subnetting-example}    \\[3ex]
+    {\centering\small\ttfamily
+      \begin{tabular}{r@{:~}l@{.}l@{.}l@{.}l}
+        CS  & \alert{10000000} & \alert{11010000} & \alert{1}hhhhhhh & hhhhhhhh \\
+        EE  & \alert{10000000} & \alert{11010000} & \alert{00}hhhhhh & hhhhhhhh \\
+        ART & \alert{10000000} & \alert{11010000} & \alert{011}hhhhh & hhhhhhhh \\
       \end{tabular}
     }
   \end{minipage}\hfill
@@ -551,8 +619,6 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
     \includegraphics[width=.9\textwidth]{hierarchy-subnet}
   \end{minipage}
 \end{frame}
-
-See detailed explanation in \citetitle[P.445]{tanenbaum2011computer}.
 
 \begin{frame}{$\mathbf{2^n-2}$}
   \begin{iblock}{Example}
@@ -576,12 +642,11 @@ See detailed explanation in \citetitle[P.445]{tanenbaum2011computer}.
 \end{frame}
 
 \begin{frame}{Subnet Calculator}
-  \begin{iblock}{free IP subnet calculators}
-    Try:
+  \begin{iblock}{Free IP subnet calculators}
     \begin{itemize}
-    \item[\char`~\$]  \texttt{subnetcalc 202.203.132.244/26}
-    \item[\char`~\$]  \texttt{ipcalc 202.203.132.244/26}
-    \item[\char`~\$]  \texttt{sipcalc 202.203.132.244/26}
+    \item[] \CMD{subnetcalc 202.203.132.244/26}
+    \item[] \CMD{ipcalc 202.203.132.244/26}
+    \item[] \CMD{sipcalc 202.203.132.244/26}
     \end{itemize}
   \end{iblock}
 \end{frame}
@@ -597,6 +662,8 @@ See detailed explanation in \citetitle[P.445]{tanenbaum2011computer}.
   \item[Q2:] The route table inside each router?
   \end{itemize}
 \end{frame}
+
+See detailed explanation in \citetitle[P.445]{tanenbaum2011computer}.
 
 \begin{frame}{Subnetting References}
   \begin{refsection}
@@ -630,12 +697,6 @@ From \url{https://searchnetworking.techtarget.com/definition/CIDR}:
   IPv4.
 \end{quote}
 
-\begin{frame}{Two-Level Internet}{Network -- Host}
-  \centering
-  \mode<beamer>{\includegraphics[height=.9\textheight]{2-level-internet}}%
-  \mode<article>{\includegraphics[width=.6\textwidth]{2-level-internet}}
-\end{frame}
-
 \begin{frame}{Running out of IP addresses}
   Using the old addressing scheme, the Internet could support:
   \begin{itemize}
@@ -643,7 +704,12 @@ From \url{https://searchnetworking.techtarget.com/definition/CIDR}:
   \item Plus 65,000 Class B networks that could include up to 65,534 hosts each
   \item Plus over 2 million Class C networks that could include up to 254 hosts each
   \end{itemize}
-  only 3\% of the assigned addresses were actually being used.
+  \begin{minipage}{.79\linewidth}
+    Only 3\% of the assigned addresses were actually being used
+  \end{minipage}
+  \begin{minipage}{.2\linewidth}
+    \includegraphics[width=\textwidth]{addrcls-pie}
+  \end{minipage}  
 \end{frame}
 
 The old classful scheme was very inefficient in IP address allocation especially in class
@@ -656,7 +722,15 @@ class B network thought his business would outgrow the 8-bit host field.
 To handle this problem, subnets were introduced to flexibly assign blocks of addresses within an
 organization.
 
-\begin{frame}{Global Routing Tables At Capacity}
+\begin{frame}{Two-Level Internet: Network-Host}
+  \begin{iblock}{Flat routing --- Global routing tables at capacity}
+    \centering%
+    \mode<beamer>{\includegraphics[height=.7\textheight]{2-level-internet}}%
+    \mode<article>{\includegraphics[width=.6\textwidth]{2-level-internet}}
+  \end{iblock}
+\end{frame}
+
+\begin{frame}<article>{Global Routing Tables At Capacity}
   \begin{itemize}
   \item As the number of networks on the Internet increased, so did the number of routes.
   \item A few years back it was forecasted that the global backbone Internet routers were
@@ -718,30 +792,29 @@ been replaced by 10 lines of subnets.
 \end{frame}
 
 \begin{frame}{Example}
-  \vspace*{-2em}
+  \vspace*{-1.5em}
   \includegraphics[scale=.6]{subnet-194}
 
   \begin{iblock}{IP address assignments}
     {\scriptsize\ttfamily
-      \begin{tabular}{lllll}\toprule
-        \textrm{University}&\textrm{First address}&\textrm{Last address}&\textrm{How many}&\textrm{Prefix}\\\midrule
+      \begin{tabular}{lllll}\hline
+        University&First address&Last address&IPs&Network\\\hline
         Cambridge&192.24.0.0&192.24.7.255&2048&192.24.0.0/21\\
         Edinburgh&192.24.8.0&192.24.11.255&1024&192.24.8.0/22\\
         (Available)&192.24.12.0&192.24.15.255&1024&192.24.12.0/22\\
-        Oxford&192.24.16.0&192.24.31.255&4096&192.24.16.0/20\\\bottomrule
+        Oxford&192.24.16.0&192.24.31.255&4096&192.24.16.0/20\\\hline
       \end{tabular}}
   \end{iblock}  
-  \vspace*{-1em}
+%  \vspace*{-1em}
   \begin{minipage}{.4\linewidth}
     \begin{iblock}{London}
       {\ttfamily\scriptsize
-      \begin{tabular}{llll}\hline
-        Destination&Flag&GW&Iface\\\hline
-        \ldots&\ldots&\ldots&\ldots\\
-        192.24.0.0/21&direct&*&1\\
-        192.24.8.0/22&direct&*&3\\
-        192.24.16.0/20&direct&*&2\\
-        \ldots&\ldots&\ldots&\ldots\\\hline
+      \begin{tabular}{lll}\hline
+        Destination&GW&Iface\\\hline
+        192.24.0.0/21&*&1\\
+        192.24.8.0/22&*&3\\
+        192.24.16.0/20&*&2\\
+        \ldots&&\\\hline
       \end{tabular}}
     \end{iblock}    
   \end{minipage}\hfill
@@ -750,17 +823,17 @@ been replaced by 10 lines of subnets.
   \end{minipage}
 \end{frame}
 
-In this example, a block of addresses (192.24.0.0 \char`~ 192.24.31.255) in a class B
+In this example, a block of addresses (\texttt{192.24.0.0 \char`~ 192.24.31.255}) in a class B
 network has been split into 3 subnets. The routing table inside the router in London
 should look like this:
 \begin{center}
   \begin{tabular}{llll}\toprule
     Destination&Flag&Gateway&Iface\\\midrule
-    \ldots&\ldots&\ldots&\ldots\\
+    \ldots&&&\\
     192.24.0.0/21&direct&*&1\\
     192.24.8.0/22&direct&*&3\\
     192.24.16.0/20&direct&*&2\\
-    \ldots&\ldots&\ldots&\ldots\\
+    \ldots&&&\\\hline
   \end{tabular}
 \end{center}
 
@@ -773,11 +846,11 @@ While the routing table inside the router in New York...
         \begin{tabular}{llll}
           \toprule
           Destination&Flag&Gateway&Interface\\\midrule
-          \ldots&\ldots&\ldots&\ldots\\
+          \ldots&&&\\
           192.24.0.0/21&indirect&London&1\\
           192.24.8.0/22&indirect&London&1\\
           192.24.16.0/20&indirect&London&1\\
-          \ldots&\ldots&\ldots&\ldots\\\bottomrule
+          \ldots&&&\\\bottomrule
         \end{tabular}}
     \end{center}
     Option 2:
@@ -785,9 +858,9 @@ While the routing table inside the router in New York...
         \begin{tabular}{llll}
           \toprule
           Destination&Flag&Gateway&Interface\\\midrule
-          \ldots&\ldots&\ldots&\ldots\\
+          \ldots&&&\\
           192.24.0.0/19&direct&*&1\\
-          \ldots&\ldots&\ldots&\ldots\\\bottomrule
+          \ldots&&&\\\bottomrule
         \end{tabular}}
     \end{center}
   \end{iblock}
@@ -797,25 +870,30 @@ Obviously option 2 is better since it presents a smaller routing table comparing
 one in option 1 by using route aggregation. All the three routes in option 1 have been
 covered by the one in option 2.
 
-\begin{frame}{Longest Matching Prefix}
-\begin{center}
-  \mode<beamer>{ \includegraphics[width=\textwidth]{longest-matching-prefix} }%
-  \mode<article>{ \includegraphics[width=.6\textwidth]{longest-matching-prefix} }
-\end{center}
-The router in New York
-\begin{center}\ttfamily{
-  \begin{tabular}{llll}
-    \toprule
-    Destination&Flag&Gateway&Interface\\\midrule
-    \ldots&\ldots&\ldots&\ldots\\
-    192.24.0.0/19&direct&*&1\\
-    192.24.12.0/22&direct&*&2\\
-    \ldots&\ldots&\ldots&\ldots\\\bottomrule
-  \end{tabular}}
-\end{center}
+\begin{frame}
+  \begin{block}{Given dst addr: \texttt{192.24.12.8}, how to route it?}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{longest-matching-prefix} }%
+      \mode<article>{ \includegraphics[width=.6\textwidth]{longest-matching-prefix} }
+    \end{center}
+    The /22 is a subnet inside /19.
+  \end{block}  
+  \begin{block}{Longest Matching Prefix}
+    The router in New York:
+    \begin{center}
+      \small\ttfamily
+      \begin{tabular}{llll}
+        \toprule
+        Destination&Flag&Gateway&Interface\\\midrule
+        192.24.0.0/19&direct&*&1\\
+        192.24.12.0/22&direct&*&2\\
+        \ldots&&&\\\bottomrule
+      \end{tabular}
+    \end{center}
+  \end{block}
 \end{frame}
 
-The /22 is a subnet inside /19.
+%The /22 is a subnet inside /19.
 
 % \begin{frame}
 %   \begin{iblock}{User Impacts}
@@ -893,6 +971,7 @@ the appropriate laptop by consulting the NAT table.
 
 
 \begin{frame}{Why IPv6?}
+  \begin{minipage}{.54\linewidth}
   \begin{iblock}{No enough addresses!}
     Kidding? We have:
     \begin{itemize}
@@ -908,11 +987,12 @@ the appropriate laptop by consulting the NAT table.
     \item Latin America: 10 June 2014
     \end{itemize}
   \end{iblock}
+  \end{minipage}\hfill
+  \begin{minipage}{.45\linewidth}
+    \includegraphics[width=\textwidth]{ipv4-exhaustion}
+  \end{minipage}
+
   So, we need a larger address space ($2^{128}$).
-  \mode<beamer>{
-  \tikz[baseline,overlay]{
-    \node [scale=.35,opacity=.1, at=(current page.center), xshift=-15cm,yshift=-2cm] {
-      \includegraphics{ipv4-exhaustion}}}}
 \end{frame}
 
 \begin{frame}{$2^{128}$}
@@ -924,21 +1004,14 @@ the appropriate laptop by consulting the NAT table.
     \end{itemize}
   \end{iblock}
   \begin{iblock}{Why not higher?}
-    \begin{itemize}
-    \item More bits {\dejavu ➠} bigger header {\dejavu ➠} more overhead
-    \item max MTU on Ethernet is 1500 octets
-    \end{itemize}
+    More bits {\dejavu ➠} bigger header {\dejavu ➠} more overhead
+    % \begin{itemize}
+    % \item 
+    % \item max MTU on Ethernet is 1500 octets
+    % \end{itemize}
     \begin{center}
       \begin{tabular}{cccc}\toprule        
-        &
-          \begin{tabular}{c}
-            min MTU\\
-            (octets)
-          \end{tabular} &
-                          \begin{tabular}{c}
-                            header length\\
-                            (octets)
-                          \end{tabular} & overhead \\\midrule
+        &\makecell{min MTU\\(octets)}&\makecell{header length\\(octets)}& overhead \\\midrule
         IPv4 & 576 & 20\char`~60 & 3.4\% \\
         IPv6 & 1280 & 40 & 3.8\% \\\bottomrule
       \end{tabular}
@@ -961,7 +1034,7 @@ the appropriate laptop by consulting the NAT table.
   \begin{iblock}{More than a larger address space ($2^{128}$)}
     \begin{itemize}
     \item Simplified header makes routing faster
-    \item End-to-end connectivity
+    \item End-to-end connectivity (public IP for everyone)
     \item Auto-configuration
     \item No broadcast
     \item Anycast
@@ -973,24 +1046,30 @@ the appropriate laptop by consulting the NAT table.
   \end{iblock}
 \end{frame}
 
-\subsubsection{The IPv6 header}
+\begin{frame}{Deployment (2018)}
+  \begin{minipage}{.48\linewidth}
+    \begin{iblock}{\(>15\%\): 24 countries}
+      \includegraphics[width=\textwidth]{ipv6deployment-15}
+    \end{iblock}
+  \end{minipage}
+  \begin{minipage}{.48\linewidth}
+    \begin{iblock}{\(>5\%\): 49 countries}
+      \includegraphics[width=\textwidth]{ipv6deployment-5}
+    \end{iblock}
+  \end{minipage}
+  \begin{refsection}
+    \nocite{rfc2460} \printbibliography[heading=none]
+  \end{refsection}
+  1998 --- 2018, what took it so long?
+\end{frame}
 
-% \begin{frame}{Review: IPv4 Header}
-%   \includegraphics[width=\textwidth]{ipv4-hdr}
-% \end{frame}
+\subsubsection{The IPv6 header}
 
 \begin{frame}{Simplification}
   \centering
   \mode<beamer>{ \includegraphics[height=.9\textheight]{hdrs} }%
   \mode<article>{ \includegraphics[width=.5\textwidth]{hdrs} }
 \end{frame}
-
-% \begin{frame}{IPv6 Header}
-%   \begin{center}
-%     \mode<beamer>{ \includegraphics[width=.9\textwidth]{ipv6-hdr} }%
-%     \mode<article>{ \includegraphics[width=.5\textwidth]{ipv6-hdr} }
-%   \end{center}
-% \end{frame}
 
 See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~458]{tanenbaum2011computer}.
 
@@ -1422,6 +1501,24 @@ changes back to cut-through switching.
 \item \url{https://computer.howstuffworks.com/lan-switch13.htm}
 \end{itemize}
 
+\begin{enumerate}
+\item A packet is sent from Node B to Node A;
+\item Switch A has no knowledge of Node A, it floods Seg A and Seg C;
+\item Assuming both Switch B and Switch C have no record of Node A. They will:
+  \begin{enumerate}
+  \item Update their forwarding table respectively by adding a record of Node B;
+  \item Flood Seg B looking for Node A.
+  \end{enumerate}
+\item Both Switch B and Switch C will see this packet. Then,
+  \begin{enumerate}
+  \item Switch B will flood Seg A; Switch C will flood Seg C, because they still don't
+    know who Node A is.
+  \item Update their forwarding table respectively by adding a record
+    of Node A \emph{only if Node A is up and respond to the received message}.
+  \end{enumerate}
+\item Switch A gets the floods from both Seg A and Seg C, and floods it out again.
+\end{enumerate}
+
 \begin{frame}
   \begin{description}
   \item[Spanning Tree Protocol (STP)] is a network protocol that ensures a loop-free
@@ -1434,7 +1531,7 @@ changes back to cut-through switching.
 \end{frame}
 
 \begin{frame}<beamer>{Algorhyme}
-  \begin{minipage}{.68\linewidth}
+  \begin{minipage}{.55\linewidth}
     \begin{verse}
       I think that I shall never see\\
       A graph more lovely than a tree.\\[1ex]
@@ -1451,7 +1548,7 @@ changes back to cut-through switching.
     \end{verse}
     \begin{flushright}{\footnotesize --- Radia Perlman\hspace{3em}}\end{flushright}    
   \end{minipage}
-  \begin{minipage}{.3\linewidth}
+  \begin{minipage}{.4\linewidth}
     \includegraphics[width=\textwidth]{radia}
   \end{minipage}
 \end{frame}
@@ -1555,13 +1652,14 @@ See also: \citetitle{web:switch, web:tb, wiki:stp}
   The iptables tool inserts/deletes rules from the kernel's packet filtering table.
 \end{frame}
 
-\begin{frame}{Quick Start}
-  \begin{iblock}{Debian/Ubuntu users can do:}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{quick} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{quick} }
-    \end{center}
-  \end{iblock}
+\begin{frame}{Iptables}
+  \begin{itemize}
+  \item[\$] \cmd{sudo apt install iptables}
+  \item[\$] \cmd{sudo iptables -A INPUT -s 147.8.212.123 -p all -j DROP}
+  \item[\$] \cmd{sudo iptables -D INPUT -s 147.8.212.123 -p all -j DROP}
+  \item[\$] \cmd{man iptables}
+  \item[\$] \cmd{qutebrowser http://www.netfilter.org/documentation/}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Terminology}
@@ -1591,36 +1689,46 @@ See also: \citetitle{web:switch, web:tb, wiki:stp}
 
 \begin{frame}{Using iptables}
   To manage whole chains:
-  \begin{enumerate}
-  \item Create a \underline{n}ew chain (\texttt{-N}).
-  \item Delete an empty chain (\texttt{-X}).
-  \item Change the \underline{p}olicy for a built-in chain. (\texttt{-P}).
-  \item \underline{L}ist the rules in a chain (\texttt{-L}).
-  \item \underline{F}lush the rules out of a chain (\texttt{-F}).
-  \item \underline{Z}ero the packet and byte counters on all rules in a chain (\texttt{-Z}).
-  \end{enumerate}
+  \begin{itemize}
+  \item[\texttt{-N}] Create a \underline{n}ew chain.
+  \item[\texttt{-X}] Delete an empty chain.
+  \item[\texttt{-P}] Change the \underline{p}olicy for a built-in chain.
+  \item[\texttt{-L}] \underline{L}ist the rules in a chain.
+  \item[\texttt{-F}] \underline{F}lush the rules out of a chain.
+  \item[\texttt{-Z}] \underline{Z}ero the packet and byte counters on all rules in a chain.
+  \end{itemize}
   To manipulate rules inside a chain:
-  \begin{enumerate}
-  \item \underline{A}ppend a new rule to a chain (\texttt{-A}).
-  \item \underline{I}nsert a new rule at some position in a chain (\texttt{-I}).
-  \item \underline{R}eplace a rule at some position in a chain (\texttt{-R}).
-  \item \underline{D}elete a rule at some position in a chain, or the first that matches
-    (\texttt{-D}).
-  \end{enumerate}
+  \begin{itemize}
+  \item[\texttt{-A}] \underline{A}ppend a new rule to a chain.
+  \item[\texttt{-I}] \underline{I}nsert a new rule at some position in a chain.
+  \item[\texttt{-R}] \underline{R}eplace a rule at some position in a chain.
+  \item[\texttt{-D}] \underline{D}elete a rule at some position in a chain, or the first that matches.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Examples}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{exp1} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{exp1} }
-  \end{center}
+  \begin{itemize}
+  \item[\$] \cmd{ping 127.0.0.1}
+  \item[\$] \cmd{sudo iptables -A INPUT -s 127.0.0.1 -p icmp -j DROP}
+  \item[\$] \cmd{sudo iptables -D INPUT -s 127.0.0.1 -p icmp -j DROP}
+  \item[\$] \cmd{sudo iptables -A INPUT -s ! 127.0.0.1 -p all -j DROP}
+  \item[\$] \cmd{sudo iptables -A INPUT -s 192.168.1.0/24 -p all -j DROP}
+  \end{itemize}
 \end{frame}
 
-\begin{frame}{More Examples}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{exp2} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{exp2} }
-  \end{center}
+\begin{frame}{More Examples}\small
+  \begin{itemize}
+  \item[\$] \cmd{\# Syn-flood protection:}
+  \item[\$] \cmd{sudo iptables -A FORWARD -p tcp --syn -m limit --limit 1/s -j ACCEPT}
+  \item[]
+  \item[\$] \cmd{\# Furtive port scanner:}
+  \item[\$] \cmd{sudo iptables -A FORWARD -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit
+      --limit 1/s -j ACCEPT}
+  \item[]
+  \item[\$] \cmd{\# Ping of death:}
+  \item[\$] \cmd{sudo iptables -A FORWARD -p icmp --icmp-type echo-request -m limit
+      --limit 1/s -j ACCEPT}
+  \end{itemize}
 \end{frame}
 
 See also: \citetitle{wiki:iptables}

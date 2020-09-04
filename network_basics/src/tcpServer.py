@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 
 from socket import *
 serverPort = 12000
@@ -13,4 +13,4 @@ while 1:
     sentence = connectionSocket.recv(1024)
     capitalizedSentence = sentence.upper()
     connectionSocket.send(capitalizedSentence)
-#    connectionSocket.close()
+    connectionSocket.close()

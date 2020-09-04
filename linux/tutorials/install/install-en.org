@@ -35,13 +35,13 @@ especially [[https://www.debian.org/releases/stretch/amd64/ch03s06.html.en][Sect
         If you are still confused, you should read the [[http://mirrors.163.com/debian-cd/current/amd64/iso-cd/HEADER.html][=HEADER.html=]] file in that directory.
    2) Preparing the bootable USB stick is quite simple with a Debian machine.
       : sudo cp debian-9.5.0-amd64-netinst.iso /dev/sdX
-      : sudo sync
+      : sync
       *Caution*
       - Replace =debian-9.5.0-amd64-netinst.iso= with your iso file name;
       - Replace =X= with your USB drive letter. It's probably =b= or =c=.  you can use
         the command =lsblk= to check it for sure.
 2. Unplug the Ethernet cable, and then reboot your laptop from USB stick. Following the
-   screen instructions, it takes probably half an hour to get a /minimal/ Debian
+   screen instructions, it takes approximately half an hour to get a /minimal/ Debian
    system installed.
    - The only tricky part of the installation is how to partition your hard
      disk. Well, if you are installing a Debian only system like me, you can simply follow
@@ -50,9 +50,61 @@ especially [[https://www.debian.org/releases/stretch/amd64/ch03s06.html.en][Sect
      Installation Guide/]], especally the following sections:
      - [[https://www.debian.org/releases/stretch/amd64/ch03s05.html.en][Section 3.5 /Pre-Partitioning for Multi-Boot Systems/]]
      - [[https://www.debian.org/releases/stretch/amd64/ch06s03.html.en#di-partition][Section 6.3.3 /Partitioning and Mount Point Selection/]]
-3. Now, unplug the USB stick, and reboot.
+   - When you are prompted "Loading missing firmware", choose <No> to bypass it.
+   - When you see "Configure the network", choose "Cancel" until you see "Do not configure
+     the network at this time".
+   - When you are prompted "Root password:", don't set root password, just hit <ENTER> to
+     bypass this step.
+   - When you are asked "continue without a network mirror?", choose <Yes>.
+3. When the installation of minimal system is done, unplug the USB stick and reboot.
 
 * More than minimal
+
+** Good news
+Now you can just download and run [[https://cs6.swfu.edu.cn/~wx672/debian-install/install.sh][this little script]] to finish the full installation.
+- download:
+  : cd
+  : scp fai@cs6.swfu.edu.cn:install.sh ./
+  : fai@cs6.swfu.edu.cn's password: fai
+  
+- to run it:
+  : chmod +x install.sh
+  : ./install.sh
+
+- Upon finishing the installation, reboot. If everything goes well, you should see a black
+  screen with a rather big mouse cursor showing at the center of your screen, and nothing
+  else.
+
+  NOTE: If the big mouse cursor doesn't shown up as expected, that probably means the Xorg
+  doesn't work well. This usually has something to do with the graphic card driver
+  (Nvidia?). In this unlucky case, try disable Nvidia graphic card by removing its driver,
+  and use the built-in graphic card instead.
+  #+begin_src sh
+    sudo apt purge xserver-xorg-video-nvidia xserver-xorg-video-nouveau
+  #+end_src
+
+  use command =lspci= to find out what built-in graphic card you have.
+  In case of an Intel card:
+  #+begin_src sh
+    sudo apt install xserver-xorg-video-intel
+  #+end_src
+
+  For an AMD card:
+  #+begin_src sh
+    sudo apt install xserver-xorg-video-amdgpu
+  #+end_src
+       
+  After that, reboot. If it's still not working, google for more help.
+
+  If you are lucky enough to see the big mouse cursor showing at the center of the black screen, you can:
+  1. =Super-t= to bring up a terminal.
+  2. =Super-F1= to show the cheat sheet.
+  3. use =nmtui= to activate your wifi.
+  4. trigger Chinese input (fcitx) by hitting =Shift-space=. If it doesn't work, you can try =fcitx-configtool=. 
+  
+  Have fun!
+
+** The old way
 You can't expect too much from a minimal system, right? So, let there be more
 application programs.
 1. Login with your username and password. Now you should see a =$= sign on the screen
@@ -111,16 +163,25 @@ application programs.
    1) Get the software list. *Caution:* /Do NOT be ROOT to do this step!/ That means you
       should type =exit= to quit the root shell. When you see the =$= prompt, you can
       now download the software list file using =wget=:      
-      : wget http://cs6.swfu.edu.cn/~wx672/debian-install/list.laptop
+      : wget http://cs6.swfu.edu.cn/~wx672/debian-install/01-important
    2) Install all the software packages listed in the file in batch.
       : su
-      : apt install $(cat list.laptop)
+      : apt install $(cat 01-important)
 
       This step takes about an hour with a speedy network connection.
 
       Somewhere in the installation process, you will be asked to answer [Yes/no], if
       you are not sure, just type =Enter= to let it go.
+   3) Now, install some more though not mandatory. Again, /Do NOT be ROOT to use wget!/
+      : wget http://cs6.swfu.edu.cn/~wx672/debian-install/02-recommend
       
+      If you need Chinese support:
+      : wget http://cs6.swfu.edu.cn/~wx672/debian-install/03-chinese
+
+      : su
+      : apt install $(cat 02-recommend)
+      : apt install $(cat 03-chinese)
+
 ** Configuration
 
 *** sudo
@@ -163,11 +224,6 @@ necessory config files in it. Still some more things to do...
    : rename 's/dot//' dot.*
    : ls -al
    All the =dot.*= files should be replaced by =.= prefixed files now.
-5) Grab my wallpaper.
-   : $ wget -O .keys.png https://cs6.swfu.edu.cn/~wx672/debian-install/keys.png
-   After reboot (don't do it now) you should be able to bring up this wallpaper by typing
-   =Super-F1=. (=Super= key can be found at the lower left area of your keyboard. It's
-   usually marked as a =Win= key.)
 6) Grab my Emacs packages.
    : wget http://cs6.swfu.edu.cn/~wx672/debian-install/elpa.tgz
    : mv elpa.tgz ~/.emacs.d/
@@ -194,7 +250,7 @@ Now, it's time to reboot your system.
 Now what? Well, it actually depends on what you want to do with your new
 system. A computer is just a tool for problem solving. If you don't have any problem, you
 don't need it.
-*** Backlight
+*** Screen backlight
 Usually there are function keys for changing screen backlight on laptops. If these keys
 don't work, you can try:
 1. whether these keys can be recognized by =xev=. If so,

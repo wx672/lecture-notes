@@ -1,4 +1,4 @@
-int f();
+#include "f.h"
 
 int main(int argc, char *argv[])
 {

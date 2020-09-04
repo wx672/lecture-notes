@@ -36,11 +36,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Computer network --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Computer network --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -84,13 +85,14 @@
       \strng{authornamehash}{c41ec4da1d381eb9c18b88fcfa4a0fa8}
       \strng{authorfullhash}{c41ec4da1d381eb9c18b88fcfa4a0fa8}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This document presents a history of the Internet in timeline fashion, highlighting some of the key events and technologies which helped shape the Internet as we know it today. A growth summary of the Internet and some associated technologies is also included. This memo provides information for the Internet community. It does not specify an Internet standard of any kind.}
       \field{howpublished}{RFC 2235 (Informational)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{11}
       \field{number}{2235}
       \field{series}{Internet Request for Comments}
@@ -131,11 +133,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Google --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Google --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -166,11 +169,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Internet protocol suite --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Internet protocol suite --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -201,11 +205,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{4}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Don't be evil --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Don't be evil --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -236,11 +241,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{5}
       \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{List of Google products --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{List of Google products --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -271,11 +277,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{6}
       \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Internet Explorer --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Internet Explorer --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -306,11 +313,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{7}
       \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Baidu --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Baidu --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -341,11 +349,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{8}
       \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Malware --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Malware --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -376,11 +385,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{9}
       \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Computer virus --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Computer virus --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -411,11 +421,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{10}
       \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Adware --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Adware --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -446,11 +457,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{11}
       \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Spyware --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Spyware --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -481,11 +493,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{12}
       \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Computer worm --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Computer worm --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -516,11 +529,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{13}
       \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Trojan horse (computing) --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Trojan horse (computing) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -551,11 +565,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{14}
       \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Network topology --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Network topology --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -586,11 +601,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{15}
       \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Network architecture --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Network architecture --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -618,19 +634,16 @@
            giveni={C\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{75aac230a1fc1b462f04b6b39229cf24}
       \strng{fullhash}{a10bad6b381e336f58fe52b36a2ed603}
@@ -639,33 +652,26 @@
       \strng{authornamehash}{75aac230a1fc1b462f04b6b39229cf24}
       \strng{authorfullhash}{a10bad6b381e336f58fe52b36a2ed603}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This RFC is a tutorial on the TCP-IP protocol suite, focusing particularly on the steps in forwarding an IP datagram from source host to destination host through a router. It does not specify an Internet standard.}
       \field{howpublished}{RFC 1180 (Informational)}
-      \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{1}
       \field{number}{1180}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{TCP/IP tutorial}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{1991}
       \field{dateera}{ce}
-      \field{pages}{1\bibrangedash 28}
-      \range{pages}{28}
-      \verb{doi}
-      \verb 10.17487/RFC1180
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc1180.txt
+      \verb http://www.ietf.org/rfc/rfc1180.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc1180.txt
+      \verb http://www.ietf.org/rfc/rfc1180.txt
       \endverb
       \keyw{rfc1180}
     \endentry
@@ -695,11 +701,13 @@
       \strng{authornamehash}{f5a31ae68ec79f3099675439ece611b1}
       \strng{authorfullhash}{a833a2a1f156ae428de4e6d7a6804954}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{edition}{5}
       \field{isbn}{9780132126953}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Computer Networks}
       \field{usera}{M}
       \field{userd}{english}
@@ -707,10 +715,10 @@
       \field{year}{2011}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/29/calibre
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/29/calibre
       \endverb
       \keyw{tanenbaum2011computer}
     \endentry
@@ -740,11 +748,12 @@
       \strng{authornamehash}{f24e4ac456416d2ae7904782f827d22a}
       \strng{authorfullhash}{7af9d40c3e74f82452e1c82d887d7fb0}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9780132856201}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{series}{Always learning}
       \field{title}{Computer Networking: A Top-down Approach}
       \field{usera}{M}
@@ -753,10 +762,10 @@
       \field{year}{2013}
       \field{dateera}{ce}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/27/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/27/calibre
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/27/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/27/calibre
       \endverb
       \keyw{kurose2013computer}
     \endentry
@@ -790,13 +799,14 @@
       \strng{authornamehash}{91504cc3182638535ddad341d85b865b}
       \strng{authorfullhash}{91504cc3182638535ddad341d85b865b}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This RFC is an official specification for the Internet community. It incorporates by reference, amends, corrects, and supplements the primary protocol standards documents relating to hosts. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 1122 (Internet Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{10}
       \field{note}{Updated by RFCs 1349, 4379, 5884, 6093, 6298, 6633, 6864, 8029}
       \field{number}{1122}
@@ -856,13 +866,14 @@
       \strng{authornamehash}{835f934638d6d48e7dd0b21e350f71a3}
       \strng{authorfullhash}{ea57bb2462c129e58297b5b07a9dc475}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This Network Working Group Request for Comments documents the currently assigned values from several series of numbers used in network protocol implementations. This RFC will be updated periodically, and in any case current information can be obtained from Joyce Reynolds. The assignment of numbers is also handled by Joyce. If you are developing a protocol or application that will require the use of a link, socket, port, protocol, network number, etc., please contact Joyce to receive a number assignment. This memo is an official status report on the numbers used in protocols in the ARPA-Internet community. See RFC-990 and 997.}
       \field{howpublished}{RFC 943 (Historic)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{4}
       \field{note}{Obsoleted by RFC 960}
       \field{number}{943}
@@ -906,10 +917,11 @@
       \strng{authorfullhash}{1ae6c145889a77a5cd3467e79fbb9dc9}
       \field{extraname}{1}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{2}
       \field{note}{[Online; accessed 26 March 2015]}
       \field{title}{How Network Address Translation Works --- HowStuffWorks.com}
@@ -943,11 +955,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{16}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Network address translation --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Network address translation --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -996,13 +1009,14 @@
       \strng{authornamehash}{1f12a2dbf692dde3984f35ee1f8e3e87}
       \strng{authorfullhash}{8a405a1dbe7a3a8c065b3ce421c1093e}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This memo proposes another short-term solution, address reuse, that complements CIDR or even makes it unnecessary. The address reuse solution is to place Network Address Translators (NAT) at the borders of stub domains. This memo provides information for the Internet community. This memo does not specify an Internet standard of any kind.}
       \field{howpublished}{RFC 1631 (Informational)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{5}
       \field{note}{Obsoleted by RFC 3022}
       \field{number}{1631}
@@ -1046,10 +1060,11 @@
       \strng{authorfullhash}{1ae6c145889a77a5cd3467e79fbb9dc9}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{1}
       \field{note}{[Online; accessed 25 March 2015]}
       \field{title}{How LAN Switches Work --- HowStuffWorks.com}
@@ -1082,10 +1097,11 @@
       \strng{authornamehash}{7b1d1185b835814de783483f686e9825}
       \strng{authorfullhash}{7b1d1185b835814de783483f686e9825}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{10}
       \field{note}{[Online; accessed 25 March 2015]}
       \field{title}{Transparent Bridging --- Cisco DocWiki}
@@ -1119,11 +1135,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{17}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Spanning Tree Protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Spanning Tree Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1155,11 +1172,12 @@
       \strng{authornamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
       \strng{authorfullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Iptables --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Iptables --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1190,11 +1208,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{18}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Transmission Control Protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Transmission Control Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1217,19 +1236,16 @@
            giveni={J\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
       \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
@@ -1239,35 +1255,29 @@
       \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
       \field{extraname}{1}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{RFC 793 (Internet Standard)}
-      \field{issn}{2070-1721}
+      \field{howpublished}{RFC 793 (INTERNET STANDARD)}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{9}
       \field{note}{Updated by RFCs 1122, 3168, 6093, 6528}
       \field{number}{793}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{Transmission Control Protocol}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{1981}
       \field{dateera}{ce}
-      \field{pages}{1\bibrangedash 91}
-      \range{pages}{91}
-      \verb{doi}
-      \verb 10.17487/RFC0793
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc793.txt
+      \verb http://www.ietf.org/rfc/rfc793.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc793.txt
+      \verb http://www.ietf.org/rfc/rfc793.txt
       \endverb
-      \keyw{TCP,TCP,Updated by RFCs 1122,3168,6093,6528}
+      \keyw{rfc793,Updated by RFCs 1122,3168,6093,6528}
     \endentry
     \entry{rfc1323}{online}{}
       \name{author}{3}{}{%
@@ -1309,13 +1319,14 @@
       \strng{authornamehash}{d91c5027c55fb75c6a2f13e494a6ac61}
       \strng{authorfullhash}{c603d2f6e0781c0c9fc5e4db7ad2a3ed}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This memo presents a set of TCP extensions to improve performance over large bandwidth*delay product paths and to provide reliable operation over very high-speed paths. It defines new TCP options for scaled windows and timestamps, which are designed to provide compatible interworking with TCP's that do not implement the extensions. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 1323 (Proposed Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{5}
       \field{note}{Obsoleted by RFC 7323}
       \field{number}{1323}
@@ -1385,13 +1396,14 @@
       \strng{authornamehash}{3e21b95784ecf870c791becd2a854daa}
       \strng{authorfullhash}{02529c98dbfb82edb5dcc05d060dbc5f}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This memo proposes an implementation of SACK and discusses its performance and related issues. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 2018 (Proposed Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{10}
       \field{number}{2018}
       \field{series}{Internet Request for Comments}
@@ -1446,13 +1458,14 @@
       \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
       \field{extraname}{2}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This RFC discusses the TCP Maximum Segment Size Option and related topics. The purposes is to clarify some aspects of TCP and its interaction with IP. This memo is a clarification to the TCP specification, and contains information that may be considered as ``advice to implementers''.}
       \field{howpublished}{RFC 879 (Historic)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{11}
       \field{note}{Obsoleted by RFC 7805, updated by RFC 6691}
       \field{number}{879}
@@ -1507,13 +1520,14 @@
       \strng{authornamehash}{90c641b07c0707ad22657706fc9c9534}
       \strng{authorfullhash}{90c641b07c0707ad22657706fc9c9534}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This memo discusses what value to use with the TCP Maximum Segment Size (MSS) option, and updates RFC 879 and RFC 2385. This document is not an Internet Standards Track specification; it is published for informational purposes.}
       \field{howpublished}{RFC 6691 (Informational)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{7}
       \field{number}{6691}
       \field{series}{Internet Request for Comments}
@@ -1536,6 +1550,119 @@
       \verb https://www.rfc-editor.org/rfc/rfc6691.txt
       \endverb
       \keyw{rfc6691}
+    \endentry
+    \entry{fall2011tcp}{book}{}
+      \name{author}{2}{}{%
+        {{hash=51472b93fbf08fddd4dc0307af2c440a}{%
+           family={Fall},
+           familyi={F\bibinitperiod},
+           given={K.R.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=3cb4a6cccfba017024da983af65c091e}{%
+           family={Stevens},
+           familyi={S\bibinitperiod},
+           given={W.R.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Pearson Education}%
+      }
+      \strng{namehash}{86fb63eae1a2f7c53799241ff8cbafb0}
+      \strng{fullhash}{410593d3190252b8a3f029082d2ef64a}
+      \strng{bibnamehash}{410593d3190252b8a3f029082d2ef64a}
+      \strng{authorbibnamehash}{410593d3190252b8a3f029082d2ef64a}
+      \strng{authornamehash}{86fb63eae1a2f7c53799241ff8cbafb0}
+      \strng{authorfullhash}{410593d3190252b8a3f029082d2ef64a}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780132808187}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{series}{Addison-Wesley Professional Computing Series}
+      \field{title}{TCP/IP Illustrated, Volume 1: The Protocols}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/32/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/32/calibre
+      \endverb
+      \keyw{fall2011tcp}
+    \endentry
+    \entry{rfc6093}{online}{}
+      \name{author}{2}{}{%
+        {{hash=ee40f842f001888ef660733e83f1a27e}{%
+           family={Gont},
+           familyi={G\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=c76928d10ee324a7202fa43fe3d122ee}{%
+           family={Yourtchenko},
+           familyi={Y\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {RFC Editor}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{location}{1}{%
+        {Fremont, CA, USA}%
+      }
+      \list{organization}{1}{%
+        {RFC Editor}%
+      }
+      \list{publisher}{1}{%
+        {RFC Editor}%
+      }
+      \strng{namehash}{a017e1f2afb7bd6cd533cdcf6e36d948}
+      \strng{fullhash}{741cd749c3593ee1595fd2c36087394e}
+      \strng{bibnamehash}{741cd749c3593ee1595fd2c36087394e}
+      \strng{authorbibnamehash}{741cd749c3593ee1595fd2c36087394e}
+      \strng{authornamehash}{a017e1f2afb7bd6cd533cdcf6e36d948}
+      \strng{authorfullhash}{741cd749c3593ee1595fd2c36087394e}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This document analyzes how current TCP implementations process TCP urgent indications and how the behavior of some widely deployed middleboxes affects how end systems process urgent indications. This document updates the relevant specifications such that they accommodate current practice in processing TCP urgent indications, raises awareness about the reliability of TCP urgent indications in the Internet, and recommends against the use of urgent indications (but provides advice to applications that do). [STANDARDS-TRACK]}
+      \field{howpublished}{RFC 6093 (Proposed Standard)}
+      \field{issn}{2070-1721}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{month}{1}
+      \field{number}{6093}
+      \field{series}{Internet Request for Comments}
+      \field{title}{{On the Implementation of the TCP Urgent Mechanism}}
+      \field{type}{RFC}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{pages}{1\bibrangedash 12}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.17487/RFC6093
+      \endverb
+      \verb{urlraw}
+      \verb https://www.rfc-editor.org/rfc/rfc6093.txt
+      \endverb
+      \verb{url}
+      \verb https://www.rfc-editor.org/rfc/rfc6093.txt
+      \endverb
+      \keyw{Transmission Control Protocol}
     \endentry
     \entry{rfc952}{online}{}
       \name{author}{3}{}{%
@@ -1576,14 +1703,15 @@
       \strng{authorbibnamehash}{4427310726d9bd987bc24cd7a5d06637}
       \strng{authornamehash}{dd88667bef9dc1e5e055cf20287bdfaa}
       \strng{authorfullhash}{4427310726d9bd987bc24cd7a5d06637}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This RFC is the official specification of the format of the Internet Host Table. This edition of the specification includes minor revisions to RFC-810 which brings it up to date.}
       \field{howpublished}{RFC 952}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{10}
       \field{note}{Updated by RFC 1123}
       \field{number}{952}
@@ -1607,52 +1735,6 @@
       \verb https://www.rfc-editor.org/rfc/rfc952.txt
       \endverb
       \keyw{rfc952,Updated by RFC 1123}
-    \endentry
-    \entry{fall2011tcp}{book}{}
-      \name{author}{2}{}{%
-        {{hash=51472b93fbf08fddd4dc0307af2c440a}{%
-           family={Fall},
-           familyi={F\bibinitperiod},
-           given={K.R.},
-           giveni={K\bibinitperiod}}}%
-        {{hash=3cb4a6cccfba017024da983af65c091e}{%
-           family={Stevens},
-           familyi={S\bibinitperiod},
-           given={W.R.},
-           giveni={W\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{publisher}{1}{%
-        {Pearson Education}%
-      }
-      \strng{namehash}{86fb63eae1a2f7c53799241ff8cbafb0}
-      \strng{fullhash}{410593d3190252b8a3f029082d2ef64a}
-      \strng{bibnamehash}{410593d3190252b8a3f029082d2ef64a}
-      \strng{authorbibnamehash}{410593d3190252b8a3f029082d2ef64a}
-      \strng{authornamehash}{86fb63eae1a2f7c53799241ff8cbafb0}
-      \strng{authorfullhash}{410593d3190252b8a3f029082d2ef64a}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{9780132808187}
-      \field{langid}{english}
-      \field{series}{Addison-Wesley Professional Computing Series}
-      \field{title}{TCP/IP Illustrated, Volume 1: The Protocols}
-      \field{usera}{M}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2011}
-      \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/32/Calibre1
-      \endverb
-      \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/32/Calibre1
-      \endverb
-      \keyw{fall2011tcp}
     \endentry
     \entry{rfc1035}{online}{}
       \name{author}{1}{}{%
@@ -1683,14 +1765,15 @@
       \strng{authorbibnamehash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
       \strng{authornamehash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
       \strng{authorfullhash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
-      \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This RFC is the revised specification of the protocol and format used in the implementation of the Domain Name System. It obsoletes RFC-883. This memo documents the details of the domain name client - server communication.}
       \field{howpublished}{RFC 1035 (Internet Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{11}
       \field{note}{Updated by RFCs 1101, 1183, 1348, 1876, 1982, 1995, 1996, 2065, 2136, 2181, 2137, 2308, 2535, 2673, 2845, 3425, 3658, 4033, 4034, 4035, 4343, 5936, 5966, 6604, 7766}
       \field{number}{1035}
@@ -1746,11 +1829,13 @@
       \strng{authornamehash}{f5a31ae68ec79f3099675439ece611b1}
       \strng{authorfullhash}{a833a2a1f156ae428de4e6d7a6804954}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
+      \field{edition}{5}
       \field{isbn}{9780132126953}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Computer Networks}
       \field{usera}{M}
       \field{userd}{english}
@@ -1759,10 +1844,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/29/calibre
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/29/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/29/calibre
       \endverb
       \keyw{tanenbaum2011computer}
     \endentry
@@ -1792,11 +1877,12 @@
       \strng{authornamehash}{f24e4ac456416d2ae7904782f827d22a}
       \strng{authorfullhash}{7af9d40c3e74f82452e1c82d887d7fb0}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9780132856201}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{series}{Always learning}
       \field{title}{Computer Networking: A Top-down Approach}
       \field{usera}{M}
@@ -1806,10 +1892,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/27/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/27/calibre
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/27/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/27/calibre
       \endverb
       \keyw{kurose2013computer}
     \endentry
@@ -1839,11 +1925,12 @@
       \strng{authornamehash}{86fb63eae1a2f7c53799241ff8cbafb0}
       \strng{authorfullhash}{410593d3190252b8a3f029082d2ef64a}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9780132808187}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{series}{Addison-Wesley Professional Computing Series}
       \field{title}{TCP/IP Illustrated, Volume 1: The Protocols}
       \field{usera}{M}
@@ -1853,10 +1940,10 @@
       \field{dateera}{ce}
       \true{nocite}
       \verb{urlraw}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/32/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/32/calibre
       \endverb
       \verb{url}
-      \verb https://cs3.swfu.edu.cn/tech/get/PDF/32/Calibre1
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/32/calibre
       \endverb
       \keyw{fall2011tcp}
     \endentry
@@ -1864,6 +1951,189 @@
 \endrefsection
 
 \refsection{10}
+  \datalist[entry]{none/global//global/global}
+    \entry{wiki:nat}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{title}{Network address translation --- Wikipedia{,} The Free Encyclopedia}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb http://en.wikipedia.org/w/index.php?title=Network\_address\_translation&oldid=652836698
+      \endverb
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Network%5C_address%5C_translation&oldid=652836698
+      \endverb
+      \keyw{wiki:nat}
+    \endentry
+    \entry{rfc1631}{online}{}
+      \name{author}{2}{}{%
+        {{hash=2fa8b02823f6cda06fb32a600a23797d}{%
+           family={Egevang},
+           familyi={E\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=0121a805e38bf7e86fb23a088c2f4eab}{%
+           family={Francis},
+           familyi={F\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {RFC Editor}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{location}{1}{%
+        {Fremont, CA, USA}%
+      }
+      \list{organization}{1}{%
+        {RFC Editor}%
+      }
+      \list{publisher}{1}{%
+        {RFC Editor}%
+      }
+      \strng{namehash}{1f12a2dbf692dde3984f35ee1f8e3e87}
+      \strng{fullhash}{8a405a1dbe7a3a8c065b3ce421c1093e}
+      \strng{bibnamehash}{8a405a1dbe7a3a8c065b3ce421c1093e}
+      \strng{authorbibnamehash}{8a405a1dbe7a3a8c065b3ce421c1093e}
+      \strng{authornamehash}{1f12a2dbf692dde3984f35ee1f8e3e87}
+      \strng{authorfullhash}{8a405a1dbe7a3a8c065b3ce421c1093e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This memo proposes another short-term solution, address reuse, that complements CIDR or even makes it unnecessary. The address reuse solution is to place Network Address Translators (NAT) at the borders of stub domains. This memo provides information for the Internet community. This memo does not specify an Internet standard of any kind.}
+      \field{howpublished}{RFC 1631 (Informational)}
+      \field{issn}{2070-1721}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{month}{5}
+      \field{note}{Obsoleted by RFC 3022}
+      \field{number}{1631}
+      \field{series}{Internet Request for Comments}
+      \field{title}{{The IP Network Address Translator (NAT)}}
+      \field{type}{RFC}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1994}
+      \field{dateera}{ce}
+      \field{pages}{1\bibrangedash 10}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.17487/RFC1631
+      \endverb
+      \verb{urlraw}
+      \verb https://www.rfc-editor.org/rfc/rfc1631.txt
+      \endverb
+      \verb{url}
+      \verb https://www.rfc-editor.org/rfc/rfc1631.txt
+      \endverb
+      \keyw{Internet Protocol,Obsoleted by RFC 3022}
+    \endentry
+    \entry{web:nat}{online}{}
+      \name{author}{1}{}{%
+        {{hash=1ae6c145889a77a5cd3467e79fbb9dc9}{%
+           family={Tyson},
+           familyi={T\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{1ae6c145889a77a5cd3467e79fbb9dc9}
+      \strng{fullhash}{1ae6c145889a77a5cd3467e79fbb9dc9}
+      \strng{bibnamehash}{1ae6c145889a77a5cd3467e79fbb9dc9}
+      \strng{authorbibnamehash}{1ae6c145889a77a5cd3467e79fbb9dc9}
+      \strng{authornamehash}{1ae6c145889a77a5cd3467e79fbb9dc9}
+      \strng{authorfullhash}{1ae6c145889a77a5cd3467e79fbb9dc9}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{month}{2}
+      \field{note}{[Online; accessed 26 March 2015]}
+      \field{title}{How Network Address Translation Works --- HowStuffWorks.com}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2001}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb \url{http://computer.howstuffworks.com/nat.htm}
+      \endverb
+      \verb{url}
+      \verb %5Curl%7Bhttp://computer.howstuffworks.com/nat.htm%7D
+      \endverb
+      \keyw{web:nat,[Online; accessed 26 March 2015]}
+    \endentry
+    \entry{wiki:iptables}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e2ceeea38f8620383cfbd3e99c5c0cd8}{%
+           family={contributors},
+           familyi={c\bibinitperiod},
+           given={Wikipedia},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \strng{namehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{fullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{bibnamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authorbibnamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authornamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \strng{authorfullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{title}{Iptables --- Wikipedia{,} The Free Encyclopedia}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Iptables&oldid=817424711
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Iptables&oldid=817424711
+      \endverb
+      \keyw{wiki:iptables}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{11}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:tcp}{online}{}
       \name{author}{1}{}{%
@@ -1882,11 +2152,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Transmission Control Protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Transmission Control Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1917,11 +2188,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{User Datagram Protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{User Datagram Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1953,11 +2225,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Checksum --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Checksum --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -1981,19 +2254,16 @@
            giveni={J\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
       \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
@@ -2003,35 +2273,29 @@
       \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
       \field{extraname}{1}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{RFC 793 (Internet Standard)}
-      \field{issn}{2070-1721}
+      \field{howpublished}{RFC 793 (INTERNET STANDARD)}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{9}
       \field{note}{Updated by RFCs 1122, 3168, 6093, 6528}
       \field{number}{793}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{Transmission Control Protocol}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{1981}
       \field{dateera}{ce}
-      \field{pages}{1\bibrangedash 91}
-      \range{pages}{91}
-      \verb{doi}
-      \verb 10.17487/RFC0793
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc793.txt
+      \verb http://www.ietf.org/rfc/rfc793.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc793.txt
+      \verb http://www.ietf.org/rfc/rfc793.txt
       \endverb
-      \keyw{TCP,TCP,Updated by RFCs 1122,3168,6093,6528}
+      \keyw{rfc793,Updated by RFCs 1122,3168,6093,6528}
     \endentry
     \entry{rfc768}{online}{}
       \name{author}{1}{}{%
@@ -2064,12 +2328,13 @@
       \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
       \field{extraname}{2}
       \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{RFC 768 (Internet Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{8}
       \field{number}{768}
       \field{series}{Internet Request for Comments}
@@ -2094,11 +2359,6 @@
       \endverb
       \keyw{UDP,UDP}
     \endentry
-  \enddatalist
-\endrefsection
-
-\refsection{11}
-  \datalist[entry]{none/global//global/global}
     \entry{wiki:socket}{online}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
@@ -2114,12 +2374,14 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{extraname}{4}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Network socket --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Network socket --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2151,11 +2413,12 @@
       \strng{authorbibnamehash}{c68fb35e07f67dbcd0afe08e0cc05709}
       \strng{authornamehash}{c68fb35e07f67dbcd0afe08e0cc05709}
       \strng{authorfullhash}{c68fb35e07f67dbcd0afe08e0cc05709}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{title}{Beej's Guide to Network Programming: Using Internet Sockets}
       \field{usera}{M}
       \field{userd}{english}
@@ -2193,11 +2456,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Hypertext Transfer Protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Hypertext Transfer Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2229,11 +2493,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{HTTP/2 --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{HTTP/2 --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2265,11 +2530,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{HTTP cookie --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{HTTP cookie --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2301,11 +2567,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{4}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Stateless protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Stateless protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2337,11 +2604,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{5}
       \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{HTML --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{HTML --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2373,11 +2641,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{6}
       \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{LAMP (software bundle) --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{LAMP (software bundle) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2452,13 +2721,14 @@
       \strng{authornamehash}{55d7afa00010e0ea88cf7be388134e11}
       \strng{authorfullhash}{501d697aaf6038399aa1ef25e9bc5e35}
       \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{HTTP has been in use by the World-Wide Web global information initiative since 1990. This specification defines the protocol referred to as ``HTTP/1.1'', and is an update to RFC 2068. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 2616 (Draft Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{6}
       \field{note}{Obsoleted by RFCs 7230, 7231, 7232, 7233, 7234, 7235, updated by RFCs 2817, 5785, 6266, 6585}
       \field{number}{2616}
@@ -2524,13 +2794,14 @@
       \strng{authornamehash}{a9c5a8690840379b342f4c40c784986b}
       \strng{authorfullhash}{f4e4591f57515df8b586de202ca12def}
       \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This specification describes an optimized expression of the semantics of the Hypertext Transfer Protocol (HTTP), referred to as HTTP version 2 (HTTP/2). HTTP/2 enables a more efficient use of network resources and a reduced perception of latency by introducing header field compression and allowing multiple concurrent exchanges on the same connection. It also introduces unsolicited push of representations from servers to clients. This specification is an alternative to, but does not obsolete, the HTTP/1.1 message syntax. HTTP's existing semantics remain unchanged.}
       \field{howpublished}{RFC 7540 (Proposed Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{5}
       \field{number}{7540}
       \field{series}{Internet Request for Comments}
@@ -2590,13 +2861,14 @@
       \strng{authornamehash}{5e4d3e404b30d3e985b17cfbe05b7c12}
       \strng{authorfullhash}{56e9b23c28441d6690c913bd94dbfa9e}
       \field{sortinit}{9}
-      \field{sortinithash}{54047ffb55bdefa0694bbd554c1b11a0}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This specification defines HPACK, a compression format for efficiently representing HTTP header fields, to be used in HTTP/2.}
       \field{howpublished}{RFC 7541 (Proposed Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{5}
       \field{number}{7541}
       \field{series}{Internet Request for Comments}
@@ -2642,11 +2914,12 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Domain Name System --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Domain Name System --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2692,13 +2965,14 @@
       \strng{authorfullhash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
       \field{extraname}{1}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This RFC is the revised basic definition of The Domain Name System. It obsoletes RFC-882. This memo describes the domain style names and their used for host address look up and electronic mail forwarding. It discusses the clients and servers in the domain name system and the protocol used between them.}
       \field{howpublished}{RFC 1034 (Internet Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{11}
       \field{note}{Updated by RFCs 1101, 1183, 1348, 1876, 1982, 2065, 2181, 2308, 2535, 4033, 4034, 4035, 4343, 4035, 4592, 5936, 8020}
       \field{number}{1034}
@@ -2755,13 +3029,14 @@
       \strng{authorfullhash}{ce74bc1d31bbd7df2d2472f6fb53cb36}
       \field{extraname}{2}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This RFC is the revised specification of the protocol and format used in the implementation of the Domain Name System. It obsoletes RFC-883. This memo documents the details of the domain name client - server communication.}
       \field{howpublished}{RFC 1035 (Internet Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{11}
       \field{note}{Updated by RFCs 1101, 1183, 1348, 1876, 1982, 1995, 1996, 2065, 2136, 2181, 2137, 2308, 2535, 2673, 2845, 3425, 3658, 4033, 4034, 4035, 4343, 5936, 5966, 6604, 7766}
       \field{number}{1035}
@@ -2808,11 +3083,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Simple Mail Transfer Protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Simple Mail Transfer Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2844,11 +3120,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Post Office Protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Post Office Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2880,11 +3157,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Internet Message Access Protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Internet Message Access Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2916,11 +3194,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{4}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{MIME --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{MIME --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -2965,13 +3244,14 @@
       \strng{authornamehash}{6ecfb9bd6542c3f2a6f2aa09dda01429}
       \strng{authorfullhash}{6ecfb9bd6542c3f2a6f2aa09dda01429}
       \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This document is a self-contained specification of the basic protocol for the Internet electronic mail transport. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 2821 (Proposed Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{4}
       \field{note}{Obsoleted by RFC 5321, updated by RFC 5336}
       \field{number}{2821}
@@ -3032,13 +3312,14 @@
       \strng{authornamehash}{0694a944905ed5fc1cbfde95aaa3f56c}
       \strng{authorfullhash}{56da38c5dc232de47560c80269694729}
       \field{sortinit}{6}
-      \field{sortinithash}{7851c86048328b027313775d8fbd2131}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The Post Office Protocol - Version 3 (POP3) is intended to permit a workstation to dynamically access a maildrop on a server host in a useful fashion. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 1939 (Internet Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{5}
       \field{note}{Updated by RFCs 1957, 2449, 6186, 8314}
       \field{number}{1939}
@@ -3094,13 +3375,14 @@
       \strng{authornamehash}{55811a2868ed9d11d73d45edf58c77ff}
       \strng{authorfullhash}{55811a2868ed9d11d73d45edf58c77ff}
       \field{sortinit}{7}
-      \field{sortinithash}{f615fb9c6fba11c6f962fb3fd599810e}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The Internet Message Access Protocol, Version 4rev1 (IMAP4rev1) allows a client to access and manipulate electronic mail messages on a server. IMAP4rev1 permits manipulation of mailboxes (remote message folders) in a way that is functionally equivalent to local folders. IMAP4rev1 also provides the capability for an offline client to resynchronize with the server. IMAP4rev1 includes operations for creating, deleting, and renaming mailboxes, checking for new messages, permanently removing messages, setting and clearing flags, RFC 2822 and RFC 2045 parsing, searching, and selective fetching of message attributes, texts, and portions thereof. Messages in IMAP4rev1 are accessed by the use of numbers. These numbers are either message sequence numbers or unique identifiers. IMAP4rev1 supports a single server. A mechanism for accessing configuration information to support multiple IMAP4rev1 servers is discussed in RFC 2244. IMAP4rev1 does not specify a means of posting mail; this function is handled by a mail transfer protocol such as RFC 2821. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 3501 (Proposed Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{3}
       \field{note}{Updated by RFCs 4466, 4469, 4551, 5032, 5182, 5738, 6186, 6858, 7817, 8314, 8437, 8474}
       \field{number}{3501}
@@ -3161,13 +3443,14 @@
       \strng{authornamehash}{78377879a1f343cd6224005dab7126b6}
       \strng{authorfullhash}{24f978a4c8b84f8fd939ff2a624421e1}
       \field{sortinit}{8}
-      \field{sortinithash}{1b24cab5087933ef0826a7cd3b99e994}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This initial document specifies the various headers used to describe the structure of MIME messages. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 2045 (Draft Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{11}
       \field{note}{Updated by RFCs 2184, 2231, 5335, 6532}
       \field{number}{2045}
@@ -3214,11 +3497,12 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{File Transfer Protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{File Transfer Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3268,13 +3552,14 @@
       \strng{authornamehash}{e0bf8451aa6df82cd740fdf9091cefd6}
       \strng{authorfullhash}{330601ee94b8cb3e3cf8031af576dd69}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This memo is the official specification of the File Transfer Protocol (FTP) for the DARPA Internet community. The primary intent is to clarify and correct the documentation of the FTP specification, not to change the protocol. The following new optional commands are included in this edition of the specification: Change to Parent Directory (CDUP), Structure Mount (SMNT), Store Unique (STOU), Remove Directory (RMD), Make Directory (MKD), Print Directory (PWD), and System (SYST). Note that this specification is compatible with the previous edition.}
       \field{howpublished}{RFC 959 (Internet Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{10}
       \field{note}{Updated by RFCs 2228, 2640, 2773, 3659, 5797, 7151}
       \field{number}{959}
@@ -3330,13 +3615,14 @@
       \strng{authornamehash}{d2cbac2be17ec2c4a3786792786dce43}
       \strng{authorfullhash}{d2cbac2be17ec2c4a3786792786dce43}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This memo describes a suggested change to the behavior of FTP client programs. This document provides information for the Internet community. This memo provides information for the Internet community. This memo does not specify an Internet standard of any kind.}
       \field{howpublished}{RFC 1579 (Informational)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{2}
       \field{number}{1579}
       \field{series}{Internet Request for Comments}
@@ -3382,11 +3668,12 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{BitTorrent --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{BitTorrent --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3419,10 +3706,11 @@
       \strng{authornamehash}{48e49f55c3b1ebfe9cf1954935b19d8d}
       \strng{authorfullhash}{48e49f55c3b1ebfe9cf1954935b19d8d}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{1}
       \field{title}{{The BitTorrent Protocol Specification, Version 11031}}
       \field{usera}{EB}
@@ -3461,11 +3749,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Ethernet --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Ethernet --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3497,11 +3786,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Ethernet frame --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Ethernet frame --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3533,11 +3823,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Carrier sense multiple access with collision detection --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Carrier sense multiple access with collision detection --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3587,13 +3878,14 @@
       \strng{authornamehash}{e0bf8451aa6df82cd740fdf9091cefd6}
       \strng{authorfullhash}{6f8b48db96d8415425ad8c91ea61d7e8}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This RFC specifies a standard method of encapsulating the Internet Protocol (IP) datagrams and Address Resolution Protocol (ARP) requests and replies on IEEE 802 Networks to allow compatible and interoperable implementations. This RFC specifies a protocol standard for the Internet community.}
       \field{howpublished}{RFC 1042 (Internet Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{2}
       \field{number}{1042}
       \field{series}{Internet Request for Comments}
@@ -3639,11 +3931,12 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Address Resolution Protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Address Resolution Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3688,13 +3981,14 @@
       \strng{authornamehash}{dc2906f60715af2efcaf4f90e9b1f433}
       \strng{authorfullhash}{dc2906f60715af2efcaf4f90e9b1f433}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The purpose of this RFC is to present a method of Converting Protocol Addresses (e.g., IP addresses) to Local Network Addresses (e.g., Ethernet addresses). This is an issue of general concern in the ARPA Internet Community at this time. The method proposed here is presented for your consideration and comment. This is not the specification of an Internet Standard.}
       \field{howpublished}{RFC 826 (Internet Standard)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{11}
       \field{note}{Updated by RFCs 5227, 5494}
       \field{number}{826}
@@ -3742,11 +4036,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Internet Protocol --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Internet Protocol --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3778,11 +4073,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IP address --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{IP address --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3806,19 +4102,16 @@
            giveni={J\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{22c8db2c59b26571094b7dab5cefad0e}
       \strng{fullhash}{22c8db2c59b26571094b7dab5cefad0e}
@@ -3827,36 +4120,30 @@
       \strng{authornamehash}{22c8db2c59b26571094b7dab5cefad0e}
       \strng{authorfullhash}{22c8db2c59b26571094b7dab5cefad0e}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{RFC 791 (Internet Standard)}
-      \field{issn}{2070-1721}
+      \field{howpublished}{RFC 791 (INTERNET STANDARD)}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{9}
       \field{note}{Updated by RFCs 1349, 2474, 6864}
       \field{number}{791}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{Internet Protocol}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{1981}
       \field{dateera}{ce}
       \true{nocite}
-      \field{pages}{1\bibrangedash 51}
-      \range{pages}{51}
-      \verb{doi}
-      \verb 10.17487/RFC0791
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc791.txt
+      \verb http://www.ietf.org/rfc/rfc791.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc791.txt
+      \verb http://www.ietf.org/rfc/rfc791.txt
       \endverb
-      \keyw{IP,IPv4,Updated by RFCs 1349,2474,6864}
+      \keyw{rfc791,Updated by RFCs 1349,2474,6864}
     \endentry
     \entry{wiki:ipv4hdrchksum}{online}{}
       \name{author}{1}{}{%
@@ -3875,11 +4162,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IPv4 header checksum --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{IPv4 header checksum --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3916,11 +4204,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Subnetwork --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Subnetwork --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3952,11 +4241,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IPv4 subnetting reference --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{IPv4 subnetting reference --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -3988,11 +4278,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Private network --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Private network --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -4037,13 +4328,14 @@
       \strng{authornamehash}{eed83917534e526c997d89c7c176e032}
       \strng{authorfullhash}{eed83917534e526c997d89c7c176e032}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This memo discusses subnets and proposes procedures for the use of subnets, including approaches to solving the problems that arise, particularly that of routing. A subnet of an Internet network is a logically visible sub-section of a single Internet network. For administrative or technical reasons, many organizations have chosen to divide one Internet network into several subnets, instead of acquiring a set of Internet network numbers. This RFC suggests a proposed protocol for the ARPA-Internet community, and requests discussion and suggestions for improvements.}
       \field{howpublished}{RFC 917}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{10}
       \field{number}{917}
       \field{series}{Internet Request for Comments}
@@ -4082,19 +4374,16 @@
            giveni={J\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{f3340eebb214da4838c2d107fc48f3a1}
       \strng{fullhash}{1e5a2afbeaf5df23b1204bcf418bd0a5}
@@ -4103,37 +4392,30 @@
       \strng{authornamehash}{f3340eebb214da4838c2d107fc48f3a1}
       \strng{authorfullhash}{1e5a2afbeaf5df23b1204bcf418bd0a5}
       \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This memo discusses the utility of ``subnets'' of Internet networks, which are logically visible sub-sections of a single Internet network. For administrative or technical reasons, many organizations have chosen to divide one Internet network into several subnets, instead of acquiring a set of Internet network numbers. This memo specifies procedures for the use of subnets. These procedures are for hosts (e.g., workstations). The procedures used in and between subnet gateways are not fully described. Important motivation and background information for a subnetting standard is provided in RFC-940. This RFC specifies a protocol for the ARPA-Internet community. If subnetting is implemented it is strongly recommended that these procedures be followed.}
-      \field{howpublished}{RFC 950 (Internet Standard)}
-      \field{issn}{2070-1721}
+      \field{howpublished}{RFC 950 (INTERNET STANDARD)}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{8}
       \field{note}{Updated by RFC 6918}
       \field{number}{950}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{Internet Standard Subnetting Procedure}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{1985}
       \field{dateera}{ce}
       \true{nocite}
-      \field{pages}{1\bibrangedash 18}
-      \range{pages}{18}
-      \verb{doi}
-      \verb 10.17487/RFC0950
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc950.txt
+      \verb http://www.ietf.org/rfc/rfc950.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc950.txt
+      \verb http://www.ietf.org/rfc/rfc950.txt
       \endverb
-      \keyw{Address,Updated by RFC 6918}
+      \keyw{rfc950,Updated by RFC 6918}
     \endentry
   \enddatalist
 \endrefsection
@@ -4156,11 +4438,12 @@
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Classless Inter-Domain Routing --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Classless Inter-Domain Routing --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -4210,13 +4493,14 @@
       \strng{authornamehash}{a74cd0492dfe9cd7c7173a72c6ffc0eb}
       \strng{authorfullhash}{5c807ff50f8ee66d8f7222e393c8508c}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{This memo discusses the strategy for address assignment of the existing 32-bit IPv4 address space with a view toward conserving the address space and limiting the growth rate of global routing state. This document obsoletes the original Classless Inter-domain Routing (CIDR) spec in RFC 1519, with changes made both to clarify the concepts it introduced and, after more than twelve years, to update the Internet community on the results of deploying the technology described. This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.}
       \field{howpublished}{RFC 4632 (Best Current Practice)}
       \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{8}
       \field{number}{4632}
       \field{series}{Internet Request for Comments}
@@ -4246,6 +4530,68 @@
 
 \refsection{7}
   \datalist[entry]{none/global//global/global}
+    \entry{rfc2460}{online}{}
+      \name{author}{2}{}{%
+        {{hash=6807dd7ea74b1a2ae72890d97bcb32a4}{%
+           family={Deering},
+           familyi={D\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=091b569d1602b59ab4ba7f6d43d81aba}{%
+           family={Hinden},
+           familyi={H\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {IETF}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{organization}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \list{publisher}{1}{%
+        {IETF}%
+      }
+      \strng{namehash}{b45bc2e5349f21efe483e5e25142d3d3}
+      \strng{fullhash}{9d9b4641d8b62852c01a0710d0ae6f42}
+      \strng{bibnamehash}{9d9b4641d8b62852c01a0710d0ae6f42}
+      \strng{authorbibnamehash}{9d9b4641d8b62852c01a0710d0ae6f42}
+      \strng{authornamehash}{b45bc2e5349f21efe483e5e25142d3d3}
+      \strng{authorfullhash}{9d9b4641d8b62852c01a0710d0ae6f42}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{RFC 2460 (Draft Standard)}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{month}{12}
+      \field{note}{Updated by RFCs 5095, 5722, 5871, 6437, 6564, 6935, 6946, 7045, 7112}
+      \field{number}{2460}
+      \field{series}{Request for Comments}
+      \field{title}{{Internet Protocol, Version 6 (IPv6) Specification}}
+      \field{usera}{EB}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{1998}
+      \field{dateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://www.ietf.org/rfc/rfc2460.txt
+      \endverb
+      \verb{url}
+      \verb http://www.ietf.org/rfc/rfc2460.txt
+      \endverb
+      \keyw{rfc2460,Updated by RFCs 5095,5722,5871,6437,6564,6935,6946,7045,7112}
+    \endentry
+  \enddatalist
+\endrefsection
+
+\refsection{8}
+  \datalist[entry]{none/global//global/global}
     \entry{wiki:ipv6}{online}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
@@ -4263,11 +4609,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IPv6 --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{IPv6 --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -4299,11 +4646,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IPv6 packet --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{IPv6 packet --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -4335,11 +4683,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{IPv6 address --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{IPv6 address --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -4368,19 +4717,16 @@
            giveni={R\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{b45bc2e5349f21efe483e5e25142d3d3}
       \strng{fullhash}{9d9b4641d8b62852c01a0710d0ae6f42}
@@ -4389,37 +4735,30 @@
       \strng{authornamehash}{b45bc2e5349f21efe483e5e25142d3d3}
       \strng{authorfullhash}{9d9b4641d8b62852c01a0710d0ae6f42}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This document specifies version 6 of the Internet Protocol (IPv6), also sometimes referred to as IP Next Generation or IPng. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 2460 (Draft Standard)}
-      \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{12}
-      \field{note}{Obsoleted by RFC 8200, updated by RFCs 5095, 5722, 5871, 6437, 6564, 6935, 6946, 7045, 7112}
+      \field{note}{Updated by RFCs 5095, 5722, 5871, 6437, 6564, 6935, 6946, 7045, 7112}
       \field{number}{2460}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{Internet Protocol, Version 6 (IPv6) Specification}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{1998}
       \field{dateera}{ce}
       \true{nocite}
-      \field{pages}{1\bibrangedash 39}
-      \range{pages}{39}
-      \verb{doi}
-      \verb 10.17487/RFC2460
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc2460.txt
+      \verb http://www.ietf.org/rfc/rfc2460.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc2460.txt
+      \verb http://www.ietf.org/rfc/rfc2460.txt
       \endverb
-      \keyw{IPV6,internet,protocol,next,generation,ipng,Obsoleted by RFC 8200,updated by RFCs 5095,5722,5871,6437,6564,6935,6946,7045,7112}
+      \keyw{rfc2460,Updated by RFCs 5095,5722,5871,6437,6564,6935,6946,7045,7112}
     \endentry
     \entry{rfc4291}{online}{}
       \name{author}{2}{}{%
@@ -4435,19 +4774,16 @@
            giveni={S\bibinitperiod}}}%
       }
       \list{institution}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \list{language}{1}{%
         {english}%
       }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
       \list{organization}{1}{%
-        {RFC Editor}%
+        {Internet Engineering Task Force}%
       }
       \list{publisher}{1}{%
-        {RFC Editor}%
+        {IETF}%
       }
       \strng{namehash}{b4e3c2a71f32f605570693fc771c8318}
       \strng{fullhash}{3eba58c4dd67813b8bf4956b527bd6b2}
@@ -4456,42 +4792,35 @@
       \strng{authornamehash}{b4e3c2a71f32f605570693fc771c8318}
       \strng{authorfullhash}{3eba58c4dd67813b8bf4956b527bd6b2}
       \field{sortinit}{5}
-      \field{sortinithash}{5dd416adbafacc8226114bc0202d5fdd}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This specification defines the addressing architecture of the IP Version 6 (IPv6) protocol. The document includes the IPv6 addressing model, text representations of IPv6 addresses, definition of IPv6 unicast addresses, anycast addresses, and multicast addresses, and an IPv6 node's required addresses. This document obsoletes RFC 3513, ``IP Version 6 Addressing Architecture''. [STANDARDS-TRACK]}
       \field{howpublished}{RFC 4291 (Draft Standard)}
-      \field{issn}{2070-1721}
       \field{langid}{english}
+      \field{lansortorder}{4}
       \field{month}{2}
-      \field{note}{Updated by RFCs 5952, 6052, 7136, 7346, 7371, 8064}
+      \field{note}{Updated by RFCs 5952, 6052, 7136, 7346, 7371}
       \field{number}{4291}
-      \field{series}{Internet Request for Comments}
+      \field{series}{Request for Comments}
       \field{title}{{IP Version 6 Addressing Architecture}}
-      \field{type}{RFC}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
       \field{year}{2006}
       \field{dateera}{ce}
       \true{nocite}
-      \field{pages}{1\bibrangedash 25}
-      \range{pages}{25}
-      \verb{doi}
-      \verb 10.17487/RFC4291
-      \endverb
       \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc4291.txt
+      \verb http://www.ietf.org/rfc/rfc4291.txt
       \endverb
       \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc4291.txt
+      \verb http://www.ietf.org/rfc/rfc4291.txt
       \endverb
-      \keyw{internet protocol version 6,unicast,anycast,multicast,node,Updated by RFCs 5952,6052,7136,7346,7371,8064}
+      \keyw{rfc4291,Updated by RFCs 5952,6052,7136,7346,7371}
     \endentry
   \enddatalist
 \endrefsection
 
-\refsection{8}
+\refsection{9}
   \datalist[entry]{none/global//global/global}
     \entry{wiki:router}{online}{}
       \name{author}{1}{}{%
@@ -4510,11 +4839,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Router (computing) --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Router (computing) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -4546,11 +4876,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Routing table --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Routing table --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -4582,11 +4913,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{Network switch --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{Network switch --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -4618,11 +4950,12 @@
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{4}
       \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
-      \field{title}{LAN switching --- Wikipedia, The Free Encyclopedia}
+      \field{lansortorder}{4}
+      \field{title}{LAN switching --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
       \field{userd}{english}
       \field{userf}{english}
@@ -4636,185 +4969,6 @@
       \verb http://en.wikipedia.org/w/index.php?title=LAN%5C_switching&oldid=651228780
       \endverb
       \keyw{wiki:lanswitching}
-    \endentry
-  \enddatalist
-\endrefsection
-
-\refsection{9}
-  \datalist[entry]{none/global//global/global}
-    \entry{wiki:nat}{online}{}
-      \name{author}{1}{}{%
-        {{hash=9c677286866aad38f8e9b660f5411814}{%
-           family={Wikipedia},
-           familyi={W\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
-      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Network address translation --- Wikipedia, The Free Encyclopedia}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \verb{urlraw}
-      \verb http://en.wikipedia.org/w/index.php?title=Network\_address\_translation&oldid=652836698
-      \endverb
-      \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Network%5C_address%5C_translation&oldid=652836698
-      \endverb
-      \keyw{wiki:nat}
-    \endentry
-    \entry{rfc1631}{online}{}
-      \name{author}{2}{}{%
-        {{hash=2fa8b02823f6cda06fb32a600a23797d}{%
-           family={Egevang},
-           familyi={E\bibinitperiod},
-           given={K.},
-           giveni={K\bibinitperiod}}}%
-        {{hash=0121a805e38bf7e86fb23a088c2f4eab}{%
-           family={Francis},
-           familyi={F\bibinitperiod},
-           given={P.},
-           giveni={P\bibinitperiod}}}%
-      }
-      \list{institution}{1}{%
-        {RFC Editor}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{location}{1}{%
-        {Fremont, CA, USA}%
-      }
-      \list{organization}{1}{%
-        {RFC Editor}%
-      }
-      \list{publisher}{1}{%
-        {RFC Editor}%
-      }
-      \strng{namehash}{1f12a2dbf692dde3984f35ee1f8e3e87}
-      \strng{fullhash}{8a405a1dbe7a3a8c065b3ce421c1093e}
-      \strng{bibnamehash}{8a405a1dbe7a3a8c065b3ce421c1093e}
-      \strng{authorbibnamehash}{8a405a1dbe7a3a8c065b3ce421c1093e}
-      \strng{authornamehash}{1f12a2dbf692dde3984f35ee1f8e3e87}
-      \strng{authorfullhash}{8a405a1dbe7a3a8c065b3ce421c1093e}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This memo proposes another short-term solution, address reuse, that complements CIDR or even makes it unnecessary. The address reuse solution is to place Network Address Translators (NAT) at the borders of stub domains. This memo provides information for the Internet community. This memo does not specify an Internet standard of any kind.}
-      \field{howpublished}{RFC 1631 (Informational)}
-      \field{issn}{2070-1721}
-      \field{langid}{english}
-      \field{month}{5}
-      \field{note}{Obsoleted by RFC 3022}
-      \field{number}{1631}
-      \field{series}{Internet Request for Comments}
-      \field{title}{{The IP Network Address Translator (NAT)}}
-      \field{type}{RFC}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{1994}
-      \field{dateera}{ce}
-      \field{pages}{1\bibrangedash 10}
-      \range{pages}{10}
-      \verb{doi}
-      \verb 10.17487/RFC1631
-      \endverb
-      \verb{urlraw}
-      \verb https://www.rfc-editor.org/rfc/rfc1631.txt
-      \endverb
-      \verb{url}
-      \verb https://www.rfc-editor.org/rfc/rfc1631.txt
-      \endverb
-      \keyw{Internet Protocol,Obsoleted by RFC 3022}
-    \endentry
-    \entry{web:nat}{online}{}
-      \name{author}{1}{}{%
-        {{hash=1ae6c145889a77a5cd3467e79fbb9dc9}{%
-           family={Tyson},
-           familyi={T\bibinitperiod},
-           given={Jeff},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{1ae6c145889a77a5cd3467e79fbb9dc9}
-      \strng{fullhash}{1ae6c145889a77a5cd3467e79fbb9dc9}
-      \strng{bibnamehash}{1ae6c145889a77a5cd3467e79fbb9dc9}
-      \strng{authorbibnamehash}{1ae6c145889a77a5cd3467e79fbb9dc9}
-      \strng{authornamehash}{1ae6c145889a77a5cd3467e79fbb9dc9}
-      \strng{authorfullhash}{1ae6c145889a77a5cd3467e79fbb9dc9}
-      \field{sortinit}{3}
-      \field{sortinithash}{a37a8ef248a93c322189792c34fc68c9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{month}{2}
-      \field{note}{[Online; accessed 26 March 2015]}
-      \field{title}{How Network Address Translation Works --- HowStuffWorks.com}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2001}
-      \field{dateera}{ce}
-      \verb{urlraw}
-      \verb \url{http://computer.howstuffworks.com/nat.htm}
-      \endverb
-      \verb{url}
-      \verb %5Curl%7Bhttp://computer.howstuffworks.com/nat.htm%7D
-      \endverb
-      \keyw{web:nat,[Online; accessed 26 March 2015]}
-    \endentry
-    \entry{wiki:iptables}{online}{}
-      \name{author}{1}{}{%
-        {{hash=e2ceeea38f8620383cfbd3e99c5c0cd8}{%
-           family={contributors},
-           familyi={c\bibinitperiod},
-           given={Wikipedia},
-           giveni={W\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \strng{namehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
-      \strng{fullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
-      \strng{bibnamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
-      \strng{authorbibnamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
-      \strng{authornamehash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
-      \strng{authorfullhash}{e2ceeea38f8620383cfbd3e99c5c0cd8}
-      \field{sortinit}{4}
-      \field{sortinithash}{e071e0bcb44634fab398d68ad04e69f4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{Iptables --- Wikipedia, The Free Encyclopedia}
-      \field{usera}{EB}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2017}
-      \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://en.wikipedia.org/w/index.php?title=Iptables&oldid=817424711
-      \endverb
-      \verb{url}
-      \verb https://en.wikipedia.org/w/index.php?title=Iptables&oldid=817424711
-      \endverb
-      \keyw{wiki:iptables}
     \endentry
   \enddatalist
 \endrefsection

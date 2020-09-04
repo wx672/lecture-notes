@@ -1,7 +1,6 @@
-#+TITLE: Network Project Week
+#+TITLE: Hacking with Linux networking command line tools
 #+AUTHOR: Xiaolin Wang
 #+EMAIL: wx672ster+net@gmail.com
-#+DATE: June 2019
 #+OPTIONS: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t c:nil
 #+OPTIONS: creator:nil d:(not "LOGBOOK") date:t e:t email:nil f:t inline:t num:t
 #+OPTIONS: p:nil pri:nil stat:t tags:t tasks:t tex:t timestamp:t toc:t todo:t |:t
@@ -14,80 +13,158 @@
 #+LATEX_HEADER: \pagestyle{plain}
 
 * Caution
-  - You are *required* to write your report with [[http://orgmode.org/][=Emacs org-mode=]]
-    - Org-mode Tutorials
+  - You are *required* to write your report with [[http://orgmode.org/][=Emacs org-mode=]] on a Linux system.
+    - Org-mode tutorials
       - [[http://orgmode.org/worg/org-tutorials/orgtutorial_dto.php][David O'Toole Org tutorial]]
       - [[http://orgmode.org/worg/org-tutorials/index.php][More org-mode tutorials]]
       - =info org=
-    - [[http://emacser.com/][Emacs中文网]]
-  - You have to submit your report as a =tar ball= which have both an [[file:20141156xxx.org][=org file=]] and a
-    generated [[file:20141156xxx.html][=html file=]] included.
-    - Report template: [[file:20141156xxx.org][=org file=]], [[file:20141156xxx.html][=html file=]]
-    - A small tutorial about writing lab report: [[file:tutorial.ttyrec][=tutorial.ttyrec=]]. To view it:
-      : ttyplay tutorial.ttyrec
-      Feel free to make your own =ttyrec= file while doing this lab work. For example:
-      : ttyrec my-ssh-lab-work.ttyrec
-      : ttyrec my-http-lab-work.ttyrec
-      : ttyrec my-email-lab-work.ttyrec
-      : ttyrec my-ftp-lab-work.ttyrec
-      : ttyrec my-iptables-lab-work.ttyrec
-    - This file itself is generated from an [[file:proj-week.org][org file (proj-week.org)]]. You can take it as an example.
-  - *Deadline:* =2019-06-28 (Fri), 23:59=
-    - Submit your report as a =tgz= file [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=1548][here]]. In your =tgz= file, there must be:
-      - an org file
-      - an html file
-      - optionally one or more =ttyrec= files
-    - Late reports will be penalized 20% per day.
-  - MS-word file will *NOT* be accepted.
-  - Cheating will result in automatic failure of this work.
-* SSH (25 pts)
-** Installation (5 pts)
-   In our Debian system, =openssh-server= and =openssh-client= are installed by
-   default. And the =ssh server= should have been running. You can check it by
-   : nmap localhost
-   The output of the above command should contain the following line:
-   : 22/tcp    open    ssh
-   And you should be able to connect to your local =ssh server= by
-   : ssh username@localhost
-   *NOTE:* You should change =username= to your real user name (should be =stud= in the
-   lab).
+      - [[http://emacser.com/][Emacs中文网]]
+  - You have to submit your report as a =tar ball= in which the following files should be
+    included:
+    1. an [[file:20201152xxx.org][=org file=]] and a generated [[file:20201152xxx.html][=html file=]];
+    2. your bash script for HTTP demostration;
+    3. a =ttyrec= file recording your operations;
 
-   If you cannot find the =ssh server= nor can you find the =ssh= command, you should
-   check whether the =openssh-server= and =openssh=client= are installed by
-   : aptitude search '~i openssh'
-   If you cannot see any outputs, that means you haven't got the necessary packages
-   install. So you have to install them by
-   : sudo aptitude install openssh-client openssh-server
+    ------
+    - Here's how :: 
+       1. make a directory, e.g. 20201159xxx, put all the required files in it.
+          : mkdir  20201159xxx
+          : mv  tmux-http.sh  *.org  *.html  *ttyrec  20201159xxx
+  
+       2. make a tar ball.
+          : tar  zcf  20201159xxx.tgz  20201159xxx
+          : ls  -l  # make sure your tar ball is smaller than 1MB in size         
+
+       3. upload the =tgz= file to our [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=349][moodle site]]. 
+    ------
+
+  - Here is a short tutorial about writing lab report: [[file:tutorial.ttyrec][=tutorial.ttyrec=]]. To view it:
+
+    : ttyplay  tutorial.ttyrec
+
+    Feel free to make your own =ttyrec= file while doing this lab work. For example:
+
+    #+begin_example
+    ttyrec  20201159xxx-http.ttyrec
+    ttyrec  20201159xxx-email.ttyrec
+    ttyrec  20201159xxx-ftp.ttyrec
+    #+end_example
+       
+  - Report template: [[file:20201152xxx.org][=org file=]], [[file:20201152xxx.html][=html file=]]
+  - This page itself is generated from an [[file:proj-week.org][org file (proj-week.org)]]. You can take it as an example.
+
+  - *Deadline:* <2021-01-20 Wed> 
+    - Submit your report as a =tgz= file [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=349][here]]. In your =tgz= file, there must be:
+      1. an org file
+      2. a html file
+      3. a bash script
+      4. one or more =ttyrec= files
+    - Late reports will be penalized 20% per day.
+
+  - MS-word file will *NOT* be accepted. Cheating will result in automatic failure of this
+    work.
+
+* =tmux, nc, ip, tcpdump, ss, nmap, curl=
+Here are the bash scripts I used in the class for demostrating how some protocols work.
+- [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-3way.handshake.sh][TCP three-way handshake]]
+- [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-udp.sh][UDP]]
+- [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-smtp.sh][SMTP]] (need a SMTP server)
+- [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-ftp.sh][FTP]] (need a FTP server)
+
+----------------------------
+
+- Your tasks :: 
+  1. Run the above scripts to get familar with these tools, and get a thorough understanding about these protocols;
+
+  2. Packet analysis. Upon running the following command:
+     
+     : sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
+
+     the following packet is captured:
+
+     #+begin_example
+     08:34:10.790666 IP (tos 0x0, ttl 64, id 12824, offset 0, flags [DF], proto TCP (6),
+     length 64)
+         127.0.0.1.46668 > 127.0.0.1.3333: Flags [P.], seq 2400005725:2400005737, ack 373279396,
+         win 512, options [nop,nop,TS val 3259949783 ecr 3259896343], length 12
+             0x0000:  4500 0040 3218 4000 4006 0a9e 7f00 0001  E..@2.@.@.......
+             0x0010:  7f00 0001 b64c 0d05 8f0d 2e5d 163f caa4  .....L.....].?..
+             0x0020:  8018 0200 fe34 0000 0101 080a c24e e2d7  .....4.......N..
+             0x0030:  c24e 1217 6865 6c6c 6f20 776f 726c 640a  .N..hello.world.
+     #+end_example
+
+     1. Tell me the meaning of each option used in the previous command;
+
+     2. Please analyze this captured packet and explain it to me as detailed as you can.     
+
+  3. Write a similar script showing how HTTP works (you need =curl=);
+
+  4. Record your HTTP demo session with =ttyrec=.
+     
+* SSH (25 pts)                                                     :noexport:
+** Installation (5 pts)
+In our Debian system, =openssh-server= and =openssh-client= are installed by
+default. And the =ssh server= should have been running. You can check it by
+
+: nmap localhost
+
+The output of the above command should contain the following line:
+
+: 22/tcp    open    ssh
+
+And you should be able to connect to your local =ssh server= by
+
+: ssh username@localhost
+
+*NOTE:* You should change =username= to your real user name (should be =stud= in the
+lab).
+
+If you cannot find the =ssh server= nor can you find the =ssh= command, you should
+check whether the =openssh-server= and =openssh=client= are installed by
+
+: aptitude search '~i openssh'
+
+If you cannot see any outputs, that means you haven't got the necessary packages
+install. So you have to install them by
+
+: sudo apt install openssh-client openssh-server
 
 ** Basic usage (5 pts)
-   : ssh user@server
-   You've tried connecting your own =ssh server= in previous section. Now you can try
-   =ssh= into your neighbor's system.
 
-   And you can also try
-   : ssh user@server [command]
-   Where =command= could be any valid =shell command=, for example
-   : ssh user@server ls -l
-   : ssh user@server df
-   : ssh user@server w
-   : ssh user@server free
+: ssh user@server
 
-** SSH without password (5 pts)
-   If you want to login to =cs3.swfu.edu.cn= without being asked for password
-   every time, you can do the following:
+You've tried connecting your own =ssh server= in previous section. Now you can try
+=ssh= into your neighbor's system.
+
+And you can also try
+
+: ssh user@server [command]
+
+Where =command= could be any valid =shell command=, for example:
+
+#+begin_example
+ssh user@server ls -l
+ssh user@server df
+ssh user@server w
+ssh user@server free
+#+end_example
+
+** SSH without password (5 pts)                                   :noexport:
+If you want to login to =cs6.swfu.edu.cn= without being asked for password
+every time, you can do the following:
    1. Generate a new keypair
       : ssk-keygen -t rsa
    2. Copy the keyfile to remote machine (=cs3.swfu.edu.cn=).
       : ssh-copy-id username@cs3.swfu.edu.cn
    3. Login to =cs3= without password prompt
       : ssh username@cs3.swfu.edu.cn
-   4. *CAUTION!* If you are doing the above steps at a lab PC, now you *must* remove the =key
+   4. *CAUTION!* If you are doing the above steps on a lab PC, now you *must* remove the =key
       file=, otherwise everybody using this PC can login to your =cs3 account= without a
       password!
       : rm -rf ~/.ssh
       This password-less setup should only be used within your own private computer,
       e.g. your laptop. *DO NOT USE IT AT ANY PUBLIC COMPUTER!!!*
-** Port forwarding (5 pts)
+** Port forwarding (5 pts)                                        :noexport:
 *** Reverse port forwarding
 
 #+LATEX: \verbatimfont{\tiny\dejavu}
@@ -105,17 +182,17 @@
                                                                  ▒           └──────┘
 #+END_EXAMPLE
 
-    As long as you can login to =cs3=, this setup enables you to access your home PC from
-    anywhere!
+As long as you can login to =cs3=, this setup enables you to access your home PC from
+anywhere!
 
-    1. At your home PC, do
-       : ssh -R 3333:localhost:22 cs3user@cs3.swfu.edu.cn
-       This will open up a /reverse ssh tunnel/ to =cs3.swfu.edu.cn=.
-    2. At =cs3=, do
-       : ssh -p 3333 homeuser@localhost
-       Now, a connection is made from =cs3:22= to =your-home-pc:3333=.
-    3. *Your task:* use =netstat= at both local and remote side to figure out the TCP
-       connections in this setup.
+1. At your home PC, do
+   : ssh -R 3333:localhost:22 cs3user@cs3.swfu.edu.cn
+   This will open up a /reverse ssh tunnel/ to =cs3.swfu.edu.cn=.
+2. At =cs3=, do
+   : ssh -p 3333 homeuser@localhost
+   Now, a connection is made from =cs3:22= to =your-home-pc:3333=.
+3. *Your task:* use =ssf= at both local and remote side to figure out the TCP
+   connections in this setup.
 
 *** Local port forwarding
 
@@ -132,13 +209,13 @@
 └─────────┘
 #+END_EXAMPLE
 
-    1. At your PC (usually restricted), do
-       : ssh user@cs3.swfu.edu.cn -L 3333:cs2.swfu.edu.cn:80
-       Local machine listens on port 3333, and forward traffic to =cs2= on port 80.  That
-       means you can open a web browser, and visit [[http://localhost:3333][=http://localhost:3333=]]. You should see
-       the same page as [[http://cs2.swfu.edu.cn][=http://cs2.swfu.edu.cn=]]
-    2. *Your task:* use =netstat= at both local and remote side to figure out the TCP
-       connections in this setup.
+1. At your PC (usually restricted), do
+   : ssh user@cs3.swfu.edu.cn -L 3333:cs2.swfu.edu.cn:80
+   Local machine listens on port 3333, and forward traffic to =cs2= on port 80.  That
+   means you can open a web browser, and visit [[http://localhost:3333][=http://localhost:3333=]]. You should see
+   the same page as [[http://cs2.swfu.edu.cn][=http://cs2.swfu.edu.cn=]]
+2. *Your task:* use =ss= at both local and remote side to figure out the TCP
+   connections in this setup.
 
 *** References
     - [[https://www.grid5000.fr/mediawiki/index.php/SSH#Tips][SSH Tips]]
@@ -147,20 +224,21 @@
     - [[http://www.aptivate.org/en/blog/2010/03/10/ssh-port-forwarding/][SSH Port Forwarding]]
     - [[http://www.onlamp.com/pub/a/onlamp/excerpt/ssh_11/index3.html][SSH, The Secure Shell: The Definitive Guide --- SSH Port Forwarding]]
 
-** Pair working with SSH+Tmux (5 pts)
-   Suppose Alice and Bob are both sitting in our A7 lab. And they're working on a
-   cooperative project. Sometimes they have to edit a file, e.g. =helloworld.c=
-   together. How? Very easy...
-*** Case 1
-    If both Alice and Bob use the same username (e.g. =stud=) to work together,
-    1. Bob opens a terminal. At the command prompt, he types:
-       : tmux new -s pair
-    2. Alice logins to Bob's machine via SSH:
-       : ssh stud@bob.ip.address
-       : tmux a -t pair
-    3. Now, they're sharing the same tmux session, and can co-edit their =helloworld.c= in
-       it.
-*** Case 2
+** Pair working with SSH+Tmux (15 pts)
+
+Suppose Alice and Bob are both sitting in our Linux lab. And they're working on a
+cooperative project. Sometimes they have to edit a file, let's say =helloworld.c=
+together. How? Very easy...
+
+Assuming Alice and Bob use the same username (e.g. =stud=) to work together,
+1. Bob opens a terminal. At the command prompt, he types:
+   : tmux new -s pair
+2. Alice logins to Bob's machine via SSH:
+   : ssh stud@bob.ip.address
+   : tmux a -t pair
+3. Now, they're sharing the same tmux session, and can co-edit their =helloworld.c= in
+   it.
+*** Case 2                                                       :noexport:
     If Alice and Bob use different username, for example, they both have accounts in =cs3=
     server, and want to do co-working there, they can use a shared socket to achieve this.
     1. Bob logins to =cs3=, and starts a tmux session with a shared socket.
@@ -172,104 +250,110 @@
        : tmux -S /tmp/bob a -t bob
 
 *** More
-    - =man ssh=
-    - =man tmux=
-    - [[http://www.zeespencer.com/building-a-remote-pairing-setup/][Build a Command Line Remote Pairing Setup]]
-    - [[http://blog.stevenhaddox.com/2012/04/11/remote-pairing-with-ssh-tmux-vim][Remote Pairing With SSH, Tmux, and Vim]]
-    - [[http://collectiveidea.com/blog/archives/2014/02/18/a-simple-pair-programming-setup-with-ssh-and-tmux/][A Simple Pair Programming Setup with SSH and Tmux]]
-    - [[http://evan.tiggerpalace.com/articles/2011/10/17/some-people-call-me-the-remote-pairing-guy-/][Some people call me "the remote pairing guy"...]]
-    - Googling =ssh tmux pair working=
+- =man ssh=
+- =man tmux=
+- [[http://www.zeespencer.com/building-a-remote-pairing-setup/][Build a Command Line Remote Pairing Setup]]
+- [[http://blog.stevenhaddox.com/2012/04/11/remote-pairing-with-ssh-tmux-vim][Remote Pairing With SSH, Tmux, and Vim]]
+- [[http://collectiveidea.com/blog/archives/2014/02/18/a-simple-pair-programming-setup-with-ssh-and-tmux/][A Simple Pair Programming Setup with SSH and Tmux]]
+- [[http://evan.tiggerpalace.com/articles/2011/10/17/some-people-call-me-the-remote-pairing-guy-/][Some people call me "the remote pairing guy"...]]
+- Googling =ssh tmux pair working=
 
-    Now, you are sitting in the lab. Please feel free to work together to get the following
-    tasks done.
+Now, you are sitting in the lab. Please feel free to work with each other to get the following
+tasks done.
 
-* HTTP (15 pts)
+* HTTP (15 pts)                                                    :noexport:
 ** Install Apache2
-   : sudo aptitude install apache2
+
+: sudo apt install apache2
 
 ** Play with it
-   - Your tasks :: Create your own website
-     - How do I know my web server is running? (=nmap=, =systemctl status apache2=)
-     - How to configure it? (=/usr/share/doc/apache2/=, =/etc/apache2/=)
-     - Is my apache2 working well? (=/var/log/apache2/=)
-     - Where is my homepage? (=/var/www/=)
-     - How to write a homepage? (=/var/www/index.html=)
-     - How to give every user a homepage? (=~/public_html/index.html=)
+- Your tasks :: Create your own website
+  - How do I know my web server is running? (=nmap=, =systemctl status apache2=)
+  - How to configure it? (=/usr/share/doc/apache2/=, =/etc/apache2/=)
+  - Is my apache2 working well? (=/var/log/apache2/=)
+  - Where is my homepage? (=/var/www/=)
+  - How to write a homepage? (=/var/www/index.html=)
+  - How to give every user a homepage? (=~/public_html/index.html=)
 
-* Email (15 pts)
+* Email (15 pts)                                                   :noexport:
 ** SMTP (8 pts)
 *** Install Exim4
-    : sudo aptitude install exim4
+
+: sudo apt install exim4
 
 *** Play with it
-    - Your tasks ::
-      - How do I know my SMTP server is running? (=nmap=, =systemctl status exim4=)
-      - How to configure it? (=/usr/share/doc/exim4/=, =/etc/exim4/=,
-       	=sudo dpkg-reconfigure exim4-config=)
-      - Is my exim4 working well? (=/var/log/exim4/=)
-      - How to send/receive emails? (=mail=, =mutt=, =nc server 25=)
+- Your tasks ::
+  - How do I know my SMTP server is running? (=nmap=, =systemctl status exim4=)
+  - How to configure it? (=/usr/share/doc/exim4/=, =/etc/exim4/=,
+   	=sudo dpkg-reconfigure exim4-config=)
+  - Is my exim4 working well? (=/var/log/exim4/=)
+  - How to send/receive emails? (=mail=, =mutt=, =nc server 25=)
 
 ** POP3/IMAP4 (7 pts)
 *** Install Dovecot roundcube
-    : sudo aptitude install dovecot-imapd dovecot-pop3d roundcube
+
+: sudo apt install dovecot-imapd dovecot-pop3d roundcube
 
 *** Play with it
-    - Your tasks ::
-      - How do I know my POP3/IMAP4 server is running? (=nmap=, =systemctl status dovecot=)
-      - How to configure it? (=/usr/share/doc/dovecot*/=, =/etc/dovecot/=,
-        =/usr/share/doc/roundcube-core=, =/etc/roundcube=)
-      - Is my dovecot working well? (=/var/log/mail.*/=)
-      - How to send/receive emails? (=/usr/share/doc/roundcube-core/=)
+- Your tasks ::
+  - How do I know my POP3/IMAP4 server is running? (=nmap=, =systemctl status dovecot=)
+  - How to configure it? (=/usr/share/doc/dovecot*/=, =/etc/dovecot/=,
+    =/usr/share/doc/roundcube-core=, =/etc/roundcube=)
+  - Is my dovecot working well? (=/var/log/mail.*/=)
+  - How to send/receive emails? (=/usr/share/doc/roundcube-core/=)
 
-* FTP (15 pts)
+* FTP (15 pts)                                                     :noexport:
 ** Install vsftpd lftp
-   : sudo aptitude install vsftpd lftp
+
+: sudo aptitude install vsftpd lftp
+
 ** Play with it
-   - Your tasks ::
-     - How do I know my FTP server is running? (=nmap=, =systemctl status vsftpd=)
-     - How to configure it? (=/usr/share/doc/vsftpd/=, =/etc/vsftpd.conf=)
-     - Is my vsftpd working well? (=/var/log/vsftpd.log=)
-     - How to transfer files? (=lftp=)
+- Your tasks ::
+  - How do I know my FTP server is running? (=nmap=, =systemctl status vsftpd=)
+  - How to configure it? (=/usr/share/doc/vsftpd/=, =/etc/vsftpd.conf=)
+  - Is my vsftpd working well? (=/var/log/vsftpd.log=)
+  - How to transfer files? (=lftp=)
 
-* IPTables (30 pts)
+* IPTables (30 pts)                                                :noexport:
 ** Writing a simple rule set
-   If you try the following commands:
 
-   #+BEGIN_EXAMPLE
-   $ sudo iptables -P INPUT ACCEPT
-   $ sudo iptables -F
-   $ sudo iptables -A INPUT -i lo -j ACCEPT
-   $ sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-   $ sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-   $ sudo iptables -P INPUT DROP
-   $ sudo iptables -P FORWARD DROP
-   $ sudo iptables -P OUTPUT ACCEPT
-   $ sudo iptables -L -v
-   #+END_EXAMPLE
+If you try the following commands:
 
-   You will get the following output:
-   #+BEGIN_EXAMPLE
-   Chain INPUT (policy DROP 0 packets, 0 bytes)
-   pkts bytes target   prot opt in   out  source     destination
-    0     0   ACCEPT   all  --  lo   any  anywhere   anywhere
-    0     0   ACCEPT   all  --  any  any  anywhere   anywhere   state RELATED,ESTABLISHED
-    0     0   ACCEPT   tcp  --  any  any  anywhere   anywhere   tcp dpt:ssh
-   Chain FORWARD (policy DROP 0 packets, 0 bytes)
-   pkts bytes target     prot opt in     out     source   destination
-   Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
-   pkts bytes target     prot opt in     out     source   destination
-   #+END_EXAMPLE
+#+BEGIN_EXAMPLE
+sudo iptables -P INPUT ACCEPT
+sudo iptables -F
+sudo iptables -A INPUT -i lo -j ACCEPT
+sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+sudo iptables -P INPUT DROP
+sudo iptables -P FORWARD DROP
+sudo iptables -P OUTPUT ACCEPT
+sudo iptables -L -v
+#+END_EXAMPLE
 
-   Read the following short tutorial to know why:
-   - [[http://wiki.centos.org/HowTos/Network/IPTables#head-724ed81dbcd2b82b5fd3f648142796f3ce60c730][Writing a simple rule set]]
+You will get the following output:
+#+BEGIN_EXAMPLE
+Chain INPUT (policy DROP 0 packets, 0 bytes)
+pkts bytes target   prot opt in   out  source     destination
+ 0     0   ACCEPT   all  --  lo   any  anywhere   anywhere
+ 0     0   ACCEPT   all  --  any  any  anywhere   anywhere   state RELATED,ESTABLISHED
+ 0     0   ACCEPT   tcp  --  any  any  anywhere   anywhere   tcp dpt:ssh
+Chain FORWARD (policy DROP 0 packets, 0 bytes)
+pkts bytes target     prot opt in     out     source   destination
+Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
+pkts bytes target     prot opt in     out     source   destination
+#+END_EXAMPLE
+
+Read the following short tutorial to know why:
+- [[http://wiki.centos.org/HowTos/Network/IPTables#head-724ed81dbcd2b82b5fd3f648142796f3ce60c730][Writing a simple rule set]]
 
 ** Your tasks
-   1. How to block all connections from your next desk?
-   2. How to block only SSH connections from your next desk?
-   3. How to block all other than SSH connections from your next desk?
+1. How to block all connections from your next desk?
+2. How to block only SSH connections from your next desk?
+3. How to block all other than SSH connections from your next desk?
 
 ** References
-   - [[https://help.ubuntu.com/community/IptablesHowTo][Iptables Howto]]
-   - [[http://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/][The Beginner’s Guide to iptables, the Linux Firewall]]
-   - google [[https://www.google.com/#q%3Diptables%20tutorial&oq%3Diptables%20&aqs%3Dchrome.2.69i57j0l5.9165j0j7&sourceid%3Dchrome&es_sm%3D93&ie%3DUTF-8&qscrl%3D1][=iptables tutorial=]]
+- [[https://help.ubuntu.com/community/IptablesHowTo][Iptables Howto]]
+- [[http://www.howtogeek.com/177621/the-beginners-guide-to-iptables-the-linux-firewall/][The Beginner’s Guide to iptables, the Linux Firewall]]
+- google [[https://www.google.com/#q%3Diptables%20tutorial&oq%3Diptables%20&aqs%3Dchrome.2.69i57j0l5.9165j0j7&sourceid%3Dchrome&es_sm%3D93&ie%3DUTF-8&qscrl%3D1][=iptables tutorial=]]
 

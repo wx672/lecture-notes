@@ -358,42 +358,46 @@
   every node/.style ={inner sep=0},%
   every edge/.style ={draw,->,thick},%
   every edge quotes/.style = {scale=.4,sloped,inner sep=1pt,font=\ttfamily},%
-  server/.style = {rounded corners, fill=black!30, inner sep=2pt},%
+  server/.style = {rounded corners, fill=black!30, inner sep=2pt, font=\scriptsize},%
+  shadow/.style ={minimum height=4pt, opacity=0},
   ]%
   
   \node (dns) [color=violet!70, label={[violet!70]below:{\scriptsize DNS Lookup}}]%
-  {\rule{23mm}{4pt}};
+  {\rule{13mm}{4pt}};
 
   \node (connect) [right=of dns,color=orange, label={[orange]below:{\scriptsize Connect}}]%
-  {\rule{20mm}{4pt}};
+  {\rule{10mm}{4pt}};
 
   \node (send) [right=of connect,color=Green, label={[Green]below:{\scriptsize Send}}]%
   {\rule{6mm}{4pt}};
 
   \node (wait) [right=of send,color=red!70, label={[red!70]below:{\scriptsize Wait}}]%
-  {\rule{12mm}{4pt}};
+  {\rule{6mm}{4pt}};
 
   \node (load) [right=of wait,color=blue!50, label={[blue!50]below:{\scriptsize Load}}]%
-  {\rule{20mm}{4pt}};
+  {\rule{15mm}{4pt}};
 
-  \node (dnsserver) [above=2cm of dns.west,anchor=west,server] {DNS Server};%
-  \node (webserver) [right=of dnsserver.east,anchor=west,server,minimum width=60mm] {Web Server};%
+  \node (dnsserver) [server,minimum width=13mm,above=2cm of dns.north west,anchor=south west] {DNS Server};%
+  \node (webserver) [server,minimum width=37mm,right=of dnsserver.east,anchor=west] {Web Server};%
 
-  % \node [above=of dnsserver, xshift=4.2cm, yshift=5mm] {\underline{Simple HTTP Transaction}};
+  \node (dns1) [shadow,above=2cm of dns.north west,anchor=south west] {\rule{13mm}{0pt}};
+  \node (connect1) [shadow,right=of dns1]{\rule{10mm}{0pt}};
+  \node (send1) [shadow,right=of connect1]{\rule{6mm}{0pt}};
+  \node (wait1) [shadow,right=of send1]{\rule{6mm}{0pt}};
+  \node (load1) [shadow,right=of wait1]{\rule{15mm}{0pt}};
 
   \path%
-  (dns.north west) edge ["DNS query" near end,violet] (dnsserver.200)%
-  (dnsserver.340)  edge ["IP address" near start,violet] (dns.north east)%
-  (connect.north west) edge ["SYN",orange] (webserver.185)%
-  (webserver.185) edge ["SYN/ACK" near start,orange] (connect.north)%
-  (connect.north) edge ["ACK",orange] (webserver.190)%
-  (send.north west) edge ["HTTP request" near end] (webserver.220)%
-  (webserver.250) edge ["HTTP response"' near end,"1\textsuperscript{st} segment" near start,red!70]%
-  (wait.north east)%
-  (webserver.335) edge ["PSH"',"2\textsuperscript{nd} segment" near start,blue!50] (load.170)%
-  (load.145) edge ["ACK" near end,blue!50] (webserver.354)%
-  (webserver.349) edge ["HTTP\_Continue"' near end,"3\textsuperscript{rd} segment" near start,blue!50] (load.20)%
-  (webserver.355) edge ["FIN",black!60] (load.north east);%
+  (dns.north west) edge ["DNS query",violet] (dnsserver.260)%
+  (dnsserver.280)  edge ["IP address",violet] (dns.north east)%
+  (connect.north west) edge ["SYN",orange] (connect1.250)%webserver.185
+  (connect1.250) edge ["SYN/ACK",orange] (connect.north)%webserver.185
+  (connect.north) edge ["ACK",orange] (connect1.south east)%webserver.187
+  (send.north west) edge ["HTTP request",Green] (send1.south)%
+  (wait1.south) edge ["HTTP response"',"1\textsuperscript{st} segment" near start,red!70] (wait.north east)%
+  (load1.south west) edge ["PSH"',"2\textsuperscript{nd} segment" near start,blue!50] (load.172)%
+  (load1.190) edge ["HTTP\_Continue"',"3\textsuperscript{rd} segment" near start,blue!50] (load.150)%
+  (load.150) edge ["ACK" near end,blue!50] (load1.290)%
+  (load1.350) edge ["FIN",black!60] (load.north east);%
 \end{tikzpicture}  }
   \caption{HTTP transaction}
   \label{fig:http-transaction}
@@ -406,51 +410,65 @@
   every node/.style ={inner sep=0},%
   every edge/.style ={draw,->,thick},%
   every edge quotes/.style = {scale=.5,sloped,inner sep=1pt,font=\ttfamily},%
-  server/.style = {rounded corners, fill=black!30, inner sep=2pt},%
+  server/.style = {rounded corners, fill=black!30, inner sep=2pt,font=\scriptsize},%
+  shadow/.style ={minimum height=4pt},
   ]%
   
   \node [color=violet!70, label={[violet!70]below:{\scriptsize DNS Lookup}}]
-  (dns) {\rule{25mm}{4pt}};
+  (dns) {\rule{13mm}{4pt}};
 
   \node [color=orange, label={[orange]below:{\scriptsize Connect}},
-  right=of dns] (connect) {\rule{20mm}{4pt}};
+  right=of dns] (connect) {\rule{10mm}{4pt}};
 
   \node [color=Green, label={[Green]below:{\scriptsize Send}},
-  right=of connect] (send) {\rule{7mm}{4pt}};
+  right=of connect] (send) {\rule{6mm}{4pt}};
 
   \node [color=red!70, label={[red!70]below:{\scriptsize Wait}},
-  right=of send] (wait) {\rule{18mm}{4pt}};
+  right=of send] (wait) {\rule{6mm}{4pt}};
 
   \node [color=blue!50, label={[blue!50]below:{\scriptsize Load}},
-  right=of wait] (load) {\rule{6mm}{4pt}};
+  right=of wait] (load) {\rule{10mm}{4pt}};
 
   \node [color=Green, label={[Green]below:{\scriptsize Send}},
-  right=of load] (send2) {\rule{7mm}{4pt}};
+  right=of load] (send2) {\rule{6mm}{4pt}};
 
   \node [color=red!70, label={[red!70]below:{\scriptsize Wait}},
-  right=of send2] (wait2) {\rule{18mm}{4pt}};
+  right=of send2] (wait2) {\rule{6mm}{4pt}};
 
   \node [color=blue!50, label={[blue!50]below:{\scriptsize Load}},
-  right=of wait2] (load2) {\rule{6mm}{4pt}};
+  right=of wait2] (load2) {\rule{10mm}{4pt}};
   
-  \node (dnsserver) [above=2cm of dns.west,anchor=west,server,minimum width=25mm] {DNS Server};%
-  \node (webserver) [right=of dnsserver.east,anchor=west,server,minimum width=83mm] {Web Server};%
+  \node (dnsserver) [above=2cm of dns.north west,anchor=south west,server,minimum width=13mm] {DNS Server};%
+  \node (webserver) [right=of dnsserver.east,anchor=west,server,minimum width=55mm] {Web Server};%
 
-  \node [below=5mm of dns.west,anchor=west,server, minimum width=77mm] (r1) {{\tiny Request I}};%
-  \node [right=of r1,server,minimum width=31mm] (r2) {{\tiny Request II}};%
-  
-  % \node [above=of dnsserver, xshift=4.2cm, yshift=5mm] {\underline{Persistent HTTP Transaction}};
+  \node (dns1) [shadow,above=2cm of dns.north west,anchor=south west] {\rule{13mm}{0pt}};
+  \node (connect1) [shadow,right=of dns1]{\rule{10mm}{0pt}};
+  \node (send1) [shadow,right=of connect1]{\rule{6mm}{0pt}};
+  \node (wait1) [shadow,right=of send1]{\rule{6mm}{0pt}};
+  \node (load1) [shadow,right=of wait1]{\rule{10mm}{0pt}};
+  \node (send3) [shadow,right=of load1]{\rule{6mm}{0pt}};
+  \node (wait3) [shadow,right=of send3]{\rule{6mm}{0pt}};
+  \node (load3) [shadow,right=of wait3]{\rule{10mm}{0pt}};
 
   \path%
-  (dns.north west) edge ["DNS query" near end,violet] (dnsserver.200)%
-  (dnsserver.340)  edge ["IP address" near start,violet] (dns.north east)%
-  (connect.north west) edge ["SYN",orange] (webserver.184)%
-  (webserver.184) edge ["SYN/ACK" near start,orange] (connect.7)%
-  (connect.7) edge ["ACK",orange] (webserver.186)%
-  (send.north west) edge ["HTTP request" near end,Green] (webserver.190)%
-  (webserver.195) edge ["HTTP response" near start,red!70] (wait.north east)%
-  (send2.north west) edge [Green] (webserver.353)%
-  (webserver.355) edge [red!70] (wait2.north east);%
+  ($(dns.south west)+(0,-4mm)$) edge [thin, -] ($(dns.south west)+(0,-6mm)$)
+  ($(load.south east)+(0,-4mm)$) edge [thin, -] ($(load.south east)+(0,-6mm)$)
+  ($(load2.south east)+(0,-4mm)$) edge [thin, -] ($(load2.south east)+(0,-6mm)$)
+  ($(dns.south west)+(0,-5mm)$) edge ["Request I",-,thin] ($(load.south east)+(0,-5mm)$)
+  ($(send2.south west)+(0,-5mm)$) edge ["Request 2",-,thin] ($(load2.south east)+(0,-5mm)$)
+  (dns.north west) edge ["DNS query",violet] (dnsserver.260)%
+  (dnsserver.280)  edge ["IP address",violet] (dns.north east)%
+  (connect.north west) edge ["SYN",orange] (connect1.250)%
+  (connect1.250) edge ["SYN/ACK",orange] (connect.north)%
+  (connect.north) edge ["ACK" near end,orange] (connect1.south east)%
+  (send.north west) edge ["HTTP request",Green] (send1.south)%
+  (wait1.south) edge ["HTTP response",red!70] (wait.north east)%
+  (wait1.south east) edge [red!70] (load.110)%
+  (load1.south) edge [red!70] (load.north east)%
+  (send2.north west) edge [Green] (send3.south)%
+  (wait3.south) edge [red!70] (wait2.north east)%
+  (wait3.south east) edge [red!70] (load2.110)%
+  (load3.south) edge [red!70] (load2.north east);
 \end{tikzpicture}  }
   \caption{HTTP persistent transaction}
   \label{fig:persistent-transaction}

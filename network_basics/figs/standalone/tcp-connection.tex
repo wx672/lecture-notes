@@ -1,8 +1,19 @@
-\documentclass[varwidth,crop]{standalone}
-\usepackage{fancyvrb,xcolor}
+\documentclass[varwidth=50em,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
 \begin{document}
-\begin{Verbatim}[commandchars=\\\{\}]
-wx672@cs3:~$ \textcolor{violet}{netstat -at | grep http | grep ESTAB}
-tcp  0  0 cs3.swfu.edu.cn:http   220.163.96.3:47179   ESTABLISHED
-\end{Verbatim}
+\begin{verbatim}
+$ ss -4t state established
+
+Recv-Q   Send-Q   Local Address:Port    Peer Address:Port     
+0        0            127.0.0.1:3333       127.0.0.1:14624
+0        0            127.0.0.1:14624      127.0.0.1:3333
+\end{verbatim}
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

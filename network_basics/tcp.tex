@@ -30,18 +30,18 @@
       \begin{itemize}
       \item[\good] guaranteed performance
       \item[\good] fast transfers (once circuit is established)
-      \item[\textcolor{red}{\bad}] wastes bandwidth if traffic is ``bursty''
-      \item[\textcolor{red}{\bad}] connection setup adds delay
-      \item[\textcolor{red}{\bad}] recovery from failure is slow
+      \item[\Bad] wastes bandwidth if traffic is ``bursty''
+      \item[\Bad] connection setup adds delay
+      \item[\Bad] recovery from failure is slow
       \end{itemize}
     \end{iblock}
   \end{minipage}\hfill
   \begin{minipage}[t]{.47\linewidth}
     \begin{iblock}{Packet switching (\ding{41})}
       \begin{itemize}
-      \item[\textcolor{red}{\bad}] no guaranteed performance
-      \item[\textcolor{red}{\bad}] header overhead per packet
-      \item[\textcolor{red}{\bad}] queues and queuing delay
+      \item[\Bad] no guaranteed performance
+      \item[\Bad] header overhead per packet
+      \item[\Bad] queues and queuing delay
       \item[\good] efficient use of bandwidth
       \item[\good] no connection setup
       \item[\good] can ``route around trouble''
@@ -66,23 +66,36 @@ See also:
 \subsection{TCP}
 
 \begin{frame}
-  \begin{description}
-  \item[IP:] host {\Large {\dejavu ↔}} host
-  \item[TCP/UDP:] process {\Large {\dejavu ↔}} process
-  \end{description}
+  \begin{iblock}{}
+    \begin{minipage}{.5\linewidth}
+      \begin{description}
+      \item[IP:] host {\Large {\dejavu ↔}} host
+      \item[TCP/UDP:] process {\Large {\dejavu ↔}} process
+      \end{description}
+    \end{minipage}\hfill
+    \begin{minipage}{.5\linewidth}
+      \begin{center}
+        \includegraphics[width=\linewidth]{host2host}
+      \end{center}
+    \end{minipage}
+  \end{iblock}
   \begin{minipage}[t]{.5\linewidth}
-    \begin{iblock}{IP provides \emph{unreliable} service}
-      \emph{Best-effort, no guarantee}
+    \begin{iblock}{IP: Best-effort, no guarantee}
       \begin{itemize}
       \item[?] segment delivery
       \item[?] orderly delivery of segments
       \item[?] the integrity of the data in the segments
       \end{itemize}
     \end{iblock}
-  \end{minipage}\hfill
+  \begin{iblock}{QoS on data link layer or IP layer?}
+    \begin{itemize}
+    \item[\Bad] Efficiency
+    \item[\Bad] Upgrade all the routers
+    \end{itemize}
+  \end{iblock}
+\end{minipage}\hfill
   \begin{minipage}[t]{.5\linewidth}
-    \begin{iblock}{TCP provides \emph{reliable} data transfer}
-      \emph{You receive none or you receive it correctly and orderly}.
+    \begin{iblock}{TCP: Receive it correctly and orderly or none}
       \begin{itemize}
       \item[{\dejavu ✔}] correctness --- acknowledgement, checksum
       \item[{\dejavu ✔}] order --- sequence numbers
@@ -92,33 +105,79 @@ See also:
       \end{itemize}
     \end{iblock}
   \end{minipage}
+    % \begin{tikzpicture}[remember picture, overlay]
+  %     \node [red,opacity=.4,anchor=north east, scale=.5] at (current page.north east)%
+  %     {\includegraphics{host2host}};    
+  % \end{tikzpicture}
 \end{frame}
 
-\paragraph{Why doesn't IP provides reliable service?}
+\begin{description}
+\item[Why doesn't IP provides reliable service?]\,
+  \begin{itemize}
+  \item Inefficient. Routers are very busy forwarding data packets as fast as possible. It
+    would be slow down upon providing extra functionalities.
+  \item Unnecessary. The end process has to check the received data for correctness and
+    orderliness anyway even if each router provides guaranteed delivery service.
+  \end{itemize}
+\item[TCP is optimized for accurate delivery rather than timely delivery] TCP sometimes
+  incurs relatively long delays (on the order of seconds) while waiting for out-of-order
+  messages or retransmissions of lost messages. It is not particularly suitable for
+  real-time applications such as Voice over IP. For such applications, protocols like the
+  Real-time Transport Protocol (RTP) running over the User Datagram Protocol (UDP) are
+  usually recommended instead\citetitle[Sec.~2, \emph{Network Function}]{wiki:tcp}.
+\end{description}
 
-\begin{itemize}
-\item \textbf{Inefficient}. Routers are very busy forwarding data packets as fast as
-  possible. It would be slow down upon providing extra functionalities.
-\item \textbf{Unnecessary}. The end process has to check the received data for correctness
-  and orderliness anyway even if each router provides guaranteed delivery service.
-\end{itemize}
+From \url{http://ssfnet.org/Exchange/tcp/tcpTutorialNotes.html}:
+\begin{description}
+\item[Stream Data Transfer] From the application's viewpoint, TCP transfers a contiguous
+  stream of bytes. TCP does this by grouping the bytes in TCP segments, which are passed
+  to IP for transmission to the destination. TCP itself decides how to segment the data
+  and it may forward the data at its own convenience.
+\item[Reliability] TCP assigns a sequence number to each byte transmitted, and expects a
+  positive acknowledgment (ACK) from the receiving TCP. If the ACK is not received within
+  a timeout interval, the data is retransmitted. The receiving TCP uses the sequence
+  numbers to rearrange the segments when they arrive out of order, and to eliminate
+  duplicate segments.
+\item[Flow Control] The receiving TCP, when sending an ACK back to the sender, also
+  indicates to the sender the number of bytes it can receive beyond the last received TCP
+  segment, without causing overrun and overflow in its internal buffers. This is sent in
+  the ACK in the form of the highest sequence number it can receive without problems.
+\item[Multiplexing] To allow for many processes within a single host to use TCP
+  communication facilities simultaneously, the TCP provides a set of addresses or ports
+  within each host. Concatenated with the network and host addresses from the internet
+  communication layer, this forms a socket. A pair of sockets uniquely identifies each
+  connection.
+\item[Logical Connections] The reliability and flow control mechanisms described above
+  require that TCP initializes and maintains certain status information for each data
+  stream. The combination of this status, including sockets, sequence numbers and window
+  sizes, is called a logical connection. Each connection is uniquely identified by the
+  pair of sockets used by the sending and receiving processes.
+\item[Full Duplex] TCP provides for concurrent data streams in both directions.
+\item[TCP provides a connection over a connectionless IP layer] A connection, likes a water
+  pipe, has:
+  \begin{itemize}
+  \item two ends
+  \item a stream flowing in it sequentially
+  \item flow control mechanisms
+  \end{itemize}
 
-\paragraph{TCP is optimized for accurate delivery rather than timely delivery}
+  The reliability and flow control mechanisms described above require that TCPs initialize
+  and maintain certain status information for each data stream.  The combination of this
+  information, including sockets, sequence numbers, and window sizes, is called \emph{a
+    connection}.  Each connection is uniquely specified by a pair of sockets identifying
+  its two sides\citetitle[Sec 1.5, \emph{RFC 793}]{rfc793}.
+\end{description}
 
-and therefore, TCP sometimes incurs relatively long delays (on the order of seconds) while
-waiting for out-of-order messages or retransmissions of lost messages. It is not
-particularly suitable for real-time applications such as Voice over IP. For such
-applications, protocols like the Real-time Transport Protocol (RTP) running over the User
-Datagram Protocol (UDP) are usually recommended instead. \citetitle[Sec.~2, \emph{Network
-  Function}]{wiki:tcp}
-
-\begin{frame}{A TCP Connection}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{tcp-socket}
-    } \mode<article>{
-      \includegraphics[width=.7\textwidth]{tcp-socket}
-    }
+\begin{frame}{A TCP Connection Over A Connectionless IP Layer}
+  \CMD{ss -4t state established}
+  \begin{center}\ttfamily
+    \begin{tabular}{llll}
+      Recv-Q&   Send-Q&   Local Address:Port &   Peer Address:Port \\    
+      0     &   0     &       127.0.0.1:3333 &      127.0.0.1:14624\\
+      0     &   0     &       127.0.0.1:14624&      127.0.0.1:3333 \\\cline{3-4}
+      &&\makecell[c]{\textbf{Socket}}&\makecell[c]{\textbf{Socket}}\\\cline{3-4}
+      &&\multicolumn{2}{c}{\textbf{Connection}}\\
+    \end{tabular}
   \end{center}
   \begin{iblock}{Port numbers}
     \begin{description}
@@ -136,22 +195,10 @@ Datagram Protocol (UDP) are usually recommended instead. \citetitle[Sec.~2, \emp
   \end{iblock}
 \end{frame}
 
-\paragraph{Connections}
-
-  The reliability and flow control mechanisms described above require that TCPs initialize
-  and maintain certain status information for each data stream.  The combination of this
-  information, including sockets, sequence numbers, and window sizes, is called a
-  connection.  Each connection is uniquely specified by a pair of sockets identifying its
-  two sides. \citetitle[Sec 1.5, \emph{RFC 793}]{rfc793}
-
 \begin{frame}{TCP Header}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{tcp-hdr}
-    } \mode<article>{
-      \includegraphics[width=.6\textwidth]{tcp-hdr}
-    }\label{fig:tcp-segment-format}
-  \end{center}  
+  \centering
+  \mode<beamer>{ \includegraphics[width=\textwidth]{tcp-hdr} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{tcp-hdr}\label{fig:tcp-segment-format} }
 \end{frame}
 
 See also\citetitle[Sec.~3, \emph{TCP Segment Structure}]{wiki:tcp}.
@@ -258,19 +305,25 @@ See also\citetitle[Sec.~3, \emph{TCP Segment Structure}]{wiki:tcp}.
 See also: \citetitle{rfc879, rfc6691}
 
 \paragraph{Difference between push and urgent}
-They are two vastly different mechanisms.
 
 \begin{itemize}
 \item \url{https://stackoverflow.com/questions/9153566/difference-between-push-and-urgent-flags-in-tcp}
 \end{itemize}
 
-\subparagraph{PSH and the PUSH function}
+They are two vastly different mechanisms.
+\begin{description}
+\item[PSH and the PUSH function] When you send data, your TCP buffers it. So if you send a
+  character it won't send it immediately but wait to see if you've got more. But maybe you
+  want it to go straight on the wire: this is where the PUSH function comes in. If you
+  PUSH data your TCP will immediately create a segment (or a few segments) and push them.
 
-When you send data, your TCP buffers it. So if you send a character it won't send it immediately but wait to see if you've got more. But maybe you want it to go straight on the wire: this is where the PUSH function comes in. If you PUSH data your TCP will immediately create a segment (or a few segments) and push them.
+  But the story doesn't stop here. When the peer TCP receives the data, it will naturally
+  buffer them \emph{it won't disturb the application for each and every byte}. Here's
+  where the PSH flag kicks in. If a receiving TCP sees the PSH flag it will immediately
+  push the data to the application.
 
-But the story doesn't stop here. When the peer TCP receives the data, it will naturally buffer them \emph{it won't disturb the application for each and every byte}. Here's where the PSH flag kicks in. If a receiving TCP sees the PSH flag it will immediately push the data to the application.
-
-There's no API to set the PSH flag. Typically it is set by the kernel when it empties the buffer. From TCP/IP Illustrated:
+  There's no API to set the PSH flag. Typically it is set by the kernel when it empties
+  the buffer. From TCP/IP Illustrated\citetitle[Sec.~20.5 \emph{PUSH Flag}]{fall2011tcp}:
 
 \begin{quote}
   This flag is conventionally used to indicate that the buffer at the side sending the
@@ -285,25 +338,28 @@ But be aware Stevens also says:
   reliably implemented or used)
 \end{quote}
 
-\subparagraph{URG and OOB data}
+\item[URG and OOB data] TCP is a stream-oriented protocol. So if you push 64K bytes on one
+  side, you'll eventually get 64k bytes on the other. So imagine you push a lot of data
+  and then have some message that says ``Hey, you know all that data I just sent ? Yeah,
+  throw that away''. The gist of the matter is that once you push data on a connection you
+  have to wait for the receiver to get all of it before it gets to the new data.
 
-TCP is a stream-oriented protocol. So if you push 64K bytes on one side, you'll eventually get 64k bytes on the other. So imagine you push a lot of data and then have some message that says "Hey, you know all that data I just sent ? Yeah, throw that away". The gist of the matter is that once you push data on a connection you have to wait for the receiver to get all of it before it gets to the new data.
-
-This is where the URG flag kicks in. When you send urgent data, your TCP creates a special
-segment in which it sets the URG flag and also the urgent pointer field. This causes the
-receiving TCP to forward the urgent data on a separate channel to the application (for
-instance on Unix your process gets a SIGURG). This allows the application to process the
-data \emph{out of band}.
+  This is where the URG flag kicks in. When you send urgent data, your TCP creates a
+  special segment in which it sets the URG flag and also the urgent pointer field. This
+  causes the receiving TCP to forward the urgent data on a separate channel to the
+  application (for instance on Unix your process gets a SIGURG). This allows the
+  application to process the data \emph{out of band}.
 
 \begin{quote}
-  RFC 6093 disagrees with this use of "out of band" and states:
+  RFC 6093 disagrees with this use of ``out of band'' and states\citetitle[\emph{RFC
+    6093}]{rfc6093}:
 
-  The TCP urgent mechanism is NOT a mechanism for sending "out-of-band" data: the
-  so-called "urgent data" should be delivered "in-line" to the TCP user.
+  The TCP urgent mechanism is NOT a mechanism for sending ``out-of-band'' data: the
+  so-called ``urgent data'' should be delivered ``in-line'' to the TCP user.
 
   But then it goes on to admit:
 
-  By default, the last byte of "urgent data" is delivered "out of band" to the
+  By default, the last byte of ``urgent data'' is delivered ``out of band'' to the
   application. That is, it is not delivered as part of the normal data stream.
 
   An application has to go out of its way and specify e.g. \texttt{SO\_OOBINLINE} to get
@@ -312,7 +368,10 @@ data \emph{out of band}.
   If all this sounds complicated just \emph{don't use urgent data}.
 \end{quote}
 
-As a side note, it's important to be aware that urgent data is rarely used today and not very well implemented. It's far easier to use a separate channel or a different approach altogether.
+As a side note, it's important to be aware that urgent data is rarely used today and not
+very well implemented. It's far easier to use a separate channel or a different approach
+altogether.
+\end{description}
 
 \begin{frame}{Establishing a TCP Connection}
   \begin{center}
@@ -339,11 +398,35 @@ handshake occurs \citetitle[Sec.~4.1, \emph{Connection establishment}]{wiki:tcp}
   acknowledgement number is set to one more than the received sequence number
   i.e. \texttt{B+1}.
 \end{enumerate}
+
 At this point, both the client and server have received an acknowledgment of the
 connection. The steps 1, 2 establish the connection parameter (sequence number) for one
 direction and it is acknowledged. The steps 2, 3 establish the connection parameter
 (sequence number) for the other direction and it is acknowledged. With these, a
 full-duplex communication is established.
+
+\begin{itemize}
+\item See also \citetitle[Sec.~6.2.2, \emph{Connection Establishment}; Sec.~6.5.5, \emph{TCP
+    Connection Establishment}]{tanenbaum2011computer}.
+\end{itemize}
+
+\begin{frame}{SYN-flood}
+  \begin{itemize}
+  \item[\$] \cmd{sudo apt install hping3}
+  \item[\$] \cmd{nc -l 3333}
+  \item[\$] \cmd{sudo iptables -A OUTPUT -p tcp -m tcp --tcp-flags RST RST -j DROP}
+  \item[\$] \cmd{sudo hping3 -I lo -S -c 5 -p 3333 127.0.0.1}
+  % \item[\$] \cmd{sudo iptables -D OUTPUT -p tcp -m tcp --tcp-flags RST RST -j DROP}
+  % \item[] 
+  % \item[\$] \cmd{\# Syn-flood protection:}
+  % \item[\$] \cmd{sudo iptables -A INPUT -p tcp --syn -m limit --limit 1/s -j ACCEPT}
+  \end{itemize}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://www.binarytides.com/tcp-syn-flood-dos-attack-with-hping/}
+\item \url{https://linoxide.com/firewall/block-common-attacks-iptables/}
+\end{itemize}
 
 \begin{frame}{Closing a TCP Connection}
   \begin{center}
@@ -363,7 +446,7 @@ which time the local port is unavailable for new connections; this prevents conf
 to delayed packets being delivered during subsequent connections. \citetitle[Sec.~4.2,
 \emph{Connection termination}]{wiki:tcp}
 
-A connection can be "half-open", in which case one side has terminated its end, but the
+A connection can be ``half-open'', in which case one side has terminated its end, but the
 other has not. The side that has terminated can no longer send any data into the
 connection, but the other side can. The terminating side should continue reading the data
 until the other side terminates as well.
@@ -381,33 +464,42 @@ side, when it actively closes the connection. But the remote TCP stack cannot di
 between a Connection Aborting RST and Data Loss RST. Both cause the remote stack to lose
 all the data received.
 
-
 \begin{frame}%{Three-way Handshake}
+  \begin{minipage}{.78\linewidth}
+    \begin{description}
+    \item[Terminal A:] \texttt{nc -l 3333}
+    \item[Terminal B:] \texttt{nc localhost 3333}
+    \item[Terminal C:] \texttt{sudo tcpdump -i lo -S port 3333}
+    \end{description}
+  \end{minipage}\hfill
   \begin{minipage}{.2\linewidth}
     \includegraphics[width=\textwidth]{3333}
   \end{minipage}
-  \begin{minipage}{.78\linewidth}
-    \begin{itemize}
-    \item Terminal A: \texttt{nc -l 3333}
-    \item Terminal B: \texttt{nc localhost 3333}
-    \end{itemize}
-  \end{minipage}
-  \begin{iblock}{tcpdump output in terminal C:}
-    \texttt{\char`~\$ sudo tcpdump -i lo -S port 3333}
-    \centering
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{tcpdump} }%
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.9\textwidth]{tcpdump} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{tcpdump} }
-  \end{iblock}
+  \end{center}
 \end{frame}
 
-\mode<article>{\clearpage}
+%\mode<article>{\clearpage}
 
 \begin{frame}<beamer>
   \centering
   \includegraphics[height=\textheight]{state-wikipedia}
 \end{frame}
 
-\includegraphics[width=\textwidth]{state_stevens-crop}\label{fig:state}
+\begin{figure}[!ht]
+  \centering
+  \includegraphics[width=\textwidth]{state_stevens-crop}
+  \caption{TCP state transition diagram\label{fig:state}}
+\end{figure}
+
+\citetitle[Sec.~6.5.7, \emph{TCP Connection Management Modeling}]{tanenbaum2011computer}
+Each line in Fig.\ref{fig:state} is marked by an \emph{event/action} pair. The event can
+either be a user-initiated system call (CONNECT, LISTEN , SEND, or CLOSE), a segment
+arrival (SYN, FIN, ACK, or RST), or, in one case, a timeout of twice the maximum packet
+lifetime. The action is the sending of a control segment (SYN, FIN, or RST) or nothing,
+indicated by --.
 
 \citetitle[Sec.~4, \emph{Protocol operation}]{wiki:tcp} TCP protocol operations may be divided
 into three phases. Connections must be properly established in a multi-step handshake
@@ -418,7 +510,7 @@ and releases all allocated resources.
 A TCP connection is managed by an operating system through a programming interface that
 represents the local end-point for communications, the Internet socket. During the
 lifetime of a TCP connection the local end-point undergoes a series of state
-changes:\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}
+changes\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}:
 
 \begin{description}
 \item[LISTEN] (server) represents waiting for a connection request from any remote TCP and
@@ -446,48 +538,44 @@ changes:\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}
   be sure the remote TCP received the acknowledgment of its connection termination
   request. [According to RFC 793 a connection can stay in TIME-WAIT for a maximum of four
   minutes known as a MSL (maximum segment lifetime).]
+  \begin{itemize}
+  \item[\$] \cmd{cat /proc/sys/net/ipv4/tcp\_fin\_timeout}
+  \end{itemize}
+  Another effect of this 2MSL wait is that while the TCP connection is in the 2MSL wait,
+  the socket pair defining that connection (client IP address, client port number, server
+  IP address, and server port number) cannot be reused. That connection can only be reused
+  when the 2MSL wait is over\citetitle[Sec.~18.6, \emph{TCP State Transition
+    Diagram}]{fall2011tcp}.  
 \item[CLOSED] (both server and client) represents no connection state at all.
 \end{description}
 
 \begin{frame}{\texttt{netstat}}
-  \begin{columns}
-    \begin{column}{.35\linewidth}
+  \CMD{sudo apt install net-tools}
+  
+  \begin{minipage}[t]{.35\linewidth}
     \begin{itemize}
-    \item[\char`~\$] \texttt{netstat -ant}
-    \item[\char`~\$] \texttt{netstat -antp}
-    \item[\char`~\$] \texttt{netstat -antpe}
-    \item[\char`~\$] \texttt{netstat -nr}
+    \item[\$] \cmd{netstat -ant}
+    \item[\$] \cmd{netstat -antp}
+    \item[\$] \cmd{netstat -antpe}
+    \item[\$] \cmd{netstat -nr}
     \end{itemize}
-    \end{column}
-    \begin{column}{.65\linewidth}
+  \end{minipage}\hfill
+  \begin{minipage}[t]{.6\linewidth}
     \begin{itemize}
-    \item[\char`~\$] \texttt{netstat -ie}
-    \item[\char`~\$] \texttt{netstat -antp | grep ESTAB}
-    \item[\char`~\$] \texttt{netstat -nlp | grep :80}
-    \item[\char`~\$] \texttt{man netstat}
+    \item[\$] \cmd{netstat -ie}
+    \item[\$] \cmd{netstat -antp | grep ESTAB}
+    \item[\$] \cmd{netstat -nlp | grep :80}
+    \item[\$] \cmd{man netstat}
     \end{itemize}
-    \end{column}
-  \end{columns}
-  \vspace*{2em}
-  \begin{itemize}
-  \item[ss] a \texttt{netstat} replacement. Example:
+  \end{minipage}
+  
+  \begin{block}{\texttt{ss} --- a \texttt{netstat} replacement}
     \begin{itemize}
-    \item[\char`~\$] \texttt{ss -4ant "( sport = 3333 or dport = 3333 )"}
-    \item[\char`~\$] \texttt{man ss} 
+    \item[\$] \cmd{ss -4ant "( sport = 3333 or dport = 3333 )"}
+    \item[\$] \cmd{man ss}
     \end{itemize}
-  \end{itemize}
+  \end{block}
 \end{frame}
-
-% \begin{frame}{TCP Summary}
-%   \begin{itemize}
-%   \item Stream data transfer
-%   \item Reliability
-%   \item Flow control
-%   \item Multiplexing
-%   \item Logical Connections
-%   \item Full Duplex
-%   \end{itemize}
-% \end{frame}
 
 \begin{frame}{Sliding Window}
   \begin{center}
@@ -502,6 +590,14 @@ changes:\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}
     \end{itemize}
   \end{iblock}
 \end{frame}
+
+Flow control vs. congestion control:
+\begin{itemize}
+\item
+  \url{https://stackoverflow.com/questions/16473038/whats-the-difference-between-flow-control-and-congestion-control-in-tcp}
+\item
+  \url{https://techdifferences.com/difference-between-flow-control-and-congestion-control.html}
+\end{itemize}
 
 \begin{frame}<beamer>
   \begin{center}
@@ -548,19 +644,18 @@ changes:\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}
     (GBN)}, P.223]{kurose2013computer}
 \end{minipage}
 
-\paragraph{Cumulative Acknowledgment}
-
-  \citetitle[Sec.~4.4.1, \emph{Reliable Transmission}]{wiki:tcp} TCP primarily uses a
-  cumulative acknowledgment scheme, where the receiver sends an acknowledgment signifying
-  that the receiver has received all data preceding the acknowledged sequence number. The
-  sender sets the sequence number field to the sequence number of the first payload byte
-  in the segment's data field, and the receiver sends an acknowledgment specifying the
-  sequence number of the next byte they expect to receive. For example, if a sending
-  computer sends a packet containing four payload bytes with a sequence number field of
-  100, then the sequence numbers of the four payload bytes are 100, 101, 102 and 103. When
-  this packet arrives at the receiving computer, it would send back an acknowledgment
-  number of 104 since that is the sequence number of the next byte it expects to receive
-  in the next packet.
+\begin{description}
+\item[Cumulative Acknowledgment] \citetitle[Sec.~4.4.1, \emph{Reliable
+    Transmission}]{wiki:tcp} TCP primarily uses a cumulative acknowledgment scheme, where
+  the receiver sends an acknowledgment signifying that the receiver has received all data
+  preceding the acknowledged sequence number. The sender sets the sequence number field to
+  the sequence number of the first payload byte in the segment's data field, and the
+  receiver sends an acknowledgment specifying the sequence number of the next byte they
+  expect to receive. For example, if a sending computer sends a packet containing four
+  payload bytes with a sequence number field of 100, then the sequence numbers of the four
+  payload bytes are 100, 101, 102 and 103. When this packet arrives at the receiving
+  computer, it would send back an acknowledgment number of 104 since that is the sequence
+  number of the next byte it expects to receive in the next packet.
 
   Relying purely on the cumulative acknowledgment scheme employed by the original TCP
   protocol can lead to inefficiencies when packets are lost. For example, suppose 10,000
@@ -569,20 +664,16 @@ changes:\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}
   it received bytes 1,000 to 9,999 successfully, but failed to receive the first packet,
   containing bytes 0 to 999. Thus the sender may then have to resend all 10,000
   bytes. \citetitle[Sec.~4.6, \emph{Selective Acknowledgments}]{wiki:tcp}
+\end{description}
 
-
-\begin{frame}
-  \begin{iblock}{ACK lost?}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[height=.9\textheight]{tcp-ack-lost} }
-    \end{center}
-  \end{iblock}
+\begin{frame}<beamer>{ACK lost?}
+  \centering
+  \includegraphics[height=.9\textheight]{tcp-ack-lost}
 \end{frame}
 
-\begin{frame}[plain]
-  \begin{center}
-    \mode<beamer>{ \includegraphics[height=\textheight]{tcp-ack-lost2} }
-  \end{center}
+\begin{frame}<beamer>[plain]
+  \centering
+  \includegraphics[height=\textheight]{tcp-ack-lost2}
 \end{frame}
 
 \begin{minipage}{.42\linewidth}
@@ -611,36 +702,100 @@ p.~225]{kurose2013computer}
   \end{center}
 \end{frame}
 
-%\paragraph{A TCP Tutorial}
+\begin{frame}{TCP Sockets}
+  \begin{iblock}{Two Sockets at the Server}
+    \centering
+    \mode<beamer>{ \includegraphics[width=.5\textwidth]{tcpsocket} }%
+  \end{iblock}
+\end{frame}
 
-%   From: \url{http://ssfnet.org/Exchange/tcp/tcpTutorialNotes.html}
-%   \begin{description}
-%   \item[Stream Data Transfer] From the application's viewpoint, TCP transfers a contiguous
-%     stream of bytes. TCP does this by grouping the bytes in TCP segments, which are passed
-%     to IP for transmission to the destination. TCP itself decides how to segment the data
-%     and it may forward the data at its own convenience.
-%   \item[Reliability] TCP assigns a sequence number to each byte transmitted, and expects a
-%     positive acknowledgment (ACK) from the receiving TCP. If the ACK is not received
-%     within a timeout interval, the data is retransmitted. The receiving TCP uses the
-%     sequence numbers to rearrange the segments when they arrive out of order, and to
-%     eliminate duplicate segments.
-%   \item[Flow Control] The receiving TCP, when sending an ACK back to the sender, also
-%     indicates to the sender the number of bytes it can receive beyond the last received
-%     TCP segment, without causing overrun and overflow in its internal buffers. This is
-%     sent in the ACK in the form of the highest sequence number it can receive without
-%     problems.
-%   \item[Multiplexing] To allow for many processes within a single host to use TCP
-%     communication facilities simultaneously, the TCP provides a set of addresses or ports
-%     within each host. Concatenated with the network and host addresses from the internet
-%     communication layer, this forms a socket. A pair of sockets uniquely identifies each
-%     connection.
-%   \item[Logical Connections] The reliability and flow control mechanisms described above
-%     require that TCP initializes and maintains certain status information for each data
-%     stream. The combination of this status, including sockets, sequence numbers and window
-%     sizes, is called a logical connection. Each connection is uniquely identified by the
-%     pair of sockets used by the sending and receiving processes.
-%   \item[Full Duplex] TCP provides for concurrent data streams in both directions.
-%   \end{description}
+\begin{frame}<beamer>%{Stream Sockets}
+  \centering
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{socket-stream} }%
+\end{frame}
+
+\begin{minipage}{.5\linewidth}
+  \includegraphics[width=\textwidth]{tcpsocket}
+\end{minipage}\hfill
+\begin{minipage}{.45\linewidth}
+  \includegraphics[width=\textwidth]{socket-stream}
+\end{minipage}
+
+\begin{frame}{TCPServer.py}
+  \begin{minipage}{.5\linewidth}
+    \mode<beamer>{ \includegraphics[width=1.2\textwidth]{tcpServer-py} }%
+    \mode<article>{ \includegraphics[width=\textwidth]{tcpServer-py} }%
+    \begin{itemize}
+    \item[\hw] Re-write it in C
+    \end{itemize}
+  \end{minipage}\hfill
+  \begin{minipage}{.47\linewidth}
+    \footnotesize
+    \begin{description}
+    \item[\texttt{serverSocket}:] the welcoming socket
+    \item[\texttt{connectionSocket}:] a socket dedicated to a client
+    \item[\texttt{listen(backlog)}:] the server listens for connection requests
+      \begin{itemize}
+      \item[\texttt{backlog}:] {\scriptsize How many non-\texttt{accept()}-ed connections
+          are allowed to be queueing}
+      \end{itemize}
+    \item[\texttt{accept()}:] whenever a connection request coming, creates a new
+      \texttt{connectionSocket} (handshaking is done here)
+    \end{description}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}{TCPClient.py}
+  \begin{minipage}{.5\linewidth}
+    \mode<beamer>{ \includegraphics[width=1.1\textwidth]{tcpClient-py} }%
+    \mode<article>{ \includegraphics[width=\textwidth]{tcpClient-py} }%
+    \begin{itemize}
+    \item[\hw] Re-write it in C
+    \end{itemize}
+  \end{minipage}\hfill
+  \begin{minipage}{.47\linewidth}
+    \begin{description}
+    \item[\texttt{SOCK\_STREAM}:] TCP socket
+    \item[\texttt{connect()}:] initiate the TCP connection (3-way handshake)
+    \item[\texttt{send()}:] send out \texttt{sentence} through the client's socket. No
+      destination address needs to be specified
+    \end{description}
+  \end{minipage}
+\end{frame}
+
+\begin{itemize}
+\item See also \citetitle[Sec.~3.2, \emph{Multiplexing and
+    Demultiplexing}]{kurose2013computer}.
+\item The TCP server application has a ``welcoming socket'', that waits for connection
+  establishment requests from TCP clients on port number 12000.
+\item The TCP client creates a socket and sends a connection establishment request segment
+  with the lines:
+  \begin{itemize}
+  \item[] \cmd{clientSocket = socket(AF\_INET, SOCK\_STREAM)}
+  \item[] \cmd{clientSocket.connect((serverName,12000))}
+  \end{itemize}
+  A connection establishment request is nothing more than a TCP segment with
+  destination port number 12000 and a special connection establishment bit (SYN) set in
+  the TCP header (discussed in Section 3.5\citetitle{kurose2013computer}). The segment
+  also includes a source port number that was chosen by the client.
+\item When the host operating system of the computer running the server process receives
+  the incoming connection-request segment with destination port 12000, it locates the
+  server process that is waiting to accept a connection on port number 12000. The server
+  process then creates a new socket:
+  \begin{itemize}
+  \item[] \cmd{connectionSocket, addr = serverSocket.accept()}
+  \end{itemize}
+\item Also, the transport layer at the server notes the following four values in the
+  connection-request segment: (1) the source port number in the segment, (2) the IP
+  address of the source host, (3) the destination port number in the segment, and (4) its
+  own IP address. The newly created connection socket is identified by these four values;
+  all subsequently arriving segments whose source port, source IP address, destination
+  port, and destination IP address match these four values will be demultiplexed to this
+  socket. With the TCP connection now in place, the client and server can now send data to
+  each other.
+\item See also \citetitle[Sec.~2.7, \emph{Socket Programming: Creating Network
+    Applications}]{kurose2013computer}.
+\end{itemize}
 
 \subsection{UDP}
 
@@ -652,29 +807,44 @@ p.~225]{kurose2013computer}
   \label{fig:udp-datagram-format}
 \end{frame}
 
-\paragraph{Why need checksum?}
+\begin{frame}{UDP Example}
+  \begin{itemize}
+  \item[T1:\,\$] \cmd{nc -4ul 3333 \#server}
+  \item[T2:\,\$] \cmd{nc -4u localhost 3333 \#client}
+  \item[T3:\,\$] \cmd{echo hello > /dev/udp/127.0.0.1/3333 \#client}
+  \item[T4:\,\$] \cmd{sudo tcpdump -ilo udp port 3333}
+  \item[T5:\,\$] \cmd{watch -t -n.1 'ss -4anu "( sport == 3333 or dport == 3333 )"'}
+  \end{itemize}
+\end{frame}
 
-  See also \citetitle[Sec.~3.3.2, \emph{UDP Checksum}]{kurose2013computer}.
+\begin{description}
+\item[Why need checksum?]  See also \citetitle[Sec.~3.3.2, \emph{UDP
+    Checksum}]{kurose2013computer}.
   \begin{enumerate}
   \item (layer 2) there is no guarantee that all the links between source and destination
     provide error checking;
   \item (layer 3) even if segments are correctly transferred across a link, it's possible
     that bit errors could be introduced when a segment is stored in a router's memory.
   \end{enumerate}
+\end{description}
 
-\begin{frame}{TCP/UDP References}
-  \begin{refsection}
-    \nocite{wiki:tcp, wiki:udp, wiki:checksum, rfc793, rfc768}
-    \printbibliography[heading=none]
-  \end{refsection}
+\begin{frame}{Datagram Sockets}
+  \centering%
+  \mode<beamer>{ \includegraphics[width=.7\textwidth]{socket-datagram} }%
+  \mode<article>{ \includegraphics[width=.6\textwidth]{socket-datagram} }
 \end{frame}
 
-\subsection{Socket Programming}
-
-See also \citetitle[Sec.~2.7, \emph{Socket Programming: Creating Network
-  Applications}]{kurose2013computer}.
-
-\subsubsection{UDP}
+\begin{frame}{UDPServer.py}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=\textwidth]{udpServer-py} }%
+    \mode<article>{ \includegraphics[width=.5\textwidth]{udpServer-py} }
+  \end{center}
+  \begin{iblock}{\texttt{serverSocket.bind(('', serverPort))}}
+    \begin{itemize}
+    \item explicitly assigns \texttt{12000} to the server's socket
+    \end{itemize}
+  \end{iblock}
+\end{frame}
 
 \begin{frame}[t,allowframebreaks]{UDPClient.py}
   \begin{center}
@@ -706,101 +876,9 @@ See also \citetitle[Sec.~2.7, \emph{Socket Programming: Creating Network
   \end{iblock}
 \end{frame}
 
-\begin{frame}{UDPServer.py}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{udpServer-py} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{udpServer-py} }
-  \end{center}
-  \begin{iblock}{\texttt{serverSocket.bind(('', serverPort))}}
-    \begin{itemize}
-    \item explicitly assigns \texttt{12000} to the server's socket
-    \end{itemize}
-  \end{iblock}
-\end{frame}
-
-\subsubsection{TCP}
-
-\begin{frame}\mode<beamer>{\frametitle{TCP Sockets}}
-  \begin{iblock}{Two Sockets at the Server}
-    \centering
-    \mode<beamer>{ \includegraphics[width=.5\textwidth]{tcpsocket} }%
-    \mode<article>{ \includegraphics[width=.3\textwidth]{tcpsocket} }
-  \end{iblock}
-\end{frame}
-
-\begin{frame}{TCPClient.py}
-  \centering
-  \mode<beamer>{ \includegraphics[width=.65\textwidth]{tcpClient-py} }%
-  \mode<article>{ \includegraphics[width=.5\textwidth]{tcpClient-py} }
-
-  \begin{itemize}
-  \item \texttt{SOCK\_STREAM}: TCP socket
-  \item \texttt{connect()}: initiate the TCP connection (3-way handshake)
-  \item \texttt{send()}: send out \texttt{sentence} through the client's socket. No
-    destination address needs to be specified
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{TCPServer.py}
-  \centering
-  \mode<beamer>{ \includegraphics[width=.6\textwidth]{tcpServer-py} }%
-  \mode<article>{ \includegraphics[width=.5\textwidth]{tcpServer-py} }
-
-  \begin{footnotesize}
-    \begin{itemize}
-    \item \texttt{serverSocket}: the welcoming socket
-    \item \texttt{connectionSocket}: a socket dedicated to this particular client
-    \item \texttt{listen(backlog)}: the server listens for connection requests.
-      \begin{itemize}
-      \item \texttt{backlog}: {\scriptsize how many non-\texttt{accept()}-ed connections
-          are allowed to be queueing}
-      \end{itemize}
-    \item \texttt{accept()}: whenever a connection request coming, creates a new
-      \texttt{connectionSocket} (handshaking is done here)
-    \end{itemize}
-  \end{footnotesize}
-\end{frame}
-
-\paragraph{More details}
-
-  See also \citetitle[Sec.~3.2, \emph{Multiplexing and Demultiplexing}]{kurose2013computer}.
-  \begin{itemize}
-  \item The TCP server application has a ``welcoming socket'', that waits for connection-
-    establishment requests from TCP clients on port number 12000.
-  \item The TCP client creates a socket and sends a connection establishment request
-    segment with the lines:
-    \begin{itemize}
-    \item[] \texttt{clientSocket = socket(AF\_INET, SOCK\_STREAM)}
-    \item[] \texttt{clientSocket.connect((serverName,12000))}
-    \end{itemize}
-  \item A connection-establishment request is nothing more than a TCP segment with
-    destination port number 12000 and a special connection-establishment bit set in the
-    TCP header (discussed in Section 3.5\citetitle{kurose2013computer}). The segment also
-    includes a source port number that was chosen by the client.
-  \item When the host operating system of the computer running the server process receives
-    the incoming connection-request segment with destination port 12000, it locates the
-    server process that is waiting to accept a connection on port number 12000. The server
-    process then creates a new socket:
-    \begin{itemize}
-    \item[] \texttt{connectionSocket, addr = serverSocket.accept()} 
-    \end{itemize}
-  \item Also, the transport layer at the server notes the following four values in the
-    connection-request segment: (1) the source port number in the segment, (2) the IP
-    address of the source host, (3) the destination port number in the segment, and (4)
-    its own IP address. The newly created connection socket is identified by these four
-    values; all subsequently arriving segments whose source port, source IP address,
-    destination port, and destination IP address match these four values will be
-    demultiplexed to this socket. With the TCP connection now in place, the client and
-    server can now send data to each other.
-  \end{itemize}
-
-  \begin{frame}{Homework}
-    Re-write the above UDP/TCP client-server program in C.
-  \end{frame}
-
-\begin{frame}{Socket References}
+\begin{frame}{TCP/UDP References}
   \begin{refsection}
-    \nocite{wiki:socket,hall2009beej}
+    \nocite{wiki:tcp, wiki:udp, wiki:checksum, rfc793, rfc768, wiki:socket, hall2009beej}
     \printbibliography[heading=none]
   \end{refsection}
 \end{frame}

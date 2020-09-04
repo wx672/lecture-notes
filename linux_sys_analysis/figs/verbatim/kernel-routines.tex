@@ -1,5 +1,5 @@
 \documentclass[varwidth=50em,crop]{standalone}
-\usepackage{wx672fonts}
+\usepackage{fontspec}
 \setmonofont{DejaVu Sans Mono}
 \begin{document}
 \begin{verbatim}
@@ -12,8 +12,13 @@
 Kernel Mode   │               │               │ 
               v               v               v
        ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
-       │ System call │ │  Scheduler  │ │ System call │
+       │ System call │ │  Scheduler  │ │  Interrupt  │
        │   handler   │ │             │ │   handler   │
        └─────────────┘ └─────────────┘ └─────────────┘
 \end{verbatim}
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

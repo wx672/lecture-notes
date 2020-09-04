@@ -8,43 +8,52 @@
 
 int main(int argc, char *argv[]) /* Over-simplified! */
 {
-  int pfd[2]; /* Pipe file descriptors */
-  char buf[BUF_SIZE];
-  ssize_t numRead;
+	int pfd[2]; /* Pipe file descriptors */
+	char buf[BUF_SIZE];
+	ssize_t numRead;
 
-  pipe(pfd); /* Create the pipe */
+	pipe(pfd); /* Create the pipe */
 
-  switch (fork()) {
-  case 0: /* Child - reads from pipe */
-    close(pfd[1]); /* Write end is unused */
+	switch (fork()) {
+	case 0: /* Child - reads from pipe */
+		close(pfd[1]); /* Write end is unused */
 
-    for(;;) { /* Read data from pipe, echo on stdout */
-      if( (numRead = read(pfd[0], buf, BUF_SIZE)) == 0 )
-        break;  /* End-of-file */
-      if( write(1, buf, numRead) != numRead ){
-        perror("child - partial/failed write");
-		exit(EXIT_FAILURE);
-	  }
-    }
-    puts(""); /* newline */
+		/* sleep(1); */
+		puts("Child is reading from the pipe...");
 
-    close(pfd[0]); _exit(EXIT_SUCCESS);
+		for(;;) { /* Read data from pipe, echo on stdout */
+			if( (numRead = read(pfd[0], buf, BUF_SIZE)) == 0 )
+				break;  /* End-of-file */
+			if( write(1, buf, numRead) != numRead ){
+				perror("child - partial/failed write");
+				exit(EXIT_FAILURE);
+			}
+		}
 
-  default: /* Parent - writes to pipe */
-    close(pfd[0]); /* Read end is unused */
+		puts(""); /* newline */
 
-    if( (size_t)write(pfd[1], argv[1], strlen(argv[1])) != strlen(argv[1]) ){
-      perror("parent - partial/failed write");
-	  exit(EXIT_FAILURE);
-	}
+		close(pfd[0]); _exit(EXIT_SUCCESS);
+
+	default: /* Parent - writes to pipe */
+		close(pfd[0]); /* Read end is unused */
+
+		/* sleep(1); */
+		puts("Parent is writing into the pipe...");
+
+		if( (size_t)write(pfd[1], argv[1], strlen(argv[1])) != strlen(argv[1]) ){
+			perror("parent - partial/failed write");
+			exit(EXIT_FAILURE);
+		}
 	
-    close(pfd[1]); /* Child will see EOF */
+		close(pfd[1]); /* Child will see EOF */
 
-    wait(NULL); /* Wait for child to finish */
-    exit(EXIT_SUCCESS);
-  }
+		wait(NULL); /* Wait for child to finish */
+		exit(EXIT_SUCCESS);
+	}
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra simple_pipe.c -o simple-pipe" */
+/* compile-command: "gcc -Wall simple_pipe.c -o /tmp/a.out" */
+/* Usage: "/tmp/a.out 'string'" */
+/* From: "tlpi, Listing 44-2" */
 /* End: */

@@ -11,3 +11,8 @@ int main(int argc, char* argv[])
     }
   return 0;
 }
+
+
+/* Local Variables: */
+/* compile-command: "ar crv libhi.a hello.o hi.o && gcc -Wall -o main main.c libhi.a" */
+/* End: */

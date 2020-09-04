@@ -12,8 +12,8 @@ int main() {
   for(;;){
     while( (fd = open(mylock, O_RDWR | O_CREAT | O_EXCL, 0444)) != -1 ){
       printf("Process(%d) - Working in critical region...\n", getpid());
-      sleep(2);           /* working */
-//      close(fd);
+      sleep(2);           /* pretend working */
+      close(fd);
       if ( unlink(mylock) == 0 ) puts("Done.\nResource unlocked.");
       sleep(3);           /* non-critical region */
     }
