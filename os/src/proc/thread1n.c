@@ -32,5 +32,5 @@ int main(void) {
 
 }
 /* Local Variables: */
-/* compile-command: "gcc -Wall thread1n.c" */
+/* compile-command: "gcc -Wall thread1n.c -o /tmp/a.out" */
 /* End: */

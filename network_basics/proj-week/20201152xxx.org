@@ -12,8 +12,10 @@
 
 * Packet analysis
 Upon running the following command:
-     
-: sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
+
+#+begin_src sh
+sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
+#+end_src
 
 the following packet is captured:
 
@@ -42,7 +44,7 @@ length 64)
    - Answer :: 
 
 * HTTP
-1. Write a similar script showing how HTTP works (you need =curl=);
+1. Write a simple script showing how HTTP works (you need =curl=);
    #+begin_src sh
      #!/bin/bash
 
@@ -51,10 +53,10 @@ length 64)
 2. Record your HTTP demo session with =ttyrec=.
       
 * Questions
-List at least 5 problems you've met while doing this work. While listing your problems,
+List at least 5 problems you've met while doing this work. When listing your problems,
 you have to tell me:
 1. Description of this problem. For example,
-   - What were you trying to do while meeting this problem?
+   - What were you trying to do before seeing this problem?
 2. How did you try solving this problem？ For example,
    - Did you google? web links?
    - Did you read the man page?

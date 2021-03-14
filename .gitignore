@@ -1,4 +1,3 @@
-*
 !*/
 !*.*
 *.[aosi]
@@ -25,3 +24,14 @@
 *.xdv
 
 old
+dns-nonrecur.dpth
+http-Req.dpth
+http-transaction.dpth
+persistent-transaction.dpth
+subnet-194.dpth
+trump-kim-en.dpth
+GPATH
+GRTAGS
+GSYMS
+GTAGS
+c/c_lectures

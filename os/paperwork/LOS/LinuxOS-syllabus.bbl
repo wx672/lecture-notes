@@ -1,0 +1,142 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{silberschatz11essentials}{book}{}
+      \name{author}{3}{}{%
+        {{hash=4f34927dfbed9f6425b40ef776942177}{%
+           family={Silberschatz},
+           familyi={S\bibinitperiod}}}%
+        {{hash=f4d673ffd940c82d92eb33a866608f22}{%
+           family={Galvin},
+           familyi={G\bibinitperiod}}}%
+        {{hash=0fc12a0b906a3d2131f0f3e2b958321e}{%
+           family={Gagne},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
+      \strng{fullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{bibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{authorbibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{authornamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
+      \strng{authorfullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{title}{Operating System Concepts Essentials}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{silberschatz11essentials}
+    \endentry
+    \entry{tanenbaum2008modern}{book}{}
+      \name{author}{1}{}{%
+        {{hash=2414455c999bc471f803cd14fdea939d}{%
+           family={Tanenbaum},
+           familyi={T\bibinitperiod},
+           given={Andrew\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall Press}%
+      }
+      \strng{namehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{fullhash}{2414455c999bc471f803cd14fdea939d}
+      \strng{bibnamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{authorbibnamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{authornamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{authorfullhash}{2414455c999bc471f803cd14fdea939d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{title}{Modern Operating Systems}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2007}
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{tanenbaum2008modern}
+    \endentry
+    \entry{bovet2005understanding}{book}{}
+      \name{author}{2}{}{%
+        {{hash=4e6ca956728eb9b26ad462fad9dacebd}{%
+           family={Bovet},
+           familyi={B\bibinitperiod},
+           given={D.P.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6176f6b4412f69e77474b086d0602918}{%
+           family={Cesati},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {english}%
+      }
+      \list{publisher}{1}{%
+        {OReilly}%
+      }
+      \strng{namehash}{98936862f22b163b51b14525285c6d69}
+      \strng{fullhash}{a98d08854c8f941be39faef502dc8019}
+      \strng{bibnamehash}{a98d08854c8f941be39faef502dc8019}
+      \strng{authorbibnamehash}{a98d08854c8f941be39faef502dc8019}
+      \strng{authornamehash}{98936862f22b163b51b14525285c6d69}
+      \strng{authorfullhash}{a98d08854c8f941be39faef502dc8019}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{langid}{english}
+      \field{lansortorder}{4}
+      \field{title}{Understanding The Linux Kernel}
+      \field{usera}{M}
+      \field{userd}{english}
+      \field{userf}{english}
+      \field{year}{2005}
+      \field{dateera}{ce}
+      \true{nocite}
+      \keyw{bovet2005understanding}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

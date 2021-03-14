@@ -4,7 +4,7 @@
 #+LANGUAGE:  cn
 #+OPTIONS:   H:3 num:t toc:2 \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+STYLE: <link rel="stylesheet" type="text/css" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" />
+#+STYLE: <link rel="stylesheet" type="text/css" href="http://cs6.swfu.edu.cn/org-info-js/org-manual.css" />
 #+STYLE: <style>body {font-size:14pt} code {font-weight:bold;font-size:100%; color:darkblue}</style>
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
@@ -20,7 +20,7 @@
 
 * Approaching to the Linux kernel
 ** 实验内容
-   - [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2]]
+   - [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2]]
 ** 实验步骤及思考题
 *** proc file-system
 **** Questions
@@ -66,7 +66,7 @@
      4. Have you learnt anything? Or your time was just wasted?
 	- 
 *** Play with the kernel
-    - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-2]] 
+    - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-2]] 
     - 实验环境 :: 
       - OS version: (=uname -srv=)
       - Kernel source version: (=ls /usr/src/=)  
@@ -90,7 +90,7 @@
 	- 
 
 *** Hello, kernel Module!
-    - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-3]] 
+    - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-3]] 
     - 实验环境 :: 
       - OS version: (=uname -srv=)
       - Kernel source version: (=ls /usr/src/=)  
@@ -122,7 +122,7 @@
 	- 
 
 *** System calls
-    - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-4]]  
+    - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-4]]  
     - 实验环境 :: 
       - OS version: (=uname -srv=)
       - Kernel source version: (=ls /usr/src/=)  
@@ -146,9 +146,9 @@
 	- 
 
 * Process management
-  - [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3]]
+  - [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3]]
 ** Process creation
-   - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-1-1]]
+   - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-1-1]]
    - 实验环境 :: 
      - OS version: (=uname -srv=)
      - Kernel source version: (=ls /usr/src/=)  
@@ -172,7 +172,7 @@
        - 
 
 ** Thread
-   - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-2]]
+   - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-2]]
    - 实验环境 :: 
      - OS version: (=uname -srv=)
      - Kernel source version: (=ls /usr/src/=)  
@@ -196,7 +196,7 @@
        - 
 
 ** IPC
-   - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-3]]
+   - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-3]]
    - 实验环境 :: 
      - OS version: (=uname -srv=)
      - Kernel source version: (=ls /usr/src/=)  
@@ -220,9 +220,9 @@
        - 
 
 * Memory management
-  - [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4]]
+  - [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4]]
 ** Basic commands
-   - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-1]]
+   - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-1]]
    - 实验环境 :: 
      - OS version: (=uname -srv=)
      - Kernel source version: (=ls /usr/src/=)  
@@ -233,7 +233,7 @@
     3. 步
     4. 骤
 ** Shared Memory Segments
-   - 实验内容 :: [[http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-2]]
+   - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-2]]
    - 实验环境 :: 
      - OS version: (=uname -srv=)
      - Kernel source version: (=ls /usr/src/=)  
@@ -244,7 +244,7 @@
     3. 步
     4. 骤
 ** Memory Mapped Files
-   - 实验内容 :: http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-3
+   - 实验内容 :: http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-3
    - 实验环境 :: 
      - OS version: (=uname -srv=)
      - Kernel source version: (=ls /usr/src/=)  
@@ -268,7 +268,7 @@
        - 
 
 * File system
-  - *实验内容* http://cs2.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-5
+  - *实验内容* http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-5
   - *实验环境* 
     - OS version: (=uname -srv=)
     - Kernel source version: (=ls /usr/src/=)  

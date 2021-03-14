@@ -1,0 +1,288 @@
+\documentclass{wx672ctexart}
+
+\usepackage{wx672bib}
+\addbibresource{os.bib}
+
+\author{王晓林}
+\date{2021-03-09}
+\title{《Linux应用编程》教学大纲}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\clearpage
+
+\begin{itemize}
+\item 课程编号: 41100169
+\item 学时: 64 (理论: 32; 实验: 32)
+\item 学分: 4
+\item 实习: 0
+\item 面向专业: 计算机科学与技术，电子信息工程，信息与计算机技术
+\end{itemize}
+
+\section{课程大纲}
+\label{sec-1}
+
+\subsection{课程内容}
+\label{sec-1-1}
+
+\begin{enumerate}
+\item Getting started
+  \begin{itemize}
+  \item Commandline introduction
+  \item Editors (Vim, Emacs)
+  \end{itemize}
+\item Shell basics
+  \begin{itemize}
+  \item Basic operations
+  \item Shell programming
+  \end{itemize}
+\item Linux programming environment
+  \begin{itemize}
+  \item C programming environment
+  \item The tool chain
+  \item Header files and macros
+  \item Library files
+  \item Error handling
+  \item The make utility
+  \item Version control
+  \item Manual pages
+  \item A sample GNU package
+  \item Pointers in C
+  \item Pointers and arrays
+  \end{itemize}
+\item The Linux environment
+\item OS basics
+  \begin{itemize}
+  \item Hardware
+  \item Bootstrapping
+  \item Interrupts
+  \item System calls
+  \end{itemize}
+\item Working with files
+  \begin{itemize}
+  \item Files
+  \item Directories
+  \end{itemize}
+\item Processes and threads
+  \begin{itemize}
+  \item Virtual memory
+  \item Processes
+  \item Threads
+  \item Signals
+  \end{itemize}
+\item Inter-process communication
+  \begin{itemize}
+  \item Pipes and FIFOs
+  \item Message queues
+  \item Semaphores
+  \item Classical IPC problems
+  \item Shared memory
+  \item Sockets
+  \end{itemize}
+\end{enumerate}
+
+\subsection{实验内容}
+\label{sec-1-2}
+
+参见第\ref{sec:lab}节《Linux应用编程》实验教学大纲。
+
+\subsection{实习}
+\label{sec-1-3}
+
+无
+
+\subsection{考核}
+\label{sec-1-4}
+
+\begin{itemize}
+\item 考试: 50\%
+\item 作业: 50\%
+\end{itemize}
+
+\subsection{参考教材}
+\label{sec-1-5}
+
+\nocite{cs241, matthew2008beginning, cooper10bash, raymond2003art, stevens2013advanced,
+  love:2007:lsp:1205435, kerrisk:2010:lpi:1869911, bryant2010computersystems,
+  silberschatz11essentials, tanenbaum2008modern, bovet2005understanding}
+\printbibliography[heading=none]{}
+
+\section{课程说明}
+\label{sec-2}
+
+\subsection{课程性质和要求}
+\label{sec-2-1}
+
+《Linux应用编程》是一门重要的专业基础课。熟悉Linux平台上的开发环境对学生在软件编程、开发方
+面具有重大意义。 本课程介绍给同学如下内容：
+\begin{itemize}
+\item Shell basics and programming
+\item Linux programming environmnt
+\item OS basics
+\item File operations
+\item Processs and Threads
+\item Inter-process communication
+\item Sockets
+\end{itemize}
+
+\subsection{课程重点}
+\label{sec-2-2}
+
+\begin{itemize}
+\item Shell basics and programming
+\item Linux programming environment
+\item OS related C programming
+\end{itemize}
+
+\subsection{作业、实习要求}
+\label{sec-2-3}
+作业迟交一天扣分10\%。
+
+\subsection{与其它课程的关系}
+\label{sec-2-4}
+
+\begin{itemize}
+\item 前期课程：计算机组成原理，Linux应用基础，C编程，汇编编程
+\item 后期课程：Linux系统分析
+\end{itemize}
+
+\subsection{课时安排}
+\label{sec-2-5}
+
+\begin{center}
+  \begin{tabular}{lrr}
+    \hline
+    课程内容 & 理论学时 & 实验学时\\
+    \hline
+    Shell basics and programming&6&6\\
+    Linux programming environmnt&6&6\\
+    OS basics                   &4&4\\
+    File operations             &4&4\\
+    Processs and Threads        &4&4\\
+    Inter-process communication &4&4\\
+    Sockets                     &4&4\\    
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsection{特殊说明}
+\label{sec-2-6}
+
+无
+
+\section{实验教学大纲}
+\label{sec:lab}
+
+\begin{itemize}
+\item 课程编号: 41100169
+\item 学时: 64 (理论: 32; 实验: 32)
+\item 学分: 4
+\item 实习: 0
+\item 授课对象: 计算机科学与技术，电子信息工程，信息与计算机技术
+\end{itemize}
+
+\subsection{实验教学的目的和要求}
+\label{sec-3-1}
+
+通过编程实践，让学生熟悉Linux平台的软件开发环境，了解与操作系统相关的编程知识。
+
+\subsection{实践教学大纲}
+\label{sec-3-2}
+
+\begin{center}
+  \begin{tabular}{lr}
+    \hline
+    实验安排 & 学时\\
+    \hline
+    Shell basics&6\\
+    Shell programming&4\\
+    Linux programming environmnt&6\\
+    File operations&4\\
+    Processs and Threads&4\\
+    Inter-process communication&4\\
+    Sockets&4\\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsection{实验设备要求}
+\label{sec-3-3}
+
+\begin{itemize}
+\item Debian PC
+\end{itemize}
+
+\subsection{实验内容}
+\label{sec-3-4}
+
+参见自编《实验指导》：
+\begin{itemize}
+\item
+  \href{https://cs6.swfu.edu.cn/~wx672/lecture_notes/linux/bash/shell_basics.html}{\emph{Play
+    with bash}};
+\item \href{https://cs6.swfu.edu.cn/~wx672/lecture_notes/linux/c/c_dev.html}{\emph{C programming
+  environment on Linux}};
+\item \href{http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html}{\emph{Linux system programming}}。
+\end{itemize}
+
+\subsection{实验报告要求}
+\label{sec-3-5}
+
+按规定格式完成，迟交报告每天扣分10\%。
+
+\subsection{成绩考核}
+\label{sec-3-6}
+
+实验报告满分100，60分及格。
+
+\subsection{实验指导和参考书目}
+\label{sec-3-7}
+
+自编实验指导：
+\begin{itemize}
+\item
+  \url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/linux/bash/shell_basics.html}
+\item \url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/linux/c/c_dev.html}
+\item \url{http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html}
+\end{itemize}
+
+\subsection{特别说明}
+\label{sec-3-8}
+
+无
+
+\section{课程简介}
+\label{sec-4}
+
+\begin{itemize}
+\item 课程编号: 41100169
+\item 学时: 64 (理论: 32; 实验: 32)
+\item 学分: 4
+\item 实习: 0
+\item 面向专业: 计算机科学与技术，电子信息工程，信息与计算机技术
+\item 前期课程：英语，计算机组成原理，Linux应用基础，C编程，汇编知识
+\item 课程性质和要求：《Linux应用编程》是一门重要的专业基础课。熟悉Linux平台上的软件开发环
+  境对学生在软件编程、开发方面具有重大意义。 本课程介绍给同学如下内容：
+  \begin{itemize}
+  \item Shell basics and programming
+  \item Linux programming environmnt
+  \item OS basics
+  \item File operations
+  \item Processs and Threads
+  \item Inter-process communication
+  \item Sockets
+  \end{itemize}
+\item 参考教材\hfill
+  \nocite{cs241, matthew2008beginning, cooper10bash, raymond2003art, stevens2013advanced,
+    love:2007:lsp:1205435, kerrisk:2010:lpi:1869911, bryant2010computersystems,
+    silberschatz11essentials, tanenbaum2008modern, bovet2005understanding}
+  \printbibliography[heading=none]{}
+\end{itemize}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

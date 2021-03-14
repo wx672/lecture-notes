@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cn">
 <head>
-<!-- 2020-12-26 Sat 17:11 -->
+<!-- 2021-06-11 Fri 10:21 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>《计算机网络》实习报告</title>
@@ -9,7 +9,7 @@
 <meta name="author" content="张三(20201152xxx)">
 <link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -38,34 +38,34 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge7822c9">1. Packet analysis</a></li>
-<li><a href="#org8899ff1">2. HTTP</a></li>
-<li><a href="#orgba6f7f4">3. Questions</a>
+<li><a href="#org425a9b6">1. Packet analysis</a></li>
+<li><a href="#orgdb74a5c">2. HTTP</a></li>
+<li><a href="#org00f3c35">3. Questions</a>
 <ul>
-<li><a href="#orgf481646">3.1. Problems</a></li>
+<li><a href="#org2559f4e">3.1. Problems</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge7822c9" class="outline-2">
-<h2 id="orge7822c9"><span class="section-number-2">1</span> Packet analysis</h2>
+<div id="outline-container-org425a9b6" class="outline-2">
+<h2 id="org425a9b6"><span class="section-number-2">1.</span> Packet analysis</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Upon running the following command:
 </p>
 
-<pre class="example">
-sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
+<div class="org-src-container">
+<pre class="src src-sh">sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
 </pre>
-
+</div>
 
 <p>
 the following packet is captured:
 </p>
 
-<pre class="example" id="org98b5c0e">
+<pre class="example" id="org39c18d0">
 08:34:10.790666 IP (tos 0x0, ttl 64, id 12824, offset 0, flags [DF], proto TCP (6),
 length 64)
     127.0.0.1.46668 &gt; 127.0.0.1.3333: Flags [P.], seq 2400005725:2400005737, ack 373279396,
@@ -97,12 +97,12 @@ length 64)
 </div>
 </div>
 
-<div id="outline-container-org8899ff1" class="outline-2">
-<h2 id="org8899ff1"><span class="section-number-2">2</span> HTTP</h2>
+<div id="outline-container-orgdb74a5c" class="outline-2">
+<h2 id="orgdb74a5c"><span class="section-number-2">2.</span> HTTP</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><p>
-Write a similar script showing how HTTP works (you need <code>curl</code>);
+Write a simple script showing how HTTP works (you need <code>curl</code>);
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #b0bec5;">#</span><span style="color: #b0bec5;">!/bin/</span><span style="color: #fff59d;">bash</span>
@@ -115,17 +115,17 @@ Write a similar script showing how HTTP works (you need <code>curl</code>);
 </div>
 </div>
 
-<div id="outline-container-orgba6f7f4" class="outline-2">
-<h2 id="orgba6f7f4"><span class="section-number-2">3</span> Questions</h2>
+<div id="outline-container-org00f3c35" class="outline-2">
+<h2 id="org00f3c35"><span class="section-number-2">3.</span> Questions</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-List at least 5 problems you've met while doing this work. While listing your problems,
+List at least 5 problems you've met while doing this work. When listing your problems,
 you have to tell me:
 </p>
 <ol class="org-ol">
 <li>Description of this problem. For example,
 <ul class="org-ul">
-<li>What were you trying to do while meeting this problem?</li>
+<li>What were you trying to do before seeing this problem?</li>
 </ul></li>
 <li>How did you try solving this problem？ For example,
 <ul class="org-ul">
@@ -136,8 +136,8 @@ you have to tell me:
 </ol>
 </div>
 
-<div id="outline-container-orgf481646" class="outline-3">
-<h3 id="orgf481646"><span class="section-number-3">3.1</span> Problems</h3>
+<div id="outline-container-org2559f4e" class="outline-3">
+<h3 id="org2559f4e"><span class="section-number-3">3.1.</span> Problems</h3>
 <div class="outline-text-3" id="text-3-1">
 <ol class="org-ol">
 <li></li>
@@ -156,7 +156,7 @@ you have to tell me:
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 张三(20201152xxx)</p>
-<p class="date">Created: 2020-12-26 Sat 17:11</p>
+<p class="date">Created: 2021-06-11 Fri 10:21</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

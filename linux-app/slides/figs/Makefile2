@@ -1,0 +1,33 @@
+edit: main.o kbd.o command.o display.o \
+		insert.o search.o files.o utils.o
+	gcc -Wall -o edit main.o kbd.o command.o display.o \
+		insert.o search.o files.o utils.o
+
+main.o: main.c defs.h
+	gcc -c -Wall main.c
+
+kbd.o : kbd.c defs.h command.h
+	gcc -c -Wall kbd.c
+
+command.o: command.c defs.h command.h
+	gcc -c -Wall command.c
+
+display.o : display.c defs.h buffer.h
+	gcc -c -Wall display.c
+
+insert.o: insert.c defs.h buffer.h
+	gcc -c -Wall insert.c
+
+search.o: search.c defs.h buffer.h
+	gcc -c -Wall search.c
+
+files.o: files.c defs.h buffer.h command.h
+	gcc -c -Wall files.c
+
+utils.o: utils.c defs.h
+	gcc -c -Wall utils.c
+
+
+clean:
+	rm edit main.o kbd.o command.o display.o \
+	   insert.o search.o files.o utils.o

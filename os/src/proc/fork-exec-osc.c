@@ -24,5 +24,5 @@ int main()
 }  
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall -Wextra fork-exec-osc.c" */
+/* compile-command: "gcc -Wall -Wextra fork-exec-osc.c -o /tmp/a.out" */
 /* End: */

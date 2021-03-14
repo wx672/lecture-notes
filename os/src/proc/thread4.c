@@ -36,5 +36,5 @@ int main (int argc, char *argv[])
   return 0;
 }
 /* Local Variables: */
-/* compile-command: "gcc -Wall thread4.c" */
+/* compile-command: "gcc -Wall thread4.c -o /tmp/a.out -pthread" */
 /* End: */

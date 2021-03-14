@@ -13,10 +13,10 @@
  
 int main(void)
 {
-	pid_t pids[10];
+	pid_t pids[5];
 	int i;
  
-	for (i = 9; i >= 0; --i) {
+	for (i = 4; i >= 0; --i) {
 		printf("Parent (pids[%d], %d) forking...\n", i,getpid());
 		pids[i] = fork();
     
@@ -32,14 +32,14 @@ int main(void)
 		}
 	}
  
-	for (i = 9; i >= 0; --i){ /* only for parent */
+	for (i = 4; i >= 0; --i){ /* only for parent */
 		printf("Waiting for pids[%d] (%d)...",i,pids[i]);
 		/* waitpid(pids[i], NULL, 0); */
-		sleep(120);
+		sleep(3);
 		printf("done.\n");
 	}
 	return 0;
 }
 /* Local Variables: */
-/* compile-command: "gcc -Wall zombie-wikipedia.c" */
+/* compile-command: "gcc -Wall zombie-wikipedia.c -o /tmp/a.out" */
 /* End: */

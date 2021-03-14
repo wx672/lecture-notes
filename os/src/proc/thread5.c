@@ -59,5 +59,5 @@ int main()
   return 0;
 }
 /* Local Variables: */
-/* compile-command: "gcc -Wall thread5.c" */
+/* compile-command: "gcc -Wall thread5.c -pthread -o /tmp/a.out" */
 /* End: */

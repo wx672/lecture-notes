@@ -11,23 +11,23 @@ int main ()
   int pid, status; 
 
   if(fork()) 
-    { 
-      printf("I'm the Father, and waiting...\n"); 
-	  sleep(30); 
-      pid = wait(&status); 
-      printf("I'm the Father:\n - my son's PID is %d\n - my son's exit status is %d\n", pid, status);
-
-    }else{ 
-      printf("I'm the Son, and sleeping...\n"); 
-      printf("I'm the Son, and exiting...\n");
-      /* exit(0);  */
-    } 
-  /* Note that this time, the "Goodbye..." line is printed only once coz the child process exited
-     before reaching the printf().  */
+	  { /* parent */
+		  puts("I'm the Father, and waiting for 30s..."); 
+		  sleep(30); 
+		  pid = wait(&status); 
+		  printf("I'm the Father:\n - my son's PID is %d\n - my son's exit status is %d\n", pid, status);
+	  }
+  else
+	  { /* child */
+		  puts("I'm the Son, and exiting...");
+		  puts("Try 'ps aux | grep a.out' to see a zombie.");
+		  exit(0);
+	  }
+  
   printf("Goodbye Cruel World!\n"); 
   return 0;
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall fork-wait.c" */
+/* compile-command: "gcc -Wall fork-wait.c -o /tmp/a.out" */
 /* End: */

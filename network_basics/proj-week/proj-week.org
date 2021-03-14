@@ -13,30 +13,52 @@
 #+LATEX_HEADER: \pagestyle{plain}
 
 * Caution
-  - You are *required* to write your report with [[http://orgmode.org/][=Emacs org-mode=]] on a Linux system.
-    - Org-mode tutorials
-      - [[http://orgmode.org/worg/org-tutorials/orgtutorial_dto.php][David O'Toole Org tutorial]]
-      - [[http://orgmode.org/worg/org-tutorials/index.php][More org-mode tutorials]]
-      - =info org=
-      - [[http://emacser.com/][Emacs中文网]]
-  - You have to submit your report as a =tar ball= in which the following files should be
+  - You must submit your report as a =tar ball= in which the following files should be
     included:
-    1. an [[file:20201152xxx.org][=org file=]] and a generated [[file:20201152xxx.html][=html file=]];
-    2. your bash script for HTTP demostration;
-    3. a =ttyrec= file recording your operations;
+
+    1. Your report in either =Emacs Org= or =Markdown= format, and a HTML file
+       generated from your =org= or =md= file.
+       
+       Tips: 
+       - In Emacs, press =C-c C-e h h= to export HTML file from your org file;
+
+       - For =Markdown= to HTML, you can try =markdown=, =pandoc=, =cmark=, whatever.
+
+       - This page itself is generated from an [[file:proj-week.org][org file (proj-week.org)]]. You can take it
+         as an example.
+
+       - Report template: [[file:20201152xxx.org][=org file=]], [[file:20201152xxx.html][=html file=]], [[file:20201152xxx.md][=markdown file=]]
+
+    2. your bash script for a HTTP demostration;
+
+    3. a =ttyrec= file recording your operations (=man ttyrec=);
 
     ------
-    - Here's how :: 
-       1. make a directory, e.g. 20201159xxx, put all the required files in it.
-          : mkdir  20201159xxx
-          : mv  tmux-http.sh  *.org  *.html  *ttyrec  20201159xxx
-  
+    1. Here's how :: 
+       1. make a directory, e.g. 20201159xxx. In this directory, try very hard to make all
+          the files available.
+
+          #+begin_src sh
+            mkdir  20201159xxx
+            cd 20201159xxx
+            emacsclient tmux-http.sh # write your script
+            emacsclient 20201159xxx.org # this is your report
+            vim 20201159xxx.md # in markdown format
+            ttyrec http-demo.ttyrec # make your demo screencast
+          #+end_src
+
        2. make a tar ball.
-          : tar  zcf  20201159xxx.tgz  20201159xxx
-          : ls  -l  # make sure your tar ball is smaller than 1MB in size         
+          : cd ..
+          : tar zcf 20201159xxx.tgz 20201159xxx
+          : ls -l # make sure your tar ball is smaller than 1MB in size         
 
-       3. upload the =tgz= file to our [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=349][moodle site]]. 
+       3. upload the =tgz= file to our [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536][moodle site]]. 
     ------
+  #   - Org-mode tutorials
+  #     - [[http://orgmode.org/worg/org-tutorials/orgtutorial_dto.php][David O'Toole Org tutorial]]
+  #     - [[http://orgmode.org/worg/org-tutorials/index.php][More org-mode tutorials]]
+  #     - =info org=
+  #     - [[http://emacser.com/][Emacs中文网]]
 
   - Here is a short tutorial about writing lab report: [[file:tutorial.ttyrec][=tutorial.ttyrec=]]. To view it:
 
@@ -50,22 +72,23 @@
     ttyrec  20201159xxx-ftp.ttyrec
     #+end_example
        
-  - Report template: [[file:20201152xxx.org][=org file=]], [[file:20201152xxx.html][=html file=]]
-  - This page itself is generated from an [[file:proj-week.org][org file (proj-week.org)]]. You can take it as an example.
+  - *Deadline:* <2021-07-10 Sat> 
 
-  - *Deadline:* <2021-01-20 Wed> 
-    - Submit your report as a =tgz= file [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=349][here]]. In your =tgz= file, there must be:
-      1. an org file
-      2. a html file
-      3. a bash script
-      4. one or more =ttyrec= files
+    - Submit your report as a =tgz= file [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536][here]]. In your =tgz= file, there must be:
+      1. your report in =org= or =markdown= format
+      2. your report in HTML format
+      3. your bash script for demostrating a HTTP session
+      4. one or more =ttyrec= files for demostrating whatever you did
+
     - Late reports will be penalized 20% per day.
 
   - MS-word file will *NOT* be accepted. Cheating will result in automatic failure of this
     work.
 
 * =tmux, nc, ip, tcpdump, ss, nmap, curl=
+
 Here are the bash scripts I used in the class for demostrating how some protocols work.
+
 - [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-3way.handshake.sh][TCP three-way handshake]]
 - [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-udp.sh][UDP]]
 - [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-smtp.sh][SMTP]] (need a SMTP server)

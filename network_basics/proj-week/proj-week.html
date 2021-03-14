@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-01-12 Tue 10:10 -->
+<!-- 2021-06-11 Fri 10:52 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hacking with Linux networking command line tools</title>
@@ -12,7 +12,7 @@
 <meta name="keywords" content="ssh, tmux, http, ftp, smtp, iptables, network, networking">
 <link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -41,60 +41,81 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org262325f">1. Caution</a></li>
-<li><a href="#orge17a2c9">2. <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></a></li>
+<li><a href="#orga1d6be9">1. Caution</a></li>
+<li><a href="#orge7dd50f">2. <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org262325f" class="outline-2">
-<h2 id="org262325f"><span class="section-number-2">1</span> Caution</h2>
+<div id="outline-container-orga1d6be9" class="outline-2">
+<h2 id="orga1d6be9"><span class="section-number-2">1.</span> Caution</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li>You are <b>required</b> to write your report with <a href="http://orgmode.org/"><code>Emacs org-mode</code></a> on a Linux system.
-<ul class="org-ul">
-<li>Org-mode tutorials
-<ul class="org-ul">
-<li><a href="http://orgmode.org/worg/org-tutorials/orgtutorial_dto.php">David O'Toole Org tutorial</a></li>
-<li><a href="http://orgmode.org/worg/org-tutorials/index.php">More org-mode tutorials</a></li>
-<li><code>info org</code></li>
-<li><a href="http://emacser.com/">Emacs中文网</a></li>
-</ul></li>
-</ul></li>
 <li><p>
-You have to submit your report as a <code>tar ball</code> in which the following files should be
+You must submit your report as a <code>tar ball</code> in which the following files should be
 included:
 </p>
+
 <ol class="org-ol">
-<li>an <a href="20201152xxx.org"><code>org file</code></a> and a generated <a href="20201152xxx.html"><code>html file</code></a>;</li>
-<li>your bash script for HTTP demostration;</li>
-<li>a <code>ttyrec</code> file recording your operations;</li>
+<li><p>
+Your report in either <code>Emacs Org</code> or <code>Markdown</code> format, and a HTML file
+generated from your <code>org</code> or <code>md</code> file.
+</p>
+
+<p>
+Tips: 
+</p>
+<ul class="org-ul">
+<li>In Emacs, press <code>C-c C-e h h</code> to export HTML file from your org file;</li>
+
+<li>For <code>Markdown</code> to HTML, you can try <code>markdown</code>, <code>pandoc</code>, <code>cmark</code>, whatever.</li>
+
+<li>This page itself is generated from an <a href="proj-week.org">org file (proj-week.org)</a>. You can take it
+as an example.</li>
+
+<li>Report template: <a href="20201152xxx.org"><code>org file</code></a>, <a href="20201152xxx.html"><code>html file</code></a>, <a href="20201152xxx.md"><code>markdown file</code></a></li>
+</ul></li>
+
+<li>your bash script for a HTTP demostration;</li>
+
+<li>a <code>ttyrec</code> file recording your operations (<code>man ttyrec</code>);</li>
 </ol>
 
 <hr>
-<dl class="org-dl">
-<dt>Here's how</dt><dd><ol class="org-ol">
+<ol class="org-ol">
+<li>Here's how :: 
+<ol class="org-ol">
 <li><p>
-make a directory, e.g. 20201159xxx, put all the required files in it.
+make a directory, e.g. 20201159xxx. In this directory, try very hard to make all
+the files available.
 </p>
-<pre class="example">
-mkdir  20201159xxx
-mv  tmux-http.sh  *.org  *.html  *ttyrec  20201159xxx
-</pre></li>
+
+<div class="org-src-container">
+<pre class="src src-sh">mkdir  20201159xxx
+<span style="color: #ff8A65;">cd</span> 20201159xxx
+emacsclient tmux-http.sh <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">write your script</span>
+emacsclient 20201159xxx.org <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">this is your report</span>
+vim 20201159xxx.md <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">in markdown format</span>
+ttyrec http-demo.ttyrec <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">make your demo screencast</span>
+</pre>
+</div></li>
 
 <li><p>
 make a tar ball.
 </p>
 <pre class="example">
-tar  zcf  20201159xxx.tgz  20201159xxx
-ls  -l  # make sure your tar ball is smaller than 1MB in size         
+cd ..
+tar zcf 20201159xxx.tgz 20201159xxx
+ls -l # make sure your tar ball is smaller than 1MB in size         
 </pre></li>
 
-<li>upload the <code>tgz</code> file to our <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=349">moodle site</a>.</li>
-</ol></dd>
-</dl>
+<li>upload the <code>tgz</code> file to our <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536">moodle site</a>.</li>
+</ol></li>
+</ol>
 <hr></li>
+</ul>
 
+<ul class="org-ul">
 <li><p>
 Here is a short tutorial about writing lab report: <a href="tutorial.ttyrec"><code>tutorial.ttyrec</code></a>. To view it:
 </p>
@@ -108,24 +129,23 @@ ttyplay  tutorial.ttyrec
 Feel free to make your own <code>ttyrec</code> file while doing this lab work. For example:
 </p>
 
-<pre class="example" id="orgea84504">
+<pre class="example" id="org0846600">
 ttyrec  20201159xxx-http.ttyrec
 ttyrec  20201159xxx-email.ttyrec
 ttyrec  20201159xxx-ftp.ttyrec
 </pre></li>
 
-<li>Report template: <a href="20201152xxx.org"><code>org file</code></a>, <a href="20201152xxx.html"><code>html file</code></a></li>
-<li>This page itself is generated from an <a href="proj-week.org">org file (proj-week.org)</a>. You can take it as an example.</li>
+<li><b>Deadline:</b> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-07-10 Sat&gt; </span></span> 
 
-<li><b>Deadline:</b> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-01-20 Wed&gt; </span></span> 
 <ul class="org-ul">
-<li>Submit your report as a <code>tgz</code> file <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=349">here</a>. In your <code>tgz</code> file, there must be:
+<li>Submit your report as a <code>tgz</code> file <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536">here</a>. In your <code>tgz</code> file, there must be:
 <ol class="org-ol">
-<li>an org file</li>
-<li>a html file</li>
-<li>a bash script</li>
-<li>one or more <code>ttyrec</code> files</li>
+<li>your report in <code>org</code> or <code>markdown</code> format</li>
+<li>your report in HTML format</li>
+<li>your bash script for demostrating a HTTP session</li>
+<li>one or more <code>ttyrec</code> files for demostrating whatever you did</li>
 </ol></li>
+
 <li>Late reports will be penalized 20% per day.</li>
 </ul></li>
 
@@ -135,12 +155,13 @@ work.</li>
 </div>
 </div>
 
-<div id="outline-container-orge17a2c9" class="outline-2">
-<h2 id="orge17a2c9"><span class="section-number-2">2</span> <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></h2>
+<div id="outline-container-orge7dd50f" class="outline-2">
+<h2 id="orge7dd50f"><span class="section-number-2">2.</span> <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Here are the bash scripts I used in the class for demostrating how some protocols work.
 </p>
+
 <ul class="org-ul">
 <li><a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-3way.handshake.sh">TCP three-way handshake</a></li>
 <li><a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/tmux-demo-udp.sh">UDP</a></li>
@@ -167,7 +188,7 @@ sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
 the following packet is captured:
 </p>
 
-<pre class="example" id="org727bdbf">
+<pre class="example" id="org2cc2f77">
 08:34:10.790666 IP (tos 0x0, ttl 64, id 12824, offset 0, flags [DF], proto TCP (6),
 length 64)
     127.0.0.1.46668 &gt; 127.0.0.1.3333: Flags [P.], seq 2400005725:2400005737, ack 373279396,
@@ -194,7 +215,7 @@ length 64)
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Xiaolin Wang</p>
-<p class="date">Created: 2021-01-12 Tue 10:10</p>
+<p class="date">Created: 2021-06-11 Fri 10:52</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

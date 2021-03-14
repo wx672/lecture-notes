@@ -41,13 +41,16 @@ rar
 rename
 rfkill
 sawfish
+stumpwm
 sudo
 tlp
 tmux
 tmux-plugin-manager
 udiskie
 unrar
-vim
+neovim
 wpasupplicant
 xorg
+xsel
 xterm
+git-extras

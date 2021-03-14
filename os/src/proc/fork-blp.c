@@ -38,5 +38,5 @@ int main()
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall fork-blp.c" */
+/* compile-command: "gcc -Wall fork-blp.c -o /tmp/a.out" */
 /* End: */

@@ -33,5 +33,5 @@ int main ()
   return 0;
 }
 /* Local Variables: */
-/* compile-command: "gcc -Wall fork-pid.c" */
+/* compile-command: "gcc -Wall fork-pid.c -o /tmp/a.out" */
 /* End: */

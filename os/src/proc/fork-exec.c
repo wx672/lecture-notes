@@ -29,5 +29,5 @@ int main()
 /* https://unix.stackexchange.com/questions/315812/why-does-argv-include-the-program-name */
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall fork-exec.c" */
+/* compile-command: "gcc -Wall fork-exec.c -o /tmp/a.out" */
 /* End: */

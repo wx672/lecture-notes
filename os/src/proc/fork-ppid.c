@@ -16,5 +16,5 @@ int main() {
 }
 
 /* Local Variables: */
-/* compile-command: "gcc -Wall fork-ppid.c" */
+/* compile-command: "gcc -Wall fork-ppid.c -o /tmp/a.out" */
 /* End: */

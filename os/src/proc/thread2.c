@@ -38,5 +38,5 @@ void *print_message_function(void *ptr)
      return NULL;
 }
 /* Local Variables: */
-/* compile-command: "gcc -Wall thread2.c" */
+/* compile-command: "gcc -Wall thread2.c -pthread -o /tmp/a.out" */
 /* End: */
