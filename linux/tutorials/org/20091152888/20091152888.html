@@ -1,203 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="cn" xml:lang="cn">
+<!DOCTYPE html>
+<html lang="cn">
 <head>
+<!-- 2021-06-22 Tue 13:35 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>《操作系统原理》实验报告</title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="《操作系统原理》实验报告"/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2012-04-01 13:44:17 CST"/>
-<meta name="author" content="王晓林(20091152888)"/>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  html { font-family: Times, serif; font-size: 12pt; }
-  .title  { text-align: center; }
-  .todo   { color: red; }
-  .done   { color: green; }
-  .tag    { background-color: #add8e6; font-weight:normal }
-  .target { }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
-  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
-  .center {margin-left:auto; margin-right:auto; text-align:center;}
-  p.verse { margin-left: 3% }
-  pre {
-	border: 1pt solid #AEBDCC;
-	background-color: #F3F5F7;
-	padding: 5pt;
-	font-family: courier, monospace;
-        font-size: 90%;
-        overflow:auto;
-  }
-  table { border-collapse: collapse; }
-  td, th { vertical-align: top;  }
-  th.right  { text-align:center;  }
-  th.left   { text-align:center;   }
-  th.center { text-align:center; }
-  td.right  { text-align:right;  }
-  td.left   { text-align:left;   }
-  td.center { text-align:center; }
-  dt { font-weight: bold; }
-  div.figure { padding: 0.5em; }
-  div.figure p { text-align: center; }
-  div.inlinetask {
-    padding:10px;
-    border:2px solid gray;
-    margin:10px;
-    background: #ffffcc;
-  }
-  textarea { overflow-x: auto; }
-  .linenr { font-size:smaller }
-  .code-highlighted {background-color:#ffff00;}
-  .org-info-js_info-navigation { border-style:none; }
-  #org-info-js_console-label { font-size:10px; font-weight:bold;
-                               white-space:nowrap; }
-  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
-                                 font-weight:bold; }
-  /*]]>*/-->
-</style><link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/stylesheet.css" type="text/css">
-<link rel="stylesheet" type="text/css" href="http://cs3.swfu.edu.cn/org-info-js/stylesheet.css" />
-<style>code {font-weight:bold;} body {font-size:10pt;}</style>
-<script type="text/javascript" src="http://cs3.swfu.edu.cn/org-info-js/org-info.js"></script>
-<script type="text/javascript" >
-<!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "3");
-org_html_manager.set("LINK_HOME", "");
-org_html_manager.set("LINK_UP", "");
-org_html_manager.set("LOCAL_TOC", "0");
-org_html_manager.set("VIEW_BUTTONS", "0");
-org_html_manager.set("MOUSE_HINT", "underline");
-org_html_manager.set("FIXED_TOC", "0");
-org_html_manager.set("TOC", "0");
-org_html_manager.set("VIEW", "content");
-org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
-</script>
+<meta name="generator" content="Org mode">
+<meta name="author" content="王晓林(20091152888)">
+<link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
 <script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
 </script>
-
 </head>
 <body>
-
-<div id="preamble">
-
-</div>
-
 <div id="content">
 <h1 class="title">《操作系统原理》实验报告</h1>
-
-<p>Now, let me show you some Org-mode tricks.
+<p>
+Now, let me show you some Org-mode tricks.
 </p>
 
-<div id="table-of-contents">
-<h2>目录</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1 This is a section</a>
-<ul>
-<li><a href="#sec-1-1">1.1 This is a subsection</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> This is a section</h2>
+<div id="outline-container-org228b0fd" class="outline-2">
+<h2 id="org228b0fd"><span class="section-number-2">1.</span> This is a section</h2>
 <div class="outline-text-2" id="text-1">
-
-<ol>
-<li>this is a numbered list
-</li>
-<li>type M-return to add a new numbered line
-</li>
+<ol class="org-ol">
+<li>this is a numbered list</li>
+<li>type M-return to add a new numbered line</li>
 <li>ok, type C-j to
-<ul>
-<li>see? C-j is better than RETURN
-</li>
-<li>type M-return to add a new un-numbered line
-</li>
-<li>To move this line left, type M-leftarrow
-</li>
-</ul>
-
-</li>
-<li>To move this line right, type M-rightarrow
+<ul class="org-ul">
+<li>see? C-j is better than RETURN</li>
+<li>type M-return to add a new un-numbered line</li>
+<li>To move this line left, type M-leftarrow</li>
+</ul></li>
+<li><p>
+To move this line right, type M-rightarrow
+</p>
 <pre class="example">
 this is a special line, begin with ':'
-</pre>
-
-</li>
-<li>if you have a lot of special lines, you can do like this
-</li>
+</pre></li>
+<li>if you have a lot of special lines, you can do like this</li>
 </ol>
-
-
-
-
-<pre class="example">this is a special line
+<pre class="example" id="orgfac70ff">
+this is a special line
 this is another
 more...
 </pre>
-
-
 </div>
-
-<div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> This is a subsection</h3>
+<div id="outline-container-org9794cd3" class="outline-3">
+<h3 id="org9794cd3"><span class="section-number-3">1.1.</span> This is a subsection</h3>
 <div class="outline-text-3" id="text-1-1">
-
-<ul>
-<li>if you want to insert some source code, you can do like this
-</li>
+<ul class="org-ul">
+<li>if you want to insert some source code, you can do like this</li>
 </ul>
-
-
-
-
-<pre class="src src-c"><span class="linenr">1:  </span><span style="color: #0000ff; background-color: #ffffff; font-weight: bold;">int</span> <span style="color: #0000ff; background-color: #ffffff; font-weight: bold;">main</span>(<span style="color: #0000ff; background-color: #ffffff; font-weight: bold;">void</span>){ <span style="color: #0000ff; background-color: #ffffff; font-weight: bold;">return</span> 42; }
-</pre>
-
-<ul>
-<li>Now let's export a HTML file
-</li>
-<li>See? Org-mode is easy. But you need more practice
-</li>
+<p>
+#+include "~/git/lecture_notes/os/src/tiny.c" src c -n
+</p>
+<ul class="org-ul">
+<li>Now let's export a HTML file</li>
+<li>See? Org-mode is easy. You just need more practice</li>
 </ul>
-
 </div>
 </div>
 </div>
 </div>
-
-<div id="postamble">
-<p class="author">Author: 王晓林(20091152888) (<a href="mailto:wx672ster@gmail.com">wx672ster@gmail.com</a>)</p>
-<p class="date">Date: 2012-04-01 13:44:17 CST</p>
-
+<div id="postamble" class="status">
+<p class="author">Author: 王晓林(20091152888)</p>
+<p class="date">Created: 2021-06-22 Tue 13:35</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

@@ -10,7 +10,7 @@ echo "You only need 3 tools:" | PV
 echo "1. A terminal - for executing commands and running your programs" | PV
 echo "2. Emacs - for writing your report" | PV
 echo "3. A web browser - for viewing the lab instruction which is at:" | PV
-echo -e "\thttp://cs2.swfu.edu.cn/~wx672/lecture_notes/network_basics/proj-week/proj-week.html" | PV
+echo -e "\thttp://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/proj-week/proj-week.html" | PV
 echo
 echo "Now, follow me step by step to get your work done..." | PV
 echo 
@@ -18,11 +18,11 @@ echo "First, you need to make a new directory, say, 20141156888" | PV; prompt;
 echo "mkdir 20141156888" | PV; waiting
 echo "Get into this directory, and download the sample file." | PV; prompt; 
 echo "cd 20141156888" | PV; prompt; 
-echo "wget http://cs2.swfu.edu.cn/~wx672/lecture_notes/network_basics/proj-week/20141156xxx.org" | PV; waiting
+echo "wget http://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/proj-week/20141156xxx.org" | PV; waiting
 echo "Of course you should rename this file to, for example, 20141156888.org" | PV; prompt; 
 echo "mv 20141156xxx.org 20141156888.org" | PV; waiting
 echo "Open the lab instruction in your web browser, and follow it to do your work." | PV; prompt; 
-echo "$(tput setaf 3)lynx$(tput setaf 7) http://cs2.swfu.edu.cn/~wx672/lecture_notes/network_basics/proj-week/proj-week.html" | PV; waiting
+echo "$(tput setaf 3)lynx$(tput setaf 7) http://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/proj-week/proj-week.html" | PV; waiting
 echo "$(tput setaf 3)lynx$(tput setaf 7) is a text based web browser." | PV
 echo "Of course you can use $(tput setaf 3)google-chrome$(tput setaf 7) instead if you like." | PV
 echo

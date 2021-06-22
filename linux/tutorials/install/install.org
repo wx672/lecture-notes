@@ -18,36 +18,45 @@
 * UEFI
 现在（2018年10月）的电脑都很新潮，在主板上几乎都用UEFI取代了传统的BIOS。关于UEFI设置，我的
 经验是：
+
 - 把下列和Windows相关的选项都关掉（disable）:
   - =Secure boot=
   - =QuickBoot/FastBoot=
   - =Intel Smart Response Technology (SRT)=
   - =FastStartup=
+
 - 如果在下面的安装过程中（硬盘分区的时候）看不到硬盘，那么你需要在UEFI设置里找到Intel Rapid Storage
   Technology (Intel RST)，把它设置为AHCI。
+
 * 安装最小系统
 
 【注意事项】为了避免不必要的麻烦：
+
 1. 不要选择图形界面安装；
 2. 不要选择中文安装界面；
 3. 不要为root设置密码；
-4. 安装过程不要联网；
+4. 安装过程中不要联网；
 5. 只要两个分区 =swap= 和 =/= ，换言之，不要 =/boot, /home, /var, ...= 等分区。
 
 安装Debian最小系统的大致步骤如下：
+
 1. 先准备好一个安装盘（LiveUSB）。
-   1) *下载:* [[http://mirrors.163.com/debian-cd/current/amd64/iso-cd/]]
-      - 该目录中有三个（也许更多）iso文件，比如：
-        : debian-9.5.0-amd64-netinst.iso        14-Jul-2018 19:12    291M
-        : debian-9.5.0-amd64-xfce-CD-1.iso      14-Jul-2018 19:12    640M
-        : debian-mac-9.5.0-amd64-netinst.iso    14-Jul-2018 19:12    294M
+   1) *下载:* [[http://mirrors.ustc.edu.cn/debian-cd/current/amd64/iso-cd/][http://mirrors.ustc.edu.cn/debian-cd/current/amd64/iso-cd/]]
+      - 该目录中有四个（也许更多）iso文件，比如：
+        #+begin_example
+			debian-10.10.0-amd64-netinst.iso    <- 只要这个
+			debian-10.10.0-amd64-xfce-CD-1.iso  
+			debian-edu-10.10.0-amd64-netinst.iso
+			debian-mac-10.10.0-amd64-netinst.iso
+        #+end_example
         下载名字最短的那个就好。
    2) *制作U盘:* 在Debian/Ubuntu平台上制作启动U盘非常简单，敲个命令就行了：
-      : sudo cp debian-9.5.0-amd64-netinst.iso /dev/sdX
-      : sync
+      #+BEGIN_SRC sh
+      sudo cp debian-10.10.0-amd64-netinst.iso /dev/sdX
+      sync
       #+END_SRC
       【注意】
-      1. 把 =debian-9.5.0-amd64-netinst.iso= 换成你下载的iso文件的名字。文件名太长容易敲错，
+      1. 把 =debian-10.10.0-amd64-netinst.iso= 换成你下载的iso文件的名字。文件名太长容易敲错，
          那么就尽量用TAB键来补全。比如说，对于上面的长命令，你只需要键入前几个字母：
          : sudo cp deb
          然后按一下 =TAB= 键，长长的文件名就自动都补全了。
@@ -93,7 +102,9 @@
   : chmod +x install.sh
   : ./install.sh
   
-  网络顺畅的话，半个小时应该就完事了。之后……
+  网络顺畅的话，半个小时应该就完事了。不顺畅的话……把网络搞顺畅了再说吧。
+
+  装好之后……
 
 - 重启系统。不出意外的话，重启之后你看到的会是一个纯黑色的、光秃秃的桌面，只有一个傻大傻大
   的鼠标箭头指在屏幕的中央。没错，这就是我们的桌面，干干净净，啥都没有。但是你可以：
@@ -104,8 +115,8 @@
   5. 还有很多 =Super= 开头的快捷键，自己慢慢去探索吧。
 
 如果重启之后，你看不到那个傻大傻大的鼠标箭头，那么十之八九是因为你的显卡太高级了（是
-Nvidia?）。你可以尝试关掉这个高级显卡，暂时使用主板上的内置显卡。通常内置显卡不是Intel的，
-就是AMD的，Linux都支持得很好。具体操作如下：
+Nvidia?）。你可以尝试关掉这个高级显卡，暂时使用主板上的内置显卡。通常内置显卡要么是Intel的，
+要么就是AMD的，Linux都支持得很好。具体操作如下：
 
 1. 卸掉Nvidia驱动
    #+begin_src sh

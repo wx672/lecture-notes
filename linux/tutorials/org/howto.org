@@ -4,7 +4,6 @@
 #+LANGUAGE:  en
 #+OPTIONS:   H:1 num:3 toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs2.swfu.edu.cn/org-info-js/org-info.js
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
 #+LINK_UP:   

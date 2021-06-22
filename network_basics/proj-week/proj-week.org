@@ -177,12 +177,12 @@ If you want to login to =cs6.swfu.edu.cn= without being asked for password
 every time, you can do the following:
    1. Generate a new keypair
       : ssk-keygen -t rsa
-   2. Copy the keyfile to remote machine (=cs3.swfu.edu.cn=).
-      : ssh-copy-id username@cs3.swfu.edu.cn
-   3. Login to =cs3= without password prompt
-      : ssh username@cs3.swfu.edu.cn
+   2. Copy the keyfile to remote machine (=cs6.swfu.edu.cn=).
+      : ssh-copy-id username@cs6.swfu.edu.cn
+   3. Login to =cs6= without password prompt
+      : ssh username@cs6.swfu.edu.cn
    4. *CAUTION!* If you are doing the above steps on a lab PC, now you *must* remove the =key
-      file=, otherwise everybody using this PC can login to your =cs3 account= without a
+      file=, otherwise everybody using this PC can login to your =cs6 account= without a
       password!
       : rm -rf ~/.ssh
       This password-less setup should only be used within your own private computer,
@@ -196,7 +196,7 @@ every time, you can do the following:
                                                            (Home router)
                                                                  ▒           ┌──────┐
  ┌─────┐  (2)  ┌─────────┐      (1)                              ▒           │      │
- │ You ── ssh ───> cs3   ╘════< ssh -R 3333:localhost:22 cs3.swfu.edu.cn <═══╛      │
+ │ You ── ssh ───> cs6   ╘════< ssh -R 3333:localhost:22 cs6.swfu.edu.cn <═══╛      │
  └─────┘       │    │      (3)                                                 Home │
                │    │ ┌────────────────> ssh -p 3333 localhost ─────────────>   PC  │
                │    v │                                                             │
@@ -205,15 +205,15 @@ every time, you can do the following:
                                                                  ▒           └──────┘
 #+END_EXAMPLE
 
-As long as you can login to =cs3=, this setup enables you to access your home PC from
+As long as you can login to =cs6=, this setup enables you to access your home PC from
 anywhere!
 
 1. At your home PC, do
-   : ssh -R 3333:localhost:22 cs3user@cs3.swfu.edu.cn
-   This will open up a /reverse ssh tunnel/ to =cs3.swfu.edu.cn=.
-2. At =cs3=, do
+   : ssh -R 3333:localhost:22 cs6user@cs6.swfu.edu.cn
+   This will open up a /reverse ssh tunnel/ to =cs6.swfu.edu.cn=.
+2. At =cs6=, do
    : ssh -p 3333 homeuser@localhost
-   Now, a connection is made from =cs3:22= to =your-home-pc:3333=.
+   Now, a connection is made from =cs6:22= to =your-home-pc:3333=.
 3. *Your task:* use =ssf= at both local and remote side to figure out the TCP
    connections in this setup.
 
@@ -222,21 +222,21 @@ anywhere!
 #+LATEX: \verbatimfont{\small\dejavu}
 #+BEGIN_EXAMPLE
 ┌─────────┐
-│         │    (1)                        ┌─────┐
-│   You   ╘══> ssh cs3 -L 3333:cs2:80 >═══╛ cs3 │   ┌────────┐
-│    │                                          │   │        │
-│ (2)│ ┌────> curl -v http://localhost:3333 ────────> cs2:80 │
-│    v │                                        │   │        │
-│   3333  ╒═════════════>>>═══════════════╕     │   └────────┘
-│         │                               └─────┘
+│         │    (1)                         ┌─────┐
+│   You   ╘═> ssh cs6 -L 3333:163.com:80 >═╛     │   ┌─────────┐
+│    │                                           │   │         │
+│ (2)│ ┌────> curl -v http://localhost:3333 ─────────> 163.com │
+│    v │                                         │   │         │
+│   3333  ╒═════════════>>>════════════════╕ cs6 │   └─────────┘
+│         │                                └─────┘
 └─────────┘
 #+END_EXAMPLE
 
 1. At your PC (usually restricted), do
-   : ssh user@cs3.swfu.edu.cn -L 3333:cs2.swfu.edu.cn:80
-   Local machine listens on port 3333, and forward traffic to =cs2= on port 80.  That
+   : ssh user@cs6.swfu.edu.cn -L 3333:163.com:80
+   Local machine listens on port 3333, and forward traffic to =cs6= on port 80.  That
    means you can open a web browser, and visit [[http://localhost:3333][=http://localhost:3333=]]. You should see
-   the same page as [[http://cs2.swfu.edu.cn][=http://cs2.swfu.edu.cn=]]
+   the same page as [[http://163.com][=http://163.com=]]
 2. *Your task:* use =ss= at both local and remote side to figure out the TCP
    connections in this setup.
 
@@ -262,14 +262,14 @@ Assuming Alice and Bob use the same username (e.g. =stud=) to work together,
 3. Now, they're sharing the same tmux session, and can co-edit their =helloworld.c= in
    it.
 *** Case 2                                                       :noexport:
-    If Alice and Bob use different username, for example, they both have accounts in =cs3=
+    If Alice and Bob use different username, for example, they both have accounts in =cs6=
     server, and want to do co-working there, they can use a shared socket to achieve this.
-    1. Bob logins to =cs3=, and starts a tmux session with a shared socket.
-       : ssh bob@cs3.swfu.edu.cn
+    1. Bob logins to =cs6=, and starts a tmux session with a shared socket.
+       : ssh bob@cs6.swfu.edu.cn
        : tmux -S /tmp/bob new -s bob
        : chmod 777 /tmp/bob
-    2. Alice ssh into =cs3=, and attach to Bob's tmux session
-       : ssh alice@cs3.swfu.edu.cn
+    2. Alice ssh into =cs6=, and attach to Bob's tmux session
+       : ssh alice@cs6.swfu.edu.cn
        : tmux -S /tmp/bob a -t bob
 
 *** More

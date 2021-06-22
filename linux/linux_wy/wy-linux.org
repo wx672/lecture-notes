@@ -5,9 +5,6 @@
 #+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+OPTIONS:   TeX:t LaTeX:nil skip:nil d:nil todo:t pri:nil tags:not-in-toc
 #+OPTIONS:   author:t creator:t timestamp:t
-#+INFOJS_OPT: view:plain toc:t ltoc:t mouse:underline buttons:0 path:http://cs3.swfu.edu.cn/org-info-js/org-info.js
-# #+STYLE:    <link rel="stylesheet" type="text/css" href="http://cs3.swfu.edu.cn/org-info-js/stylesheet.css" />
-# #+STYLE:    <style>code {font-weight:bold; color:darkblue; font-size:100%} body {font-size:14pt;}</style>
 #+EXPORT_SELECT_TAGS: export
 #+EXPORT_EXCLUDE_TAGS: noexport
 #+LINK_UP:   

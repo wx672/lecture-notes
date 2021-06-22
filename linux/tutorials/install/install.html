@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cn">
 <head>
-<!-- 2020-11-03 Tue 13:55 -->
+<!-- 2021-06-23 Wed 13:53 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Debian快速安装指导</title>
@@ -9,7 +9,7 @@
 <meta name="author" content="王晓林">
 <link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -38,20 +38,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0b97c14">1. UEFI</a></li>
-<li><a href="#orgcc4fbe2">2. 安装最小系统</a></li>
-<li><a href="#org6776194">3. 安装完整系统</a>
+<li><a href="#org6df727c">1. UEFI</a></li>
+<li><a href="#org695ba53">2. 安装最小系统</a></li>
+<li><a href="#org2ca17b6">3. 安装完整系统</a>
 <ul>
-<li><a href="#org355e442">3.1. 好消息</a></li>
-<li><a href="#org6b619f1">3.2. 老办法（可以不看了）</a></li>
+<li><a href="#org9e4311f">3.1. 好消息</a></li>
+<li><a href="#org7c36727">3.2. 老办法（可以不看了）</a></li>
 </ul>
 </li>
-<li><a href="#orgb3c5202">4. 配置（可以不看了）</a>
+<li><a href="#org9c91c96">4. 配置（可以不看了）</a>
 <ul>
-<li><a href="#org8e85ec3">4.1. sudo 的时候总要问密码，是不是很烦？</a></li>
-<li><a href="#orgf4651b6">4.2. dotfile</a></li>
-<li><a href="#org7afcff3">4.3. Auto login</a></li>
-<li><a href="#org65fbb19">4.4. 中文语言环境</a></li>
+<li><a href="#org3da7c6b">4.1. sudo 的时候总要问密码，是不是很烦？</a></li>
+<li><a href="#orgb602d00">4.2. dotfile</a></li>
+<li><a href="#org0638520">4.3. Auto login</a></li>
+<li><a href="#org5ac7603">4.4. 中文语言环境</a></li>
 </ul>
 </li>
 <li><a href="#app1">5. 附录：没有有线网卡怎么办？</a>
@@ -60,18 +60,19 @@
 </ul>
 </li>
 <li><a href="#app3">6. 附录：关于硬件配置</a></li>
-<li><a href="#orgf4630fb">7. 附录：LaTeX （非必须）</a></li>
+<li><a href="#org2c89ebe">7. 附录：LaTeX （非必须）</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0b97c14" class="outline-2">
-<h2 id="org0b97c14"><span class="section-number-2">1</span> UEFI</h2>
+<div id="outline-container-org6df727c" class="outline-2">
+<h2 id="org6df727c"><span class="section-number-2">1.</span> UEFI</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 现在（2018年10月）的电脑都很新潮，在主板上几乎都用UEFI取代了传统的BIOS。关于UEFI设置，我的
 经验是：
 </p>
+
 <ul class="org-ul">
 <li>把下列和Windows相关的选项都关掉（disable）:
 <ul class="org-ul">
@@ -80,42 +81,46 @@
 <li><code>Intel Smart Response Technology (SRT)</code></li>
 <li><code>FastStartup</code></li>
 </ul></li>
+
 <li>如果在下面的安装过程中（硬盘分区的时候）看不到硬盘，那么你需要在UEFI设置里找到Intel Rapid Storage
 Technology (Intel RST)，把它设置为AHCI。</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcc4fbe2" class="outline-2">
-<h2 id="orgcc4fbe2"><span class="section-number-2">2</span> 安装最小系统</h2>
+
+<div id="outline-container-org695ba53" class="outline-2">
+<h2 id="org695ba53"><span class="section-number-2">2.</span> 安装最小系统</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 【注意事项】为了避免不必要的麻烦：
 </p>
+
 <ol class="org-ol">
 <li>不要选择图形界面安装；</li>
 <li>不要选择中文安装界面；</li>
 <li>不要为root设置密码；</li>
-<li>安装过程不要联网；</li>
+<li>安装过程中不要联网；</li>
 <li>只要两个分区 <code>swap</code> 和 <code>/</code> ，换言之，不要 <code>/boot, /home, /var, ...</code> 等分区。</li>
 </ol>
 
 <p>
 安装Debian最小系统的大致步骤如下：
 </p>
+
 <ol class="org-ol">
 <li>先准备好一个安装盘（LiveUSB）。
 <ol class="org-ol">
-<li><b>下载:</b> <a href="http://mirrors.163.com/debian-cd/current/amd64/iso-cd/">http://mirrors.163.com/debian-cd/current/amd64/iso-cd/</a>
+<li><b>下载:</b> <a href="http://mirrors.ustc.edu.cn/debian-cd/current/amd64/iso-cd/">http://mirrors.ustc.edu.cn/debian-cd/current/amd64/iso-cd/</a>
 <ul class="org-ul">
 <li><p>
-该目录中有三个（也许更多）iso文件，比如：
+该目录中有四个（也许更多）iso文件，比如：
 </p>
-<pre class="example">
-debian-9.5.0-amd64-netinst.iso        14-Jul-2018 19:12    291M
-debian-9.5.0-amd64-xfce-CD-1.iso      14-Jul-2018 19:12    640M
-debian-mac-9.5.0-amd64-netinst.iso    14-Jul-2018 19:12    294M
+<pre class="example" id="orgb97e553">
+debian-10.10.0-amd64-netinst.iso    &lt;- 只要这个
+debian-10.10.0-amd64-xfce-CD-1.iso  
+debian-edu-10.10.0-amd64-netinst.iso
+debian-mac-10.10.0-amd64-netinst.iso
 </pre>
-
 <p>
 下载名字最短的那个就好。
 </p></li>
@@ -123,18 +128,17 @@ debian-mac-9.5.0-amd64-netinst.iso    14-Jul-2018 19:12    294M
 <li><p>
 <b>制作U盘:</b> 在Debian/Ubuntu平台上制作启动U盘非常简单，敲个命令就行了：
 </p>
-<pre class="example">
-sudo cp debian-9.5.0-amd64-netinst.iso /dev/sdX
+<div class="org-src-container">
+<pre class="src src-sh">sudo cp debian-10.10.0-amd64-netinst.iso /dev/sdX
 sync
 </pre>
-
+</div>
 <p>
-#+END<sub>SRC</sub>
 【注意】
 </p>
 <ol class="org-ol">
 <li><p>
-把 <code>debian-9.5.0-amd64-netinst.iso</code> 换成你下载的iso文件的名字。文件名太长容易敲错，
+把 <code>debian-10.10.0-amd64-netinst.iso</code> 换成你下载的iso文件的名字。文件名太长容易敲错，
 那么就尽量用TAB键来补全。比如说，对于上面的长命令，你只需要键入前几个字母：
 </p>
 <pre class="example">
@@ -187,12 +191,12 @@ network at this time”。</li>
 </div>
 </div>
 
-<div id="outline-container-org6776194" class="outline-2">
-<h2 id="org6776194"><span class="section-number-2">3</span> 安装完整系统</h2>
+<div id="outline-container-org2ca17b6" class="outline-2">
+<h2 id="org2ca17b6"><span class="section-number-2">3.</span> 安装完整系统</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org355e442" class="outline-3">
-<h3 id="org355e442"><span class="section-number-3">3.1</span> 好消息</h3>
+<div id="outline-container-org9e4311f" class="outline-3">
+<h3 id="org9e4311f"><span class="section-number-3">3.1.</span> 好消息</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 现在，你只要下载并运行<a href="https://cs6.swfu.edu.cn/~wx672/debian-install/install.sh">这个小程序</a>，就可以得到一个完整的Debian系统了。
@@ -217,7 +221,11 @@ chmod +x install.sh
 
 
 <p>
-网络顺畅的话，半个小时应该就完事了。之后……
+网络顺畅的话，半个小时应该就完事了。不顺畅的话……把网络搞顺畅了再说吧。
+</p>
+
+<p>
+装好之后……
 </p></li>
 
 <li>重启系统。不出意外的话，重启之后你看到的会是一个纯黑色的、光秃秃的桌面，只有一个傻大傻大
@@ -233,8 +241,8 @@ chmod +x install.sh
 
 <p>
 如果重启之后，你看不到那个傻大傻大的鼠标箭头，那么十之八九是因为你的显卡太高级了（是
-Nvidia?）。你可以尝试关掉这个高级显卡，暂时使用主板上的内置显卡。通常内置显卡不是Intel的，
-就是AMD的，Linux都支持得很好。具体操作如下：
+Nvidia?）。你可以尝试关掉这个高级显卡，暂时使用主板上的内置显卡。通常内置显卡要么是Intel的，
+要么就是AMD的，Linux都支持得很好。具体操作如下：
 </p>
 
 <ol class="org-ol">
@@ -269,8 +277,8 @@ Nvidia?）。你可以尝试关掉这个高级显卡，暂时使用主板上的�
 </div>
 </div>
 
-<div id="outline-container-org6b619f1" class="outline-3">
-<h3 id="org6b619f1"><span class="section-number-3">3.2</span> 老办法（可以不看了）</h3>
+<div id="outline-container-org7c36727" class="outline-3">
+<h3 id="org7c36727"><span class="section-number-3">3.2.</span> 老办法（可以不看了）</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 最小系统装好之后，拔出U盘，重启系统。现在我们讲讲之后的事情……
@@ -353,7 +361,7 @@ sudo nano /etc/apt/sources.list
 <p>
 把这个文件里原有的内容全部删除掉，然后添加下面这三行：
 </p>
-<pre class="example" id="org1c3a52e">
+<pre class="example" id="org31db4d1">
 deb http://mirrors.163.com/debian testing main non-free contrib
 deb http://mirrors.163.com/debian testing-updates main non-free contrib
 deb http://mirrors.163.com/debian testing-proposed-updates main non-free contrib
@@ -435,12 +443,12 @@ nmtui
 </div>
 </div>
 
-<div id="outline-container-orgb3c5202" class="outline-2">
-<h2 id="orgb3c5202"><span class="section-number-2">4</span> 配置（可以不看了）</h2>
+<div id="outline-container-org9c91c96" class="outline-2">
+<h2 id="org9c91c96"><span class="section-number-2">4.</span> 配置（可以不看了）</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org8e85ec3" class="outline-3">
-<h3 id="org8e85ec3"><span class="section-number-3">4.1</span> sudo 的时候总要问密码，是不是很烦？</h3>
+<div id="outline-container-org3da7c6b" class="outline-3">
+<h3 id="org3da7c6b"><span class="section-number-3">4.1.</span> sudo 的时候总要问密码，是不是很烦？</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 那就不让它问了：
@@ -492,8 +500,8 @@ exit
 </div>
 </div>
 
-<div id="outline-container-orgf4651b6" class="outline-3">
-<h3 id="orgf4651b6"><span class="section-number-3">4.2</span> dotfile</h3>
+<div id="outline-container-orgb602d00" class="outline-3">
+<h3 id="orgb602d00"><span class="section-number-3">4.2.</span> dotfile</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 现在你的系统和机房的差不多一样了，唯一的差别就是你还没配置呢。
@@ -501,9 +509,9 @@ exit
 git（ <b>以普通用户的身份来做</b> ）：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #B71C1C;">cd</span>
+<pre class="src src-sh"><span style="color: #ff8A65;">cd</span>
 git clone https://github.com/wx672/dotfile.git
-<span style="color: #607d8b;">#</span><span style="color: #607d8b;">&#25110;&#32773;</span>
+<span style="color: #b0bec5;">#</span><span style="color: #b0bec5;">&#25110;&#32773;</span>
 git clone https://cs6.swfu.edu.cn/~wx672/dotfile/.git
 </pre>
 </div>
@@ -576,7 +584,7 @@ rename 's/dot//' dot.*
 然后解压缩
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #B71C1C;">cd</span> ~/.emacs.d
+<pre class="src src-sh"><span style="color: #ff8A65;">cd</span> ~/.emacs.d
 tar zxf elpa.tgz
 </pre>
 </div></li>
@@ -596,8 +604,8 @@ tar zxf elpa.tgz
 </div>
 </div>
 
-<div id="outline-container-org7afcff3" class="outline-3">
-<h3 id="org7afcff3"><span class="section-number-3">4.3</span> Auto login</h3>
+<div id="outline-container-org0638520" class="outline-3">
+<h3 id="org0638520"><span class="section-number-3">4.3.</span> Auto login</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 简单起见，我们只讲“怎么做”，先不管“为什么”。
@@ -623,7 +631,7 @@ tar zxf elpa.tgz
 <p>
 在这个 <code>override.conf</code> 文件里应该只有如下三行：
 </p>
-<pre class="example" id="orgf6f4bca">
+<pre class="example" id="org126da56">
 [Service]
 ExecStart=
 ExecStart=-/sbin/agetty --autologin wx672 --noclear %I $TERM
@@ -635,8 +643,8 @@ ExecStart=-/sbin/agetty --autologin wx672 --noclear %I $TERM
 </div>
 </div>
 
-<div id="outline-container-org65fbb19" class="outline-3">
-<h3 id="org65fbb19"><span class="section-number-3">4.4</span> 中文语言环境</h3>
+<div id="outline-container-org5ac7603" class="outline-3">
+<h3 id="org5ac7603"><span class="section-number-3">4.4.</span> 中文语言环境</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 注意，我们其实并不需要一套纯正的中文环境，我们只是需要输入和阅读中文。
@@ -658,9 +666,9 @@ ExecStart=-/sbin/agetty --autologin wx672 --noclear %I $TERM
 安装中文字体和输入法。
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #B71C1C;">cd</span>
+<pre class="src src-sh"><span style="color: #ff8A65;">cd</span>
 wget -c --no-check-certificate https://cs6.swfu.edu.cn/~wx672/debian-install/03-chinese
-sudo apt install <span style="color: #FFA000;">`cat 03-chinese`</span>
+sudo apt install <span style="color: #ffd700;">`cat 03-chinese`</span>
 </pre>
 </div></li>
 
@@ -735,7 +743,7 @@ sudo apt install <span style="color: #FFA000;">`cat 03-chinese`</span>
 </div>
 
 <div id="outline-container-app1" class="outline-2">
-<h2 id="app1"><span class="section-number-2">5</span> 附录：没有有线网卡怎么办？</h2>
+<h2 id="app1"><span class="section-number-2">5.</span> 附录：没有有线网卡怎么办？</h2>
 <div class="outline-text-2" id="text-app1">
 <p>
 办法很多：
@@ -750,7 +758,7 @@ Tethering”，激活里面的USB Tethering功能就行了；</li>
 <li><p>
 在电脑上，敲命令 <code>ip a</code> 应该能看到一块有线网卡。比如，
 </p>
-<pre class="example" id="orgeab0688">
+<pre class="example" id="orgf188615">
 3: enp2s0f4u2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
    link/ether 26:b1:c7:c5:02:1f brd ff:ff:ff:ff:ff:ff
 </pre>
@@ -807,7 +815,7 @@ Tethering”，激活里面的USB Tethering功能就行了；</li>
 </div>
 
 <div id="outline-container-app2" class="outline-3">
-<h3 id="app2"><span class="section-number-3">5.1</span> 无线联网时的密码设置</h3>
+<h3 id="app2"><span class="section-number-3">5.1.</span> 无线联网时的密码设置</h3>
 <div class="outline-text-3" id="text-app2">
 <p>
 无线联网时通常是要输入密码的，所以我们需要修改一个配置文件 <code>/etc/network/interfaces</code> ，很
@@ -829,7 +837,7 @@ Tethering”，激活里面的USB Tethering功能就行了；</li>
 <p>
 在这个文件的最后加上如下几行：
 </p>
-<pre class="example" id="orgbc87def">
+<pre class="example" id="org5cecd64">
 iface tmp inet dhcp
 wireless-essid MY-ESSID
 wpa-ssid MY-ESSID
@@ -843,7 +851,7 @@ wpa-psk PASSWORD
 然后，用下面这条命令来连接无线网：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">sudo ifup <span style="color: #EF6C00;">WLANCARD</span>=tmp
+<pre class="src src-sh">sudo ifup <span style="color: #ffcc80;">WLANCARD</span>=tmp
 </pre>
 </div>
 <p>
@@ -851,7 +859,7 @@ wpa-psk PASSWORD
 网卡名字就是 <code>wlp1s0</code> ，那么我用的联网命令就是：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">sudo ifup <span style="color: #EF6C00;">wlp1s0</span>=tmp
+<pre class="src src-sh">sudo ifup <span style="color: #ffcc80;">wlp1s0</span>=tmp
 </pre>
 </div>
 </div>
@@ -859,14 +867,14 @@ wpa-psk PASSWORD
 </div>
 
 <div id="outline-container-app3" class="outline-2">
-<h2 id="app3"><span class="section-number-2">6</span> 附录：关于硬件配置</h2>
+<h2 id="app3"><span class="section-number-2">6.</span> 附录：关于硬件配置</h2>
 <div class="outline-text-2" id="text-app3">
 <p>
 首先，当然是要搞清楚你到底有哪些硬件。很简单：
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">lspci
-<span style="color: #607d8b;">#</span><span style="color: #607d8b;">&#24819;&#30475;&#26356;&#35814;&#32454;&#30340;&#20449;&#24687;&#65292;&#23601;&#65306;</span>
+<span style="color: #b0bec5;">#</span><span style="color: #b0bec5;">&#24819;&#30475;&#26356;&#35814;&#32454;&#30340;&#20449;&#24687;&#65292;&#23601;&#65306;</span>
 lspci -vvv
 </pre>
 </div>
@@ -876,11 +884,11 @@ lspci -vvv
 你的有线或无线网卡是Realtek，或者Atheros牌子的，那么你需要安装相应的firmware（固件）。
 </p>
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #607d8b;">#</span><span style="color: #607d8b;">&#22914;&#26524;&#26159;Realtek&#32593;&#21345;&#65292;&#23601;&#65306;</span>
+<pre class="src src-sh"><span style="color: #b0bec5;">#</span><span style="color: #b0bec5;">&#22914;&#26524;&#26159;Realtek&#32593;&#21345;&#65292;&#23601;&#65306;</span>
 sudo apt install firmware-realtek
-<span style="color: #607d8b;">#</span><span style="color: #607d8b;">&#22914;&#26524;&#26159;Atheros&#32593;&#21345;&#65292;&#23601;&#65306;</span>
+<span style="color: #b0bec5;">#</span><span style="color: #b0bec5;">&#22914;&#26524;&#26159;Atheros&#32593;&#21345;&#65292;&#23601;&#65306;</span>
 sudo apt install firmware-atheros
-<span style="color: #607d8b;">#</span><span style="color: #607d8b;">&#22914;&#26524;&#26159;Intel&#32593;&#21345;&#65292;&#23601;&#65306;</span>
+<span style="color: #b0bec5;">#</span><span style="color: #b0bec5;">&#22914;&#26524;&#26159;Intel&#32593;&#21345;&#65292;&#23601;&#65306;</span>
 sudo apt install firmware-iwlwifi
 </pre>
 </div>
@@ -913,8 +921,8 @@ sudo apt install firmware-iwlwifi
 </p>
 </div>
 </div>
-<div id="outline-container-orgf4630fb" class="outline-2">
-<h2 id="orgf4630fb"><span class="section-number-2">7</span> 附录：LaTeX （非必须）</h2>
+<div id="outline-container-org2c89ebe" class="outline-2">
+<h2 id="org2c89ebe"><span class="section-number-2">7.</span> 附录：LaTeX （非必须）</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 在Linux平台，你不用非要学习使用LaTeX来排版你的文章、报告、论文，
@@ -995,7 +1003,7 @@ Happy LaTeXing!
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 王晓林</p>
-<p class="date">Created: 2020-11-03 Tue 13:55</p>
+<p class="date">Created: 2021-06-23 Wed 13:53</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
