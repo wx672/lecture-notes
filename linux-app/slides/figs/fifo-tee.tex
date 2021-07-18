@@ -1,17 +1,21 @@
 \documentclass[varwidth,crop]{standalone}
 
 \usepackage{fontspec}
-\setmonofont{DejaVu Sans Mono}
+% \usepackage{newunicodechar}
+\setmonofont{DejaVuSansMono Nerd Font}
+% \newfontfamily\nerd{FiraCode Nerd Font Mono}
+% \newunicodechar{}{{\Huge\nerd }}
+% \newunicodechar{🖵}{{\nerd 🖵}}
+
 
 \begin{document}
 \begin{verbatim}
-┌────┐ pipe  ┌───┐  ┌──────┐
-│echo├─════─>│tee├─>│STDOUT│
-└────┘       └─┬─┘  └──────┘
-               v
-            ┌──────┐  ┌──┐
-            │myfifo├─>│wc│
-            └──────┘  └──┘
+┌────┐ ▁▁▁▁▁▁▁▁  ┌───┐   
+│echo├─░ pipe ░─>│tee├──> STDOUT
+└────┘ ▔▔▔▔▔▔▔▔  └─┬─┘   
+                   │ ▁▁▁▁▁▁▁▁  ┌──┐
+                   └─░myfifo░─>│wc│
+                     ▔▔▔▔▔▔▔▔  └──┘
 \end{verbatim}
 \end{document}
 

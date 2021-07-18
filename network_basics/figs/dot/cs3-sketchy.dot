@@ -1,0 +1,32 @@
+digraph cs3 {
+    bgcolor=transparent;
+    node [fontname=handlee];
+	ROOT [color=red];
+	ROOT -> { bin; boot; dev; etc; home; var}
+	boot -> grub;
+	etc -> {passwd [shape=box]}
+	home [color=red];
+	home -> {staff; stud}
+	staff -> {wx672 [label="wx672"]}
+	stud [color=red];
+	stud -> {stud1 [label="101152001", color=red]}
+	-> {stud11 [label="dir", color=red]}
+	-> {stud111 [label="file", shape=box, color=red]}
+	var -> {varmail [label="mail"]} -> {varmail1}
+	varmail1 [label="101152001", shape=box, color=red];
+	node [shape=point];
+	ROOT -> {root1;root2;root3;root4}
+	bin -> {bin1;bin2}
+	boot -> {boot1;boot2;boot3}
+	grub -> {grub1;grub2}
+	dev -> {dev1;dev2;dev3}
+	etc -> {etc1;etc2}
+	home -> {home1;home2}
+	staff -> {staff1;staff2}
+	wx672 -> {wx6721;wx6722;wx6723;wx6724;wx6725;wx6726;wx6727}
+	stud -> {stud3;stud4}
+	stud1 -> {stud13;stud14}
+	stud11 -> {stud112;stud113}
+	var -> {var1;var2}
+	varmail -> {varmail3;varmail4}
+}

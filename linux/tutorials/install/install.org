@@ -32,47 +32,44 @@
 
 【注意事项】为了避免不必要的麻烦：
 
-1. 不要选择图形界面安装；
-2. 不要选择中文安装界面；
-3. 不要为root设置密码；
-4. 安装过程中不要联网；
+1. 不要选择图形界面安装（Graphical Install）； *不要图形界面*; *不要图形界面*; 
+2. 不要选择中文安装界面； *不要中文*; *不要中文*; 
+3. 不要为root设置密码; *不要root密码*; *不要root密码*;
+4. 安装过程中不要联网; *不要联网*; *不要联网*;
 5. 只要两个分区 =swap= 和 =/= ，换言之，不要 =/boot, /home, /var, ...= 等分区。
 
 安装Debian最小系统的大致步骤如下：
 
-1. 先准备好一个安装盘（LiveUSB）。
-   1) *下载:* [[http://mirrors.ustc.edu.cn/debian-cd/current/amd64/iso-cd/][http://mirrors.ustc.edu.cn/debian-cd/current/amd64/iso-cd/]]
-      - 该目录中有四个（也许更多）iso文件，比如：
+1. 先准备好一个安装盘（LiveUSB）
+   1) *下载:* [[https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current/amd64/iso-cd/]]
+      - 该目录中有两个（也许更多）iso文件，下载名字最短的那个就好。比如：
         #+begin_example
-			debian-10.10.0-amd64-netinst.iso    <- 只要这个
-			debian-10.10.0-amd64-xfce-CD-1.iso  
-			debian-edu-10.10.0-amd64-netinst.iso
-			debian-mac-10.10.0-amd64-netinst.iso
+        firmware-11.6.0-amd64-netinst.iso     <-- 只要这个
+        firmware-edu-11.6.0-amd64-netinst.iso        
         #+end_example
-        下载名字最短的那个就好。
+        
    2) *制作U盘:* 在Debian/Ubuntu平台上制作启动U盘非常简单，敲个命令就行了：
       #+BEGIN_SRC sh
-      sudo cp debian-10.10.0-amd64-netinst.iso /dev/sdX
-      sync
+        sudo cp fir<TAB> /dev/sdX  # <TAB> 指的是键盘上的 TAB 键，它能帮你补全文件名。
+                                   # 把 sdX 换成 sdb 或者 sdc。用 lsblk 命令看一眼，
+                                   # 就知道是 b 还是 c 了。
+        sync
       #+END_SRC
       【注意】
-      1. 把 =debian-10.10.0-amd64-netinst.iso= 换成你下载的iso文件的名字。文件名太长容易敲错，
-         那么就尽量用TAB键来补全。比如说，对于上面的长命令，你只需要键入前几个字母：
-         : sudo cp deb
-         然后按一下 =TAB= 键，长长的文件名就自动都补全了。
-      2. 把 =X= 换成你的U盘对应的字母。用 =lsblk= 看一眼，你就知道是哪个字母了，通常不是b就是c。
-      3. *如果没有现成的Linux系统，只有Windows可用，怎么做启动U盘？* 抱歉，我也不知道。我
-         知道肯定可以，而且见人做过，只不过我真的不用Windows，所以真的不关心。
-2. 拔掉网线，从U盘重启系统，开始安装。大概半个小时，一个“最小系统”就装好了。「拔掉网线」只
-   是我个人的习惯，并不是必须的。联网安装的话，可能会遭遇若干问题：
+      - 找个小U盘，越小越好。整盘覆盖，当然是越小越快。
+      - *如果没有现成的Linux系统，只有Windows可用，怎么做启动U盘？* 抱歉，我也不知道。我
+        知道肯定可以，而且见人做过，只不过我真的不用Windows，所以真的不关心。
+
+2. 拔掉网线，从U盘重启系统，开始安装。大概半个小时，一个“最小系统”就装
+   好了。「拔掉网线」只是我的个人习惯，并不是必须的。联网安装的话，可能会遭遇若干问题：
    1) 如果网络不畅，安装过程会很慢，甚至失败；
    2) 现在时髦的笔记本都不带有线网口，如果选择联网安装，安装过程中就要涉及安装网卡驱动、输
       入无线密码等步骤，麻烦多多；
    3) 联网安装，系统还会提示你选择镜像源、选择要安装的“全家桶”，这些貌似友好的功能选项，在
       我看弊大于利，只能增加入门者的困扰。
-
-3. 【注意】
-   + 安装的时候不要选择中文语言环境，因为后面的安装配置工作都是在非图形环境下进行，
+3. 完事后，拔掉U盘，重启系统。
+4. 【注意】
+   + 安装的时候 *不要选择中文语言环境*, 因为后面的安装配置工作都是在非图形环境下进行，
      采用中文的话，你很可能会遭遇乱码。
    + 提示你“Loading missing firmware”的时候，选择“NO”。
    + “Configure the network”的时候，选择一连串的“Cancel”，直到你看到“Do not configure the
@@ -86,41 +83,240 @@
      3. 装了双系统之后，通常（不争气的）你会选用熟悉的Windows系统，渐渐地，过不了多久，你就忘了电
         脑上还有一个Linux系统。
      所以，我很不愿意搭理装双系统的人。
-4. 完事后，拔掉U盘，重启系统。
+** 截图
+
+1. 开始安装，选择“Install”，不要选“Graphical install”
+   
+   [[file:screenshots/01.png]]
+
+2. 选择“English”，千万别选“中文”！
+
+   [[file:screenshots/02.png]]
+
+3. 这一步不重要，回车接受默认值就好
+
+   [[file:screenshots/03.png]]
+
+4. 回车接受默认值
+
+   [[file:screenshots/04.png]]
+
+5. 配置网络的时候手要快，见到“Cancel”就按，打断配置，因为我们暂时不需要联网。
+
+   [[file:screenshots/05.png]]
+
+   #+caption: 一定要选“Do not configure the network at this time”
+   [[file:screenshots/06.png]]
+
+6. 回车接受默认值
+
+   [[file:screenshots/07.png]]
+
+7. 回车跳过，不要给root设置密码！
+
+   [[file:screenshots/08.png]]
+
+   #+caption: 回车跳过
+   [[file:screenshots/09.png]]
+
+8. 你的全名，注意，不是用户名！这一步不重要，但也别胡填，老老实实写姓
+   名的全拼，姓、名之间应该有空格。
+
+   [[file:screenshots/10.png]]
+
+9. 用户名短点好，选个好记的
+
+   [[file:screenshots/11.png]]
+
+10. 密码，暂时选个短的，好记的
+
+    [[file:screenshots/12.png]]
+
+    [[file:screenshots/13.png]]
+
+11. 选时区，暂时不重要，回车接受默认值就好
+
+    [[file:screenshots/14.png]]
+
+12. 硬盘分区，很重要！
+
+    - 如果像我一样，你也是装Linux单系统的话，选“Guided - use entire
+      disk”；
+
+    - 如果是装双系统，就选“Manual”。
+
+      [[file:screenshots/15.png]]
+
+      #+caption: 选择要分区的硬盘。我只有一块硬盘，你可未必，别选错！
+      [[file:screenshots/16.png]]
+
+      #+CAPTION: 分区规划。装单系统的话，很简单，选择“All files in one partition”就好。如果你是装双系统，也就是说在前面选择了“Manual”，那么这里的事情会稍复杂一点，你要自己创建一个1GB大小的“swap分区”，再把剩下的空间都用作“根分区”。
+      [[file:screenshots/17.png]]
+
+      #+CAPTION: 一个1GB的swap分区和一个根分区（/）
+      [[file:screenshots/18.png]]
+
+      #+CAPTION: 当然选“Yes”，如果硬盘上原来的数据都备份好了。
+      [[file:screenshots/19.png]]
+
+13. 开始安装最小系统，大概5分钟
+
+    [[file:screenshots/20.png]]
+    
+    #+CAPTION: 配置package manager，选“No”
+    [[file:screenshots/21.png]]
+
+    #+CAPTION: 选“Yes”，因为我们没联网。
+    [[file:screenshots/22.png]]
+
+    #+CAPTION: 大概需要5分钟
+    [[file:screenshots/23.png]]
+
+    #+CAPTION: 不重要，回车接受默认值就好
+    [[file:screenshots/24.png]]
+
+    #+CAPTION: 就一条，选中它就好。如果你联网了，这里就不止有一条可选了，但也不要选别的，无论如何，就选这一条。
+    [[file:screenshots/25.png]]
+
+    #+CAPTION: 大约要10分钟
+    [[file:screenshots/26.png]]
+
+14. 安装GRUB
+
+    #+CAPTION: 选“Yes”
+    [[file:screenshots/27.png]]
+
+    #+CAPTION: 如果你有不止一块硬盘，或者不止一个分区，你就要好好斟酌了，千万别装错了地方。
+    [[file:screenshots/28.png]]
+
+15. 安装结束
+
+    [[file:screenshots/29.png]]
+
+    #+CAPTION: 拔掉U盘，回车，电脑重启
+    [[file:screenshots/30.png]]
+
+    #+CAPTION: 重启之后，应该是这个样子。如果是双系统的话，你还应该能看到一条关于Windows的选项。
+    [[file:screenshots/31.png]]
 
 * 安装完整系统
 
-** 好消息
+好消息！现在，你只要下载并运行[[https://cs6.swfu.edu.cn/~wx672/debian-install/install.sh][这个小程序]]，就可以得到一个完整的Debian系统了。
+1. 登录
 
-现在，你只要下载并运行[[https://cs6.swfu.edu.cn/~wx672/debian-install/install.sh][这个小程序]]，就可以得到一个完整的Debian系统了。
-- 下载：
-  : cd
-  : scp fai@cs6.swfu.edu.cn:install.sh ./
-  : fai@cs6.swfu.edu.cn's password: fai
-  
-- 运行：
-  : chmod +x install.sh
-  : ./install.sh
-  
-  网络顺畅的话，半个小时应该就完事了。不顺畅的话……把网络搞顺畅了再说吧。
+   [[file:screenshots/33.png]]
 
-  装好之后……
+2. 联网。当然要先插好网线。如果你的笔记本比较新潮，没有有线网口，那么可以试试下面两个办法：
+   - 你可以利用手机的 Ethernet tethering 功能，详见第[[* 附录：没有有线网卡怎么办？]]节。
+   - 找一个USB-Ethernet转接头。十几块钱就能买一个。
 
-- 重启系统。不出意外的话，重启之后你看到的会是一个纯黑色的、光秃秃的桌面，只有一个傻大傻大
-  的鼠标箭头指在屏幕的中央。没错，这就是我们的桌面，干干净净，啥都没有。但是你可以：
-  1. 敲 =Super-t= 打开一个终端窗口，在里面敲命令；
-  2. 敲 =Super-F1= 打开“帮助墙纸”；
-  3. 用 =nmtui= 来配置无线网；
-  4. 用 =Shift-space= 来激活中文输入法；
-  5. 还有很多 =Super= 开头的快捷键，自己慢慢去探索吧。
+   总之，现在刚装完最小系统，无线网很可能还不好使。连好网线，再敲下面的命令，应该就能连上网了。
 
-如果重启之后，你看不到那个傻大傻大的鼠标箭头，那么十之八九是因为你的显卡太高级了（是
-Nvidia?）。你可以尝试关掉这个高级显卡，暂时使用主板上的内置显卡。通常内置显卡要么是Intel的，
-要么就是AMD的，Linux都支持得很好。具体操作如下：
+   #+begin_src sh
+     ip a          #注释：查看网卡是否已经有IP地址了
+     sudo dhclient #注释：自动获得IP地址
+   #+end_src
+
+   #+CAPTION: 敲命令联网的全过程
+   [[file:screenshots/36.png]]
+   
+3. 下载
+
+   #+begin_src sh
+	 cd
+	 wget cs6.swfu.edu.cn/~wx672/debian-install/install.sh
+   #+end_src
+
+   #+CAPTION: 用 ~wget~ 下载安装程序（~install.sh~）
+   [[file:screenshots/37.png]]
+   
+4. 运行
+
+   #+begin_src sh
+	 chmod +x install.sh
+	 ./install.sh
+   #+end_src
+
+   #+CAPTION: 开始安装
+   [[file:screenshots/38.png]]
+   
+   网络顺畅的话，半个小时应该就完事了。不顺畅的话……把网络搞顺畅了再说吧。
+
+   *程序运行过程中，会不时给出英文提示，千万要耐心看明白，然后再操作。*
+
+   *不要忽略任何一个提示！不要忽略提示！不要忽略提示！*
+
+   #+CAPTION: 当然选择“Continue”
+   [[file:screenshots/39.png]]
+
+   #+CAPTION: 升级最小系统。网络没问题的话，这一步不会出毛病，10分钟就能结束。
+   [[file:screenshots/40.png]]
+
+   #+CAPTION: 选“Yes”
+   [[file:screenshots/41.png]]
+
+   #+CAPTION: 最小系统升级顺利结束。白字和绿字都很好，如果看见红字（报错）就要小心了。
+   [[file:screenshots/43.png]]
+
+   #+CAPTION: 正常友善提示，回车继续
+   [[file:screenshots/44.png]]
+
+   #+CAPTION: 出错了！别紧张，下面我就来详细说说遇到问题该怎么办。
+   [[file:screenshots/45.png]]
+
+   首先要看明白具体的出错信息。“ =git: command not found= ”，我估计初学
+   者不容易看明白发生了什么。 =git= 是我们在安装过程中要用到的一个命令，
+   居然没找到，怎么办？其实，我也感觉很意外，前面一切都很顺利，没看见
+   红字啊。初步判断，是我这个安装程序（ =install.sh= ）里有bug，前面安装
+   必备软件的时候，肯定是出错了，但没报错。那现在怎么办呢？如果你真的
+   是初学者，对Debian还一无所知，那么就求救吧。
+
+   其实，解决这个小问题也不难，把前面安装必备软件的步骤再做一遍，看看
+   到底是哪里出错。具体步骤如下：
+
+   1. 按 Ctrl-Alt-F2 切换到另一个终端，登录进去。
+   2. 读取 =install.sh= 里面的几个重要变量。
+      #+begin_src sh
+        source ./install.sh #注释：执行小程序
+        ^C                  #注释：按 Ctrl-C 中止小程序
+      #+end_src
+      注意，我们并不想完整执行这个小程序，只想执行前面给变量赋值的几句，所
+      以，快速按 ~Ctrl-C~ 将其中止。这时 =PKG_IMP, PKG_REC, PKG_CHN= 这三
+      个变量就已经被赋好值了，
+      - =PKG_IMP= 的值是一长串重要软件包的名字，没有这些软件系统不能正常工作
+      - =PKG_REC= 的值是一长串推荐安装的软件包的名字，比如浏览器
+      - =PKG_CHN= 的值是一长串中文支持软件包的名字，比如中文输入法
+
+      现在，我们就要手工敲命令来安装这些软件包。
+      #+begin_src sh
+        sudo apt-get install $PKG_IMP $PKG_REC $PKG_CHN
+      #+end_src
+      安装很顺利，没出错。所以，我到现在也没搞清楚前面自动执行安装程序
+      的时候 =git= 为什么会没装上。以后再研究吧，现在按 Ctrl-Alt-F1 切换
+      回报错的终端，按任意键（除了“q”）继续。
+
+      #+CAPTION: 胜利结束。先仔细看看屏幕提示再回车！
+      [[file:screenshots/46.png]]
+      
+
+   装好之后……
+
+5. 重启系统。不出意外的话，重启之后，你看到的应该就是一个终端窗口，除此之外，啥都没有，干净得令你失望。
+   默认的窗口管理器（Window manager）是DWM，你可以：
+   - 用 =nmtui= 来配置无线网；
+   - 用 =Shift-space= 来激活中文输入法；
+   - 用 =Super-q= 打开浏览器； 
+   - 用 =Super-l= 弹出窗口列表；
+   - 用 =Super-F1= 打开“帮助墙纸”；
+   - 还有很多 =Super= 开头的快捷键，自己慢慢去探索吧。
+
+如果重启之后，你看不到浏览器、终端、墙纸……，那么肯定是图形界面没起来，十之八九是
+因为你的显卡太高级了（是Nvidia?）。你可以尝试关掉这个高级显卡，暂时使用主板上的内置显卡。
+通常内置显卡要么是Intel的，要么就是AMD的，它们对Linux都很友好。具体操作如下：
 
 1. 卸掉Nvidia驱动
    #+begin_src sh
-     sudo apt purge xserver-xorg-video-nvidia xserver-xorg-video-nouveau
+     sudo apt purge xserver-xorg-video-{nvidia,nouveau}
    #+end_src
 
    用 =lspci= 命令查看一下显卡的牌子。如果是Intel显卡，就安装Intel的显卡驱动：
@@ -133,6 +329,11 @@ Nvidia?）。你可以尝试关掉这个高级显卡，暂时使用主板上的�
      sudo apt install xserver-xorg-video-amdgpu
    #+end_src
        
+   如果是Radeon显卡，就安装ATI的显卡驱动：
+   #+begin_src sh
+     sudo apt install xserver-xorg-video-ati
+   #+end_src
+
    之后，重启。如果还不灵，你就自己去google吧。Have fun!
   
 ** 老办法（可以不看了）

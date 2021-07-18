@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+<!-- 2022-09-23 Fri 21:20 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>利用 curl 或 wget 替代 DrClient 客户端</title>
+<meta name="author" content="WANG Xiaolin" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">利用 curl 或 wget 替代 DrClient 客户端</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga901c17">1. 前言</a></li>
+<li><a href="#orgc9c75d5">2. 准备工作</a></li>
+<li><a href="#org19fa688">3. 抓包分析</a>
+<ul>
+<li><a href="#org8af53b9">3.1. Wireshark</a>
+<ul>
+<li><a href="#org149c15c">3.1.1. 抓包</a></li>
+<li><a href="#orgb1be8cf">3.1.2. 分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<dl class="org-dl">
+<dt>原文链接</dt><dd><a href="https://blog.csdn.net/TeleostNaCl/article/details/124553119">https://blog.csdn.net/TeleostNaCl/article/details/124553119</a></dd>
+</dl>
+
+<p>
+先说结论，通过抓包、分析、简化后可以发现，登录过程中的关键一步就是向服务
+器发送一个 <code>HTTP GET</code> 或 <code>HTTP POST</code> 请求。路由器在启动之后只要能自动发送一
+个 <code>HTTP</code> 请求，即可实现自动登录。
+</p>
+
+<ul class="org-ul">
+<li><p>
+对于 <code>GET</code> 请求（网页认证过程）
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #676E95;"># </span><span style="color: #676E95;">&#35831;&#27714;&#22320;&#22336;&#20026;: http://172.30.255.42:801/eportal/portal/login/</span>
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">&#35831;&#27714;&#26597;&#35810;&#30340;key=value&#20026;:</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">user_account=$&#26657;&#22253;&#21345;&#21495;</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">user_password=$&#23494;&#30721;</span>
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">curl</span>
+curl -G <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'user_account=$&#26657;&#22253;&#21345;&#21495;'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'user_password=$&#23494;&#30721;'</span> <span style="color: #c3e88d;">\</span>
+     http://172.30.255.42:801/eportal/portal/login/
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">wget</span>
+wget --output-document=/dev/null <span style="color: #c3e88d;">\</span>
+     <span style="color: #c3e88d;">"http://172.30.255.42:801/eportal/portal/login/?user_account=$&#26657;&#22253;&#21345;&#21495;&amp;user_password=$&#23494;&#30721;"</span>
+</pre>
+</div></li>
+
+<li><p>
+对于 <code>POST</code> 请求（客户端认证过程）
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #676E95;"># </span><span style="color: #676E95;">&#35831;&#27714;&#22320;&#22336;&#20026;: http://172.30.255.42:801/eportal/</span>
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">&#35831;&#27714;&#30340;&#21442;&#25968;&#20026;:</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">DDDDD=$&#26657;&#22253;&#21345;&#21495;</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">upass=$&#23494;&#30721;</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">ver=1.3.5.201712141.P.W.A</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">c=ACSetting</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">a=Login</span>
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">curl</span>
+curl -X POST <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'DDDDD=$&#26657;&#22253;&#21345;&#21495;'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'upass=$&#23494;&#30721;'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'ver=1.3.5.201712141.P.W.A'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'c=ACSetting'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'a=Login'</span> <span style="color: #c3e88d;">\</span>
+     http://172.30.255.42:801/eportal/
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">wget</span>
+wget --output-document=/dev/null <span style="color: #c3e88d;">\</span>
+     --post-data=<span style="color: #c3e88d;">'DDDDD=$&#26657;&#22253;&#21345;&#21495;&amp;upass=$&#23494;&#30721;&amp;ver=1.3.5.201712141.P.W.A&amp;c=ACSetting&amp;a=Login'</span> <span style="color: #c3e88d;">\</span>
+     http://172.30.255.42:801/eportal/
+</pre>
+</div></li>
+</ul>
+
+<p>
+请将上面的 <code>$校园卡号</code> 和 <code>$密码</code> 替换成你自己的账号、密码。
+</p>
+
+<div id="outline-container-orga901c17" class="outline-2">
+<h2 id="orga901c17"><span class="section-number-2">1.</span> 前言</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+在2021年12月31日以前，深大在宿舍区使用的是D版客户端，想在路由器上实现
+自动登录，可以参考下面这个教程:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://www.right.com.cn/forum/thread-215978-1-1.html">https://www.right.com.cn/forum/thread-215978-1-1.html</a></li>
+</ul>
+
+<p>
+宽带升级之后，认证客户端已经变为Pt版，过去的方式已经不再可用。本文将
+通过抓包，分析认证的全过程，获取实现路由器自动认证的方案。
+</p>
+
+
+<div id="orge799ae7" class="figure">
+<p><img src="Pt-UI.png" alt="Pt-UI.png" width="160" align="center">
+</p>
+<p><span class="figure-number">Figure 1: </span>Pt版宽带上网客户端界面</p>
+</div>
+
+<ul class="org-ul">
+<li>本文仅是提供一个在路由器上实现自动认证，免去手动登录的方法，不含有
+任何破解校园网的内容，请合理使用。</li>
+
+<li>使用的路由器必须已刷入支持 Linux 命令及脚本的固件，比如OpenWRT。</li>
+
+<li>本文所提供的代码及命令不保证在校园网下次升级后还能使用。但抓包分析登
+录过程适用于大部分认证情况，根据自己抓包分析的结果，适当修改代码即可
+实现在路由器上自动认证。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc9c75d5" class="outline-2">
+<h2 id="orgc9c75d5"><span class="section-number-2">2.</span> 准备工作</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li><p>
+需要一台已刷好固件（比如 openwrt）的路由器，且开放 Telnet 或 SSH 服
+务。
+</p>
+
+
+<div id="orgf5dbf4b" class="figure">
+<p><img src="Padavan-telnet-ssh.png" alt="Padavan-telnet-ssh.png" width="640" align="center">
+</p>
+<p><span class="figure-number">Figure 2: </span>Padavan固件，开启Telnet和SSH服务</p>
+</div>
+
+
+<div id="org4cff432" class="figure">
+<p><img src="openwrt-ssh.png" alt="openwrt-ssh.png" width="640" align="center">
+</p>
+<p><span class="figure-number">Figure 3: </span>openwrt固件，开启SSH服务</p>
+</div></li>
+
+<li><p>
+准备一个抓包工具和带有 Chrome Dev Tools 的浏览器（进行抓包分析认证
+过程）。本文使用 <code>Wireshark</code> 进行客户端登录抓包分析。本文使用 Chrome 分析网页端登录的过程。
+</p>
+
+
+<div id="org0298264" class="figure">
+<p><img src="wireshark.png" alt="wireshark.png" align="center">
+</p>
+<p><span class="figure-number">Figure 4: </span>Wireshark的使用方法</p>
+</div></li>
+
+<li>用 <code>ssh</code> 命令登录到路由器后台，用 <code>scp</code> 命令上传文件到路由器，从而对路
+由器进行管理，无需准备其它软件。</li>
+
+<li>测试路由器是否支持 <code>curl</code> 命令或 <code>wget</code> 命令。ssh登录路由器后，输入
+<code>curl</code> 或 <code>wget</code> 命令，如果显示 not found，则表示不支持。</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org19fa688" class="outline-2">
+<h2 id="org19fa688"><span class="section-number-2">3.</span> 抓包分析</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+本节将通过对登录过程的分析，一步一步得到最后的 Linux 命令。
+</p>
+</div>
+
+<div id="outline-container-org8af53b9" class="outline-3">
+<h3 id="org8af53b9"><span class="section-number-3">3.1.</span> Wireshark</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-org149c15c" class="outline-4">
+<h4 id="org149c15c"><span class="section-number-4">3.1.1.</span> 抓包</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+先运行 Wireshark 开始抓包，然后再登录客户端认证，得到抓包结果。下图为此
+次抓包所得结果，这里面包含了登录认证的全过程。
+</p>
+
+
+<div id="org5eff95a" class="figure">
+<p><img src="wireshark-capture.png" alt="wireshark-capture.png" align="center">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb1be8cf" class="outline-4">
+<h4 id="orgb1be8cf"><span class="section-number-4">3.1.2.</span> 分析</h4>
+<div class="outline-text-4" id="text-3-1-2">
+</div>
+<ol class="org-ol">
+<li><a id="org43c3613"></a>TCP连接的建立与拆除<br>
+<div class="outline-text-5" id="text-3-1-2-1">
+<p>
+本机（192.168.1.107）与服务器（116.62.86.125）之间的通信过程。
+首先看第2&#x2013;9号包：
+</p>
+
+
+<div id="org96649b7" class="figure">
+<p><img src="wireshark-capture-2.png" alt="wireshark-capture-2.png" align="center">
+</p>
+</div>
+
+<ul class="org-ul">
+<li>前三个包（2&#x2013;4）是典型的TCP三次握手建立连接的过程。在
+Info 中可以看到 <code>[SYN], [SYN, ACK], [ACK]</code>.</li>
+
+<li>第5号包，我们向服务器发送了一个 <code>GET</code> 请求</li>
+<li>第6号包，服务器回应了我们一个 <code>302</code>, 即重定向。</li>
+<li>第7号包，我们向服务器发送 <code>[ACK]</code>, 确认收到了数据。</li>
+<li>第8&#x2013;9号包，是四次挥手断开连接的过程（四次挥手的标识位
+<code>[FIN, ACK] [ACK] [FIN, ACK] [ACK]</code>, 但这里的四次挥手过程被合并成了
+三次）。</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org039c0b7"></a>HTTP数据的详细分析<br>
+<div class="outline-text-5" id="text-3-1-2-2">
+<p>
+我们来分析一下HTTP的请求头与响应头，直接看Wireshark的应用层:
+</p>
+
+<ul class="org-ul">
+<li><p>
+先看请求头（点开5号包，展开 Hypertext Transfer Protocol）
+</p>
+
+
+<div id="orga8d4920" class="figure">
+<p><img src="http-get.png" alt="http-get.png">
+</p>
+</div>
+
+<ul class="org-ul">
+<li>从图中可以看到，我们向服务器 116.62.86.125 发送了 <code>GET</code> 请求。</li>
+<li><code>User-Agent</code>: 服务器通过UA能识别客户使用的操作系统及版本及浏览器信息
+等，从而来给不同的操作系统、不同的浏览器发送不同的页面。此处用于标
+识请求是由认证客户端所发出，但在后续进行模拟请求过程中，发现有无UA
+并不影响最终登录结果，故我们忽略 UA。</li>
+</ul></li>
+
+<li><p>
+我们再来看响应头(点开6号包，展开 Hypertext Transfer Protocol）
+</p>
+
+
+<div id="orgdef38de" class="figure">
+<p><img src="http-res.png" alt="http-res.png">
+</p>
+</div>
+
+<p>
+从图中我们可以看到，这个响应头的响应码为 <code>302</code>, 代表重定向，而
+重定向的地址由后面的 <code>Location</code> 给出，即:
+</p>
+
+<ul class="org-ul">
+<li><a href="http://172.30.255.42/a79.htm?wlanuserip=172.30.236.7&amp;wlanacname=&amp;wlanacip=172.30.255.41">http://172.30.255.42/a79.htm?wlanuserip=172.30.236.7&amp;wlanacname=&amp;wlanacip=172.30.255.41</a></li>
+</ul>
+
+<p>
+这个url显示了目标IP信息，而对后续的包分析可知，这个ip信息将被用来组装
+最终的认证url。
+</p></li>
+
+<li><p>
+分析完与 116.62.86.125 的通信过程之后，来看第10&#x2013;21号包中本机与
+172.30.255.42 的通信过程。
+</p>
+
+
+<div id="orge03c4d7" class="figure">
+<p><img src="wireshark-capture-3.png" alt="wireshark-capture-3.png">
+</p>
+</div>
+
+<ul class="org-ul">
+<li>第10&#x2013;12号包，与 172.30.255.42 进行了三次握手，建立连接。</li>
+<li>第13号包带有标识位 <code>[PSH]</code>, 表示我方有数据向服务器进行传输，随后服务器(第14号包)应答 <code>[ACK]</code>.</li>
+<li>第15号，我们向服务器提交了一个 POST 请求。并由16,17号包可以看出，
+服务器在收到我们的 POST 之后也返回了数据给我们，即 POST 的响应（17
+号包由服务器发给我们中也含有标识位[PSH]）。</li>
+<li>第18号包即是我们所得到的响应。</li>
+<li>随后四次挥手断开连接。</li>
+</ul></li>
+
+<li>我们依旧比较关心请求头和响应头。所以我们先来看第 18 号包的响应头。它
+传输了数据过来，我们先看看数据是什么。
+
+<ul class="org-ul">
+<li><p>
+点开第 18 号包，展开 <code>Hypertext Transfer Protocol</code>, 展开 <code>Line-based
+    text data: text/html</code>, 里面的内容仅展示一句Login succeed。由此，可
+以推断该响应头对应的请求是实现认证登录的最核心部分。
+</p>
+
+
+<div id="org3195177" class="figure">
+<p><img src="http-res-2.png" alt="http-res-2.png">
+</p>
+</div></li>
+
+<li><p>
+我们对请求头进行分析，点开第 16 个包，展开 <code>Hypertext Transfer
+    Protocol</code> 。
+</p>
+
+
+<div id="org9e2bce9" class="figure">
+<p><img src="http-req-2.png" alt="http-req-2.png">
+</p>
+</div></li>
+
+<li><p>
+我们可以看到这是对
+</p>
+
+<pre class="example">
+http://172.30.255.42:801/eportal/?c=ACSetting&amp;a=Login&amp;jsVersion=3.0&amp;wlanuserip=172.30.236.7&amp;wlanacname=&amp;wlanacip=172.30.255.41
+</pre>
+
+
+<p>
+这个网址发送了 POST 请求。
+</p></li>
+
+<li><p>
+可以推断地址后面的
+</p>
+
+<pre class="example">
+wlanuserip=172.30.236.7&amp;wlanacname=&amp;wlanacip=172.30.255.41
+</pre>
+
+
+<p>
+是由重定向地址进行截取之后获取的。(这个过程是写在客户端里面的，我
+们没有办法知道其具体细节，如果客户端更新之后改变了这部分逻辑，所得
+结果有变化，那我们的命令也需要有所变化)。
+</p></li>
+
+<li><p>
+并且提交了由 <code>application/x-www-form-urlencoded</code> 编码的参数，而请求
+的参数为:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #ffcb6b;">DDDDD</span>=,0,$<span style="color: #ffcb6b;">&#36134;&#21495;</span>
+<span style="color: #ffcb6b;">upass</span>=$<span style="color: #ffcb6b;">&#23494;&#30721;</span>
+<span style="color: #ffcb6b;">0MKKey</span>=0123456789
+<span style="color: #ffcb6b;">ver</span>=1.3.5.201712141.P.W.A
+</pre>
+</div></li>
+</ul></li>
+
+<li>至此我们已经将认证登录的过程全部分析完毕，最后可以得出登录过程是一条含有账号密码等参数的 <code>POST</code> 请求。</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org9fd3d95"></a>模拟请求<br>
+<div class="outline-text-5" id="text-3-1-2-3">
+<p>
+当我们分析出结果之后，我们要做的就是使用 Linux 命令进行模拟登录。此处
+使用 <code>curl</code> 命令。 <code>curl</code> 命令参数复杂，功能丰富，基本上能实现所有网络请求。
+这里先简单介绍一下 <code>curl</code> 命令的发送 <code>GET</code> 和 <code>POST</code> 请求的一种方法。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #676E95;"># </span><span style="color: #676E95;">curl&#21457;&#36865; HTTP GET &#35831;&#27714;</span>
+curl -G -d <span style="color: #c3e88d;">'key=value'</span> url
+<span style="color: #676E95;"># </span><span style="color: #676E95;">curl&#21152;&#20837; -G &#21442;&#25968;&#20043;&#21518;&#23601;&#33021;&#21457;&#36865;GET&#35831;&#27714;,</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">&#24182;&#19988; -d &#21442;&#25968;&#33021;&#22815;&#23454;&#29616;&#25554;&#20837;&#26597;&#35810;&#38190;&#20540;&#23545;&#12290;</span>
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">curl&#21457;&#36865;HTTP POST &#35831;&#27714;</span>
+curl -X POST -d <span style="color: #c3e88d;">'key=value'</span> url
+<span style="color: #676E95;"># </span><span style="color: #676E95;">curl&#21629;&#20196;&#40664;&#35748;&#21457;&#36865;POST&#35831;&#27714;</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">&#20063;&#21487;&#20197;&#36890;&#36807;&#25351;&#23450;-X &#21442;&#25968;, &#24182;&#25351;&#23450;POST&#26041;&#24335;, &#23454;&#29616;&#21457;&#36865;POST&#35831;&#27714;</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">&#24182;&#19988;&#19982;GET&#19968;&#26679;, -d&#21487;&#20197;&#20256;&#36882;POST&#34920;&#21333;,</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">&#40664;&#35748;&#32534;&#30721;&#20026; application/x-www-form-urlencoded.</span>
+
+<span style="color: #676E95;"># </span><span style="color: #676E95;">&#20351;&#29992;&#21629;&#20196;&#33719;&#21462;&#37325;&#23450;&#21521;&#30340;&#32593;&#22336;:</span>
+curl -G -Ls -w %<span style="color: #c792ea;">{</span>url_effective<span style="color: #c792ea;">}</span> -o /dev/null website
+<span style="color: #676E95;"># </span><span style="color: #676E95;">-L &#21442;&#25968;&#25351;&#23450; curl &#36319;&#38543;&#37325;&#23450;&#21521;,</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">-s &#25351;&#23450; curl &#20445;&#25345;&#27785;&#40664;, &#19981;&#36827;&#34892;&#36755;&#20986;, </span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">-w %{url_effective}&#34920;&#31034;&#33719;&#21462;&#37325;&#23450;&#21521;&#26368;&#32456;&#30340;&#22320;&#22336;, </span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">-o /dev/null &#25351;&#23450;&#32467;&#26524;&#19981;&#20889;&#20837;&#25991;&#20214;&#20013;.</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">website &#34920;&#31034;&#35201;&#35775;&#38382;&#30340;&#32593;&#31449;</span>
+<span style="color: #676E95;"># </span><span style="color: #676E95;">&#25191;&#34892;&#23436;&#36825;&#26465;&#35821;&#21477;&#20854;&#36755;&#20986;&#23601;&#26159;&#25105;&#20204;&#38656;&#35201;&#30340;&#37325;&#23450;&#21521;&#20043;&#21518;&#30340;&#38142;&#25509;</span>
+</pre>
+</div>
+
+
+<p>
+那么我们使用变量url储存重定向链接的命令为
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #ffcb6b;">url</span>=<span style="color: #89DDFF; font-weight: bold;">`curl -G -Ls -w %{url_effective} -o /dev/null 116.62.86.125`</span>
+</pre>
+</div>
+
+<p>
+<a href="curl-redirection.png">获取重定向后的地址并使用echo命令查看变量信息</a>
+</p>
+
+<ul class="org-ul">
+<li><p>
+拆分变量并进行重组url
+</p>
+
+<p>
+我们需要发送POST指令的网址为:
+</p>
+
+<pre class="example">
+http://172.30.255.42:801/eportal/?c=ACSetting&amp;a=Login&amp;jsVersion=3.0&amp;wlanuserip=172.30.236.7&amp;wlanacname=&amp;wlanacip=172.30.255.41
+</pre>
+
+
+<p>
+可以发现后边带有ip的是重定向之后的链接里的查询参数部分，我们在问号处
+进行截取，然后拼接字符串，即认证网址的前半部分。 命令为(问号需要进行
+转义):
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #ffcb6b;">url</span>=$<span style="color: #c792ea;">{</span><span style="color: #ffcb6b;">url</span>##*<span style="color: #c3e88d;">\?</span><span style="color: #c792ea;">}</span>
+<span style="color: #ffcb6b;">url</span>=<span style="color: #c3e88d;">"http://172.30.255.42:801/eportal/?c=ACSetting&amp;a=Login&amp;jsVersion=3.0&amp;"</span>$<span style="color: #c792ea;">{</span><span style="color: #ffcb6b;">url</span><span style="color: #c792ea;">}</span>
+</pre>
+</div>
+
+<p>
+<a href="post-url.png">截取并拼接变量</a>
+</p></li>
+
+<li><p>
+发送 <code>POST</code> 请求
+</p>
+
+<p>
+由之前的分析，我们可以直接写出命令：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">curl -X POST <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'DDDDD=,0,$&#26657;&#22253;&#21345;&#21495;'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'upass=$&#23494;&#30721;'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'0MKKey=0123456789'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'ver=1.3.5.201712141.P.W.A'</span> $<span style="color: #c792ea;">{</span><span style="color: #ffcb6b;">url</span><span style="color: #c792ea;">}</span>
+</pre>
+</div></li>
+</ul>
+
+<p>
+<a href="post-succeed.png">登录成功</a>
+</p>
+
+<p>
+可以看到最后 <code>curl</code> 命令的输出为 <code>HTML</code>, 且仅显示 <code>Login succeed</code>. 与我们之前抓包的结果相同，认证登录成功。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #676E95;">#</span><span style="color: #676E95;">&#20840;&#37096;&#36807;&#31243;</span>
+<span style="color: #ffcb6b;">url</span>=<span style="color: #89DDFF; font-weight: bold;">`curl -G -Ls -w %{url_effective} -o /dev/null 116.62.86.125`</span>
+
+<span style="color: #ffcb6b;">url</span>=$<span style="color: #c792ea;">{</span><span style="color: #ffcb6b;">url</span>##*<span style="color: #c3e88d;">\?</span><span style="color: #c792ea;">}</span>
+
+<span style="color: #ffcb6b;">url</span>=<span style="color: #c3e88d;">"http://172.30.255.42:801/eportal/?c=ACSetting&amp;a=Login&amp;jsVersion=3.0&amp;"</span>$<span style="color: #c792ea;">{</span><span style="color: #ffcb6b;">url</span><span style="color: #c792ea;">}</span>
+
+curl -X POST <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'DDDDD=,0,&#26657;&#22253;&#21345;&#21495;'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'upass=&#23494;&#30721;'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'0MKKey=0123456789'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'ver=1.3.5.201712141.P.W.A'</span> $<span style="color: #c792ea;">{</span><span style="color: #ffcb6b;">url</span><span style="color: #c792ea;">}</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org23c4a1e"></a>简化命令<br>
+<div class="outline-text-5" id="text-3-1-2-4">
+<p>
+经过多次登录，我们会发现登录主要是依靠最后一个POST命令，虽然其携带了后面一串ip地址，但我们尝试将其去除之后，会发现其实一样也能认证成功。故其实POST中的参数并不是所有都是需要的，我们进行一一检验，将查询字符串的参数(?之后的)，放到post表单中，最后可以得出一条简化的命令，即开头的结论:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">curl -X POST <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'DDDDD=$&#26657;&#22253;&#21345;&#21495;'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'upass=$&#23494;&#30721;'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'ver=1.3.5.201712141.P.W.A'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'c=ACSetting'</span> <span style="color: #c3e88d;">\</span>
+     -d <span style="color: #c3e88d;">'a=Login'</span> <span style="color: #c3e88d;">\</span>
+     http://172.30.255.42:801/eportal/
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2022-09-23 Fri 00:00</p>
+<p class="author">Author: WANG Xiaolin</p>
+<p class="date">Created: 2022-09-23 Fri 21:20</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

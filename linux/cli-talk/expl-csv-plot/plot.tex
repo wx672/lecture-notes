@@ -1,0 +1,24 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{ctex}
+\usepackage{pgfplots}
+\pgfplotsset{scale=.7,width=50cm,height=15cm,grid=major}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[xmin=-20,xmax=1800,ymin=500,ymax=5200,enlargelimits=false,%
+    ytick={1000,2000,3000,4000,5000},%
+    minor xtick=data, minor ytick=data,%
+    xlabel=里程(km), ylabel=海拔(m),%
+    nodes near coords,    
+    ]%
+    \addplot+[smooth, point meta=explicit symbolic,%
+    coordinate style/.from=\thisrow{style}] table [meta=label] {coordinates.tsv};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

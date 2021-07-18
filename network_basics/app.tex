@@ -5,9 +5,8 @@
 
 \subsection{HTTP}
 
-\begin{frame}\mode<beamer>{HTTP}
-  \centering
-  \mode<beamer>{ \includegraphics[width=\textwidth]{HTTP} }
+\begin{frame}{\mode<beamer>{HTTP}}
+  \mode<beamer>{ \includegraphics[width=\textwidth]{HTTP} }%
   \mode<article>{ \includegraphics[width=.5\textwidth]{HTTP} }
 \end{frame}
 
@@ -18,16 +17,16 @@
     \mode<article>{ \includegraphics[width=.7\textwidth]{Url} }
   \end{iblock}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{http-Req} }%
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{http-Req} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{http-Req} }
   \end{center}
   \begin{iblock}{Verbs}
-    \begin{tabular}{lllll}
+    \begin{tblr}{lllll}
       \textcolor{Green}{GET}&\textcolor{Red}{POST}&
       \textcolor{Red}{PUT}&\textcolor{Red}{PATCH}&\\
       \textcolor{Green}{HEAD}&\textcolor{Green}{OPTIONS}&
-      \textcolor{Red}{DELETE}&\textcolor{Green}{TRACE}&CONNECT
-    \end{tabular}
+      \textcolor{Red}{DELETE}&\textcolor{Green}{TRACE}&CONNECT\\
+    \end{tblr}
   \end{iblock}
 \end{frame}
 
@@ -87,10 +86,10 @@
   \begin{minipage}{.35\linewidth}
     A HTTP server maintains no information about the clients.
     \begin{itemize}
-    \item[\good] Simplifies server design
-    \item[\good] Save server resources
-    \item[\good] Serve more users
-    \item[\Bad] Missing information
+    \item[☺] Simplifies server design
+    \item[☺] Save server resources
+    \item[☺] Serve more users
+    \item[\alert{☹}] Missing information
     \end{itemize}
   \end{minipage}\hfill
   \begin{minipage}{.6\linewidth}
@@ -182,8 +181,8 @@ Questions:
 \begin{frame}{The DNS Name Space Is Hierarchical}
   \begin{iblock}{The domain hierarchy is similar to the UNIX filesystem}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{dns_tree.eps} }%
-      \mode<article>{ \includegraphics[width=.8\textwidth]{dns_tree.eps} }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{dns_tree} }%
+      \mode<article>{ \includegraphics[width=.8\textwidth]{dns_tree} }
     \end{center}\label{fig:dns_tree}
   \end{iblock}
   \begin{itemize}
@@ -194,19 +193,25 @@ Questions:
 \end{frame}
 
 \begin{frame}
-  \begin{iblock}{\$ \texttt{ssh username@cs3.swfu.edu.cn}}
-    \centering
-    \mode<beamer>{ \includegraphics[width=.5\textwidth]{resolver} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{resolver} }
-  \end{iblock}
   \begin{itemize}
-  \item Resolver is normally part of the application
-    \begin{itemize}
-    \item \texttt{man 3 gethostbyname}
-    \item \texttt{man 3 gethostbyaddr}
-    \end{itemize}
-  \item The TCP/IP protocols within the kernel know nothing about the DNS
+  \item[\$] \texttt{ssh someone@cs3.swfu.edu.cn}
   \end{itemize}
+  \begin{minipage}{.5\linewidth}
+    \begin{iblock}{}
+      \mode<beamer>{ \includegraphics[width=\textwidth]{resolver} }%
+      \mode<article>{ \includegraphics[width=\textwidth]{resolver} }
+    \end{iblock}
+  \end{minipage}
+  \begin{minipage}{.45\linewidth}
+    \begin{itemize}
+    \item Resolver is normally part of the application
+      \begin{itemize}
+      \item \texttt{man 3 gethostbyname}
+      \item \texttt{man 3 gethostbyaddr}
+      \end{itemize}
+    \item The TCP/IP protocols within the kernel know nothing about the DNS
+    \end{itemize}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Typical Configuration}
@@ -229,12 +234,13 @@ Questions:
 
 \begin{frame}{The Host Table --- \texttt{/etc/hosts}}
   \begin{center}\ttfamily
-    \begin{tabular}{lll}
+    \begin{tblr}{colspec={lll}%,row{even}={gray9}
+      }
       127.0.0.1       & localhost &                 \\
       39.129.9.40     & cs6       & cs6.swfu.edu.cn \\
       202.203.132.245 & cs3       & cs3.swfu.edu.cn \\
       202.203.132.242 & cs2       & cs2.swfu.edu.cn
-    \end{tabular}
+    \end{tblr}
   \end{center}
   It's still widely used, because:
   \begin{itemize}
@@ -250,8 +256,8 @@ See also \citetitle[\emph{RFC 952}]{rfc952}
 \begin{frame}{All hosts connected to the Internet should use DNS}
   \begin{iblock}{The old host table system is inadequate for the global Internet}
     \begin{enumerate}
-    \item[\Bad] Inability to scale
-    \item[\Bad] Lack of an automated update process.
+    \item[\alert{☹}] Inability to scale
+    \item[\alert{☹}] Lack of an automated update process.
     \end{enumerate}
 
     \begin{description}
@@ -279,11 +285,8 @@ See also \citetitle[\emph{RFC 952}]{rfc952}
 
 \begin{frame}{DNS softwares}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=.7\textwidth]{dns-sw}
-    } \mode<article>{
-      \includegraphics[width=.3\textwidth]{dns-sw}
-    }
+    \mode<beamer>{ \includegraphics[width=.7\textwidth]{dns-sw} }%
+    \mode<article>{ \includegraphics[width=.3\textwidth]{dns-sw} }
   \end{center}
   \begin{description}
   \item[The resolver]  asks the questions.
@@ -291,9 +294,8 @@ See also \citetitle[\emph{RFC 952}]{rfc952}
   \end{description}
 \end{frame}
 
-\begin{frame}
-  \begin{iblock}{Recursive query}
-    \texttt{cs6.swfu.edu.cn} wants to know the IP address of \texttt{sale.plant.nuts.com}
+\begin{frame}{Example: \emph{sale.plant.nuts.com?}}
+  \begin{iblock}{Recursive query}    
     \begin{center}
       \includegraphics[width=\textwidth]{dns-recur}
     \end{center}
@@ -349,23 +351,30 @@ See also \citetitle[\emph{RFC 952}]{rfc952}
 % \end{frame}
 
 \begin{frame}{Resource Records}
-  \begin{iblock}{What's associated with a domain name?}
-    \begin{small}
-    \begin{tabular}{@{}llp{.5\textwidth}@{}}\toprule
-      \textbf{Type}&\textbf{Meaning}&\textbf{Value}\\\midrule
-      % SOA&Start of Authority&Parameters for this zone\\\hline
-      \texttt{A}&IP address of a host&32-bit integer\\[1ex]
-      \texttt{NS}&Name Server&Name of a server for this domain\\[1ex]
-      \texttt{MX}&Mail eXchange&Domain willing to accept email\\[1ex]
-      \texttt{HINFO}&Host INFOrmation&CPU and OS in ASCII\\[1ex]
-      \texttt{CNAME}&Canonical NAME&Domain name\\[1ex]
-      \texttt{PTR}&PoinTeR&Alias for an IP address\\\bottomrule
-      % TXT&TeXT&Uninterpreted ASCII text\\\hline
-    \end{tabular}
-    \end{small}
-  \end{iblock}
-  When a resolver gives a domain name to DNS, what it gets back are the \emph{resource records}
-  associated with that name.
+  \begin{minipage}{.25\linewidth}
+    \includegraphics[width=\textwidth]{dns-sw2}
+  \end{minipage}
+  \begin{minipage}{.7\linewidth}
+    \begin{iblock}{What's associated with a domain name?}
+      \begin{small}
+        \begin{tblr}{%
+            colspec={lll}, row{odd}={gray9},%
+            column{1}={font=\ttfamily},row{1}={font=\bfseries}}
+          Type  & Meaning              & Value                            \\
+          A     & IP address of a host & 32-bit integer                   \\
+          NS    & Name Server          & Name of a server for this domain \\
+          MX    & Mail eXchange        & Domain willing to accept email   \\
+          HINFO & Host INFOrmation     & CPU and OS in ASCII              \\
+          CNAME & Canonical NAME       & Domain name                      \\
+          PTR   & PoinTeR              & Alias for an IP address          \\
+          % TXT & TeXT                 & Uninterpreted ASCII text         \\
+          % SOA & Start of Authority   & Parameters for this zone         \\
+        \end{tblr}
+      \end{small}
+    \end{iblock}
+  \end{minipage}
+  % When a resolver gives a domain name to DNS, what it gets back are the \emph{resource
+  % records} associated with that name.
 \end{frame}
 
 See also: \citetitle[Sec.~4, \emph{Messages}]{rfc1035}
@@ -535,7 +544,7 @@ See also: \citetitle[Sec.~14.4, \emph{A Simple Example}, p196]{fall2011tcp}
 \begin{frame}{SMTP Transports A Mail Object}
   \begin{iblock}{A Mail Object}
     \centering
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mail_obj} }%
+    \mode<beamer>{ \includegraphics[width=.78\textwidth]{mail_obj} }%
     \mode<article>{ \includegraphics[width=.4\textwidth]{mail_obj} }
     \label{fig:mail_obj}
   \end{iblock}  
@@ -588,10 +597,10 @@ See also: \citetitle[Sec.~14.4, \emph{A Simple Example}, p196]{fall2011tcp}
   \label{fig:smtp_session}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Webmail}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{smtp-pop3} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{smtp-pop3} }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{webmail} }%smtp-pop3
+    \mode<article>{ \includegraphics[width=.5\textwidth]{webmail} }%smtp-pop3
   \end{center}
   \label{fig:smtp-pop3}
 \end{frame}
@@ -677,19 +686,14 @@ See also: \citetitle[Sec.~14.4, \emph{A Simple Example}, p196]{fall2011tcp}
 
 \subsubsection{Spam}
 
-\begin{frame}\mode<beamer>{Spam}
-  \begin{description}
-  \item[Spam:]
-    \begin{itemize}
-    \item Any kind of un-wanted email messages.
-    \item The action of sending such kinds of messages to usenet newsgroups, mailing
-      lists, or any other individuals.
-    \end{itemize}
-  \end{description}
+\begin{frame}{\mode<beamer>{Spam}}
   \begin{itemize}
-  \item by year 2000, 7\% of Internet mails were spam;
-  \item by year 2004, 60\% were spam.
-  \item Bill Gates receives nearly 4 million emails a day -- most of which are spam.
+  \item Any kind of un-wanted email messages
+  \item The action of sending such kinds of messages to usenet newsgroups, mailing lists,
+    or any other individuals
+  \item by year 2000, 7\% of Internet mails were spam
+  \item by year 2004, 60\% were spam
+  \item Bill Gates receives nearly 4 million emails a day --- mostly spams
   \end{itemize}
 \end{frame}
 

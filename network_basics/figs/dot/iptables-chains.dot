@@ -1,0 +1,26 @@
+digraph{
+	bgcolor=transparent;
+	node [fontname=handlee];
+	edge [fontname=handlee];
+
+	start [label="",shape=plaintext];
+	end [label="",shape=plaintext];
+	route [label="Routing\ndecision",shape=rect];
+	f [label="Forword"];
+	ff [label=""; width=0;height=0; shape=plaintext];
+	i [label="Input"];
+	o [label="Output"];
+	p1 [label="Local process",shape=plaintext];
+	p2 [label="Local process",shape=plaintext];
+
+	{rank=same; start; route; f; ff; end;}
+	{rank=same; i; o;}
+	{rank=same; p1; p2;}
+
+	start -> route [label="Incoming"];
+	route -> f; f -> ff [arrowhead=none];
+	ff -> end [label="Outgoing"];
+	route -> i -> p1;
+	p2 -> o -> ff;
+	
+}

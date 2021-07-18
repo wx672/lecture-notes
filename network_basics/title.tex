@@ -11,6 +11,11 @@
 
 \begin{frame}<beamer>
   \titlepage
+  % \begin{tikzpicture}{remember picture, overlay}
+  %   \node at (current page.south east) [anchor=south east, scale=.6] {%
+  %     \includegraphics{qr-net}
+  %   };
+  % \end{tikzpicture}
 \end{frame}
 
 \begin{frame}<beamer>{Textbooks}
@@ -18,19 +23,24 @@
     \nocite{tanenbaum2011computer,kurose2013computer,fall2011tcp}
     \printbibliography[heading=none]
   \end{refsection}
+  \begin{tikzpicture}[overlay,remember picture] %
+    \node (moodle) at (current page.north east) [anchor=north east]{%
+      \includegraphics[width=1in]{qr-calibre}
+    };
+  \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Course Web Links}
-  \begin{description}
-  \item[Course web site] \url{https://cs6.swfu.edu.cn/moodle}
-  \item[Lecture slides] \url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/}
-  \item[Lab exercises] \url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/net-tools/net-tools.html}
-  \item[Cisco Networking Academy] \url{https://www.netacad.com/}
-  \item[Beej's Guides] \url{http://beej.us/guide/}
-  \end{description}
-\end{frame}
+% \begin{frame}{Course Web Links}
+%   \begin{description}
+%   \item[Course web site] \url{https://cs6.swfu.edu.cn/moodle}
+%   \item[Lecture slides] \url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/}
+%   \item[Lab exercises] \url{https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/net-tools/net-tools.html}
+%   \item[Cisco Networking Academy] \url{https://www.netacad.com/}
+%   \item[Beej's Guides] \url{http://beej.us/guide/}
+%   \end{description}
+% \end{frame}
 
-\begin{frame}{{\hw\enspace}Homework}
+\begin{frame}{{  \enspace}Homework}
   \begin{block}{Weekly tech question}
     \begin{enumerate}
     \item What was I trying to do?
@@ -42,9 +52,9 @@
   \end{block}
   \begin{itemize}
   \item[\moodle] \url{https://cs6.swfu.edu.cn/moodle/mod/forum/view.php?id=98}
-  \item[\Large\dejavu ✉] \alert{\ttfamily wx672ster+net@gmail.com}
+  \item[] \alert{\ttfamily wx672ster+net@gmail.com}
   \item[$\mathbb{E}$] Preferably in English
-  \item[\stackoverflow] in
+  \item[] in
     \href{https://stackoverflow.com/questions/39199299/what-is-the-essential-difference-between-compound-command-and-normal-command-inlink}{stackoverflow}
     style
   \item[OR] simply show me the tech questions you asked on any website

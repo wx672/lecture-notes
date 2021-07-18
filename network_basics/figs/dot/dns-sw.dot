@@ -1,0 +1,12 @@
+digraph{
+    rankdir=LR;
+	bgcolor=transparent;
+	node [fontname=handlee];
+	edge [fontname=handlee];
+
+    resolver [label="DNS\nresolver"];
+    server [label="DNS\nserver"];
+    
+    resolver:ne -> server:nw [label="DNS query"];
+    server:sw -> resolver:se [label="DNS response"];
+}

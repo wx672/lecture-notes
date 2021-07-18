@@ -1,24 +1,25 @@
 \documentclass[varwidth=30cm,crop]{standalone}
-\usepackage{wx672fonts}
-\setmonofont{DejaVu Sans Mono}
+
+\usepackage{fontspec}
+\setmonofont{DejaVuSansMono Nerd Font}
 
 \begin{document}
 \begin{verbatim}
-                                   Local Host  ┃  Foreign
-                                               ┃
-┌─────────┐               ┌──────────┐         ┃  ┌────────┐
-│         │ user queries  │          │queries  ┃  │        │
-│  User   │──────────────▶│          │─────────┃─▶│Foreign │
-│ Program │               │ Resolver │         ┃  │  Name  │
-│         │◀──────────────│          │◀────────┃──│ Server │
-│         │ user responses│          │responses┃  │        │
-└─────────┘               └──────────┘         ┃  └────────┘
-                            │     ▲            ┃
-            cache additions │     │ references ┃
-                            ▼     │            ┃
-                          ┌──────────┐         ┃
-                          │  cache   │         ┃
-                          └──────────┘         ┃
+                                Local Host ┃ Foreign
+                                           ┃
+┌───────┐               ┌────────┐         ┃  ┌───────┐
+│       │ user queries  │        │ queries ┃  │       │
+│ User  │──────────────>│        │─────────┃─>│Foreign│
+│Program│               │Resolver│         ┃  │ Name  │
+│       │<──────────────│        │<────────┃──│Server │
+│       │ user responses│        │responses┃  │       │
+└───────┘               └────────┘         ┃  └───────┘
+                           │  ^            ┃
+            cache additions│  │references  ┃
+                           v  │            ┃
+                        ┌────────┐         ┃
+                        │ cache  │         ┃
+                        └────────┘         ┃
 \end{verbatim}
 \end{document}
 

@@ -1,0 +1,50 @@
+\documentclass[varwidth=40em,crop]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+  Typical                                       Typical 
+access time                                     capacity
+                        ┌─────────┐
+  1 nsec                │Registers│              <1 KB
+                     ┌──┴─────────┴──┐
+  2 nsec             │     Cache     │           1 MB
+                  ┌──┴───────────────┴──┐
+ 10 nsec          │     Main memory     │        64~512 MB
+               ┌──┴─────────────────────┴──┐
+ 10 msec       │       Magnetic disk       │     5~50 GB
+            ┌──┴───────────────────────────┴──┐
+ 100 sec    │          Magnetic tape          │  20~100 GB
+            └─────────────────────────────────┘
+\end{verbatim}
+\end{document}
+
+% \usepackage{fancyvrb,xcolor}
+% \begin{Verbatim}[commandchars=\\{\}]
+% \end{Verbatim}
+% ---------------------------------------------------------------------
+% 0   1   2   3   4   5   6   7   8   9   A   B   C   D   E   F
+% 250x	─	━	│	┃	┄	┅	┆	┇	┈	┉	┊	┋	┌	┍	┎	┏
+% 251x	┐	┑	┒	┓	└	┕	┖	┗	┘	┙	┚	┛	├	┝	┞	┟
+% 252x	┠	┡	┢	┣	┤	┥	┦	┧	┨	┩	┪	┫	┬	┭	┮	┯
+% 253x	┰	┱	┲	┳	┴	┵	┶	┷	┸	┹	┺	┻	┼	┽	┾	┿
+% 254x	╀	╁	╂	╃	╄	╅	╆	╇	╈	╉	╊	╋	╌	╍	╎	╏
+% 255x	═	║	╒	╓	╔	╕	╖	╗	╘	╙	╚	╛	╜	╝	╞	╟
+% 256x	╠	╡	╢	╣	╤	╥	╦	╧	╨	╩	╪	╫	╬	╭	╮	╯
+% 257x	╰	╱	╲	╳	╴	╵	╶	╷	╸	╹	╺	╻	╼	╽	╾	╿
+% 258x	▀	▁	▂	▃	▄	▅	▆	▇	█	▉	▊	▋	▌	▍	▎	▏
+% 259x	▐	░	▒	▓	▔	▕	▖	▗	▘	▙	▚	▛	▜	▝	▞	▟
+% 25Ax	■	□	▢	▣	▤	▥	▦	▧	▨	▩	▪	▫	▬	▭	▮	▯
+% 25Bx	▰	▱	▲	△	▴	▵	▶	▷	▸	▹	►	▻	▼	▽	▾	▿
+% 25Cx	◀	◁	◂	◃	◄	◅	◆	◇	◈	◉	◊	○	◌	◍	◎	●
+% 25Dx	◐	◑	◒	◓	◔	◕	◖	◗	◘	◙	◚	◛	◜	◝	◞	◟
+% 25Ex	◠	◡	◢	◣	◤	◥	◦	◧	◨	◩	◪	◫	◬	◭	◮	◯
+% 25Fx	◰	◱	◲	◳	◴	◵	◶	◷	◸	◹	◺	◻	◼	◽	◾	◿
+% ---------------------------------------------------------------------
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

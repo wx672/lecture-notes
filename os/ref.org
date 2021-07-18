@@ -12,11 +12,11 @@
 # (setq org-export-html-use-infojs nil)
 
 * Textbooks
-  1. A.S. Tanenbaum. [[https://cs6.swfu.edu.cn/calibre/#book_id=4&library_id=calibre&panel=book_details][/Modern Operating Systems/]], 4^{th} edition, Pearson Prentice Hall, 
+  1. A.S. Tanenbaum. [[https://cs6.swfu.edu.cn/calibre/get/PDF/4/calibre][/Modern Operating Systems/]], 4^{th} edition, Pearson Prentice Hall, 
      1. http://lib.swfu.edu.cn
      2. [[https://www.pearson.com/us/higher-education/program/Tanenbaum-Modern-Operating-Systems-4th-Edition/PGM80736.html][https://www.pearson.com/]]
-  2. Silberschatz, Galvin, and Gagne. [[https://cs6.swfu.edu.cn/calibre/#book_id=1&library_id=calibre&panel=book_details][/Operating System Concepts Essentials/]]. John Wiley &
-     Sons, 2011.
+  2. Silberschatz, Galvin, and Gagne. [[https://cs6.swfu.edu.cn/calibre/get/PDF/1/calibre][/Operating System Concepts Essentials/]]. John Wiley &
+     Sons, 2013.
      - http://lib.swfu.edu.cn
      - http://www.os-book.com;
   3. Bryant, Randal E. and O'Hallaron, David R. [[https://cs6.swfu.edu.cn/calibre/#book_id=33&library_id=calibre&panel=book_details][/Computer Systems: A Programmer's Perspective/]]. Addison-Wesley, 2^{nd} edition, 2010.
@@ -41,22 +41,21 @@
 
 * 参考资料
 - xv6: https://pdos.csail.mit.edu/6.828/2017/xv6.html
-- Wikipedia: https://en.wikipedia.org/wiki/Category:Operating_systems
-- https://cs3.swfu.edu.cn/tech
+# - Wikipedia: https://en.wikipedia.org/wiki/Category:Operating_systems
 
-** More Web Resources
-   - [[http://www.ibm.com/developerworks/]]
-     - [[http://www.ibm.com/developerworks/linux/library/l-linuxboot/][Inside the Linux boot process]]
-     - [[http://www.ibm.com/developerworks/linux/library/l-system-calls/][Kernel command using Linux system calls]]
-     - [[http://www.ibm.com/developerworks/linux/library/l-linux-filesystem/][Anatomy of the Linux file system]]
-     - [[http://www.ibm.com/developerworks/linux/library/l-proc.html][Access the Linux kernel using the /proc filesystem]]
-   - [[http://duartes.org/gustavo/blog/]]
-     - [[http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map][Motherboard Chipsets and the Memory Map]]
-     - [[http://duartes.org/gustavo/blog/category/software-illustrated/page/2][How Computers Boot Up]]
-     - [[http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory][Anatomy of a Program in Memory]]
-     - [[http://duartes.org/gustavo/blog/post/how-the-kernel-manages-your-memory][How The Kernel Manages Your Memory]]
-     - [[http://duartes.org/gustavo/blog/post/getting-physical-with-memory][Getting Physical With Memory]]
-     - [[http://duartes.org/gustavo/blog/post/intel-cpu-caches][Cache: a place for concealment and safekeeping]]
-   - [[http://people.redhat.com/drepper/cpumemory.pdf][What every programmer should know about memory]]
-   - [[http://www.cs.rochester.edu/~sandhya/csc256/]]
+# ** More Web Resources
+#    - [[http://www.ibm.com/developerworks/]]
+#      - [[http://www.ibm.com/developerworks/linux/library/l-linuxboot/][Inside the Linux boot process]]
+#      - [[http://www.ibm.com/developerworks/linux/library/l-system-calls/][Kernel command using Linux system calls]]
+#      - [[http://www.ibm.com/developerworks/linux/library/l-linux-filesystem/][Anatomy of the Linux file system]]
+#      - [[http://www.ibm.com/developerworks/linux/library/l-proc.html][Access the Linux kernel using the /proc filesystem]]
+#    - [[http://duartes.org/gustavo/blog/]]
+#      - [[http://duartes.org/gustavo/blog/post/motherboard-chipsets-memory-map][Motherboard Chipsets and the Memory Map]]
+#      - [[http://duartes.org/gustavo/blog/category/software-illustrated/page/2][How Computers Boot Up]]
+#      - [[http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory][Anatomy of a Program in Memory]]
+#      - [[http://duartes.org/gustavo/blog/post/how-the-kernel-manages-your-memory][How The Kernel Manages Your Memory]]
+#      - [[http://duartes.org/gustavo/blog/post/getting-physical-with-memory][Getting Physical With Memory]]
+#      - [[http://duartes.org/gustavo/blog/post/intel-cpu-caches][Cache: a place for concealment and safekeeping]]
+#    - [[http://people.redhat.com/drepper/cpumemory.pdf][What every programmer should know about memory]]
+#    - [[http://www.cs.rochester.edu/~sandhya/csc256/]]
 

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#define _GNU_SOURCE
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,11 +24,13 @@ int main() {
     exit(EXIT_FAILURE);
   }
 
-  puts("Please input some text. Ctrl-d to quit.");
+  printf("%d: Please input some text. Ctrl-d to quit.\n", getpid());
 
-  while( fgets(buf, BUFSIZE, stdin) )
+  while( fgets(buf, BUFSIZE, stdin) ){
+	printf("%d: %s", getpid(), buf);
 	sem_post(&sem); 
-
+  }
+  
   sem_post(&sem);      /* in case of Ctrl-d */
   
   if( pthread_join(t, NULL) != 0) {
@@ -40,9 +43,9 @@ int main() {
 
 void *func(void *arg) {
   sem_wait(&sem);
-  while( buf[0] != '\0' ) {
-    printf("You input %ld characters\n", strlen(buf)-1);
-	buf[0] = '\0';	   /* in case of Ctrl-d */
+  while( buf[0] != '\0' ) { /* not Ctrl-d */
+    printf("%d: You input %ld characters\n", gettid(), strlen(buf)-1);
+	buf[0] = '\0';          /* clear buffer */
     sem_wait(&sem);
   }
   pthread_exit(NULL);

@@ -16,10 +16,10 @@
   \begin{minipage}{.65\linewidth}
     \begin{block}{\mbox{Processes are like human beings:}}
         \begin{itemize}
-        \item[\Symbol{➠}] they are generated
-        \item[\Symbol{➠}] they have a life
-        \item[\Symbol{➠}] they optionally generate one or more child processes, and
-        \item[\Symbol{➠}] eventually they die
+        \item[\symbola ➠] they are generated
+        \item[\symbola ➠] they have a life
+        \item[\symbola ➠] they optionally generate one or more child processes, and
+        \item[\symbola ➠] eventually they die
         \end{itemize}
         A small difference:
         \begin{itemize}
@@ -30,8 +30,8 @@
   \end{minipage}\quad
   \begin{minipage}{.3\linewidth}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-20} }%
-      \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-1-20} }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{proc} }%mos-figs-1-20
+      \mode<article>{ \includegraphics[width=.5\textwidth]{proc} }
     \end{center}
   \end{minipage}
 \end{frame}
@@ -92,15 +92,20 @@ communication to enable processes to interact in safe and predictable ways.
         the execution of the program has progressed.
         \begin{itemize}
         \item Each process is represented by a \alert{PCB}
-        \item \texttt{task\_struct} in \linux{}
+        \item \texttt{task\_struct} in 
         \end{itemize}
       \end{block}
     \end{minipage}\quad
     \begin{minipage}{.2\textwidth}
-      \begin{center}
-        \mode<beamer>{ \includegraphics[width=1.5\textwidth]{pcb} }%
-        \mode<article>{ \includegraphics[width=\textwidth]{pcb} }
-      \end{center}      
+      \begin{tblr}{colspec={c},vlines,hlines}
+        process state\\
+        PID\\
+        program counter\\
+        registers\\
+        memory limits\\
+        list of open files\\
+        \ldots
+      \end{tblr}
     \end{minipage}
 \end{frame}
 
@@ -215,28 +220,28 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
 \label{sec:proc-vs.-thre}
 
 \begin{frame}{Process vs. Thread}
-    \begin{tabular}{rcl}
+    \begin{tblr}{rcl}
       a single-threaded process&=&resource + execution\\
       a  multi-threaded process&=&resource + executions\\
-    \end{tabular}
+    \end{tblr}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-2-6} }%
       \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-2-6} }
     \end{center}
   \begin{description}
-  \item[A process] = a unit of resource ownership, used to group resources together;
-  \item[A thread] = a unit of scheduling, scheduled for execution on the CPU.
+  \item[A process] = a unit of resource ownership, used to group resources together
+  \item[A thread] = a unit of scheduling, scheduled for execution on the CPU
   \end{description}  
 \end{frame}
 
 \begin{frame}{Process vs. Thread}
   \begin{center}
-    \begin{tabularx}{.9\textwidth}{X|X}
-      \textbf{multiple threads running in one process:}&
-      \textbf{multiple processes running in one computer:}\\
+    \begin{tblr}{width=.9\textwidth,colspec={X|X},row{1}={font=\bfseries}}
+      {multiple threads running in one process:}&
+      {multiple processes running in one computer:}\\
       share an address space and other resources&
-      share physical memory, disk, printers ...\\
-    \end{tabularx}
+      share physical memory, disk, printers \ldots\\
+    \end{tblr}
   \end{center}
   \begin{block}{No protection between threads}
     \begin{description}
@@ -248,8 +253,15 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
 
 \begin{frame}{Threads}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{thread-components} }%
-    \mode<article>{ \includegraphics[width=.4\textwidth]{thread-components} }
+    \begin{tblr}{colspec={ccc},vlines,hlines,cell{1}{1}={c=3}{c}}
+      code, data, open files, signals\ldots&&\\
+      thread ID&thread ID&thread ID\\
+      {program\\counter}&{program\\counter}&{program\\counter}\\
+      {register\\set}&{register\\set}&{register\\set}\\
+      stack&stack&stack\\
+    \end{tblr}
+    % \mode<beamer>{ \includegraphics[width=.8\textwidth]{thread-components} }%
+    % \mode<article>{ \includegraphics[width=.4\textwidth]{thread-components} }
   \end{center}
 \end{frame}
 
@@ -337,16 +349,17 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
   \end{description}
   \begin{block}{Some of the Pthreads function calls}
     \begin{center}{\small
-        \begin{tabular}{>{\ttfamily}ll}
-          \hline
-          \thead{Thread call}&\thead{Description}\\\hline
-          pthread\_create&Create a new thread\\
-          pthread\_exit&Terminate the calling thread\\
-          pthread\_join&Wait for a specific thread to exit\\
-          pthread\_yield&Release the CPU to let another thread run\\
-          pthread\_attr\_init&Create and initialize a thread's attribute structure\\
-          pthread\_attr\_destroy&Remove a thread's attribute structure\\\hline
-        \end{tabular}}
+        \begin{tblr}{colspec={ll},hline{1,2,Z},%
+            row{1}={c,font=\bfseries},%
+          cell{2-Z}{1}={font=\ttfamily}}
+        Thread call&Description\\
+        pthread\_create()&Create a new thread\\
+        pthread\_exit()&Terminate the calling thread\\
+        pthread\_join()&Wait for a specific thread to exit\\
+        pthread\_yield()&Release the CPU to let another thread run\\
+        pthread\_attr\_init()&Create and initialize a thread's attribute structure\\
+        pthread\_attr\_destroy()&Remove a thread's attribute structure\\
+      \end{tblr}}
     \end{center}
   \end{block}
 \end{frame}
@@ -366,7 +379,7 @@ See also:
 
 \begin{frame}{Pthreads}
   \begin{description}
-  \item[\texttt{pthread\_t}] defined in \texttt{pthread.h}, is often called a "thread id"
+  \item[\texttt{pthread\_t}] defined in \texttt{pthread.h}, is often called a ``thread id''
     (\texttt{tid});
   \item[\texttt{pthread\_create()}] returns zero on success and a non-zero value on failure;
   \item[\texttt{pthread\_join()}] returns zero on success and a non-zero value on failure;
@@ -407,22 +420,22 @@ See also:
     manage their own threads.
   \end{description}
   \begin{itemize}
-  \item[\good] No need to modify the OS\\[-.5ex]
-  \item[\good] Simple representation\\[-.5ex]
+  \item[☺] No need to modify the OS\\[-.5ex]
+  \item[☺] Simple representation\\[-.5ex]
     \begin{itemize}
     \item each thread is represented simply by a PC, regs, stack, and a small TCB, all
         stored in the user process' address space
     \end{itemize}
-  \item[\good] Simple Management\\[-.5ex]
+  \item[☺] Simple Management\\[-.5ex]
     \begin{itemize}
     \item creating a new thread, switching between threads, and synchronization between threads can
       all be done without intervention of the kernel
     \end{itemize}
-  \item[\good] Fast\\[-.5ex]
+  \item[☺] Fast\\[-.5ex]
     \begin{itemize}
     \item thread switching is not much more expensive than a procedure call
     \end{itemize}
-  \item[\good] Flexible\\[-.5ex]
+  \item[☺] Flexible\\[-.5ex]
     \begin{itemize}
     \item CPU scheduling (among threads) can be customized to suit the needs of the algorithm --
       each process can use a different thread scheduling algorithm
@@ -432,19 +445,19 @@ See also:
 
 \begin{frame}{User-Level Threads}
   \begin{itemize}
-  \item[\alert{\bad}]  Lack of coordination between threads and OS kernel
+  \item[\alert{☹}]  Lack of coordination between threads and OS kernel
     \begin{itemize}
     \item Process as a whole gets one time slice
     \item Same time slice, whether process has 1 thread or 1000 threads
     \item Also -- up to each thread to relinquish control to other threads in that process
     \end{itemize}
-  \item[\alert{\bad}] Requires non-blocking system calls (i.e. a multithreaded kernel)
+  \item[\alert{☹}] Requires non-blocking system calls (i.e. a multithreaded kernel)
     \begin{itemize}
     \item Otherwise, entire process will blocked in the kernel, even if there are runnable threads
       left in the process
     \item part of motivation for user-level threads was not to have to modify the OS
     \end{itemize}
-  \item[\alert{\bad}] If one thread causes a page fault(interrupt!), the entire process
+  \item[\alert{☹}] If one thread causes a page fault (interrupt!), the entire process
     blocks
   \end{itemize}
 \end{frame}
@@ -456,16 +469,16 @@ See also: \emph{More about blocking and non-blocking calls}\footnote{\url{http:/
   \item[Kernel-level threads] kernel provides system calls to create and manage threads
   \end{description}
   \begin{itemize}
-  \item[\good] Kernel has full knowledge of all threads
+  \item[☺] Kernel has full knowledge of all threads
     \begin{itemize}
     \item Scheduler may choose to give a process with 10 threads more time than process with only 1
       thread
     \end{itemize}
-  \item[\good] Good for applications that frequently block (e.g. server processes with
+  \item[☺] Good for applications that frequently block (e.g. server processes with
     frequent interprocess communication)
-  \item[\alert{\bad}] Slow -- thread operations are 100s of times slower than for
+  \item[\alert{☹}] Slow -- thread operations are 100s of times slower than for
     user-level threads
-  \item[\alert{\bad}] Significant overhead and increased kernel complexity -- kernel must
+  \item[\alert{☹}] Significant overhead and increased kernel complexity --- kernel must
     manage and schedule threads as well as processes
     \begin{itemize}
     \item Requires a full thread control block (TCB) for each thread
@@ -473,13 +486,13 @@ See also: \emph{More about blocking and non-blocking calls}\footnote{\url{http:/
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Hybrid Implementations}{Combine the advantages of two}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{mos-figs-2-14} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-2-14} }
-  \end{center}
+\begin{frame}<beamer>{Hybrid Implementations}{Combine the advantages of two}
+  \centering\includegraphics[width=.8\textwidth]{mos-figs-2-14}
 \end{frame}
 
+\begin{center}
+  \includegraphics[width=.5\textwidth]{mos-figs-2-14}
+\end{center}
 % \begin{frame}{Two-Level Thread Model}{Digital UNIX, Solaris, IRIX, HP-UX}
 %   \begin{center}
 %     \includegraphics[width=\textwidth]{thread-walker}
@@ -519,15 +532,13 @@ See also: \emph{More about blocking and non-blocking calls}\footnote{\url{http:/
     \item Linux implements all threads as standard processes
     \item To Linux, a thread is merely a process that shares certain resources with other
       processes
-    \item Some OS (MS Windows, Sun Solaris) have cheap threads and expensive processes.
-    \item Linux processes are already quite lightweight
-      \begin{itemize}
-      \item[] On a 75MHz Pentium
-        \begin{tabular}{r}
-          thread: $1.7\mu{}s$\\
-          fork: $1.8\mu{}s$
-        \end{tabular}
-      \end{itemize}
+    \item Some OS (MS Windows, Sun Solaris) have cheap threads and expensive processes
+    \item Linux processes are already quite lightweight\par
+      On a \unit[75]{MHz} Pentium
+      \begin{tblr}{r@{\;}l}
+        thread:& \unit[1.7]{\mu{}s}\\
+        fork:& \unit[1.8]{\mu{}s}
+      \end{tblr}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -573,32 +584,35 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 
 
 \begin{frame}{Linux Threads}
-  \begin{description}
-  \item[\texttt{clone()}] creates a separate process that shares the address space of the
+  \begin{minipage}{.45\linewidth}
+  \begin{block}{\texttt{clone()}}
+    creates a separate process that shares the address space of the
     calling process. The cloned task behaves \emph{much like} a separate thread.
-  \end{description}
-
-  \centering\includegraphics[width=.45\textwidth]{syscall}
+  \end{block}
+  \end{minipage}
+  \begin{minipage}{.5\linewidth}
+    \includegraphics[width=\textwidth]{syscall}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{The \texttt{clone()} System Call}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{clone-prototype-c} }%
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{clone-prototype-c} }%
     \mode<article>{ \cfile{figs/pseudo/clone-prototype.c}}
   \end{center}
   \begin{small}
     \begin{description}
-    \item[arg 1] the function to be executed, i.e. \texttt{fn(arg)}, which returns an \texttt{int};
-    \item[arg 2] a pointer {\pright} a (usually malloced) memory space to be used as
-      the stack for the new thread;
+    \item[arg 1] the function to be executed, i.e. \texttt{fn(arg)}, which returns an \texttt{int}
+    \item[arg 2] a pointer {☛} a (usually malloced) memory space to be used as
+      the stack for the new thread
     \item[arg 3] a set of flags used to indicate how much the calling process is to be
       shared. In fact,
       \begin{itemize}
-      \item[]  \texttt{clone(0) == fork()}
+      \item[]  \texttt{clone(0) =\,= fork()}
       \end{itemize}
-    \item[arg 4] the arguments passed to the function.
+    \item[arg 4] the arguments passed to the function
     \end{description}
-    It returns the PID of the child process or -1 on failure.
+    It returns the PID of the child process or -1 on failure
   \end{small}
   \begin{itemize}
     \item[\$] \texttt{man clone}
@@ -608,14 +622,15 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \begin{frame}
   \begin{block}{Some flags:}
     \begin{center}
-      \begin{tabular}{>{\ttfamily}ll}
-        \hline
-        \thead{flag}&\thead{Shared}\\\hline
+      \begin{tblr}{colspec={ll}, row{1}={font=\bfseries,c}, cell{2-Z}{1}={font=\ttfamily},%
+          hline{1,2,Z},%
+        }
+        Flag&Shared\\
         CLONE\_FS&File-system info\\
         CLONE\_VM&Same memory space\\
         CLONE\_SIGHAND&Signal handlers\\
-        CLONE\_FILES&The set of open files\\\hline
-      \end{tabular}
+        CLONE\_FILES&The set of open files\\
+      \end{tblr}
     \end{center}
   \end{block}
   \begin{block}{In practice, one should try to avoid calling \texttt{clone()} directly}
@@ -635,9 +650,9 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
     \end{iblock}
     \begin{tikzpicture}[remember picture, overlay]
       \node [anchor=east,xshift=-8em,yshift=3em,rotate=-20,scale=6,text opacity=0.6,color=red] at
-      (current page.east) {\Symbol{✘}};
+      (current page.east) {\symbola ✘};
       \node at (current page.south east)
-      [anchor=east,xshift=-3em,yshift=3em,scale=8,text opacity=0.6,color=Green] {\Symbol{✔}};
+      [anchor=east,xshift=-3em,yshift=3em,scale=8,text opacity=0.6,color=Green] {\symbola ✔};
     \end{tikzpicture}}%
   \mode<article>{ \cfile{../src/proc/clone.c}}
 \end{frame}
@@ -650,7 +665,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 %   \mode<beamer>{
 %     \begin{tikzpicture}[remember picture, overlay]
 %       \node [yshift=-0.1em,xshift=9em,rotate=0,scale=12,text opacity=0.7,color=red] at
-%       (current page.center) {\Symbol{✔}};
+%       (current page.center) {\symbola ✔}};
 %     \end{tikzpicture}}
 % \end{frame}
 
@@ -936,10 +951,11 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \item[PIPEs] pass data between related processes.
   \item[FIFOs] pass data between any processes.
   \end{description}
-  \begin{block}{\CMD{mkfifo myfifo}}
+  \begin{block}{\texttt{mkfifo}}
     \begin{center}
       \begin{minipage}{.45\linewidth}\ttfamily
         \begin{itemize}
+        \item[\$] mkfifo myfifo
         \item[\$] echo hello > myfifo
         \item[\$] cat myfifo
         \end{itemize}
@@ -970,34 +986,34 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \end{itemize}
 
 \begin{frame}{IPC With FIFO}
-  \mode<beamer>{ \includegraphics[height=.9\textheight]{fifo2-ipc} }%
+  \mode<beamer>{ \includegraphics[height=.9\textheight]{fifo2-c} }%
   \mode<article>{\cfile{../src/proc/fifo2.c}}
 \end{frame}
 
-\begin{frame}{}{}
-  {\ttfamily
-    \begin{itemize}
-    \item[\$] watch -n.1 'lsof /tmp/myfifo'
-    \item[\$] ./a.out O\_RDONLY
-    \item[\$] ./a.out O\_WRONLY
-    \item[\$] ./a.out O\_RDONLY O\_NONBLOCK
-    \item[\$] ./a.out O\_WRONLY O\_NONBLOCK
-    \end{itemize}}
-  \begin{block}{\texttt{O\_NONBLOCK}}
-    \begin{itemize}
-    \item A \texttt{read()/write()} will wait on an empty blocking FIFO
-    \item A \texttt{read()} on an empty nonblocking FIFO will return 0 bytes
-    \item \cmd{open(const char *path, O\_WRONLY | O\_NONBLOCK);}
-      \begin{itemize}
-      \item Returns an error (-1) if FIFO not open
-      \item Okay if someone's reading the FIFO
-      \end{itemize}
-    \item If opened with \texttt{O\_RDWR}, the result is undefined.  \mode<article>{If you
-        do want to pass data in both directions, it's much better to use a pair of FIFOs
-        or pipes, one for each direction.}
-    \end{itemize}
-  \end{block}
-\end{frame}
+% \begin{frame}{}{}
+%   {\ttfamily
+%     \begin{itemize}
+%     \item[\$] watch -n.1 'lsof /tmp/myfifo'
+%     \item[\$] ./a.out O\_RDONLY
+%     \item[\$] ./a.out O\_WRONLY
+%     % \item[\$] ./a.out O\_RDONLY O\_NONBLOCK
+%     % \item[\$] ./a.out O\_WRONLY O\_NONBLOCK
+%     \end{itemize}}
+%   % \begin{block}{\texttt{O\_NONBLOCK}}
+%   %   \begin{itemize}
+%   %   \item A \texttt{read()/write()} will wait on an empty blocking FIFO
+%   %   \item A \texttt{read()} on an empty nonblocking FIFO will return 0 bytes
+%   %   \item \cmd{open(const char *path, O\_WRONLY | O\_NONBLOCK);}
+%   %     \begin{itemize}
+%   %     \item Returns an error (-1) if FIFO not open
+%   %     \item Okay if someone's reading the FIFO
+%   %     \end{itemize}
+%   %   \item If opened with \texttt{O\_RDWR}, the result is undefined.  \mode<article>{If you
+%   %       do want to pass data in both directions, it's much better to use a pair of FIFOs
+%   %       or pipes, one for each direction.}
+%   %   \end{itemize}
+%   % \end{block}
+% \end{frame}
 
 \begin{itemize}
 %\item If opened with \texttt{O\_RDWR}, the result is undefined. 
@@ -1166,7 +1182,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \mode<beamer>{ \includegraphics[width=\textwidth]{lock2-c} }%
   \mode<article>{\cfile{../src/proc/lock2.c}}
   \begin{itemize}
-  \item[\Bad] Lock file could be left in system after \Cc
+  \item[☹] Lock file could be left in system after \LKeyCtrlX{c}
   \end{itemize}
 \end{frame}
 
@@ -1174,7 +1190,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \mode<beamer>{ \includegraphics[width=\textwidth]{lock2-sigint-c} }%
   \mode<article>{\cfile{../src/proc/lock2-sigint.c}}
   \begin{itemize}
-  \item[\Bad] \texttt{sigint()} is too crude to be reliable. Need a more sophisticated design.
+  \item[☹] \texttt{sigint()} is too crude to be reliable. Need a more sophisticated design.
   \end{itemize}
 \end{frame}
 
@@ -1188,16 +1204,16 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \end{frame}
 
 See also: \citetitle[Sec.~2.3.3, \emph{Mutual Exclusion With Busy Waiting},
-p.~124]{tanenbaum2008modern}.
+p.~124]{tanenbaum2015modern}.
 
 \begin{frame}{Mutual Exclusion Without Busy Waiting}{Sleep \& Wakeup}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.9\textwidth]{sleep-wakeup}\pause%
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{sleep-wakeup}\pause%
       \begin{tikzpicture}[remember picture, overlay]
         \node [rotate=10,scale=5,text opacity=0.5,color=red] at (current page.center)
         {Deadlock!};
       \end{tikzpicture}}%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{sleep-wakeup-bw-crop} }
+    \mode<article>{ \includegraphics[width=.6\textwidth]{sleep-wakeup-bw-crop} }
   \end{center}
 \end{frame}
 
@@ -1238,15 +1254,17 @@ p.~124]{tanenbaum2008modern}.
   \item An integer or ADT\\[1em]
   \end{itemize}
   \begin{minipage}{.42\linewidth}
-    \begin{small}{\ttfamily
-      \begin{tabular}{ll}\toprule
-        \multicolumn2{c}{\emph{Atomic} Operations}\\\midrule
+    \begin{small}
+      \begin{tblr}{colspec={ll},cell{1}{1}={c=2}{c,font=\bfseries},hline{1,2,Z},
+          row{2-Z}={font=\ttfamily},
+        }
+        Atomic Operations\\
         P()         &V()\\
         Wait()      &Signal()\\
         Down()      &Up()\\
         Decrement() &Increment()\\
-        ...         &...\\\bottomrule
-      \end{tabular}}
+        \ldots      &\ldots\\
+      \end{tblr}
     \end{small}
   \end{minipage}\quad
   \begin{minipage}{.53\linewidth}
@@ -1275,13 +1293,14 @@ p.~124]{tanenbaum2008modern}.
 \begin{frame}{Semaphore is a Special Integer\,\includegraphics[width=1em]{semaphore-papa}}
   \begin{block}{A semaphore is like an integer, with three differences:}
     \begin{enumerate}
-    \item You can initialize its value to any integer, but after that the only operations you are
-      allowed to perform are \emph{increment} (\texttt{S++}) and \emph{decrement} (\texttt{S-\,-}).
-    \item When a thread decrements the semaphore, if the result is negative
-      ($\mathtt{S\le{}0}$), the thread blocks itself and cannot continue until another
-      thread increments the semaphore.
-    \item When a thread increments the semaphore, if there are other threads waiting, one of the
-      waiting threads gets unblocked.
+    \item You can initialize its value to any integer, but after that the only operations
+      you are allowed to perform are \emph{increment} (\texttt{S++}) and \emph{decrement}
+      (\texttt{S-\,-}).
+    \item When a thread decrements the semaphore, if the result is negative (S ⩽ 0), the
+      thread blocks itself and cannot continue until another thread increments the
+      semaphore.
+    \item When a thread increments the semaphore, if there are other threads waiting, one
+      of the waiting threads gets unblocked.
     \end{enumerate}
   \end{block}
 \end{frame}
@@ -1335,66 +1354,36 @@ p.~124]{tanenbaum2008modern}.
 
 \begin{frame}[fragile]
   \begin{center}
-    \begin{tabular}{rp{.35\textwidth}p{.35\textwidth}}\toprule
-      &\textbf{Thread A:}&\textbf{Thread B:}\\\midrule
-      Solution 1:& \begin{minipage}[m]{\linewidth}
-                     \begin{pythoncode}
-statement a1
-sem1.wait()  
-sem2.signal()
-statement a2 
-\end{pythoncode}
-                   \end{minipage}
-                         & \begin{minipage}[m]{\linewidth}
-\begin{pythoncode}
-statement b1
-sem1.signal()
-sem2.wait()
-statement b2 
-\end{pythoncode}
-                         \end{minipage}\\
-      &&\\
-      &&\\
-      Solution 2:& \begin{minipage}[m]{\linewidth}
-\begin{pythoncode}
-statement a1 
-sem2.signal()
-sem1.wait()  
-statement a2 
-\end{pythoncode}
-                   \end{minipage}
-                         & \begin{minipage}[m]{\linewidth}
-\begin{pythoncode}
-statement b1
-sem1.signal()
-sem2.wait()
-statement b2 
-\end{pythoncode}
-                         \end{minipage} \\
-      &&\\
-      &&\\
-      Solution 3:& \begin{minipage}[m]{\linewidth}
-\begin{pythoncode}
-statement a1 
-sem2.wait()  
-sem1.signal()
-statement a2 
-\end{pythoncode}
-                   \end{minipage}
-                         & \begin{minipage}[m]{\linewidth}
-\begin{pythoncode}
-statement b1
-sem1.wait()
-sem2.signal()
-statement b2 
-\end{pythoncode}
-                           \end{minipage}\\\bottomrule
-    \end{tabular}
+    \begin{tblr}{colspec={lll},hlines,row{1}={c,font=\bfseries},
+      cell{2,3,4}{2,3}={font=\ttfamily}}
+      &\textbf{Thread A:}&\textbf{Thread B:}\\
+      Solution 1:&%
+      \begin{tblr}{l}
+        {statement a1\\sem1.wait()\\sem2.signal()\\statement a2}\\
+      \end{tblr} &%
+      \begin{tblr}{l}
+        {statement b1\\sem1.signal()\\sem2.wait()\\statement b2}\\
+      \end{tblr}\\
+      Solution 2:&%
+      \begin{tblr}{l}
+        {statement a1\\sem2.signal()\\sem1.wait()\\statement a2}\\
+      \end{tblr} &%
+      \begin{tblr}{l}
+        {statement b1\\sem1.signal()\\sem2.wait()\\statement b2}\\
+      \end{tblr} \\
+      Solution 3:&%
+      \begin{tblr}{l}
+        {statement a1\\sem2.wait()\\sem1.signal()\\statement a2}\\
+      \end{tblr} &%
+      \begin{tblr}{l}
+        {statement b1\\sem1.wait()\\sem2.signal()\\statement b2}\\
+      \end{tblr}\\
+    \end{tblr}
   \end{center}
   \mode<beamer>{\pause
     \begin{tikzpicture}[remember picture, overlay]
-      \node [rotate=10,scale=3,opacity=0.5,color=red,anchor=south,yshift=2.5ex] at
-      (current page.south) {Deadlock!};
+      \node [rotate=10,scale=3,opacity=0.5,color=red,anchor=south,%
+      yshift=2.3ex,xshift=2ex] at (current page.south) {Deadlock!};
     \end{tikzpicture}
   } \mode<article>{ \alert{Solution 3 has deadlock!}  }
 \end{frame}
@@ -1527,16 +1516,17 @@ access some common resources.
   \item All processes but one blocked at the barrier
   \item When the last process arrives at the barrier, all of them are let through
   \end{enumerate}
-  \begin{block}{Synchronization requirement:}
-    \begin{center}
-      \begin{tabular}{l}
-        \texttt{specific\_task()}\\
-        \texttt{critical\_point()}
-      \end{tabular}
-    \end{center}
-    No thread executes \texttt{critical\_point()} until after all threads have executed
-    \texttt{specific\_task()}.
-  \end{block}
+  \begin{minipage}{.7\linewidth}
+    \begin{block}{Synchronization requirement:}
+      No thread executes \texttt{critical\_point()} until after all threads have executed
+      \texttt{specific\_task()}.
+    \end{block}
+  \end{minipage}\quad
+  \begin{minipage}{.25\linewidth}
+    \begin{tblr}{colspec={l},rows={font=\ttfamily}}
+      {specific\_task()\\critical\_point()}
+    \end{tblr}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Barrier Solution}
@@ -1566,7 +1556,7 @@ access some common resources.
   \mode<beamer>{
     \begin{tikzpicture}[remember picture, overlay]
       \node [scale=10,text opacity=0.3,color=red,yshift=-.5em,xshift=-.4em] at (current
-      page.center) {\Symbol{✔}};
+      page.center) {\symbola ✔};
 
       \node [scale=2.2,text opacity=0.3,color=red,yshift=-2em,xshift=3em,rotate=20] at
       (current page.center) {Deadlock!};
@@ -1601,10 +1591,9 @@ access some common resources.
 
 \begin{frame}%{Barrier Solution}
   \begin{center}
-    \begin{tabular}{l}
-      \texttt{barrier.wait();}\\
-      \texttt{barrier.signal();}
-    \end{tabular}
+    \begin{tblr}{colspec={l},rows={font=\ttfamily}}
+      {barrier.wait();\\barrier.signal();}
+    \end{tblr}
   \end{center}
   \begin{block}{Turnstile}
     This pattern, a \texttt{wait} and a \texttt{signal} in rapid succession, occurs often
@@ -1705,22 +1694,20 @@ See also: \citetitle[Sec.~4.1, \emph{Producer-Consumer Problem}]{downey2008semap
 \begin{frame}{Producer-Consumer Problem With Bounded-Buffer}
   \begin{block}{Given:}
     \begin{center}
-      \begin{tabular}{>{\ttfamily}l}
-        semaphore items = 0;\\
-        semaphore spaces = BUFFER\_SIZE;
-      \end{tabular}
+      \begin{tblr}{colspec={l},rows={font=\ttfamily}}
+        {semaphore items = 0;\\semaphore spaces = BUFFER\_SIZE;}
+      \end{tblr}
     \end{center}
   \end{block}
   \begin{block}{Can we?}
     \begin{center}
-      \begin{tabular}{>{\ttfamily}r}
-        if (items >= BUFFER\_SIZE)\\
-        producer.block();
-      \end{tabular}
+      \begin{tblr}{colspec={l},rows={font=\ttfamily}}
+        {if (items >= BUFFER\_SIZE)\\\qquad{}producer.block();}
+      \end{tblr}
     \end{center}
     \begin{description}
-    \item[if:] the buffer is full
-    \item[then:] the producer blocks until a consumer removes an item
+    \item[if] the buffer is full
+    \item[then] the producer blocks until a consumer removes an item
     \end{description}
   \end{block}
   \pause 
@@ -1732,7 +1719,7 @@ See also: \citetitle[Sec.~4.1, \emph{Producer-Consumer Problem}]{downey2008semap
   \mode<beamer>{
     \begin{tikzpicture}[remember picture, overlay]
       \node [rotate=-20,scale=3,text opacity=0.7,color=red,yshift=0em,xshift=.7em] at
-      (current page.center) {\Symbol{✘}};
+      (current page.center) {\symbola ✘};
     \end{tikzpicture}
   }
 \end{frame}
@@ -1895,22 +1882,22 @@ user process to use it directly.
 
 \begin{frame}{Sockets}
   To create a socket:
-  \begin{center}
-    \texttt{fd = socket(domain, type, protocol)}
-  \end{center}
+  \begin{itemize}
+  \item[] \texttt{fd = socket(domain, type, protocol)}
+  \end{itemize}
   \begin{description}
   \item[Domain] Determines address format and the range of
     communication (local or remote). The most commonly used domains are:
-    \begin{center}\ttfamily
-      \begin{tabular}{lll}
-        \hline
-        \thead{Domain}&\thead{Addr structure}&\thead{Addr format}\\\hline
+    \begin{center}
+      \begin{tblr}{colspec={lll},row{1}={c,font=\bfseries},hline{1,2,Z},
+        row{2-Z}={font=\ttfamily}}
+        Domain&Addr structure&Addr format\\
         AF\_UNIX &sockaddr\_un & /path/name\\
         AF\_INET &sockaddr\_in & ip:port\\
-        AF\_INET6&sockaddr\_in6& ip6:port\\\hline
-      \end{tabular}
+        AF\_INET6&sockaddr\_in6& ip6:port\\
+      \end{tblr}
     \end{center}
-  \item[Type] \texttt{SOCK\_STREAM} (\phone), \texttt{SOCK\_DGRAM} (\mail)
+  \item[Type] \texttt{SOCK\_STREAM} (ﬁ), \texttt{SOCK\_DGRAM} ()
   \item[Protocol] always 0
   \end{description}
 \end{frame}
@@ -2000,7 +1987,7 @@ Sockets vs. pipes \citetitle[Chap.~15, \emph{Sockets}]{matthew2008beginning}:
     \mode<beamer>{\centering \includegraphics[width=.5\textwidth]{dphil-0} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{dphil-0} } \pause
     \begin{itemize}
-    \item[\Bad] Only one philosopher can eat at a time.
+    \item[☹] Only one philosopher can eat at a time.
     \item[?] How about 2 mutexes? 5 mutexes?
     \end{itemize}
   \end{minipage}
@@ -2130,8 +2117,8 @@ Sockets vs. pipes \citetitle[Chap.~15, \emph{Sockets}]{matthew2008beginning}:
   \begin{minipage}[m]{.6\linewidth}
     \begin{block}{Where's the problem?}
       \begin{itemize}
-      \item the barber saw an empty room right before a customer arrives the waiting room;
-      \item Several customer could race for a single chair;
+      \item The barber saw an empty room right before a customer arrives the waiting room
+      \item Several customer could race for a single chair
       \end{itemize}
     \end{block}
   \end{minipage}
@@ -2247,7 +2234,7 @@ Sockets vs. pipes \citetitle[Chap.~15, \emph{Sockets}]{matthew2008beginning}:
   % \end{center}
 \end{frame}
 
-See also: \citetitle[Sec.~2.4.1.5, \emph{Scheduling Algorithm Goals}, p.~150]{tanenbaum2008modern}.
+See also: \citetitle[Sec.~2.4.1.5, \emph{Scheduling Algorithm Goals}, p.~150]{tanenbaum2015modern}.
 
 \begin{frame}{Process Classification}
   \begin{block}{Traditionally}
@@ -2303,9 +2290,9 @@ batch ones.
 
 \begin{frame}{Schedulers}
   \begin{description}
-  \item[Long-term scheduler] (or job scheduler) - selects which processes should be brought into the
+  \item[Long-term scheduler] (or job scheduler) --- selects which processes should be brought into the
     ready queue.
-  \item[Short-term scheduler] (or CPU scheduler) - selects which process should be executed next and
+  \item[Short-term scheduler] (or CPU scheduler) --- selects which process should be executed next and
     allocates CPU.
   \item[Midium-term scheduler] swapping.
   \end{description}
@@ -2380,15 +2367,15 @@ batch ones.
     \begin{itemize}
     \item too short --- too many process switches, lower CPU efficiency;
     \item too long --- poor response to short interactive requests;
-    \item usually around $20\sim{}50$ms.
+    \item usually around 20\char`~\unit[50]{ms}.
     \end{itemize}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Scheduling In Interactive Systems}{Priority Scheduling}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.7\textwidth]{mos-figs-2-42} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-2-42} }
+    \mode<beamer>{ \includegraphics[width=.6\textwidth]{priority-sched} }%%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{priority-sched} }
   \end{center}
   \begin{itemize}
   \item SJF is a priority scheduling;
@@ -2418,8 +2405,8 @@ batch ones.
 \subsection{Linux Scheduling}
 
 \begin{itemize}
-\item \citetitle[Sec.~5.6.3, \emph{Example: Linux Scheduling}]{silberschatz11essentials}.
-\item \citetitle[Sec.~15.5, \emph{Scheduling}]{silberschatz11essentials}.
+\item \citetitle[Sec.~5.6.3, \emph{Example: Linux Scheduling}]{silberschatz13essentials}.
+\item \citetitle[Sec.~15.5, \emph{Scheduling}]{silberschatz13essentials}.
 \item \citetitle[Chap.~7, \emph{Process Scheduling}]{bovet2005understanding}.
 \item \citetitle[Chap.~4, \emph{Process Scheduling}]{love2010linux}.
 \end{itemize}
@@ -2432,14 +2419,28 @@ batch ones.
 \begin{frame}{Process Scheduling In Linux}
   A preemptive, priority-based algorithm with two separate priority ranges:
   \begin{enumerate}
-  \item \alert{real-time} range ($0\sim{}99$), for tasks where absolute priorities are
+  \item \alert{real-time} range (0\char`~99), for tasks where absolute priorities are
     more important than fairness
-  \item \alert{nice value} range ($100\sim{}139$), for fair preemptive scheduling among
+  \item \alert{nice value} range (100\char`~139), for fair preemptive scheduling among
     multiple processes
   \end{enumerate}
-  \centering
-  \mode<beamer>{ \includegraphics[width=.6\textwidth]{osc-5-41} }%
-  \mode<article>{ \includegraphics[width=.4\textwidth]{osc-5-41} }
+  \begin{center}
+    \begin{tblr}{width=.7\linewidth, colspec={cX[c]X[c]X[c]},%
+        hline{1,2,Z}={2-4}{solid}, hline{5}={2}{solid},%
+        row{1}={font=\bfseries}, column{1}={font=\bfseries},
+        cell{2,5}{1}={r=3}{c,m}}
+      &{numeric\\priority}&{relative\\priority}&{time\\quantum}\\
+      {real-time\\tasks}&0&highest&\unit[200]{ms}\\
+      &\vdots&&\\
+      &99&&\\
+      {other\\tasks}&100&&\\
+      &\vdots&&\\
+      &139&lowest&\unit[10]{ms}\\
+    \end{tblr}
+  \end{center}
+  % \centering
+  % \mode<beamer>{ \includegraphics[width=.6\textwidth]{osc-5-41} }%
+  % \mode<article>{ \includegraphics[width=.4\textwidth]{osc-5-41} }
 \end{frame}
 
 \begin{frame}{In Linux, Process Priority is Dynamic}
@@ -2463,13 +2464,13 @@ batch ones.
 
 \begin{frame}{Problems With The Pre-2.6 Scheduler}
   \begin{itemize}
-  \item[\okay] an algorithm with $O(n)$ complexity
+  \item[😐] an algorithm with $O(n)$ complexity
   \item a single runqueue for all processors
     \begin{itemize}
-    \item[\good] good for load balancing
-    \item[\textcolor{red}{\bad}] bad for CPU caches, when a task is rescheduled from one CPU to another
+    \item[☺] good for load balancing
+    \item[\textcolor{red}{☹}] bad for CPU caches, when a task is rescheduled from one CPU to another
     \end{itemize}
-  \item[\okay] a single runqueue lock --- only one CPU working at a time
+  \item[😐] a single runqueue lock --- only one CPU working at a time
   \end{itemize}
 \end{frame}
 
@@ -2483,9 +2484,9 @@ spends too much time in high-end systems running thousands of processes\citetitl
 
 \begin{frame}{Scheduling In Linux 2.6 Kernel}
   \begin{itemize}
-  \item[\good] $O(1)$ --- Time for finding a task to execute depends not on \emph{the
+  \item[☺] $O(1)$ --- Time for finding a task to execute depends not on \emph{the
       number of active tasks} but instead on \emph{the number of priorities}
-  \item[\good] Each CPU has its own \emph{runqueue}, and schedules itself independently; better cache
+  \item[☺] Each CPU has its own \emph{runqueue}, and schedules itself independently; better cache
     efficiency
   \item The job of the scheduler is simple --- Choose the task on the highest priority list to
     execute
@@ -2502,8 +2503,18 @@ spends too much time in high-end systems running thousands of processes\citetitl
 \begin{frame}%{Scheduling In Linux 2.6 Kernel}
   \begin{iblock}{Each runqueue has two priority arrays}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-5-42} }%
-      \mode<article>{ \includegraphics[width=.45\textwidth]{osc-5-42} }
+      \begin{tblr}{colspec={c@{\qquad}l@{\qquad}|@{\qquad}c@{\qquad}l},%
+          cell{1}{1,3}={c=2}{c,font=\large\bfseries},%
+        }
+        active array &            &  expired array &            \\
+        priority     & task lists &  priority      & task lists \\\relax
+        [0]          & -        &  [0]           & --      \\\relax
+        [1]          & --      &  [1]           &           \\
+        \vdots       & \vdots     &  \vdots        & \vdots     \\\relax
+        [139]        &           &  [139]         & -        \\
+      \end{tblr}
+      % \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-5-42} }%
+      % \mode<article>{ \includegraphics[width=.45\textwidth]{osc-5-42} }
     \end{center}
   \end{iblock}
 \end{frame}
@@ -2524,15 +2535,15 @@ spends too much time in high-end systems running thousands of processes\citetitl
       \end{multicols}
     \item[from 2.5 on:] $O(1)$ scheduler
       \begin{itemize}
-      \item[\good] 140 priority lists --- scaled well
-      \item[\good] one run queue per CPU --- true SMP support
-      \item[\good] preemptive
-      \item[\good] ideal for large server workloads
-      \item[\textcolor{red}{\bad}] showed latency on desktop systems
+      \item[☺] 140 priority lists --- scaled well
+      \item[☺] one run queue per CPU --- true SMP support
+      \item[☺] preemptive
+      \item[☺] ideal for large server workloads
+      \item[\textcolor{red}{☹}] showed latency on desktop systems
       \end{itemize}
     \item[from 2.6.23 on:] Completely Fair Scheduler (CFS)
       \begin{itemize}
-      \item[\good] improved interactive performance
+      \item[☺] improved interactive performance
       \end{itemize}
     \end{description}
   \end{block}
@@ -2563,13 +2574,13 @@ spends too much time in high-end systems running thousands of processes\citetitl
   \begin{itemize}
   \item can run only a single task at once --- unfair
     \begin{itemize}
-    \item[\good] while one task is running
-    \item[\textcolor{red}{\bad}] the others have to wait
+    \item[☺] while one task is running
+    \item[\textcolor{red}{☹}] the others have to wait
     \end{itemize}
   \item \texttt{p->wait\_runtime} is the amount of time the task should now run on the CPU
     for it becomes completely fair and balanced.
     \begin{itemize}
-    \item[\good] on ideal CPU, the \texttt{p->wait\_runtime} value would always be zero
+    \item[☺] on ideal CPU, the \texttt{p->wait\_runtime} value would always be zero
     \end{itemize}
   \item CFS always tries to run the task with the largest \texttt{p->wait\_runtime} value
   \end{itemize}
@@ -2657,11 +2668,11 @@ See also: \emph{Discussing the Completely Fair
 \begin{frame}{Resources}
   \begin{block}{Sequence of events required to use a resource}
     \begin{center}
-      \begin{tabular}{lllll}
-        request& \Symbol{➠}& use& \Symbol{➠}& release\\\hline
-        \texttt{open()}&&&&\texttt{close()}\\
-        \texttt{allocate()}&&&&\texttt{free()}
-      \end{tabular}
+      \begin{tblr}{colspec={lllll},hline{2},row{2,3}={font=\ttfamily}}
+        request& {\symbola ➠}& use& {\symbola ➠}& release\\
+        open()&&&&close()\\
+        allocate()&&&&free()
+      \end{tblr}
     \end{center}
   \end{block}
   \begin{block}{What if request is denied?}
@@ -2728,8 +2739,15 @@ See also: \emph{Discussing the Completely Fair
 
 \begin{frame}{Resource-Allocation Graph}
   \begin{center}
-    \includegraphics[width=.3\textwidth]{deadlock-graph-a}\qquad
-    \includegraphics[width=.3\textwidth]{deadlock-graph-b}
+    \begin{minipage}{.3\linewidth}\Large
+      \begin{itemize}
+      \item[] 🅁\(\xrightarrow{owned\;by}\)Ⓐ
+      \item[] 🅂\(\xleftarrow{wants}\)Ⓑ
+      \end{itemize}
+    \end{minipage}\qquad
+    \begin{minipage}{.2\linewidth}
+      \includegraphics[width=\textwidth]{deadlock-graph-b}
+    \end{minipage}
   \end{center}
   \begin{block}{Strategies for dealing with Deadlocks}
     \begin{enumerate}
@@ -2744,13 +2762,13 @@ See also: \emph{Discussing the Completely Fair
 \begin{frame}{Resource-Allocation Graph}
   \begin{minipage}{.49\linewidth}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-7-10} }%
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-7-10} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{osc-7-10} }
     \end{center}
   \end{minipage}\hfill
   \begin{minipage}{.49\linewidth}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{osc-7-11} }%
+      \mode<beamer>{ \includegraphics[width=.7\textwidth]{osc-7-11} }%
       \mode<article>{ \includegraphics[width=.4\textwidth]{osc-7-11} }
     \end{center}
   \end{minipage}
@@ -2770,8 +2788,8 @@ See also: \emph{Discussing the Completely Fair
   \begin{minipage}{.69\linewidth}
     \begin{block}{Basic facts:}
       \begin{itemize}
-      \item No cycles \Symbol{➠} no deadlock
-      \item If graph contains a cycle \Symbol{➠}
+      \item No cycles {\symbola ➠} no deadlock
+      \item If graph contains a cycle {\symbola ➠}
         \begin{itemize}
         \item if only one instance per resource type, then deadlock
         \item if several instances per resource type, possibility of deadlock
@@ -2995,16 +3013,23 @@ See also: \emph{Discussing the Completely Fair
 \end{frame}
 
 \begin{frame}{Deadlock Avoidance}{Mission Impossible}
-  \begin{block}{In practice}
-    \begin{itemize}
-    \item processes rarely know in advance their max future resource needs;
-    \item the number of processes is not fixed;
-    \item the number of available resources is not fixed.
-    \end{itemize}
-    \begin{description}
-    \item[Conclusion:] Deadlock avoidance is essentially a mission impossible.
-    \end{description}
-  \end{block}
+  \begin{minipage}{.6\linewidth}
+    \begin{block}{In practice}
+      \begin{itemize}
+      \item processes rarely know in advance their max future resource
+        needs;
+      \item the number of processes is not fixed;
+      \item the number of available resources is not fixed.
+      \end{itemize}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}{.3\linewidth}
+    \includegraphics[width=\linewidth]{mi}
+  \end{minipage}
+  \begin{description}
+  \item[Conclusion:] Deadlock avoidance is essentially a mission
+    impossible.
+  \end{description}
 \end{frame}
 
 \subsection{Deadlock Prevention}
@@ -3029,7 +3054,7 @@ See also: \emph{Discussing the Completely Fair
 \end{frame}
 
 See also: \citetitle[Sec.~6.6.1, \emph{Attacking the Mutual Exclusion Condition},
-p.~452]{tanenbaum2008modern} for the \emph{printer daemon} example.
+p.~452]{tanenbaum2015modern} for the \emph{printer daemon} example.
 
 \begin{frame}
   \begin{block}{Attacking the Hold and Wait Condition}
@@ -3077,9 +3102,27 @@ p.~452]{tanenbaum2008modern} for the \emph{printer daemon} example.
     requests resources in an increasing order of enumeration 
   \end{block}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-3-13} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-3-13} }
+    \begin{minipage}{.3\linewidth}
+      \begin{enumerate}
+      \item Imagesetter
+      \item Scanner
+      \item Plotter
+      \item Tape drive
+      \item CDROM drive
+      \end{enumerate}
+    \end{minipage}\quad
+    \begin{minipage}{.3\linewidth}\Large
+      \begin{itemize}
+      \item[] 🄸\(\xrightarrow{owned\;by}\)Ⓐ
+      \item[] 
+      \item[] 🄹\(\xrightarrow{owned\;by}\)Ⓑ
+      \end{itemize}      
+    \end{minipage}
   \end{center}
+  % \begin{center}
+  %   \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-3-13} }%
+  %   \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-3-13} }
+  % \end{center}
   \begin{itemize}
     \item[] It's hard to find an ordering that satisfies everyone.
   \end{itemize}

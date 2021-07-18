@@ -11,8 +11,8 @@
   \end{description}
   \begin{iblock}{In real world ...}
     \begin{center}
-      \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-7} }%
-      \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-1-7} }
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{mem-hierarchy} }%mos-figs-1-7
+      \mode<article>{ \includegraphics[width=.5\textwidth]{mem-hierarchy} }%
     \end{center}
   \end{iblock}
   \begin{itemize}
@@ -26,10 +26,11 @@
     \item Every program simply saw the physical memory
     \item mono-programming without swapping or paging
     \end{itemize}
-    \centering
-    \mode<beamer>{ \includegraphics[width=.85\textwidth]{mm-realmode} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{mm-realmode} }
   \end{iblock}
+  \begin{center}
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mem-realmode} }%
+    \mode<article>{ \includegraphics[width=.4\textwidth]{mem-realmode} }
+  \end{center}
 \end{frame}
 
 \begin{frame}{Basic Memory Management}{Relocation Problem}
@@ -63,18 +64,18 @@
   \item[Base register] holds the smallest legal physical memory address
   \item[Limit register] contains the size of the range
   \end{description}
-  \begin{minipage}{.4\textwidth}
+  \begin{minipage}{.3\textwidth}
     \centering
-    \mode<beamer>{ \includegraphics[width=\textwidth]{osc-8-5} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{osc-8-5} }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{base-limit-reg} }%osc-8-5
+    \mode<article>{ \includegraphics[width=.7\textwidth]{base-limit-reg} }
   \end{minipage}\quad
-  \begin{minipage}{.55\textwidth}
+  \begin{minipage}{.65\textwidth}
     A pair of \texttt{base} and \texttt{limit} registers define the logical address space
     \begin{center}
       \fbox{\texttt{JMP 28}}
     \end{center}
     \begin{center}
-      {\rotatebox{270}{\huge \Symbol{➠}}}
+      {\rotatebox{270}{\huge \symbola ➠}}
     \end{center}
     \begin{center}
       \fbox{\texttt{JMP 300068}}
@@ -82,25 +83,19 @@
   \end{minipage}
 \end{frame}
 
-\begin{frame}{Memory Protection}{Base and limit registers}
-  \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{mm-protection}
-    }
-    \mode<article>{
-      \includegraphics[width=.7\textwidth]{mm-protection}
-    }
-  \end{center}
+\begin{frame}<beamer>{Memory Protection}{Base and limit registers}
+  \centering\includegraphics[width=\textwidth]{mm-protection}
 \end{frame}
+
+\begin{center}
+  \includegraphics[width=.7\textwidth]{mm-protection}
+\end{center}
 
 \begin{frame}{UNIX View of a Process' Memory}
   \begin{minipage}{.48\textwidth}
     \begin{center}
-      \mode<beamer>{
-        \includegraphics[width=\textwidth]{mm-process}
-      } \mode<article>{
-        \includegraphics[width=.7\textwidth]{mm-process}
-      }
+      \mode<beamer>{ \includegraphics[width=\textwidth]{mm-process} }%
+      \mode<article>{ \includegraphics[width=.7\textwidth]{mm-process} }
     \end{center}
   \end{minipage}\hfill
   \begin{minipage}{.48\textwidth}
@@ -116,14 +111,14 @@
 
 \begin{frame}{Stack vs. Heap}
   \begin{center}
-    \begin{tabular}{ll}\hline
-      \thead{Stack}           &\thead{Heap}\\\hline
+    \begin{tblr}{colspec={ll},row{1}={c,font=\bfseries},hline{1,2,Z}}
+      Stack           &Heap\\
       compile-time allocation &run-time allocation\\
       auto clean-up           &you clean-up\\
       inflexible              &flexible\\
       smaller                 &bigger\\
-      quicker                 &slower\\\hline
-    \end{tabular}
+      quicker                 &slower\\
+    \end{tblr}
   \end{center}
   \begin{iblock}{How large is the ...}
     \begin{description}
@@ -259,11 +254,8 @@ See also:
   \item The size of a process is thus limited to the size of physical memory
   \end{itemize}
   \begin{center}
-    \mode<beamer>{
-      \includegraphics[width=\textwidth]{static-linking}
-    } \mode<article>{
-      \includegraphics[width=.7\textwidth]{static-linking}
-    }
+    \mode<beamer>{ \includegraphics[width=\textwidth]{static-linking} }%
+    \mode<article>{ \includegraphics[width=.7\textwidth]{static-linking} }
   \end{center}
 \end{frame}
 
@@ -617,12 +609,12 @@ There are also disadvantages:
   \end{iblock}
   Given \alert{logical address space} ($2^m$) and \alert{page size} ($2^n$),
   \begin{small}
-    $$\text{number of pages}=\frac{2^m}{2^n}=2^{m-n}$$
+    \[\text{number of pages}=\frac{2^m}{2^n}=2^{m-n}\]
   \end{small}
   \begin{iblock}{Example: addressing to $0010000000000100$}
-    $$\underbrace{\overbrace{0\,0\,1\,0}^{m-n=4}\,\overbrace{0\,0\,0\,0\,0\,0\,0\,0\,0\,1\,0\,0}^{n=12}}_{m=16}$$
+    \[\underbrace{\overbrace{0\,0\,1\,0}^{m-n=4}\,\overbrace{0\,0\,0\,0\,0\,0\,0\,0\,0\,1\,0\,0}^{n=12}}_{m=16}\]
     \begin{small}
-      $$\text{page number}=0010=2, \quad \text{page offset}=000000000100$$
+      \[\text{page number}=0010=2, \quad \text{page offset}=000000000100\]
     \end{small}
   \end{iblock}
 \end{frame}
@@ -634,13 +626,13 @@ There are also disadvantages:
     \label{fig:paging}
   \end{minipage}\hfill
   \begin{minipage}{.35\textwidth}
-    \begin{tabular}{rl}
-      Virtual pages:  &16\\
-      Page size:      &4k\\
-      Virtual memory:& 64K\\
-      Physical frames:&8\\
-      Physical memory:&32K
-    \end{tabular}
+    \begin{tblr}{colspec={rl}}
+      Virtual pages:   & 16           \\
+      Page size:       & \unit[4]{K}  \\
+      Virtual memory:  & \unit[64]{K} \\
+      Physical frames: & 8            \\
+      Physical memory: & \unit[32]{K} \\
+    \end{tblr}
   \end{minipage}
 \end{frame}
 
@@ -653,14 +645,14 @@ There are also disadvantages:
 
 \begin{frame}{Intel i386 Page Table Entry}
   \begin{itemize}
-  \item Commonly 4 bytes (32 bits) long
-  \item Page size is usually 4k ($2^{12}$ bytes). OS dependent
+  \item Commonly \unit[4]{bytes} (\unit[32]{bits}) long
+  \item Page size is usually \unit[4]{K} (\unit[\(2^{12}\)]{bytes}). OS dependent
     \begin{itemize}
     \item[\$] \texttt{getconf PAGESIZE}
     \end{itemize}
-  \item Could have $2^{32-12}=2^{20}=1M$ pages
+  \item Could have \(2^{32-12}=2^{20}=\unit[1]{M}\) pages
     \begin{itemize}
-    \item[] Could address $1M\times{}4KB=4GB$ memory
+    \item[] Could address \(\unit[1]{M}\times\unit[4]{KB}=\unit[4]{GB}\) memory
     \end{itemize}
   \end{itemize}
   \centering
@@ -703,7 +695,7 @@ There are also disadvantages:
   \begin{minipage}{.4\textwidth}
     \mintinline{nasm}|MOV REG, 32780|?
     \begin{itemize}
-    \item[\Symbol{➠}] Page fault \& swapping
+    \item[\symbola ➠] Page fault \& swapping
     \end{itemize}
   \end{minipage}
 \end{frame}
@@ -731,8 +723,8 @@ There are also disadvantages:
 
 \begin{frame}{Multilevel Page Tables}
   \begin{itemize}
-  \item a $1M$-entry page table eats $4M$ memory
-  \item while 100 processes running, $400M$ memory is gone for page tables
+  \item a \unit[1]{M}-entry page table eats \unit[4]{M} memory
+  \item while 100 processes running, \unit[400]{M} memory is gone for page tables
   \item avoid keeping all the page tables in memory all the time
   \end{itemize}
   \begin{iblock}{A two-level scheme}
@@ -770,20 +762,21 @@ There are also disadvantages:
   \begin{description}
   \item[Given:]\hfill\\[-2ex]
     \begin{itemize}
-    \item $\text{virtual address space} = 64\,bits$
-    \item $\text{page size}=4\,KB=2^{12}\,B$
+    \item virtual address space \(=\) \unit[64]{bits}
+    \item page size \(= \unit[4]{KB} = \unit[2^{12}]{B}\)
     \end{itemize}
   \item[?] How much space would a simple single-level page table take?
     \begin{itemize}
-    \item[if] Each page table entry takes $4\,Bytes$
-    \item[then] The whole page table ($2^{64-12}$ entries) will take
-      \[2^{64-12}\times{}4\,B=2^{54}\,B=16\,PB \quad {\scriptstyle(peta \Rightarrow tera \Rightarrow giga)!}\]
+    \item[if] Each page table entry takes \unit[4]{bytes}
+    \item[then] The whole page table (\(2^{64-12}\) entries) will take
+      \[%
+        2^{64-12}\times{}\unit[4]{B}=\unit[2^{54}]{B}=\unit[16]{PB} \quad {\scriptstyle(peta \Rightarrow tera \Rightarrow giga)!}\]
     \end{itemize}
     And this is for ONE process!
   \item[Multi-level?]\hfill
     \begin{itemize}
-    \item[if] $10\,bits$ for each level
-    \item[then] $\frac{64-12}{10}=5$ levels are required
+    \item[if] \unit[10]{bits} for each level
+    \item[then] \(\frac{64-12}{10}=5\) levels are required
     \end{itemize}
     5 memory access for each address translation!
   \end{description}
@@ -875,10 +868,9 @@ There are also disadvantages:
     % \item at least as large as the page table
   \item maps
     \begin{scriptsize}
-      \begin{tabular}{r}
-        process IDs\\
-        virtual page numbers
-      \end{tabular}
+      \begin{tblr}{r}
+        {process IDs\\virtual page numbers}
+      \end{tblr}
     \end{scriptsize}
     $\Rightarrow{}$page table entries
   \item Since collisions may occur, the page table must do chaining
@@ -922,14 +914,12 @@ There are also disadvantages:
   \item A program is a collection of segments
   \item A segment is a logical unit such as:
     \begin{center}
-      \begin{small}
-        \begin{tabular}{lll}
-          main program&procedure&function\\
-          method&object&local variables\\
-          global variables&common block&stack\\
-          symbol table&arrays
-        \end{tabular}
-      \end{small}
+      \begin{tblr}{colspec={lll},rows={font=\small}}
+        main program&procedure&function\\
+        method&object&local variables\\
+        global variables&common block&stack\\
+        symbol table&arrays\\
+      \end{tblr}
     \end{center}
   \end{itemize}
 \end{frame}
@@ -1003,7 +993,7 @@ There are also disadvantages:
       reside in memory
     \item \alert{limit} specifies the length of the segment
     \end{itemize}
-  \item \alert{Segment-table base register (STBR)} {\pright} the segment table's
+  \item \alert{Segment-table base register (STBR)} {☛} the segment table's
     location in memory
   \item \alert{Segment-table length register (STLR)} indicates number of
     segments used by a program;
@@ -1111,10 +1101,11 @@ See also: \url{http://cseweb.ucsd.edu/classes/fa03/cse120/Lec08.pdf}.
 \begin{frame}{Segment Selector}
   \begin{description}
   \item[A logical address] consists of two parts\par
-      \begin{tabular}{@{}c@{\,}c@{\,}c@{}}
-        {\Large Segment selector}&{\Large:}&{\Large Offset}\\\cline{1-1}\cline{3-3}
+    \begin{tblr}{colspec={ccc},%
+        row{1}={font=\Large},hline{2}={1-1,3-3}{solid},}%
+        Segment selector&:&Offset\\
         16 bits&&32 bits
-      \end{tabular}
+      \end{tblr}
   \item[Segment selector] is an index into GDT/LDT
   \end{description}
     \begin{center}
@@ -1140,11 +1131,11 @@ See also: \url{http://cseweb.ucsd.edu/classes/fa03/cse120/Lec08.pdf}.
     \end{description}
       \begin{iblock}{Analogy}
         \begin{center}
-          \begin{tabular}{rcl}
+          \begin{tblr}{rcl}
             Process&$\Longleftrightarrow$&Process Descriptor(PCB)\\
             File&$\Longleftrightarrow$&Inode\\
-            Segment&$\Longleftrightarrow$&Segment Descriptor
-          \end{tabular}
+            Segment&$\Longleftrightarrow$&Segment Descriptor\\
+          \end{tblr}
         \end{center}
       \end{iblock}
 \end{frame}
@@ -1162,7 +1153,7 @@ See also:
     \item \alert{6 segment registers}, allowing 6 segments to be addressed at
       any one time by a process
       \begin{itemize}
-      \item Each segment register {\pright} an entry in LDT/GDT
+      \item Each segment register {☛} an entry in LDT/GDT
       \end{itemize}
     \item \alert{6 8-byte micro program registers} to hold descriptors from either LDT or GDT
       \begin{itemize}
@@ -1216,42 +1207,49 @@ See also:
       \mode<article>{ \includegraphics[width=.7\textwidth]{ldt-entry-bw} }
     \end{center}
   \end{iblock}{\small
-  \begin{tabularx}{\textwidth}{>{\bfseries}rX|>{\bfseries}rX}
-    Base:&Where the segment starts&Limit:&20 bit, $\Rightarrow{}2^{20}$ in size\\[1ex]
-    G:&Granularity flag\par
-    {\footnotesize\begin{tabular}{r@{\ }l}
-      0 -&seg size in bytes\\
-      1 -&in 4096 bytes\\
-    \end{tabular}}&S:&System flag\par
-  {\footnotesize\begin{tabular}{r@{\ }l}
-      0 -&system seg, e.g. LDT\\
-      1 -&normal code/data seg\\[1ex]
-    \end{tabular}}\\
-    D/B:&
-    {\footnotesize\begin{tabular}{r@{\ }l}
-      0 -&16-bit seg\\
-      1 -&32-bit seg\\
-    \end{tabular}}&Type:&seg type (cs/ds/tss)\\[1.5ex]
-    DPL:&Descriptor Privilege Level. 0 or 3&P:&Seg-Present flag\par
-    {\footnotesize\begin{tabular}{r@{\ }l}
-      0 -&not in memory\\\
-      1 -&in memory\\[1ex]
-    \end{tabular}}\\
-    AVL:&ignored by Linux&&\\
-  \end{tabularx}}
+    \begin{multicols}{2}
+      \begin{itemize}
+      \item[Base:] Where the segment starts
+      \item[G:] Granularity flag\par
+        \begin{itemize}
+        \item[0] -- seg size in bytes
+        \item[1] -- in 4096 bytes
+        \end{itemize}
+    \item[D/B:]
+      \begin{itemize}
+      \item[0] -- 16-bit seg          
+      \item[1] -- 32-bit seg
+      \end{itemize}
+    \item[DPL:] Descriptor Privilege Level. 0 or 3
+    \item[AVL:] ignored by Linux
+    \item[Limit:] 20 bit, \(\Rightarrow{}2^{20}\) in size
+    \item[S:] System flag\par
+      \begin{itemize}
+      \item[0] -- system seg, e.g. LDT
+      \item[1] -- normal code/data seg
+      \end{itemize}
+    \item[Type:] seg type (cs/ds/tss)
+    \item[P:] Seg-Present flag\par
+      \begin{itemize}
+      \item[0] -- not in memory
+      \item[1] -- in memory
+      \end{itemize}
+    \end{itemize}
+  \end{multicols}}
 \end{frame}
 
 \begin{frame}{The Four Main Linux Segments}
   \begin{iblock}{Every process in Linux has these 4 segments}
-    \begin{center}\ttfamily
-      \begin{tabular}{*{9}l}
-        \hline
-        Segment&Base&G&Limit&S&Type&DPL&D/B&P\\\hline
+    \begin{center}
+      \begin{tblr}{colspec={lllllllll},hline{1,2,Z},
+          cell{2-5}{2-9}={font=\ttfamily}%
+        }
+        Segment&Base&G&Limit&S&Type&DPL&D/B&P\\
         user code&0x00000000&1&0xfffff&1&10&3&1&1\\
         user data&0x00000000&1&0xfffff&1&2&3&1&1\\
         kernel code&0x00000000&1&0xfffff&1&10&0&1&1\\
-        kernel data&0x00000000&1&0xfffff&1&2&0&1&1\\\hline
-      \end{tabular}
+        kernel data&0x00000000&1&0xfffff&1&2&0&1&1\\
+      \end{tblr}
     \end{center}
   \end{iblock}
   \begin{itemize}
@@ -1303,8 +1301,8 @@ See also:
     \mbox{Two page size in Pentium:}
     \begin{small}
       \begin{itemize}
-      \item[4K:] \mbox{2-level paging}% (Fig.~\ref{fig:2levelpaging})}
-      \item[4M:] \mbox{1-level paging}% (Fig.~\ref{fig:paging})}
+      \item[4\,K:] \mbox{2-level paging}% (Fig.~\ref{fig:2levelpaging})}
+      \item[4\,M:] \mbox{1-level paging}% (Fig.~\ref{fig:paging})}
       \end{itemize}
     \end{small}
     \begin{center}
@@ -1320,7 +1318,7 @@ See also:
 \end{frame}
 
 \begin{itemize}
-\item The CR3 register {\pright} the top level page table for the current process.
+\item The CR3 register {☛} the top level page table for the current process.
 \end{itemize}
 
 % \begin{frame}
@@ -1358,51 +1356,16 @@ See also:
     \end{iblock}
   \end{minipage}
   \begin{center}
-    \begin{tabular}{llccr}
-      \hline
-      Arch&Page size&Address bits&Paging levels&Address splitting\\\hline
-      x86 &4KB(12bits) &32 &2 &$10+0+0+10+12$\\
-      x86-PAE&4KB(12bits)&32&3&$2+0+9+\hspace{.6em}9+12$\\
-      x86-64&4KB(12bits)&48&4&$9+9+9+\hspace{.6em}9+12$\\\hline
-    \end{tabular}
+    \begin{tblr}{colspec={llccr},hline{1,2,Z},%
+        cell{2-4}{5}={font=\ttfamily},
+      }
+      Arch&Page size&Address bits&Paging levels&Address splitting\\
+      x86 &\unit[4]{KB} (\unit[12]{bits}) &32 &2 &10+0+0+10+12\\
+      x86-PAE&\unit[4]{KB} (\unit[12]{bits})&32&3&2+0+9+\enskip9+12\\
+      x86-64&\unit[4]{KB} (\unit[12]{bits})&48&4&9+9+9+\enskip9+12\\
+    \end{tblr}
   \end{center}
 \end{frame}
-
-\subsection{Demand Paging}
-
-\begin{frame}{Demand Paging}
-  \begin{iblock}{With demand paging, the size of the LAS is no longer constrained by
-      physical memory}
-    \begin{itemize}
-    \item Bring a page into memory only when it is needed
-      \begin{itemize}
-      \item[\good] Less I/O needed
-      \item[\good] Less memory needed
-      \item[\good] Faster response
-      \item[\good] More users
-      \end{itemize}
-    \item When page is needed (referenced)
-      \begin{itemize}
-      \item invalid reference $\Rightarrow$ abort
-      \item not-in-memory $\Rightarrow$ bring to memory
-      \end{itemize}
-    % \item \alert{Lazy swapper} - never swaps a page into memory unless page will
-    %   be needed
-    %   \begin{itemize}
-    %   \item \alert{Swapper} deals with entire processes
-    %   \item \alert{Pager (Lazy swapper)} deals with pages
-    %   \end{itemize}
-    \end{itemize}
-  \end{iblock}
-\end{frame}
-
-In the purest form of paging, processes are started up with none of their pages in
-memory. As soon as the CPU tries to fetch the first instruction, it gets a page fault,
-causing the operating system to bring in the page containing the first instruction. Other
-page faults for global variables and the stack usually follow quickly. After a while, the
-process has most of the pages it needs and settles down to run with relatively few page
-faults. This strategy is called \emph{demand paging} because pages are loaded only on
-demand, not in advance\citetitle[Sec.~3.4.8]{tanenbaum2015modern}.
 
 \subsection{Copy-on-Write}
 
@@ -1443,6 +1406,42 @@ demand, not in advance\citetitle[Sec.~3.4.8]{tanenbaum2015modern}.
     \includegraphics[width=1.15\textwidth]{osc-9-54}
   \end{minipage}
 \end{frame}
+
+\subsection{Demand Paging}
+
+\begin{frame}{Demand Paging}
+  \begin{iblock}{With demand paging, the size of the LAS is no longer constrained by
+      physical memory}
+    \begin{itemize}
+    \item Bring a page into memory only when it is needed
+      \begin{itemize}
+      \item[☺] Less I/O needed
+      \item[☺] Less memory needed
+      \item[☺] Faster response
+      \item[☺] More users
+      \end{itemize}
+    \item When page is needed (referenced)
+      \begin{itemize}
+      \item invalid reference $\Rightarrow$ abort
+      \item not-in-memory $\Rightarrow$ bring to memory
+      \end{itemize}
+    % \item \alert{Lazy swapper} - never swaps a page into memory unless page will
+    %   be needed
+    %   \begin{itemize}
+    %   \item \alert{Swapper} deals with entire processes
+    %   \item \alert{Pager (Lazy swapper)} deals with pages
+    %   \end{itemize}
+    \end{itemize}
+  \end{iblock}
+\end{frame}
+
+In the purest form of paging, processes are started up with none of their pages in
+memory. As soon as the CPU tries to fetch the first instruction, it gets a page fault,
+causing the operating system to bring in the page containing the first instruction. Other
+page faults for global variables and the stack usually follow quickly. After a while, the
+process has most of the pages it needs and settles down to run with relatively few page
+faults. This strategy is called \emph{demand paging} because pages are loaded only on
+demand, not in advance\citetitle[Sec.~3.4.8]{tanenbaum2015modern}.
 
 \subsection{Page Replacement Algorithms}
 
@@ -1519,21 +1518,21 @@ See also:
   \item Reference string: 1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5
   \item 3 frames (3 pages can be in memory at a time per process)
     \begin{center}
-      \begin{tabular}{cccc}
+      \begin{tblr}{colspec={cccc},rowsep=0pt}
         \fbox{1}&4&5&3\\
         \fbox{2}&1&\strike{1}&4\\
-        \fbox{3}&2&\strike{2}&\strike{5}
-      \end{tabular}\qquad
+        \fbox{3}&2&\strike{2}&\strike{5}\\
+      \end{tblr}\qquad
       9 page faults
     \end{center}
   \item 4 frames
     \begin{center}
-      \begin{tabular}{ccc}
+      \begin{tblr}{colspec={ccc},rowsep=0pt}
         \fbox{1}&\strike{1}&2\\
         \fbox{2}&\strike{2}&3\\
         \fbox{3}&5&4\\
         \fbox{4}&1&5
-      \end{tabular}\qquad\quad
+      \end{tblr}\qquad\quad
       10 page faults
     \end{center}
   \item Belady's Anomaly: \alert{more frames $\Rightarrow$ more page faults}
@@ -1828,16 +1827,16 @@ good performance, it is widely used in practice\citetitle[Sec~3.4.9]{tanenbaum20
 \begin{frame}{Other Issues --- Page Size}%{There is no single best page size}
   Larger page size
   \begin{itemize}
-  \item[\alert{\bad}] Bigger internal fragmentation
-  \item[\alert{\bad}] longer I/O time
+  \item[\alert{☹}] Bigger internal fragmentation
+  \item[\alert{☹}] longer I/O time
   \end{itemize}
   Smaller page size
   \begin{itemize}
-  \item[\alert{\bad}] Larger page table
-  \item[\alert{\bad}] more page faults
+  \item[\alert{☹}] Larger page table
+  \item[\alert{☹}] more page faults
     \begin{itemize}
-    \item one page fault for each byte, if $\text{page size} = 1 \text{ Byte}$
-    \item for a $200K$ process, with $\text{page size} = 200K$, only one page fault
+    \item one page fault for each byte, if page size \(= \unit[1]{Byte}\)
+    \item for a \unit[200]{K} process, with page size \(= \unit[200]{K}\), only one page fault
     \end{itemize}
   \end{itemize}
   No best answer
@@ -1853,7 +1852,7 @@ good performance, it is widely used in practice\citetitle[Sec~3.4.9]{tanenbaum20
     \item Otherwise there is a high degree of page faults
     \end{itemize}
   \item \alert{TLB Reach} --- The amount of memory accessible from the TLB
-    $$\textit{TLB Reach} = (\textit{TLB Size}) \times (\textit{Page Size})$$
+    \[\textit{TLB Reach} = \textit{TLB Size} \times \textit{Page Size}\]
   \item Increase the page size
     \begin{itemize}
     \item[] Internal fragmentation may be increased
@@ -1863,8 +1862,9 @@ good performance, it is widely used in practice\citetitle[Sec~3.4.9]{tanenbaum20
     \item This allows applications that require larger page sizes the opportunity to use
       them without an increase in fragmentation
       \begin{itemize}
-      \item UltraSPARC supports page sizes of $8KB$, $64KB$, $512KB$, and $4MB$
-      \item Pentium supports page sizes of $4KB$ and $4MB$
+      \item UltraSPARC supports page sizes of \unit[8]{KB}, \unit[64]{KB}, \unit[512]{KB},
+        and \unit[4]{MB}
+      \item Pentium supports page sizes of \unit[4]{KB} and \unit[4]{MB}
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -1915,7 +1915,7 @@ good performance, it is widely used in practice\citetitle[Sec~3.4.9]{tanenbaum20
   \end{iblock}
 \end{frame}
 
-See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz11essentials}.
+See also: \citetitle[Sec.~8.9.5, \emph{Program Structure}]{silberschatz13essentials}.
 
 \begin{frame}{Other Issues --- I/O interlock}
   Sometimes it is necessary to lock pages in memory so that they are not paged out.

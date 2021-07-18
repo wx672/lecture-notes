@@ -1,13 +1,27 @@
-% \newcommand{\unix}{{\fontspec{Purisa}{UNIX}}}
-% \newcommand{\emacs}{\includegraphics[width=1.2em]{emacs-icon}}
-% \newcommand{\google}{\raisebox{-.2em}{\includegraphics[width=3em]{google}}}
-% \newcommand{\GG}{\textcolor{SkyBlue}{\nerd }}
-% \newcommand{\world}{\textcolor{blue}{\nerd }}
+\newcommand{\GG}{\textcolor{SkyBlue}{\nerd }}
+\newcommand{\world}{\textcolor{blue}{\nerd }}
 \newcommand{\iOS}{\textcolor{orange}{\nerd }}
-% \newcommand{\moodle}{\includegraphics[width=1em]{moodle}}
+%\newunicodechar{}{{\nerd }}%tux linux
+\newcommand{\linux}{{\nerd }}
+\newcommand{\openbook}{{\nerd }}
+% \newunicodechar{🕮}{\symbola 🕮}%openbook
+% \newunicodechar{}{{\nerd }}%openbook
 
 \title{GNU/Linux}
-\author{WANG Xiaolin\\{\footnotesize \texttt{wx672ster+linux@gmail.com}}}
+
+\author{WANG Xiaolin\\%
+  {\footnotesize\texttt{wx672ster+linux@gmail.com}}}
+
+\titlegraphic{%
+  \begin{tikzpicture}[overlay,remember picture]%
+    \node at (current page.north east) [anchor=north east]{%
+      \includegraphics[width=1in]{qr-linux}%
+    };
+    \node at (current page.south west) [anchor=south west]{%
+      \includegraphics[width=1in]{qr-linux-b}%
+    };
+  \end{tikzpicture}
+}
 
 \begin{document}
 
@@ -25,43 +39,14 @@
     0.77\%
   \item[?] \textcolor{Green}{\rule{.0566\textwidth}{2mm}}\, 5.66\%
   \end{itemize}
-  \begin{flushright}
-    \tiny \url{http://gs.statcounter.com}
-  \end{flushright}
+
   \begin{center}
     \Huge\purisa Why Linux?
   \end{center}
-  
-  % \begin{tikzpicture}[%
-%     every node/.style = {inner sep=0,font=\purisa},%
-%     help lines/.style = {ultra thin,dotted},%
-%     xy/.style = {font=\ttfamily\tiny,inner sep=1pt},%
-%     ]%
-%     %%% background image
-%     \visible<1->{
-%       \node[anchor=south west] (image) at (0,0)%
-%       {};%\includegraphics[width=\textwidth]{desktop-marketshare}
-%     }
-%     \begin{scope}[x={(image.south east)},y={(image.north west)}]%
-%       % %%% grid
-%       % \draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);%
-%       % \foreach \x in {0,1,...,9} { \node [xy,anchor=north] at (\x/10,0) {0.\x}; }%
-%       % \foreach \y in {0,1,...,9} { \node [xy,anchor=east] at (0,\y/10) {0.\y}; }%
-
-%       %%% start annotating here %%%
-%       \visible<2-3>{\node at (.4,.4)[scale=3,rotate=-30,NavyBlue]  {Why Linux?};}%
-%       \visible<3>{\node at (.55,.5) [scale=2,rotate=25,red]%
-%         {\textbf{Computer $\neq$ Desktop}};}%
-%       \visible<4>{%
-%         \node at (.2, .8) [scale=1.5,rotate=30,blue!70] {Desktop};%
-%         \node at (.9, .9)[scale=1.5,rotate=-30,violet] {Server};%
-%         \node at (.8, .2) [scale=1.5,rotate=25,Green] {Smart Phone};%
-%         \node at (.65,.9 ) [scale=1.5,rotate=20,brown] {Tablet};%
-%       }
-%       \visible<5>{\node at (.5,.5) [scale=5,align=center,red,font=\fontspec{Humor Sans}]%
-%         {Everything\\is a\\computer!};}%
-%   \end{scope}
-% \end{tikzpicture}
+  \vfill
+  \begin{flushright}
+    \scriptsize \url{http://gs.statcounter.com}
+  \end{flushright}
 \end{frame}
 
 \begin{frame}{OS Market Shares}{June 2019}
@@ -80,7 +65,7 @@
     \end{description}
   \end{block}
   \begin{flushright}
-    \tiny \url{http://gs.statcounter.com}
+    \scriptsize \url{http://gs.statcounter.com}
   \end{flushright}
 \end{frame}
 
@@ -90,7 +75,7 @@
 
 \begin{frame}{No Textbook}%\openbook
   \begin{itemize}
-  \item[\nerd{}] Do you need a book to learn riding a\hspace{.5ex} {\nerd } ?
+  \item[\nerd{}] Do you need a book to learn riding a\hspace{.5ex} {\LARGE\nerd } ?%
   \item[{\GG}]\google
     \begin{itemize}{\ttfamily
       \item[\small{\GG}] "linux command line tutorial"
@@ -99,9 +84,14 @@
       \item[\small{\GG}] "linux programming tutorial"}
     \end{itemize}
   \item[$\mathbb{E}$] {\purisa English}
-  \item[\moodle] \url{https://cs6.swfu.edu.cn/moodle}
+  \item[\moodle] \url{https://cs6.swfu.edu.cn/moodle/course/view.php?id=13}
   \item[{\small\openbook}] \url{https://cs6.swfu.edu.cn/calibre}
   \end{itemize}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node at (current page.north east) [anchor=north east] {
+      \includegraphics[width=1.2in]{qr-calibre}
+    };
+  \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Homework}
@@ -115,10 +105,15 @@
     \end{enumerate}
   \end{block}
   \begin{itemize}
-  \item[\moodle] \url{https://cs6.swfu.edu.cn/moodle/course/view.php?id=13}
+  \item[\moodle]
+    \url{https://cs6.swfu.edu.cn/moodle/mod/forum/view.php?id=251}
   \item[\Large\dejavu ✉] \alert{\ttfamily wx672ster+linux@gmail.com}
   \item[$\mathbb{E}$] Preferably in English
   \end{itemize}
+  \begin{tikzpicture}[overlay,remember picture]
+    \node at (current page.north east) [anchor=north east]{
+      \includegraphics[width=1.2in]{cs6-linux-homework} };
+  \end{tikzpicture}
 \end{frame}
 
 \section[History]{A Short History}
@@ -154,18 +149,23 @@
 
 \begin{frame}{Meet The Parents}
   \begin{center}
-    \begin{tabularx}{\linewidth}{*{4}{C}}
-      \includegraphics[height=6em]{ritchie}&\includegraphics[height=6em]{thompson}&
-      \includegraphics[height=6em]{rms}&\includegraphics[height=6em]{linus}\\
-      {\scriptsize {\purisa Ritche}}&
-      {\scriptsize {\purisa Thompson}}&
-      {\scriptsize {\purisa RMS}}&
+    \begin{tblr}{colspec={X[c]X[c]X[c]X[c]},%
+        cell{4}{1}={c=2}{c,m}
+        }
+      \includegraphics[height=6em]{ritchie}&%
+      \includegraphics[height=6em]{thompson}&%
+      \includegraphics[height=6em]{rms}&%
+      \includegraphics[height=6em]{linus}\\
+      {\scriptsize {\purisa Ritche}}&%
+      {\scriptsize {\purisa Thompson}}&%
+      {\scriptsize {\purisa RMS}}&%
       {\scriptsize {\purisa Linus}}\\
       &&&\\
-      \multicolumn{2}{c}{\textbf{\textcolor{gray}{\Huge\unix}}}&
-      \scalebox{6.5}{\nerd }&
+      {\textbf{\textcolor{gray}{\Huge\unix}}}&&%
+      %\multicolumn{2}{c}{\textbf{\textcolor{gray}{\Huge\unix}}}&
+      \scalebox{6.5}{\nerd }&%
       \scalebox{5}{\linux}\\
-    \end{tabularx}
+    \end{tblr}
   \end{center}
 \end{frame}
 
@@ -207,13 +207,12 @@
 
 \begin{frame}{The most active companies over the 3.19 to 4.7 development cycles}
   \begin{center}{\small
-    \begin{tabular}{@{}l@{}rr|l@{}rr}
-      \hline
-      \thead{Company} & \thead{Changes} & \thead{Percent} & \thead{Company} & \thead{Changes} & \thead{Percent} \\\hline
+    \begin{tblr}{colspec={lrrlrr},vline{4},hline{1,2,Z},rowsep=0pt}
+      Company             & Changes & Percent & Company                  & Changes & Percent \\
       Intel               & 14,384  & 12.9\%  & Outtreachy               & 1,524   & 1.4\%   \\
       RedHat              & 8,987   & 8.0\%   & Vision Engraving Systems & 1,456   & 1.3\%   \\
-      \alert{none} & 8,571   & 7.7\%   & Free Electrons           & 1,453   & 1.3\%   \\
-      \alert{unknown} & 7,582   & 6.8\%   & NXP Semiconductors       & 1,445   & 1.3\%   \\
+      \alert{none}        & 8,571   & 7.7\%   & Free Electrons           & 1,453   & 1.3\%   \\
+      \alert{unknown}     & 7,582   & 6.8\%   & NXP Semiconductors       & 1,445   & 1.3\%   \\
       Linaro              & 4,515   & 4.0\%   & Mellanox                 & 1,404   & 1.3\%   \\
       Samsung             & 4,338   & 3.9\%   & Atmel                    & 1,362   & 1.2\%   \\
       SUSE                & 3,619   & 3.2\%   & Broadcom                 & 1,237   & 1.1\%   \\
@@ -224,8 +223,8 @@
       AMD                 & 2,100   & 1.9\%   & Facebook                 & 877     & 0.8\%   \\
       Texas Instruments   & 1,917   & 1.7\%   & Pengutronix              & 790     & 0.7\%   \\
       ARM                 & 1,617   & 1.4\%   & Cisco                    & 692     & 0.6\%   \\
-      Oracle              & 1,528   & 1.4\%   & Qualcomm                 & 656     & 0.6\%   \\\hline
-    \end{tabular}}
+      Oracle              & 1,528   & 1.4\%   & Qualcomm                 & 656     & 0.6\%   \\
+    \end{tblr}}
   \end{center}
 \end{frame}
 
@@ -267,12 +266,12 @@
     \begin{description}
     \item[Apache:] the leading web server in the world\\[1ex]
       {\footnotesize
-        \begin{tabular}{rl}
+        \begin{tblr}{colspec={rl},cell{4}{2}={r,font=\tiny},}
           \textcolor{Red}{Apache}&\textcolor{Red}{\rule{.448\textwidth}{2mm}}\,44.8\%\\
           \textcolor{Green}{Nginx} &\textcolor{Green}{\rule{.401\textwidth}{2mm}}\,40.1\%\\
           \textcolor{Blue}{MS IIS}&\textcolor{Blue}{\rule{.084\textwidth}{2mm}}\,8.4\%\\
-          &\makecell[r]{\tiny\emph{(\url{http://W3Techs.com}, 5 July 2019)}}
-        \end{tabular}}
+          &(\url{http://W3Techs.com}, 5 July 2019)\\
+        \end{tblr}}
     \item[MySQL, PostgreSQL:] popular DBs used among websites
     \item[Perl, PHP, Python:] very hot scripting language% for web development
 %    \item[:] the most powerful scripting language in the world
@@ -311,20 +310,28 @@
 \end{frame}
 
 \begin{frame}{More Facts}{Top10 Programming Languages}
-  \begin{center}
-    \includegraphics[width=\textwidth]{trends-tiobe}
-  \end{center}
-  \vfill \flushright{\href{https://www.tiobe.com/tiobe-index//}{\emph{{\tiny TIOBE Index
-          for July 2017}}}}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node (tiobe) at (current page.center) [scale=.22]
+    {\includegraphics{trends-tiobe}};
+
+    \node at (tiobe.south east) [anchor=north east]{%
+      \href{https://www.tiobe.com/tiobe-index//}{%
+        \emph{{\tiny TIOBE Index for September 2022}}}};
+  \end{tikzpicture}
+  % \vfill \flushright{\href{https://www.tiobe.com/tiobe-index//}{\emph{{\tiny TIOBE Index
+  %         for September 2022}}}}
 \end{frame}
 
 \begin{frame}{More Facts}{Databases}
-  \begin{center}
-    \includegraphics[width=\textwidth]{db-ranking}
-  \end{center}
-  \vfill
-  \flushright{\href{http://db-engines.com/en/ranking_trend/relational+dbms}{{\tiny
-        \emph{DB-Engines Ranking --- Trend of Relational DBMS Popularity}}}} 
+  \begin{tikzpicture}[remember picture,overlay]
+    \node (db) at (current page.center) [scale=.22]{%
+      \includegraphics{trends-db}};
+
+    \node at (db.south east) [anchor=north east,font=\tiny]{%
+      \href{http://db-engines.com/en/ranking_trend/relational+dbms}{
+        {\emph{DB-Engines Ranking --- Trend of Relational DBMS Popularity}}}
+      };
+  \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Smartphone Market Share}

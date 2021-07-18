@@ -1,0 +1,168 @@
+% Created 2021-12-31 Fri 10:55
+% Intended LaTeX compiler: pdflatex
+\documentclass{article} [NO-DEFAULT-PACKAGES] \usepackage{wx672hyperref}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{tabularray}
+\usepackage{wx672minted}
+\pagestyle{plain}
+\author{Xiaolin Wang}
+\date{\today}
+\title{Hacking with Linux networking command line tools}
+\hypersetup{
+ pdfauthor={Xiaolin Wang},
+ pdftitle={Hacking with Linux networking command line tools},
+ pdfkeywords={ssh, tmux, http, ftp, smtp, iptables, network, networking},
+ pdfsubject={Network lab tutorial week},
+ pdfcreator={Emacs 27.1 (Org mode 9.4.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Caution}
+\label{sec:orgbcfde5a}
+\begin{itemize}
+\item You must submit your report as a \texttt{tar ball} in which the following files should be
+included:
+
+\begin{enumerate}
+\item Your report in either \texttt{Emacs Org} or \texttt{Markdown} format, and a HTML file
+generated from your \texttt{org} or \texttt{md} file.
+
+Tips: 
+\begin{itemize}
+\item In Emacs, press \texttt{C-c C-e h h} to export HTML file from your org file;
+
+\item For \texttt{Markdown} to HTML, you can try \texttt{markdown}, \texttt{pandoc}, \texttt{cmark}, whatever.
+
+\item This page itself is generated from an \href{proj-week.org}{org file (proj-week.org)}. You can take it
+as an example.
+
+\item Report template: \href{20201152xxx.org}{\texttt{org file}}, \href{20201152xxx.html}{\texttt{html file}}, \href{20201152xxx.md}{\texttt{markdown file}}
+\end{itemize}
+
+\item your bash script for a HTTP demostration;
+
+\item a \texttt{ttyrec} file recording your operations (\texttt{man ttyrec});
+\end{enumerate}
+
+\noindent\rule{\textwidth}{0.5pt}
+\begin{enumerate}
+\item Here's how :: 
+\begin{enumerate}
+\item make a directory, e.g. 20201159xxx. In this directory, try very hard to make all
+the files available.
+
+\begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{sh}
+mkdir  20201159xxx
+cd 20201159xxx
+emacsclient tmux-http.sh # write your script
+emacsclient 20201159xxx.org # this is your report
+vim 20201159xxx.md # in markdown format
+ttyrec http-demo.ttyrec # make your demo screencast
+\end{minted}
+
+\item make a tar ball.
+\begin{verbatim}
+cd ..
+tar zcf 20201159xxx.tgz 20201159xxx
+ls -l # make sure your tar ball is smaller than 1MB in size         
+\end{verbatim}
+
+\item upload the \texttt{tgz} file to our \href{https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536}{moodle site}.
+\end{enumerate}
+\end{enumerate}
+
+\noindent\rule{\textwidth}{0.5pt}
+\end{itemize}
+
+\begin{itemize}
+\item Here is a short tutorial about writing lab report: \href{tutorial.ttyrec}{\texttt{tutorial.ttyrec}}. To view it:
+
+\begin{verbatim}
+ttyplay  tutorial.ttyrec
+\end{verbatim}
+
+
+Feel free to make your own \texttt{ttyrec} file while doing this lab work. For example:
+
+\begin{verbatim}
+ttyrec  20201159xxx-http.ttyrec
+ttyrec  20201159xxx-email.ttyrec
+ttyrec  20201159xxx-ftp.ttyrec
+\end{verbatim}
+
+\item \textbf{Deadline:} \textit{<2021-10-31 Sun> } 
+
+\begin{itemize}
+\item Submit your report as a \texttt{tgz} file \href{https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536}{here}. In your \texttt{tgz} file, there must be:
+\begin{enumerate}
+\item your report in \texttt{org} or \texttt{markdown} format
+\item your report in HTML format
+\item your bash script for demostrating a HTTP session
+\item one or more \texttt{ttyrec} files for demostrating whatever you did
+\end{enumerate}
+
+\item Late reports will be penalized 20\% per day.
+\end{itemize}
+
+\item MS-word file will \textbf{NOT} be accepted. Cheating will result in automatic failure of this
+work.
+\end{itemize}
+
+\section{\texttt{tmux, nc, ip, tcpdump, ss, nmap, curl}}
+\label{sec:orga451444}
+
+Here are the bash scripts I used in the class for demostrating how some protocols work.
+
+\begin{itemize}
+\item \href{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/network\_basics/scripts/tmux-demo-3way.handshake.sh}{TCP three-way handshake}
+\item \href{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/network\_basics/scripts/tmux-demo-udp.sh}{UDP}
+\item \href{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/network\_basics/scripts/tmux-demo-smtp.sh}{SMTP} (need a SMTP server)
+\item \href{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/network\_basics/scripts/tmux-demo-ftp.sh}{FTP} (need a FTP server)
+\end{itemize}
+
+\noindent\rule{\textwidth}{0.5pt}
+
+\begin{description}
+\item[{Your tasks}] (Deadline: \textit{<2021-10-31 Sun>})
+
+\begin{enumerate}
+\item Run the above scripts to get familar with these tools, and get a thorough understanding about these protocols;
+
+\item Packet analysis. Upon running the following command:
+
+\begin{verbatim}
+sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
+\end{verbatim}
+
+
+the following packet is captured:
+
+\begin{verbatim}
+08:34:10.790666 IP (tos 0x0, ttl 64, id 12824, offset 0, flags [DF],
+proto TCP (6), length 64)
+127.0.0.1.46668 > 127.0.0.1.3333: Flags [P.], seq 2400005725:2400005737,
+ack 373279396, win 512, options [nop,nop,TS val 3259949783 ecr 3259896343],
+length 12
+    0x0000:  4500 0040 3218 4000 4006 0a9e 7f00 0001  E..@2.@.@.......
+    0x0010:  7f00 0001 b64c 0d05 8f0d 2e5d 163f caa4  .....L.....].?..
+    0x0020:  8018 0200 fe34 0000 0101 080a c24e e2d7  .....4.......N..
+    0x0030:  c24e 1217 6865 6c6c 6f20 776f 726c 640a  .N..hello.world.
+\end{verbatim}
+
+\begin{enumerate}
+\item Tell me the meaning of each option used in the previous command;
+
+\item Please analyze this captured packet and explain it to me as detailed as you can.
+\end{enumerate}
+
+\item Write a similar script showing how HTTP works (you need \texttt{curl});
+
+\item Record your HTTP demo session with \texttt{ttyrec}.
+\end{enumerate}
+\end{description}
+\end{document}

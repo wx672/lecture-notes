@@ -1,0 +1,56 @@
+digraph{
+	node [fontname=handlee];
+	
+	{
+		rank=same;
+		editor [label="Editor\n(emacs)"];
+		editorcmd [label="$ emacs hello.c", shape=plaintext];
+	}
+	
+	src [label="C source code\n(hello.c)", shape=rect];
+	stdio [label="Include files, macros\n(stdio.h)", shape=rect];
+	
+	{
+		rank=same;
+		cpp [label="C Preprocessor\n(cpp)"];
+		cppcmd [label="$ cpp hello.c\l$ gcc -E hello.c", shape=plaintext];
+	}
+	
+	extsrc [label="Extended C source code\n(hello.c)", shape=rect];
+
+	{
+		rank=same;
+		gcc [label="Compiler\n(gcc)"];
+		gcccmd [label="$ gcc -S hello.c", shape=plaintext];
+	}
+	
+	asmsrc [label="ASM source code\n(hello.s)", shape=rect];
+	
+	{
+		rank=same;
+		gas [label="Assembler\n(gas)"];
+		gascmd [label="$ gcc -c hello.c", shape=plaintext];
+	}
+	
+	obj [label="Object code\n(hello.o)", shape=rect];
+	lib [label="Libraries\n(printf)", shape=rect];
+
+	{
+		rank=same;
+		ld [label="Linker\n(ld)"];
+		ldcmd [label="$ ld hello.o LIBs\l$ gcc -o hello hello.c", shape=plaintext];
+	}
+	
+	exe [label="Executable program\n(hello)", shape=rect];
+
+	{
+		rank=same;
+		gdb [label="Debugger\n(gdb)"];
+		gdbcmd [label="$ gcc -g hello.c -o hello\l$ gdb hello", shape=plaintext];
+	}
+
+	editor -> src -> cpp -> extsrc -> gcc -> asmsrc -> gas -> obj -> ld -> exe -> gdb;
+	stdio -> cpp; lib -> ld;
+	{rank=same; src; stdio}
+	{rank=same; obj; lib}	
+}

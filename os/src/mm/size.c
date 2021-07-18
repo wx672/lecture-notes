@@ -7,10 +7,10 @@
  */
 
 /* uninitialized global data will be stored in BSS segment */
- char x[1024000]; 
+ /* char x[1024000];  */
 
 /* initialized global data will be stored in DATA segment */
-/* char x[1024000]={[1 ... 1023999] = 1}; //GCC-only syntax */
+char x[1024000]={[1 ... 1023999] = 1}; //GCC-only syntax
  //char x[1024000]={1};  
 
 #include<unistd.h>

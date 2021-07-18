@@ -132,23 +132,25 @@ See also \citetitle{wiki:googleproducts}
 \begin{frame}{Choosing The Right Tools}
   \mode<beamer>{
     \begin{center}
-      \begin{tabularx}{.7\linewidth}{CCC}
+      \begin{tblr}{width=.7\linewidth,colspec=X[c]X[c]X[c],rowsep=0pt,%
+          cell{Z}{1}={c=3}{c}%
+        }
         \raisebox{1ex}{\scalebox{5}{\win}}%
         &\includegraphics[height=5em]{linuxlogo}%
         &\includegraphics[height=5em]{applelogo}\\[2ex]
         \raisebox{2ex}{\scalebox{5}{\ie}}%
         &\includegraphics[height=5em]{firefox}%
         &\includegraphics[height=5em]{gchrome}\\[2ex]
-        \multicolumn{3}{c}{\scalebox{3}{\googleg}\quad\textcolor{gray}{{\Large vs.}}\quad\scalebox{3}{\baidu}}
-      \end{tabularx}
+        {\scalebox{3}{\googleg}\quad\textcolor{gray}{{\Large vs.}}\quad\scalebox{3}{\baidu}}
+      \end{tblr}
     \end{center}}%
   \mode<article>{
     \begin{center}
-      \begin{tabular}{ccc}
-        \win[false] & \linux & \apple[false] \\
+      \begin{tblr}{colspec={ccc},rowsep=0pt,cell{3}{1}={c=3}{c}}
+        \win[false] &  & \apple[false] \\
         \ie[false] & \firefox & \chrome[false] \\
-        \multicolumn{3}{c}{\googleg[false] vs. \baidu[false]}
-      \end{tabular}
+        \googleg[false] vs. \baidu[false]\\
+      \end{tblr}
     \end{center}}
 \end{frame}
 
@@ -298,17 +300,28 @@ See also: \citetitle{wiki:netarch}
 
 \begin{frame}{Basic Hardware Components}
   \begin{center}
-    \begin{tabular}{r|rlrlrl}\midrule
-      IP&&&&&
-      Router:&\includegraphics[width=1cm]{router}\\\midrule
+    \begin{tblr}{colspec={r|rlrlrl},hlines}
+      IP&&&&&Router:&\includegraphics[width=1cm]{router}\\
       Link&&&
       Bridge:&\raisebox{-7pt}{\includegraphics[width=1cm]{bridge}}&
-      Switch:&\raisebox{-7pt}{\includegraphics[width=1cm]{cisco-switch}}\\\midrule
+      Switch:&\raisebox{-7pt}{\includegraphics[width=1cm]{cisco-switch}}\\
       PHY&NIC:&\raisebox{-5pt}{\includegraphics[width=1cm]{nic}}&
       Repeater:&\raisebox{-5pt}{\includegraphics[width=1cm]{repeater}}&
-      Hub:&\raisebox{-7pt}{\includegraphics[width=1cm]{hub}}\\\midrule
-    \end{tabular}
+      Hub:&\raisebox{-7pt}{\includegraphics[width=1cm]{hub}}\\
+    \end{tblr}
   \end{center}
+\end{frame}
+
+\begin{frame}\mode<beamer>{\frametitle{Repeater, Hub}}
+  \begin{description}
+  \item[Repeater] connects network segments at the physical layer.
+  \item[Hub] a multi-port repeater 
+  \end{description}
+  \begin{itemize}
+  \item simple, cheap
+  \item Repeaters/Hubs do NOT isolate collision domains.
+  \item 100m maximum
+  \end{itemize}    
 \end{frame}
 
 \subsection{Network Architecture}
@@ -339,19 +352,6 @@ incoming packets will face a 1-to-N situation. The value of the \emph{type} fiel
 Ethernet frame determines whether the Ethernet frame is passed to the ARP or the IP
 module. The \emph{protocol} field in the IP header, and the port number in TCP/UDP header
 serve in a similar way.
-
-\begin{frame}{{\tcpip{}} Protocol Stack}
-  \begin{iblock}{Every networked computer has it inside}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[width=.8\textwidth]{stack} }%
-      \mode<article>{ \includegraphics[width=.4\textwidth]{stack} }
-    \end{center}
-  \end{iblock}
-\end{frame}
-
-See also: \citetitle[Sec.~1.3, \emph{Network Software}]{tanenbaum2011computer}.
-
-TCP/IP means everything related to TCP and IP.
 
 \begin{frame}
   \begin{minipage}{.6\linewidth}
@@ -470,29 +470,16 @@ layer above.
 % \end{frame}
 
 \begin{frame}{Layered Design}{Services vs. Protocols}
-  % \mode<beamer>{
-  % \begin{tikzpicture}[remember picture, overlay]
-  %   \node [red,opacity=.3,anchor=north east,scale=.5,yshift=-2em] at (current page.north
-  %   east)%
-  %   {\includegraphics{layered-design}};
-  % \end{tikzpicture}}
-
   \begin{minipage}{.6\linewidth}
     \includegraphics[width=\textwidth]{service-protocol}
-    \begin{center}{\footnotesize
-        \begin{tabular}{c|c}\toprule
-          \textbf{Services}&\textbf{Protocols}\\\midrule
-          Layer to Layer&Peer to Peer\\\midrule
-          A set of operations&A set of rules\\
-          {\ttfamily\begin{tabular}{c}
-                      (listen, connect, accept,\\
-                      receive, send, disconnect) 
-                    \end{tabular}} &
-                                     {\ttfamily\begin{tabular}{c}
-                                                 (message format,\\
-                                                 message meanings)
-                                               \end{tabular}}\\\bottomrule
-        \end{tabular}}
+    \begin{center}
+      \begin{tblr}{colspec={c|c},rows={font=\footnotesize},hlines,%
+          row{1}={font=\bfseries\footnotesize}}
+          Services&Protocols\\
+          Layer to Layer&Peer to Peer\\
+          {A set of operations\\(listen, connect, accept,\\receive, send, disconnect)}&
+          {A set of rules\\(message format,\\message meanings)}\\
+        \end{tblr}
     \end{center}
   \end{minipage}\quad
   \begin{minipage}{.35\linewidth}
@@ -531,6 +518,19 @@ Interfaces between layers (primitives, functions)
   (e.g. Linux vs. Windows)
 \item Protocol changes have no effects on it's upper/lower layers
 \end{itemize}
+
+\begin{frame}{{\tcpip{}} Protocol Stack}
+  \begin{iblock}{Every networked computer has it inside}
+    \begin{center}
+      \mode<beamer>{ \includegraphics[width=.8\textwidth]{stack} }%
+      \mode<article>{ \includegraphics[width=.4\textwidth]{stack} }
+    \end{center}
+  \end{iblock}
+\end{frame}
+
+See also: \citetitle[Sec.~1.3, \emph{Network Software}]{tanenbaum2011computer}.
+
+TCP/IP means everything related to TCP and IP.
 
 \mode<all>
 %%% Local Variables:

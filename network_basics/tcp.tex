@@ -24,27 +24,27 @@
   \emph{If all real networks were flawless and all had the same service primitives and
     were guaranteed never, ever to change, the transport layer might not be needed.}
 
-\begin{frame}{\scalebox{3}{\ding{37}}\quad \raisebox{9pt}{vs.}\quad \scalebox{3}{\ding{41}}}
+\begin{frame}{\scalebox{2}{ﬁ}\quad vs.\quad\scalebox{2}{}}
   \begin{minipage}[t]{.47\linewidth}
-    \begin{iblock}{Circuit switching (\ding{37})}
+    \begin{iblock}{Circuit switching (ﬁ)}
       \begin{itemize}
-      \item[\good] guaranteed performance
-      \item[\good] fast transfers (once circuit is established)
-      \item[\Bad] wastes bandwidth if traffic is ``bursty''
-      \item[\Bad] connection setup adds delay
-      \item[\Bad] recovery from failure is slow
+      \item[☺] guaranteed performance
+      \item[☺] fast transfers (once circuit is established)
+      \item[\alert{☹}] wastes bandwidth if traffic is ``bursty''
+      \item[\alert{☹}] connection setup adds delay
+      \item[\alert{☹}] recovery from failure is slow
       \end{itemize}
     \end{iblock}
   \end{minipage}\hfill
   \begin{minipage}[t]{.47\linewidth}
-    \begin{iblock}{Packet switching (\ding{41})}
+    \begin{iblock}{Packet switching ()}
       \begin{itemize}
-      \item[\Bad] no guaranteed performance
-      \item[\Bad] header overhead per packet
-      \item[\Bad] queues and queuing delay
-      \item[\good] efficient use of bandwidth
-      \item[\good] no connection setup
-      \item[\good] can ``route around trouble''
+      \item[\alert{☹}] no guaranteed performance
+      \item[\alert{☹}] header overhead per packet
+      \item[\alert{☹}] queues and queuing delay
+      \item[☺] efficient use of bandwidth
+      \item[☺] no connection setup
+      \item[☺] can ``route around trouble''
       \end{itemize}
     \end{iblock}
   \end{minipage}
@@ -89,8 +89,8 @@ See also:
     \end{iblock}
   \begin{iblock}{QoS on data link layer or IP layer?}
     \begin{itemize}
-    \item[\Bad] Efficiency
-    \item[\Bad] Upgrade all the routers
+    \item[☹] Efficiency
+    \item[☹] Upgrade all the routers
     \end{itemize}
   \end{iblock}
 \end{minipage}\hfill
@@ -171,13 +171,13 @@ From \url{http://ssfnet.org/Exchange/tcp/tcpTutorialNotes.html}:
 \begin{frame}{A TCP Connection Over A Connectionless IP Layer}
   \CMD{ss -4t state established}
   \begin{center}\ttfamily
-    \begin{tabular}{llll}
-      Recv-Q&   Send-Q&   Local Address:Port &   Peer Address:Port \\    
-      0     &   0     &       127.0.0.1:3333 &      127.0.0.1:14624\\
-      0     &   0     &       127.0.0.1:14624&      127.0.0.1:3333 \\\cline{3-4}
-      &&\makecell[c]{\textbf{Socket}}&\makecell[c]{\textbf{Socket}}\\\cline{3-4}
-      &&\multicolumn{2}{c}{\textbf{Connection}}\\
-    \end{tabular}
+    \begin{tblr}{colspec={@{}lllll@{}},row{1}={gray9,font=\bfseries}}
+      Recv-Q& Send-Q& Local Address:Port && Peer Address:Port \\    
+      0     & 0     &     127.0.0.1:3333 &&    127.0.0.1:14624\\
+      0     & 0     &     127.0.0.1:14624&&    127.0.0.1:3333 \\\cline{3-3}\cline{5-5}
+      &&\SetCell{c}\textbf{Socket}&&\SetCell{c}\textbf{Socket}\\\cline{3-5}
+      &&\SetCell[c=3]{c}\textbf{Connection}\\
+    \end{tblr}
   \end{center}
   \begin{iblock}{Port numbers}
     \begin{description}
@@ -185,12 +185,12 @@ From \url{http://ssfnet.org/Exchange/tcp/tcpTutorialNotes.html}:
     \item[well-known ports:] 0 \char`~{} 1023
     \end{description}
     \begin{center}
-      \begin{tabular}{rl|rl|rl}
+      \begin{tblr}{colspec={rl|rl|rl},rowsep=0pt}
         FTP &20/21&SSH&22&Telnet&23\\
         SMTP&25 &DNS&53&DHCP &67/68\\
         HTTP&80 &POP3&110&HTTPS&443\\
         IMAP4&143&&&&
-      \end{tabular}
+      \end{tblr}
     \end{center}
   \end{iblock}
 \end{frame}
@@ -406,16 +406,20 @@ direction and it is acknowledged. The steps 2, 3 establish the connection parame
 full-duplex communication is established.
 
 \begin{itemize}
-\item See also \citetitle[Sec.~6.2.2, \emph{Connection Establishment}; Sec.~6.5.5, \emph{TCP
+\item See also \citetitle[Sec.~6.2.2 \emph{Connection Establishment}; Sec.~6.5.5, \emph{TCP
     Connection Establishment}]{tanenbaum2011computer}.
+\item More about Initial Sequence Number (ISN) see
+  \citetitle[Sec.~13.2.3 \emph{Initial Sequence Number (ISN)}]{fall2011tcp}.
 \end{itemize}
 
 \begin{frame}{SYN-flood}
   \begin{itemize}
   \item[\$] \cmd{sudo apt install hping3}
-  \item[\$] \cmd{nc -l 3333}
-  \item[\$] \cmd{sudo iptables -A OUTPUT -p tcp -m tcp --tcp-flags RST RST -j DROP}
-  \item[\$] \cmd{sudo hping3 -I lo -S -c 5 -p 3333 127.0.0.1}
+  \item[\$] \cmd{sudo tcpdump -ilo port 3333}
+  \item[\$] \cmd{ss -anto state syn-recv}
+  \item[\$] \cmd{sudo hping3 -\phantom{}-flood -I lo -S -p 3333 127.0.0.1}
+  \item[\$] \cmd{sudo iptables -A OUTPUT -p tcp -m tcp -\phantom{}-tcp-flags RST RST -j DROP}
+  \item[\$] \cmd{sudo python3 -m http.server 3333}
   % \item[\$] \cmd{sudo iptables -D OUTPUT -p tcp -m tcp --tcp-flags RST RST -j DROP}
   % \item[] 
   % \item[\$] \cmd{\# Syn-flood protection:}
@@ -571,7 +575,7 @@ changes\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}:
   
   \begin{block}{\texttt{ss} --- a \texttt{netstat} replacement}
     \begin{itemize}
-    \item[\$] \cmd{ss -4ant "( sport = 3333 or dport = 3333 )"}
+    \item[\$] \cmd{ss -t "( sport = 3333 or dport = 3333 )"}
     \item[\$] \cmd{man ss}
     \end{itemize}
   \end{block}
@@ -725,9 +729,6 @@ p.~225]{kurose2013computer}
   \begin{minipage}{.5\linewidth}
     \mode<beamer>{ \includegraphics[width=1.2\textwidth]{tcpServer-py} }%
     \mode<article>{ \includegraphics[width=\textwidth]{tcpServer-py} }%
-    \begin{itemize}
-    \item[\hw] Re-write it in C
-    \end{itemize}
   \end{minipage}\hfill
   \begin{minipage}{.47\linewidth}
     \footnotesize
@@ -735,12 +736,12 @@ p.~225]{kurose2013computer}
     \item[\texttt{serverSocket}:] the welcoming socket
     \item[\texttt{connectionSocket}:] a socket dedicated to a client
     \item[\texttt{listen(backlog)}:] the server listens for connection requests
-      \begin{itemize}
-      \item[\texttt{backlog}:] {\scriptsize How many non-\texttt{accept()}-ed connections
-          are allowed to be queueing}
+      \begin{itemize}\scriptsize
+      \item[\texttt{backlog}:] How many non-accepted connection requests
+          are allowed to be queueing
       \end{itemize}
     \item[\texttt{accept()}:] whenever a connection request coming, creates a new
-      \texttt{connectionSocket} (handshaking is done here)
+      \emph{connectionSocket}
     \end{description}
   \end{minipage}
 \end{frame}
@@ -749,18 +750,18 @@ p.~225]{kurose2013computer}
   \begin{minipage}{.5\linewidth}
     \mode<beamer>{ \includegraphics[width=1.1\textwidth]{tcpClient-py} }%
     \mode<article>{ \includegraphics[width=\textwidth]{tcpClient-py} }%
-    \begin{itemize}
-    \item[\hw] Re-write it in C
-    \end{itemize}
   \end{minipage}\hfill
   \begin{minipage}{.47\linewidth}
     \begin{description}
-    \item[\texttt{SOCK\_STREAM}:] TCP socket
-    \item[\texttt{connect()}:] initiate the TCP connection (3-way handshake)
-    \item[\texttt{send()}:] send out \texttt{sentence} through the client's socket. No
+    \item[SOCK\_STREAM:] TCP socket
+    \item[connect():] initiate the TCP connection (3-way handshake)
+    \item[send():] send out \emph{sentence} through the client's socket. No
       destination address needs to be specified
     \end{description}
   \end{minipage}
+  \begin{itemize}
+  \item[] Re-write it in C or Python3
+  \end{itemize}
 \end{frame}
 
 \begin{itemize}
@@ -810,10 +811,11 @@ p.~225]{kurose2013computer}
 \begin{frame}{UDP Example}
   \begin{itemize}
   \item[T1:\,\$] \cmd{nc -4ul 3333 \#server}
-  \item[T2:\,\$] \cmd{nc -4u localhost 3333 \#client}
-  \item[T3:\,\$] \cmd{echo hello > /dev/udp/127.0.0.1/3333 \#client}
-  \item[T4:\,\$] \cmd{sudo tcpdump -ilo udp port 3333}
-  \item[T5:\,\$] \cmd{watch -t -n.1 'ss -4anu "( sport == 3333 or dport == 3333 )"'}
+  \item[T2:\,\$] \cmd{nc -4u localhost 3333 \#client}, or
+  \item[\$] \cmd{echo hello > /dev/udp/127.0.0.1/3333}
+  \item[T3:\,\$] \cmd{sudo tcpdump -ilo udp port 3333}
+  \item[T4:\,\$] \cmd{watch -tn.1 \textbackslash}
+  \item[>] \cmd{'ss -4au "( sport = 3333 or dport = 3333 )"'}
   \end{itemize}
 \end{frame}
 
@@ -839,7 +841,7 @@ p.~225]{kurose2013computer}
     \mode<beamer>{ \includegraphics[width=\textwidth]{udpServer-py} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{udpServer-py} }
   \end{center}
-  \begin{iblock}{\texttt{serverSocket.bind(('', serverPort))}}
+  \begin{iblock}{\texttt{serverSocket.bind(('\,', serverPort))}}
     \begin{itemize}
     \item explicitly assigns \texttt{12000} to the server's socket
     \end{itemize}

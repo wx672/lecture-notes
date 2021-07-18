@@ -14,14 +14,13 @@ int main(int argc, char *argv[]) /* Oversimplified */
   char c;
 
   if (argc < 2) {
-    fprintf(stderr, "Usage: %s <O_RDONLY | O_WRONLY | O_NONBLOCK>\n", argv[0]);
+    fprintf(stderr, "Usage: %s <O_RDONLY | O_WRONLY>\n", argv[0]);
     exit(EXIT_FAILURE);
   }
 
   for(i = 1; i < argc; i++) {
     if (strncmp(*++argv, "O_RDONLY", 8) == 0)  mode |= O_RDONLY;
     if (strncmp(*argv, "O_WRONLY", 8) == 0)    mode |= O_WRONLY;
-    if (strncmp(*argv, "O_NONBLOCK", 10) == 0) mode |= O_NONBLOCK;
   }
 
   if (access(FIFO_NAME, F_OK) == -1) mkfifo(FIFO_NAME, 0777);
@@ -29,10 +28,10 @@ int main(int argc, char *argv[]) /* Oversimplified */
   printf("Process %d: FIFO(fd %d, mode %d) opened.\n",
          getpid(), fd = open(FIFO_NAME, mode), mode);
 
-  if( (mode == 0) | (mode == 2048) )
+  if (mode == O_RDONLY)
       while( read(fd,&c,1) == 1 ) putchar(c);
   
-  if( (mode == 1) | (mode == 2049) )
+  if (mode == O_WRONLY)
       while( (c = getchar()) != EOF ) write(fd,&c,1);
   
   exit(EXIT_SUCCESS);

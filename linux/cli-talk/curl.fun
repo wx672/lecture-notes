@@ -1,0 +1,9 @@
+curl cheat.sh/rsync
+curl wttr.in/kunming
+curl qrenco.de/cs6.swfu.edu.cn
+curl dict://dict.org/d:linux
+curl rate.sx/btc@30d
+curl getnews.tech/linux
+curl ifconfig.co
+curl ifconfig.me
+curl http://ip-api.com/json/

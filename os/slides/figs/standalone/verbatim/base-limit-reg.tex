@@ -1,0 +1,60 @@
+\documentclass[varwidth=15em]{standalone}
+
+\usepackage{fontspec,wx672nerd}
+\setmonofont{DejaVu Sans Mono}
+\newunicodechar{⭣}{\symbola ⭣}
+\newunicodechar{⭡}{\symbola ⭡}
+\newunicodechar{⭥}{\symbola ⭥}
+
+\usepackage{fancyvrb}
+
+\begin{document}
+\begin{Verbatim}[commandchars=\\\{\}]
+      0┌─────────┐
+       │░░░OS░░░░│
+  25600├─────────┤
+       │         │
+       │ Process │
+       │         │
+ 300040├─────────┼─ base
+       │         │⭡
+       │ Process │ 120900
+       │         │⭣
+ 420940├─────────┼─ limit
+       │         │
+       │ Process │
+       │         │
+ 880000├─────────┤
+       │░░░░░░░░░│
+       │░░░░░░░░░│
+1024000└─────────┘
+\end{Verbatim}
+\end{document}
+
+% \usepackage{fancyvrb,xcolor}
+% \begin{Verbatim}[commandchars=\\{\}]
+% \end{Verbatim}
+% ---------------------------------------------------------------------
+% 0   1   2   3   4   5   6   7   8   9   A   B   C   D   E   F
+% 250x	─	━	│	┃	┄	┅	┆	┇	┈	┉	┊	┋	┌	┍	┎	┏
+% 251x	┐	┑	┒	┓	└	┕	┖	┗	┘	┙	┚	┛	├	┝	┞	┟
+% 252x	┠	┡	┢	┣	┤	┥	┦	┧	┨	┩	┪	┫	┬	┭	┮	┯
+% 253x	┰	┱	┲	┳	┴	┵	┶	┷	┸	┹	┺	┻	┼	┽	┾	┿
+% 254x	╀	╁	╂	╃	╄	╅	╆	╇	╈	╉	╊	╋	╌	╍	╎	╏
+% 255x	═	║	╒	╓	╔	╕	╖	╗	╘	╙	╚	╛	╜	╝	╞	╟
+% 256x	╠	╡	╢	╣	╤	╥	╦	╧	╨	╩	╪	╫	╬	╭	╮	╯
+% 257x	╰	╱	╲	╳	╴	╵	╶	╷	╸	╹	╺	╻	╼	╽	╾	╿
+% 258x	▀	▁	▂	▃	▄	▅	▆	▇	█	▉	▊	▋	▌	▍	▎	▏
+% 259x  ▐   ░   ▒   ▓	▔	▕	▖	▗	▘	▙	▚	▛	▜	▝	▞	▟
+% 25Ax	■	□	▢	▣	▤	▥	▦	▧	▨	▩	▪	▫	▬	▭	▮	▯
+% 25Bx	▰	▱	▲	△	▴	▵	▶	▷	▸	▹	►	▻	▼	▽	▾	▿
+% 25Cx	◀	◁	◂	◃	◄	◅	◆	◇	◈	◉	◊	○	◌	◍	◎	●
+% 25Dx	◐	◑	◒	◓	◔	◕	◖	◗	◘	◙	◚	◛	◜	◝	◞	◟
+% 25Ex	◠	◡	◢	◣	◤	◥	◦	◧	◨	◩	◪	◫	◬	◭	◮	◯
+% 25Fx	◰	◱	◲	◳	◴	◵	◶	◷	◸	◹	◺	◻	◼	◽	◾	◿
+% ---------------------------------------------------------------------
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

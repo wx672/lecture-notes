@@ -1,17 +1,16 @@
 \documentclass[varwidth,crop]{standalone}
 
-\usepackage{fontspec}
+\usepackage{fontspec,wx672nerd}
 \setmonofont{DejaVu Sans Mono}
+
 
 \begin{document}
 \begin{verbatim}
-┌────┐ pipe  ┌─────┐   ┌────────┐
-│ ls ├─════─>│ tee ├──>│ STDOUT │
-└────┘       └──┬──┘   └────────┘
-                v
-            ┌────────┐
-            │ ls.out │
-            └────────┘
+┌────┐ ▁▁▁▁▁▁  ┌─────┐   
+│ ls ├─░pipe░─>│ tee ├──> 
+└────┘ ▔▔▔▔▔▔  └──┬──┘  STDOUT
+                  v
+                   ls.out
 \end{verbatim}
 \end{document}
 

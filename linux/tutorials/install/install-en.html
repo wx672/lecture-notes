@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-11-03 Tue 12:57 -->
+<!-- 2021-07-23 Fri 19:34 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Debian Installation Quick Guide</title>
@@ -9,7 +9,7 @@
 <meta name="author" content="WANG Xiaolin">
 <link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
 <script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
      function CodeHighlightOn(elem, id)
      {
@@ -38,18 +38,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb0118ac">1. UEFI</a></li>
-<li><a href="#orgb9b5cee">2. Install a Debian minimal system</a></li>
-<li><a href="#org71cce4d">3. More than minimal</a>
+<li><a href="#org7418b29">1. UEFI</a></li>
+<li><a href="#org18924f4">2. Install a Debian minimal system</a></li>
+<li><a href="#org4fce2c2">3. More than minimal</a>
 <ul>
-<li><a href="#org80fc2a3">3.1. Good news</a></li>
-<li><a href="#orgd3227a9">3.2. The old way</a></li>
-<li><a href="#org76662e1">3.3. Configuration</a>
+<li><a href="#org41aae66">3.1. Good news</a></li>
+<li><a href="#org65cab82">3.2. The old way</a></li>
+<li><a href="#org38e7924">3.3. Configuration</a>
 <ul>
-<li><a href="#org9cd8a7b">3.3.1. sudo</a></li>
-<li><a href="#org8eccf39">3.3.2. dotfile</a></li>
-<li><a href="#org256dce6">3.3.3. Auto login</a></li>
-<li><a href="#org301ec67">3.3.4. Screen backlight</a></li>
+<li><a href="#org04c2159">3.3.1. sudo</a></li>
+<li><a href="#org4aa8d66">3.3.2. dotfile</a></li>
+<li><a href="#org020430c">3.3.3. Auto login</a></li>
+<li><a href="#org298449a">3.3.4. Screen backlight</a></li>
 </ul>
 </li>
 </ul>
@@ -58,8 +58,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgb0118ac" class="outline-2">
-<h2 id="orgb0118ac"><span class="section-number-2">1</span> UEFI</h2>
+<div id="outline-container-org7418b29" class="outline-2">
+<h2 id="org7418b29"><span class="section-number-2">1.</span> UEFI</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 By the time I wrote this short installation guide <span class="timestamp-wrapper"><span class="timestamp">&lt;2018-09-09 Sun&gt;</span></span>,
@@ -90,23 +90,32 @@ especially <a href="https://www.debian.org/releases/stretch/amd64/ch03s06.html.e
 </div>
 </div>
 
-<div id="outline-container-orgb9b5cee" class="outline-2">
-<h2 id="orgb9b5cee"><span class="section-number-2">2</span> Install a Debian minimal system</h2>
+<div id="outline-container-org18924f4" class="outline-2">
+<h2 id="org18924f4"><span class="section-number-2">2.</span> Install a Debian minimal system</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li>Preparing a bootable USB stick.
 <ol class="org-ol">
-<li>Download the ISO file from <a href="http://mirrors.163.com/debian-cd/current/amd64/iso-cd/">http://mirrors.163.com/debian-cd/current/amd64/iso-cd/</a>
+<li>Download the ISO file from <a href="https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current/amd64/iso-cd/">https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current/amd64/iso-cd/</a>
 <ul class="org-ul">
-<li>There are more than one ISO files in the above link. You just need the smallest
-one which is usually suffixed by <code>netinst.iso</code>.
-If you are still confused, you should read the <a href="http://mirrors.163.com/debian-cd/current/amd64/iso-cd/HEADER.html"><code>HEADER.html</code></a> file in that directory.</li>
+<li><p>
+There are more than one ISO files in the above link. You just need the smallest
+one, for example,
+</p>
+<pre class="example" id="orged7f7b1">
+firmware-10.10.0-amd64-netinst.iso      &lt;- this one
+firmware-edu-10.10.0-amd64-netinst.iso
+</pre>
+
+<p>
+If you are still confused, you should read the <a href="http://mirrors.163.com/debian-cd/current/amd64/iso-cd/HEADER.html"><code>HEADER.html</code></a> file in that directory.
+</p></li>
 </ul></li>
 <li><p>
 Preparing the bootable USB stick is quite simple with a Debian machine.
 </p>
 <pre class="example">
-sudo cp debian-9.5.0-amd64-netinst.iso /dev/sdX
+sudo cp firmware-10.10.0-amd64-netinst.iso /dev/sdX
 sync
 </pre>
 
@@ -114,7 +123,7 @@ sync
 <b>Caution</b>
 </p>
 <ul class="org-ul">
-<li>Replace <code>debian-9.5.0-amd64-netinst.iso</code> with your iso file name;</li>
+<li>Replace <code>firmware-10.10.0-amd64-netinst.iso</code> with your iso file name;</li>
 <li>Replace <code>X</code> with your USB drive letter. It's probably <code>b</code> or <code>c</code>.  you can use
 the command <code>lsblk</code> to check it for sure.</li>
 </ul></li>
@@ -144,12 +153,12 @@ bypass this step.</li>
 </div>
 </div>
 
-<div id="outline-container-org71cce4d" class="outline-2">
-<h2 id="org71cce4d"><span class="section-number-2">3</span> More than minimal</h2>
+<div id="outline-container-org4fce2c2" class="outline-2">
+<h2 id="org4fce2c2"><span class="section-number-2">3.</span> More than minimal</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org80fc2a3" class="outline-3">
-<h3 id="org80fc2a3"><span class="section-number-3">3.1</span> Good news</h3>
+<div id="outline-container-org41aae66" class="outline-3">
+<h3 id="org41aae66"><span class="section-number-3">3.1.</span> Good news</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Now you can just download and run <a href="https://cs6.swfu.edu.cn/~wx672/debian-install/install.sh">this little script</a> to finish the full installation.
@@ -160,10 +169,8 @@ download:
 </p>
 <pre class="example">
 cd
-scp fai@cs6.swfu.edu.cn:install.sh ./
-fai@cs6.swfu.edu.cn's password: fai
+wget cs6.swfu.edu.cn/~wx672/debian-install/install.sh  
 </pre></li>
-
 <li><p>
 to run it:
 </p>
@@ -174,13 +181,12 @@ chmod +x install.sh
 
 <li><p>
 Upon finishing the installation, reboot. If everything goes well, you should see a black
-screen with a rather big mouse cursor showing at the center of your screen, and nothing
-else.
+screen with a small x showing at the center of your screen, and nothing else.
 </p>
 
 <p>
-NOTE: If the big mouse cursor doesn't shown up as expected, that probably means the Xorg
-doesn't work well. This usually has something to do with the graphic card driver
+NOTE: If the small x mouse cursor doesn't shown up as expected, that probably means the
+Xorg doesn't work well. This usually has something to do with the graphic card driver
 (Nvidia?). In this unlucky case, try disable Nvidia graphic card by removing its driver,
 and use the built-in graphic card instead.
 </p>
@@ -204,9 +210,7 @@ For an AMD card:
 <div class="org-src-container">
 <pre class="src src-sh">sudo apt install xserver-xorg-video-amdgpu
 </pre>
-</div></li>
-</ul>
-
+</div>
 
 <p>
 After that, reboot. If it's still not working, google for more help.
@@ -224,12 +228,13 @@ If you are lucky enough to see the big mouse cursor showing at the center of the
 
 <p>
 Have fun!
-</p>
+</p></li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-orgd3227a9" class="outline-3">
-<h3 id="orgd3227a9"><span class="section-number-3">3.2</span> The old way</h3>
+<div id="outline-container-org65cab82" class="outline-3">
+<h3 id="org65cab82"><span class="section-number-3">3.2.</span> The old way</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 You can't expect too much from a minimal system, right? So, let there be more
@@ -262,7 +267,7 @@ In the screen output, you should find a network card named <code>ethX</code> or 
 and <code>Y</code> are small numbers. For example, on my Debian laptop I got something like the
 following:
 </p>
-<pre class="example" id="org1dcae97">
+<pre class="example" id="org895609d">
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 ...
      link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
      inet 127.0.0.1/8 scope host lo
@@ -391,12 +396,12 @@ apt install $(cat 03-chinese)
 </div>
 </div>
 
-<div id="outline-container-org76662e1" class="outline-3">
-<h3 id="org76662e1"><span class="section-number-3">3.3</span> Configuration</h3>
+<div id="outline-container-org38e7924" class="outline-3">
+<h3 id="org38e7924"><span class="section-number-3">3.3.</span> Configuration</h3>
 <div class="outline-text-3" id="text-3-3">
 </div>
-<div id="outline-container-org9cd8a7b" class="outline-4">
-<h4 id="org9cd8a7b"><span class="section-number-4">3.3.1</span> sudo</h4>
+<div id="outline-container-org04c2159" class="outline-4">
+<h4 id="org04c2159"><span class="section-number-4">3.3.1.</span> sudo</h4>
 <div class="outline-text-4" id="text-3-3-1">
 <p>
 If you don't want to be asked for password whenever using <code>sudo</code>, you can do the following:
@@ -452,8 +457,8 @@ exit
 </ol>
 </div>
 </div>
-<div id="outline-container-org8eccf39" class="outline-4">
-<h4 id="org8eccf39"><span class="section-number-4">3.3.2</span> dotfile</h4>
+<div id="outline-container-org4aa8d66" class="outline-4">
+<h4 id="org4aa8d66"><span class="section-number-4">3.3.2.</span> dotfile</h4>
 <div class="outline-text-4" id="text-3-3-2">
 <p>
 Now, your Debian system is almost the same as the lab ones, except that you haven't done
@@ -529,8 +534,8 @@ If you see error messages, let me know (wx672ster@gmail.com).
 </div>
 </div>
 
-<div id="outline-container-org256dce6" class="outline-4">
-<h4 id="org256dce6"><span class="section-number-4">3.3.3</span> Auto login</h4>
+<div id="outline-container-org020430c" class="outline-4">
+<h4 id="org020430c"><span class="section-number-4">3.3.3.</span> Auto login</h4>
 <div class="outline-text-4" id="text-3-3-3">
 <p>
 If you don't want to input username/password every time when you start your system, you
@@ -569,8 +574,8 @@ don't need it.
 </p>
 </div>
 </div>
-<div id="outline-container-org301ec67" class="outline-4">
-<h4 id="org301ec67"><span class="section-number-4">3.3.4</span> Screen backlight</h4>
+<div id="outline-container-org298449a" class="outline-4">
+<h4 id="org298449a"><span class="section-number-4">3.3.4.</span> Screen backlight</h4>
 <div class="outline-text-4" id="text-3-3-4">
 <p>
 Usually there are function keys for changing screen backlight on laptops. If these keys
@@ -615,7 +620,7 @@ the semicolon at the beginning of the lines so that they look like the following
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: WANG Xiaolin</p>
-<p class="date">Created: 2020-11-03 Tue 12:57</p>
+<p class="date">Created: 2021-07-23 Fri 19:34</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

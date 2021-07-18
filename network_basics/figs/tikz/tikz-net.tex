@@ -232,11 +232,11 @@
    \node (local) [server node,circle,align=center, scale=.6]%
    {dns.swfu.edu.cn};%
   
-  \node (chrome1)       [left=of local,chrome] {\includegraphics[width=15pt]{gchrome}};%
-  \node (chrome2) [above left=of local,chrome] {\includegraphics[width=15pt]{gchrome}};%
-  \node (chrome3) [below left=of local,chrome] {\includegraphics[width=15pt]{gchrome}};%
+  \node (chrome1)       [left=of local,chrome] {\includegraphics[width=10pt]{gchrome}};%
+  \node (chrome2) [above left=of local,chrome] {\includegraphics[width=10pt]{gchrome}};%
+  \node (chrome3) [below left=of local,chrome] {\includegraphics[width=10pt]{gchrome}};%
 
-  \node [server node, right=100pt of local] (almond) {almond.nuts.com};
+  \node [server node, right=130pt of local] (almond) {almond.nuts.com};
   \node [server node, above=of almond.north west,anchor=south west] (root)%
   {dns.edu.cn};%
   \node [server node, below=of almond.south west,anchor=north west] (pack)%
@@ -244,13 +244,13 @@
 
   \path
   (local.5)    edge ["sale.plant.nuts.com",violet!70] (almond.176)%
-  (almond.184) edge ["plant.nuts.com NS pack.plant.nuts.com", orange] (local.354)%
+  (almond.184) edge ["plant.nuts.com NS pack.plant.nuts.com",swap, orange] (local.354)%
 
   (local.60) edge ["sale.plant.nuts.com",bend left=5, violet!70] (root.177)%
-  (root.182) edge ["nuts.com NS almond.nuts.com" {near end,rotate=-4},bend right=5, blue!70] (local.45)%
+  (root.182) edge ["nuts.com NS almond.nuts.com",swap,bend right=5, blue!70] (local.45)%
 
-  (local.320) edge ["sale.plant.nuts.com" {near start,rotate=3},bend right=5, violet!70] (pack.177)%
-  (pack.184)  edge ["sale.plant.nuts.com A 172.16.6.4" {near start,xshift=-4em,rotate=-2},bend left=5, Green] (local.305)%
+  (local.320) edge ["sale.plant.nuts.com",bend right=5, violet!70] (pack.177)%
+  (pack.184)  edge ["sale.plant.nuts.com A 172.16.6.4",swap,bend left=5, Green] (local.305)%
 
   (chrome1) edge [red edge] (local)%
   (chrome2) edge [red edge] (local)%
@@ -288,7 +288,7 @@
   \centering\resizebox{\textwidth}{!}{
 \begin{tikzpicture}[auto,%
   every edge/.style ={red!50,thick,draw,->},%
-  every node/.style ={red!50,rounded corners,inner sep=2pt}%
+  every node/.style ={red!50,rounded corners,inner sep=2pt,font=\LARGE}%
   ]%
   
   %%% background image
@@ -297,14 +297,14 @@
 
   % http://tex.stackexchange.com/questions/9559/drawing-on-an-image-with-tikz
   \begin{scope}[x={(image.south east)},y={(image.north west)}]%
-    % %%% grid
+    %%% grid
     % \draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);%
     % \foreach \x in {0,1,...,9} { \node [anchor=north] at (\x/10,0) {0.\x}; }%
     % \foreach \y in {0,1,...,9} { \node [anchor=east] at (0,\y/10) {0.\y}; }%
 
-    \node (req) at (.57,.65) {Request line};%
+    \node (req) at (.82,.65) {Request line};%
     \node (header) [below=.32 of req.west,anchor=west]{Header lines};%
-    \node (bracket) [inner sep=0,left=of header] {$ \left\} \rule{0pt}{13mm}\right. $};%
+    \node (bracket) [inner sep=0,left=of header] {$ \left\} \rule{0pt}{15mm}\right. $};%
     \node (blank) [below=.3 of header.west,anchor=west] {Empty line};%
   \path%
   (req.west) edge ++(-.05,0)%
@@ -645,4 +645,7 @@
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
+%%% TeX-master: t
+%%% TeX-master: "tikz-net"
+%%% TeX-master: "tikz-net"
 %%% End:

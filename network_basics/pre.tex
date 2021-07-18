@@ -20,7 +20,20 @@
 % \includeonlylecture{app}
 
 \title{Network Basics}
-\author{Wang Xiaolin\\{\footnotesize\ttfamily wx672ster+net@gmail.com}}
+\author{%
+  Wang Xiaolin\\
+  {\footnotesize\ttfamily wx672ster+net@gmail.com}
+}
+\titlegraphic{%
+  \begin{tikzpicture}[overlay,remember picture]
+    \node at (current page.north east) [anchor=north east]{
+      \includegraphics[width=1in]{qr-net}
+    };
+    \node at (current page.south west) [anchor=south west]{
+      \includegraphics[width=1in]{qr-net-b}
+    };
+  \end{tikzpicture}
+}
 
 %%% Local Variables:
 %%% mode: latex

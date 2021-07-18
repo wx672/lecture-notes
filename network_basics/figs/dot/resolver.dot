@@ -1,0 +1,17 @@
+digraph{
+	bgcolor=transparent;
+	node [fontname=handlee];
+	edge [fontname=handlee];
+
+	cs3 [label="cs3.swfu.edu.cn",shape=plaintext];
+	ssh [shape=oval];
+	TCP [shape=oval];
+	end [label="",shape=plaintext];
+	Resolver [shape=oval];
+	cs3 -> ssh -> TCP -> end;
+
+    ssh -> Resolver:nw [label="cs3.swfu.edu.cn"];	
+    Resolver -> ssh:se [label="202.203.132.245"];
+	
+	{rank=same; Resolver; ssh}
+}

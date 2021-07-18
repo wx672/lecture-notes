@@ -1,32 +1,6 @@
-\usepackage{wx672tut}
+\usepackage{wx672nerd}
 
 \newcommand\strike[1]{#1\hspace{-1.5ex}\rotatebox[x=.5em,y=.3em]{135}{\textcolor{red}{\rule{1em}{1pt}}}}
-
-% \newcommand{\unix}{{\fontspec{Purisa}{UNIX}}}
-% \newcommand{\emacs}{\includegraphics[width=1.2em]{emacs}}
-% \newcommand{\google}{\raisebox{-.2em}{\includegraphics[width=3em]{google}}}
-% \newcommand{\GG}{\textcolor{SkyBlue}{\nerd }}
-% \newcommand{\world}{\textcolor{SkyBlue}{\nerd }}
-% \newcommand{\pdf}{\textcolor{red}{\nerd }}%
-% \newcommand{\folder}{{\nerd }}%e5fe,e61e,e7a3,f07c
-% \newcommand{\git}{{\nerd }}%f1d2,f1d3
-% \newcommand{\github}{\nerd }
-% \newcommand{\moodle}{\includegraphics[width=1em]{moodle}}
-% \newcommand{\obook}{{\nerd }}%f212,f401,f405
-% \newcommand{\shell}{{\nerd }}%e795
-% \newcommand{\CMD}[1]{\texttt{\textcolor{Green}{\$} #1}}
-% \newcommand{\cmd}[1]{\texttt{#1}}
-% \newcommand{\vim}{{\nerd }}
-% \newcommand{\stackoverflow}{{\nerd }}%f16c, e710
-% \newcommand{\correct}{{\Large\textcolor{Green}{\nerd ✔}}}
-% \newcommand{\wrong}{\textcolor{red}{\nerd ✘}}
-% \newcommand{\Bad}{{\Large \textcolor{red}{\bad}}}
-% \newcommand{\Good}{{\Large \textcolor{Green}{\good}}}
-% \newcommand{\phone}{\nerd ﬁ} % 260e☎ fb01ﬁ
-% \newcommand{\mail}{\nerd } %f42f f6ef f6ed faee﫮 faef﫯 f430 
-% \newcommand{\hw}{\nerd } %f8ec f8ea f420 f26d f14b f0e7 e30e e315 e305
-
-% f421,f46e,f536 f1e6 
 
 \addbibresource{bib/os.bib}
 \addbibresource{bib/wikipedia.bib}
@@ -39,7 +13,16 @@
 
 \title{Operating Systems}
 \author{Wang Xiaolin\\{\small\ttfamily wx672ster+os@gmail.com}}
-
+\titlegraphic{%
+  \begin{tikzpicture}[overlay,remember picture] %
+    \node (moodle) at (current page.north east) [anchor=north east]{%
+      \includegraphics[width=1in]{qr-os}%
+    };
+    \node (pdf) at (current page.south west) [anchor=south west] {%
+      \includegraphics[width=1in]{qr-os-b}
+    };
+  \end{tikzpicture}
+}
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "os-b"

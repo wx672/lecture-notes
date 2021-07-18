@@ -120,41 +120,89 @@
 
 ** Hello, kernel module!
    - *Reference* 
+     - [[https://www.geeksforgeeks.org/linux-kernel-module-programming-hello-world-program/][Linux Kernel Module Programming: Hello World Program]] (last
+       visited: [2022-09-20 Tue])
      - [[http://tldp.org/LDP/lkmpg/2.6/html/lkmpg.html#AEN119][The Linux Kernel Module Programming Guide]], 2007.  (last visited: [2020-11-20 Fri])
      - [[https://developer.ibm.com/technologies/linux/articles/l-proc/][Access the Linux kernel using the /proc filesystem]], 2006.  (last visited: [2020-11-20 Fri])
      - [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/linux/c/c_dev.html#sec-6][A =Makefile= tutorial]], 2013. (last visited: [2020-11-20 Fri])
    - *Quick start*
-     1) Find out the right kernel headers package matching your running kernel:
-        : uname -a
-        : aptitude search ^linux-headers
-        install the right headers-package matching your running kernel:
-        : sudo aptitude install linux-headers-`uname -r`
+     1) Find out the right kernel headers package matching your
+        running kernel:
+
+        #+begin_src sh
+          uname -a
+          aptitude search ^linux-headers
+        #+end_src
+
+        install the right headers-package matching your running
+        kernel:
+        
+        #+begin_src sh
+          sudo aptitude install linux-headers-`uname -r`
+        #+end_src
+        
      2) Make a directory to store your =Hello, world!= kernel module
-        : mkdir hello-lkm && cd hello-lkm
-     3) In =hello-lkm= directory, write a [[file:src/hello-lkm/hello-1.c][hello-1.c]]. (See [[http://tldp.org/LDP/lkmpg/2.6/html/lkmpg.html#AEN119][The Linux Kernel Module
-        Programming Guide]] chapter 2 for details.)  (last visited: [2020-11-20 Fri])
+        
+        #+begin_src sh
+          mkdir hello-lkm && cd hello-lkm
+        #+end_src
+        
+     3) In =hello-lkm= directory, write a [[file:src/hello-lkm/hello-1.c][hello-1.c]]. (See [[https://www.geeksforgeeks.org/linux-kernel-module-programming-hello-world-program/][Linux Kernel Module Programming: Hello World Program]])
      4) Write a [[file:src/hello-lkm/Makefile][Makefile]]
      5) make
-        : make
-        If everything is ok, there should be a =hello-1.ko= file in your =hello-lkm= directory.
-     6) Install the module into the running kernel
-        : sudo insmod hello-1.ko
-     7) See if it's running
-        : lsmod | grep hello
-        Does it show up? Well, and you can see "Hello, world!" here:
-        : dmesg | tail
-     8) Now, you can remove this useless module from the kernel by doing:
-        : sudo rmmod hello_1
-     9) See if it's removed:
-        : lsmod | grep hello
-        And you should see "Goodbye, world!" here:
-        : dmesg | tail
+
+        #+begin_src sh
+          make
+        #+end_src
+        
+        If everything is ok, there should be a =hello-1.ko= file in your
+        =hello-lkm= directory.
+     6) You can view details of the =hello-1.ko= with =modinfo=
+
+        #+begin_src sh
+          modinfo hello-1.ko
+        #+end_src
+        
+     7) Install the module into the running kernel
+        
+        #+begin_src sh
+          sudo insmod ./hello-1.ko
+        #+end_src
+
+     8) See if it's loaded into the kernel
+        
+        #+begin_src sh
+          lsmod | grep hello
+        #+end_src
+        
+        Does it show up? Well, and you can see "Hello world" in the
+        system log:
+        
+        #+begin_src sh
+          sudo dmesg | tail
+        #+end_src
+        
+     9) Now, you can remove this useless module from the kernel by
+        doing:
+        
+        #+begin_src sh
+          sudo rmmod hello_1
+        #+end_src
+        
+     10) And you should see "Goodbye, Mr." here:
+        
+         #+begin_src sh
+           dmesg | tail
+         #+end_src
+        
 *** Questions
     1. What's a kernel module?
     2. How do modules get into the kernel?
     3. How do you know a kernel module is loaded?
     4. How do you know a module is working properly or not?
     5. How do you unload a module?
+    6. in =hello-1.c=, what does =__init, __exit= mean? (=include/linux/init.h=)
+    7. why =printk()=? why not =printf()=?
 *** Sum up
     In your email message, please answer the following questions.
      1. How many hours you spent in this section?

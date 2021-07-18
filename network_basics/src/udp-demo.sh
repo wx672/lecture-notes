@@ -3,22 +3,19 @@
 set -euC
 
 tmux rename-window "UDP demo"
-tmux split-window -v 
 
-tmux select-pane -t 0
-tmux resize-pane -U 30
-
-tmux send-keys C-l "python2 udpServer.py" 
-
+#    Window setup
+# +--------+--------+
+# | server | client |
+# +--------+--------+
+# |     tcpdump     |
+# +-----------------+
+#
 tmux split-window -h
+tmux split-window -fl99
 
-tmux select-pane -t 1
-tmux send-keys C-l "python2 udpClient.py"
+tmux send-keys -t{top-left}  "python2 udpServer.py" 
+tmux send-keys -t{top-right} "python2 udpClient.py"
 
-tmux select-pane -t 2
-tmux send-keys C-l "sudo tcpdump -ilo -nn -vvv -xXK port 12000" C-m
-#tmux send-keys C-l "sudo tshark -ilo -f \"port 12000\"" C-m
-
-# Local Variables:
-# Ref: https://www.arp242.net/tmux.html
-# End:
+tmux send-keys "sudo tcpdump -ilo -vvvnnxXK port 12000" C-m
+#tmux send-keys "sudo tshark -ilo -f \"port 12000\"" C-m

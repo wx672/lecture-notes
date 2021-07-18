@@ -11,6 +11,6 @@ sentence = raw_input('Input lowercase sentence:')
 clientSocket.send(sentence)
 modifiedSentence = clientSocket.recv(1024)
 print 'From Server:', modifiedSentence
-while 1:
-   sleep(3)
+# while 1:
+#    sleep(3)
 clientSocket.close()

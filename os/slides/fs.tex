@@ -30,21 +30,20 @@
 
 \begin{frame}{File-System --- A Layered Design}
   \begin{minipage}{.2\textwidth}
-    \begin{center}
-      \begin{tabular}{c}
-        {\small\fbox{APPs}}\\
-        $\Downarrow$\\
-        {\small\alert{Logical FS}}\\
-        $\Downarrow$\\
-        {\small\alert{File-org module}}\\
-        $\Downarrow$\\
-        {\small\alert{Basic FS}}\\
-        $\Downarrow$\\
-        {\small\alert{I/O ctrl}}\\
-        $\Downarrow$\\
-        {\small\fbox{Devices}}
-      \end{tabular}
-    \end{center}
+    \begin{tblr}{colspec={c},cell{1,Z}{1}={cmd=\small\fbox}, rowsep=0pt,
+      cell{3,5,7,9}{1}={cmd=\small\alert}}
+      APPs\\
+      $\Downarrow$\\
+      Logical FS\\
+      $\Downarrow$\\
+      File-org module\\
+      $\Downarrow$\\
+      Basic FS\\
+      $\Downarrow$\\
+      I/O ctrl\\
+      $\Downarrow$\\
+      Devices
+    \end{tblr}
   \end{minipage}\hfill
   \begin{minipage}{.75\textwidth}
     \begin{itemize}
@@ -75,25 +74,24 @@
   \end{minipage}
 \end{frame}
 
-See also \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2008modern}.
+See also \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2015modern}.
 
 \begin{frame}{The Operating Structure}
   \begin{minipage}{.25\textwidth}
-    \begin{center}
-      \begin{tabular}{c}
-        {\small\fbox{APPs}}\\
-        $\Downarrow$\\
-        {\small\alert{Logical FS}}\\
-        $\Downarrow$\\
-        {\small\alert{File-org module}}\\
-        $\Downarrow$\\
-        {\small\alert{Basic FS}}\\
-        $\Downarrow$\\
-        {\small\alert{I/O ctrl}}\\
-        $\Downarrow$\\
-        {\small\fbox{Devices}}
-      \end{tabular}
-    \end{center}
+    \begin{tblr}{colspec={c},cell{1,Z}{1}={cmd=\small\fbox},rowsep=0pt,
+        cell{3,5,7,9}{1}={cmd=\small\alert}}
+      APPs\\
+      $\Downarrow$\\
+      Logical FS\\
+      $\Downarrow$\\
+      File-org module\\
+      $\Downarrow$\\
+      Basic FS\\
+      $\Downarrow$\\
+      I/O ctrl\\
+      $\Downarrow$\\
+      Devices
+      \end{tblr}
   \end{minipage}\quad
   \begin{minipage}{.7\textwidth}
     \begin{block}{Example --- To create a file}
@@ -226,17 +224,17 @@ See also:
 
 \begin{frame}{File Operations}{POSIX file system calls}%[squeeze]
   \ttfamily
-  \begin{tabular}{l|l}
+  \begin{tblr}{l|l}
     creat(name, mode)&read(fd, buffer, byte\_count)\\
     open(name, flags)&write(fd, buffer, byte\_count)\\
     close(fd)&lseek(fd, offset, whence)\\
-    link(oldname, newname)&chown(name, owner, group\\
+    link(oldname, newname)&chown(name, owner, group)\\
     unlink(name)&fchown(fd, owner, group)\\        
-    truncate(name, size)&chmod(name, mode\\
+    truncate(name, size)&chmod(name, mode)\\
     ftruncate(fd, size)&fchmod(fd, mode)\\
     stat(name, buffer)&utimes(name, times)\\
     fstat(fd, buffer)&\\
-  \end{tabular}
+  \end{tblr}
 \end{frame}
 
 \begin{frame}
@@ -327,7 +325,7 @@ See also:
     \mode<article>{\cfile{../src/fs/cp-libc.c}}
   \end{center}
   \begin{description}
-  \item[\hw] Try \texttt{fread()/fwrite()} instead.
+  \item[] Try \texttt{fread()/fwrite()} instead.
   \end{description}
 \end{frame}
 
@@ -368,7 +366,7 @@ See also:
 
 The purpose of the \verb|open()| call is to allow the system to fetch the attributes and
 list of disk addresses into main memory for rapid access on later calls\citetitle[Sec.~4.1.6,
-\emph{File Operations}]{tanenbaum2008modern}.
+\emph{File Operations}]{tanenbaum2015modern}.
   
 See also:
 \begin{itemize}
@@ -424,19 +422,19 @@ See also:
 \end{frame}
 
 \begin{frame}{Directories}{Directory Operations}
-  \begin{center}\ttfamily
-    \begin{tabular}{llll}
+  \begin{center}
+    \begin{tblr}{colspec={llll},rows={font=\ttfamily}}
       opendir()&mkdir()&rename()&link()\\
       closedir()&rmdir()&readdir()&unlink()\\
       \ldots&&&
-    \end{tabular}
+    \end{tblr}
   \end{center}
 \end{frame}
 
 \begin{frame}{\ttfamily ls}
   \mode<beamer>{%
     \begin{tikzpicture}[remember picture, overlay]%
-      \node [scale=.3,opacity=.5,anchor=east] at (current page.east)%
+      \node [scale=.3,anchor=east] at (current page.east)%
       {\includegraphics{ls-real}};
     \end{tikzpicture}}
   
@@ -505,7 +503,7 @@ it. The program in the boot block loads the operating system contained in that
 partition. For uniformity, every partition starts with a boot block, even if it does not
 contain a bootable operating system.  Besides, it might contain one in the future, so
 reserving a boot block is a good idea anyway\citetitle[Sec~4.3.1, \emph{File System
-  Layout}]{tanenbaum2008modern}.
+  Layout}]{tanenbaum2015modern}.
 
 The \emph{superblock} is read into memory when the computer is booted or the file system
 is first touched.
@@ -517,14 +515,11 @@ is first touched.
     \item[UFS:] Boot block
     \item[NTFS:] Partition boot sector
     \end{itemize}
-  \item[Volume control block] Contains volume details
-    \begin{center}
-      \begin{tabular}{ll}
-        number of blocks& size of blocks\\
-        free-block count& free-block pointers\\
-        free FCB count& free FCB pointers
-      \end{tabular}
-    \end{center}
+  \item[Volume control block] Contains volume details\par\medskip
+      \begin{tblr}{lll}
+        number of blocks&free-block count& free FCB count\\
+        size of blocks& free-block pointers&free FCB pointers\\
+      \end{tblr}
     \begin{itemize}
     \item[UFS:] Superblock
     \item[NTFS:] Master File Table
@@ -661,8 +656,8 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
   \end{minipage}\hfill
   \begin{minipage}[b]{.45\textwidth}
     \centering
-    \begin{tabular}{cl}\hline
-      \thead{File type}&\thead{Description}\\\hline
+    \begin{tblr}{colspec={cl},hline{1,2,Z},row{1}={font=\bfseries}}
+      File type&Description\\
       0&Unknown\\
       1&Regular file\\
       2&Directory\\
@@ -670,8 +665,8 @@ See also: \citetitle[\emph{Wikipedia:inode}]{wiki:inode}.
       4&Block device\\
       5&Named pipe\\
       6&Socket\\
-      7&Symbolic link\\\hline
-    \end{tabular}
+      7&Symbolic link\\
+    \end{tblr}
     \vspace{1em}
     \begin{description}
     \item[Mode:] 9-bit pattern
@@ -787,9 +782,9 @@ Table~\ref{tbl:filestruct}\citetitle[Sec.~12.2.6, \emph{Files Associated with a
   \centering
   \caption{The fields of the \texttt{files\_struct} structure}
   \label{tbl:filestruct}% this line have to follow \caption
-  \begin{tabularx}{\textwidth}{>{\ttfamily}l>{\ttfamily}lX}
-    \toprule
-    \textbf{Type}   &\textbf{Field}&\textbf{Description}\\\midrule
+  \begin{tblr}{width=\textwidth,colspec={llX},row{1}={font=\bfseries},
+      column{1,2}={font=\ttfamily},hline{1,2,Z}}
+    Type   &Field&Description\\
     atomic\_t       &count&Number of processes sharing this table\\
     rwlock\_t       &file\_lock&Read/write spin lock for the table fields\\
     int             &max\_fds&Current maximum number of file objects\\
@@ -800,8 +795,8 @@ Table~\ref{tbl:filestruct}\citetitle[Sec.~12.2.6, \emph{Files Associated with a
     fd\_set *       &open\_fds&Pointer to open file descriptors\\
     fd\_set         &close\_on\_exec\_init&Initial set of file descriptors to be closed on \texttt{exec()}\\
     fd\_set         &open\_fds\_init&Initial set of file descriptors\\
-    struct file *[] &fd\_array&Initial array of file object pointers\\\bottomrule
-  \end{tabularx}
+    struct file *[] &fd\_array&Initial array of file object pointers\\
+  \end{tblr}
 \end{table}
   
 The \texttt{fd} field points to an array of pointers to file objects. The size of the
@@ -1012,6 +1007,7 @@ See also:
 \begin{frame}{Why File Table?}
   To allow a parent and child to share a file position, but to provide unrelated processes
   with their own values.
+  
   \label{fig:filetable}
   \centering
   \mode<beamer>{ \includegraphics[width=.6\textwidth]{mos-10-33} }%
@@ -1071,7 +1067,7 @@ Why file table?
   file position that tells at which byte the next read (or write) will start. Where should
   it go?  One possibility is to put it in the i-node table. However, this approach fails
   if two or more unrelated processes happen to open the same file at the same time because
-  each one has its own file position\citetitle[Sec.~10.6]{tanenbaum2008modern}.
+  each one has its own file position\citetitle[Sec.~10.6]{tanenbaum2015modern}.
 
   A second possibility is to put the file position in the file descriptor table. In that
   way, every process that opens a file gets its own private file position. Unfortunately
@@ -1180,7 +1176,7 @@ How long file name is implemented?
   fig.~\ref{fig:filename}(b) as they are in fig.~\ref{fig:filename}(a).
 \item Ext2's approach is a bit different. See Sec.~\ref{sec:ext2-directory}.
 \end{enumerate}
-See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum2008modern}.
+See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum2015modern}.
 
 \begin{frame}{UNIX Treats a Directory as a File}
   \mode<beamer>{\centering \includegraphics[height=.9\textheight]{inode-struct}}%
@@ -1193,7 +1189,7 @@ See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum200
 \item Each (disk) block in a directory file consists of a linked list of entries; each
   entry contains the length of the entry, the name of a file, and the inode number of the
   inode to which that entry refers\citetitle[Sec.~15.7.2, \emph{The Linux ext2fs File
-    System}]{silberschatz11essentials}.
+    System}]{silberschatz13essentials}.
 \end{itemize}
 
 \begin{frame}
@@ -1209,7 +1205,7 @@ See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum200
 \item First the file system locates the root directory.  In UNIX its i-node is located at
   a fixed place on the disk. From this i-node, it locates the root directory, which can be
   anywhere on the disk, but say block \texttt{1}\citetitle[Sec.~4.5, \emph{Example File
-    Systems}]{tanenbaum2008modern}.
+    Systems}]{tanenbaum2015modern}.
 
   Then it reads the root directory and looks up the first component of the path,
   \texttt{usr}, in the root directory to find the i-node number of the file
@@ -1248,19 +1244,13 @@ See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum200
   \item[Group IDs] allow users to be in groups, permitting group access rights
   \end{description}
   \begin{block}{Example: 9-bit pattern}
-    \texttt{rwxr-x---} means:
     \begin{center}
-      \begin{tabular}{ccc}
-        \texttt{user}&\texttt{group}&\texttt{other}\\\hline
-        \texttt{rwx}&\texttt{r-x}&\texttt{---}\\
-        \texttt{111}&\texttt{1-1}&\texttt{000}\\
-        \texttt{7}&\texttt{5}&\texttt{0}
-        % owner access&$\mathtt{7\Rightarrow{}\genfrac{}{}{0pt}{}{r\,w\,x}{1\,1\,1}}$\\
-        % &\\
-        % group access&$\mathtt{5\Rightarrow{}\genfrac{}{}{0pt}{}{r-x}{1\,0\,1}}$\\
-        % &\\
-        % public access&$\mathtt{0\Rightarrow{}\genfrac{}{}{0pt}{}{---}{0\,0\,0}}$
-      \end{tabular}
+      \begin{tblr}{colspec={ccc},row{2-Z}={font=\ttfamily},rowsep=0pt,hline{2}}
+        user & group & other \\
+        rwx  & r-x   & ---   \\
+        111  & 1-1   & 000   \\
+        7    & 5     & 0     \\
+      \end{tblr}
     \end{center}
   \end{block}
 \end{frame}
@@ -1316,7 +1306,7 @@ See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum200
 See also: \citetitle[\emph{Wikipedia:dag}]{wiki:dag}.
 
 \begin{frame}{Hard Links}
-  \begin{iblock}{Hard links {\pright} the same inode}
+  \begin{iblock}{Hard links {☛} the same inode}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.9\textwidth]{hard-link} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{hard-link} }
@@ -1335,7 +1325,7 @@ See also: \citetitle[\emph{Wikipedia:dag}]{wiki:dag}.
 
 \begin{itemize}
 \item Both hard and soft links have drawbacks\citetitle[Sec.~4.3.4, \emph{Shared
-    Files}]{tanenbaum2008modern}.
+    Files}]{tanenbaum2015modern}.
 \item[\#] \mintinline{shell}|echo 0 > /proc/sys/fs/protected_hardlinks|
 \item Why hard links not allowed to directories in
   UNIX/Linux\footnote{\url{http://unix.stackexchange.com/questions/22394/why-hard-links-not-allowed-to-directories-in-unix-linux}}?
@@ -1354,7 +1344,7 @@ See also: \citetitle[\emph{Wikipedia:dag}]{wiki:dag}.
 \end{itemize}
 
 \begin{frame}{Symbolic Links}
-  \begin{iblock}{A symbolic link has its own inode {\pright} a directory entry}
+  \begin{iblock}{A symbolic link has its own inode {☛} a directory entry}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{soft-link} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{soft-link} }
@@ -1377,7 +1367,7 @@ See also: \citetitle[\emph{Wikipedia:dag}]{wiki:dag}.
   \mode<article>{ \includegraphics[width=.6\textwidth]{blksz} }
 \end{frame}
 
-See also: \citetitle[Sec.~4.4.1, \emph{Disk Space Management}]{tanenbaum2008modern}.
+See also: \citetitle[Sec.~4.4.1, \emph{Disk Space Management}]{tanenbaum2015modern}.
 
 \begin{frame}%{Disk Space Management}{Block Size}
   \begin{itemize}
@@ -1449,9 +1439,9 @@ point to it, hence to the wrong file. If the blocks are released first, then a c
 before the i-node is cleared will mean that a valid directory entry points to an i-node
 listing blocks now in the free storage pool and which are likely to be reused shortly,
 leading to two or more files randomly sharing the same blocks. None of these outcomes are
-good\citetitle[Sec.~4.3.6, \emph{Journaling File Systems}]{tanenbaum2008modern}.
+good\citetitle[Sec.~4.3.6, \emph{Journaling File Systems}]{tanenbaum2015modern}.
 
-See also: \citetitle[Sec.~15.7.3, \emph{Journaling}]{silberschatz11essentials}.
+See also: \citetitle[Sec.~15.7.3, \emph{Journaling}]{silberschatz13essentials}.
 
 \begin{frame}{Journaling File Systems}
     \begin{block}{Keep a log of what the file system is going to do before it does it}
@@ -1469,7 +1459,7 @@ See also: \citetitle[Sec.~15.7.3, \emph{Journaling}]{silberschatz11essentials}.
 References:
 \begin{itemize}
 \item \citetitle[\emph{The Second Extented File System}]{poirier11ext2}.
-\item \citetitle[Sec.~15.7, \emph{File Systems}]{silberschatz11essentials}.
+\item \citetitle[Sec.~15.7, \emph{File Systems}]{silberschatz13essentials}.
 \item \citetitle[Chap.~9, \emph{The File System}]{rusling99tlk}.
 \item \citetitle[\emph{Design and Implementation of the Second Extended Filesystem}]{card96ext2fs}.
 \item \citetitle[\emph{Analyzing a filesystem}]{web:ext2analysis}.
@@ -1487,7 +1477,7 @@ References:
 \end{frame}
 
 See also: \citetitle[Sec.~15.7.2, \emph{The Linux ext2fs File
-  System}]{silberschatz11essentials}.
+  System}]{silberschatz13essentials}.
 
 \subsection{Ext2 Block groups}
 
@@ -1509,7 +1499,7 @@ See also: \citetitle[Sec.~15.7.2, \emph{The Linux ext2fs File
 \begin{quote}
   When allocating a file, ext2fs must first select the block group for that
   file\citetitle[Sec.~15.7.2, \emph{The Linux ext2fs File System},
-  P.~625]{silberschatz11essentials}.
+  P.~625]{silberschatz13essentials}.
   \begin{itemize}
   \item For data blocks, it attempts to allocate the file to the block group to which the
     file's inode has been allocated.
@@ -1532,12 +1522,12 @@ See also: \citetitle[Sec.~15.7.2, \emph{The Linux ext2fs File
     \item \alert{Block Bitmap:} tracks free blocks
     \item \alert{Inode Bitmap:} tracks free inodes
     \item \alert{Inode Table:} all inodes in this block group
-    \item
-      \begin{tabular}{r}
-        \alert{Free blocks count}\\
-        \alert{Free Inodes count}\\
-        \alert{Used dir count}
-      \end{tabular}$\biggr\}$ counters
+    \item counters $\biggr\{$ 
+      \begin{tblr}{colspec={r},cell{1,2,3}{1}={cmd=\alert},rowsep=0pt}
+        Free blocks count\\
+        Free Inodes count\\
+        Used dir count
+      \end{tblr}
     \end{itemize}
     \begin{itemize}
     \item[\#] \texttt{dumpe2fs /dev/sda1}
@@ -1546,21 +1536,26 @@ See also: \citetitle[Sec.~15.7.2, \emph{The Linux ext2fs File
 \end{frame}
 
 \begin{frame}{Maths}
+  Given \begin{tblr}{colspec={l},rows={font=\small},rowsep=0pt}
+          \emph{block size} \(=\unit[4]{K}\) \\
+          \emph{block bitmap} \(=\unit[1]{blk}\)\\
+        \end{tblr},\quad{}then
+      \[\text{blocks per group} = \unit[8]{bits}\times\unit[4]{K} = \unit[32]{K}\]  
   \begin{description}
-  \item[Given
-    \begin{small}
-      \begin{tabular}{l}
-        $block\,size = 4K$\\
-        $block\,bitmap = 1\,blk$   
-      \end{tabular}
-    \end{small}, then]
-    $$blocks\,per\,group = 8\,bits\times{}4K = 32K$$ 
   \item[How large is a group?]
-  $$group\,size = 32K\times{}4K = 128\,M$$
+    \[
+      \text{group size} = \unit[32]{K}\times\unit[4]{K} = \unit[128]{M}
+    \]
   \item[How many block groups are there?]
-  $$\approx{}\frac{partition\,size}{group\,size} = \frac{partition\,size}{128M}$$
+    \[
+      \approx{}\frac{\text{partition size}}{\text{group size}} = %
+      \frac{\text{partition size}}{\unit[128]{M}}
+    \]
   \item[How many files can I have in max?]
-  $$\approx{}\frac{partition\,size}{block\,size} = \frac{partition\,size}{4K}$$
+    \[
+      \approx{}\frac{\text{partition size}}{\text{block size}} = \frac{\text{partition
+          size}}{\unit[4]{K}}
+    \]
 \end{description}
 \end{frame}
 
@@ -1580,7 +1575,7 @@ allocated to the file. The search is performed in two stages. First, ext2fs sear
 an entire free byte in the bitmap; if it fails to find one, it looks for any free bit.
 The search for free bytes aims to allocate disk space in chunks of at least eight blocks
 where possible\citetitle[Sec.~15.7.2, \emph{The Linux ext2fs File
-  System}]{silberschatz11essentials}.
+  System}]{silberschatz13essentials}.
 
 Once a free block has been identified, the search is extended backward until an allocated
 block is encountered. When a free byte is found in the bitmap, this backward extension
@@ -1636,21 +1631,23 @@ allocation of eight blocks.
     \item[Given:]
       \begin{equation*}
         \begin{cases}
-          block\,size=4K\\
-          pointer\,size=4B
+          \text{Block size}=\unit[4]{K}\\
+          \text{Pointer size}=\unit[4]{B}
         \end{cases},
       \end{equation*}    
     \item[We get:]
       \begin{equation*}
         \begin{split}
-          &Max\,File\,Size
-          = number\,of\,pointers\times{}block\,size\\
+          &\text{Max file size}
+          = \text{Number of pointers}\times\text{Block size}\\
           &\\
-          &= (\overbrace{\underbrace{12}_{direct} + \underbrace{1K}_{1-indirect} +
-            \underbrace{1K\times{}1K}_{2-indirect} +
-            \underbrace{1K\times{}1K\times{}1K}_{3-indirect}}^{number\,of\,pointers})\times{}4K\\
+          &= (\overbrace{%
+            \underbrace{12}_{Direct} + \underbrace{\unit[1]{K}}_{S-indirect} + %
+            \underbrace{\unit[1]{K}\times\unit[1]{K}}_{D-indirect} + %
+            \underbrace{\unit[1]{K}\times\unit[1]{K}\times\unit[1]{K}}_{T-indirect}
+          }^{\text{Number of pointers}})\times\unit[4]{K}\\
           &\\
-          &= 48K + 4M + 4G + 4T
+          &= \unit[48]{K} + \unit[4]{M} + \unit[4]{G} + \unit[4]{T}.
         \end{split}
       \end{equation*}
     \end{description}
@@ -1666,8 +1663,8 @@ allocation of eight blocks.
   \item[Mount Count and Maximum Mount Count:] determines if the system should be
     fully checked
   \item[Block Group Number:] indicates the block group holding this superblock
-  \item[Block Size:] usually $4K$
-  \item[Blocks per Group:] $8bits\times{}block\,size$
+  \item[Block Size:] usually \unit[4]{K}
+  \item[Blocks per Group:] \(\unit[8]{Bits}\times\text{Block size}\)
   \item[Free Blocks:] System-wide free blocks
   \item[Free Inodes:] System-wide free inodes
   \item[First Inode:] First inode number in the file system
@@ -1680,8 +1677,8 @@ allocation of eight blocks.
 
 \begin{frame}{Ext2 File Types}
   \begin{center}
-    \begin{tabular}{cl}\hline
-      \thead{File type}&\thead{Description}\\\hline
+    \begin{tblr}{colspec={cl},hline{2},row{1}={font=\bfseries},rowsep=0pt}
+      File type&Description\\
       0&Unknown\\
       1&Regular file\\
       2&Directory\\
@@ -1689,13 +1686,13 @@ allocation of eight blocks.
       4&Block device\\
       5&Named pipe\\
       6&Socket\\
-      7&Symbolic link\\\hline
-    \end{tabular}
+      7&Symbolic link\\
+    \end{tblr}
   \end{center}
   \begin{description}
   \item[Device file, pipe, and socket:] No data blocks are required. All info is stored in
     the inode
-  \item[Fast symbolic link:] Short path name ($< 60\,chars$) needs no data block. Can be
+  \item[Fast symbolic link:] Short path name (< \unit[60]{chars}) needs no data block. Can be
     stored in the 15 pointer fields
   \end{description}
 \end{frame}
@@ -1728,7 +1725,7 @@ Directory files are stored on disk just like normal files, although their conten
 interpreted differently. Each block in a directory file consists of a linked list of
 entries; each entry contains the length of the entry, the name of a file, and the inode
 number of the inode to which that entry refers\citetitle[Sec.~15.7.2, \emph{The Linux ext2fs
-  File System}]{silberschatz11essentials}.
+  File System}]{silberschatz13essentials}.
 
 \section{Vitural File Systems}
 
@@ -1755,7 +1752,7 @@ Windows handles these disparate file systems by identifying each one with a diff
 drive letter, as in \texttt{C:}, \texttt{D:}, etc. When a process opens a file, the drive
 letter is explicitly or implicitly present so Windows knows which file system to pass the
 request to. There is no attempt to integrate heterogeneous file systems into a unified
-whole\citetitle[Sec.~4.3.7, \emph{Virtual File Systems}]{tanenbaum2008modern}.
+whole\citetitle[Sec.~4.3.7, \emph{Virtual File Systems}]{tanenbaum2015modern}.
 
 A filesystem is a hierarchical storage of data adhering to a specific
 structure. Filesystems contain files, directories, and associated control
@@ -1842,7 +1839,7 @@ themselves\citetitle[Sec.~13.2, \emph{Filesystem Abstraction Layer}]{love2010lin
 The key idea is to abstract out that part of the file system that is common to all file
 systems and put that code in a separate layer that calls the underlying concrete file
 systems to actual manage the data\citetitle[Sec.~4.3.7, \emph{Virtual File
-  Systems}]{tanenbaum2008modern}. The overall structure is illustrated in
+  Systems}]{tanenbaum2015modern}. The overall structure is illustrated in
 Fig~\ref{fig:vfs}.
 
 All system calls relating to files are directed to the virtual file system for initial
@@ -1973,7 +1970,7 @@ a file system has registered with the VFS, the VFS knows how to, say, read a blo
 system. Similarly, the VFS then also knows how to carry out every other function the
 concrete file system must supply: it just calls the function whose address was supplied
 when the file system registered\citetitle[Sec.~4.3.7, \emph{Virtual File Systems},
-P.~288]{tanenbaum2008modern}.
+P.~288]{tanenbaum2015modern}.
 
 After a file system has been mounted, it can be used. For example, if a file system has
 been mounted on \texttt{/usr} and a process makes the call
@@ -2075,7 +2072,7 @@ describe the methods that the kernel invokes against the primary objects\citetit
     \item Filesystems that are not disk-based (such as \texttt{sysfs}, \texttt{proc}) generate
       the superblock on-the-fly and store it in memory
     \item \texttt{struct super\_block} in \texttt{<linux/fs.h>}
-    \item \texttt{s\_op} in \texttt{struct super\_block}{\pright}\texttt{struct
+    \item \texttt{s\_op} in \texttt{struct super\_block}{☛}\texttt{struct
         super\_operations} --- the superblock operations table
       \begin{itemize}
       \item Each item in this table is a pointer to a function that operates on a
@@ -2126,7 +2123,7 @@ it\citetitle[Sec.~13.6, \emph{Superblock Operations}]{love2010linux}.
       \begin{itemize}
       \item includes special files, such as device files or pipes
       \end{itemize}
-    \item \texttt{i\_op} {\pright} \texttt{struct inode\_operations}
+    \item \texttt{i\_op} {☛} \texttt{struct inode\_operations}
     \end{itemize}
   \end{block}  
 \end{frame}
@@ -2219,7 +2216,7 @@ the common disk file\citetitle[Sec.~12.1.1]{bovet2005understanding}.
 % \label{sec:linux-process-file}
 
 % \begin{itemize}
-% \item \citetitle[Sec.~15.7.4]{silberschatz11essentials}
+% \item \citetitle[Sec.~15.7.4]{silberschatz13essentials}
 % \end{itemize}
 
 % \begin{frame}{The /proc File System}

@@ -1,59 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2021-06-11 Fri 10:52 -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 2023-06-18 Sun 11:12 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hacking with Linux networking command line tools</title>
-<meta name="generator" content="Org mode">
-<meta name="author" content="Xiaolin Wang">
-<meta name="description" content="Network lab tutorial week"
->
-<meta name="keywords" content="ssh, tmux, http, ftp, smtp, iptables, network, networking">
+<meta name="author" content="Xiaolin Wang" />
+<meta name="description" content="Network lab tutorial week" />
+<meta name="keywords" content="ssh, tmux, http, ftp, smtp, iptables, network, networking" />
+<meta name="generator" content="Org Mode" />
 <link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
-</script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Hacking with Linux networking command line tools</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga1d6be9">1. Caution</a></li>
-<li><a href="#orge7dd50f">2. <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></a></li>
+<li><a href="#orgaf3916c">1. Caution</a>
+<ul>
+<li><a href="#orgded7236">1.1. Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-07-08 Sat&gt;</span></span></a></li>
+</ul>
+</li>
+<li><a href="#org231e2d7">2. <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></a>
+<ul>
+<li><a href="#org4e7397a">2.1. Your tasks</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga1d6be9" class="outline-2">
-<h2 id="orga1d6be9"><span class="section-number-2">1.</span> Caution</h2>
+<div id="outline-container-orgaf3916c" class="outline-2">
+<h2 id="orgaf3916c"><span class="section-number-2">1.</span> Caution</h2>
 <div class="outline-text-2" id="text-1">
-<ul class="org-ul">
-<li><p>
-You must submit your report as a <code>tar ball</code> in which the following files should be
-included:
+<p>
+You must submit your report as a <code>tar ball</code> in which the following files
+should be included in:
 </p>
 
 <ol class="org-ol">
@@ -66,97 +50,102 @@ generated from your <code>org</code> or <code>md</code> file.
 Tips: 
 </p>
 <ul class="org-ul">
-<li>In Emacs, press <code>C-c C-e h h</code> to export HTML file from your org file;</li>
+<li>In Emacs, press <code>C-c C-e h h</code> to export HTML file from your org file.</li>
 
 <li>For <code>Markdown</code> to HTML, you can try <code>markdown</code>, <code>pandoc</code>, <code>cmark</code>, whatever.</li>
 
 <li>This page itself is generated from an <a href="proj-week.org">org file (proj-week.org)</a>. You can take it
 as an example.</li>
 
-<li>Report template: <a href="20201152xxx.org"><code>org file</code></a>, <a href="20201152xxx.html"><code>html file</code></a>, <a href="20201152xxx.md"><code>markdown file</code></a></li>
+<li>Report template: <a href="20221159xxx.org"><code>org file</code></a>, <a href="20221159xxx.html"><code>html file</code></a>, <a href="20221159xxx.md"><code>markdown file</code></a>.</li>
 </ul></li>
 
-<li>your bash script for a HTTP demostration;</li>
+<li>your bash script for a HTTP demostration (<a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/">examples</a>).</li>
 
-<li>a <code>ttyrec</code> file recording your operations (<code>man ttyrec</code>);</li>
-</ol>
+<li><p>
+a screencast file in <code>ttyrec</code> format recording your operations (<code>man ttyrec</code>).
+</p>
 
+<p>
+Here's how:
+</p>
 <hr>
 <ol class="org-ol">
-<li>Here's how :: 
-<ol class="org-ol">
 <li><p>
-make a directory, e.g. 20201159xxx. In this directory, try very hard to make all
+make a directory, e.g. 20221159xxx, in this dir try very hard to make all
 the files available.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">mkdir  20201159xxx
-<span style="color: #ff8A65;">cd</span> 20201159xxx
-emacsclient tmux-http.sh <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">write your script</span>
-emacsclient 20201159xxx.org <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">this is your report</span>
-vim 20201159xxx.md <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">in markdown format</span>
-ttyrec http-demo.ttyrec <span style="color: #b0bec5;"># </span><span style="color: #b0bec5;">make your demo screencast</span>
+<pre class="src src-sh">mkdir  20221159xxx
+cd 20221159xxx
+emacsclient tmux-http.sh # write your script
+emacsclient 20221159xxx.org # this is your report
+vim 20221159xxx.md # in markdown format
+ttyrec http-demo.ttyrec # make your demo screencast
 </pre>
 </div></li>
 
 <li><p>
 make a tar ball.
 </p>
-<pre class="example">
-cd ..
-tar zcf 20201159xxx.tgz 20201159xxx
-ls -l # make sure your tar ball is smaller than 1MB in size         
-</pre></li>
+<div class="org-src-container">
+<pre class="src src-sh">cd ..                                                      
+tar zcf 20221159xxx.tgz 20221159xxx                        
+ls -l # make sure your tar ball is smaller than 1MB in size
+</pre>
+</div></li>
 
-<li>upload the <code>tgz</code> file to our <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536">moodle site</a>.</li>
-</ol></li>
+<li>submit the <code>tgz</code> file to our <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=695&amp;action=editsubmission">moodle site</a>.</li>
 </ol>
 <hr></li>
-</ul>
+</ol>
 
-<ul class="org-ul">
-<li><p>
+<p>
 Here is a short tutorial about writing lab report: <a href="tutorial.ttyrec"><code>tutorial.ttyrec</code></a>. To view it:
 </p>
 
-<pre class="example">
-ttyplay  tutorial.ttyrec
+<div class="org-src-container">
+<pre class="src src-sh">ttyplay  tutorial.ttyrec
 </pre>
-
+</div>
 
 <p>
-Feel free to make your own <code>ttyrec</code> file while doing this lab work. For example:
+Feel free to make your own <code>ttyrec</code> files while doing this lab work. For example:
 </p>
 
-<pre class="example" id="org0846600">
-ttyrec  20201159xxx-http.ttyrec
-ttyrec  20201159xxx-email.ttyrec
-ttyrec  20201159xxx-ftp.ttyrec
-</pre></li>
+<pre class="example" id="org9a31d3d">
+ttyrec  20221159xxx-http.ttyrec
+ttyrec  20221159xxx-email.ttyrec
+ttyrec  20221159xxx-ftp.ttyrec
+</pre>
+</div>
 
-<li><b>Deadline:</b> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-07-10 Sat&gt; </span></span> 
+<div id="outline-container-orgded7236" class="outline-3">
+<h3 id="orgded7236"><span class="section-number-3">1.1.</span> Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-07-08 Sat&gt;</span></span></h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Submit your report as a <code>tgz</code> file <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=695&amp;action=editsubmission">here</a>. In your <code>tgz</code> file, there
+must be:
 
 <ul class="org-ul">
-<li>Submit your report as a <code>tgz</code> file <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536">here</a>. In your <code>tgz</code> file, there must be:
-<ol class="org-ol">
-<li>your report in <code>org</code> or <code>markdown</code> format</li>
-<li>your report in HTML format</li>
-<li>your bash script for demostrating a HTTP session</li>
-<li>one or more <code>ttyrec</code> files for demostrating whatever you did</li>
-</ol></li>
-
-<li>Late reports will be penalized 20% per day.</li>
+<li>your report in <code>org</code> or <code>markdown</code> format.</li>
+<li>your report in HTML format.</li>
+<li>your bash script for demostrating a HTTP session.</li>
+<li>one or more <code>ttyrec</code> files for demostrating whatever you did.</li>
 </ul></li>
 
-<li>MS-word file will <b>NOT</b> be accepted. Cheating will result in automatic failure of this
-work.</li>
+<li>Late reports will be penalized 20% per day.</li>
+
+<li>MS-word file will <b>NOT</b> be accepted. Cheating will result in automatic
+failure of this work.</li>
 </ul>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orge7dd50f" class="outline-2">
-<h2 id="orge7dd50f"><span class="section-number-2">2.</span> <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></h2>
+<div id="outline-container-org231e2d7" class="outline-2">
+<h2 id="org231e2d7"><span class="section-number-2">2.</span> <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Here are the bash scripts I used in the class for demostrating how some protocols work.
@@ -170,52 +159,56 @@ Here are the bash scripts I used in the class for demostrating how some protocol
 </ul>
 
 <hr>
+</div>
 
-<dl class="org-dl">
-<dt>Your tasks</dt><dd><ol class="org-ol">
+<div id="outline-container-org4e7397a" class="outline-3">
+<h3 id="org4e7397a"><span class="section-number-3">2.1.</span> Your tasks</h3>
+<div class="outline-text-3" id="text-2-1">
+<ol class="org-ol">
 <li>Run the above scripts to get familar with these tools, and get a thorough understanding about these protocols;</li>
 
 <li><p>
 Packet analysis. Upon running the following command:
 </p>
 
-<pre class="example">
-sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
+<div class="org-src-container">
+<pre class="src src-sh">sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
 </pre>
-
+</div>
 
 <p>
 the following packet is captured:
 </p>
 
-<pre class="example" id="org2cc2f77">
-08:34:10.790666 IP (tos 0x0, ttl 64, id 12824, offset 0, flags [DF], proto TCP (6),
-length 64)
-    127.0.0.1.46668 &gt; 127.0.0.1.3333: Flags [P.], seq 2400005725:2400005737, ack 373279396,
-    win 512, options [nop,nop,TS val 3259949783 ecr 3259896343], length 12
-        0x0000:  4500 0040 3218 4000 4006 0a9e 7f00 0001  E..@2.@.@.......
-        0x0010:  7f00 0001 b64c 0d05 8f0d 2e5d 163f caa4  .....L.....].?..
-        0x0020:  8018 0200 fe34 0000 0101 080a c24e e2d7  .....4.......N..
-        0x0030:  c24e 1217 6865 6c6c 6f20 776f 726c 640a  .N..hello.world.
+<pre class="example" id="org8e7cff4">
+08:34:10.790666 IP (tos 0x0, ttl 64, id 12824, offset 0, flags [DF],
+proto TCP (6), length 64)
+127.0.0.1.46668 &gt; 127.0.0.1.3333: Flags [P.], seq 2400005725:2400005737,
+ack 373279396, win 512, options [nop,nop,TS val 3259949783 ecr 3259896343],
+length 12
+    0x0000:  4500 0040 3218 4000 4006 0a9e 7f00 0001  E..@2.@.@.......
+    0x0010:  7f00 0001 b64c 0d05 8f0d 2e5d 163f caa4  .....L.....].?..
+    0x0020:  8018 0200 fe34 0000 0101 080a c24e e2d7  .....4.......N..
+    0x0030:  c24e 1217 6865 6c6c 6f20 776f 726c 640a  .N..hello.world.
 </pre>
 
 <ol class="org-ol">
-<li>Tell me the meaning of each option used in the previous command;</li>
+<li>Tell me the meaning of each option used in the previous command.</li>
 
 <li>Please analyze this captured packet and explain it to me as detailed as you can.</li>
 </ol></li>
 
-<li>Write a similar script showing how HTTP works (you need <code>curl</code>);</li>
+<li>Write a similar script showing how HTTP works (you need <code>curl</code>).</li>
 
 <li>Record your HTTP demo session with <code>ttyrec</code>.</li>
-</ol></dd>
-</dl>
+</ol>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Xiaolin Wang</p>
-<p class="date">Created: 2021-06-11 Fri 10:52</p>
+<p class="date">Created: 2023-06-18 Sun 11:12</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

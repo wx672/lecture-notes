@@ -12,6 +12,8 @@ int main(void)
 
   while ( read(in, &c, 1) == 1 );
 
+  close(in);
+  
   return EXIT_SUCCESS;
 }
 

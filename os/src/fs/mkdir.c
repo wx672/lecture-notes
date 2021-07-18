@@ -23,12 +23,12 @@ int main(int argc, char *argv[])
   
   printf("PWD = %s\n", getcwd(s,100));
 
-  chdir("..");
+  /* chdir(".."); */
   
-  if ( rmdir(argv[1]) != 0 ) {
-	  perror("rmdir");
-	  exit(errno);
-  }
+  /* if ( rmdir(argv[1]) != 0 ) { */
+  /* 	  perror("rmdir"); */
+  /* 	  exit(errno); */
+  /* } */
 
   return EXIT_SUCCESS;
 }

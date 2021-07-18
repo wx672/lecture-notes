@@ -4,7 +4,7 @@ fonts-droid-fallback
 fonts-humor-sans
 fonts-symbola
 fonts-tlwg-purisa
-python-pygments
+python3-pygments
 texlive
 texlive-bibtex-extra
 texlive-extra-utils

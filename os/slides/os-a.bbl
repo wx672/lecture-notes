@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.1 $
+% $ biblatex bbl format version 3.2 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -32,6 +32,18 @@
            given={David\bibnamedelima R.},
            giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
       }
+      \name{namea}{2}{}{%
+        {{hash=733e32bf9035c50457c549c4ca2d1a72}{%
+           family={Bryant},
+           familyi={B\bibinitperiod},
+           given={Randal\bibnamedelima E.},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=99dd7d8b23e1d1d9ca0315df2be1da4e}{%
+           family={O'Hallaron},
+           familyi={O\bibinitperiod},
+           given={David\bibnamedelima R.},
+           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -47,12 +59,16 @@
       \strng{authorbibnamehash}{99ed312673b400f19abd1a866ed72f7f}
       \strng{authornamehash}{12c464c429f28e45c2e790f1ab8f7f5b}
       \strng{authorfullhash}{99ed312673b400f19abd1a866ed72f7f}
+      \strng{nameabibnamehash}{99ed312673b400f19abd1a866ed72f7f}
+      \strng{nameanamehash}{12c464c429f28e45c2e790f1ab8f7f5b}
+      \strng{nameafullhash}{99ed312673b400f19abd1a866ed72f7f}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{2}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Computer Systems: A Programmer's Perspective}
       \field{usera}{M}
@@ -68,8 +84,15 @@
       \endverb
       \keyw{bryant2010computersystems}
     \endentry
-    \entry{tanenbaum2008modern}{book}{}
+    \entry{tanenbaum2015modern}{book}{}
       \name{author}{1}{}{%
+        {{hash=2414455c999bc471f803cd14fdea939d}{%
+           family={Tanenbaum},
+           familyi={T\bibinitperiod},
+           given={Andrew\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \name{namea}{1}{}{%
         {{hash=2414455c999bc471f803cd14fdea939d}{%
            family={Tanenbaum},
            familyi={T\bibinitperiod},
@@ -88,24 +111,45 @@
       \strng{authorbibnamehash}{2414455c999bc471f803cd14fdea939d}
       \strng{authornamehash}{2414455c999bc471f803cd14fdea939d}
       \strng{authorfullhash}{2414455c999bc471f803cd14fdea939d}
-      \field{extraname}{1}
+      \strng{nameabibnamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{nameanamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{nameafullhash}{2414455c999bc471f803cd14fdea939d}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{3}
+      \field{edition}{4}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Modern Operating Systems}
       \field{usera}{M}
       \field{userd}{english}
       \field{userf}{english}
-      \field{year}{2007}
+      \field{year}{2015}
       \field{dateera}{ce}
-      \keyw{tanenbaum2008modern}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/4/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/4/calibre
+      \endverb
+      \keyw{tanenbaum2015modern}
     \endentry
     \entry{bovet2005understanding}{book}{}
       \name{author}{2}{}{%
+        {{hash=4e6ca956728eb9b26ad462fad9dacebd}{%
+           family={Bovet},
+           familyi={B\bibinitperiod},
+           given={D.P.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6176f6b4412f69e77474b086d0602918}{%
+           family={Cesati},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \name{namea}{2}{}{%
         {{hash=4e6ca956728eb9b26ad462fad9dacebd}{%
            family={Bovet},
            familyi={B\bibinitperiod},
@@ -129,12 +173,16 @@
       \strng{authorbibnamehash}{a98d08854c8f941be39faef502dc8019}
       \strng{authornamehash}{98936862f22b163b51b14525285c6d69}
       \strng{authorfullhash}{a98d08854c8f941be39faef502dc8019}
+      \strng{nameabibnamehash}{a98d08854c8f941be39faef502dc8019}
+      \strng{nameanamehash}{98936862f22b163b51b14525285c6d69}
+      \strng{nameafullhash}{a98d08854c8f941be39faef502dc8019}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{3}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Understanding The Linux Kernel}
       \field{usera}{M}
@@ -150,6 +198,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -159,12 +212,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Process (computing) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -188,6 +245,13 @@
            given={Michael},
            giveni={M\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=7f32f61adec784489cc0fa2cefa610a3}{%
+           family={Kerrisk},
+           familyi={K\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -200,11 +264,15 @@
       \strng{authorbibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
       \strng{authornamehash}{7f32f61adec784489cc0fa2cefa610a3}
       \strng{authorfullhash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{nameabibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{nameanamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{nameafullhash}{7f32f61adec784489cc0fa2cefa610a3}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{The Linux Programming Interface: A Linux and UNIX System Programming Handbook}
       \field{usera}{M}
@@ -233,6 +301,18 @@
            given={Richard},
            giveni={R\bibinitperiod}}}%
       }
+      \name{namea}{2}{}{%
+        {{hash=71b0550cc21f34d5270381c62bec8e49}{%
+           family={Matthew},
+           familyi={M\bibinitperiod},
+           given={Neil},
+           giveni={N\bibinitperiod}}}%
+        {{hash=4419c9e69c561da228a7e02ebdd5e60b}{%
+           family={Stones},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -245,11 +325,15 @@
       \strng{authorbibnamehash}{c2388d8b76c1d7a119e8863298934f79}
       \strng{authornamehash}{2b017aa24f11f2abd1235a5dd1f850e5}
       \strng{authorfullhash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{nameabibnamehash}{c2388d8b76c1d7a119e8863298934f79}
+      \strng{nameanamehash}{2b017aa24f11f2abd1235a5dd1f850e5}
+      \strng{nameafullhash}{c2388d8b76c1d7a119e8863298934f79}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Beginning linux programming}
       \field{usera}{M}
@@ -273,6 +357,13 @@
            given={Allen\bibnamedelima B.},
            giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=da33840c04e61ac05c236587952f6874}{%
+           family={Downey},
+           familyi={D\bibinitperiod},
+           given={Allen\bibnamedelima B.},
+           giveni={A\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -285,11 +376,15 @@
       \strng{authorbibnamehash}{da33840c04e61ac05c236587952f6874}
       \strng{authornamehash}{da33840c04e61ac05c236587952f6874}
       \strng{authorfullhash}{da33840c04e61ac05c236587952f6874}
+      \strng{nameabibnamehash}{da33840c04e61ac05c236587952f6874}
+      \strng{nameanamehash}{da33840c04e61ac05c236587952f6874}
+      \strng{nameafullhash}{da33840c04e61ac05c236587952f6874}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{The Little Book of Semaphores}
       \field{usera}{M}
@@ -299,8 +394,19 @@
       \field{dateera}{ce}
       \keyw{downey2008semaphores}
     \endentry
-    \entry{silberschatz11essentials}{book}{}
+    \entry{silberschatz13essentials}{book}{}
       \name{author}{3}{}{%
+        {{hash=4f34927dfbed9f6425b40ef776942177}{%
+           family={Silberschatz},
+           familyi={S\bibinitperiod}}}%
+        {{hash=f4d673ffd940c82d92eb33a866608f22}{%
+           family={Galvin},
+           familyi={G\bibinitperiod}}}%
+        {{hash=0fc12a0b906a3d2131f0f3e2b958321e}{%
+           family={Gagne},
+           familyi={G\bibinitperiod}}}%
+      }
+      \name{namea}{3}{}{%
         {{hash=4f34927dfbed9f6425b40ef776942177}{%
            family={Silberschatz},
            familyi={S\bibinitperiod}}}%
@@ -323,23 +429,40 @@
       \strng{authorbibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
       \strng{authornamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
       \strng{authorfullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{nameabibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{nameanamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
+      \strng{nameafullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{1}
+      \field{edition}{2}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Operating System Concepts Essentials}
       \field{usera}{M}
       \field{userd}{english}
       \field{userf}{english}
-      \field{year}{2011}
+      \field{year}{2013}
       \field{dateera}{ce}
-      \keyw{silberschatz11essentials}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/1/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/1/calibre
+      \endverb
+      \keyw{silberschatz13essentials}
     \endentry
     \entry{love2010linux}{book}{}
       \name{author}{1}{}{%
+        {{hash=2716e80b99ab44d63f50300bfb213d81}{%
+           family={Love},
+           familyi={L\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \name{namea}{1}{}{%
         {{hash=2716e80b99ab44d63f50300bfb213d81}{%
            family={Love},
            familyi={L\bibinitperiod},
@@ -358,11 +481,15 @@
       \strng{authorbibnamehash}{2716e80b99ab44d63f50300bfb213d81}
       \strng{authornamehash}{2716e80b99ab44d63f50300bfb213d81}
       \strng{authorfullhash}{2716e80b99ab44d63f50300bfb213d81}
+      \strng{nameabibnamehash}{2716e80b99ab44d63f50300bfb213d81}
+      \strng{nameanamehash}{2716e80b99ab44d63f50300bfb213d81}
+      \strng{nameafullhash}{2716e80b99ab44d63f50300bfb213d81}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{series}{Developer's Library}
       \field{title}{Linux Kernel Development}
@@ -379,6 +506,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -388,12 +520,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Compiler --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -415,6 +551,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -424,12 +565,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Assembly language --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -451,6 +596,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -460,12 +610,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{4}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Linker (computing) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -487,6 +641,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -496,12 +655,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{5}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Loader (computing) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -523,6 +686,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -532,12 +700,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{6}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Dynamic linker --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -561,6 +733,13 @@
            given={J.R.},
            giveni={J\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=2d19afa203c5f71c4e6502f1f04bd951}{%
+           family={Levine},
+           familyi={L\bibinitperiod},
+           given={J.R.},
+           giveni={J\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -573,12 +752,16 @@
       \strng{authorbibnamehash}{2d19afa203c5f71c4e6502f1f04bd951}
       \strng{authornamehash}{2d19afa203c5f71c4e6502f1f04bd951}
       \strng{authorfullhash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{nameabibnamehash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{nameanamehash}{2d19afa203c5f71c4e6502f1f04bd951}
+      \strng{nameafullhash}{2d19afa203c5f71c4e6502f1f04bd951}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{9781558604964}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{series}{Operating Systems Series}
       \field{title}{Linkers and Loaders}
@@ -595,6 +778,11 @@
            family={Intel},
            familyi={I\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=ff97a9fdede09eaf6e1c8ec9f6a61dd5}{%
+           family={Intel},
+           familyi={I\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -604,12 +792,16 @@
       \strng{authorbibnamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
       \strng{authornamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
       \strng{authorfullhash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{nameabibnamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{nameanamehash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
+      \strng{nameafullhash}{ff97a9fdede09eaf6e1c8ec9f6a61dd5}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{http://pdos.csail.mit.edu/6.828/2004/readings/i386/toc.htm}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{INTEL 80386 Programmer's Reference Manual}
       \field{usera}{Z}
@@ -619,50 +811,13 @@
       \field{dateera}{ce}
       \keyw{intel86}
     \endentry
-    \entry{tanenbaum2015modern}{book}{}
-      \name{author}{1}{}{%
-        {{hash=2414455c999bc471f803cd14fdea939d}{%
-           family={Tanenbaum},
-           familyi={T\bibinitperiod},
-           given={Andrew\bibnamedelima S.},
-           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {english}%
-      }
-      \list{publisher}{1}{%
-        {Prentice Hall Press}%
-      }
-      \strng{namehash}{2414455c999bc471f803cd14fdea939d}
-      \strng{fullhash}{2414455c999bc471f803cd14fdea939d}
-      \strng{bibnamehash}{2414455c999bc471f803cd14fdea939d}
-      \strng{authorbibnamehash}{2414455c999bc471f803cd14fdea939d}
-      \strng{authornamehash}{2414455c999bc471f803cd14fdea939d}
-      \strng{authorfullhash}{2414455c999bc471f803cd14fdea939d}
-      \field{extraname}{2}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{4}
-      \field{langid}{english}
-      \field{lansortorder}{4}
-      \field{title}{Modern Operating Systems}
-      \field{usera}{M}
-      \field{userd}{english}
-      \field{userf}{english}
-      \field{year}{2015}
-      \field{dateera}{ce}
-      \verb{urlraw}
-      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/4/calibre
-      \endverb
-      \verb{url}
-      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/4/calibre
-      \endverb
-      \keyw{tanenbaum2015modern}
-    \endentry
     \entry{wiki:page-replace}{online}{}
       \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \name{namea}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
@@ -676,12 +831,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{7}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Page replacement algorithm --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -703,6 +862,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -712,12 +876,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{8}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Executable and Linkable Format --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -739,6 +907,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -748,12 +921,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{9}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Open (system call) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -775,6 +952,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -784,12 +966,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{10}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{File descriptor --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -813,6 +999,13 @@
            given={Wiliam},
            giveni={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=839a822d2a67591f1ab4bc2cb54a7b8f}{%
+           family={Stallings},
+           familyi={S\bibinitperiod},
+           given={Wiliam},
+           giveni={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -825,12 +1018,16 @@
       \strng{authorbibnamehash}{839a822d2a67591f1ab4bc2cb54a7b8f}
       \strng{authornamehash}{839a822d2a67591f1ab4bc2cb54a7b8f}
       \strng{authorfullhash}{839a822d2a67591f1ab4bc2cb54a7b8f}
+      \strng{nameabibnamehash}{839a822d2a67591f1ab4bc2cb54a7b8f}
+      \strng{nameanamehash}{839a822d2a67591f1ab4bc2cb54a7b8f}
+      \strng{nameafullhash}{839a822d2a67591f1ab4bc2cb54a7b8f}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{7}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Operating Systems: Internals and Design Principles}
       \field{usera}{M}
@@ -846,6 +1043,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -855,12 +1057,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{11}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{File Allocation Table --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -882,6 +1088,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -891,12 +1102,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{12}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Inode --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -920,6 +1135,13 @@
            given={M.J.},
            giveni={M\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=f93fd761a7f1a32977f071f98a83b383}{%
+           family={Bach},
+           familyi={B\bibinitperiod},
+           given={M.J.},
+           giveni={M\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -932,11 +1154,15 @@
       \strng{authorbibnamehash}{f93fd761a7f1a32977f071f98a83b383}
       \strng{authornamehash}{f93fd761a7f1a32977f071f98a83b383}
       \strng{authorfullhash}{f93fd761a7f1a32977f071f98a83b383}
+      \strng{nameabibnamehash}{f93fd761a7f1a32977f071f98a83b383}
+      \strng{nameanamehash}{f93fd761a7f1a32977f071f98a83b383}
+      \strng{nameafullhash}{f93fd761a7f1a32977f071f98a83b383}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{series}{Prentice-Hall software series}
       \field{title}{The design of the UNIX operating system}
@@ -955,6 +1181,13 @@
            given={K.},
            giveni={K\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=2ac0bcb42345d5b16d94d80fdd2159be}{%
+           family={Thompson},
+           familyi={T\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -964,12 +1197,16 @@
       \strng{authorbibnamehash}{2ac0bcb42345d5b16d94d80fdd2159be}
       \strng{authornamehash}{2ac0bcb42345d5b16d94d80fdd2159be}
       \strng{authorfullhash}{2ac0bcb42345d5b16d94d80fdd2159be}
+      \strng{nameabibnamehash}{2ac0bcb42345d5b16d94d80fdd2159be}
+      \strng{nameanamehash}{2ac0bcb42345d5b16d94d80fdd2159be}
+      \strng{nameafullhash}{2ac0bcb42345d5b16d94d80fdd2159be}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Bell System Technical Journal}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Unix Implementation}
       \field{usera}{J}
@@ -988,6 +1225,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -997,12 +1239,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{13}
       \field{sortinit}{6}
       \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Directed acyclic graph --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1026,6 +1272,13 @@
            given={Dave},
            giveni={D\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=4a848d05cb0d92fab590e8cc94c3a0f7}{%
+           family={Poirier},
+           familyi={P\bibinitperiod},
+           given={Dave},
+           giveni={D\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1038,11 +1291,15 @@
       \strng{authorbibnamehash}{4a848d05cb0d92fab590e8cc94c3a0f7}
       \strng{authornamehash}{4a848d05cb0d92fab590e8cc94c3a0f7}
       \strng{authorfullhash}{4a848d05cb0d92fab590e8cc94c3a0f7}
+      \strng{nameabibnamehash}{4a848d05cb0d92fab590e8cc94c3a0f7}
+      \strng{nameanamehash}{4a848d05cb0d92fab590e8cc94c3a0f7}
+      \strng{nameafullhash}{4a848d05cb0d92fab590e8cc94c3a0f7}
       \field{sortinit}{7}
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{The Second Extended File System Internal Layout}
       \field{usera}{M}
@@ -1066,6 +1323,13 @@
            given={David\bibnamedelima A},
            giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=fec8919724373fd96701c8f6158b8507}{%
+           family={Rusling},
+           familyi={R\bibinitperiod},
+           given={David\bibnamedelima A},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1078,11 +1342,15 @@
       \strng{authorbibnamehash}{fec8919724373fd96701c8f6158b8507}
       \strng{authornamehash}{fec8919724373fd96701c8f6158b8507}
       \strng{authorfullhash}{fec8919724373fd96701c8f6158b8507}
+      \strng{nameabibnamehash}{fec8919724373fd96701c8f6158b8507}
+      \strng{nameanamehash}{fec8919724373fd96701c8f6158b8507}
+      \strng{nameafullhash}{fec8919724373fd96701c8f6158b8507}
       \field{sortinit}{7}
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{The Linux Kernel}
       \field{usera}{M}
@@ -1116,6 +1384,23 @@
            given={Stephen},
            giveni={S\bibinitperiod}}}%
       }
+      \name{namea}{3}{}{%
+        {{hash=3a0f84898da85c3d51cfcb7609a98cae}{%
+           family={Card},
+           familyi={C\bibinitperiod},
+           given={Rémy},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ee4459cc039d44b24dabc0a20bc96342}{%
+           family={Ts'o},
+           familyi={T\bibinitperiod},
+           given={Theodore},
+           giveni={T\bibinitperiod}}}%
+        {{hash=f9ec10f5e2a254a4f84eec3d40835005}{%
+           family={Tweedie},
+           familyi={T\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1125,12 +1410,16 @@
       \strng{authorbibnamehash}{a82645170a5838b9296b3f15a3962265}
       \strng{authornamehash}{37ba248fe1cc240e1d02ffc1dcedadda}
       \strng{authorfullhash}{a82645170a5838b9296b3f15a3962265}
+      \strng{nameabibnamehash}{a82645170a5838b9296b3f15a3962265}
+      \strng{nameanamehash}{37ba248fe1cc240e1d02ffc1dcedadda}
+      \strng{nameafullhash}{a82645170a5838b9296b3f15a3962265}
       \field{sortinit}{7}
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Dutch International Symposium on Linux}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Design and Implementation of the Second Extended Filesystem}
       \field{usera}{J}
@@ -1154,6 +1443,13 @@
            given={David},
            giveni={D\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9e142d24b7c7fe4199234dadc866c1d2}{%
+           family={Morgan},
+           familyi={M\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1163,12 +1459,16 @@
       \strng{authorbibnamehash}{9e142d24b7c7fe4199234dadc866c1d2}
       \strng{authornamehash}{9e142d24b7c7fe4199234dadc866c1d2}
       \strng{authorfullhash}{9e142d24b7c7fe4199234dadc866c1d2}
+      \strng{nameabibnamehash}{9e142d24b7c7fe4199234dadc866c1d2}
+      \strng{nameanamehash}{9e142d24b7c7fe4199234dadc866c1d2}
+      \strng{nameafullhash}{9e142d24b7c7fe4199234dadc866c1d2}
       \field{sortinit}{7}
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{http://homepage.smc.edu/morgan\_david/cs40/analyze-ext2.htm}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Analyzing a filesystem}
       \field{usera}{Z}
@@ -1183,8 +1483,15 @@
 
 \refsection{1}
   \datalist[entry]{none/global//global/global}
-    \entry{tanenbaum2008modern}{book}{}
+    \entry{tanenbaum2015modern}{book}{}
       \name{author}{1}{}{%
+        {{hash=2414455c999bc471f803cd14fdea939d}{%
+           family={Tanenbaum},
+           familyi={T\bibinitperiod},
+           given={Andrew\bibnamedelima S.},
+           giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \name{namea}{1}{}{%
         {{hash=2414455c999bc471f803cd14fdea939d}{%
            family={Tanenbaum},
            familyi={T\bibinitperiod},
@@ -1203,24 +1510,45 @@
       \strng{authorbibnamehash}{2414455c999bc471f803cd14fdea939d}
       \strng{authornamehash}{2414455c999bc471f803cd14fdea939d}
       \strng{authorfullhash}{2414455c999bc471f803cd14fdea939d}
+      \strng{nameabibnamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{nameanamehash}{2414455c999bc471f803cd14fdea939d}
+      \strng{nameafullhash}{2414455c999bc471f803cd14fdea939d}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{3}
+      \field{edition}{4}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Modern Operating Systems}
       \field{usera}{M}
       \field{userd}{english}
       \field{userf}{english}
-      \field{year}{2007}
+      \field{year}{2015}
       \field{dateera}{ce}
       \true{nocite}
-      \keyw{tanenbaum2008modern}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/4/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/4/calibre
+      \endverb
+      \keyw{tanenbaum2015modern}
     \endentry
-    \entry{silberschatz11essentials}{book}{}
+    \entry{silberschatz13essentials}{book}{}
       \name{author}{3}{}{%
+        {{hash=4f34927dfbed9f6425b40ef776942177}{%
+           family={Silberschatz},
+           familyi={S\bibinitperiod}}}%
+        {{hash=f4d673ffd940c82d92eb33a866608f22}{%
+           family={Galvin},
+           familyi={G\bibinitperiod}}}%
+        {{hash=0fc12a0b906a3d2131f0f3e2b958321e}{%
+           family={Gagne},
+           familyi={G\bibinitperiod}}}%
+      }
+      \name{namea}{3}{}{%
         {{hash=4f34927dfbed9f6425b40ef776942177}{%
            family={Silberschatz},
            familyi={S\bibinitperiod}}}%
@@ -1243,24 +1571,46 @@
       \strng{authorbibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
       \strng{authornamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
       \strng{authorfullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{nameabibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{nameanamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
+      \strng{nameafullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{edition}{1}
+      \field{edition}{2}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Operating System Concepts Essentials}
       \field{usera}{M}
       \field{userd}{english}
       \field{userf}{english}
-      \field{year}{2011}
+      \field{year}{2013}
       \field{dateera}{ce}
       \true{nocite}
-      \keyw{silberschatz11essentials}
+      \verb{urlraw}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/1/calibre
+      \endverb
+      \verb{url}
+      \verb https://cs6.swfu.edu.cn/calibre/get/PDF/1/calibre
+      \endverb
+      \keyw{silberschatz13essentials}
     \endentry
     \entry{bovet2005understanding}{book}{}
       \name{author}{2}{}{%
+        {{hash=4e6ca956728eb9b26ad462fad9dacebd}{%
+           family={Bovet},
+           familyi={B\bibinitperiod},
+           given={D.P.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6176f6b4412f69e77474b086d0602918}{%
+           family={Cesati},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \name{namea}{2}{}{%
         {{hash=4e6ca956728eb9b26ad462fad9dacebd}{%
            family={Bovet},
            familyi={B\bibinitperiod},
@@ -1284,12 +1634,16 @@
       \strng{authorbibnamehash}{a98d08854c8f941be39faef502dc8019}
       \strng{authornamehash}{98936862f22b163b51b14525285c6d69}
       \strng{authorfullhash}{a98d08854c8f941be39faef502dc8019}
+      \strng{nameabibnamehash}{a98d08854c8f941be39faef502dc8019}
+      \strng{nameanamehash}{98936862f22b163b51b14525285c6d69}
+      \strng{nameafullhash}{a98d08854c8f941be39faef502dc8019}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{3}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Understanding The Linux Kernel}
       \field{usera}{M}
@@ -1318,6 +1672,23 @@
            prefix={et},
            prefixi={e\bibinitperiod}}}%
       }
+      \name{namea}{3}{}{%
+        {{hash=498dec3700eda62744cbc7a0831ea0f4}{%
+           family={Venkatesh},
+           familyi={V\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=60cb0608a8a68c1db48af9052bdb6d7e}{%
+           family={Angrave},
+           familyi={A\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=d3f8963590e1babe53e335a3c6da25e0}{%
+           family={Al.},
+           familyi={A\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1330,11 +1701,15 @@
       \strng{authorbibnamehash}{71825fffcb152935f4fa5388976e3ea9}
       \strng{authornamehash}{86038ebedc34a61f7fb0fa7c20088f0a}
       \strng{authorfullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{nameabibnamehash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{nameanamehash}{86038ebedc34a61f7fb0fa7c20088f0a}
+      \strng{nameafullhash}{71825fffcb152935f4fa5388976e3ea9}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{CS241 System Programming Coursebook}
       \field{usera}{M}
@@ -1362,6 +1737,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1371,12 +1751,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Interrupt --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1399,6 +1783,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1408,12 +1797,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{System call --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1441,6 +1834,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1450,12 +1848,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Process (computing) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1477,6 +1879,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1486,12 +1893,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Thread (computing) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1514,6 +1925,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1523,12 +1939,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Process control block --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1556,6 +1976,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1565,11 +1990,15 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Peterson's algorithm --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1597,6 +2026,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1606,12 +2040,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Inter-process communication --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1634,6 +2072,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1643,12 +2086,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Semaphore (programming) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1676,6 +2123,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1685,11 +2137,15 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Scheduling (computing) --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1717,6 +2173,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1726,11 +2187,15 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Deadlock --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1758,6 +2223,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1767,12 +2237,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Memory management --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1795,6 +2269,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1804,12 +2283,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Virtual memory --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1837,6 +2320,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1846,12 +2334,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{File system --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1874,6 +2366,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1883,12 +2380,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Computer file --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1911,6 +2412,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1920,12 +2426,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Inode --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1947,6 +2457,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1956,12 +2471,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{4}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Ext2 --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}
@@ -1984,6 +2503,11 @@
            family={Wikipedia},
            familyi={W\bibinitperiod}}}%
       }
+      \name{namea}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
       \list{language}{1}{%
         {english}%
       }
@@ -1993,12 +2517,16 @@
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{5}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{langid}{english}
+      \field{languageid}{english}
       \field{lansortorder}{4}
       \field{title}{Virtual file system --- Wikipedia{,} The Free Encyclopedia}
       \field{usera}{EB}

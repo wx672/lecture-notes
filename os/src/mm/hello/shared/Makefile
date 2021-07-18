@@ -12,8 +12,6 @@ hello.o: hello.c
 clean:
 	rm -f *.o *.so main
 
-# Local Variables:
-# ref: "http://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html"
-# ref: "http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html"
-# ref: "https://stackoverflow.com/questions/5311515/gcc-fpic-option"
-# End:
+# http://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html
+# http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html
+# https://stackoverflow.com/questions/5311515/gcc-fpic-option

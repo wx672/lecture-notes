@@ -27,11 +27,9 @@
   \centering \includegraphics[height=.85\textheight]{kernel-block}
 \end{frame}
 
-\begin{figure}
-  \centering \includegraphics[width=.6\textwidth]{kernel-block}
-  \caption{What's in the OS?}
-  \label{fig:kernel-block}
-\end{figure}
+\begin{center}
+  \includegraphics[width=.8\textwidth]{kernel-block}
+\end{center}
 
 \begin{frame}{Choosing an OS}
   \begin{center}
@@ -72,25 +70,22 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
 \end{frame}
 
 \begin{frame}
-  \begin{description}
-  \item[1945 - 1955] First generation 
-    \begin{itemize}
-    \item[-] vacuum tubes, plug boards
-    \end{itemize}
-  \item[1955 - 1965] Second generation 
-    \begin{itemize}
-    \item[-] transistors, batch systems
-    \end{itemize}
-  \item[1965 - 1980] Third generation 
-    \begin{itemize}
-    \item[-] ICs and multiprogramming
-    \end{itemize}
-  \item[1980 - present] Fourth generation 
-    \begin{itemize}
-    \item[-] personal computers
-    \end{itemize}
-  \end{description}
-\end{frame}
+  \begin{minipage}{.4\linewidth}
+    \begin{description}
+    \item[1945 -- 1955] 1\textsuperscript{st} generation
+    \item[] vacuum tubes, plug boards
+    \item[1955 -- 1965] 2\textsuperscript{nd} generation
+    \item[] transistors, batch systems
+    \item[1965 -- 1980] 3\textsuperscript{rd} generation
+    \item[] ICs and multiprogramming
+    \item[1980 -- present] 4\textsuperscript{th} generation
+    \item[] personal computers
+    \end{description}
+  \end{minipage}\;
+  \begin{minipage}{.55\linewidth}
+    \includegraphics[width=1.1\textwidth]{movies}
+  \end{minipage}
+  \end{frame}
 
 \begin{frame}
   \begin{block}{Multi-programming is the first instance where the OS must make decisions
@@ -110,6 +105,7 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
 \end{frame}
 
 \begin{frame}{The Operating System Zoo}
+  \begin{minipage}{.45\linewidth}
     \begin{itemize}
     \item {\huge Mainframe OS}
     \item {\LARGE Server OS}
@@ -119,6 +115,10 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
     \item {\small Embedded OS}
     \item {\scriptsize Smart card OS}
     \end{itemize}
+  \end{minipage}\quad
+  \begin{minipage}{.45\linewidth}
+    \includegraphics[width=\textwidth]{movies2}
+  \end{minipage}
 \end{frame}
 
 \section{OS Services}
@@ -136,18 +136,30 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
       \end{itemize}
     \end{multicols}
   \end{block}
-  \begin{block}{Keeping the system efficient:}
-  \begin{itemize}
-  \item Resource allocation
-  \item Accounting
-  \item Protection and security
-  \end{itemize}
-  \end{block}
+  \begin{minipage}{.4\linewidth}
+    \begin{block}{Keeping the system efficient:}
+      \begin{itemize}
+      \item Resource allocation
+      \item Accounting
+      \item Protection and security
+      \end{itemize}
+    \end{block}
+  \end{minipage}\qquad
+  \begin{minipage}{.5\linewidth}
+    \begin{tblr}{colspec={cX[c,3em]c},hline{2,3}={1,3}{solid}}
+      User processes&&People\\
+      OS&vs.&Government\\
+      Hardware&&Country\\
+    \end{tblr}
+    % \begin{iblock}{}
+    %   \includegraphics[width=\textwidth]{os-gov}
+    % \end{iblock}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{A Computer System}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=\textwidth]{mos-figs-1-1} }%
+    \mode<beamer>{ \includegraphics[width=.8\textwidth]{mos-figs-1-1} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-1-1} }
   \end{center}
 \end{frame}
@@ -161,13 +173,16 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
 
 \begin{frame}{CPU Working Cycle}
   \begin{center}
-    \mode<beamer>{ \includegraphics[width=.6\textwidth]{mos-figs-1-6} }%
-    \mode<article>{ \includegraphics[width=.3\textwidth]{mos-figs-1-6} }
+    \begin{tblr}{colspec={ccccc},vlines,hlines={1-1,3-3,5-5}{},row{1}={m}}
+      {Fetch\\{}unit}&➠&{Decode\\{}unit}&➠&{Execute\\{}unit}
+    \end{tblr}
+    % \mode<beamer>{ \includegraphics[width=.6\textwidth]{mos-figs-1-6} }%
+    % \mode<article>{ \includegraphics[width=.3\textwidth]{mos-figs-1-6} }
   \end{center}
   \begin{enumerate}
   \item Fetch the first instruction from memory
   \item Decode it to determine its type and operands
-  \item execute it
+  \item Execute it
   \end{enumerate}
   \begin{block}{Special CPU Registers}
     \begin{description}
@@ -257,14 +272,14 @@ See also:
     \begin{itemize}
     \item 33 pins to transmit the physical memory address
       \begin{itemize}
-      \item[-] so there are $2^{33}$ choices of memory locations
+      \item[-] so there are \(2^{33}\) choices of memory locations
       \end{itemize}
     \item 64 pins to send or receive data
       \begin{itemize}
       \item[-] so data path is 64-bit wide, or 8-byte chunks
       \end{itemize}
     \end{itemize}
-    This allows the CPU to physically address 64GB of memory ($2^{33}\times{}8B$)    
+    This allows the CPU to physically address \unit[64]{GiB} of memory (\(2^{33}\times{}8\,B\))
   \end{block}
 \end{frame}
 
@@ -280,7 +295,7 @@ See also:
       \item only the addresses, not the spaces
       \item Memory holes
         \begin{itemize}
-        \item[-] $640KB \sim 1MB$
+        \item[-] \unit[640]{KiB} \char`~ \unit[1]{MiB}
         \item[-] \texttt{/proc/iomem}
         \end{itemize}
       \end{itemize}
@@ -292,7 +307,7 @@ See also:
       \item PCI cards
       \item \ldots
       \end{itemize}
-      This is why 32-bit OSes have problems using 4 gigs of RAM.
+      This is why 32-bit OSes have problems using \unit[4]{GiB} of RAM.
     \end{block}
   \end{minipage}\quad
   \begin{minipage}{.35\linewidth}
@@ -304,13 +319,18 @@ See also:
 \label{sec:bootstrapping}
 
 \begin{frame}{Bootstrapping}
-  \begin{block}{Can you pull yourself up by your own bootstraps?}
-    \begin{itemize}
-    \item[] A computer cannot run without first loading software but must be running
-      before any software can be loaded.
-    \end{itemize}
-  \end{block}
-  \begin{center}
+  \begin{minipage}{.85\linewidth}
+    \begin{block}{Can you pull yourself up by your own bootstraps?}
+      \begin{itemize}
+      \item[] A computer cannot run without first loading software but must be running
+        before any software can be loaded.
+      \end{itemize}
+    \end{block}
+  \end{minipage}\hfill
+  \begin{minipage}{.1\linewidth}
+    \includegraphics[width=\textwidth]{bootstrap}
+  \end{minipage}
+    \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{boot}}%
     \mode<article>{ \includegraphics[width=.7\textwidth]{boot-bw}}
   \end{center}
@@ -320,19 +340,19 @@ See also:
   \begin{enumerate}
   \item BIOS (\texttt{0xfffffff0})\\
     \begin{small}
-      {\Symbol{➠}} POST\quad
-      {\Symbol{➠}} HW init\quad
-      {\Symbol{➠}} Find a boot device (FD,CD,HD\ldots{})\quad
-      {\Symbol{➠}} Copy \alert{sector zero (MBR)} to RAM (\texttt{0x00007c00})
+      ➠ POST\quad
+      ➠ HW init\quad
+      ➠ Find a boot device (FD, CD, HD\ldots{})\quad
+      ➠ Copy \alert{sector zero (MBR)} to RAM (\texttt{0x00007c00})
     \end{small}
   \item MBR -- the first 512 bytes, contains
     \begin{itemize}
-    \item Small code ($< 446\,Bytes$), e.g. GRUB stage 1, for loading GRUB stage 2
+    \item Small code (⩽ \unit[446]{Bytes}), e.g. GRUB stage 1, for loading GRUB stage 2
     \item the primary partition table ($16\times{}4=64\,Bytes$)
-    \item its job is to load the second-stage boot loader.
     \end{itemize}
+    Its job is to load the 2\textsuperscript{nd} stage boot loader.
   \item GRUB stage 2 --- load the OS kernel into RAM
-  \item {\linux} startup
+  \item {} startup
   \item init --- the first user-space program
   \end{enumerate}
   \begin{center}
@@ -342,6 +362,14 @@ See also:
   \begin{itemize}
   \item[\$] \texttt{sudo hd -n512 /dev/sda}
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Inter-compatible Processors Are Little-endian}
+  \begin{iblock}{To store \texttt{0x01234567} into memory}
+    \begin{center}
+      \includegraphics[width=.7\textwidth]{0xaa55}
+    \end{center}
+  \end{iblock}
 \end{frame}
 
 \section{Interrupt}
@@ -355,7 +383,7 @@ See also:
   \begin{iblock}{While a process is reading a disk file, can we do...}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.6\textwidth]{interrupt-c}}%
-      \mode<article>{ \cfile{figs/pseudo/interrupt.c}}
+      \mode<article>{ \cfile{./figs/pseudo/interrupt.c}}
     \end{center}
   \end{iblock}
 \end{frame}
@@ -366,7 +394,7 @@ See also:
   \item[SW INT] by executing a \alert{system call}
   \item[Trap (exception)] is a software-generated INT coursed by an error or by a
     specific request from an user program
-  \item[Interrupt vector] is an array of pointers {\pright} the memory addresses
+  \item[Interrupt vector] is an array of pointers ☛ the memory addresses
     of \alert{interrupt handlers}. This array is indexed by a unique device number
     \begin{itemize}
     \item[\$] \texttt{less /proc/devices}
@@ -390,7 +418,7 @@ See also:
   \end{center}
 \end{frame}
 
-Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2008modern}.
+Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum2015modern}.
 
 \begin{frame}{Interrupt Timeline}
   \begin{center}
@@ -420,48 +448,53 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
   \end{itemize}
 \end{frame}
 
-\begin{frame}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=.6\textwidth]{mos-figs-1-19} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-19} }
-  \end{center}
+\begin{frame}<beamer>
+  \centering\includegraphics[width=.6\textwidth]{mos-figs-1-19}
 \end{frame}
 
-\begin{frame}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[height=\textheight]{syscall} }%
-    \mode<article>{ \includegraphics[width=.5\textwidth]{syscall} }
-  \end{center}
+\begin{center}
+  \includegraphics[width=.7\textwidth]{mos-figs-1-19}
+\end{center}
+
+\begin{frame}<beamer>
+  \centering\includegraphics[height=\textheight]{syscall}
 \end{frame}
 
-\begin{frame}
-  \begin{center}
-    \mode<beamer>{ \includegraphics[width=1.01\textwidth]{osdi2-1-18} }%
-    \mode<article>{ \includegraphics[width=.7\textwidth]{osdi2-1-18} }
-  \end{center}
+\begin{frame}<beamer>
+  \centering\includegraphics[height=.9\textheight]{osdi2-1-18}
 \end{frame}
+
+\begin{center}
+  \includegraphics[width=.45\textwidth]{syscall}\quad
+  \includegraphics[width=.5\textwidth]{osdi2-1-18}
+\end{center}
 
 % \begin{frame} {System Calls}
 %   \includegraphics[width=\textwidth]{syscall1}
 % \end{frame}
 
-\begin{frame}
-  \begin{iblock}{The 11 steps in making the system call \texttt{read(fd,buffer,nbytes)}}
-    \begin{center}
-      \mode<beamer>{ \includegraphics[height=.9\textheight]{mos-figs-1-18} }%
-      \mode<article>{ \includegraphics[width=.7\textwidth]{mos-figs-1-18} }
-    \end{center}
-  \end{iblock}
+\begin{frame}<beamer>{\texttt{read(fd, buffer, nbytes)}}
+  \begin{minipage}{.3\linewidth}
+    \CMD{man 2 read}
+  \end{minipage}\quad
+  \begin{minipage}{.65\linewidth}
+    \includegraphics[width=\textwidth]{mos-figs-1-18}
+  \end{minipage}
 \end{frame}
+
+\begin{center}
+  \includegraphics[width=.7\textwidth]{mos-figs-1-18}
+  \captionof{figure}{The 11 steps to make syscall \texttt{read(fd, buffer, nbytes)}}
+\end{center}  
 
 \begin{frame}{Example}{Linux INT80h}
   \begin{description}
-  \item[Interrupt Vector Table:] The very first 1KiB of x86 memory. 
+  \item[Interrupt Vector Table:] The very first \unit[1]{KiB} of x86 memory. 
     \begin{itemize} 
-    \item 256 entries $\times$ 4B = 1KiB
+    \item 256 entries $\times$ \unit[4]{B} = \unit[1]{KiB}
     \item Each entry is a complete memory address (segment:offset)
     \item It's populated by Linux and BIOS
-    \item Slot 80h: address of the kernel services dispatcher ({\pright} sys-call table)
+    \item Slot 80h: address of the kernel services dispatcher (☛ sys-call table)
     \end{itemize}
   \end{description}
 \end{frame}
@@ -477,8 +510,8 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum200
   \end{center}
   System call numbers:
   \begin{itemize}
-  \item[\$] \cmd{less /usr/include/asm/unistd\_32.h}
-  \item[\$] \cmd{less /usr/include/asm/unistd\_64.h}
+  \item[\$] \cmd{less /usr/include/x86\_64-linux-gnu/asm/unistd\_32.h}
+  \item[\$] \cmd{less /usr/include/x86\_64-linux-gnu/asm/unistd\_64.h}
   \end{itemize}
 \end{frame}
 

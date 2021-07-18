@@ -4,28 +4,33 @@ set -euC
 
 cd /tmp
 
+tmux set -w remain-on-exit on
+
 tmux rename-window "TCP 3-way handshake demo"
-tmux split-window -v
-tmux split-window -v
 
-tmux select-pane -t 0
-tmux resize-pane -U 30
-
-tmux send-keys C-l "nc -4l 3333" 
-
+#    Window setup
+# +--------+--------+
+# | nc -4l | nc -4  |
+# +--------+--------+
+# |      watch      |
+# +-----------------+
+# |     tcpdump     |
+# +-----------------+
+#
 tmux split-window -h
+tmux split-window -vfl99
+tmux split-window -vl12
 
-tmux select-pane -t 1
-tmux send-keys C-l "nc -4 localhost 3333"
+tmux send-keys -t{top-left}  "nc -4l 3333"
+#tmux send-keys -t{top-left}  "socat - TCP-LISTEN:3333,fork,reuseaddr"
 
-tmux select-pane -t 2
-tmux resize-pane -U 8
-tmux send-keys C-l "watch -t -n.1 'ss -4ant \"( sport == 3333 or dport == 3333 )\"'" C-m
+tmux send-keys -t{top-right} "nc -4 localhost 3333"
 
-tmux select-pane -t 3
-tmux send-keys C-l "sudo tcpdump -ilo port 3333" C-m
-#tmux send-keys C-l "sudo tshark -ilo -f \"port 3333\"" C-m
+tmux send-keys -t{up-of} "watch -t -n.1 'ss -4ant \"( sport == 3333 or dport == 3333 )\"'" C-m
 
-# Local Variables:
-# Ref: https://www.arp242.net/tmux.html
-# End:
+tmux send-keys "sudo tcpdump -Silo port 3333" C-m
+#tmux send-keys "sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333" C-m
+#tmux send-keys "sudo tshark -ilo -f \"port 3333\"" C-m
+
+tmux select-pane -t{top-left}
+

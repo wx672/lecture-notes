@@ -29,15 +29,20 @@ especially [[https://www.debian.org/releases/stretch/amd64/ch03s06.html.en][Sect
   
 * Install a Debian minimal system
 1. Preparing a bootable USB stick.
-   1) Download the ISO file from [[http://mirrors.163.com/debian-cd/current/amd64/iso-cd/]]
+   1) Download the ISO file from https://cdimage.debian.org/cdimage/unofficial/non-free/cd-including-firmware/current/amd64/iso-cd/
       - There are more than one ISO files in the above link. You just need the smallest
-        one which is usually suffixed by =netinst.iso=.
+        one, for example,
+        #+begin_example
+        firmware-10.10.0-amd64-netinst.iso      <- this one
+        firmware-edu-10.10.0-amd64-netinst.iso
+        #+end_example
+
         If you are still confused, you should read the [[http://mirrors.163.com/debian-cd/current/amd64/iso-cd/HEADER.html][=HEADER.html=]] file in that directory.
    2) Preparing the bootable USB stick is quite simple with a Debian machine.
-      : sudo cp debian-9.5.0-amd64-netinst.iso /dev/sdX
+      : sudo cp firmware-10.10.0-amd64-netinst.iso /dev/sdX
       : sync
       *Caution*
-      - Replace =debian-9.5.0-amd64-netinst.iso= with your iso file name;
+      - Replace =firmware-10.10.0-amd64-netinst.iso= with your iso file name;
       - Replace =X= with your USB drive letter. It's probably =b= or =c=.  you can use
         the command =lsblk= to check it for sure.
 2. Unplug the Ethernet cable, and then reboot your laptop from USB stick. Following the
@@ -64,19 +69,16 @@ especially [[https://www.debian.org/releases/stretch/amd64/ch03s06.html.en][Sect
 Now you can just download and run [[https://cs6.swfu.edu.cn/~wx672/debian-install/install.sh][this little script]] to finish the full installation.
 - download:
   : cd
-  : scp fai@cs6.swfu.edu.cn:install.sh ./
-  : fai@cs6.swfu.edu.cn's password: fai
-  
+  : wget cs6.swfu.edu.cn/~wx672/debian-install/install.sh  
 - to run it:
   : chmod +x install.sh
   : ./install.sh
 
 - Upon finishing the installation, reboot. If everything goes well, you should see a black
-  screen with a rather big mouse cursor showing at the center of your screen, and nothing
-  else.
+  screen with a small x showing at the center of your screen, and nothing else.
 
-  NOTE: If the big mouse cursor doesn't shown up as expected, that probably means the Xorg
-  doesn't work well. This usually has something to do with the graphic card driver
+  NOTE: If the small x mouse cursor doesn't shown up as expected, that probably means the
+  Xorg doesn't work well. This usually has something to do with the graphic card driver
   (Nvidia?). In this unlucky case, try disable Nvidia graphic card by removing its driver,
   and use the built-in graphic card instead.
   #+begin_src sh

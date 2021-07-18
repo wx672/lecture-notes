@@ -1,0 +1,25 @@
+\documentclass[varwidth=40em]{standalone}
+
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+    Big-endian: 
+(Network order) ───────┬──────┬──────┬──────┬──────┬───────
+                  ...  │  01  │  23  │  45  │  67  │  ...  
+                ───────┴──────┴──────┴──────┴──────┴───────
+                         0x10   0x11   0x12   0x13         
+                
+ Little-endian: 
+                ───────┬──────┬──────┬──────┬──────┬───────
+                  ...  │  67  │  45  │  23  │  01  │  ...  
+                ───────┴──────┴──────┴──────┴──────┴───────
+                         0x10   0x11   0x12   0x13         
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

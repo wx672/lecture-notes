@@ -1,0 +1,22 @@
+\documentclass[varwidth=39.5em,crop]{standalone}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\begin{document}
+\pagestyle{empty}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+$ \color{violet}{ping -c3 -Mdo -s1500 cs6.swfu.edu.cn}
+PING cs6.swfu.edu.cn (39.129.9.40) 1500({\color{blue}{1528}}) bytes of data.
+ping: local error: message too long, mtu=1500
+ping: local error: message too long, mtu=1500
+ping: local error: message too long, mtu=1500
+
+--- cs6.swfu.edu.cn ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2054ms
+\end{Verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

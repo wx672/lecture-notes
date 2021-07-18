@@ -35,7 +35,7 @@ the model well either. Still, the model of block and character devices is genera
 that it can be used as a basis for making some of the operating system software dealing
 with I/O device independent. The file system, for example, deals just with abstract block
 devices and leaves the device-dependent part to lower-level software\citetitle[Sec.~5.1.1,
-\emph{I/O Devices}]{tanenbaum2008modern}.
+\emph{I/O Devices}]{tanenbaum2015modern}.
 
 \begin{frame}{Device Controllers}
   I/O units usually consist of
@@ -87,7 +87,7 @@ actually comes off the drive, however, is a serial bit stream, starting with a
 \emph{Error-Correcting Code} (\emph{ECC}). The preamble is written when the disk is
 formatted and contains the cylinder and sector number, the sector size, and similar data,
 as well as synchronization information\citetitle[Sec.~5.1.2, \emph{Device
-  Controllers}]{tanenbaum2008modern}.
+  Controllers}]{tanenbaum2015modern}.
 
 The controller's job is to convert the serial bit stream into a block of bytes and perform
 any error correction necessary. The block of bytes is typically first assembled, bit by
@@ -171,7 +171,7 @@ and to move bits into or out of a device register. \emph{Alternatively, the devi
 are mapped into the address space of the processor. The CPU executes I/O requests using
 the standard data-transfer instructions to read and write the device-control registers.
 Some systems use both techniques. For instance, PCs use I/O instructions\citetitle[Sec.~12.2,
-\emph{I/O Hardware}]{silberschatz11essentials}.
+\emph{I/O Hardware}]{silberschatz13essentials}.
 
 How do these schemes work? In all cases, when the CPU wants to read a word, either from
 memory or from an I/O port, it puts the address it needs on the bus' address lines and
@@ -182,7 +182,7 @@ there is only memory space [as in (b)], every memory module and every I/O device
 the address lines to the range of addresses that it services. If the address falls in its
 range, it responds to the request. Since no address is ever assigned to both memory and an
 I/O device, there is no ambiguity and no conflict\citetitle[Sec.~5.1.3, \emph{Memory-mapped
-  I/O}]{tanenbaum2008modern}.
+  I/O}]{tanenbaum2015modern}.
 
 \begin{frame}{Advantages of Memory-mapped I/O}
   \begin{block}{No assembly code is needed (\texttt{IN, OUT...})}
@@ -204,7 +204,7 @@ instruction in C or C++. Calling such a procedure adds overhead to controlling I
 contrast, with memory-mapped I/O, device control registers are just variables in memory
 and can be addressed in C the same way as any other variables. Thus with memory-mapped
 I/O, a I/O device driver can be written entirely in C. Without memory-mapped I/O, some
-assembly code is needed\citetitle[Sec.~5.1.3, \emph{Memory-mapped I/O}]{tanenbaum2008modern}.
+assembly code is needed\citetitle[Sec.~5.1.3, \emph{Memory-mapped I/O}]{tanenbaum2015modern}.
 
 Second, with memory-mapped I/O, no special protection mechanism is needed to keep user
 processes from performing I/O. All the operating system has to do is refrain from putting
@@ -257,7 +257,7 @@ disastrous. Consider the assembly code loop given above in the presence of cachi
 first reference to \texttt{PORT\_4} would cause it to be cached. Subsequent references would
 just take the value from the cache and not even ask the device. Then when the device
 finally became ready, the software would have no way of finding out. Instead, the loop
-would go on forever\citetitle[Sec.~5.1.3, \emph{Memory-mapped I/O}]{tanenbaum2008modern}.
+would go on forever\citetitle[Sec.~5.1.3, \emph{Memory-mapped I/O}]{tanenbaum2015modern}.
 
 To prevent this situation with memory-mapped I/O, the hardware has to be equipped with the
 ability to selectively disable caching, for example, on a per page basis. This feature
@@ -323,7 +323,7 @@ trade-offs are inevitable.
 \end{frame}
 
 For this example, the host writes output through a port, coordinating with the controller
-by handshaking as follows\citetitle[Sec.~12.2.1, \emph{Polling}]{silberschatz11essentials}.
+by handshaking as follows\citetitle[Sec.~12.2.1, \emph{Polling}]{silberschatz13essentials}.
 \begin{enumerate}
 \item The host repeatedly reads the \emph{busy} bit until that bit becomes clear.
 \item The host sets the \emph{write} bit in the command register and writes a byte into
@@ -356,7 +356,7 @@ This loop is repeated for each byte.
   \end{center}
 \end{frame}
 
-See also: \citetitle[Sec.~5.2.2, \emph{Programmed I/O}]{tanenbaum2008modern}.
+See also: \citetitle[Sec.~5.2.2, \emph{Programmed I/O}]{tanenbaum2015modern}.
 
 \subsection{Interrupt-Driven I/O}
 
@@ -375,7 +375,7 @@ See also: \citetitle[Sec.~5.2.2, \emph{Programmed I/O}]{tanenbaum2008modern}.
   \end{center}
 \end{frame}
 
-See also: \citetitle[Sec.~12.2.2, \emph{Interrupts}]{silberschatz11essentials}.
+See also: \citetitle[Sec.~12.2.2, \emph{Interrupts}]{silberschatz13essentials}.
 
 \begin{frame}{Example}{Writing a string to the printer using interrupt-driven I/O}
   \begin{block}{When the print system call is made...}
@@ -398,7 +398,7 @@ See also: \citetitle[Sec.~12.2.2, \emph{Interrupts}]{silberschatz11essentials}.
   \end{block}
 \end{frame}
 
-See also: \citetitle[Sec.~5.2.3, \emph{Interrupt-Driven I/O}]{tanenbaum2008modern}.
+See also: \citetitle[Sec.~5.2.3, \emph{Interrupt-Driven I/O}]{tanenbaum2015modern}.
 
 \subsection{Direct Memory Access (DMA)}
 
@@ -444,7 +444,7 @@ systems do. Sometimes this controller is integrated into disk controllers and ot
 controllers, but such a design requires a separate DMA controller for each device. More
 commonly, a single DMA controller is available (e.g., on the parentboard) for regulating
 transfers to multiple devices, often concurrently\citetitle[Sec.~5.1.4, \emph{Direct Memory
-  Access (DMA)}]{tanenbaum2008modern}.
+  Access (DMA)}]{tanenbaum2015modern}.
 
 \begin{frame}{DMA Handshaking Example}{Read from disk}
   \begin{center}
@@ -490,7 +490,7 @@ When DMA is used, ..., first the CPU programs the DMA controller by setting its 
 so it knows what to transfer where (step 1 in Fig~\ref{fig:dma}). It also issues a command
 to the disk controller telling it to read data from the disk into its internal buffer and
 verify the checksum. When valid data are in the disk controller's buffer, DMA can
-begin\citetitle[Sec.~5.1.4, \emph{Direct Memory Access (DMA)}]{tanenbaum2008modern}.
+begin\citetitle[Sec.~5.1.4, \emph{Direct Memory Access (DMA)}]{tanenbaum2015modern}.
 
 The DMA controller initiates the transfer by issuing a read request over the bus to the
 disk controller (step 2). This read request looks like any other read request, and the
@@ -535,7 +535,7 @@ it does not have to copy the disk block to memory; it is already there.
 See also:
 \begin{itemize}
 \item \citetitle[Sec.~14.1.3, \emph{Processing Interrupts}]{mauerer2008professional}.
-\item \citetitle[Sec.~5.3.1, \emph{Interrupt Handlers}]{tanenbaum2008modern}.
+\item \citetitle[Sec.~5.3.1, \emph{Interrupt Handlers}]{tanenbaum2015modern}.
 \end{itemize}
 
 \subsection{Device Drivers}
@@ -550,7 +550,7 @@ See also:
   \end{center}
 \end{frame}
 
-See also: \citetitle[Sec.~5.3.2, \emph{Device Drivers}]{tanenbaum2008modern}.
+See also: \citetitle[Sec.~5.3.2, \emph{Device Drivers}]{tanenbaum2015modern}.
 
 \subsection{Device-Independent I/O Software}
 
@@ -566,7 +566,7 @@ See also: \citetitle[Sec.~5.3.2, \emph{Device Drivers}]{tanenbaum2008modern}.
   \end{block}
 \end{frame}
 
-See also: \citetitle[Sec.~5.3.3, \emph{Device-Independent I/O Software}]{tanenbaum2008modern}.
+See also: \citetitle[Sec.~5.3.3, \emph{Device-Independent I/O Software}]{tanenbaum2015modern}.
 
 \begin{frame}{Uniform Interfacing for Device Drivers}
   \begin{center}
@@ -599,7 +599,7 @@ See also: \citetitle[Sec.~5.3.3, \emph{Device-Independent I/O Software}]{tanenba
   \end{block}  
 \end{frame}
 
-See also: \citetitle[Sec.~5.3.4, \emph{User-Space I/O Software}]{tanenbaum2008modern}.
+See also: \citetitle[Sec.~5.3.4, \emph{User-Space I/O Software}]{tanenbaum2015modern}.
 
 \section{Disks}
 
@@ -619,7 +619,7 @@ logically divided into circular \Navy{tracks}, which are subdivided into
 \Navy{sectors}. The set of tracks that are at one arm position makes up a \Navy{cylinder}.
 There may be thousands of concentric cylinders in a disk drive, and each track may contain
 hundreds of sectors. The storage capacity of common disk drives is measured in
-gigabytes\citetitle[Sec.~11.1.1, \emph{Magnetic Disks}]{silberschatz11essentials}.
+gigabytes\citetitle[Sec.~11.1.1, \emph{Magnetic Disks}]{silberschatz13essentials}.
 
 When the disk is in use, a drive motor spins it at high speed. Most drives rotate 60 to
 200 times per second. Disk speed has two parts. The \Navy{transfer rate} is the rate at
@@ -665,7 +665,7 @@ cylinders. The wild swing from 122 to 14 and then back to 124 illustrates the pr
 this schedule. If the requests for cylinders 37 and 14 could be serviced together, before
 or after the requests for 122 and 124, the total head movement could be decreased
 substantially, and performance could be thereby improved\citetitle[Sec.~11.4.1, \emph{FCFS
-  Scheduling}]{silberschatz11essentials}.
+  Scheduling}]{silberschatz13essentials}.
 
 \begin{frame}{Disk Scheduling}{Shortest Seek Time First (SSTF)}
   \begin{center}
@@ -684,7 +684,7 @@ next. Continuing, we service the request at cylinder 14, then 98, 122, 124, and 
 183. This scheduling method results in a total head movement of only 236 cylinders—little
 more than one-third of the distance needed for FCFS scheduling of this request
 queue. Clearly, this algorithm gives a substantial improvement in
-performance\citetitle[Sec.~11.4.2, \emph{SSTF Scheduling}]{silberschatz11essentials}.
+performance\citetitle[Sec.~11.4.2, \emph{SSTF Scheduling}]{silberschatz13essentials}.
 
 SSTF scheduling is essentially a form of shortest-job-ﬁrst (SJF) scheduling; and like SJF
 scheduling, \emph{it may cause starvation of some requests}. Remember that requests may
@@ -710,7 +710,7 @@ though the latter is not closest, and then to 14, before turning around to servi
   \end{center}
 \end{frame}
 
-See also: \citetitle[Sec.~11.4.3, \emph{SCAN Scheduling}]{silberschatz11essentials}.
+See also: \citetitle[Sec.~11.4.3, \emph{SCAN Scheduling}]{silberschatz13essentials}.
 
 \begin{frame}{Disk Scheduling}{Circular SCAN (C-SCAN) Scheduling}
   \begin{center}
@@ -722,7 +722,7 @@ See also: \citetitle[Sec.~11.4.3, \emph{SCAN Scheduling}]{silberschatz11essentia
   \end{center}
 \end{frame}
 
-See also: \citetitle[Sec.~11.4.4, \emph{C-SCAN Scheduling}]{silberschatz11essentials}.
+See also: \citetitle[Sec.~11.4.4, \emph{C-SCAN Scheduling}]{silberschatz13essentials}.
 
 \begin{frame}{Disk Scheduling}{C-LOOK Scheduling}
   \begin{center}
@@ -757,10 +757,10 @@ write queue, as appropriate. Ordinarily, I/O operations occur from the sorted
 queue. However, if a deadline expires for a request in either the read or the write queue,
 I/O operations are scheduled from the queue containing the expired request. This policy
 ensures that an I/O operation will wait no longer than its expiration
-time\citetitle[Sec.~15.8.1, \emph{Block Devices}]{silberschatz11essentials}.
+time\citetitle[Sec.~15.8.1, \emph{Block Devices}]{silberschatz13essentials}.
 
 See also: \citetitle[Sec.~11.4.6, \emph{Selection of a Disk-Scheduling
-  Algorithm}]{silberschatz11essentials}.
+  Algorithm}]{silberschatz13essentials}.
 
 \subsection{RAID Structure}
 
@@ -769,8 +769,8 @@ See also: \citetitle[Sec.~11.4.6, \emph{Selection of a Disk-Scheduling
     \begin{itemize}
     \item[\PackingWaste] Replace SLED with RAID
     \item[\PackingWaste] Replace the disk controller card with a RAID controller
-    \item[\good] Better performance and better reliability
-    \item[\good] No software changes are required to use the RAID
+    \item[☺] Better performance and better reliability
+    \item[☺] No software changes are required to use the RAID
     \end{itemize}
   \end{block}
 \end{frame}

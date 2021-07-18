@@ -1,0 +1,17 @@
+\documentclass[varwidth=50em,crop]{standalone}
+\usepackage{fontspec}
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+┌────────┬────────────┬───────────┬────────────┬────────┐
+│Ethernet│ IP header  │ICMP header│ ICMP data  │Ethernet│
+│header  │ (20 bytes) │(8 bytes)  │ (variable) │trailer │
+└────────┴────────────┴───────────┴────────────┴────────┘
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

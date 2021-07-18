@@ -1,0 +1,74 @@
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t broken-links:nil
+#+options: c:nil creator:nil d:nil date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t title:t toc:t
+#+options: todo:t |:t
+#+TITLE:     《Linux应用》考核大纲
+#+AUTHOR:    王晓林
+#+EMAIL:     wx672ster@gmail.com
+#+DATE:      2021-12-02 Thu
+#+language: cn
+#+select_tags: export
+#+exclude_tags: noexport
+#+LATEX_CLASS: wx672ctexart
+#+LATEX_HEADER: \pagestyle{plain}
+
+#+begin_comment
+- M-x org-table-export
+- C-c C-x C-t change date format
+- shortcut: C-c . 11/8/20 RET
+#+end_comment
+
+#+LATEX: \clearpage
+
+- 课程编号：50001198
+- 课程名称：Linux应用基础
+- 任课教师：王晓林
+- 适应专业：电信、信计、计算机等本科专业
+- 授课学时：32
+- 考试方式：闭卷机试
+- 命题规则：按《西南林业大学考试命题规则》(试行)(1996年10月修订)执行
+- 考试时间：120分钟
+- 推荐教材：《Advanced Bash Scripting Guide》
+- 课程性质及教学目的：本课为通信和计算机专业的选修课。 通过学习，要求学生全面了解Linux系统的工作环境，学会在Linux下完成日常工作和开发工作。
+  
+各章节考核目标如下：
+* GNU/Linux简介
+** 考核知识点
+     - UNIX, GNU, Linux的起源、创始人
+     - 开源软件
+** 考核要求
+   - 了解UNIX, GNU, Linux的基本历史常识
+   - 了解开源软件
+* Shell基础
+** 考核知识点
+     - UNIX文件系统基本结构
+     - 路径、目录、特殊文件
+     - 常用的命令行命令
+     - Shell编程
+** 考核要求
+   - 理解UNIX文件系统目录结构
+   - 熟悉常用命令：ls, cd, pwd, cp, rm, man, help, ln, cat, less, mkdir...
+   - 会编写简单的Bash程序
+   - 能看懂复杂的Bash程序
+* 常用软件工具
+** 考核知识点
+    - 编辑器: emacs, vim
+    - 网络工具: ping, ip, dhclient, ssh, scp, rsync, aria2c, nc, ...
+** 考核要求
+   - 能熟练使用emacs和vim
+* 软件开发环境
+** 考核知识点
+    - GCC
+    - make
+    - gdb
+** 考核要求
+   - 了解GCC, Makefile, GDB的使用
+* Debian GNU/Linux系统管理
+** 考核知识点
+    - 最小系统的安装
+    - apt
+    - Debian 管理工具
+** 考核要求
+   - 会安装系统
+   - 会安装、卸载软件
+   - 会更新系统和软件
