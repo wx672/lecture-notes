@@ -47,7 +47,7 @@ pause_err(){
 }
 
 note(){
-	colorEcho $INFO "****************************** NOTE! ******************************"
+	colorEcho $INFO "****************************** NOTE ******************************"
 	cat<<EOF
 This script WON'T WORK unless you have the Debian base system successfully installed.
 If not yet, follow my installation guide to do it now.
@@ -56,7 +56,7 @@ If not yet, follow my installation guide to do it now.
 
 NOTE: DO NOT set the root password while installing the base system!
 EOF
-	colorEcho $INFO "*******************************************************************"
+	colorEcho $INFO "******************************************************************"
 
 	pause_err
 }
@@ -97,7 +97,7 @@ cs6reachable(){
 		cat<<EOF
 You have two choices:
 
-1. You don't have to quit if the problem is on your side. You can press Ctrl-Alt-F2 to login another console, fix the network problem and then hit Ctrl-Alt-F1 to come back and continue.
+1. Try fixing the problem if it's on your side. You can press Ctrl-Alt-F2 to login another console, fix the network problem and then hit Ctrl-Alt-F1 to come back and continue.
 
 2. If you can't fix the network, press q to quit the installation.
 EOF
@@ -132,8 +132,15 @@ sources_list(){
 	colorEcho $INFO "Modifying /etc/apt/sources.list ..."
 	sudo rm /etc/apt/sources.list
 	cat <<EOF | sudo tee /etc/apt/sources.list
+deb http://mirrors.163.com/debian sid main contrib non-free
 deb http://ftp2.cn.debian.org/debian sid main contrib non-free
+deb http://mirrors.ustc.edu.cn/debian sid main contrib non-free
 EOF
+    cat <<EOF | sudo tee /etc/apt/sources.list.d/apt-fast.list 
+deb http://ppa.launchpad.net/apt-fast/stable/ubuntu bionic main
+EOF
+    sudo apt-key adv --keyserver keyserver.ubuntu.com \
+         --recv-keys A2166B8DE8BDC3367D1901C11EE2FF37CA8DA16B
 }
 
 dist_upgrade(){
@@ -143,19 +150,22 @@ This step usually takes less than 30 mins. It could takes longer if your network
 EOF
 	pause
 
-	while ! sudo apt update && sudo apt-get -y dist-upgrade
-	do
-		colorEcho $ERR "******************** SYSTEM UPGRADING FAILED! ********************"
+	while ! sudo apt update && sudo apt-get -y dist-upgrade; do	
+		colorEcho $ERR "************* apt update/dist-upgrade failed! ********************"
 		cat<<EOF
-This is unusual. You have to check the error message carefully, and figure out what's wrong with it.Press Ctrl-Alt-F2 to login another console, fix the problem, and then come back to continue.
+You should check the error message carefully. Most probably this is caused by a network failure. Press Ctrl-Alt-F2 to login another console, fix the problem, and then come back to continue.
 EOF
 		colorEcho $ERR "******************************************************************"
 		pause_err
 	done
 
 	colorEcho $SUCCESS "Done upgrading the base system!"
-	
-	sudo apt-get -y install wget
+
+    while ! sudo apt-get -y install wget apt-fast; do
+        $WGET $BASEURL/debian-install/apt-fast.deb
+        sudo dpkg -i apt-fast.deb
+        return
+    done
 }
 
 more_pkgs(){
@@ -179,15 +189,21 @@ EOF
 	done
 	
 	cat<<EOF
-Files downloaded successfully!
+Package lists downloaded successfully!
 Installing $(cat 0* | wc -l) packages and all the dependencies...
 This step usually takes about an hour to finish. It could take longer if your network is slow.
 EOF
 		pause
 
-		while ! sudo apt-get -y install $(cat 0*)
+        if APT=$(type -p apt-fast); then
+            colorEcho $INFO "Great, apt-fast is available."
+        else
+            APT="apt-get"
+        fi
+           
+		while ! sudo $APT -y install $(cat 0*)
 		do
-			colorEcho $ERR "********** Oops! apt-get error! **********"
+			colorEcho $ERR "********** Oops! $APT error! **********"
 			cat<<EOF
 Life sucks so hard... Don't panic, you still have chances:
 
@@ -202,11 +218,11 @@ EOF
 			colorEcho $ERR "******************************************"
 			pause_err
 		done
+        unset APT
 }
 
 misc_files(){
 	cd
-	touch .xsession-errors && \
 	cat /dev/null > .xsession-errors && \
 	sudo chattr +i .xsession-errors
 
