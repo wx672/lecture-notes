@@ -4,7 +4,6 @@
 
 -> # Why bother? <-
 
-^
 * Linux? I've got MS-Windows already
 
 ^
@@ -22,7 +21,7 @@ It's all about choice, isn't it?
 -> *never heard of cars and computers before?* <-
 
 ^
-It's about *Common sense*.
+It's about *common sense*.
 
 ^
 -> For you, it's more than common sense... <-
@@ -41,7 +40,7 @@ Your tool kit:
 * MS-Excel for spreadsheets
 * Coding? Without a mouse I don't know where to put my hands *🙁*
 
--> Any difference from an office girl? <-
+-> Any difference from office girls? <-
 
 ---
 ^
@@ -137,7 +136,6 @@ Using CLI in front of your girl friend!
 ^
 
 -> To write a *syscall* you have to face so many problems... <-
-^
 
 -> ┌────────────────────────────────┐
 -> │ Knowledge about OS kernel      │
