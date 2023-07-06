@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-06-18 Sun 11:12 -->
+<!-- 2023-07-06 Thu 09:42 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hacking with Linux networking command line tools</title>
@@ -18,29 +18,29 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgaf3916c">1. Caution</a>
+<li><a href="#org3bc1199">1. Caution</a>
 <ul>
-<li><a href="#orgded7236">1.1. Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-07-08 Sat&gt;</span></span></a></li>
+<li><a href="#org1ad7f6e">1.1. Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-03-01 Wed&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org231e2d7">2. <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></a>
+<li><a href="#org67d55bb">2. <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></a>
 <ul>
-<li><a href="#org4e7397a">2.1. Your tasks</a></li>
+<li><a href="#orgad44288">2.1. Your tasks</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgaf3916c" class="outline-2">
-<h2 id="orgaf3916c"><span class="section-number-2">1.</span> Caution</h2>
+<div id="outline-container-org3bc1199" class="outline-2">
+<h2 id="org3bc1199"><span class="section-number-2">1.</span> Caution</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 You must submit your report as a <code>tar ball</code> in which the following files
 should be included in:
 </p>
 
-<ol class="org-ol">
+<ul class="org-ul">
 <li><p>
 Your report in either <code>Emacs Org</code> or <code>Markdown</code> format, and a HTML file
 generated from your <code>org</code> or <code>md</code> file.
@@ -57,7 +57,7 @@ Tips:
 <li>This page itself is generated from an <a href="proj-week.org">org file (proj-week.org)</a>. You can take it
 as an example.</li>
 
-<li>Report template: <a href="20221159xxx.org"><code>org file</code></a>, <a href="20221159xxx.html"><code>html file</code></a>, <a href="20221159xxx.md"><code>markdown file</code></a>.</li>
+<li>Report template: <a href="20201152xxx.org"><code>org file</code></a>, <a href="20201152xxx.html"><code>html file</code></a>, <a href="20201152xxx.md"><code>markdown file</code></a>.</li>
 </ul></li>
 
 <li>your bash script for a HTTP demostration (<a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/">examples</a>).</li>
@@ -72,16 +72,16 @@ Here's how:
 <hr>
 <ol class="org-ol">
 <li><p>
-make a directory, e.g. 20221159xxx, in this dir try very hard to make all
+make a directory, e.g. 20201159xxx, in this dir try very hard to make all
 the files available.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">mkdir  20221159xxx
-cd 20221159xxx
+<pre class="src src-sh">mkdir  20201159xxx
+cd 20201159xxx
 emacsclient tmux-http.sh # write your script
-emacsclient 20221159xxx.org # this is your report
-vim 20221159xxx.md # in markdown format
+emacsclient 20201159xxx.org # this is your report
+vim 20201159xxx.md # in markdown format
 ttyrec http-demo.ttyrec # make your demo screencast
 </pre>
 </div></li>
@@ -91,7 +91,7 @@ make a tar ball.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">cd ..                                                      
-tar zcf 20221159xxx.tgz 20221159xxx                        
+tar zcf 20201159xxx.tgz 20201159xxx                        
 ls -l # make sure your tar ball is smaller than 1MB in size
 </pre>
 </div></li>
@@ -99,7 +99,7 @@ ls -l # make sure your tar ball is smaller than 1MB in size
 <li>submit the <code>tgz</code> file to our <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=695&amp;action=editsubmission">moodle site</a>.</li>
 </ol>
 <hr></li>
-</ol>
+</ul>
 
 <p>
 Here is a short tutorial about writing lab report: <a href="tutorial.ttyrec"><code>tutorial.ttyrec</code></a>. To view it:
@@ -114,15 +114,20 @@ Here is a short tutorial about writing lab report: <a href="tutorial.ttyrec"><co
 Feel free to make your own <code>ttyrec</code> files while doing this lab work. For example:
 </p>
 
-<pre class="example" id="org9a31d3d">
-ttyrec  20221159xxx-http.ttyrec
-ttyrec  20221159xxx-email.ttyrec
-ttyrec  20221159xxx-ftp.ttyrec
+<pre class="example" id="org3008f7f">
+ttyrec  20201159xxx-http.ttyrec
+ttyrec  20201159xxx-email.ttyrec
+ttyrec  20201159xxx-ftp.ttyrec
 </pre>
+
+<dl class="org-dl">
+<dt><b>Bonus point</b></dt><dd>Manage your project with <code>git</code>. <code>man gittutorial</code> to
+learn the very basics of it.</dd>
+</dl>
 </div>
 
-<div id="outline-container-orgded7236" class="outline-3">
-<h3 id="orgded7236"><span class="section-number-3">1.1.</span> Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-07-08 Sat&gt;</span></span></h3>
+<div id="outline-container-org1ad7f6e" class="outline-3">
+<h3 id="org1ad7f6e"><span class="section-number-3">1.1.</span> Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-03-01 Wed&gt;</span></span></h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Submit your report as a <code>tgz</code> file <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=695&amp;action=editsubmission">here</a>. In your <code>tgz</code> file, there
@@ -137,15 +142,15 @@ must be:
 
 <li>Late reports will be penalized 20% per day.</li>
 
-<li>MS-word file will <b>NOT</b> be accepted. Cheating will result in automatic
-failure of this work.</li>
+<li>MS-word file will <b>NOT</b> be accepted. Cheating will result in automatic failure of this
+work.</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org231e2d7" class="outline-2">
-<h2 id="org231e2d7"><span class="section-number-2">2.</span> <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></h2>
+<div id="outline-container-org67d55bb" class="outline-2">
+<h2 id="org67d55bb"><span class="section-number-2">2.</span> <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Here are the bash scripts I used in the class for demostrating how some protocols work.
@@ -161,8 +166,8 @@ Here are the bash scripts I used in the class for demostrating how some protocol
 <hr>
 </div>
 
-<div id="outline-container-org4e7397a" class="outline-3">
-<h3 id="org4e7397a"><span class="section-number-3">2.1.</span> Your tasks</h3>
+<div id="outline-container-orgad44288" class="outline-3">
+<h3 id="orgad44288"><span class="section-number-3">2.1.</span> Your tasks</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li>Run the above scripts to get familar with these tools, and get a thorough understanding about these protocols;</li>
@@ -180,7 +185,7 @@ Packet analysis. Upon running the following command:
 the following packet is captured:
 </p>
 
-<pre class="example" id="org8e7cff4">
+<pre class="example" id="orgad5d91e">
 08:34:10.790666 IP (tos 0x0, ttl 64, id 12824, offset 0, flags [DF],
 proto TCP (6), length 64)
 127.0.0.1.46668 &gt; 127.0.0.1.3333: Flags [P.], seq 2400005725:2400005737,
@@ -208,7 +213,7 @@ length 12
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Xiaolin Wang</p>
-<p class="date">Created: 2023-06-18 Sun 11:12</p>
+<p class="date">Created: 2023-07-06 Thu 09:42</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

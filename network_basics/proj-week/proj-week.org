@@ -17,46 +17,46 @@
 You must submit your report as a =tar ball= in which the following files
 should be included in:
 
-1. Your report in either =Emacs Org= or =Markdown= format, and a HTML file
-   generated from your =org= or =md= file.
+- Your report in either =Emacs Org= or =Markdown= format, and a HTML file
+  generated from your =org= or =md= file.
        
-   Tips: 
-   + In Emacs, press =C-c C-e h h= to export HTML file from your org file.
+  Tips: 
+  + In Emacs, press =C-c C-e h h= to export HTML file from your org file.
 
-   + For =Markdown= to HTML, you can try =markdown=, =pandoc=, =cmark=, whatever.
+  + For =Markdown= to HTML, you can try =markdown=, =pandoc=, =cmark=, whatever.
 
-   + This page itself is generated from an [[file:proj-week.org][org file (proj-week.org)]]. You can take it
-     as an example.
+  + This page itself is generated from an [[file:proj-week.org][org file (proj-week.org)]]. You can take it
+    as an example.
 
-   + Report template: [[file:20221159xxx.org][=org file=]], [[file:20221159xxx.html][=html file=]], [[file:20221159xxx.md][=markdown file=]].
+  + Report template: [[file:20201152xxx.org][=org file=]], [[file:20201152xxx.html][=html file=]], [[file:20201152xxx.md][=markdown file=]].
 
-2. your bash script for a HTTP demostration ([[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/][examples]]).
+- your bash script for a HTTP demostration ([[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/][examples]]).
 
-3. a screencast file in =ttyrec= format recording your operations (=man ttyrec=).
+- a screencast file in =ttyrec= format recording your operations (=man ttyrec=).
 
-   Here's how:
-   ------
-   1. make a directory, e.g. 20221159xxx, in this dir try very hard to make all
-      the files available.
+  Here's how:
+  ------
+  1. make a directory, e.g. 20201159xxx, in this dir try very hard to make all
+     the files available.
 
-      #+begin_src sh
-        mkdir  20221159xxx
-        cd 20221159xxx
-        emacsclient tmux-http.sh # write your script
-        emacsclient 20221159xxx.org # this is your report
-        vim 20221159xxx.md # in markdown format
-        ttyrec http-demo.ttyrec # make your demo screencast
-      #+end_src
+     #+begin_src sh
+       mkdir  20201159xxx
+       cd 20201159xxx
+       emacsclient tmux-http.sh # write your script
+       emacsclient 20201159xxx.org # this is your report
+       vim 20201159xxx.md # in markdown format
+       ttyrec http-demo.ttyrec # make your demo screencast
+     #+end_src
 
-   2. make a tar ball.
-      #+begin_src sh
-        cd ..                                                      
-        tar zcf 20221159xxx.tgz 20221159xxx                        
-        ls -l # make sure your tar ball is smaller than 1MB in size
-      #+end_src
+  2. make a tar ball.
+     #+begin_src sh
+       cd ..                                                      
+       tar zcf 20201159xxx.tgz 20201159xxx                        
+       ls -l # make sure your tar ball is smaller than 1MB in size
+     #+end_src
 
-   3. submit the =tgz= file to our [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=695&action=editsubmission][moodle site]]. 
-   ------
+  3. submit the =tgz= file to our [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=695&action=editsubmission][moodle site]]. 
+  ------
 
 Here is a short tutorial about writing lab report: [[file:tutorial.ttyrec][=tutorial.ttyrec=]]. To view it:
 
@@ -67,12 +67,15 @@ Here is a short tutorial about writing lab report: [[file:tutorial.ttyrec][=tuto
 Feel free to make your own =ttyrec= files while doing this lab work. For example:
 
 #+begin_example
-  ttyrec  20221159xxx-http.ttyrec
-  ttyrec  20221159xxx-email.ttyrec
-  ttyrec  20221159xxx-ftp.ttyrec
+  ttyrec  20201159xxx-http.ttyrec
+  ttyrec  20201159xxx-email.ttyrec
+  ttyrec  20201159xxx-ftp.ttyrec
 #+end_example
-       
-** Deadline: <2023-07-08 Sat>
+
+- *Bonus point* :: Manage your project with =git=. =man gittutorial= to
+  learn the very basics of it.
+
+** Deadline: <2023-03-01 Wed>
 
 - Submit your report as a =tgz= file [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=695&action=editsubmission][here]]. In your =tgz= file, there
   must be:
@@ -84,8 +87,8 @@ Feel free to make your own =ttyrec= files while doing this lab work. For example
 
 - Late reports will be penalized 20% per day.
 
-- MS-word file will *NOT* be accepted. Cheating will result in automatic
-  failure of this work.
+- MS-word file will *NOT* be accepted. Cheating will result in automatic failure of this
+     work.
 
 * =tmux, nc, ip, tcpdump, ss, nmap, curl=
 
