@@ -16,10 +16,10 @@
   \begin{minipage}{.65\linewidth}
     \begin{block}{\mbox{Processes are like human beings:}}
         \begin{itemize}
-        \item[\symbola ➠] they are generated
-        \item[\symbola ➠] they have a life
-        \item[\symbola ➠] they optionally generate one or more child processes, and
-        \item[\symbola ➠] eventually they die
+        \item[\symbola ➠] They are generated
+        \item[\symbola ➠] They have a life
+        \item[\symbola ➠] They optionally generate one or more child processes, and
+        \item[\symbola ➠] Eventually they die
         \end{itemize}
         A small difference:
         \begin{itemize}
@@ -177,7 +177,7 @@ Modern Unix kernels solve this problem by introducing three different mechanisms
     \mode<article>{ \cfile{../src/proc/fork.c} }
   \end{center}
   \begin{itemize}
-  \item[\$] \texttt{man fork}
+  \item[] \CMD{man fork}
   \end{itemize}
 \end{frame}
 
@@ -187,7 +187,7 @@ Modern Unix kernels solve this problem by introducing three different mechanisms
     \mode<article>{ \cfile{../src/proc/fork-exec-osc.c}}
   \end{center}
   \begin{itemize}
-  \item[\$] \cmd{man 3 exec}
+  \item[] \CMD{man 3 exec}
   \end{itemize}
 \end{frame}
 
@@ -255,7 +255,7 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
   \begin{center}
     \begin{tblr}{colspec={ccc},vlines,hlines,cell{1}{1}={c=3}{c}}
       code, data, open files, signals\ldots&&\\
-      thread ID&thread ID&thread ID\\
+      Thread Id&Thread Id&Thread ID\\
       {program\\counter}&{program\\counter}&{program\\counter}\\
       {register\\set}&{register\\set}&{register\\set}\\
       stack&stack&stack\\
@@ -387,8 +387,8 @@ See also:
   \begin{block}{How to use pthread?}
     \begin{itemize}
     \item[] \texttt{\#include<pthread.h>}
-    \item[\$] \texttt{gcc thread1.c -o thread1 -pthread}
-    \item[\$] \texttt{./thread1}
+    \item[] \CMD{gcc thread1.c -o thread1 -pthread}
+    \item[] \CMD{./thread1}
     \end{itemize}
   \end{block}
 \end{frame}
@@ -420,22 +420,22 @@ See also:
     manage their own threads.
   \end{description}
   \begin{itemize}
-  \item[☺] No need to modify the OS\\[-.5ex]
-  \item[☺] Simple representation\\[-.5ex]
+  \item[🙂] No need to modify the OS\\[-.5ex]
+  \item[🙂] Simple representation\\[-.5ex]
     \begin{itemize}
     \item each thread is represented simply by a PC, regs, stack, and a small TCB, all
         stored in the user process' address space
     \end{itemize}
-  \item[☺] Simple Management\\[-.5ex]
+  \item[🙂] Simple Management\\[-.5ex]
     \begin{itemize}
     \item creating a new thread, switching between threads, and synchronization between threads can
       all be done without intervention of the kernel
     \end{itemize}
-  \item[☺] Fast\\[-.5ex]
+  \item[🙂] Fast\\[-.5ex]
     \begin{itemize}
     \item thread switching is not much more expensive than a procedure call
     \end{itemize}
-  \item[☺] Flexible\\[-.5ex]
+  \item[🙂] Flexible\\[-.5ex]
     \begin{itemize}
     \item CPU scheduling (among threads) can be customized to suit the needs of the algorithm --
       each process can use a different thread scheduling algorithm
@@ -445,19 +445,19 @@ See also:
 
 \begin{frame}{User-Level Threads}
   \begin{itemize}
-  \item[\alert{☹}]  Lack of coordination between threads and OS kernel
+  \item[\alert{🙁}]  Lack of coordination between threads and OS kernel
     \begin{itemize}
     \item Process as a whole gets one time slice
     \item Same time slice, whether process has 1 thread or 1000 threads
     \item Also -- up to each thread to relinquish control to other threads in that process
     \end{itemize}
-  \item[\alert{☹}] Requires non-blocking system calls (i.e. a multithreaded kernel)
+  \item[\alert{🙁}] Requires non-blocking system calls (i.e. a multithreaded kernel)
     \begin{itemize}
     \item Otherwise, entire process will blocked in the kernel, even if there are runnable threads
       left in the process
     \item part of motivation for user-level threads was not to have to modify the OS
     \end{itemize}
-  \item[\alert{☹}] If one thread causes a page fault (interrupt!), the entire process
+  \item[\alert{🙁}] If one thread causes a page fault (interrupt!), the entire process
     blocks
   \end{itemize}
 \end{frame}
@@ -469,16 +469,16 @@ See also: \emph{More about blocking and non-blocking calls}\footnote{\url{http:/
   \item[Kernel-level threads] kernel provides system calls to create and manage threads
   \end{description}
   \begin{itemize}
-  \item[☺] Kernel has full knowledge of all threads
+  \item[🙂] Kernel has full knowledge of all threads
     \begin{itemize}
     \item Scheduler may choose to give a process with 10 threads more time than process with only 1
       thread
     \end{itemize}
-  \item[☺] Good for applications that frequently block (e.g. server processes with
+  \item[🙂] Good for applications that frequently block (e.g. server processes with
     frequent interprocess communication)
-  \item[\alert{☹}] Slow -- thread operations are 100s of times slower than for
+  \item[\alert{🙁}] Slow -- thread operations are 100s of times slower than for
     user-level threads
-  \item[\alert{☹}] Significant overhead and increased kernel complexity --- kernel must
+  \item[\alert{🙁}] Significant overhead and increased kernel complexity --- kernel must
     manage and schedule threads as well as processes
     \begin{itemize}
     \item Requires a full thread control block (TCB) for each thread
@@ -615,7 +615,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
     It returns the PID of the child process or -1 on failure
   \end{small}
   \begin{itemize}
-    \item[\$] \texttt{man clone}
+    \item[] \CMD{man clone}
   \end{itemize}
 \end{frame}
 
@@ -687,7 +687,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
 \begin{frame}{Interprocess Communication}
   \begin{block}{Example:}
     \begin{itemize}
-    \item[\$] \cmd{unicode skull | head -1 | cut -f1 -d' ' | sm -}
+    \item[] \CMD{unicode skull | head -1 | cut -f1 -d' ' | sm -}
     \end{itemize}
   \end{block}
   \begin{block}{IPC issues:}

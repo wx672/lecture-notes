@@ -1,2 +1,2 @@
-#!/bin/bash
-if $(grep gcc $1 | cut -d\" -f2); then /tmp/a.out; fi
+#!/bin/sh
+$(grep gcc.*a.out $1 | cut -d\" -f2) && /tmp/a.out

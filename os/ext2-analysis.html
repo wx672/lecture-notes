@@ -1,124 +1,21 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<!-- 2023-12-07 Thu 11:34 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ext2 File System Analysis</title>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
-<meta name="title" content="Ext2 File System Analysis"/>
-<meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-11-17T21:30+0800"/>
-<meta name="author" content="WANG Xiaolin"/>
-<meta name="description" content=""/>
-<meta name="keywords" content=""/>
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  html { font-family: Times, serif; font-size: 12pt; }
-  .title  { text-align: center; }
-  .todo   { color: red; }
-  .done   { color: green; }
-  .tag    { background-color: #add8e6; font-weight:normal }
-  .target { }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
-  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
-  .center {margin-left:auto; margin-right:auto; text-align:center;}
-  p.verse { margin-left: 3% }
-  pre {
-	border: 1pt solid #AEBDCC;
-	background-color: #F3F5F7;
-	padding: 5pt;
-	font-family: courier, monospace;
-        font-size: 90%;
-        overflow:auto;
-  }
-  table { border-collapse: collapse; }
-  td, th { vertical-align: top;  }
-  th.right  { text-align:center;  }
-  th.left   { text-align:center;   }
-  th.center { text-align:center; }
-  td.right  { text-align:right;  }
-  td.left   { text-align:left;   }
-  td.center { text-align:center; }
-  dt { font-weight: bold; }
-  div.figure { padding: 0.5em; }
-  div.figure p { text-align: center; }
-  div.inlinetask {
-    padding:10px;
-    border:2px solid gray;
-    margin:10px;
-    background: #ffffcc;
-  }
-  textarea { overflow-x: auto; }
-  .linenr { font-size:smaller }
-  .code-highlighted {background-color:#ffff00;}
-  .org-info-js_info-navigation { border-style:none; }
-  #org-info-js_console-label { font-size:10px; font-weight:bold;
-                               white-space:nowrap; }
-  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
-                                 font-weight:bold; }
-  /*]]>*/-->
-</style><link rel="stylesheet" href="http://cs2.swfu.edu.cn/org-info-js/org-manual.css" type="text/css"><style>code {font-weight:bold; font-size:100%; color:darkblue} body {font-size:14pt}</style>
-<script type="text/javascript" src="http://cs2.swfu.edu.cn/org-info-js/org-info.js">
-/**
- *
- * @source: http://cs2.swfu.edu.cn/org-info-js/org-info.js
- *
- * @licstart  The following is the entire license notice for the
- *  JavaScript code in http://cs2.swfu.edu.cn/org-info-js/org-info.js.
- *
- * Copyright (C) 2012-2013  Sebastian Rose
- *
- *
- * The JavaScript code in this tag is free software: you can
- * redistribute it and/or modify it under the terms of the GNU
- * General Public License (GNU GPL) as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option)
- * any later version.  The code is distributed WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
- *
- * As additional permission under GNU GPL version 3 section 7, you
- * may distribute non-source (e.g., minimized or compacted) forms of
- * that code without the copy of the GNU GPL normally required by
- * section 4, provided you include this license notice and a URL
- * through which recipients can access the Corresponding Source.
- *
- * @licend  The above is the entire license notice
- * for the JavaScript code in http://cs2.swfu.edu.cn/org-info-js/org-info.js.
- *
- */
+<meta name="author" content="WANG Xiaolin" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" href="https://cs6.swfu.edu.cn/org.css" type="text/css">
+
+<script src="http://cs2.swfu.edu.cn/org-info-js/org-info.js">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
+// @license-end
 </script>
 
-<script type="text/javascript">
-
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-
-<!--/*--><![CDATA[/*><!--*/
+<script>
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&amp;dn=gpl-3.0.txt GPL-v3-or-Later
 org_html_manager.set("TOC_DEPTH", "3");
 org_html_manager.set("LINK_HOME", "");
 org_html_manager.set("LINK_UP", "");
@@ -129,682 +26,1866 @@ org_html_manager.set("FIXED_TOC", "0");
 org_html_manager.set("TOC", "1");
 org_html_manager.set("VIEW", "plain");
 org_html_manager.setup();  // activate after the parameters are set
-/*]]>*///-->
+// @license-end
 </script>
-<script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
-<!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
-</script>
-
 </head>
 <body>
-
-<div id="preamble">
-
-</div>
-
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Ext2 File System Analysis</h1>
-
-
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#sec-1">1 FS Creation</a></li>
-<li><a href="#sec-2">2 Analysis</a>
+<li><a href="#org8d97fe8">1. FS Creation</a></li>
+<li><a href="#org2156811">2. Analysis</a>
 <ul>
-<li><a href="#sec-2-1">2.1 Block 0: Boot block</a></li>
-<li><a href="#sec-2-2">2.2 Block 1: Superblock</a></li>
-<li><a href="#sec-2-3">2.3 Block 2: group descriptor</a></li>
-<li><a href="#sec-2-4">2.4 Block 3-5: Reserved GDT blocks</a></li>
-<li><a href="#sec-2-5">2.5 Block 6: block bitmap</a></li>
-<li><a href="#sec-2-6">2.6 Block 7: inode bitmap</a></li>
-<li><a href="#sec-2-7">2.7 Block 8-23: inode table</a></li>
-<li><a href="#sec-2-8">2.8 Block 24: data block for / dir</a>
+<li><a href="#orge2e8d53">2.1. Block 0: Boot block</a></li>
+<li><a href="#org9093da3">2.2. Block 1: Superblock (00000400 - 000007ff)</a></li>
+<li><a href="#org0023f8f">2.3. Block 2: group descriptor (00000800 - 00000bff)</a></li>
+<li><a href="#org21adb84">2.4. Block 3-5: Reserved GDT blocks (00000c00 - 000017ff)</a></li>
+<li><a href="#org6cbc6c7">2.5. Block 6: block bitmap (00001800 - 00001bff)</a></li>
+<li><a href="#org882a7e1">2.6. Block 7: inode bitmap (00001c00 - 00001fff)</a></li>
+<li><a href="#orgc7f4bc8">2.7. Block 8-23: inode table (00002000 - 00005fff)</a></li>
+<li><a href="#orgc64ef84">2.8. Block 24 (00006000 - 000063ff): data block for / dir</a>
 <ul>
-<li><a href="#sec-2-8-1">2.8.1 First entry in / dir: "."</a></li>
-<li><a href="#sec-2-8-2">2.8.2 Second entry in / dir: ".."</a></li>
-<li><a href="#sec-2-8-3">2.8.3 Third entry in / dir: "lost+found"</a></li>
-<li><a href="#sec-2-8-4">2.8.4 Fourth entry in / dir: "hello"</a></li>
+<li><a href="#orgb3e2506">2.8.1. First entry in / dir: "."</a></li>
+<li><a href="#org436523a">2.8.2. Second entry in / dir: ".."</a></li>
+<li><a href="#org8c1b808">2.8.3. Third entry in / dir: "lost+found"</a></li>
+<li><a href="#orgbd36820">2.8.4. Fourth entry in / dir: "hello"</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-9">2.9 Block 25-36: 12 data blocks for <code>/lost+found</code></a>
+<li><a href="#org4f22b2e">2.9. Block 25-36 (00006400 - 00008fff): 12 data blocks for <code>/lost+found</code></a>
 <ul>
-<li><a href="#sec-2-9-1">2.9.1 First entry in <code>/lost+found</code> dir: "."</a></li>
-<li><a href="#sec-2-9-2">2.9.2 Second entry in <code>/lost+found</code> dir: ".."</a></li>
+<li><a href="#org3d2c839">2.9.1. First entry in <code>/lost+found</code> dir: "."</a></li>
+<li><a href="#org5ef2b1b">2.9.2. Second entry in <code>/lost+found</code> dir: ".."</a></li>
 </ul>
 </li>
-<li><a href="#sec-2-10">2.10 Block 38: data block for <code>hello</code></a></li>
+<li><a href="#org2c5a60a">2.10. Block 38 (00009800 - 00009cff): data block for <code>hello</code></a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3 Finding a file</a></li>
+<li><a href="#org42b2ddf">3. Finding a file</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> FS Creation</h2>
+<div id="outline-container-org8d97fe8" class="outline-2">
+<h2 id="org8d97fe8"><span class="section-number-2">1.</span> FS Creation</h2>
 <div class="outline-text-2" id="text-1">
-
-<p>  To create a 1M ext2 file system:
-</p><ul>
-<li>If you prefer <code>RAM disk</code>, do this:
-<pre class="example">
-sudo mount -t tmpfs -o size=2M tmpfs /mnt
-cd /mnt
-dd if=/dev/zero of=fs.img bs=1k count=1000
+<p>
+To create a 1M ext2 file system:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">dd if=/dev/zero of=fs.img bs=1k count=1000
+mke2fs fs.img
 </pre>
-
-</li>
-<li>Or you can use a disk file directly
-<pre class="example">
-dd if=/dev/zero of=fs.img bs=1k count=1000
-</pre>
-
-</li>
-<li>mke2fs
-<pre class="example">
-losetup /dev/loop0 fs.img
-mke2fs /dev/loop0
-</pre>
-
-<p>    Or you can <code>mke2fs fs.img</code> directly
-</p></li>
-</ul>
-
+</div>
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Analysis</h2>
+<div id="outline-container-org2156811" class="outline-2">
+<h2 id="org2156811"><span class="section-number-2">2.</span> Analysis</h2>
 <div class="outline-text-2" id="text-2">
-
+<ul class="org-ul">
+<li><p>
+To see its superblock:
+</p>
 <pre class="example">
 dumpe2fs fs.img
+</pre></li>
+
+<li><p>
+To see everything in <code>fs.img</code> in hex:
+</p>
+<pre class="example">
 hexdump -C fs.img
-</pre>
-
-
+</pre></li>
+</ul>
 </div>
 
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Block 0: Boot block</h3>
+<div id="outline-container-orge2e8d53" class="outline-3">
+<h3 id="orge2e8d53"><span class="section-number-3">2.1.</span> Block 0: Boot block</h3>
 <div class="outline-text-3" id="text-2-1">
-
-<ul>
-<li>00000000 - 000003ff
-<ul>
-<li>empty
-</li>
+<ul class="org-ul">
+<li>00000000 - 000003ff: empty (no MBR)</li>
 </ul>
-
-</li>
-</ul>
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Block 1: Superblock</h3>
+<div id="outline-container-org9093da3" class="outline-3">
+<h3 id="org9093da3"><span class="section-number-3">2.2.</span> Block 1: Superblock (00000400 - 000007ff)</h3>
 <div class="outline-text-3" id="text-2-2">
+<table>
 
-<ul>
-<li>00000400 - 000007ff
-</li>
-</ul>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="right" /><col class="right" /><col class="left" />
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">size</th><th scope="col" class="right">start</th><th scope="col" class="right">end</th><th scope="col" class="left">Superblock</th><th scope="col" class="right">Hex</th><th scope="col" class="right">Dec</th><th scope="col" class="left"></th></tr>
+<tr>
+<th scope="col" class="org-right">size</th>
+<th scope="col" class="org-right">start</th>
+<th scope="col" class="org-right">end</th>
+<th scope="col" class="org-left">Superblock</th>
+<th scope="col" class="org-right">Hex</th>
+<th scope="col" class="org-right">Dec</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">4</td><td class="right">1</td><td class="right">4</td><td class="left"><code>Total number of inodes</code></td><td class="right">0x80</td><td class="right">128</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">5</td><td class="right">8</td><td class="left">Filesystem size in blocks</td><td class="right">0x03e8</td><td class="right">1000</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">9</td><td class="right">12</td><td class="left">Number of reserved blocks</td><td class="right">0x32</td><td class="right">50</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">13</td><td class="right">16</td><td class="left">Free blocks counter</td><td class="right">0x03c2</td><td class="right">962</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">17</td><td class="right">20</td><td class="left">Free inodes counter</td><td class="right">0x75</td><td class="right">117</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">21</td><td class="right">24</td><td class="left">Number of first useful block (always 1)</td><td class="right">0x01</td><td class="right">1</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">25</td><td class="right">28</td><td class="left"><code>Block size</code></td><td class="right">0</td><td class="right">0</td><td class="left"><code>1024 &lt;&lt; 0</code></td></tr>
-<tr><td class="right">4</td><td class="right">29</td><td class="right">32</td><td class="left">Fragment size</td><td class="right">0</td><td class="right">0</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">33</td><td class="right">36</td><td class="left">Number of blocks per group</td><td class="right">0x2000</td><td class="right">8192</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">37</td><td class="right">40</td><td class="left">Number of fragments per group</td><td class="right">0x2000</td><td class="right">8192</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">41</td><td class="right">44</td><td class="left">Number of inodes per group</td><td class="right">0x80</td><td class="right">128</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">45</td><td class="right">48</td><td class="left">Time of last mount operation</td><td class="right">0</td><td class="right">n/a</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">49</td><td class="right">52</td><td class="left">Time of last write operation</td><td class="right"></td><td class="right"></td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">53</td><td class="right">54</td><td class="left">Mount operations counter</td><td class="right">3</td><td class="right">3</td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">55</td><td class="right">56</td><td class="left">Number of mount operations before check</td><td class="right">0xffff</td><td class="right">-1</td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">57</td><td class="right">58</td><td class="left">Magic signature</td><td class="right">0xef53</td><td class="right"></td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">59</td><td class="right">60</td><td class="left">Status flag</td><td class="right">0</td><td class="right">0</td><td class="left">not clean</td></tr>
-<tr><td class="right">2</td><td class="right">61</td><td class="right">62</td><td class="left">Behavior when detecting errors</td><td class="right">1</td><td class="right"></td><td class="left">continue</td></tr>
-<tr><td class="right">2</td><td class="right">63</td><td class="right">64</td><td class="left">Minor revision level</td><td class="right">0</td><td class="right">0</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">65</td><td class="right">68</td><td class="left">Time of last check</td><td class="right"></td><td class="right"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">69</td><td class="right">72</td><td class="left">Time between checks</td><td class="right">0</td><td class="right">0</td><td class="left">none</td></tr>
-<tr><td class="right">4</td><td class="right">73</td><td class="right">76</td><td class="left">OS where filesystem was created</td><td class="right">0</td><td class="right">0</td><td class="left">linux</td></tr>
-<tr><td class="right">4</td><td class="right">77</td><td class="right">80</td><td class="left">Revision level</td><td class="right">1</td><td class="right">1</td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">81</td><td class="right">82</td><td class="left">Default user ID for reserved blocks</td><td class="right">0</td><td class="right">0</td><td class="left">root</td></tr>
-<tr><td class="right">2</td><td class="right">83</td><td class="right">84</td><td class="left">Default group ID for reserved blocks</td><td class="right">0</td><td class="right">0</td><td class="left">root</td></tr>
-<tr><td class="right">4</td><td class="right">85</td><td class="right">88</td><td class="left">Number of first nonreserved inode</td><td class="right">0x0b</td><td class="right">11</td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">89</td><td class="right">90</td><td class="left"><code>Size of on-disk inode structure</code></td><td class="right">0x80</td><td class="right">128</td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">91</td><td class="right">92</td><td class="left">Block group number of this superblock</td><td class="right">0</td><td class="right">0</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">93</td><td class="right">96</td><td class="left">Compatible features bitmap</td><td class="right"></td><td class="right"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">97</td><td class="right">100</td><td class="left">Incompatible features bitmap</td><td class="right"></td><td class="right"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">101</td><td class="right">104</td><td class="left">Read-only-compatible features bitmap</td><td class="right"></td><td class="right"></td><td class="left"></td></tr>
-<tr><td class="right">16</td><td class="right">105</td><td class="right">120</td><td class="left">128-bit filesystem identifier</td><td class="right"></td><td class="right"></td><td class="left"></td></tr>
-<tr><td class="right">16</td><td class="right">121</td><td class="right">136</td><td class="left">Volume name</td><td class="right">0</td><td class="right">0</td><td class="left">none</td></tr>
-<tr><td class="right">64</td><td class="right">137</td><td class="right">200</td><td class="left">Path of last mount point</td><td class="right">0</td><td class="right">0</td><td class="left">not available</td></tr>
-<tr><td class="right">4</td><td class="right">201</td><td class="right">204</td><td class="left">Used for compression</td><td class="right"></td><td class="right"></td><td class="left"></td></tr>
-<tr><td class="right">1</td><td class="right">205</td><td class="right">205</td><td class="left">Number of blocks to preallocate</td><td class="right">0</td><td class="right">0</td><td class="left"></td></tr>
-<tr><td class="right">1</td><td class="right">206</td><td class="right">206</td><td class="left">Number of blocks to preallocate for directories</td><td class="right">3</td><td class="right">3</td><td class="left"></td></tr>
-<tr><td class="right">818</td><td class="right">207</td><td class="right">1024</td><td class="left">Nulls to pad out 1024 bytes</td><td class="right"></td><td class="right"></td><td class="left"></td></tr>
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">1</td>
+<td class="org-right">4</td>
+<td class="org-left"><b>Total number of inodes</b></td>
+<td class="org-right">0x80</td>
+<td class="org-right">128</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-right">8</td>
+<td class="org-left">Filesystem size in blocks</td>
+<td class="org-right">0x03e8</td>
+<td class="org-right">1000</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">9</td>
+<td class="org-right">12</td>
+<td class="org-left">Number of reserved blocks</td>
+<td class="org-right">0x32</td>
+<td class="org-right">50</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">13</td>
+<td class="org-right">16</td>
+<td class="org-left">Free blocks counter</td>
+<td class="org-right">0x03c2</td>
+<td class="org-right">962</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">17</td>
+<td class="org-right">20</td>
+<td class="org-left">Free inodes counter</td>
+<td class="org-right">0x75</td>
+<td class="org-right">117</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">21</td>
+<td class="org-right">24</td>
+<td class="org-left">Number of first useful block (always 1)</td>
+<td class="org-right">0x01</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">25</td>
+<td class="org-right">28</td>
+<td class="org-left"><b>Block size</b></td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left"><code>1024 &lt;&lt; 0</code></td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">29</td>
+<td class="org-right">32</td>
+<td class="org-left">Fragment size</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">33</td>
+<td class="org-right">36</td>
+<td class="org-left">Number of blocks per group</td>
+<td class="org-right">0x2000</td>
+<td class="org-right">8192</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">37</td>
+<td class="org-right">40</td>
+<td class="org-left">Number of fragments per group</td>
+<td class="org-right">0x2000</td>
+<td class="org-right">8192</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">41</td>
+<td class="org-right">44</td>
+<td class="org-left">Number of inodes per group</td>
+<td class="org-right">0x80</td>
+<td class="org-right">128</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">45</td>
+<td class="org-right">48</td>
+<td class="org-left">Time of last mount operation</td>
+<td class="org-right">0</td>
+<td class="org-right">n/a</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">49</td>
+<td class="org-right">52</td>
+<td class="org-left">Time of last write operation</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">53</td>
+<td class="org-right">54</td>
+<td class="org-left">Mount operations counter</td>
+<td class="org-right">3</td>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">55</td>
+<td class="org-right">56</td>
+<td class="org-left">Number of mount operations before check</td>
+<td class="org-right">0xffff</td>
+<td class="org-right">-1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">57</td>
+<td class="org-right">58</td>
+<td class="org-left">Magic signature</td>
+<td class="org-right">0xef53</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">59</td>
+<td class="org-right">60</td>
+<td class="org-left">Status flag</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">not clean</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">61</td>
+<td class="org-right">62</td>
+<td class="org-left">Behavior when detecting errors</td>
+<td class="org-right">1</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">continue</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">63</td>
+<td class="org-right">64</td>
+<td class="org-left">Minor revision level</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">65</td>
+<td class="org-right">68</td>
+<td class="org-left">Time of last check</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">69</td>
+<td class="org-right">72</td>
+<td class="org-left">Time between checks</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">none</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">73</td>
+<td class="org-right">76</td>
+<td class="org-left">OS where filesystem was created</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">linux</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">77</td>
+<td class="org-right">80</td>
+<td class="org-left">Revision level</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">81</td>
+<td class="org-right">82</td>
+<td class="org-left">Default user ID for reserved blocks</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">root</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">83</td>
+<td class="org-right">84</td>
+<td class="org-left">Default group ID for reserved blocks</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">root</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">85</td>
+<td class="org-right">88</td>
+<td class="org-left">Number of first nonreserved inode</td>
+<td class="org-right">0x0b</td>
+<td class="org-right">11</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">89</td>
+<td class="org-right">90</td>
+<td class="org-left"><b>Size of on-disk inode structure</b></td>
+<td class="org-right">0x80</td>
+<td class="org-right">128</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">91</td>
+<td class="org-right">92</td>
+<td class="org-left">Block group number of this superblock</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">93</td>
+<td class="org-right">96</td>
+<td class="org-left">Compatible features bitmap</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">97</td>
+<td class="org-right">100</td>
+<td class="org-left">Incompatible features bitmap</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">101</td>
+<td class="org-right">104</td>
+<td class="org-left">Read-only-compatible features bitmap</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-right">105</td>
+<td class="org-right">120</td>
+<td class="org-left">128-bit filesystem identifier</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-right">121</td>
+<td class="org-right">136</td>
+<td class="org-left">Volume name</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">none</td>
+</tr>
+
+<tr>
+<td class="org-right">64</td>
+<td class="org-right">137</td>
+<td class="org-right">200</td>
+<td class="org-left">Path of last mount point</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">not available</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">201</td>
+<td class="org-right">204</td>
+<td class="org-left">Used for compression</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">205</td>
+<td class="org-right">205</td>
+<td class="org-left">Number of blocks to preallocate</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">206</td>
+<td class="org-right">206</td>
+<td class="org-left">Number of blocks to preallocate for directories</td>
+<td class="org-right">3</td>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">818</td>
+<td class="org-right">207</td>
+<td class="org-right">1024</td>
+<td class="org-left">Nulls to pad out 1024 bytes</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 </table>
-
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> Block 2: group descriptor</h3>
+<div id="outline-container-org0023f8f" class="outline-3">
+<h3 id="org0023f8f"><span class="section-number-3">2.3.</span> Block 2: group descriptor (00000800 - 00000bff)</h3>
 <div class="outline-text-3" id="text-2-3">
+<table>
 
-<ul>
-<li>00000800 - 00000bff
-</li>
-</ul>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="right" /><col class="right" />
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">size</th><th scope="col" class="right">start</th><th scope="col" class="right">end</th><th scope="col" class="left">Group Descriptor</th><th scope="col" class="right">hex</th><th scope="col" class="right">dec</th></tr>
+<tr>
+<th scope="col" class="org-right">size</th>
+<th scope="col" class="org-right">start</th>
+<th scope="col" class="org-right">end</th>
+<th scope="col" class="org-left">Group Descriptor</th>
+<th scope="col" class="org-right">hex</th>
+<th scope="col" class="org-right">dec</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">4</td><td class="right">1</td><td class="right">4</td><td class="left">Block number of block bitmap</td><td class="right">6</td><td class="right">6</td></tr>
-<tr><td class="right">4</td><td class="right">5</td><td class="right">8</td><td class="left">Block number of inode bitmap</td><td class="right">7</td><td class="right">7</td></tr>
-<tr><td class="right">4</td><td class="right">9</td><td class="right">12</td><td class="left">Block number of first inode table block</td><td class="right">8</td><td class="right">8</td></tr>
-<tr><td class="right">2</td><td class="right">13</td><td class="right">14</td><td class="left">Number of free blocks in the group</td><td class="right">0x03c2</td><td class="right">962</td></tr>
-<tr><td class="right">2</td><td class="right">15</td><td class="right">16</td><td class="left">Number of free inodes in the group</td><td class="right">0x75</td><td class="right">117</td></tr>
-<tr><td class="right">2</td><td class="right">17</td><td class="right">18</td><td class="left">Number of directories in the group</td><td class="right">2</td><td class="right">2</td></tr>
-<tr><td class="right">2</td><td class="right">19</td><td class="right">20</td><td class="left">Alignment to word</td><td class="right"></td><td class="right"></td></tr>
-<tr><td class="right">4</td><td class="right">21</td><td class="right">24</td><td class="left">Nulls to pad out 24 bytes</td><td class="right"></td><td class="right"></td></tr>
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">1</td>
+<td class="org-right">4</td>
+<td class="org-left">Block number of block bitmap</td>
+<td class="org-right">6</td>
+<td class="org-right">6</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-right">8</td>
+<td class="org-left">Block number of inode bitmap</td>
+<td class="org-right">7</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">9</td>
+<td class="org-right">12</td>
+<td class="org-left">Block number of first inode table block</td>
+<td class="org-right">8</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">13</td>
+<td class="org-right">14</td>
+<td class="org-left">Number of free blocks in the group</td>
+<td class="org-right">0x03c2</td>
+<td class="org-right">962</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">15</td>
+<td class="org-right">16</td>
+<td class="org-left">Number of free inodes in the group</td>
+<td class="org-right">0x75</td>
+<td class="org-right">117</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">17</td>
+<td class="org-right">18</td>
+<td class="org-left">Number of directories in the group</td>
+<td class="org-right">2</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">19</td>
+<td class="org-right">20</td>
+<td class="org-left">Alignment to word</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">21</td>
+<td class="org-right">24</td>
+<td class="org-left">Nulls to pad out 24 bytes</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
 </tbody>
 </table>
-
+</div>
 </div>
 
+<div id="outline-container-org21adb84" class="outline-3">
+<h3 id="org21adb84"><span class="section-number-3">2.4.</span> Block 3-5: Reserved GDT blocks (00000c00 - 000017ff)</h3>
 </div>
 
-<div id="outline-container-2-4" class="outline-3">
-<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Block 3-5: Reserved GDT blocks</h3>
-<div class="outline-text-3" id="text-2-4">
-
-<ul>
-<li>00000c00 - 000017ff
-</li>
-</ul>
-
+<div id="outline-container-org6cbc6c7" class="outline-3">
+<h3 id="org6cbc6c7"><span class="section-number-3">2.5.</span> Block 6: block bitmap (00001800 - 00001bff)</h3>
 </div>
 
+<div id="outline-container-org882a7e1" class="outline-3">
+<h3 id="org882a7e1"><span class="section-number-3">2.6.</span> Block 7: inode bitmap (00001c00 - 00001fff)</h3>
 </div>
 
-<div id="outline-container-2-5" class="outline-3">
-<h3 id="sec-2-5"><span class="section-number-3">2.5</span> Block 6: block bitmap</h3>
-<div class="outline-text-3" id="text-2-5">
-
-<ul>
-<li>00001800 - 00001bff
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-2-6" class="outline-3">
-<h3 id="sec-2-6"><span class="section-number-3">2.6</span> Block 7: inode bitmap</h3>
-<div class="outline-text-3" id="text-2-6">
-
-<ul>
-<li>00001c00 - 00001fff
-</li>
-</ul>
-
-</div>
-
-</div>
-
-<div id="outline-container-2-7" class="outline-3">
-<h3 id="sec-2-7"><span class="section-number-3">2.7</span> Block 8-23: inode table</h3>
+<div id="outline-container-orgc7f4bc8" class="outline-3">
+<h3 id="orgc7f4bc8"><span class="section-number-3">2.7.</span> Block 8-23: inode table (00002000 - 00005fff)</h3>
 <div class="outline-text-3" id="text-2-7">
-
-<p>   00002000 - 00005fff
-</p><ul>
+<ul class="org-ul">
 <li>inode 0: deleted file
-<ul>
-<li>nil
-</li>
-</ul>
-
-</li>
-<li>inode 1: /proc, /sys&hellip;
-<ul>
-<li>00002000 - 0000207f
-</li>
-</ul>
-
-</li>
+<ul class="org-ul">
+<li>nil</li>
+</ul></li>
+<li>inode 1: /proc, /sys&#x2026;
+<ul class="org-ul">
+<li>00002000 - 0000207f</li>
+</ul></li>
 <li>inode 2: /
-<ul>
-<li>00002080 - 000020ff
-</li>
+<ul class="org-ul">
+<li>00002080 - 000020ff</li>
+</ul></li>
 </ul>
 
-</li>
-</ul>
+<table>
+<caption class="t-above"><span class="table-number">Table 1:</span> inode 2: root inode</caption>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
-<caption>inode 2: root inode</caption>
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="right" /><col class="left" /><col class="left" />
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">size</th><th scope="col" class="right">start</th><th scope="col" class="right">end</th><th scope="col" class="left">Inode</th><th scope="col" class="right">Hex</th><th scope="col" class="left">Dec</th><th scope="col" class="left"></th></tr>
+<tr>
+<th scope="col" class="org-right">size</th>
+<th scope="col" class="org-right">start</th>
+<th scope="col" class="org-right">end</th>
+<th scope="col" class="org-left">Inode</th>
+<th scope="col" class="org-right">Hex</th>
+<th scope="col" class="org-right">Dec</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">2</td><td class="right">1</td><td class="right">2</td><td class="left">File type and access rights</td><td class="right">0x41ed</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">3</td><td class="right">4</td><td class="left">Owner identification</td><td class="right">0x03e8</td><td class="left">1000</td><td class="left">UID</td></tr>
-<tr><td class="right">4</td><td class="right">5</td><td class="right">8</td><td class="left"><code>File length in bytes</code></td><td class="right">0x0400</td><td class="left">1024</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">9</td><td class="right">12</td><td class="left">Time of last file access</td><td class="right"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">13</td><td class="right">16</td><td class="left">Time that inode last changed</td><td class="right"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">17</td><td class="right">20</td><td class="left">Time that file contents last changed</td><td class="right"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">21</td><td class="right">24</td><td class="left">Time of file deletion</td><td class="right">0</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">25</td><td class="right">26</td><td class="left">Group identifier</td><td class="right">0x03e8</td><td class="left">1000</td><td class="left">GID</td></tr>
-<tr><td class="right">2</td><td class="right">27</td><td class="right">28</td><td class="left">Hard links counter</td><td class="right">3</td><td class="left">3</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">29</td><td class="right">32</td><td class="left"><code>Number of data blocks of the file</code></td><td class="right">2</td><td class="left">2</td><td class="left">512-block</td></tr>
-<tr><td class="right">4</td><td class="right">33</td><td class="right">36</td><td class="left">File flags</td><td class="right">0</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">37</td><td class="right">40</td><td class="left">Specific operating system information</td><td class="right">0</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">41</td><td class="right">44</td><td class="left"><code>Pointer to first data block</code></td><td class="right">0x18</td><td class="left">24</td><td class="left"></td></tr>
-<tr><td class="right">56</td><td class="right">45</td><td class="right">100</td><td class="left">14 more pointers to data blocks</td><td class="right">0</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">101</td><td class="right">104</td><td class="left">File version (for NFS)</td><td class="right"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">105</td><td class="right">108</td><td class="left">File access control list</td><td class="right"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">109</td><td class="right">112</td><td class="left">Directory access control list</td><td class="right"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">113</td><td class="right">116</td><td class="left">Fragment address</td><td class="right"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">8</td><td class="right">117</td><td class="right">124</td><td class="left">Specific operating system information</td><td class="right"></td><td class="left"></td><td class="left"></td></tr>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-left">File type and access rights</td>
+<td class="org-right">0x41ed</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-left">Owner identification</td>
+<td class="org-right">0x03e8</td>
+<td class="org-right">1000</td>
+<td class="org-left">UID</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-right">8</td>
+<td class="org-left"><b>File length in bytes</b></td>
+<td class="org-right">0x0400</td>
+<td class="org-right">1024</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">9</td>
+<td class="org-right">12</td>
+<td class="org-left">Time of last file access</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">13</td>
+<td class="org-right">16</td>
+<td class="org-left">Time that inode last changed</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">17</td>
+<td class="org-right">20</td>
+<td class="org-left">Time that file contents last changed</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">21</td>
+<td class="org-right">24</td>
+<td class="org-left">Time of file deletion</td>
+<td class="org-right">0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">25</td>
+<td class="org-right">26</td>
+<td class="org-left">Group identifier</td>
+<td class="org-right">0x03e8</td>
+<td class="org-right">1000</td>
+<td class="org-left">GID</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">27</td>
+<td class="org-right">28</td>
+<td class="org-left">Hard links counter</td>
+<td class="org-right">3</td>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">29</td>
+<td class="org-right">32</td>
+<td class="org-left"><b>Number of data blocks of the file</b></td>
+<td class="org-right">2</td>
+<td class="org-right">2</td>
+<td class="org-left">512-block</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">33</td>
+<td class="org-right">36</td>
+<td class="org-left">File flags</td>
+<td class="org-right">0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">37</td>
+<td class="org-right">40</td>
+<td class="org-left">Specific operating system information</td>
+<td class="org-right">0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">41</td>
+<td class="org-right">44</td>
+<td class="org-left"><b>Pointer to first data block</b></td>
+<td class="org-right">0x18</td>
+<td class="org-right">24</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">56</td>
+<td class="org-right">45</td>
+<td class="org-right">100</td>
+<td class="org-left">14 more pointers to data blocks</td>
+<td class="org-right">0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">101</td>
+<td class="org-right">104</td>
+<td class="org-left">File version (for NFS)</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">105</td>
+<td class="org-right">108</td>
+<td class="org-left">File access control list</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">109</td>
+<td class="org-right">112</td>
+<td class="org-left">Directory access control list</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">113</td>
+<td class="org-right">116</td>
+<td class="org-left">Fragment address</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">117</td>
+<td class="org-right">124</td>
+<td class="org-left">Specific operating system information</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 </table>
 
-<ul>
-<li>inode 11: <code>/lost+found</code>
-<ul>
-<li>00002500 - 0000257f
-</li>
+<ul class="org-ul">
+<li>inode 11 (00002500 - 0000257f): <code>/lost+found</code></li>
 </ul>
 
-</li>
-</ul>
+<table>
+<caption class="t-above"><span class="table-number">Table 2:</span> inode 11: lost+found</caption>
 
+<colgroup>
+<col  class="org-right">
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
-<caption>inode 11: lost+found</caption>
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="left" /><col class="left" /><col class="left" />
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">size</th><th scope="col" class="right">start</th><th scope="col" class="right">end</th><th scope="col" class="left">Inode</th><th scope="col" class="left">Hex</th><th scope="col" class="left">Dec</th><th scope="col" class="left"></th></tr>
+<tr>
+<th scope="col" class="org-right">size</th>
+<th scope="col" class="org-right">start</th>
+<th scope="col" class="org-right">end</th>
+<th scope="col" class="org-left">Inode</th>
+<th scope="col" class="org-right">Hex</th>
+<th scope="col" class="org-right">Dec</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">2</td><td class="right">1</td><td class="right">2</td><td class="left">File type and access rights</td><td class="left">0x41c0</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">3</td><td class="right">4</td><td class="left">Owner identification</td><td class="left">0</td><td class="left">0</td><td class="left">root</td></tr>
-<tr><td class="right">4</td><td class="right">5</td><td class="right">8</td><td class="left"><code>File length in bytes</code></td><td class="left">0x3000</td><td class="left">12288</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">9</td><td class="right">12</td><td class="left">Time of last file access</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">13</td><td class="right">16</td><td class="left">Time that inode last changed</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">17</td><td class="right">20</td><td class="left">Time that file contents last changed</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">21</td><td class="right">24</td><td class="left">Time of file deletion</td><td class="left">0</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">25</td><td class="right">26</td><td class="left">Group identifier</td><td class="left">0</td><td class="left">0</td><td class="left">root</td></tr>
-<tr><td class="right">2</td><td class="right">27</td><td class="right">28</td><td class="left">Hard links counter</td><td class="left">2</td><td class="left">2</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">29</td><td class="right">32</td><td class="left"><code>Number of data blocks of the file</code></td><td class="left">0x18</td><td class="left">24</td><td class="left">512-block</td></tr>
-<tr><td class="right">4</td><td class="right">33</td><td class="right">36</td><td class="left">File flags</td><td class="left">0</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">37</td><td class="right">40</td><td class="left">Specific operating system information</td><td class="left">0</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">41</td><td class="right">44</td><td class="left"><code>Pointer to first data block</code></td><td class="left">0x19</td><td class="left">25</td><td class="left"></td></tr>
-<tr><td class="right">56</td><td class="right">45</td><td class="right">100</td><td class="left">14 more pointers to data blocks</td><td class="left">1a-24</td><td class="left">26-36</td><td class="left">11 pointers</td></tr>
-<tr><td class="right">4</td><td class="right">101</td><td class="right">104</td><td class="left">File version (for NFS)</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">105</td><td class="right">108</td><td class="left">File access control list</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">109</td><td class="right">112</td><td class="left">Directory access control list</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">113</td><td class="right">116</td><td class="left">Fragment address</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">8</td><td class="right">117</td><td class="right">124</td><td class="left">Specific operating system information</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-left">File type and access rights</td>
+<td class="org-right">0x41c0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-left">Owner identification</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">root</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-right">8</td>
+<td class="org-left"><b>File length in bytes</b></td>
+<td class="org-right">0x3000</td>
+<td class="org-right">12288</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">9</td>
+<td class="org-right">12</td>
+<td class="org-left">Time of last file access</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">13</td>
+<td class="org-right">16</td>
+<td class="org-left">Time that inode last changed</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">17</td>
+<td class="org-right">20</td>
+<td class="org-left">Time that file contents last changed</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">21</td>
+<td class="org-right">24</td>
+<td class="org-left">Time of file deletion</td>
+<td class="org-right">0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">25</td>
+<td class="org-right">26</td>
+<td class="org-left">Group identifier</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-left">root</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">27</td>
+<td class="org-right">28</td>
+<td class="org-left">Hard links counter</td>
+<td class="org-right">2</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">29</td>
+<td class="org-right">32</td>
+<td class="org-left"><b>Number of data blocks of the file</b></td>
+<td class="org-right">0x18</td>
+<td class="org-right">24</td>
+<td class="org-left">512-block</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">33</td>
+<td class="org-right">36</td>
+<td class="org-left">File flags</td>
+<td class="org-right">0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">37</td>
+<td class="org-right">40</td>
+<td class="org-left">Specific operating system information</td>
+<td class="org-right">0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">41</td>
+<td class="org-right">44</td>
+<td class="org-left"><b>Pointer to first data block</b></td>
+<td class="org-right">0x19</td>
+<td class="org-right">25</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">56</td>
+<td class="org-right">45</td>
+<td class="org-right">100</td>
+<td class="org-left">14 more pointers to data blocks</td>
+<td class="org-right">1a-24</td>
+<td class="org-right">26-36</td>
+<td class="org-left">11 pointers</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">101</td>
+<td class="org-right">104</td>
+<td class="org-left">File version (for NFS)</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">105</td>
+<td class="org-right">108</td>
+<td class="org-left">File access control list</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">109</td>
+<td class="org-right">112</td>
+<td class="org-left">Directory access control list</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">113</td>
+<td class="org-right">116</td>
+<td class="org-left">Fragment address</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">117</td>
+<td class="org-right">124</td>
+<td class="org-left">Specific operating system information</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 </table>
 
-<ul>
-<li>inode 12: <code>hello</code>
-<ul>
-<li>00002580 - 00002600
-</li>
+<ul class="org-ul">
+<li>inode 12 (00002580 - 00002600): <code>hello</code></li>
 </ul>
 
-</li>
-</ul>
+<table>
+<caption class="t-above"><span class="table-number">Table 3:</span> inode 12: hello</caption>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
-<caption>inode 12: hello</caption>
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="left" /><col class="left" /><col class="left" />
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">size</th><th scope="col" class="right">start</th><th scope="col" class="right">end</th><th scope="col" class="left">Inode</th><th scope="col" class="left">Hex</th><th scope="col" class="left">Dec</th><th scope="col" class="left"></th></tr>
+<tr>
+<th scope="col" class="org-right">size</th>
+<th scope="col" class="org-right">start</th>
+<th scope="col" class="org-right">end</th>
+<th scope="col" class="org-left">Inode</th>
+<th scope="col" class="org-right">Hex</th>
+<th scope="col" class="org-right">Dec</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">2</td><td class="right">1</td><td class="right">2</td><td class="left">File type and access rights</td><td class="left">0x81a4</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">3</td><td class="right">4</td><td class="left">Owner identification</td><td class="left">03e8</td><td class="left">1000</td><td class="left">wx672</td></tr>
-<tr><td class="right">4</td><td class="right">5</td><td class="right">8</td><td class="left">File length in bytes</td><td class="left">a</td><td class="left">10</td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">9</td><td class="right">12</td><td class="left">Time of last file access</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">13</td><td class="right">16</td><td class="left">Time that inode last changed</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">17</td><td class="right">20</td><td class="left">Time that file contents last changed</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">21</td><td class="right">24</td><td class="left">Time of file deletion</td><td class="left">0</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">25</td><td class="right">26</td><td class="left">Group identifier</td><td class="left">03e8</td><td class="left">1000</td><td class="left">wx672</td></tr>
-<tr><td class="right">2</td><td class="right">27</td><td class="right">28</td><td class="left">Hard links counter</td><td class="left">1</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">29</td><td class="right">32</td><td class="left">Number of data blocks of the file</td><td class="left">2</td><td class="left"></td><td class="left">512-block</td></tr>
-<tr><td class="right">4</td><td class="right">33</td><td class="right">36</td><td class="left">File flags</td><td class="left">0</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">37</td><td class="right">40</td><td class="left">Specific operating system information</td><td class="left">0</td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">41</td><td class="right">44</td><td class="left">Pointer to first data block</td><td class="left">0x26</td><td class="left">38</td><td class="left">0x00009800</td></tr>
-<tr><td class="right">56</td><td class="right">45</td><td class="right">100</td><td class="left">14 more pointers to data blocks</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">101</td><td class="right">104</td><td class="left">File version (for NFS)</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">105</td><td class="right">108</td><td class="left">File access control list</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">4</td><td class="right">109</td><td class="right">112</td><td class="left">Directory access control list</td><td class="left"></td><td class="left"></td><td class="left"><code>for large file</code></td></tr>
-<tr><td class="right">4</td><td class="right">113</td><td class="right">116</td><td class="left">Fragment address</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
-<tr><td class="right">8</td><td class="right">117</td><td class="right">124</td><td class="left">Specific operating system information</td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-left">File type and access rights</td>
+<td class="org-right">0x81a4</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-left">Owner identification</td>
+<td class="org-right">03e8</td>
+<td class="org-right">1000</td>
+<td class="org-left">wx672</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-right">8</td>
+<td class="org-left">File length in bytes</td>
+<td class="org-right">a</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">9</td>
+<td class="org-right">12</td>
+<td class="org-left">Time of last file access</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">13</td>
+<td class="org-right">16</td>
+<td class="org-left">Time that inode last changed</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">17</td>
+<td class="org-right">20</td>
+<td class="org-left">Time that file contents last changed</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">21</td>
+<td class="org-right">24</td>
+<td class="org-left">Time of file deletion</td>
+<td class="org-right">0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">25</td>
+<td class="org-right">26</td>
+<td class="org-left">Group identifier</td>
+<td class="org-right">03e8</td>
+<td class="org-right">1000</td>
+<td class="org-left">wx672</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">27</td>
+<td class="org-right">28</td>
+<td class="org-left">Hard links counter</td>
+<td class="org-right">1</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">29</td>
+<td class="org-right">32</td>
+<td class="org-left">Number of data blocks of the file</td>
+<td class="org-right">2</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">512-block</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">33</td>
+<td class="org-right">36</td>
+<td class="org-left">File flags</td>
+<td class="org-right">0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">37</td>
+<td class="org-right">40</td>
+<td class="org-left">Specific operating system information</td>
+<td class="org-right">0</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">41</td>
+<td class="org-right">44</td>
+<td class="org-left">Pointer to first data block</td>
+<td class="org-right">0x26</td>
+<td class="org-right">38</td>
+<td class="org-left">0x00009800</td>
+</tr>
+
+<tr>
+<td class="org-right">56</td>
+<td class="org-right">45</td>
+<td class="org-right">100</td>
+<td class="org-left">14 more pointers to data blocks</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">101</td>
+<td class="org-right">104</td>
+<td class="org-left">File version (for NFS)</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">105</td>
+<td class="org-right">108</td>
+<td class="org-left">File access control list</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">109</td>
+<td class="org-right">112</td>
+<td class="org-left">Directory access control list</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left"><b>for large file</b></td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">113</td>
+<td class="org-right">116</td>
+<td class="org-left">Fragment address</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">117</td>
+<td class="org-right">124</td>
+<td class="org-left">Specific operating system information</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
 </tbody>
 </table>
-
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-2-8" class="outline-3">
-<h3 id="sec-2-8"><span class="section-number-3">2.8</span> Block 24: data block for / dir</h3>
+<div id="outline-container-orgc64ef84" class="outline-3">
+<h3 id="orgc64ef84"><span class="section-number-3">2.8.</span> Block 24 (00006000 - 000063ff): data block for / dir</h3>
 <div class="outline-text-3" id="text-2-8">
-
-<ul>
-<li>00006000 - 000063ff
-</li>
-</ul>
-
-
 </div>
-
-<div id="outline-container-2-8-1" class="outline-4">
-<h4 id="sec-2-8-1"><span class="section-number-4">2.8.1</span> First entry in / dir: "."</h4>
+<div id="outline-container-orgb3e2506" class="outline-4">
+<h4 id="orgb3e2506"><span class="section-number-4">2.8.1.</span> First entry in / dir: "."</h4>
 <div class="outline-text-4" id="text-2-8-1">
+<table>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="right" /><col class="left" />
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-left">
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">size</th><th scope="col" class="right">start</th><th scope="col" class="right">end</th><th scope="col" class="left">Directory Entry</th><th scope="col" class="right">hex</th><th scope="col" class="left"></th></tr>
+<tr>
+<th scope="col" class="org-right">size</th>
+<th scope="col" class="org-right">start</th>
+<th scope="col" class="org-right">end</th>
+<th scope="col" class="org-left">Directory Entry</th>
+<th scope="col" class="org-right">hex</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">4</td><td class="right">1</td><td class="right">4</td><td class="left">Inode number</td><td class="right">2</td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">5</td><td class="right">6</td><td class="left">This directory entry's length</td><td class="right">c</td><td class="left"></td></tr>
-<tr><td class="right">1</td><td class="right">7</td><td class="right">7</td><td class="left">File name length</td><td class="right">1</td><td class="left"></td></tr>
-<tr><td class="right">1</td><td class="right">8</td><td class="right">8</td><td class="left">File type</td><td class="right">2</td><td class="left">dir</td></tr>
-<tr><td class="right">x</td><td class="right">9</td><td class="right">x</td><td class="left">File name</td><td class="right">2e</td><td class="left">.</td></tr>
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">1</td>
+<td class="org-right">4</td>
+<td class="org-left">Inode number</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">5</td>
+<td class="org-right">6</td>
+<td class="org-left">This directory entry's length</td>
+<td class="org-right">c</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">7</td>
+<td class="org-right">7</td>
+<td class="org-left">File name length</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">8</td>
+<td class="org-right">8</td>
+<td class="org-left">File type</td>
+<td class="org-right">2</td>
+<td class="org-left">dir</td>
+</tr>
+
+<tr>
+<td class="org-right">x</td>
+<td class="org-right">9</td>
+<td class="org-right">x</td>
+<td class="org-left">File name</td>
+<td class="org-right">2e</td>
+<td class="org-left">.</td>
+</tr>
 </tbody>
 </table>
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-2-8-2" class="outline-4">
-<h4 id="sec-2-8-2"><span class="section-number-4">2.8.2</span> Second entry in / dir: ".."</h4>
+<div id="outline-container-org436523a" class="outline-4">
+<h4 id="org436523a"><span class="section-number-4">2.8.2.</span> Second entry in / dir: ".."</h4>
 <div class="outline-text-4" id="text-2-8-2">
+<table>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="right" /><col class="left" />
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-left">
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">size</th><th scope="col" class="right">start</th><th scope="col" class="right">end</th><th scope="col" class="left">Directory Entry</th><th scope="col" class="right">hex</th><th scope="col" class="left"></th></tr>
+<tr>
+<th scope="col" class="org-right">size</th>
+<th scope="col" class="org-right">start</th>
+<th scope="col" class="org-right">end</th>
+<th scope="col" class="org-left">Directory Entry</th>
+<th scope="col" class="org-right">hex</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">4</td><td class="right">12</td><td class="right">15</td><td class="left">Inode number</td><td class="right">2</td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">16</td><td class="right">17</td><td class="left">This directory entry's length</td><td class="right">c</td><td class="left">12</td></tr>
-<tr><td class="right">1</td><td class="right">18</td><td class="right">18</td><td class="left">File name length</td><td class="right">2</td><td class="left"></td></tr>
-<tr><td class="right">1</td><td class="right">19</td><td class="right">19</td><td class="left">File type</td><td class="right">2</td><td class="left">dir</td></tr>
-<tr><td class="right">x</td><td class="right">21</td><td class="right">x</td><td class="left">File name</td><td class="right">2e2e</td><td class="left">..</td></tr>
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">12</td>
+<td class="org-right">15</td>
+<td class="org-left">Inode number</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">16</td>
+<td class="org-right">17</td>
+<td class="org-left">This directory entry's length</td>
+<td class="org-right">c</td>
+<td class="org-left">12</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">18</td>
+<td class="org-right">18</td>
+<td class="org-left">File name length</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">19</td>
+<td class="org-right">19</td>
+<td class="org-left">File type</td>
+<td class="org-right">2</td>
+<td class="org-left">dir</td>
+</tr>
+
+<tr>
+<td class="org-right">x</td>
+<td class="org-right">21</td>
+<td class="org-right">x</td>
+<td class="org-left">File name</td>
+<td class="org-right">2e2e</td>
+<td class="org-left">..</td>
+</tr>
 </tbody>
 </table>
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-2-8-3" class="outline-4">
-<h4 id="sec-2-8-3"><span class="section-number-4">2.8.3</span> Third entry in / dir: "lost+found"</h4>
+<div id="outline-container-org8c1b808" class="outline-4">
+<h4 id="org8c1b808"><span class="section-number-4">2.8.3.</span> Third entry in / dir: "lost+found"</h4>
 <div class="outline-text-4" id="text-2-8-3">
+<table>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="left" /><col class="left" />
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">size</th><th scope="col" class="right">start</th><th scope="col" class="right">end</th><th scope="col" class="left">Directory Entry</th><th scope="col" class="left">hex</th><th scope="col" class="left"></th></tr>
+<tr>
+<th scope="col" class="org-right">size</th>
+<th scope="col" class="org-right">start</th>
+<th scope="col" class="org-right">end</th>
+<th scope="col" class="org-left">Directory Entry</th>
+<th scope="col" class="org-right">hex</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">4</td><td class="right">25</td><td class="right">28</td><td class="left">Inode number</td><td class="left">b</td><td class="left">11</td></tr>
-<tr><td class="right">2</td><td class="right">29</td><td class="right">30</td><td class="left">This directory entry's length</td><td class="left">14</td><td class="left">20</td></tr>
-<tr><td class="right">1</td><td class="right">31</td><td class="right">31</td><td class="left">File name length</td><td class="left">a</td><td class="left">10</td></tr>
-<tr><td class="right">1</td><td class="right">32</td><td class="right">32</td><td class="left">File type</td><td class="left">2</td><td class="left">dir</td></tr>
-<tr><td class="right">x</td><td class="right">33</td><td class="right">x</td><td class="left">File name</td><td class="left"></td><td class="left">lost+found</td></tr>
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">25</td>
+<td class="org-right">28</td>
+<td class="org-left">Inode number</td>
+<td class="org-right">b</td>
+<td class="org-right">11</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">29</td>
+<td class="org-right">30</td>
+<td class="org-left">This directory entry's length</td>
+<td class="org-right">14</td>
+<td class="org-right">20</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">31</td>
+<td class="org-right">31</td>
+<td class="org-left">File name length</td>
+<td class="org-right">a</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">32</td>
+<td class="org-right">32</td>
+<td class="org-left">File type</td>
+<td class="org-right">2</td>
+<td class="org-right">dir</td>
+</tr>
+
+<tr>
+<td class="org-right">x</td>
+<td class="org-right">33</td>
+<td class="org-right">x</td>
+<td class="org-left">File name</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">lost+found</td>
+</tr>
 </tbody>
 </table>
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-2-8-4" class="outline-4">
-<h4 id="sec-2-8-4"><span class="section-number-4">2.8.4</span> Fourth entry in / dir: "hello"</h4>
+<div id="outline-container-orgbd36820" class="outline-4">
+<h4 id="orgbd36820"><span class="section-number-4">2.8.4.</span> Fourth entry in / dir: "hello"</h4>
 <div class="outline-text-4" id="text-2-8-4">
+<table>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="left" /><col class="left" />
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">size</th><th scope="col" class="right">start</th><th scope="col" class="right">end</th><th scope="col" class="left">Directory Entry</th><th scope="col" class="left">hex</th><th scope="col" class="left"></th></tr>
+<tr>
+<th scope="col" class="org-right">size</th>
+<th scope="col" class="org-right">start</th>
+<th scope="col" class="org-right">end</th>
+<th scope="col" class="org-left">Directory Entry</th>
+<th scope="col" class="org-right">hex</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">4</td><td class="right">45</td><td class="right">48</td><td class="left">Inode number</td><td class="left">c</td><td class="left">12</td></tr>
-<tr><td class="right">2</td><td class="right">49</td><td class="right">50</td><td class="left">This directory entry's length</td><td class="left">03d4</td><td class="left">980</td></tr>
-<tr><td class="right">1</td><td class="right">51</td><td class="right">51</td><td class="left">File name length</td><td class="left">5</td><td class="left">5</td></tr>
-<tr><td class="right">1</td><td class="right">52</td><td class="right">52</td><td class="left">File type</td><td class="left">1</td><td class="left">regular</td></tr>
-<tr><td class="right">x</td><td class="right">53</td><td class="right">x</td><td class="left">File name</td><td class="left"></td><td class="left">hello</td></tr>
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">45</td>
+<td class="org-right">48</td>
+<td class="org-left">Inode number</td>
+<td class="org-right">c</td>
+<td class="org-right">12</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">49</td>
+<td class="org-right">50</td>
+<td class="org-left">This directory entry's length</td>
+<td class="org-right">03d4</td>
+<td class="org-right">980</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">51</td>
+<td class="org-right">51</td>
+<td class="org-left">File name length</td>
+<td class="org-right">5</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">52</td>
+<td class="org-right">52</td>
+<td class="org-left">File type</td>
+<td class="org-right">1</td>
+<td class="org-right">regular</td>
+</tr>
+
+<tr>
+<td class="org-right">x</td>
+<td class="org-right">53</td>
+<td class="org-right">x</td>
+<td class="org-left">File name</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">hello</td>
+</tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
-
 </div>
 
-<div id="outline-container-2-9" class="outline-3">
-<h3 id="sec-2-9"><span class="section-number-3">2.9</span> Block 25-36: 12 data blocks for <code>/lost+found</code></h3>
+<div id="outline-container-org4f22b2e" class="outline-3">
+<h3 id="org4f22b2e"><span class="section-number-3">2.9.</span> Block 25-36 (00006400 - 00008fff): 12 data blocks for <code>/lost+found</code></h3>
 <div class="outline-text-3" id="text-2-9">
-
-<ul>
-<li>00006400 - 00008fff
-</li>
-</ul>
-
-
 </div>
-
-<div id="outline-container-2-9-1" class="outline-4">
-<h4 id="sec-2-9-1"><span class="section-number-4">2.9.1</span> First entry in <code>/lost+found</code> dir: "."</h4>
+<div id="outline-container-org3d2c839" class="outline-4">
+<h4 id="org3d2c839"><span class="section-number-4">2.9.1.</span> First entry in <code>/lost+found</code> dir: "."</h4>
 <div class="outline-text-4" id="text-2-9-1">
+<table>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="left" /><col class="left" />
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-left">
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">size</th><th scope="col" class="right">start</th><th scope="col" class="right">end</th><th scope="col" class="left">Directory Entry</th><th scope="col" class="left">hex</th><th scope="col" class="left"></th></tr>
+<tr>
+<th scope="col" class="org-right">size</th>
+<th scope="col" class="org-right">start</th>
+<th scope="col" class="org-right">end</th>
+<th scope="col" class="org-left">Directory Entry</th>
+<th scope="col" class="org-right">hex</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">4</td><td class="right">1</td><td class="right">4</td><td class="left">Inode number</td><td class="left">b</td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">5</td><td class="right">6</td><td class="left">This directory entry's length</td><td class="left">c</td><td class="left"></td></tr>
-<tr><td class="right">1</td><td class="right">7</td><td class="right">7</td><td class="left">File name length</td><td class="left">1</td><td class="left"></td></tr>
-<tr><td class="right">1</td><td class="right">8</td><td class="right">8</td><td class="left">File type</td><td class="left">2</td><td class="left">dir</td></tr>
-<tr><td class="right">x</td><td class="right">9</td><td class="right">x</td><td class="left">File name</td><td class="left">2e</td><td class="left">.</td></tr>
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">1</td>
+<td class="org-right">4</td>
+<td class="org-left">Inode number</td>
+<td class="org-right">b</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">5</td>
+<td class="org-right">6</td>
+<td class="org-left">This directory entry's length</td>
+<td class="org-right">c</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">7</td>
+<td class="org-right">7</td>
+<td class="org-left">File name length</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">8</td>
+<td class="org-right">8</td>
+<td class="org-left">File type</td>
+<td class="org-right">2</td>
+<td class="org-left">dir</td>
+</tr>
+
+<tr>
+<td class="org-right">x</td>
+<td class="org-right">9</td>
+<td class="org-right">x</td>
+<td class="org-left">File name</td>
+<td class="org-right">2e</td>
+<td class="org-left">.</td>
+</tr>
 </tbody>
 </table>
-
+</div>
 </div>
 
-</div>
-
-<div id="outline-container-2-9-2" class="outline-4">
-<h4 id="sec-2-9-2"><span class="section-number-4">2.9.2</span> Second entry in <code>/lost+found</code> dir: ".."</h4>
+<div id="outline-container-org5ef2b1b" class="outline-4">
+<h4 id="org5ef2b1b"><span class="section-number-4">2.9.2.</span> Second entry in <code>/lost+found</code> dir: ".."</h4>
 <div class="outline-text-4" id="text-2-9-2">
+<table>
 
-<table  border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
-<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="left" /><col class="right" /><col class="left" />
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-left">
 </colgroup>
 <thead>
-<tr><th scope="col" class="right">size</th><th scope="col" class="right">start</th><th scope="col" class="right">end</th><th scope="col" class="left">Directory Entry</th><th scope="col" class="right">hex</th><th scope="col" class="left"></th></tr>
+<tr>
+<th scope="col" class="org-right">size</th>
+<th scope="col" class="org-right">start</th>
+<th scope="col" class="org-right">end</th>
+<th scope="col" class="org-left">Directory Entry</th>
+<th scope="col" class="org-right">hex</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
 </thead>
 <tbody>
-<tr><td class="right">4</td><td class="right">12</td><td class="right">15</td><td class="left">Inode number</td><td class="right">2</td><td class="left"></td></tr>
-<tr><td class="right">2</td><td class="right">16</td><td class="right">17</td><td class="left">This directory entry's length</td><td class="right">03f4</td><td class="left">1012</td></tr>
-<tr><td class="right">1</td><td class="right">18</td><td class="right">18</td><td class="left">File name length</td><td class="right">2</td><td class="left"></td></tr>
-<tr><td class="right">1</td><td class="right">19</td><td class="right">19</td><td class="left">File type</td><td class="right">2</td><td class="left">dir</td></tr>
-<tr><td class="right">x</td><td class="right">21</td><td class="right">x</td><td class="left">File name</td><td class="right">2e2e</td><td class="left">..</td></tr>
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">12</td>
+<td class="org-right">15</td>
+<td class="org-left">Inode number</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">16</td>
+<td class="org-right">17</td>
+<td class="org-left">This directory entry's length</td>
+<td class="org-right">03f4</td>
+<td class="org-left">1012</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">18</td>
+<td class="org-right">18</td>
+<td class="org-left">File name length</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">19</td>
+<td class="org-right">19</td>
+<td class="org-left">File type</td>
+<td class="org-right">2</td>
+<td class="org-left">dir</td>
+</tr>
+
+<tr>
+<td class="org-right">x</td>
+<td class="org-right">21</td>
+<td class="org-right">x</td>
+<td class="org-left">File name</td>
+<td class="org-right">2e2e</td>
+<td class="org-left">..</td>
+</tr>
 </tbody>
 </table>
-
 </div>
 </div>
-
 </div>
 
-<div id="outline-container-2-10" class="outline-3">
-<h3 id="sec-2-10"><span class="section-number-3">2.10</span> Block 38: data block for <code>hello</code></h3>
+<div id="outline-container-org2c5a60a" class="outline-3">
+<h3 id="org2c5a60a"><span class="section-number-3">2.10.</span> Block 38 (00009800 - 00009cff): data block for <code>hello</code></h3>
 <div class="outline-text-3" id="text-2-10">
-
-<ul>
-<li>00009800 - 00009cff
-
 <p>
-     helloworld
-</p></li>
-</ul>
-
-
+helloworld
+</p>
+</div>
 </div>
 </div>
 
-</div>
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Finding a file</h2>
+<div id="outline-container-org42b2ddf" class="outline-2">
+<h2 id="org42b2ddf"><span class="section-number-2">3.</span> Finding a file</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+First, let's create a small text file named 'hello':
+</p>
+<div class="org-src-container">
+<pre class="src src-sh"># Mount
+sudo mount -t ext2 fs.img /mnt
 
-<p>  First, let's create a small text file named 'hello':
-</p><ol>
-<li>Mount <code>fs.img</code> on <code>/mnt</code>
-<pre class="example">
-sudo mount -o loop fs.img /mnt
-</pre>
-
-</li>
-<li>Create a simple 10-byte text file named <code>hello</code> in <code>/mnt</code>
-<pre class="example">
+# Create a simple 10-byte text file named 'hello' in /mnt
 echo -n "helloworld" &gt; /mnt/hello
 </pre>
+</div>
 
-</li>
-</ol>
-
-<p>  Now let's try finding it in <code>fs.img</code> by means of <code>hexdump</code>:
-</p><pre class="example">
+<p>
+Now let's try finding it in <code>fs.img</code> by means of <code>hexdump</code>:
+</p>
+<pre class="example">
 hexdump -C fs.img
 </pre>
 
-<p>  To find a file in ext2 file system, we need to go through the following steps:
-</p><dl>
+<p>
+To find a file in an ext2 file system, we need to go through the following steps:
+</p>
+<dl class="org-dl">
 <dt>finding the inode table</dt><dd>We already know that the inode table is located in block
-       8-23 (<code>00002000 - 00005fff</code>).
-</dd>
-<dt>finding the root inode</dt><dd>We already know that the root inode is at <code>00002080 -        000020ff</code>
-</dd>
-<dt>finding the inode of <code>hello</code></dt><dd>At address <code>0000602c</code>, you can see the inode number
-       of file <code>hello</code> is <code>0x0c</code>, that's a decimal 12. Or you can use 
+8-23 (<code>00002000 - 00005fff</code>).</dd>
+<dt>finding the root inode</dt><dd>We already know that the root inode is at <code>00002080 -
+       000020ff</code></dd>
+<dt>finding the inode of <code>hello</code></dt><dd><p>
+At address <code>0000602c</code>, you can see the inode number
+of file <code>hello</code> is <code>0x0c</code>, that's a decimal 12. Or you can use 
+</p>
 <pre class="example">
 ls -il /mnt/hello
 </pre>
 
-<p>       to see it. In <code>fs.img</code> inode 12 is at <code>00002580 - 00002600</code>
+<p>
+to see it. In <code>fs.img</code> inode 12 is at <code>00002580 - 00002600</code>
 </p></dd>
 <dt>finding the data blocks of the file</dt><dd>At address <code>000025a8</code> you can see the data
-       block number of the file is <code>0x26</code>, 38 in decimal. The 38th block in <code>fs.img</code> is at
-       <code>00009800</code>. You can find "helloworld" there!
-</dd>
+block number of the file is <code>0x26</code>, 38 in decimal. The 38th block in <code>fs.img</code> is at
+<code>00009800</code>. You can find "helloworld" there!</dd>
 </dl>
-
-
-
 </div>
 </div>
 </div>
-
-<div id="postamble">
-<p class="author">Author: WANG Xiaolin (<a href="mailto:wx672ster@gmail.com">wx672ster@gmail.com</a>)</p>
-<p class="date">Date: 2013-11-17T21:30+0800</p>
-
+<div id="postamble" class="status">
+<p class="author">Author: WANG Xiaolin</p>
+<p class="date">Created: 2023-12-07 Thu 11:34</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>

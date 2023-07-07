@@ -77,9 +77,10 @@
    - 考试: 80%
    - 作业: 20%
 ** 参考教材
-   1. A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
-   2. Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley & Sons, 2011.
-   3. D.P. Bovet and M. Cesatí. Understanding The Linux Kernel. O'Reilly, 2005.
+   1. 汤小丹. 计算机操作系统（慕课版）. 人民邮电出版社, 2021.
+   2. A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
+   3. Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley & Sons, 2011.
+   4. D.P. Bovet and M. Cesatí. Understanding The Linux Kernel. O'Reilly, 2005.
 
 #+LaTeX: \clearpage
 * 课程说明
@@ -168,9 +169,10 @@
    - 实验报告满分100，60分及格
 ** 实验指导和参考书目
    1. 自编[[http://cs3.swfu.edu.cn/moodle/mod/url/view.php?id%3D1046][《实验指导》]]
-   2. A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
-   3. Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley & Sons, 2011.
-   4. D.P. Bovet and M. Cesatí. Understanding The Linux Kernel. O'Reilly, 2005.
+   2. 汤小丹. 计算机操作系统（慕课版）. 人民邮电出版社, 2021.
+   3. A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
+   4. Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley & Sons, 2011.
+   5. D.P. Bovet and M. Cesatí. Understanding The Linux Kernel. O'Reilly, 2005.
 
 ** 特别说明
    无
@@ -194,9 +196,10 @@
   - 内存管理
   - 文件系统
 - 参考教材
-  1. A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
-  2. Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley & Sons, 2011.
-  3. D.P. Bovet and M. Cesatí. Understanding The Linux Kernel. O'Reilly, 2005.
+  1. 汤小丹. 计算机操作系统（慕课版）. 人民邮电出版社, 2021.
+  2. A.S. Tanenbaum. Modern Operating Systems, 3e. Pearson Prentice Hall, 2008. 
+  3. Silberschatz, Galvin, and Gagne. Operating System Concepts Essentials. John Wiley & Sons, 2011.
+  4. D.P. Bovet and M. Cesatí. Understanding The Linux Kernel. O'Reilly, 2005.
 
     
 # +BIBLIOGRAPHY: os plain limit:t option:-u

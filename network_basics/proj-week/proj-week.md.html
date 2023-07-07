@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Xiaolin WANG (wx672ster+net@gmail.com)" />
-  <meta name="dcterms.date" content="2023-07-04" />
+  <meta name="dcterms.date" content="2023-12-06" />
   <title>Hacking with Linux networking cli tools</title>
   <style>
     html {
@@ -227,7 +227,7 @@
 <header id="title-block-header">
 <h1 class="title">Hacking with Linux networking cli tools</h1>
 <p class="author">Xiaolin WANG (wx672ster+net@gmail.com)</p>
-<p class="date">2023-07-04</p>
+<p class="date">2023-12-06</p>
 </header>
 <h1 id="caution">Caution</h1>
 <ul>
@@ -255,7 +255,7 @@ href="20221159xxx.md"><code>markdown file</code></a>
 </dd>
 </dl></li>
 </ul></li>
-<li><p>your bash script for a HTTP demostration.</p></li>
+<li><p>your program source files (bash scripts, C programs).</p></li>
 <li><p>a <code>ttyrec</code> file recording your operations
 (<code>man ttyrec</code>).</p></li>
 </ol></li>
@@ -263,22 +263,24 @@ href="20221159xxx.md"><code>markdown file</code></a>
 <hr />
 <p>Here’s how:</p>
 <ol type="1">
-<li><p>make a directory, e.g. 20221159xxx. In this directory, try very
+<li><p>make a directory, e.g. 20221152xxx. In this directory, try very
 hard to make all the files available.</p>
 <div class="sourceCode" id="cb1"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span>  20221159xxx</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 20221159xxx</span>
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span>  20221152xxx</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> 20221152xxx</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">emacsclient</span> tmux-http.sh    <span class="co"># write your script</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">emacsclient</span> 20221159xxx.org <span class="co"># write your report with emacs-org</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> 20221159xxx.md          <span class="co"># write your report in markdown format</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">ttyrec</span> http-demo.ttyrec     <span class="co"># make your demo screencast</span></span></code></pre></div></li>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">emacsclient</span> tcpServer.c     <span class="co"># Implement the TCP server in C</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">emacsclient</span> tcpClient.c     <span class="co"># Implement the TCP client in C</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">emacsclient</span> 20221152xxx.org <span class="co"># write your report with emacs-org, or</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> 20221152xxx.md          <span class="co"># write your report in markdown format</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">ttyrec</span> http-demo.ttyrec     <span class="co"># make your demo screencast</span></span></code></pre></div></li>
 <li><p>make a tar ball.</p>
 <div class="sourceCode" id="cb2"><pre
 class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> zcf 20221159xxx.tgz 20221159xxx</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> zcf 20221152xxx.tgz 20221152xxx</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> <span class="co"># make sure your tar ball is smaller than 1MB in size</span></span></code></pre></div></li>
 <li><p>upload the <code>tgz</code> file to our <a
-href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536">moodle
+href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=760">moodle
 site</a>.</p></li>
 </ol>
 <hr />
@@ -289,17 +291,17 @@ href="tutorial.ttyrec"><code>tutorial.ttyrec</code></a>. To view it:</p>
 <p>Feel free to make your own <code>ttyrec</code> file while doing this
 lab work. For example:</p>
 <div class="sourceCode" id="cb4"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ttyrec</span>  20221159xxx-http.ttyrec</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ttyrec</span>  20221159xxx-email.ttyrec</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ttyrec</span>  20221159xxx-ftp.ttyrec</span></code></pre></div></li>
-<li><p><strong>Bonus point:</strong> Manage your project with
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ttyrec</span>  20221152xxx-http.ttyrec</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">ttyrec</span>  20221152xxx-email.ttyrec</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ttyrec</span>  20221152xxx-ftp.ttyrec</span></code></pre></div></li>
+<li><p><strong>Bonus points:</strong> Manage your project with
 <code>git</code>. <code>man gittutorial</code> to learn the very basics
 of it.</p></li>
 <li><p><strong>Deadline:</strong> <span class="timestamp-wrapper"><span
-class="timestamp">&lt;2021-07-10 Sat&gt; </span></span></p>
+class="timestamp">&lt;2023-12-24 Sun&gt; </span></span></p>
 <ul>
 <li><p>Submit your report as a <code>tgz</code> file <a
-href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536">here</a>.
+href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=760">here</a>.
 In your <code>tgz</code> file, there must be:</p>
 <ol type="1">
 <li>your report in <code>org</code> or <code>markdown</code> format</li>
@@ -359,5 +361,142 @@ detailed as you can.</p></li>
 <li><p>Record your HTTP demo session with <code>ttyrec</code>.</p></li>
 </ol></li>
 </ul>
+<h1 id="socket-programming">Socket programming</h1>
+<p>The followings are the <a
+href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/src/">Python
+programs</a> I used in the class for demostrating socket programming.
+Your tasks:</p>
+<ol type="1">
+<li>Try these programs with a remote server IP instead of
+127.0.0.1.</li>
+<li>Rewrite them in C.</li>
+</ol>
+<h2 id="tcp">TCP</h2>
+<h3 id="a-simple-tcp-server-written-in-python3">A simple TCP server
+written in Python3</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/python3</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">### A simple TCP server </span><span class="al">###</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> socket <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>serverPort <span class="op">=</span> <span class="dv">12000</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>serverSocket <span class="op">=</span> socket(AF_INET,SOCK_STREAM)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>serverSocket.bind((<span class="st">&#39;&#39;</span>,serverPort))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>serverSocket.listen(<span class="dv">0</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(serverSocket.getsockname())</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;The server is ready to receive&#39;</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="dv">1</span>:</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    connectionSocket, addr <span class="op">=</span> serverSocket.accept()</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(connectionSocket.getsockname())</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    sentence <span class="op">=</span> connectionSocket.recv(<span class="dv">1024</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    capitalizedSentence <span class="op">=</span> sentence.upper()</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    connectionSocket.send(capitalizedSentence)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    connectionSocket.close()</span></code></pre></div>
+<h3 id="a-simple-tcp-client-written-in-python3">A simple TCP client
+written in Python3</h3>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/python3</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">### A simple TCP client </span><span class="al">###</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> socket <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>serverName <span class="op">=</span> <span class="st">&#39;127.0.0.1&#39;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>serverPort <span class="op">=</span> <span class="dv">12000</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>clientSocket <span class="op">=</span> socket(AF_INET, SOCK_STREAM)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>clientSocket.<span class="ex">connect</span>((serverName,serverPort))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(clientSocket.getsockname())</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>sentence <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Input lowercase sentence:&#39;</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>clientSocket.send(<span class="bu">bytes</span>(sentence,<span class="st">&#39;utf-8&#39;</span>))</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>modifiedSentence <span class="op">=</span> clientSocket.recv(<span class="dv">1024</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;From Server:&#39;</span>, <span class="bu">str</span>(modifiedSentence,<span class="st">&#39;utf-8&#39;</span>))</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>clientSocket.close()</span></code></pre></div>
+<h3 id="a-simple-tcp-demp-script">A simple TCP demp script</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">### A simple TCP demo script </span><span class="al">###</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-euC</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> rename-window <span class="st">&quot;TCP demo&quot;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    Window setup</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># +--------+--------+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># | server | client |</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># +--------+--------+</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># |      watch      |</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># +-----------------+</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># |     tcpdump     |</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co"># +-----------------+</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> split-window <span class="at">-h</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> split-window <span class="at">-fl99</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> split-window <span class="at">-l12</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> send-keys <span class="at">-t{top-left}</span> <span class="st">&quot;./tcpServer.py&quot;</span> </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> send-keys <span class="at">-t{top-right}</span> <span class="st">&quot;./tcpClient.py&quot;</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> send-keys <span class="at">-t{up-of}</span> <span class="st">&quot;watch -tn.1 &#39;ss -ant </span><span class="dt">\&quot;</span><span class="st">( sport == 12000 or dport == 12000 )</span><span class="dt">\&quot;</span><span class="st">&#39;&quot;</span> C-m</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> send-keys <span class="st">&quot;sudo tcpdump -ilo -vvvnnxXSK -s0 port 12000&quot;</span> C-m</span></code></pre></div>
+<h2 id="udp">UDP</h2>
+<h3 id="a-simple-udp-server-written-in-python3">A simple UDP server
+written in Python3</h3>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/python3</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">### A simple UDP server </span><span class="al">###</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> socket <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>serverName <span class="op">=</span> <span class="st">&#39;127.0.0.1&#39;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>serverPort <span class="op">=</span> <span class="dv">12000</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>clientSocket <span class="op">=</span> socket(AF_INET, SOCK_DGRAM)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Input lowercase sentence:&#39;</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>clientSocket.sendto(<span class="bu">bytes</span>(message,<span class="st">&#39;utf-8&#39;</span>),(serverName, serverPort))</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>modifiedMessage, serverAddress <span class="op">=</span> clientSocket.recvfrom(<span class="dv">2048</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">str</span>(modifiedMessage,<span class="st">&#39;utf-8&#39;</span>))</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>clientSocket.close()</span></code></pre></div>
+<h3 id="a-simple-udp-client-written-in-python3">A simple UDP client
+written in Python3</h3>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/python3</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">### A simple UDP client </span><span class="al">###</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> socket <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>serverName <span class="op">=</span> <span class="st">&#39;127.0.0.1&#39;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>serverPort <span class="op">=</span> <span class="dv">12000</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>clientSocket <span class="op">=</span> socket(AF_INET, SOCK_DGRAM)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;Input lowercase sentence:&#39;</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>clientSocket.sendto(<span class="bu">bytes</span>(message,<span class="st">&#39;utf-8&#39;</span>),(serverName, serverPort))</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>modifiedMessage, serverAddress <span class="op">=</span> clientSocket.recvfrom(<span class="dv">2048</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">str</span>(modifiedMessage,<span class="st">&#39;utf-8&#39;</span>))</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>clientSocket.close()</span></code></pre></div>
+<h3 id="a-simple-udp-demp-script">A simple UDP demp script</h3>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">### A simple UDP demo script </span><span class="al">###</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> <span class="at">-euC</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> rename-window <span class="st">&quot;UDP demo&quot;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#    Window setup</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># +--------+--------+</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co"># | server | client |</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># +--------+--------+</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># |     tcpdump     |</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># +-----------------+</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> split-window <span class="at">-h</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> split-window <span class="at">-fl99</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> send-keys <span class="at">-t{top-left}</span>  <span class="st">&quot;./udpServer.py&quot;</span> </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> send-keys <span class="at">-t{top-right}</span> <span class="st">&quot;./udpClient.py&quot;</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="ex">tmux</span> send-keys <span class="st">&quot;sudo tcpdump -ilo -vvvnnxXK port 12000&quot;</span> C-m</span></code></pre></div>
 </body>
 </html>

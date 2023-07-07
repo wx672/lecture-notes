@@ -2,7 +2,7 @@
 
 void hi(char* arg)
 {
-	static char x[1024000]={1}; /* make program bigger */
+	static char x[1024000]; /* make program bigger */
 	printf ("Hi, %s!\n", arg);
 }
 

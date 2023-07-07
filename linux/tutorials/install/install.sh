@@ -23,11 +23,11 @@ If the mouse cursor isn't there at all, that probably means the Xorg doesn't wor
 
 Have fun!"
 
-PKG_IMP="alsa-utils aptitude aria2 bash-completion bluetooth brightnessctl ca-certificates curl debconf default-jre dialog dosfstools dzen2 git git-extras info init iputils-ping isc-dhcp-client isenkram iw less libpam-tmpdir linux-image-amd64 mosh nano neovim network-manager os-prober pipewire-audio rename rfkill stow sudo systemd-resolved systemd-timesyncd tmux tmux-plugin-manager udiskie wpasupplicant xorg xsel wmctrl whiptail"
+PKG_IMP="alsa-utils aptitude aria2 bash-completion blight bluetooth ca-certificates curl debconf default-jre dialog dosfstools dzen2 git git-extras info init iputils-ping isc-dhcp-client isenkram iw less libpam-tmpdir linux-image-amd64 mosh nano neovim network-manager os-prober pipewire-audio rename rfkill stow sudo systemd-resolved systemd-timesyncd tmux tmux-plugin-manager udiskie wpasupplicant xorg xsel wmctrl whiptail"
 
 # use isenkram to handle firmwares 
 #firmware-linux-nonfree firmware-misc-nonfree firmware-amd-graphics firmware-iwlwifi 
-PKG_REC="alacritty apt-file bat catdoc cmark convmv dict dict-foldoc dict-gcide dict-jargon dict-vera dict-wn elpa-pdf-tools-server emacs emacs-common-non-dfsg exa fd-find ffmpeg firmware-linux-free fzf g++ gawk gcc gdb global hunspell imagemagick ipcalc keynav kmscon lf libnotify-bin libreoffice-calc libreoffice-impress libreoffice-writer libreoffice-qt6 libtext-csv-xs-perl lshw lynx make manpages-posix manpages-posix-dev mdp mpv mupdf mupdf-tools netcat-openbsd nmap notification-daemon nsxiv ntfs-3g org-mode-doc p7zip-full p7zip-rar pandoc parted poppler-utils profile-sync-daemon proxychains4 pulsemixer pv pqiv qutebrowser qt6ct rar ripgrep rofi rsync tcpdump tlp tmate tpp ttyrec universal-ctags unoconv unrar visidata vivid wamerican-insane wireless-regdb xbanish xlsx2csv zathura zoxide"
+PKG_REC="alacritty apt-file bat catdoc cht.sh cmark convmv dict dict-foldoc dict-gcide dict-jargon dict-vera dict-wn elpa-pdf-tools-server emacs emacs-common-non-dfsg eza fd-find ffmpeg firmware-linux-free fzf g++ gawk gcc gdb global hunspell imagemagick ipcalc keynav kmscon lf libnotify-bin libreoffice-calc libreoffice-impress libreoffice-writer libreoffice-qt6 libtext-csv-xs-perl lshw lynx make manpages-posix manpages-posix-dev mdp mpv mupdf mupdf-tools netcat-openbsd nmap notification-daemon nsxiv ntfs-3g org-mode-doc 7zip-rar pandoc parted poppler-utils profile-sync-daemon proxychains4 pulsemixer pv pqiv qutebrowser qt6ct rar ripgrep rofi rsync tcpdump tlp tmate tpp ttyrec universal-ctags unoconv unrar visidata vivid wamerican-insane wireless-regdb xbanish xlsx2csv zathura zoxide"
 
 PKG_CHN="fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-gtk4 fcitx5-frontend-qt5 fcitx5-module-cloudpinyin fcitx5-module-pinyinhelper fcitx5-module-punctuation fcitx5-module-xorg fonts-arphic-ukai fonts-arphic-uming fonts-noto-cjk fonts-wqy-microhei fonts-wqy-zenhei im-config"
 
@@ -52,18 +52,18 @@ ERR_QUIT=2
 ERR_APT=3
 ERR_NET=4
 
-################# Color output ##############
+######### Color output #########
 ERR=$(tput setaf 1)     # red
 INFO=$(tput setaf 6)    # cyan
 SUCCESS=$(tput setaf 2) # green
-#WARN=$(tput setaf 3)    # yellow
+#WARN=$(tput setaf 3)   # yellow
 #BOLD=$(tput bold)
 
 colorEcho()
 {
 	echo -e $(tput bold)"$1""$2"$(tput sgr0)
 }
-#############################################
+################################
 
 pause(){
 	colorEcho $INFO "\nNow, press any key to continue..."
@@ -99,7 +99,6 @@ errbox()
 	echo -e $2
 	pause_err
 }
-
 
 # https://funprojects.blog/2022/04/06/text-interfaces-with-whiptail-and-dialog/
 mywhiptail(){
@@ -240,6 +239,21 @@ more_pkgs(){
 			   "In case of a networking problem, $TRY_NET"
 	done
 
+	### Setup /etc/systemd/resolved.conf ###
+	DNS_CONF=/etc/systemd/resolved.conf
+
+	[[ -f $DNS_CONF ]] && {
+		colorEcho $INFO "Configuring $DNS_CONF ..."
+
+		sudo sed -i '/^DNS/d' $DNS_CONF
+
+		sudo tee --append $DNS_CONF <<< \
+			 'DNS=114.114.114.114 8.8.8.8 8.8.4.4 9.9.9.9 149.112.112.112'
+	}
+
+	sudo systemctl restart systemd-resolved.service
+	###############################################
+	
 	until sudo $APT install -y $PKG_REC
 	do
 		errbox "$APT install failed for some recommended packages" \
@@ -305,7 +319,7 @@ misc_files()
 	local DIR="$HOME/tmp"
 	test -d $DIR || mkdir $DIR
 	
-	until $WGET -nc -P $DIR $BASEURL/debian-install/misc/{stterm.deb,dwm.deb,elpa.tgz,tmux-plugins.tgz,FiraCodeNerdFont.tgz,cn/dict-cn.tgz,cargo.bin.tgz,media-test.mp4,clash,starship}
+	until $WGET -nc -P $DIR $BASEURL/debian-install/misc/{stterm.deb,dwm.deb,elpa.tgz,tmux-plugins.tgz,FiraCodeNerdFont.tgz,cn/dict-cn.tgz,cargo.bin.tgz,media-test.mp4,clash.meta,starship}
 	do
 		errbox "Failed downloading misc files" "$TRY_APT"
 	done
@@ -327,7 +341,7 @@ misc_files()
 	
     tar zxf $DIR/cargo.bin.tgz cargo/bin/sk -O > $DIR/sk
 	
-	sudo mv $DIR/{clash,starship,sk} /usr/local/bin && sudo chmod 755 /usr/local/bin/*
+	sudo mv $DIR/{clash.meta,starship,sk} /usr/local/bin && sudo chmod 755 /usr/local/bin/*
 	
 	rm -rf $DIR
 }

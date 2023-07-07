@@ -295,7 +295,7 @@ See also:
       \item only the addresses, not the spaces
       \item Memory holes
         \begin{itemize}
-        \item[-] \unit[640]{KiB} \char`~ \unit[1]{MiB}
+        \item[-] \unit[640]{KiB}~\char`~~\unit[1]{MiB}
         \item[-] \texttt{/proc/iomem}
         \end{itemize}
       \end{itemize}
@@ -321,10 +321,8 @@ See also:
 \begin{frame}{Bootstrapping}
   \begin{minipage}{.85\linewidth}
     \begin{block}{Can you pull yourself up by your own bootstraps?}
-      \begin{itemize}
-      \item[] A computer cannot run without first loading software but must be running
-        before any software can be loaded.
-      \end{itemize}
+      A computer cannot run without first loading software but must be
+      running before any software can be loaded.
     \end{block}
   \end{minipage}\hfill
   \begin{minipage}{.1\linewidth}
@@ -345,7 +343,7 @@ See also:
       ➠ Find a boot device (FD, CD, HD\ldots{})\quad
       ➠ Copy \alert{sector zero (MBR)} to RAM (\texttt{0x00007c00})
     \end{small}
-  \item MBR -- the first 512 bytes, contains
+  \item MBR -- the first \unit[512]{Bytes}, contains
     \begin{itemize}
     \item Small code (⩽ \unit[446]{Bytes}), e.g. GRUB stage 1, for loading GRUB stage 2
     \item the primary partition table ($16\times{}4=64\,Bytes$)
@@ -359,9 +357,7 @@ See also:
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{mbr}}%
     \mode<article>{ \includegraphics[width=.5\textwidth]{mbr}}
   \end{center}
-  \begin{itemize}
-  \item[\$] \texttt{sudo hd -n512 /dev/sda}
-  \end{itemize}
+  \CMD{sudo hd -n512 /dev/sda}
 \end{frame}
 
 \begin{frame}{Inter-compatible Processors Are Little-endian}
@@ -380,7 +376,7 @@ See also:
 % \end{frame}
 
 \begin{frame}{Why Interrupt?}
-  \begin{iblock}{While a process is reading a disk file, can we do...}
+  \begin{iblock}{While a process is reading a disk file, can we do\ldots}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.6\textwidth]{interrupt-c}}%
       \mode<article>{ \cfile{./figs/pseudo/interrupt.c}}
@@ -397,8 +393,8 @@ See also:
   \item[Interrupt vector] is an array of pointers ☛ the memory addresses
     of \alert{interrupt handlers}. This array is indexed by a unique device number
     \begin{itemize}
-    \item[\$] \texttt{less /proc/devices}
-    \item[\$] \texttt{less /proc/interrupts}
+    \item[] \CMD{less /proc/devices}
+    \item[] \CMD{less /proc/interrupts}
     \end{itemize}
   \end{description}
 \end{frame}
@@ -441,10 +437,9 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum201
     \item provides the interface between a process and the OS
     \end{itemize}
   \end{block}
-  \ttfamily
   \begin{itemize}
-  \item[\$] man 2 intro
-  \item[\$] man 2 syscalls
+  \item[] \CMD{man 2 intro}
+  \item[] \CMD{man 2 syscalls}
   \end{itemize}
 \end{frame}
 
@@ -510,8 +505,8 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum201
   \end{center}
   System call numbers:
   \begin{itemize}
-  \item[\$] \cmd{less /usr/include/x86\_64-linux-gnu/asm/unistd\_32.h}
-  \item[\$] \cmd{less /usr/include/x86\_64-linux-gnu/asm/unistd\_64.h}
+  \item[] \CMD{less /usr/include/x86\_64-linux-gnu/asm/unistd\_32.h}
+  \item[] \CMD{less /usr/include/x86\_64-linux-gnu/asm/unistd\_64.h}
   \end{itemize}
 \end{frame}
 
@@ -526,8 +521,8 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum201
   \begin{minipage}{.4\linewidth}\ttfamily\footnotesize
     \begin{itemize}
     \item Actually, \texttt{write()} is a wrapper function in glibc.
-    \item[\$] man 2 write
-    \item[\$] man 3 write
+    \item[] \CMD{man 2 write}
+    \item[] \CMD{man 3 write}
     \end{itemize}
   \end{minipage}\\[1em]
   \begin{description}

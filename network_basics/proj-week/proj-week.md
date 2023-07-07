@@ -1,7 +1,7 @@
 ---
 title: Hacking with Linux networking cli tools
 author: Xiaolin WANG (wx672ster+net@gmail.com)
-date: 2023-07-04
+date: 2023-12-06
 CJKmainfont: Noto Serif CJK SC
 CJKsansfont: Noto Sans CJK SC
 header-includes: |
@@ -27,7 +27,7 @@ header-includes: |
      - Report template
        : [`org file`](20221159xxx.org), [`html file`](20221159xxx.html), [`markdown file`](20221159xxx.md)
   
-  2. your bash script for a HTTP demostration.
+  2. your program source files (bash scripts, C programs).
   
   3. a `ttyrec` file recording your operations (`man ttyrec`).
     
@@ -35,15 +35,17 @@ header-includes: |
     
 Here's how: 
 
-1.  make a directory, e.g. 20221159xxx. In this directory, try very hard to make all
+1.  make a directory, e.g. 20221152xxx. In this directory, try very hard to make all
     the files available.
     
     ```sh
-    mkdir  20221159xxx
-    cd 20221159xxx
+    mkdir  20221152xxx
+    cd 20221152xxx
     emacsclient tmux-http.sh    # write your script
-    emacsclient 20221159xxx.org # write your report with emacs-org
-    vim 20221159xxx.md          # write your report in markdown format
+	emacsclient tcpServer.c     # Implement the TCP server in C
+	emacsclient tcpClient.c     # Implement the TCP client in C
+    emacsclient 20221152xxx.org # write your report with emacs-org, or
+    vim 20221152xxx.md          # write your report in markdown format
     ttyrec http-demo.ttyrec     # make your demo screencast
     ```
     
@@ -51,11 +53,11 @@ Here's how:
     
     ```sh
     cd ..
-    tar zcf 20221159xxx.tgz 20221159xxx
+    tar zcf 20221152xxx.tgz 20221152xxx
     ls -l # make sure your tar ball is smaller than 1MB in size
     ```
     
-3.  upload the `tgz` file to our [moodle site](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536).
+3.  upload the `tgz` file to our [moodle site](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=760).
     
 ---
 
@@ -69,18 +71,18 @@ Here's how:
     Feel free to make your own `ttyrec` file while doing this lab work. For example:
     
     ```sh
-    ttyrec  20221159xxx-http.ttyrec
-    ttyrec  20221159xxx-email.ttyrec
-    ttyrec  20221159xxx-ftp.ttyrec
+    ttyrec  20221152xxx-http.ttyrec
+    ttyrec  20221152xxx-email.ttyrec
+    ttyrec  20221152xxx-ftp.ttyrec
     ```
 
-- **Bonus point:** Manage your project with `git`. `man gittutorial` to
+- **Bonus points:** Manage your project with `git`. `man gittutorial` to
   learn the very basics of it.
 
-- **Deadline:** <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-07-10 Sat&gt; </span></span> 
+- **Deadline:** <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-12-24 Sun&gt; </span></span> 
 
   - Submit your report as a `tgz` file
-    [here](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536). In
+    [here](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=760). In
     your `tgz` file, there must be:
    
     1. your report in `org` or `markdown` format
@@ -140,3 +142,154 @@ Here are the bash scripts I used in the class for demostrating how some protocol
   
   4. Record your HTTP demo session with `ttyrec`.
 
+# Socket programming
+
+The followings are the [Python programs](https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/src/) I used in the class for demostrating
+socket programming. Your tasks:
+
+1. Try these programs with a remote server IP instead of 127.0.0.1.
+2. Rewrite them in C.
+
+## TCP
+
+### A simple TCP server written in Python3
+
+```python
+#!/usr/bin/python3
+
+### A simple TCP server ###
+
+from socket import *
+serverPort = 12000
+serverSocket = socket(AF_INET,SOCK_STREAM)
+serverSocket.bind(('',serverPort))
+serverSocket.listen(0)
+print(serverSocket.getsockname())
+print('The server is ready to receive')
+while 1:
+    connectionSocket, addr = serverSocket.accept()
+    print(connectionSocket.getsockname())
+    sentence = connectionSocket.recv(1024)
+    capitalizedSentence = sentence.upper()
+    connectionSocket.send(capitalizedSentence)
+    connectionSocket.close()
+```
+
+### A simple TCP client written in Python3
+
+```python
+#!/usr/bin/python3
+
+### A simple TCP client ###
+
+from time import *
+from socket import *
+serverName = '127.0.0.1'
+serverPort = 12000
+clientSocket = socket(AF_INET, SOCK_STREAM)
+clientSocket.connect((serverName,serverPort))
+print(clientSocket.getsockname())
+sentence = input('Input lowercase sentence:')
+clientSocket.send(bytes(sentence,'utf-8'))
+modifiedSentence = clientSocket.recv(1024)
+print('From Server:', str(modifiedSentence,'utf-8'))
+clientSocket.close()
+```
+
+### A simple TCP demp script
+
+```sh
+#!/bin/bash
+
+### A simple TCP demo script ###
+
+set -euC
+
+tmux rename-window "TCP demo"
+
+#    Window setup
+# +--------+--------+
+# | server | client |
+# +--------+--------+
+# |      watch      |
+# +-----------------+
+# |     tcpdump     |
+# +-----------------+
+#
+tmux split-window -h
+tmux split-window -fl99
+tmux split-window -l12
+
+tmux send-keys -t{top-left} "./tcpServer.py" 
+
+tmux send-keys -t{top-right} "./tcpClient.py"
+
+tmux send-keys -t{up-of} "watch -tn.1 'ss -ant \"( sport == 12000 or dport == 12000 )\"'" C-m
+
+tmux send-keys "sudo tcpdump -ilo -vvvnnxXSK -s0 port 12000" C-m
+```
+
+## UDP
+
+### A simple UDP server written in Python3
+
+```python
+#!/usr/bin/python3
+
+### A simple UDP server ###
+
+from socket import *
+serverName = '127.0.0.1'
+serverPort = 12000
+clientSocket = socket(AF_INET, SOCK_DGRAM)
+message = input('Input lowercase sentence:')
+clientSocket.sendto(bytes(message,'utf-8'),(serverName, serverPort))
+modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
+print(str(modifiedMessage,'utf-8'))
+clientSocket.close()
+```
+
+### A simple UDP client written in Python3
+
+```python
+#!/usr/bin/python3
+
+### A simple UDP client ###
+
+from socket import *
+serverName = '127.0.0.1'
+serverPort = 12000
+clientSocket = socket(AF_INET, SOCK_DGRAM)
+message = input('Input lowercase sentence:')
+clientSocket.sendto(bytes(message,'utf-8'),(serverName, serverPort))
+modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
+print(str(modifiedMessage,'utf-8'))
+clientSocket.close()
+```
+
+### A simple UDP demp script
+
+```sh
+#!/bin/bash
+
+### A simple UDP demo script ###
+
+set -euC
+
+tmux rename-window "UDP demo"
+
+#    Window setup
+# +--------+--------+
+# | server | client |
+# +--------+--------+
+# |     tcpdump     |
+# +-----------------+
+#
+tmux split-window -h
+tmux split-window -fl99
+
+tmux send-keys -t{top-left}  "./udpServer.py" 
+tmux send-keys -t{top-right} "./udpClient.py"
+
+tmux send-keys "sudo tcpdump -ilo -vvvnnxXK port 12000" C-m
+```

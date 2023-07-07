@@ -1,6 +1,7 @@
+\usepackage{worldflags}
 \newcommand{\GG}{\textcolor{SkyBlue}{\nerd }}
-\newcommand{\world}{\textcolor{blue}{\nerd }}
-\newcommand{\iOS}{\textcolor{orange}{\nerd }}
+\newcommand{\world}{\textcolor{SkyBlue}{\nerd 🌎}}%
+%\newcommand{\iOS}{\textcolor{}{\nerd }}
 %\newunicodechar{}{{\nerd }}%tux linux
 \newcommand{\linux}{{\nerd }}
 \newcommand{\openbook}{{\nerd }}
@@ -57,7 +58,7 @@
     \item[\android] \textcolor{Green}{\rule{.3961\textwidth}{2mm}}\,
       39.61\%
     \item[\win] \textcolor{SkyBlue}{\rule{.3578\textwidth}{2mm}}\, 35.78\%
-    \item[{\iOS}] \textcolor{orange}{\rule{.138\textwidth}{2mm}}\, 13.8\%
+    \item[] \textcolor{LightGray}{\rule{.138\textwidth}{2mm}}\, 13.8\%
     \item[\apple] \textcolor{LightGray}{\rule{.0615\textwidth}{2mm}}\, 6.15\%
     \item[?] \textcolor{gray}{\rule{.0274\textwidth}{2mm}}\, 2.74\%
     \item[\linux] \rule{.0075\textwidth}{2mm}\, 0.75\%
@@ -73,9 +74,13 @@
   \centering\includegraphics[height=.8\textheight]{top500}
 \end{frame}
 
+\begin{frame}{What are clouds made of?}
+  \centering\includegraphics[height=.8\textheight]{clouds}
+\end{frame}
+
 \begin{frame}{No Textbook}%\openbook
   \begin{itemize}
-  \item[\nerd{}] Do you need a book to learn riding a\hspace{.5ex} {\LARGE\nerd } ?%
+  \item[\nerd{}] Do you need a book to learn riding a\hspace{.5ex} {\LARGE\nerd \;} ?%
   \item[{\GG}]\google
     \begin{itemize}{\ttfamily
       \item[\small{\GG}] "linux command line tutorial"
@@ -85,7 +90,7 @@
     \end{itemize}
   \item[$\mathbb{E}$] {\purisa English}
   \item[\moodle] \url{https://cs6.swfu.edu.cn/moodle/course/view.php?id=13}
-  \item[{\small\openbook}] \url{https://cs6.swfu.edu.cn/calibre}
+  \item[{\small\openbook\;}] \url{https://cs6.swfu.edu.cn/calibre}
   \end{itemize}
   \begin{tikzpicture}[remember picture,overlay]
     \node at (current page.north east) [anchor=north east] {
@@ -126,8 +131,8 @@
       software.
     \end{block}
     \begin{block}{Linux --- the kernel}
-      {\Huge\linux} was written by Linus Torvalds, a graduate student of the University of
-      Helsinki in Finland, in early 1990s.
+      {\LARGE\linux\;} was written by Linus Torvalds, a graduate student of the University of
+      Helsinki in \worldflag[framewidth=0pt,width=1em]{FI}, in early 1990s.%Finland
     \end{block}
   \end{minipage}\quad
   \begin{minipage}{.35\textwidth}
@@ -364,7 +369,7 @@
 \end{frame}
 
 \begin{frame}{Use The Right Tools For The Right Jobs}
-  \begin{block}{I don't mean\,\linux\,is for everyone to do everything}
+  \begin{block}{I don't mean\,\linux\; is for everyone to do everything}
     \begin{itemize}
     \item \win\, is the platform of choice for audio enthusiasts and
       gamers
@@ -387,7 +392,8 @@
     \begin{tabular}{cc}
       \includegraphics[width=.5\textwidth]{search-cn-trends}&% 
       \includegraphics[width=.5\textwidth]{search-trends}\\
-      \includegraphics[width=2em]{china-f}&{\Huge\world}
+      %\includegraphics[width=2em]{china-f}
+      \worldflag[framewidth=0pt,width=1em]{CN}&{\Large\globe}%
     \end{tabular}
   \end{center}
 \end{frame}
@@ -399,15 +405,15 @@
     \begin{itemize}
     \item Use \,{\linux}\, to do your daily work. Can you do...
       \begin{itemize}
-      \item[-] homework on \linux?
-      \item[-] coding on \linux?
-      \item[-] lab work on \linux?
+      \item[-] homework on \linux\;?
+      \item[-] coding on \linux\;?
+      \item[-] lab work on \linux\;?
         \begin{itemize}
         \item[if] \textbf{\textcolor{Red}{\purisa NO}}
-        \item[then] Start \textbf{\textcolor{Red}{\purisa NOW!}}
+        \item[then] Start it \textbf{\textcolor{Red}{\purisa NOW!}}
         \end{itemize}
       \end{itemize}
-    \item {\nerd } \world
+    \item {\nerd } \globe
       \begin{itemize}
       \item[-] \google
       \item[-] {\purisa English}

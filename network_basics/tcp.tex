@@ -24,27 +24,27 @@
   \emph{If all real networks were flawless and all had the same service primitives and
     were guaranteed never, ever to change, the transport layer might not be needed.}
 
-\begin{frame}{\scalebox{2}{ﬁ}\quad vs.\quad\scalebox{2}{}}
+\begin{frame}{\scalebox{1.5}{🕿}\quad vs.\quad\scalebox{1.5}{🖃}}
   \begin{minipage}[t]{.47\linewidth}
-    \begin{iblock}{Circuit switching (ﬁ)}
+    \begin{iblock}{Circuit switching (🕿)}
       \begin{itemize}
-      \item[☺] guaranteed performance
-      \item[☺] fast transfers (once circuit is established)
-      \item[\alert{☹}] wastes bandwidth if traffic is ``bursty''
-      \item[\alert{☹}] connection setup adds delay
-      \item[\alert{☹}] recovery from failure is slow
+      \item[🙂] guaranteed performance
+      \item[🙂] fast transfers (once circuit is established)
+      \item[\alert{🙁}] wastes bandwidth if traffic is ``bursty''
+      \item[\alert{🙁}] connection setup adds delay
+      \item[\alert{🙁}] recovery from failure is slow
       \end{itemize}
     \end{iblock}
   \end{minipage}\hfill
   \begin{minipage}[t]{.47\linewidth}
-    \begin{iblock}{Packet switching ()}
+    \begin{iblock}{Packet switching (🖃)}
       \begin{itemize}
-      \item[\alert{☹}] no guaranteed performance
-      \item[\alert{☹}] header overhead per packet
-      \item[\alert{☹}] queues and queuing delay
-      \item[☺] efficient use of bandwidth
-      \item[☺] no connection setup
-      \item[☺] can ``route around trouble''
+      \item[\alert{🙁}] no guaranteed performance
+      \item[\alert{🙁}] header overhead per packet
+      \item[\alert{🙁}] queues and queuing delay
+      \item[🙂] efficient use of bandwidth
+      \item[🙂] no connection setup
+      \item[🙂] can ``route around trouble''
       \end{itemize}
     \end{iblock}
   \end{minipage}
@@ -89,19 +89,19 @@ See also:
     \end{iblock}
   \begin{iblock}{QoS on data link layer or IP layer?}
     \begin{itemize}
-    \item[☹] Efficiency
-    \item[☹] Upgrade all the routers
+    \item[\alert{🙁}] Efficiency
+    \item[\alert{🙁}] Upgrade all the routers
     \end{itemize}
   \end{iblock}
 \end{minipage}\hfill
   \begin{minipage}[t]{.5\linewidth}
     \begin{iblock}{TCP: Receive it correctly and orderly or none}
       \begin{itemize}
-      \item[{\dejavu ✔}] correctness --- acknowledgement, checksum
-      \item[{\dejavu ✔}] order --- sequence numbers
-      \item[{\dejavu ✔}] packet lost --- timers
-      \item[{\dejavu ✔}] flow control --- sliding window
-      \item[{\dejavu ✔}] congestion control
+      \item[✔] correctness --- acknowledgement, checksum
+      \item[✔] order --- sequence numbers
+      \item[✔] packet lost --- timers
+      \item[✔] flow control --- sliding window
+      \item[✔] congestion control
       \end{itemize}
     \end{iblock}
   \end{minipage}
@@ -412,26 +412,6 @@ full-duplex communication is established.
   \citetitle[Sec.~13.2.3 \emph{Initial Sequence Number (ISN)}]{fall2011tcp}.
 \end{itemize}
 
-\begin{frame}{SYN-flood}
-  \begin{itemize}
-  \item[\$] \cmd{sudo apt install hping3}
-  \item[\$] \cmd{sudo tcpdump -ilo port 3333}
-  \item[\$] \cmd{ss -anto state syn-recv}
-  \item[\$] \cmd{sudo hping3 -\phantom{}-flood -I lo -S -p 3333 127.0.0.1}
-  \item[\$] \cmd{sudo iptables -A OUTPUT -p tcp -m tcp -\phantom{}-tcp-flags RST RST -j DROP}
-  \item[\$] \cmd{sudo python3 -m http.server 3333}
-  % \item[\$] \cmd{sudo iptables -D OUTPUT -p tcp -m tcp --tcp-flags RST RST -j DROP}
-  % \item[] 
-  % \item[\$] \cmd{\# Syn-flood protection:}
-  % \item[\$] \cmd{sudo iptables -A INPUT -p tcp --syn -m limit --limit 1/s -j ACCEPT}
-  \end{itemize}
-\end{frame}
-
-\begin{itemize}
-\item \url{https://www.binarytides.com/tcp-syn-flood-dos-attack-with-hping/}
-\item \url{https://linoxide.com/firewall/block-common-attacks-iptables/}
-\end{itemize}
-
 \begin{frame}{Closing a TCP Connection}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=.7\textwidth]{3way-close} }%
@@ -484,6 +464,26 @@ all the data received.
     \mode<article>{ \includegraphics[width=.7\textwidth]{tcpdump} }
   \end{center}
 \end{frame}
+
+\begin{frame}{SYN-flood}
+  \begin{itemize}
+  \item[\$] \cmd{sudo apt install hping3}
+  \item[\$] \cmd{sudo tcpdump -ilo port 3333}
+  \item[\$] \cmd{ss -anto state syn-recv}
+  \item[\$] \cmd{sudo hping3 -\phantom{}-flood -I lo -S -p 3333 127.0.0.1}
+  \item[\$] \cmd{sudo iptables -A OUTPUT -p tcp -m tcp -\phantom{}-tcp-flags RST RST -j DROP}
+  \item[\$] \cmd{sudo python3 -m http.server 3333}
+  % \item[\$] \cmd{sudo iptables -D OUTPUT -p tcp -m tcp --tcp-flags RST RST -j DROP}
+  % \item[] 
+  % \item[\$] \cmd{\# Syn-flood protection:}
+  % \item[\$] \cmd{sudo iptables -A INPUT -p tcp --syn -m limit --limit 1/s -j ACCEPT}
+  \end{itemize}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://www.binarytides.com/tcp-syn-flood-dos-attack-with-hping/}
+\item \url{https://linoxide.com/firewall/block-common-attacks-iptables/}
+\end{itemize}
 
 %\mode<article>{\clearpage}
 
@@ -549,9 +549,26 @@ changes\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}:
   the socket pair defining that connection (client IP address, client port number, server
   IP address, and server port number) cannot be reused. That connection can only be reused
   when the 2MSL wait is over\citetitle[Sec.~18.6, \emph{TCP State Transition
-    Diagram}]{fall2011tcp}.  
+    Diagram}]{fall2011tcp}.
+  \begin{itemize}
+  \item \href{Coping with the TCP TIME-WAIT state on busy Linux
+      servers}{https://vincent.bernat.ch/en/blog/2014-tcp-time-wait-state-linux}
+  \end{itemize}
 \item[CLOSED] (both server and client) represents no connection state at all.
 \end{description}
+
+\begin{frame}{Why Time-Wait?}
+  \begin{minipage}[b]{.45\linewidth}
+    \begin{iblock}{Incarnation}
+      \includegraphics[width=\linewidth]{tcp-dup-seg}
+    \end{iblock}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{.45\linewidth}
+    \begin{iblock}{Unexpected RST}
+      \includegraphics[width=\linewidth]{tcp-last-ack}
+    \end{iblock}
+  \end{minipage}  
+\end{frame}
 
 \begin{frame}{\texttt{netstat}}
   \CMD{sudo apt install net-tools}

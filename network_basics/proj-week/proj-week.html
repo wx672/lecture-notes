@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-07-06 Thu 09:42 -->
+<!-- 2023-12-19 Tue 09:21 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hacking with Linux networking command line tools</title>
@@ -18,22 +18,40 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org3bc1199">1. Caution</a>
+<li><a href="#orge1adecc">1. Caution</a>
 <ul>
-<li><a href="#org1ad7f6e">1.1. Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-03-01 Wed&gt;</span></span></a></li>
+<li><a href="#org97f4dd7">1.1. Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-12-24 Sun&gt;</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org67d55bb">2. <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></a>
+<li><a href="#org3e5fbde">2. <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></a>
 <ul>
-<li><a href="#orgad44288">2.1. Your tasks</a></li>
+<li><a href="#org95246a5">2.1. Your tasks</a></li>
+</ul>
+</li>
+<li><a href="#org5f83c5e">3. Socket programming</a>
+<ul>
+<li><a href="#orgf1332ae">3.1. TCP</a>
+<ul>
+<li><a href="#orgc548d60">3.1.1. A simple TCP server written in Python3</a></li>
+<li><a href="#orga4b9e1f">3.1.2. A simple TCP client written in Python3</a></li>
+<li><a href="#orgfbb44ba">3.1.3. A simple TCP demo script</a></li>
+</ul>
+</li>
+<li><a href="#orga25667b">3.2. UDP</a>
+<ul>
+<li><a href="#org4d11343">3.2.1. A simple UDP server written in Python3</a></li>
+<li><a href="#org98aeaef">3.2.2. A simple UDP client written in Python3</a></li>
+<li><a href="#org8c2e8f7">3.2.3. A simple UDP demo script</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3bc1199" class="outline-2">
-<h2 id="org3bc1199"><span class="section-number-2">1.</span> Caution</h2>
+<div id="outline-container-orge1adecc" class="outline-2">
+<h2 id="orge1adecc"><span class="section-number-2">1.</span> Caution</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 You must submit your report as a <code>tar ball</code> in which the following files
@@ -50,17 +68,17 @@ generated from your <code>org</code> or <code>md</code> file.
 Tips: 
 </p>
 <ul class="org-ul">
-<li>In Emacs, press <code>C-c C-e h h</code> to export HTML file from your org file.</li>
+<li>In Emacs, press <code>C-c C-e h h</code> to export a HTML file from your org file.</li>
 
 <li>For <code>Markdown</code> to HTML, you can try <code>markdown</code>, <code>pandoc</code>, <code>cmark</code>, whatever.</li>
 
 <li>This page itself is generated from an <a href="proj-week.org">org file (proj-week.org)</a>. You can take it
 as an example.</li>
 
-<li>Report template: <a href="20221159xxx.org"><code>org file</code></a>, <a href="20221159xxx.html"><code>html file</code></a>, <a href="20221159xxx.md"><code>markdown file</code></a>.</li>
+<li>Report template: <a href="20221152xxx.org"><code>org file</code></a>, <a href="20221152xxx.html"><code>html file</code></a>, <a href="20221152xxx.md"><code>markdown file</code></a>.</li>
 </ul></li>
 
-<li>your bash script for a HTTP demostration (<a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/">examples</a>).</li>
+<li>your source codes (<a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/">examples</a>).</li>
 
 <li><p>
 a screencast file in <code>ttyrec</code> format recording your operations (<code>man ttyrec</code>).
@@ -72,17 +90,19 @@ Here's how:
 <hr>
 <ol class="org-ol">
 <li><p>
-make a directory, e.g. 20201159xxx, in this dir try very hard to make all
+make a directory, e.g. 20221152xxx, in this dir try very hard to make all
 the files available.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">mkdir  20201159xxx
-cd 20201159xxx
-emacsclient tmux-http.sh # write your script
-emacsclient 20201159xxx.org # this is your report
-vim 20201159xxx.md # in markdown format
-ttyrec http-demo.ttyrec # make your demo screencast
+<pre class="src src-sh">mkdir  20221152xxx
+cd 20221152xxx
+emacsclient tmux-http.sh    # write your script
+emacsclient tcpServer.c     # Implement the TCP server in C
+emacsclient tcpClient.c     # Implement the TCP client in C
+emacsclient 20221152xxx.org # this is your report
+vim 20221152xxx.md          # in markdown format
+ttyrec http-demo.ttyrec     # make your demo screencast
 </pre>
 </div></li>
 
@@ -91,12 +111,12 @@ make a tar ball.
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">cd ..                                                      
-tar zcf 20201159xxx.tgz 20201159xxx                        
+tar zcf 20221152xxx.tgz 20221152xxx                        
 ls -l # make sure your tar ball is smaller than 1MB in size
 </pre>
 </div></li>
 
-<li>submit the <code>tgz</code> file to our <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=695&amp;action=editsubmission">moodle site</a>.</li>
+<li>submit the <code>tgz</code> file to our <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=760">moodle site</a>.</li>
 </ol>
 <hr></li>
 </ul>
@@ -114,10 +134,10 @@ Here is a short tutorial about writing lab report: <a href="tutorial.ttyrec"><co
 Feel free to make your own <code>ttyrec</code> files while doing this lab work. For example:
 </p>
 
-<pre class="example" id="org3008f7f">
-ttyrec  20201159xxx-http.ttyrec
-ttyrec  20201159xxx-email.ttyrec
-ttyrec  20201159xxx-ftp.ttyrec
+<pre class="example" id="orgfa3b00b">
+ttyrec  20221152xxx-http.ttyrec
+ttyrec  20221152xxx-email.ttyrec
+ttyrec  20221152xxx-ftp.ttyrec
 </pre>
 
 <dl class="org-dl">
@@ -126,11 +146,11 @@ learn the very basics of it.</dd>
 </dl>
 </div>
 
-<div id="outline-container-org1ad7f6e" class="outline-3">
-<h3 id="org1ad7f6e"><span class="section-number-3">1.1.</span> Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-03-01 Wed&gt;</span></span></h3>
+<div id="outline-container-org97f4dd7" class="outline-3">
+<h3 id="org97f4dd7"><span class="section-number-3">1.1.</span> Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-12-24 Sun&gt;</span></span></h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>Submit your report as a <code>tgz</code> file <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=695&amp;action=editsubmission">here</a>. In your <code>tgz</code> file, there
+<li>Submit your report as a <code>tgz</code> file <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536">here</a>. In your <code>tgz</code> file, there
 must be:
 
 <ul class="org-ul">
@@ -142,15 +162,14 @@ must be:
 
 <li>Late reports will be penalized 20% per day.</li>
 
-<li>MS-word file will <b>NOT</b> be accepted. Cheating will result in automatic failure of this
-work.</li>
+<li>MS-word file will <b>NOT</b> be accepted. Cheating will result in automatic failure of this work.</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org67d55bb" class="outline-2">
-<h2 id="org67d55bb"><span class="section-number-2">2.</span> <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></h2>
+<div id="outline-container-org3e5fbde" class="outline-2">
+<h2 id="org3e5fbde"><span class="section-number-2">2.</span> <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Here are the bash scripts I used in the class for demostrating how some protocols work.
@@ -166,8 +185,8 @@ Here are the bash scripts I used in the class for demostrating how some protocol
 <hr>
 </div>
 
-<div id="outline-container-orgad44288" class="outline-3">
-<h3 id="orgad44288"><span class="section-number-3">2.1.</span> Your tasks</h3>
+<div id="outline-container-org95246a5" class="outline-3">
+<h3 id="org95246a5"><span class="section-number-3">2.1.</span> Your tasks</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li>Run the above scripts to get familar with these tools, and get a thorough understanding about these protocols;</li>
@@ -185,7 +204,7 @@ Packet analysis. Upon running the following command:
 the following packet is captured:
 </p>
 
-<pre class="example" id="orgad5d91e">
+<pre class="example" id="orga6e9479">
 08:34:10.790666 IP (tos 0x0, ttl 64, id 12824, offset 0, flags [DF],
 proto TCP (6), length 64)
 127.0.0.1.46668 &gt; 127.0.0.1.3333: Flags [P.], seq 2400005725:2400005737,
@@ -210,10 +229,199 @@ length 12
 </div>
 </div>
 </div>
+
+<div id="outline-container-org5f83c5e" class="outline-2">
+<h2 id="org5f83c5e"><span class="section-number-2">3.</span> Socket programming</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The followings are the <a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/src/">Python programs</a> I used in the class for demostrating
+socket programming. Your tasks
+</p>
+
+<ol class="org-ol">
+<li>Try these programs with a remote server IP instead of 127.0.0.1.</li>
+<li>Rewrite them in C.</li>
+</ol>
+</div>
+
+<div id="outline-container-orgf1332ae" class="outline-3">
+<h3 id="orgf1332ae"><span class="section-number-3">3.1.</span> TCP</h3>
+<div class="outline-text-3" id="text-3-1">
+</div>
+<div id="outline-container-orgc548d60" class="outline-4">
+<h4 id="orgc548d60"><span class="section-number-4">3.1.1.</span> A simple TCP server written in Python3</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<div class="org-src-container">
+<pre class="src src-python">#!/usr/bin/python3
+
+### A simple TCP server ###
+
+from socket import *
+serverPort = 12000
+serverSocket = socket(AF_INET,SOCK_STREAM)
+serverSocket.bind(('',serverPort))
+serverSocket.listen(0)
+print(serverSocket.getsockname())
+print('The server is ready to receive')
+while 1:
+    connectionSocket, addr = serverSocket.accept()
+    print(connectionSocket.getsockname())
+    sentence = connectionSocket.recv(1024)
+    capitalizedSentence = sentence.upper()
+    connectionSocket.send(capitalizedSentence)
+    connectionSocket.close()
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga4b9e1f" class="outline-4">
+<h4 id="orga4b9e1f"><span class="section-number-4">3.1.2.</span> A simple TCP client written in Python3</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<div class="org-src-container">
+<pre class="src src-python">#!/usr/bin/python3
+
+### A simple TCP client ###
+
+from time import *
+from socket import *
+serverName = '127.0.0.1'
+serverPort = 12000
+clientSocket = socket(AF_INET, SOCK_STREAM)
+clientSocket.connect((serverName,serverPort))
+print(clientSocket.getsockname())
+sentence = input('Input lowercase sentence:')
+clientSocket.send(bytes(sentence,'utf-8'))
+modifiedSentence = clientSocket.recv(1024)
+print('From Server:', str(modifiedSentence,'utf-8'))
+clientSocket.close()
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfbb44ba" class="outline-4">
+<h4 id="orgfbb44ba"><span class="section-number-4">3.1.3.</span> A simple TCP demo script</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<div class="org-src-container">
+<pre class="src src-sh">#!/bin/bash
+
+### A simple TCP demo script ###
+
+set -euC
+
+tmux rename-window "TCP demo"
+
+#    Window setup
+# +--------+--------+
+# | server | client |
+# +--------+--------+
+# |      watch      |
+# +-----------------+
+# |     tcpdump     |
+# +-----------------+
+#
+tmux split-window -h
+tmux split-window -fl99
+tmux split-window -l12
+
+tmux send-keys -t{top-left} "./tcpServer.py" 
+
+tmux send-keys -t{top-right} "./tcpClient.py"
+
+tmux send-keys -t{up-of} "watch -tn.1 'ss -ant \"( sport == 12000 or dport == 12000 )\"'" C-m
+
+tmux send-keys "sudo tcpdump -ilo -vvvnnxXSK -s0 port 12000" C-m
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga25667b" class="outline-3">
+<h3 id="orga25667b"><span class="section-number-3">3.2.</span> UDP</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org4d11343" class="outline-4">
+<h4 id="org4d11343"><span class="section-number-4">3.2.1.</span> A simple UDP server written in Python3</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<div class="org-src-container">
+<pre class="src src-python">#!/usr/bin/python3
+
+### A simple UDP server ###
+
+from socket import *
+serverPort = 12000
+serverSocket = socket(AF_INET, SOCK_DGRAM)
+serverSocket.bind(('', serverPort))
+print("The server is ready to receive")
+while 1:
+    message, clientAddress = serverSocket.recvfrom(2048)
+    modifiedMessage = message.upper()
+    serverSocket.sendto(modifiedMessage, clientAddress)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org98aeaef" class="outline-4">
+<h4 id="org98aeaef"><span class="section-number-4">3.2.2.</span> A simple UDP client written in Python3</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<div class="org-src-container">
+<pre class="src src-python">#!/usr/bin/python3
+
+### A simple UDP client ###
+
+from socket import *
+serverName = '127.0.0.1'
+serverPort = 12000
+clientSocket = socket(AF_INET, SOCK_DGRAM)
+message = input('Input lowercase sentence:')
+clientSocket.sendto(bytes(message,'utf-8'),(serverName, serverPort))
+modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
+print(str(modifiedMessage,'utf-8'))
+clientSocket.close()
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8c2e8f7" class="outline-4">
+<h4 id="org8c2e8f7"><span class="section-number-4">3.2.3.</span> A simple UDP demo script</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<div class="org-src-container">
+<pre class="src src-sh">#!/bin/bash
+
+### A simple UDP demo script ###
+
+set -euC
+
+tmux rename-window "UDP demo"
+
+#    Window setup
+# +--------+--------+
+# | server | client |
+# +--------+--------+
+# |     tcpdump     |
+# +-----------------+
+#
+tmux split-window -h
+tmux split-window -fl99
+
+tmux send-keys -t{top-left}  "./udpServer.py" 
+tmux send-keys -t{top-right} "./udpClient.py"
+
+tmux send-keys "sudo tcpdump -ilo -vvvnnxXK port 12000" C-m
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Xiaolin Wang</p>
-<p class="date">Created: 2023-07-06 Thu 09:42</p>
+<p class="date">Created: 2023-12-19 Tue 09:21</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
