@@ -1,7 +1,5 @@
 \usepackage{wx672nerd}
 
-\newcommand\strike[1]{#1\hspace{-1.5ex}\rotatebox[x=.5em,y=.3em]{135}{\textcolor{red}{\rule{1em}{1pt}}}}
-
 \addbibresource{bib/os.bib}
 \addbibresource{bib/wikipedia.bib}
 
@@ -11,8 +9,10 @@
   \AtBeginSubsection{\frame{\subsectionpage}}
 }
 
+\newcommand\strike[1]{#1\hspace{-1.5ex}\rotatebox[x=.5em,y=.3em]{135}{\textcolor{red}{\rule{1em}{1pt}}}}
+
 \title{Operating Systems}
-\author{Wang Xiaolin\\{\small\ttfamily wx672ster+os@gmail.com}}
+\author{WANG Xiaolin\\{\small\ttfamily wx672ster+os@gmail.com}}
 \titlegraphic{%
   \begin{tikzpicture}[overlay,remember picture] %
     \node (moodle) at (current page.north east) [anchor=north east]{%

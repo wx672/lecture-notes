@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Bob (20221159xxx)" />
-  <meta name="dcterms.date" content="2023-07-04" />
+  <meta name="author" content="Bob (20221152xxx)" />
+  <meta name="dcterms.date" content="2023-12-06" />
   <title>Hacking with Linux networking CLI tools</title>
   <style>
     html {
@@ -226,8 +226,8 @@
 <body>
 <header id="title-block-header">
 <h1 class="title">Hacking with Linux networking CLI tools</h1>
-<p class="author">Bob (20221159xxx)</p>
-<p class="date">2023-07-04</p>
+<p class="author">Bob (20221152xxx)</p>
+<p class="date">2023-12-06</p>
 </header>
 <h1 id="packet-analysis">Packet analysis</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> tcpdump <span class="at">-ilo</span> <span class="at">-nnvvvxXKS</span> <span class="at">-s0</span> port 3333</span></code></pre></div>
@@ -270,6 +270,21 @@ detailed as you can.</p>
 <ol start="2" type="1">
 <li>Record your HTTP demo session with <code>ttyrec</code>.</li>
 </ol>
+<h1 id="socket-programming">Socket programming</h1>
+<h2 id="tcp">TCP</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* A simple TCP server written in C */</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Your code</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* A simple TCP client written in C */</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Your code</span></span></code></pre></div>
+<h2 id="udp">UDP</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* A simple UDP server written in C */</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Your code</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">/* A simple UDP client written in C */</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Your code</span></span></code></pre></div>
 <h1 id="questions">Questions</h1>
 <p>List at least 5 problems you’ve met while doing this work. When
 listing your problems, you have to tell me:</p>

@@ -1,20 +1,25 @@
-#+TITLE:     课程实习报告（2022-2023-02）
-#+AUTHOR:    张三(20221159xxx)
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
+#+options: c:nil creator:nil d:nil date:t e:t email:nil f:t inline:t num:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t title:t toc:t
+#+options: todo:t |:t
+#+TITLE:     《计算机网络》课程实习报告（2023-2024-01）
+#+AUTHOR:    张三 (20221152xxx)
 #+EMAIL:     zhangsan@gmail.com
-#+LANGUAGE:  cn
-#+OPTIONS:   H:3 num:t toc:2 \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
-#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
-#+EXPORT_SELECT_TAGS: export
-#+EXPORT_EXCLUDE_TAGS: noexport
-#+LINK_UP:   
-#+LINK_HOME: 
-#+XSLT: 
+#+language: cn
+#+select_tags: export
+#+exclude_tags: noexport
+#+TAGS: noexport
+#+LATEX_CLASS: wx672ctexart
+#+LATEX_HEADER: \usepackage[margin=2cm]{geometry}
+#+LATEX_HEADER: \usepackage{wx672minted}
+#+LATEX_HEADER: \pagestyle{plain}
+#+STARTUP: customtime
 
 * Packet analysis
 Upon running the following command:
 
 #+begin_src sh
-sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
+  sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
 #+end_src
 
 the following packet is captured:
@@ -51,10 +56,40 @@ length 64)
    #+end_src
 
 2. Record your HTTP demo session with =ttyrec=.
-      
+
+* Socket programming
+
+** TCP
+
+#+begin_src c
+  /* A simple TCP server written in C */
+
+  // Your code
+#+end_src
+
+#+begin_src c
+  /* A simple TCP client written in C */
+
+  // Your code
+#+end_src
+
+** UDP
+
+#+begin_src c
+  /* A simple UDP server written in C */
+
+  // Your code
+#+end_src
+
+#+begin_src c
+  /* A simple UDP client written in C */
+
+  // Your code
+#+end_src
+
 * Questions
-List at least 5 problems you've met while doing this work. When listing your problems,
-you have to tell me:
+List at least 5 problems you've met while doing this work. When
+listing your problems, you have to tell me:
 1. Description of this problem. For example,
    - What were you trying to do before seeing this problem?
 2. How did you try solving this problem？ For example,

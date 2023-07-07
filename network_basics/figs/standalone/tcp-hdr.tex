@@ -1,5 +1,5 @@
 \documentclass[varwidth=25cm,crop]{standalone}
-\usepackage{wx672fonts}
+\usepackage{fontspec}
 \setmonofont{DejaVu Sans Mono}
 \begin{document}
 \begin{verbatim}
@@ -11,18 +11,20 @@
 ├───────────────────────────────────────────────────────────────┤
 │                    Acknowledgment Number                      │
 ├───────┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬─┬───────────────────────────────┤
-│  Data │ │ │ │N│C│E│U│A│P│R│S│F│                               │
-│ Offset│0│0│0│ │W│C│R│C│S│S│Y│I│            Window             │
-│       │ │ │ │S│R│E│G│K│H│T│N│N│                               │
+│  Data │       │C│E│U│A│P│R│S│F│                               │
+│ Offset│ Rsrvd │W│C│R│C│S│S│Y│I│            Window             │
+│       │       │R│E│G│K│H│T│N│N│                               │
 ├───────┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┴─┼───────────────────────────────┤
 │           Checksum            │         Urgent Pointer        │
 ├───────────────────────────────┴───────────────┬───────────────┤
-│                    Options                    │    Padding    │
+│                   [Options]                   │    Padding    │
 └───────────────────────────────────────────────┴───────────────┘
+                                              (RFC9293, Aug 2022)
 \end{verbatim}
 \end{document}
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX─master: t
-%%% End: 
+%%% TeX-master: t
+%%% End:

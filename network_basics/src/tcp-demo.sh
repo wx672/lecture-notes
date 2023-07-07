@@ -17,9 +17,9 @@ tmux split-window -h
 tmux split-window -fl99
 tmux split-window -l12
 
-tmux send-keys -t{top-left} "python2 tcpServer.py" 
+tmux send-keys -t{top-left} "./tcpServer.py" 
 
-tmux send-keys -t{top-right} "python2 tcpClient.py"
+tmux send-keys -t{top-right} "./tcpClient.py"
 
 tmux send-keys -t{up-of} "watch -tn.1 'ss -ant \"( sport == 12000 or dport == 12000 )\"'" C-m
 

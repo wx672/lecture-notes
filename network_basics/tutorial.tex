@@ -499,7 +499,7 @@ See also: \citetitle{web:switch, web:tb, wiki:stp}
 \end{frame}
 
 \begin{frame}{Network bits?}
-  \begin{iblock}{Do maths on the first 8 bits}
+  % \begin{iblock}{}%Do maths on the first 8 bits
     \begin{description}
     \item[Dst IP:] \texttt{11000000.10101000.10101000.10101000}
     \end{description}
@@ -515,7 +515,7 @@ See also: \citetitle{web:switch, web:tb, wiki:stp}
         \underline{11000000.10101000.10101000}.00000000& *& 3\\
       \end{tblr}
     \end{center}
-  \end{iblock}
+  % \end{iblock}
       
   \begin{iblock}{Prefix --- A faster way to decide network bits}
     \centering\label{fig:prefix}
@@ -1014,31 +1014,32 @@ been replaced by 10 lines of subnets.
   \includegraphics[scale=.6]{subnet-192}
 
   \begin{iblock}{IP address assignments}
-    \begin{tblr}{colspec={lllll},hline{1,2,Z},rows={font=\scriptsize},%
-        cell{2-Z}{2,3}={font=\ttfamily\scriptsize},%
-        cell{2-Z}{5}={font=\ttfamily\scriptsize},%
+    \begin{tblr}{colspec={llll},hline{1,2,Z},rows={font=\scriptsize},%
+        cell{2-Z}{2,4}={font=\ttfamily\scriptsize},%
+        %cell{2-Z}{5}={font=\ttfamily\scriptsize},%
         rowsep=0pt,
       }
-        University&First addr&Last addr&IPs&Network\\
-        Cambridge&192.24.0.0&192.24.7.255&2048&192.24.0.0/21\\
-        Edinburgh&192.24.8.0&192.24.11.255&1024&192.24.8.0/22\\
-        (Available)&192.24.12.0&192.24.15.255&1024&192.24.12.0/22\\
-        Oxford&192.24.16.0&192.24.31.255&4096&192.24.16.0/20\\
+        University   & Network        & IPs  & Address range                     \\
+        Cambridge    & 192.24.0.0/21  & 2048 & 192.24.0.0 \char`~~192.24.7.255   \\
+        Edinburgh    & 192.24.8.0/22  & 1024 & 192.24.8.0 \char`~~192.24.11.255  \\
+        (Available)  & 192.24.12.0/22 & 1024 & 192.24.12.0 \char`~~192.24.15.255 \\
+        Oxford       & 192.24.16.0/20 & 4096 & 192.24.16.0 \char`~~192.24.31.255 \\
       \end{tblr}
   \end{iblock}  
   \vspace*{-1ex}
   \begin{iblock}{London}
     \begin{tblr}{colspec={lll},hline{1,2,Z},rows={font=\scriptsize},
         row{2-Z}={font=\scriptsize\ttfamily}, rowsep=0pt, }
-      Destination&GW&Iface\\
-      192.24.0.0/21&*&1\\
-      192.24.8.0/22&*&3\\
-      192.24.16.0/20&*&2\\
+      Destination    & GW & IF \\
+      192.24.0.0/21  & *  & 1  \\
+      192.24.8.0/22  & *  & 3  \\
+      192.24.16.0/20 & *  & 2  \\
     \end{tblr}
   \end{iblock}
   \begin{tikzpicture}[remember picture, overlay]
-    \node [scale=.8,anchor=south east] at (current page.south east) {%
+    \node (bg) [scale=.8,anchor=south east] at (current page.south east) {%
       \includegraphics{route-aggregation} };
+    \node (txt) at (bg.west) [yshift=-1cm,anchor=north west,font=\purisa,red] {Route table at NY?};
   \end{tikzpicture}
 \end{frame}
 
@@ -1059,7 +1060,7 @@ should look like this:
 While the routing table inside the router in New York...
 
 \begin{frame}
-  \begin{iblock}{The Router in New York}
+  \begin{iblock}{The Router at New York}
     Option 1:
     \begin{center}
       \begin{tblr}{colspec={lccc},row{2-Z}={font=\ttfamily},hline{1,2,Z},rowsep=0pt,
