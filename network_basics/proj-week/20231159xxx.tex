@@ -1,31 +1,25 @@
-% Created 2023-07-07 Fri 15:12
-% Intended LaTeX compiler: pdflatex
-\documentclass{wx672ctexart} \usepackage{hyperref}
+% Created 2024-06-30 Sun 16:02
+% Intended LaTeX compiler: lualatex
+\documentclass{swfulabreport}
+
+\usepackage{hyperref}
 \usepackage{amsmath,amsfonts,amssymb}
-\usepackage{graphicx}
-\usepackage{tabularray}
-\usepackage{minted}
-\usepackage[margin=2cm]{geometry}
-\usepackage{wx672minted}
-\pagestyle{plain}
-\author{张三 (20221159xxx)}
+\author{张三}
 \date{\today}
-\title{课程实习报告（2022-2023-02）}
+\title{《计算机网络》课程实习}
 \hypersetup{
- pdfauthor={张三 (20221159xxx)},
- pdftitle={课程实习报告（2022-2023-02）},
+ pdfauthor={张三},
+ pdftitle={《计算机网络》课程实习},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 28.2 (Org mode 9.5.5)}, 
+ pdfcreator={Emacs 29.3 (Org mode 9.6.15)}, 
  pdflang={Cn}}
 \begin{document}
 
 \maketitle
-\tableofcontents
-
 
 \section{Packet analysis}
-\label{sec:orgdfaf11c}
+\label{sec:orgb13b384}
 Upon running the following command:
 
 \begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{sh}
@@ -65,7 +59,7 @@ length 64)
 \end{enumerate}
 
 \section{HTTP}
-\label{sec:org7adcbc1}
+\label{sec:org060c569}
 \begin{enumerate}
 \item Write a simple script showing how HTTP works (you need \texttt{curl});
 \begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{sh}
@@ -76,10 +70,43 @@ length 64)
 \item Record your HTTP demo session with \texttt{ttyrec}.
 \end{enumerate}
 
+\section{Socket programming}
+\label{sec:org2570ebe}
+
+\subsection{TCP}
+\label{sec:orgaf956c8}
+
+\begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{c}
+/* A simple TCP server written in C */
+
+// Your code
+\end{minted}
+
+\begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{c}
+/* A simple TCP client written in C */
+
+// Your code
+\end{minted}
+
+\subsection{UDP}
+\label{sec:orgeab4237}
+
+\begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{c}
+/* A simple UDP server written in C */
+
+// Your code
+\end{minted}
+
+\begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{c}
+/* A simple UDP client written in C */
+
+// Your code
+\end{minted}
+
 \section{Questions}
-\label{sec:org1ca3828}
-List at least 5 problems you've met while doing this work. When listing your problems,
-you have to tell me:
+\label{sec:orgbf4dc21}
+List at least 5 problems you've met while doing this work. When
+listing your problems, you have to tell me:
 \begin{enumerate}
 \item Description of this problem. For example,
 \begin{itemize}
@@ -94,20 +121,25 @@ you have to tell me:
 \end{enumerate}
 
 \subsection{Problems}
-\label{sec:org7e2d169}
-\begin{enumerate}
-\item 
+\label{sec:org81554a6}
 
-\item 
+\subsubsection{Problem 1}
+\label{sec:org7f96be3}
 
-\item 
+\subsubsection{Problem 2}
+\label{sec:org34f7e1c}
 
-\item 
+\subsubsection{Problem 3}
+\label{sec:orgf7e9237}
 
-\item 
-\end{enumerate}
+\subsubsection{Problem 4}
+\label{sec:org7b84558}
+
+\subsubsection{Problem 5}
+\label{sec:orgaed36c2}
 \end{document}
+
 %%% Local Variables:
-%%% mode: latex
+%%% mode: LaTeX
 %%% TeX-master: t
 %%% End:

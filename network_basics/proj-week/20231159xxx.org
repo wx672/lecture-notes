@@ -1,18 +1,15 @@
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline author:t
 #+options: c:nil creator:nil d:nil date:t e:t email:nil f:t inline:t num:t
-#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t title:t toc:t
+#+options: p:nil pri:nil prop:nil stat:t tags:t tasks:t tex:t timestamp:t title:t toc:nil
 #+options: todo:t |:t
-#+TITLE:     《计算机网络》课程实习报告（2023-2024-01）
-#+AUTHOR:    张三 (20221152xxx)
+#+TITLE:     《计算机网络》课程实习
+#+AUTHOR:    张三
 #+EMAIL:     zhangsan@gmail.com
 #+language: cn
 #+select_tags: export
 #+exclude_tags: noexport
 #+TAGS: noexport
-#+LATEX_CLASS: wx672ctexart
-#+LATEX_HEADER: \usepackage[margin=2cm]{geometry}
-#+LATEX_HEADER: \usepackage{wx672minted}
-#+LATEX_HEADER: \pagestyle{plain}
+#+LATEX_CLASS: swfulabreport
 #+STARTUP: customtime
 
 * Packet analysis
@@ -98,9 +95,14 @@ listing your problems, you have to tell me:
    - Did you ask others for hints?
     
 ** Problems
-1. 
-2. 
-3. 
-4. 
-5. 
+
+*** Problem 1 
+
+*** Problem 2 
+
+*** Problem 3 
+
+*** Problem 4 
+
+*** Problem 5 
 

@@ -27,7 +27,7 @@ PKG_IMP="alsa-utils aptitude aria2 bash-completion blight bluetooth ca-certifica
 
 # use isenkram to handle firmwares 
 #firmware-linux-nonfree firmware-misc-nonfree firmware-amd-graphics firmware-iwlwifi 
-PKG_REC="alacritty apt-file bat catdoc cht.sh cmark convmv dict dict-foldoc dict-gcide dict-jargon dict-vera dict-wn elpa-pdf-tools-server emacs emacs-common-non-dfsg eza fd-find ffmpeg firmware-linux-free fzf g++ gawk gcc gdb global hunspell imagemagick ipcalc keynav kmscon lf libnotify-bin libreoffice-calc libreoffice-impress libreoffice-writer libreoffice-qt6 libtext-csv-xs-perl lshw lynx make manpages-posix manpages-posix-dev mdp mpv mupdf mupdf-tools netcat-openbsd nmap notification-daemon nsxiv ntfs-3g org-mode-doc 7zip-rar pandoc parted poppler-utils profile-sync-daemon proxychains4 pulsemixer pv pqiv qutebrowser qt6ct rar ripgrep rofi rsync tcpdump tlp tmate tpp ttyrec universal-ctags unoconv unrar visidata vivid wamerican-insane wireless-regdb xbanish xlsx2csv zathura zoxide"
+PKG_REC="alacritty apt-file bat catdoc cht.sh convmv dict dict-foldoc dict-gcide dict-jargon dict-vera dict-wn elpa-pdf-tools-server emacs emacs-common-non-dfsg eza fd-find ffmpeg firmware-linux-free fzf g++ gawk gcc gdb global hunspell imagemagick ipcalc keynav kmscon lf libnotify-bin libreoffice-calc libreoffice-impress libreoffice-writer libreoffice-qt6 libtext-csv-xs-perl lshw lynx make manpages-posix manpages-posix-dev mdp mpv mupdf mupdf-tools netcat-openbsd nmap notification-daemon nsxiv ntfs-3g org-mode-doc 7zip-rar pandoc parted poppler-utils profile-sync-daemon proxychains4 pulsemixer pv pqiv qutebrowser qt6ct rar ripgrep rofi rsync tcpdump tlp tmate tpp ttyrec universal-ctags unoconv unrar visidata vivid wamerican-insane wireless-regdb xbanish xlsx2csv zathura zoxide"
 
 PKG_CHN="fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-gtk4 fcitx5-frontend-qt5 fcitx5-module-cloudpinyin fcitx5-module-pinyinhelper fcitx5-module-punctuation fcitx5-module-xorg fonts-arphic-ukai fonts-arphic-uming fonts-noto-cjk fonts-wqy-microhei fonts-wqy-zenhei im-config"
 
@@ -298,7 +298,7 @@ EOF
 
 	cd $DOTFILE
 
-	until stow -R alacritty applications aria2 bash bash-completion bin cheat clash dot.config emacs fcitx5 fontconfig git gtk* help home keynav latexmk less lf lftp mpv nvim picom psd qt5ct qutebrowser ripgrep rofi starship systemd tmate tmux visidata vivid w3m wallpapers xorg yt-dlp zathura
+	until stow -R alacritty applications aria2 bash bash-completion bin cheat dot.config emacs fcitx5 fontconfig git gtk* help home keynav latexmk less lf lftp mpv nvim picom psd qt5ct qutebrowser ripgrep rofi starship systemd tmate tmux visidata vivid w3m wallpapers xorg yt-dlp zathura
 	do
 		errbox "Error stowing some packages" "Fix this in another console (Ctrl-Alt-F2) and then come back to continue."
 	done	
@@ -319,7 +319,7 @@ misc_files()
 	local DIR="$HOME/tmp"
 	test -d $DIR || mkdir $DIR
 	
-	until $WGET -nc -P $DIR $BASEURL/debian-install/misc/{stterm.deb,dwm.deb,elpa.tgz,tmux-plugins.tgz,FiraCodeNerdFont.tgz,cn/dict-cn.tgz,cargo.bin.tgz,media-test.mp4,clash.meta,starship}
+	until $WGET -nc -P $DIR $BASEURL/debian-install/misc/{stterm.deb,dwm.deb,elpa.tgz,tmux-plugins.tgz,FiraCodeNerdFont.tgz,cn/dict-cn.tgz,cargo.bin.tgz,media-test.mp4,starship}
 	do
 		errbox "Failed downloading misc files" "$TRY_APT"
 	done
@@ -341,7 +341,7 @@ misc_files()
 	
     tar zxf $DIR/cargo.bin.tgz cargo/bin/sk -O > $DIR/sk
 	
-	sudo mv $DIR/{clash.meta,starship,sk} /usr/local/bin && sudo chmod 755 /usr/local/bin/*
+	sudo mv $DIR/{starship,sk} /usr/local/bin && sudo chmod 755 /usr/local/bin/*
 	
 	rm -rf $DIR
 }

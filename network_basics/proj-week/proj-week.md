@@ -1,7 +1,7 @@
 ---
 title: Hacking with Linux networking cli tools
 author: Xiaolin WANG (wx672ster+net@gmail.com)
-date: 2023-12-06
+date: 2024-06-30
 CJKmainfont: Noto Serif CJK SC
 CJKsansfont: Noto Sans CJK SC
 header-includes: |
@@ -14,14 +14,19 @@ header-includes: |
 
 - You must submit your report as a `tar ball` in which the following files should be included:
     
-  1. Your report in either `Emacs Org` or `Markdown` format, and a HTML file
+  1. Your report in either `Emacs Org` or `Markdown` format, and a PDF file
      generated from your `org` or `md` file. Tips: 
      
-     - In Emacs, press `C-c C-e h h` to export HTML file from your org file;
+     - In Emacs, press `C-c C-e l p` to export PDF file from your org file;
      
-     - For `Markdown` to HTML, you can try `markdown`, `pandoc`, `cmark`, whatever.
+     - For `Markdown` to PDF, you can try `markdown`, `pandoc`,
+	   `cmark`, whatever. For example:
+	   
+	   ```sh
+	   pandoc input.md --pdf-engine=lualatex -o output.pdf
+	   ```
      
-     - This page itself is generated from an 
+     - This HTML page itself is generated from an 
        [markdown file (proj-week.md)](proj-week.md). You can take it as an example.
      
      - Report template
@@ -35,29 +40,29 @@ header-includes: |
     
 Here's how: 
 
-1.  make a directory, e.g. 20221152xxx. In this directory, try very hard to make all
+1.  make a directory, e.g. 20231159xxx. In this directory, try very hard to make all
     the files available.
     
     ```sh
-    mkdir  20221152xxx
-    cd 20221152xxx
-    emacsclient tmux-http.sh    # write your script
-	emacsclient tcpServer.c     # Implement the TCP server in C
-	emacsclient tcpClient.c     # Implement the TCP client in C
-    emacsclient 20221152xxx.org # write your report with emacs-org, or
-    vim 20221152xxx.md          # write your report in markdown format
-    ttyrec http-demo.ttyrec     # make your demo screencast
+    mkdir  20231159xxx      # create a new directory
+    cd 20231159xxx
+    vim tmux-http.sh        # write your script
+	vim tcpServer.c         # Implement the TCP server in C
+	vim tcpClient.c         # Implement the TCP client in C
+    vim 20231159xxx.org     # write your report with emacs-org, or
+    vim 20231159xxx.md      # write your report in markdown format
+    ttyrec http-demo.ttyrec # make your demo screencast
     ```
     
 2.  make a tar ball.
     
     ```sh
     cd ..
-    tar zcf 20221152xxx.tgz 20221152xxx
+    tar zcf 20231159xxx.tgz 20231159xxx
     ls -l # make sure your tar ball is smaller than 1MB in size
     ```
     
-3.  upload the `tgz` file to our [moodle site](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=760).
+3.  upload the `tgz` file to our [moodle site](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=777).
     
 ---
 
@@ -71,22 +76,22 @@ Here's how:
     Feel free to make your own `ttyrec` file while doing this lab work. For example:
     
     ```sh
-    ttyrec  20221152xxx-http.ttyrec
-    ttyrec  20221152xxx-email.ttyrec
-    ttyrec  20221152xxx-ftp.ttyrec
+    ttyrec  20231159xxx-http.ttyrec
+    ttyrec  20231159xxx-email.ttyrec
+    ttyrec  20231159xxx-ftp.ttyrec
     ```
 
 - **Bonus points:** Manage your project with `git`. `man gittutorial` to
   learn the very basics of it.
 
-- **Deadline:** <span class="timestamp-wrapper"><span class="timestamp">&lt;2023-12-24 Sun&gt; </span></span> 
+- **Deadline:** <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-7-7 Sun&gt; </span></span> 
 
   - Submit your report as a `tgz` file
-    [here](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=760). In
+    [here](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=777). In
     your `tgz` file, there must be:
    
     1. your report in `org` or `markdown` format
-    2. your report in HTML format
+    2. your report in PDF format
     3. your bash script for demostrating a HTTP session
     4. one or more `ttyrec` files for demostrating whatever you did
   

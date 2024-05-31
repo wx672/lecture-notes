@@ -1,14 +1,15 @@
 #!/bin/bash
 
-IMGDIR="$HOME/Pics/2009Summer/wallpapers/2009summer-1280x768"
+#"$HOME/Pics/2009Summer/wallpapers/2009summer-1280x768"
+IMGDIR="$HOME/.local/share/wallpapers/"
 
-files=($IMGDIR/*.jpg)
+files=($IMGDIR/wallpaper*.webp)
 
-# get the length of array ${files[@]}
+# length of array ${files[@]}
 n=${#files[@]}
 
-# get a random array element
+# random array element
 wallpaper="${files[RANDOM % n]}"
 
 # set it as wallpaper
-qiv -z $wallpaper
+hsetroot -cover $wallpaper

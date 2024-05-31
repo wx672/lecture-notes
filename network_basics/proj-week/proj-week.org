@@ -17,18 +17,23 @@
 You must submit your report as a =tar ball= in which the following files
 should be included in:
 
-- Your report in either =Emacs Org= or =Markdown= format, and a HTML file
+- Your report in either =Emacs Org= or =Markdown= format, and a PDF file
   generated from your =org= or =md= file.
        
   Tips: 
-  + In Emacs, press =C-c C-e h h= to export a HTML file from your org file.
+  + In Emacs, press =C-c C-e l p= to export a PDF file from your org file.
 
-  + For =Markdown= to HTML, you can try =markdown=, =pandoc=, =cmark=, whatever.
+  + For =Markdown= to PDF, you can try =markdown=, =pandoc=, =cmark=,
+    whatever. For example:
 
-  + This page itself is generated from an [[file:proj-week.org][org file (proj-week.org)]]. You can take it
-    as an example.
+    #+begin_src shell
+      pandoc input.md -o output.pdf --pdf-engine=lualatex
+    #+end_src
 
-  + Report template: [[file:20221152xxx.org][=org file=]], [[file:20221152xxx.html][=html file=]], [[file:20221152xxx.md][=markdown file=]].
+  + This HTML page itself is generated from an [[file:proj-week.org][org file
+    (proj-week.org)]]. You can take it as an example.
+
+  + Report template: [[file:20231159xxx.org][=org file=]], [[file:20231159xxx.pdf][=html file=]], [[file:20231159xxx.md][=markdown file=]].
 
 - your source codes ([[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/][examples]]).
 
@@ -36,28 +41,29 @@ should be included in:
 
   Here's how:
   ------
-  1. make a directory, e.g. 20221152xxx, in this dir try very hard to make all
+  1. make a directory, e.g. 20231159xxx, in this dir try very hard to make all
      the files available.
 
      #+begin_src sh
-       mkdir  20221152xxx
-       cd 20221152xxx
-       emacsclient tmux-http.sh    # write your script
-       emacsclient tcpServer.c     # Implement the TCP server in C
-       emacsclient tcpClient.c     # Implement the TCP client in C
-       emacsclient 20221152xxx.org # this is your report
-       vim 20221152xxx.md          # in markdown format
-       ttyrec http-demo.ttyrec     # make your demo screencast
+       mkdir 20231159xxx       # create a new directory
+       cd 20231159xxx
+       vim tmux-http.sh        # write your script
+       vim tcpServer.c         # Implement the TCP server in C
+       vim tcpClient.c         # Implement the TCP client in C
+       vim 20231159xxx.md      # write your report in markdown format, or
+       vim 20231159xxx.org     # in org format
+       ttyrec http-demo.ttyrec # make your demo screencast
      #+end_src
 
   2. make a tar ball.
      #+begin_src sh
        cd ..                                                      
-       tar zcf 20221152xxx.tgz 20221152xxx                        
+       tar zcf 20231159xxx.tgz 20231159xxx                        
        ls -l # make sure your tar ball is smaller than 1MB in size
      #+end_src
 
   3. submit the =tgz= file to our [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=760][moodle site]]. 
+
   ------
 
 Here is a short tutorial about writing lab report: [[file:tutorial.ttyrec][=tutorial.ttyrec=]]. To view it:
@@ -69,21 +75,21 @@ Here is a short tutorial about writing lab report: [[file:tutorial.ttyrec][=tuto
 Feel free to make your own =ttyrec= files while doing this lab work. For example:
 
 #+begin_example
-  ttyrec  20221152xxx-http.ttyrec
-  ttyrec  20221152xxx-email.ttyrec
-  ttyrec  20221152xxx-ftp.ttyrec
+  ttyrec  20231159xxx-http.ttyrec
+  ttyrec  20231159xxx-email.ttyrec
+  ttyrec  20231159xxx-ftp.ttyrec
 #+end_example
 
 - *Bonus point* :: Manage your project with =git=. =man gittutorial= to
   learn the very basics of it.
 
-** Deadline: <2023-12-24 Sun>
+** Deadline: <2024-07-07 Sun>
 
-- Submit your report as a =tgz= file [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=536][here]]. In your =tgz= file, there
+- Submit your report as a =tgz= file [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=777][here]]. In your =tgz= file, there
   must be:
       
   + your report in =org= or =markdown= format.
-  + your report in HTML format.
+  + your report in PDF format.
   + your bash script for demostrating a HTTP session.
   + one or more =ttyrec= files for demostrating whatever you did.
 
