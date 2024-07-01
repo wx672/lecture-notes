@@ -1,0 +1,40 @@
+---
+title: Hacking with Linux networking CLI tools
+author: Bob
+date: 2024-06-30
+id: 20231159xxx
+class: '计科2023级专升本'
+tutor: '王晓林'
+year: 2024
+month: 6
+day: 30
+reviewer: '王晓林'
+reviewdate: '2024/7/10'
+labdate: '2024/6/28 -- 2024/6/30'
+labdays: 3
+lab: '经管楼219'
+heads: '74'
+grouping: '不分组'
+why: |
+  掌握Linux平台上常用网络工具的使用，并理解基本的网络编程过程。
+
+  - 掌握用tcpdump捕获并分析数据包
+  - 掌握用netcat完成简单的网络会话
+  - 掌握基本的网络编程
+req: |
+  - 在Linux平台完成所有实验
+  - 在Linux平台完成实验报告
+  - 努力尝试用英文撰写实验报告
+  - 将实验作业及报告以tgz格式打包，并上传到指定教学网站
+  - 迟交报告将被扣分
+what: |
+  详见[《实验指导书》](https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/proj-week/proj-week.html)。
+sched: |
+  - 2024/6/28: 学习使用tmux，ttyrec等实验所需的命令行工具。
+               学习使用ip, tcpdump, netcat, curl, ss, nmap等网络工具。
+  - 2024/6/29: 完成用tcpdump捕获、分析数据包，用netcat实现网络协议会话，
+               以及网络编程等规定实验项目。
+  - 2024/6/30: 完成所有实验，并撰写实验报告。
+sumup: |
+  不要少于300字。
+---

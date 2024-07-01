@@ -17,21 +17,16 @@ header-includes: |
   1. Your report in either `Emacs Org` or `Markdown` format, and a PDF file
      generated from your `org` or `md` file. Tips: 
      
-     - In Emacs, press `C-c C-e l p` to export PDF file from your org file;
-     
-     - For `Markdown` to PDF, you can try `markdown`, `pandoc`,
-	   `cmark`, whatever. For example:
-	   
-	   ```sh
-	   pandoc input.md --pdf-engine=lualatex -o output.pdf
-	   ```
-     
-     - This HTML page itself is generated from an 
-       [markdown file (proj-week.md)](proj-week.md). You can take it as an example.
-     
      - Report template
-       : [`org file`](20221159xxx.org), [`html file`](20221159xxx.html), [`markdown file`](20221159xxx.md)
+       : [`org file`](20231159xxx.org), [`markdown file`](20231159xxx.md),
+		 [`yaml file`](20231159xxx.yaml), [Makefile](Makefile)
   
+     - In Emacs org-mode, press `C-c C-e l p` to export a PDF file;
+     
+     - For `Markdown` to PDF, you can simply do `make pdf` if you are
+	   using Linux in the J219 lab and have this [Makefile](Makefile)
+	   along with your `md` and [`yaml`](20231159xxx.yaml) file. 
+     
   2. your program source files (bash scripts, C programs).
   
   3. a `ttyrec` file recording your operations (`man ttyrec`).

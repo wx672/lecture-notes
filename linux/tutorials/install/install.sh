@@ -1,3 +1,4 @@
+##############################
 #!/bin/bash
 
 BASEURL="https://cs6.swfu.edu.cn/~wx672"
@@ -7,17 +8,21 @@ DOTFILE="$HOME/.dotfile"
 
 MSG_NOTE="This script WON'T work unless you have the Debian base system successfully installed. If not yet, follow my installation guide to do it now.
 
-	- https://cs6.swfu.edu.cn/~wx672/debian-install/install.html
+	- "$BASEURL"/debian-install/install.html
 
-NOTE: DO NOT set the root password while installing the base system!"
+NOTE: Do NOT set root password while installing the base system!"
 
 MSG_CONGRATS="Now, I am going to reboot your computer.
 
 Upon finishing boot up, if you are lucky to see the mouse cursor showing on the screen, you can hit
-       * Super-t to bring up a terminal. Or,
-       * Super-F1 to show the cheat sheet.
-       * use 'nmtui' to activate your wifi.
-       * trigger Chinese input (fcitx5) by hitting Shift-space. Try fcitx5-configtool otherwise. 
+     * Super-t to bring up a terminal. Or,
+     * Super-F1 to show the cheat sheet.
+     * use 'nmtui' to activate your wifi.
+     * trigger Chinese input (fcitx5) by hitting Shift-space. Try fcitx5-configtool otherwise. 
+
+If the time is not correctly set, do:
+
+		sudo dpkg-reconfigure tzdata
 
 If the mouse cursor isn't there at all, that probably means the Xorg doesn't work well. This usually has something to do with the graphic card driver. In this unlucky case, you have to ask google for more info.
 
@@ -27,7 +32,7 @@ PKG_IMP="alsa-utils aptitude aria2 bash-completion blight bluetooth ca-certifica
 
 # use isenkram to handle firmwares 
 #firmware-linux-nonfree firmware-misc-nonfree firmware-amd-graphics firmware-iwlwifi 
-PKG_REC="alacritty apt-file bat catdoc cht.sh convmv dict dict-foldoc dict-gcide dict-jargon dict-vera dict-wn elpa-pdf-tools-server emacs emacs-common-non-dfsg eza fd-find ffmpeg firmware-linux-free fzf g++ gawk gcc gdb global hunspell imagemagick ipcalc keynav kmscon lf libnotify-bin libreoffice-calc libreoffice-impress libreoffice-writer libreoffice-qt6 libtext-csv-xs-perl lshw lynx make manpages-posix manpages-posix-dev mdp mpv mupdf mupdf-tools netcat-openbsd nmap notification-daemon nsxiv ntfs-3g org-mode-doc 7zip-rar pandoc parted poppler-utils profile-sync-daemon proxychains4 pulsemixer pv pqiv qutebrowser qt6ct rar ripgrep rofi rsync tcpdump tlp tmate tpp ttyrec universal-ctags unoconv unrar visidata vivid wamerican-insane wireless-regdb xbanish xlsx2csv zathura zoxide"
+PKG_REC="alacritty apt-file bat catdoc cht.sh convmv dict dict-foldoc dict-gcide dict-jargon dict-vera dict-wn elpa-pdf-tools-server emacs emacs-common-non-dfsg eza fd-find ffmpeg firmware-linux-free fzf g++ gawk gcc gdb global hunspell imagemagick ipcalc keynav kmscon lf libnotify-bin libreoffice-calc libreoffice-impress libreoffice-writer libreoffice-qt6 libtext-csv-xs-perl lshw lynx make manpages-posix manpages-posix-dev mdp mpv mupdf mupdf-tools nala netcat-openbsd nmap notification-daemon nsxiv ntfs-3g org-mode-doc 7zip-rar pandoc parted poppler-utils profile-sync-daemon proxychains4 pulsemixer pv pqiv qutebrowser qt6ct rar ripgrep rofi rsync tcpdump tlp tmate tpp ttyrec universal-ctags unoconv unrar visidata vivid wamerican-insane wireless-regdb xbanish xlsx2csv zathura zoxide"
 
 PKG_CHN="fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-gtk4 fcitx5-frontend-qt5 fcitx5-module-cloudpinyin fcitx5-module-pinyinhelper fcitx5-module-punctuation fcitx5-module-xorg fonts-arphic-ukai fonts-arphic-uming fonts-noto-cjk fonts-wqy-microhei fonts-wqy-zenhei im-config"
 
@@ -42,7 +47,7 @@ TRY_APT="It could be:\n\n
 1. A network failure. If so, you should go fix it, and come back to continue.\n
 2. A server side error (server down? git repo changed?). In this case, you should quit this script, and alarm me with a bug report ($EMAIL)."
 
-TRY_SUDO="You shouldn't set the root password while installing the base system! Now you have to install 'sudo' yourself.\n\n
+TRY_SUDO="You shouldn't have set the root password while installing the base system! Now you have to install 'sudo' yourself.\n\n
 1. Type Ctrl-Alt-F2 to open another console. login as root.\n
 2. Install 'sudo' by typing 'apt install sudo'. \n
 3. Type Ctrl-Alt-F1 to come back and continue."
@@ -135,9 +140,9 @@ checkIP(){
 	colorEcho $SUCCESS 'Great! We are online!'
 	colorEcho $INFO "Checking cs6 reachability..."
 
-	until ping -c3 cs6.swfu.edu.cn
+	until echo "HEAD / HTTP/1.0" >/dev/tcp/cs6.swfu.edu.cn/80
 	do
-		errbox "cs6 is unreachable" "$TRY_NET"
+		errbox "cs6 is unreachable!" "$TRY_NET"
 	done
 	
 	colorEcho $SUCCESS "cs6 is reachable!"
@@ -157,10 +162,10 @@ sudo_nopass(){
 
 apt_setup()
 {
-    # sources.list
+  # sources.list
 	colorEcho $INFO "Populating /etc/apt/sources.list ..."
     
-    cat <<EOF | sudo tee /etc/apt/sources.list
+  cat <<EOF | sudo tee /etc/apt/sources.list
 deb http://mirrors.163.com/debian     sid main contrib non-free non-free-firmware
 deb http://ftp2.cn.debian.org/debian  sid main contrib non-free non-free-firmware
 deb http://mirrors.ustc.edu.cn/debian sid main contrib non-free non-free-firmware
@@ -280,7 +285,7 @@ EOF
 
 	colorEcho $INFO "Cloning dotfiles from $BASEURL/dotfile/.git ..."
 	
-    until git clone $BASEURL/dotfile/.git $DOTFILE
+  until git clone $BASEURL/dotfile/.git $DOTFILE
 	do
 		errbox "git clone dotfile failed" "$TRY_APT"
 	done
@@ -306,10 +311,10 @@ EOF
 	sudo cp $DOTFILE/usr/local/bin/* /usr/local/bin/
 
 	sudo ln -sf /usr/bin/st /usr/local/bin/xterm
-    sudo ln -sf /usr/bin/batcat /usr/local/bin/bat
-    sudo ln -sf /usr/bin/batcat /usr/local/bin/cat
-    sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd
-    sudo ln -sf /usr/bin/nsxiv /usr/local/bin/sxiv
+  sudo ln -sf /usr/bin/batcat /usr/local/bin/bat
+  sudo ln -sf /usr/bin/batcat /usr/local/bin/cat
+  sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd
+  sudo ln -sf /usr/bin/nsxiv /usr/local/bin/sxiv
 }
 
 misc_files()
@@ -317,7 +322,7 @@ misc_files()
 	colorEcho $INFO "Downloading misc files..."
 	
 	local DIR="$HOME/tmp"
-	test -d $DIR || mkdir $DIR
+	mkdir -p $DIR
 	
 	until $WGET -nc -P $DIR $BASEURL/debian-install/misc/{stterm.deb,dwm.deb,elpa.tgz,tmux-plugins.tgz,FiraCodeNerdFont.tgz,cn/dict-cn.tgz,cargo.bin.tgz,media-test.mp4,starship}
 	do
@@ -328,22 +333,26 @@ misc_files()
 	
 	tar zxf $DIR/elpa.tgz -C $HOME/.emacs.d/
 
-	systemctl --user enable emacs
+	# systemctl --user enable emacs
 
 	tar zxf $DIR/tmux-plugins.tgz -C $HOME/.config/tmux/
 
 	sudo tar zxf $DIR/dict-cn.tgz -C /usr/share/dictd/ && {
-        sudo dpkg-reconfigure --frontend noninteractive dictd
+    sudo dpkg-reconfigure --frontend noninteractive dictd
 	}
 
-    sudo mkdir -p /usr/local/share/fonts/truetype/nerd-fonts
+  sudo mkdir -p /usr/local/share/fonts/truetype/nerd-fonts
 	sudo tar zxf $DIR/FiraCodeNerdFont.tgz -C /usr/local/share/fonts/truetype/nerd-fonts/
 	
-    tar zxf $DIR/cargo.bin.tgz cargo/bin/sk -O > $DIR/sk
+  tar zxf $DIR/cargo.bin.tgz cargo/bin/sk -O > $DIR/sk
 	
 	sudo mv $DIR/{starship,sk} /usr/local/bin && sudo chmod 755 /usr/local/bin/*
 	
 	rm -rf $DIR
+
+	for f in $HOME/.config/systemd/user/*.service; do
+		systemctl --user enable $f
+	done
 }
 
 auto_login(){
@@ -357,38 +366,38 @@ EOF
 }
 
 locale_zh(){
-    # generating locales
-    cat <<EOF | sudo tee /etc/locale.gen
+  # generating locales
+  cat <<EOF | sudo tee /etc/locale.gen
 en_US.UTF-8 UTF-8
 zh_CN.UTF-8 UTF-8
 EOF
 	sudo dpkg-reconfigure -fnoninteractive locales
 
-    # update /etc/default/locale; locales have to be selected and generated in advance
-    sudo update-locale \
-         LANG \
-         LANGUAGE="en_US:en" \
-         LC_CTYPE="zh_CN.UTF-8" \
-         LC_NUMERIC="en_US.UTF-8" \
-         LC_TIME="en_US.UTF-8" \
-         LC_COLLATE="en_US.UTF-8" \
-         LC_MONETARY="en_US.UTF-8" \
-         LC_MESSAGES="en_US.UTF-8" \
-         LC_PAPER="en_US.UTF-8" \
-         LC_NAME="en_US.UTF-8" \
-         LC_ADDRESS="en_US.UTF-8" \
-         LC_TELEPHONE="en_US.UTF-8" \
-         LC_MEASUREMENT="en_US.UTF-8" \
-         LC_IDENTIFICATION="en_US.UTF-8" \
-         LC_ALL
+  # update /etc/default/locale; locales have to be selected and generated in advance
+  sudo update-locale \
+       LANG \
+       LANGUAGE="en_US:en" \
+       LC_CTYPE="zh_CN.UTF-8" \
+       LC_NUMERIC="en_US.UTF-8" \
+       LC_TIME="en_US.UTF-8" \
+       LC_COLLATE="en_US.UTF-8" \
+       LC_MONETARY="en_US.UTF-8" \
+       LC_MESSAGES="en_US.UTF-8" \
+       LC_PAPER="en_US.UTF-8" \
+       LC_NAME="en_US.UTF-8" \
+       LC_ADDRESS="en_US.UTF-8" \
+       LC_TELEPHONE="en_US.UTF-8" \
+       LC_MEASUREMENT="en_US.UTF-8" \
+       LC_IDENTIFICATION="en_US.UTF-8" \
+       LC_ALL
 
-    # config timezone
-    sudo tee /etc/timezone <<<'Asia/Shanghai'
-    sudo dpkg-reconfigure -fnoninteractive tzdata
+  # config timezone
+  sudo tee /etc/timezone <<<'Asia/Shanghai'
+  sudo dpkg-reconfigure -fnoninteractive tzdata
 }
 
 xkey(){
-    cat <<EOF | sudo tee /etc/default/keyboard 
+  cat <<EOF | sudo tee /etc/default/keyboard 
 XKBMODEL="pc105"
 XKBLAYOUT="us"
 XKBVARIANT=""
@@ -398,10 +407,10 @@ EOF
 
 	cat <<EOF | sudo tee /etc/X11/xorg.conf.d/30-libinput.conf
 Section "InputClass"
-    Identifier "libinput touchpad catchall"
-    MatchIsTouchpad "on"
-    MatchDevicePath "/dev/input/event*"
-    Driver "libinput"
+  Identifier "libinput touchpad catchall"
+  MatchIsTouchpad "on"
+  MatchDevicePath "/dev/input/event*"
+  Driver "libinput"
 	Option "Tapping"	"on"
 	Option "TappingDrag"	"on"
 	Option "NaturalScrolling"	"on"
@@ -461,8 +470,8 @@ alternatives_setup()
 
 sudo debconf-set-selections <<EOF
 tzdata	tzdata/Areas	select	Asia
-tzdata	tzdata/Zones/Etc	select	UTC
 tzdata	tzdata/Zones/Asia	select	Shanghai
+tzdata	tzdata/Zones/Etc	select	UTC
 locales	locales/locales_to_be_generated	multiselect	en_US.UTF-8 UTF-8, zh_CN.UTF-8 UTF-8
 locales	locales/default_environment_locale	select	en_US.UTF-8
 console-setup	console-setup/fontsize	string	16x32

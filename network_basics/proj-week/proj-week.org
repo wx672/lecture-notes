@@ -21,19 +21,14 @@ should be included in:
   generated from your =org= or =md= file.
        
   Tips: 
-  + In Emacs, press =C-c C-e l p= to export a PDF file from your org file.
-
-  + For =Markdown= to PDF, you can try =markdown=, =pandoc=, =cmark=,
-    whatever. For example:
-
-    #+begin_src shell
-      pandoc input.md -o output.pdf --pdf-engine=lualatex
-    #+end_src
-
-  + This HTML page itself is generated from an [[file:proj-week.org][org file
-    (proj-week.org)]]. You can take it as an example.
-
-  + Report template: [[file:20231159xxx.org][=org file=]], [[file:20231159xxx.pdf][=html file=]], [[file:20231159xxx.md][=markdown file=]].
+  - Report template: [[file:20231159xxx.org][=org file=]], [[file:20231159xxx.md][=markdown file=]],
+    [[file:20231159xxx.yaml][=yaml file=]], [[file:Makefile][=Makefile=]], and the generated [[file:20231159xxx.pdf][=pdf file=]].
+  
+  - In Emacs org-mode, press =C-c C-e l p= to export a PDF file.
+     
+  - For =Markdown= to PDF, you can simply do =make pdf= if you are
+	  using Linux in the J219 lab and have these [[file:20231159xxx.yaml][=yaml file=]] and [[file:Makefile][=Makefile=]]
+	  along with your =md= file.
 
 - your source codes ([[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/][examples]]).
 
@@ -47,12 +42,19 @@ should be included in:
      #+begin_src sh
        mkdir 20231159xxx       # create a new directory
        cd 20231159xxx
-       vim tmux-http.sh        # write your script
        vim tcpServer.c         # Implement the TCP server in C
        vim tcpClient.c         # Implement the TCP client in C
-       vim 20231159xxx.md      # write your report in markdown format, or
-       vim 20231159xxx.org     # in org format
-       ttyrec http-demo.ttyrec # make your demo screencast
+       # compile and run above C programs successfully, and then
+       # do the HTTP demo
+       vim tmux-http.sh         # write your script
+       ttyrec  http-demo.ttyrec # make your demo screencast
+       ttyplay http-demo.ttyrec # play screencast
+       # make sure you successfully finished all the above, then
+       # write your report
+       vim 20231159xxx.yaml  # write a yaml file, and
+       vim 20231159xxx.md    # your report in markdown format
+       make pdf              # make sure you have the Makefile ready, or
+       emacs 20231159xxx.org # write an org file
      #+end_src
 
   2. make a tar ball.
