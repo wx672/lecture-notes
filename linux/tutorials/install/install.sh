@@ -9,15 +9,19 @@ MSG_NOTE="This script WON'T work unless you have the Debian base system successf
 
 	- https://cs6.swfu.edu.cn/~wx672/debian-install/install.html
 
-NOTE: DO NOT set the root password while installing the base system!"
+NOTE: DO NOT set root password while installing the base system!"
 
 MSG_CONGRATS="Now, I am going to reboot your computer.
 
 Upon finishing boot up, if you are lucky to see the mouse cursor showing on the screen, you can hit
-       * Super-t to bring up a terminal. Or,
-       * Super-F1 to show the cheat sheet.
-       * use 'nmtui' to activate your wifi.
-       * trigger Chinese input (fcitx5) by hitting Shift-space. Try fcitx5-configtool otherwise. 
+     * Super-t to bring up a terminal. Or,
+     * Super-F1 to show the cheat sheet.
+     * use 'nmtui' to activate your wifi.
+     * trigger Chinese input (fcitx5) by hitting Shift-space. Try fcitx5-configtool otherwise. 
+
+If the time is not correct, do:
+
+		sudo dpkg-reconfigure tzdata
 
 If the mouse cursor isn't there at all, that probably means the Xorg doesn't work well. This usually has something to do with the graphic card driver. In this unlucky case, you have to ask google for more info.
 

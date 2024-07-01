@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cn">
 <head>
-<!-- 2023-09-28 Thu 21:27 -->
+<!-- 2024-07-30 Tue 17:25 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Debian快速安装指导</title>
@@ -16,23 +16,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org221a765">1. UEFI</a></li>
-<li><a href="#org9c00721">2. 安装最小系统</a>
+<li><a href="#org3ce2b61">1. UEFI</a></li>
+<li><a href="#org023a0a7">2. 安装最小系统</a>
 <ul>
-<li><a href="#orga21674c">2.1. 截图</a></li>
+<li><a href="#org89166f2">2.1. 截图</a></li>
 </ul>
 </li>
-<li><a href="#orgb2d6449">3. 安装完整系统</a>
+<li><a href="#org2c4cecd">3. 安装完整系统</a>
 <ul>
-<li><a href="#orge77d83b">3.1. 老办法（可以不看了）</a></li>
+<li><a href="#org23a00b7">3.1. 老办法（可以不看了）</a></li>
 </ul>
 </li>
-<li><a href="#orgb0c628f">4. 配置（可以不看了）</a>
+<li><a href="#orgc944e53">4. 配置（可以不看了）</a>
 <ul>
-<li><a href="#org8790bbd">4.1. sudo 的时候总要问密码，是不是很烦？</a></li>
-<li><a href="#org0854cf5">4.2. dotfile</a></li>
-<li><a href="#org9744c25">4.3. Auto login</a></li>
-<li><a href="#org4f5b8bf">4.4. 中文语言环境</a></li>
+<li><a href="#orgd4ee552">4.1. sudo 的时候总要问密码，是不是很烦？</a></li>
+<li><a href="#org6ef00da">4.2. dotfile</a></li>
+<li><a href="#org04d5b85">4.3. Auto login</a></li>
+<li><a href="#orgec3b754">4.4. 中文语言环境</a></li>
 </ul>
 </li>
 <li><a href="#app1">5. 附录：没有有线网卡怎么办？</a>
@@ -41,13 +41,13 @@
 </ul>
 </li>
 <li><a href="#app3">6. 附录：关于硬件配置</a></li>
-<li><a href="#org369ee54">7. 附录：LaTeX （非必须）</a></li>
+<li><a href="#orgd6a9201">7. 附录：LaTeX （非必须）</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org221a765" class="outline-2">
-<h2 id="org221a765"><span class="section-number-2">1.</span> UEFI</h2>
+<div id="outline-container-org3ce2b61" class="outline-2">
+<h2 id="org3ce2b61"><span class="section-number-2">1.</span> UEFI</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 现在（2018年10月）的电脑都很新潮，在主板上几乎都用UEFI取代了传统的BIOS。关于UEFI设置，我的
@@ -69,8 +69,8 @@ Technology (Intel RST)，把它设置为AHCI。</li>
 </div>
 </div>
 
-<div id="outline-container-org9c00721" class="outline-2">
-<h2 id="org9c00721"><span class="section-number-2">2.</span> 安装最小系统</h2>
+<div id="outline-container-org023a0a7" class="outline-2">
+<h2 id="org023a0a7"><span class="section-number-2">2.</span> 安装最小系统</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 【注意事项】为了避免不必要的麻烦：
@@ -97,11 +97,11 @@ Technology (Intel RST)，把它设置为AHCI。</li>
 <ul class="org-ul">
 <li><p>
 该目录中有一个torrent文件，比如:
-<code>debian-12.1.0-amd64-DVD-1.iso.torrent</code>, 把它下载下来。在
+<code>debian-12.6.0-amd64-DVD-1.iso.torrent</code>, 把它下载下来。在
 Debian/Ubuntu平台BT下载很容易，敲个命令就行了，比如：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">aria2c --no-conf debian-12.1.0-amd64-DVD-1.iso.torrent
+<pre class="src src-sh">aria2c --no-conf debian-12.6.0-amd64-DVD-1.iso.torrent
 </pre>
 </div>
 <p>
@@ -113,7 +113,7 @@ Debian/Ubuntu平台BT下载很容易，敲个命令就行了，比如：
 <b>制作U盘:</b> 在Debian/Ubuntu平台上制作启动U盘非常简单，敲个命令就行了：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">sudo cp debian-12.1.0-amd64-DVD-1.iso /dev/sdX  # 把 sdX 换成 sdb 或者 sdc。
+<pre class="src src-sh">sudo cp debian-12.6.0-amd64-DVD-1.iso /dev/sdX  # 把 sdX 换成 sdb 或者 sdc。
                                                 # 用 lsblk 命令看一眼，
                                                 # 就知道是 b 还是 c 了。
 # 文件名太长？那么就：
@@ -146,10 +146,10 @@ sync
 <ul class="org-ul">
 <li>安装的时候 <b>不要选择中文语言环境</b>, 因为后面的安装配置工作都是在非图形环境下进行，
 采用中文的话，你很可能会遭遇乱码。</li>
-<li>提示你“Loading missing firmware”的时候，选择“NO”。</li>
+<li>提示你“Loading missing firmware”的时候，选择 &lt;NO&gt;。</li>
 <li>“Configure the network”的时候，选择一连串的“Cancel”，直到你看到“Do not configure the
 network at this time”。</li>
-<li>看到提示“Root password:”的时候，不要给密码，直接回车跳过这一步。</li>
+<li>看到提示“Root password:”的时候，不要给密码，直接“回车”跳过这一步。</li>
 <li>看到“continue without a network mirror?”的时候，选择 &lt;Yes&gt;。</li>
 <li><p>
 硬盘分区的时候，如果你是装Linux单系统，就非常简单，没啥可说的；如果你是要装双系统（保
@@ -167,8 +167,8 @@ network at this time”。</li>
 </ul></li>
 </ol>
 </div>
-<div id="outline-container-orga21674c" class="outline-3">
-<h3 id="orga21674c"><span class="section-number-3">2.1.</span> 截图</h3>
+<div id="outline-container-org89166f2" class="outline-3">
+<h3 id="org89166f2"><span class="section-number-3">2.1.</span> 截图</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li><p>
@@ -176,7 +176,7 @@ network at this time”。</li>
 </p>
 
 
-<div id="org1356286" class="figure">
+<div id="org5d655fb" class="figure">
 <p><img src="screenshots/01.png" alt="01.png">
 </p>
 </div></li>
@@ -186,7 +186,7 @@ network at this time”。</li>
 </p>
 
 
-<div id="org52b80f4" class="figure">
+<div id="orga5f2013" class="figure">
 <p><img src="screenshots/02.png" alt="02.png">
 </p>
 </div></li>
@@ -196,7 +196,7 @@ network at this time”。</li>
 </p>
 
 
-<div id="org887aa32" class="figure">
+<div id="org482578f" class="figure">
 <p><img src="screenshots/03.png" alt="03.png">
 </p>
 </div></li>
@@ -206,7 +206,7 @@ network at this time”。</li>
 </p>
 
 
-<div id="orgcdb38dd" class="figure">
+<div id="orgca8bbcc" class="figure">
 <p><img src="screenshots/04.png" alt="04.png">
 </p>
 </div></li>
@@ -216,13 +216,13 @@ network at this time”。</li>
 </p>
 
 
-<div id="org861b732" class="figure">
+<div id="orgd57adbd" class="figure">
 <p><img src="screenshots/05.png" alt="05.png">
 </p>
 </div>
 
 
-<div id="orgcf3f440" class="figure">
+<div id="org0d71395" class="figure">
 <p><img src="screenshots/06.png" alt="06.png">
 </p>
 <p><span class="figure-number">Figure 1: </span>一定要选“Do not configure the network at this time”</p>
@@ -233,7 +233,7 @@ network at this time”。</li>
 </p>
 
 
-<div id="org46cfb5c" class="figure">
+<div id="org354142b" class="figure">
 <p><img src="screenshots/07.png" alt="07.png">
 </p>
 </div></li>
@@ -243,13 +243,13 @@ network at this time”。</li>
 </p>
 
 
-<div id="org6cf011d" class="figure">
+<div id="org5d679ce" class="figure">
 <p><img src="screenshots/08.png" alt="08.png">
 </p>
 </div>
 
 
-<div id="orgf9b8c38" class="figure">
+<div id="orga9d6de3" class="figure">
 <p><img src="screenshots/09.png" alt="09.png">
 </p>
 <p><span class="figure-number">Figure 2: </span>回车跳过</p>
@@ -261,7 +261,7 @@ network at this time”。</li>
 </p>
 
 
-<div id="org07a4a80" class="figure">
+<div id="orge3041b1" class="figure">
 <p><img src="screenshots/10.png" alt="10.png">
 </p>
 </div></li>
@@ -271,7 +271,7 @@ network at this time”。</li>
 </p>
 
 
-<div id="org5b32103" class="figure">
+<div id="orgb5d1ae6" class="figure">
 <p><img src="screenshots/11.png" alt="11.png">
 </p>
 </div></li>
@@ -281,13 +281,13 @@ network at this time”。</li>
 </p>
 
 
-<div id="orga9e5ea5" class="figure">
+<div id="orgf54c4e9" class="figure">
 <p><img src="screenshots/12.png" alt="12.png">
 </p>
 </div>
 
 
-<div id="orgbb694d2" class="figure">
+<div id="org95096df" class="figure">
 <p><img src="screenshots/13.png" alt="13.png">
 </p>
 </div></li>
@@ -297,7 +297,7 @@ network at this time”。</li>
 </p>
 
 
-<div id="orgb47b068" class="figure">
+<div id="org1f4c671" class="figure">
 <p><img src="screenshots/14.png" alt="14.png">
 </p>
 </div></li>
@@ -313,34 +313,34 @@ disk”；</li>
 </p>
 
 
-<div id="org69c44fa" class="figure">
+<div id="orgd05aecd" class="figure">
 <p><img src="screenshots/15.png" alt="15.png">
 </p>
 </div>
 
 
-<div id="orgc02a166" class="figure">
+<div id="org9662ebc" class="figure">
 <p><img src="screenshots/16.png" alt="16.png">
 </p>
 <p><span class="figure-number">Figure 3: </span>选择要分区的硬盘。我只有一块硬盘，你可未必，别选错！</p>
 </div>
 
 
-<div id="org2f0c7bc" class="figure">
+<div id="org0bfa4f3" class="figure">
 <p><img src="screenshots/17.png" alt="17.png">
 </p>
 <p><span class="figure-number">Figure 4: </span>分区规划。装单系统的话，很简单，选择“All files in one partition”就好。如果你是装双系统，也就是说在前面选择了“Manual”，那么这里的事情会稍复杂一点，你要自己创建一个1GB大小的“swap分区”，再把剩下的空间都用作“根分区”。</p>
 </div>
 
 
-<div id="org6af778d" class="figure">
+<div id="org8775c46" class="figure">
 <p><img src="screenshots/18.png" alt="18.png">
 </p>
 <p><span class="figure-number">Figure 5: </span>一个1GB的swap分区和一个根分区（/）</p>
 </div>
 
 
-<div id="orgc86ed92" class="figure">
+<div id="org60bab90" class="figure">
 <p><img src="screenshots/19.png" alt="19.png">
 </p>
 <p><span class="figure-number">Figure 6: </span>当然选“Yes”，如果硬盘上原来的数据都备份好了。</p>
@@ -352,48 +352,48 @@ disk”；</li>
 </p>
 
 
-<div id="orgdc46282" class="figure">
+<div id="orgd4346a4" class="figure">
 <p><img src="screenshots/20.png" alt="20.png">
 </p>
 </div>
 
 
-<div id="orgdbe0f97" class="figure">
+<div id="orgebb14ab" class="figure">
 <p><img src="screenshots/21.png" alt="21.png">
 </p>
 <p><span class="figure-number">Figure 7: </span>配置package manager，选“No”</p>
 </div>
 
 
-<div id="orgecdace3" class="figure">
+<div id="orgdc6cee8" class="figure">
 <p><img src="screenshots/22.png" alt="22.png">
 </p>
 <p><span class="figure-number">Figure 8: </span>选“Yes”，因为我们没联网。</p>
 </div>
 
 
-<div id="orgbf2cb6d" class="figure">
+<div id="org6dd8d57" class="figure">
 <p><img src="screenshots/23.png" alt="23.png">
 </p>
 <p><span class="figure-number">Figure 9: </span>大概需要5分钟</p>
 </div>
 
 
-<div id="org85fdcd4" class="figure">
+<div id="org8aad48e" class="figure">
 <p><img src="screenshots/24.png" alt="24.png">
 </p>
 <p><span class="figure-number">Figure 10: </span>不重要，回车接受默认值就好</p>
 </div>
 
 
-<div id="org059d582" class="figure">
+<div id="orgf35b51d" class="figure">
 <p><img src="screenshots/25.png" alt="25.png">
 </p>
 <p><span class="figure-number">Figure 11: </span>就一条，选中它就好。如果你联网了，这里就不止有一条可选了，但也不要选别的，无论如何，就选这一条。</p>
 </div>
 
 
-<div id="org4682c7c" class="figure">
+<div id="org8d3af1b" class="figure">
 <p><img src="screenshots/26.png" alt="26.png">
 </p>
 <p><span class="figure-number">Figure 12: </span>大约要10分钟</p>
@@ -404,14 +404,14 @@ disk”；</li>
 </p>
 
 
-<div id="org1c55974" class="figure">
+<div id="org334c772" class="figure">
 <p><img src="screenshots/27.png" alt="27.png">
 </p>
 <p><span class="figure-number">Figure 13: </span>选“Yes”</p>
 </div>
 
 
-<div id="org2849eca" class="figure">
+<div id="org78d5fe8" class="figure">
 <p><img src="screenshots/28.png" alt="28.png">
 </p>
 <p><span class="figure-number">Figure 14: </span>如果你有不止一块硬盘，或者不止一个分区，你就要好好斟酌了，千万别装错了地方。</p>
@@ -422,20 +422,20 @@ disk”；</li>
 </p>
 
 
-<div id="orgee578d3" class="figure">
+<div id="org6d9c09c" class="figure">
 <p><img src="screenshots/29.png" alt="29.png">
 </p>
 </div>
 
 
-<div id="orgc63c0b9" class="figure">
+<div id="org8e2771a" class="figure">
 <p><img src="screenshots/30.png" alt="30.png">
 </p>
 <p><span class="figure-number">Figure 15: </span>拔掉U盘，回车，电脑重启</p>
 </div>
 
 
-<div id="org62a7176" class="figure">
+<div id="orge0e5a37" class="figure">
 <p><img src="screenshots/31.png" alt="31.png">
 </p>
 <p><span class="figure-number">Figure 16: </span>重启之后，应该是这个样子。如果是双系统的话，你还应该能看到一条关于Windows的选项。</p>
@@ -445,8 +445,8 @@ disk”；</li>
 </div>
 </div>
 
-<div id="outline-container-orgb2d6449" class="outline-2">
-<h2 id="orgb2d6449"><span class="section-number-2">3.</span> 安装完整系统</h2>
+<div id="outline-container-org2c4cecd" class="outline-2">
+<h2 id="org2c4cecd"><span class="section-number-2">3.</span> 安装完整系统</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 好消息！现在，你只要下载并运行<a href="https://cs6.swfu.edu.cn/~wx672/debian-install/install.sh">这个小程序</a>，就可以得到一个完整的Debian系统了。
@@ -457,7 +457,7 @@ disk”；</li>
 </p>
 
 
-<div id="org60bfc3d" class="figure">
+<div id="org7ae778f" class="figure">
 <p><img src="screenshots/33.png" alt="33.png">
 </p>
 </div></li>
@@ -481,7 +481,7 @@ sudo dhclient #注释：自动获得IP地址
 </div>
 
 
-<div id="org562bc0f" class="figure">
+<div id="org46c7332" class="figure">
 <p><img src="screenshots/36.png" alt="36.png">
 </p>
 <p><span class="figure-number">Figure 17: </span>敲命令联网的全过程</p>
@@ -498,7 +498,7 @@ wget cs6.swfu.edu.cn/~wx672/debian-install/install.sh
 </div>
 
 
-<div id="org85d799a" class="figure">
+<div id="org1603a3a" class="figure">
 <p><img src="screenshots/37.png" alt="37.png">
 </p>
 <p><span class="figure-number">Figure 18: </span>用 <code>wget</code> 下载安装程序（~install.sh~）</p>
@@ -515,7 +515,7 @@ wget cs6.swfu.edu.cn/~wx672/debian-install/install.sh
 </div>
 
 
-<div id="orgb1e8d72" class="figure">
+<div id="orgdff4968" class="figure">
 <p><img src="screenshots/38.png" alt="38.png">
 </p>
 <p><span class="figure-number">Figure 19: </span>开始安装</p>
@@ -534,42 +534,42 @@ wget cs6.swfu.edu.cn/~wx672/debian-install/install.sh
 </p>
 
 
-<div id="orga4e5ea2" class="figure">
+<div id="orgebe64c2" class="figure">
 <p><img src="screenshots/39.png" alt="39.png">
 </p>
 <p><span class="figure-number">Figure 20: </span>当然选择“Continue”</p>
 </div>
 
 
-<div id="orga1194ae" class="figure">
+<div id="orgeda9ca4" class="figure">
 <p><img src="screenshots/40.png" alt="40.png">
 </p>
 <p><span class="figure-number">Figure 21: </span>升级最小系统。网络没问题的话，这一步不会出毛病，10分钟就能结束。</p>
 </div>
 
 
-<div id="org503f7e5" class="figure">
+<div id="org4229a36" class="figure">
 <p><img src="screenshots/41.png" alt="41.png">
 </p>
 <p><span class="figure-number">Figure 22: </span>选“Yes”</p>
 </div>
 
 
-<div id="orga150e8b" class="figure">
+<div id="orgd908569" class="figure">
 <p><img src="screenshots/43.png" alt="43.png">
 </p>
 <p><span class="figure-number">Figure 23: </span>最小系统升级顺利结束。白字和绿字都很好，如果看见红字（报错）就要小心了。</p>
 </div>
 
 
-<div id="orgf1130b0" class="figure">
+<div id="org1ece974" class="figure">
 <p><img src="screenshots/44.png" alt="44.png">
 </p>
 <p><span class="figure-number">Figure 24: </span>正常友善提示，回车继续</p>
 </div>
 
 
-<div id="org4f4bb70" class="figure">
+<div id="org87a2c7f" class="figure">
 <p><img src="screenshots/45.png" alt="45.png">
 </p>
 <p><span class="figure-number">Figure 25: </span>出错了！别紧张，下面我就来详细说说遇到问题该怎么办。</p>
@@ -590,7 +590,7 @@ wget cs6.swfu.edu.cn/~wx672/debian-install/install.sh
 </p>
 
 <ol class="org-ol">
-<li>按 Ctrl-Alt-F2 切换到另一个终端，登录进去。</li>
+<li>按 <code>Ctrl-Alt-F2</code> 切换到另一个终端，登录进去。</li>
 <li><p>
 读取 <code>install.sh</code> 里面的几个重要变量。
 </p>
@@ -619,12 +619,12 @@ wget cs6.swfu.edu.cn/~wx672/debian-install/install.sh
 </div>
 <p>
 安装很顺利，没出错。所以，我到现在也没搞清楚前面自动执行安装程序
-的时候 <code>git</code> 为什么会没装上。以后再研究吧，现在按 Ctrl-Alt-F1 切换
+的时候 <code>git</code> 为什么会没装上。以后再研究吧，现在按 <code>Ctrl-Alt-F1</code> 切换
 回报错的终端，按任意键（除了“q”）继续。
 </p>
 
 
-<div id="org4574474" class="figure">
+<div id="orgb9a8e13" class="figure">
 <p><img src="screenshots/46.png" alt="46.png">
 </p>
 <p><span class="figure-number">Figure 26: </span>胜利结束。先仔细看看屏幕提示再回车！</p>
@@ -649,6 +649,15 @@ wget cs6.swfu.edu.cn/~wx672/debian-install/install.sh
 <li>还有很多 <code>Super</code> 开头的快捷键，自己慢慢去探索吧。</li>
 </ul></li>
 </ol>
+
+<p>
+重启之后，如果发现时间不对，就：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">sudo dpkg-reconfigure tzdata
+</pre>
+</div>
 
 <p>
 如果重启之后，你看不到浏览器、终端、墙纸……，那么肯定是图形界面没起来，十之八九是
@@ -695,8 +704,8 @@ wget cs6.swfu.edu.cn/~wx672/debian-install/install.sh
 </ol>
 </div>
 
-<div id="outline-container-orge77d83b" class="outline-3">
-<h3 id="orge77d83b"><span class="section-number-3">3.1.</span> 老办法（可以不看了）</h3>
+<div id="outline-container-org23a00b7" class="outline-3">
+<h3 id="org23a00b7"><span class="section-number-3">3.1.</span> 老办法（可以不看了）</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 最小系统装好之后，拔出U盘，重启系统。现在我们讲讲之后的事情……
@@ -779,7 +788,7 @@ sudo nano /etc/apt/sources.list
 <p>
 把这个文件里原有的内容全部删除掉，然后添加下面这三行：
 </p>
-<pre class="example" id="org6dfbe94">
+<pre class="example" id="org8d2953e">
 deb http://mirrors.163.com/debian testing main non-free contrib
 deb http://mirrors.163.com/debian testing-updates main non-free contrib
 deb http://mirrors.163.com/debian testing-proposed-updates main non-free contrib
@@ -861,12 +870,12 @@ nmtui
 </div>
 </div>
 
-<div id="outline-container-orgb0c628f" class="outline-2">
-<h2 id="orgb0c628f"><span class="section-number-2">4.</span> 配置（可以不看了）</h2>
+<div id="outline-container-orgc944e53" class="outline-2">
+<h2 id="orgc944e53"><span class="section-number-2">4.</span> 配置（可以不看了）</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org8790bbd" class="outline-3">
-<h3 id="org8790bbd"><span class="section-number-3">4.1.</span> sudo 的时候总要问密码，是不是很烦？</h3>
+<div id="outline-container-orgd4ee552" class="outline-3">
+<h3 id="orgd4ee552"><span class="section-number-3">4.1.</span> sudo 的时候总要问密码，是不是很烦？</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 那就不让它问了：
@@ -918,8 +927,8 @@ exit
 </div>
 </div>
 
-<div id="outline-container-org0854cf5" class="outline-3">
-<h3 id="org0854cf5"><span class="section-number-3">4.2.</span> dotfile</h3>
+<div id="outline-container-org6ef00da" class="outline-3">
+<h3 id="org6ef00da"><span class="section-number-3">4.2.</span> dotfile</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 现在你的系统和机房的差不多一样了，唯一的差别就是你还没配置呢。
@@ -1022,8 +1031,8 @@ tar zxf elpa.tgz
 </div>
 </div>
 
-<div id="outline-container-org9744c25" class="outline-3">
-<h3 id="org9744c25"><span class="section-number-3">4.3.</span> Auto login</h3>
+<div id="outline-container-org04d5b85" class="outline-3">
+<h3 id="org04d5b85"><span class="section-number-3">4.3.</span> Auto login</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 简单起见，我们只讲“怎么做”，先不管“为什么”。
@@ -1049,7 +1058,7 @@ tar zxf elpa.tgz
 <p>
 在这个 <code>override.conf</code> 文件里应该只有如下三行：
 </p>
-<pre class="example" id="org7119e2d">
+<pre class="example" id="org01a111e">
 [Service]
 ExecStart=
 ExecStart=-/sbin/agetty --autologin wx672 --noclear %I $TERM
@@ -1061,8 +1070,8 @@ ExecStart=-/sbin/agetty --autologin wx672 --noclear %I $TERM
 </div>
 </div>
 
-<div id="outline-container-org4f5b8bf" class="outline-3">
-<h3 id="org4f5b8bf"><span class="section-number-3">4.4.</span> 中文语言环境</h3>
+<div id="outline-container-orgec3b754" class="outline-3">
+<h3 id="orgec3b754"><span class="section-number-3">4.4.</span> 中文语言环境</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 注意，我们其实并不需要一套纯正的中文环境，我们只是需要输入和阅读中文。
@@ -1136,11 +1145,11 @@ sudo apt install `cat 03-chinese`
 </p>
 
 <p>
-中文输入法，我选用的是 <code>fcitx</code>, 因为感觉它的bug要少一些，比较稳定。
+中文输入法，我选用的是 <code>fcitx5</code>, 因为感觉它的bug要少一些，比较稳定。
 如果你需要配置它的话，就：
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">fcitx-configtool
+<pre class="src src-sh">fcitx5-configtool
 </pre>
 </div>
 <p>
@@ -1148,8 +1157,8 @@ sudo apt install `cat 03-chinese`
 </p>
 
 <p>
-注意：fcitx依赖于dbus-x11，而显然fcitx软件包的维护者忽略了这个小细节。那么我们就自己把
-它装上呗：
+注意： <code>fcitx5</code> 依赖于 <code>dbus-x11</code>, 而显然fcitx5软件包的维护者忽略了这个
+小细节。那么我们就自己把它装上呗：
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">sudo apt install dbus-x11
@@ -1176,7 +1185,7 @@ Tethering”，激活里面的USB Tethering功能就行了；</li>
 <li><p>
 在电脑上，敲命令 <code>ip a</code> 应该能看到一块有线网卡。比如，
 </p>
-<pre class="example" id="orgbc392ab">
+<pre class="example" id="orgb6eed09">
 3: enp2s0f4u2: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
    link/ether 26:b1:c7:c5:02:1f brd ff:ff:ff:ff:ff:ff
 </pre>
@@ -1255,7 +1264,7 @@ Tethering”，激活里面的USB Tethering功能就行了；</li>
 <p>
 在这个文件的最后加上如下几行：
 </p>
-<pre class="example" id="org9351885">
+<pre class="example" id="org5141a5e">
 iface tmp inet dhcp
 wireless-essid MY-ESSID
 wpa-ssid MY-ESSID
@@ -1339,8 +1348,8 @@ sudo apt install firmware-iwlwifi
 </p>
 </div>
 </div>
-<div id="outline-container-org369ee54" class="outline-2">
-<h2 id="org369ee54"><span class="section-number-2">7.</span> 附录：LaTeX （非必须）</h2>
+<div id="outline-container-orgd6a9201" class="outline-2">
+<h2 id="orgd6a9201"><span class="section-number-2">7.</span> 附录：LaTeX （非必须）</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 在Linux平台，你不用非要学习使用LaTeX来排版你的文章、报告、论文，
@@ -1421,7 +1430,7 @@ Happy LaTeXing!
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: 王晓林</p>
-<p class="date">Created: 2023-09-28 Thu 21:27</p>
+<p class="date">Created: 2024-07-30 Tue 17:25</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

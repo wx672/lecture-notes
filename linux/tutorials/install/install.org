@@ -51,16 +51,16 @@
    1) *下载:*
       https://cdimage.debian.org/cdimage/release/current/amd64/bt-dvd/
 	  - 该目录中有一个torrent文件，比如:
-        =debian-12.1.0-amd64-DVD-1.iso.torrent=, 把它下载下来。在
+        =debian-12.6.0-amd64-DVD-1.iso.torrent=, 把它下载下来。在
         Debian/Ubuntu平台BT下载很容易，敲个命令就行了，比如：
 		#+begin_src sh
-		  aria2c --no-conf debian-12.1.0-amd64-DVD-1.iso.torrent
+		  aria2c --no-conf debian-12.6.0-amd64-DVD-1.iso.torrent
 		#+end_src
 		下载得到的是一个4G大小的DVD文件，我们需要把它“刻”到U盘上。
 		
    2) *制作U盘:* 在Debian/Ubuntu平台上制作启动U盘非常简单，敲个命令就行了：
       #+BEGIN_SRC sh
-		sudo cp debian-12.1.0-amd64-DVD-1.iso /dev/sdX  # 把 sdX 换成 sdb 或者 sdc。
+		sudo cp debian-12.6.0-amd64-DVD-1.iso /dev/sdX  # 把 sdX 换成 sdb 或者 sdc。
 														# 用 lsblk 命令看一眼，
 														# 就知道是 b 还是 c 了。
 		# 文件名太长？那么就：
@@ -84,10 +84,10 @@
 4. 【注意】
    + 安装的时候 *不要选择中文语言环境*, 因为后面的安装配置工作都是在非图形环境下进行，
      采用中文的话，你很可能会遭遇乱码。
-   + 提示你“Loading missing firmware”的时候，选择“NO”。
+   + 提示你“Loading missing firmware”的时候，选择 <NO>。
    + “Configure the network”的时候，选择一连串的“Cancel”，直到你看到“Do not configure the
      network at this time”。
-   + 看到提示“Root password:”的时候，不要给密码，直接回车跳过这一步。
+   + 看到提示“Root password:”的时候，不要给密码，直接“回车”跳过这一步。
    + 看到“continue without a network mirror?”的时候，选择 <Yes>。
    + 硬盘分区的时候，如果你是装Linux单系统，就非常简单，没啥可说的；如果你是要装双系统（保
      留原来的Windows），那么，有三点烦，
@@ -287,7 +287,7 @@
    其实，解决这个小问题也不难，把前面安装必备软件的步骤再做一遍，看看
    到底是哪里出错。具体步骤如下：
 
-   1. 按 Ctrl-Alt-F2 切换到另一个终端，登录进去。
+   1. 按 =Ctrl-Alt-F2= 切换到另一个终端，登录进去。
    2. 读取 =install.sh= 里面的几个重要变量。
       #+begin_src sh
         source ./install.sh #注释：执行小程序
@@ -305,7 +305,7 @@
         sudo apt-get install $PKG_IMP $PKG_REC $PKG_CHN
       #+end_src
       安装很顺利，没出错。所以，我到现在也没搞清楚前面自动执行安装程序
-      的时候 =git= 为什么会没装上。以后再研究吧，现在按 Ctrl-Alt-F1 切换
+      的时候 =git= 为什么会没装上。以后再研究吧，现在按 =Ctrl-Alt-F1= 切换
       回报错的终端，按任意键（除了“q”）继续。
 
       #+CAPTION: 胜利结束。先仔细看看屏幕提示再回车！
@@ -322,6 +322,12 @@
    - 用 =Super-l= 弹出窗口列表；
    - 用 =Super-F1= 打开“帮助墙纸”；
    - 还有很多 =Super= 开头的快捷键，自己慢慢去探索吧。
+
+重启之后，如果发现时间不对，就：
+
+#+begin_src sh
+  sudo dpkg-reconfigure tzdata
+#+end_src
 
 如果重启之后，你看不到浏览器、终端、墙纸……，那么肯定是图形界面没起来，十之八九是
 因为你的显卡太高级了（是Nvidia?）。你可以尝试关掉这个高级显卡，暂时使用主板上的内置显卡。
@@ -565,15 +571,15 @@ git clone https://cs6.swfu.edu.cn/~wx672/dotfile/.git
    系统重启后，看到的应该就是学院机房里那个没有桌面的“桌面系统”了。
    不记得快捷键了？按 =Super-F1= 。
 
-   中文输入法，我选用的是 =fcitx=, 因为感觉它的bug要少一些，比较稳定。
+   中文输入法，我选用的是 =fcitx5=, 因为感觉它的bug要少一些，比较稳定。
    如果你需要配置它的话，就：
    #+BEGIN_SRC sh
-   fcitx-configtool
+   fcitx5-configtool
    #+END_SRC
    你最好和我一样，用 =Shift-space= 来激活输入法，因为 =Ctrl-space= 在Emacs里有特殊用途。
 
-   注意：fcitx依赖于dbus-x11，而显然fcitx软件包的维护者忽略了这个小细节。那么我们就自己把
-   它装上呗：
+   注意： =fcitx5= 依赖于 =dbus-x11=, 而显然fcitx5软件包的维护者忽略了这个
+   小细节。那么我们就自己把它装上呗：
    #+BEGIN_SRC sh
    sudo apt install dbus-x11
    #+END_SRC
