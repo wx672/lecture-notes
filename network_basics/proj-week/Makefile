@@ -1,4 +1,4 @@
-out = 20231159xxx
+out = 20231152xxx
 pandoc_inputs := $(out).md $(out).yaml
 
 pdf: tex

@@ -164,6 +164,13 @@ See also: \citetitle[Sec.~1.9.2, \emph{The Importance of Abstractions in Compute
   \end{center}
 \end{frame}
 
+\begin{frame}{HarmonyOS}
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south,yshift=3mm,inner sep=0pt] at (current page.south) {
+      \includegraphics[width=\paperwidth]{HarmonyOS} };
+  \end{tikzpicture}
+\end{frame}
+
 \section{Hardware}
 \label{sec:cpu}
 
@@ -503,7 +510,7 @@ Detailed explanation: in \citetitle[Sec.~1.3.5, \emph{I/O Devices}]{tanenbaum201
     \mode<beamer>{ \includegraphics[width=.8\textwidth]{hello32-asm} }%h-asm.pdf
     \mode<article>{ \nasmfile{../src/hello-nasm/hello32.asm}}
   \end{center}
-  System call numbers:
+%  System call numbers:
   \begin{itemize}
   \item[] \CMD{less /usr/include/x86\_64-linux-gnu/asm/unistd\_32.h}
   \item[] \CMD{less /usr/include/x86\_64-linux-gnu/asm/unistd\_64.h}

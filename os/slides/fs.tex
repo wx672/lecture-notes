@@ -1247,8 +1247,8 @@ See also: \citetitle[Sec.~4.3.3, \emph{Implementating Directories}]{tanenbaum201
     \begin{center}
       \begin{tblr}{colspec={ccc},row{2-Z}={font=\ttfamily},rowsep=0pt,hline{2}}
         user & group & other \\
-        rwx  & r-x   & ---   \\
-        111  & 1-1   & 000   \\
+        rwx  & r-x   & -\,-\,-   \\
+        111  & 101   & 000   \\
         7    & 5     & 0     \\
       \end{tblr}
     \end{center}

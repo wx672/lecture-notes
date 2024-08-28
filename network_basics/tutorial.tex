@@ -644,6 +644,36 @@ See also: \citetitle[\emph{RFC 943}]{rfc943}
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \begin{iblock}{Bridging vs. Routing}
+    \begin{itemize}
+    \item A switch connects devices to create a network
+    \item A router connects networks
+    \end{itemize}
+    \begin{center}
+      \begin{tblr}{colspec={r|l},hline{1,2,Z},row{1}={font=\bfseries}}
+        Bridging          & Routing          \\
+        L2                & L3               \\
+        MAC addr.(local)  & IP addr.(global) \\
+        intranet          & internet         \\
+        Forwarding DB     & Routing table    \\
+        relearn, flooding & more efficient   \\
+      \end{tblr}
+    \end{center}
+  \end{iblock}
+  \begin{itemize}
+  \item to put multiple segments into one bridged network, or
+  \item to divide it into different networks interconnected by routers
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{More About Networking Devices}
+  \begin{refsection}
+    \nocite{wiki:router, wiki:routingtable, wiki:switch, wiki:lanswitching,}
+    \printbibliography[heading=none]
+  \end{refsection}
+\end{frame}
+
 \begin{frame}{IP Packet}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{ipv4-hdr} }%
@@ -772,10 +802,21 @@ longer. That's why \emph{subnet mask} comes into being.
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{subnet-172.12.0.0.pdf} }%
       \mode<article>{ \includegraphics[width=.5\textwidth]{subnet-172.12.0.0.pdf} }
     \end{center}
-    \CMD{sipcalc -n64 172.12.0.0/22}
   \end{block}
-  \begin{center}
-    \begin{tblr}{colspec={lclc},hline{1,2,Z},rowsep=0pt,%
+  \CMD{sipcalc -n64 172.12.0.0/22}
+\end{frame}
+
+\begin{frame}{Example}
+  \begin{block}{}
+  \begin{tblr}{colspec={rll},hline{3},%
+    cell{1,2,3}{2,3}={font=\ttfamily} }
+    DST IP: & 10101100.00001100.00001010.00001000 & 172.12.10.8   \\%
+    Mask:   & 11111111.11111111.11111100.00000000 & 255.255.252.0 \\%
+    ∧       & 10101100.00001100.00001000.00000000 & 172.12.8.0    \\%
+  \end{tblr}
+\end{block}
+\begin{block}{Routing table}
+\begin{tblr}{colspec={lclc},hline{1,2,Z},rowsep=0pt,%
         row{2-Z}={font=\ttfamily},cell{5}{1}={c=4}{c},row{1}={c},
         }
       Dst&GW&Mask&Iface\\
@@ -785,7 +826,7 @@ longer. That's why \emph{subnet mask} comes into being.
       \ldots&&&\\
       Default&*&0.0.0.0&0\\
     \end{tblr}
-  \end{center}
+  \end{block}
 \end{frame}
 
 \begin{frame}{Example: VLSM}
@@ -1650,36 +1691,6 @@ See also: \citetitle[Sec.~5.6.3, \emph{IP Version 6}, P.~461]{tanenbaum2011compu
 %     \end{center}
 %   \end{minipage}
 % \end{frame}
-
-\begin{frame}
-  \begin{iblock}{Bridging vs. Routing}
-    \begin{itemize}
-    \item A switch connects devices to create a network
-    \item A router connects networks
-    \end{itemize}
-    \begin{center}
-      \begin{tblr}{colspec={r|l},hline{1,2,Z},row{1}={font=\bfseries}}
-        Bridging          & Routing          \\
-        L2                & L3               \\
-        MAC addr.(local)  & IP addr.(global) \\
-        intranet          & internet         \\
-        Forwarding DB     & Routing table    \\
-        relearn, flooding & more efficient   \\
-      \end{tblr}
-    \end{center}
-  \end{iblock}
-  \begin{itemize}
-  \item to put multiple segments into one bridged network, or
-  \item to divide it into different networks interconnected by routers
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{More About Networking Devices}
-  \begin{refsection}
-    \nocite{wiki:router, wiki:routingtable, wiki:switch, wiki:lanswitching,}
-    \printbibliography[heading=none]
-  \end{refsection}
-\end{frame}
 
 \subsection{Packet Filtering}
 

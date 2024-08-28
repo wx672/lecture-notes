@@ -21,13 +21,13 @@ should be included in:
   generated from your =org= or =md= file.
        
   Tips: 
-  - Report template: [[file:20231159xxx.org][=org file=]], [[file:20231159xxx.md][=markdown file=]],
-    [[file:20231159xxx.yaml][=yaml file=]], [[file:Makefile][=Makefile=]], and the generated [[file:20231159xxx.pdf][=pdf file=]].
+  - Report template: [[file:20231152xxx.org][=org file=]], [[file:20231152xxx.md][=markdown file=]],
+    [[file:20231152xxx.yaml][=yaml file=]], [[file:Makefile][=Makefile=]], and the generated [[file:20231152xxx.pdf][=pdf file=]].
   
   - In Emacs org-mode, press =C-c C-e l p= to export a PDF file.
      
   - For =Markdown= to PDF, you can simply do =make pdf= if you are
-	  using Linux in the J219 lab and have these [[file:20231159xxx.yaml][=yaml file=]] and [[file:Makefile][=Makefile=]]
+	  using Linux in the J219 lab and have these [[file:20231152xxx.yaml][=yaml file=]] and [[file:Makefile][=Makefile=]]
 	  along with your =md= file.
 
 - your source codes ([[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/][examples]]).
@@ -36,12 +36,12 @@ should be included in:
 
   Here's how:
   ------
-  1. make a directory, e.g. 20231159xxx, in this dir try very hard to make all
+  1. make a directory, e.g. 20231152xxx, in this dir try very hard to make all
      the files available.
 
      #+begin_src sh
-       mkdir 20231159xxx       # create a new directory
-       cd 20231159xxx
+       mkdir 20231152xxx       # create a new directory
+       cd 20231152xxx
        vim tcpServer.c         # Implement the TCP server in C
        vim tcpClient.c         # Implement the TCP client in C
        # compile and run above C programs successfully, and then
@@ -51,16 +51,16 @@ should be included in:
        ttyplay http-demo.ttyrec # play screencast
        # make sure you successfully finished all the above, then
        # write your report
-       vim 20231159xxx.yaml  # write a yaml file, and
-       vim 20231159xxx.md    # your report in markdown format
+       vim 20231152xxx.yaml  # write a yaml file, and
+       vim 20231152xxx.md    # your report in markdown format
        make pdf              # make sure you have the Makefile ready, or
-       emacs 20231159xxx.org # write an org file
+       emacs 20231152xxx.org # write an org file
      #+end_src
 
   2. make a tar ball.
      #+begin_src sh
        cd ..                                                      
-       tar zcf 20231159xxx.tgz 20231159xxx                        
+       tar zcf 20231152xxx.tgz 20231152xxx                        
        ls -l # make sure your tar ball is smaller than 1MB in size
      #+end_src
 
@@ -77,17 +77,17 @@ Here is a short tutorial about writing lab report: [[file:tutorial.ttyrec][=tuto
 Feel free to make your own =ttyrec= files while doing this lab work. For example:
 
 #+begin_example
-  ttyrec  20231159xxx-http.ttyrec
-  ttyrec  20231159xxx-email.ttyrec
-  ttyrec  20231159xxx-ftp.ttyrec
+  ttyrec  20231152xxx-http.ttyrec
+  ttyrec  20231152xxx-email.ttyrec
+  ttyrec  20231152xxx-ftp.ttyrec
 #+end_example
 
 - *Bonus point* :: Manage your project with =git=. =man gittutorial= to
   learn the very basics of it.
 
-** Deadline: <2024-07-07 Sun>
+** Deadline: [2024-12-22 Sun]
 
-- Submit your report as a =tgz= file [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=777][here]]. In your =tgz= file, there
+- Submit your report as a =tgz= file [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=830][here]]. In your =tgz= file, there
   must be:
       
   + your report in =org= or =markdown= format.

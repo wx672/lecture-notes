@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2024-07-01 Mon 22:08 -->
+<!-- 2024-12-04 Wed 21:12 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hacking with Linux networking command line tools</title>
@@ -18,30 +18,30 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orged1a7f5">1. Caution</a>
+<li><a href="#orge7556f9">1. Caution</a>
 <ul>
-<li><a href="#orgb20b1ee">1.1. Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-07-07 Sun&gt;</span></span></a></li>
+<li><a href="#org00cf272">1.1. Deadline: <span class="timestamp-wrapper"><span class="timestamp">[2024-12-22 Sun]</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org54e9c4a">2. <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></a>
+<li><a href="#orgf450ae2">2. <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></a>
 <ul>
-<li><a href="#orgf2f9e87">2.1. Your tasks</a></li>
+<li><a href="#orgfb9515f">2.1. Your tasks</a></li>
 </ul>
 </li>
-<li><a href="#org440fb10">3. Socket programming</a>
+<li><a href="#org0595b99">3. Socket programming</a>
 <ul>
-<li><a href="#org67570f0">3.1. TCP</a>
+<li><a href="#org8292a83">3.1. TCP</a>
 <ul>
-<li><a href="#org4d9eebc">3.1.1. A simple TCP server written in Python3</a></li>
-<li><a href="#orga5c692d">3.1.2. A simple TCP client written in Python3</a></li>
-<li><a href="#org57b7fb2">3.1.3. A simple TCP demo script</a></li>
+<li><a href="#orgbe681a3">3.1.1. A simple TCP server written in Python3</a></li>
+<li><a href="#orgba83974">3.1.2. A simple TCP client written in Python3</a></li>
+<li><a href="#orgb956181">3.1.3. A simple TCP demo script</a></li>
 </ul>
 </li>
-<li><a href="#orge77574c">3.2. UDP</a>
+<li><a href="#orgf8510fe">3.2. UDP</a>
 <ul>
-<li><a href="#org4327fb6">3.2.1. A simple UDP server written in Python3</a></li>
-<li><a href="#orga3ea5bf">3.2.2. A simple UDP client written in Python3</a></li>
-<li><a href="#orgef7ba61">3.2.3. A simple UDP demo script</a></li>
+<li><a href="#orgc1e9567">3.2.1. A simple UDP server written in Python3</a></li>
+<li><a href="#org1c9d2e8">3.2.2. A simple UDP client written in Python3</a></li>
+<li><a href="#orgaaeb4fd">3.2.3. A simple UDP demo script</a></li>
 </ul>
 </li>
 </ul>
@@ -50,8 +50,8 @@
 </div>
 </div>
 
-<div id="outline-container-orged1a7f5" class="outline-2">
-<h2 id="orged1a7f5"><span class="section-number-2">1.</span> Caution</h2>
+<div id="outline-container-orge7556f9" class="outline-2">
+<h2 id="orge7556f9"><span class="section-number-2">1.</span> Caution</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 You must submit your report as a <code>tar ball</code> in which the following files
@@ -68,13 +68,13 @@ generated from your <code>org</code> or <code>md</code> file.
 Tips: 
 </p>
 <ul class="org-ul">
-<li>Report template: <a href="20231159xxx.org"><code>org file</code></a>, <a href="20231159xxx.md"><code>markdown file</code></a>,
-<a href="20231159xxx.yaml"><code>yaml file</code></a>, <a href="Makefile"><code>Makefile</code></a>, and the generated <a href="20231159xxx.pdf"><code>pdf file</code></a>.</li>
+<li>Report template: <a href="20231152xxx.org"><code>org file</code></a>, <a href="20231152xxx.md"><code>markdown file</code></a>,
+<a href="20231152xxx.yaml"><code>yaml file</code></a>, <a href="Makefile"><code>Makefile</code></a>, and the generated <a href="20231152xxx.pdf"><code>pdf file</code></a>.</li>
 
 <li>In Emacs org-mode, press <code>C-c C-e l p</code> to export a PDF file.</li>
 
 <li>For <code>Markdown</code> to PDF, you can simply do <code>make pdf</code> if you are
-using Linux in the J219 lab and have these <a href="20231159xxx.yaml"><code>yaml file</code></a> and <a href="Makefile"><code>Makefile</code></a>
+using Linux in the J219 lab and have these <a href="20231152xxx.yaml"><code>yaml file</code></a> and <a href="Makefile"><code>Makefile</code></a>
 along with your <code>md</code> file.</li>
 </ul></li>
 
@@ -90,26 +90,26 @@ Here's how:
 <hr>
 <ol class="org-ol">
 <li><p>
-make a directory, e.g. 20231159xxx, in this dir try very hard to make all
+make a directory, e.g. 20231152xxx, in this dir try very hard to make all
 the files available.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">mkdir 20231159xxx       # create a new directory
-cd 20231159xxx
-vim tcpServer.c         # Implement the TCP server in C
-vim tcpClient.c         # Implement the TCP client in C
-# compile and run above C programs successfully, and then
-# do the HTTP demo
-vim tmux-http.sh         # write your script
-ttyrec  http-demo.ttyrec # make your demo screencast
-ttyplay http-demo.ttyrec # play screencast
-# make sure you successfully finished all the above, then
-# write your report
-vim 20231159xxx.yaml  # write a yaml file, and
-vim 20231159xxx.md    # your report in markdown format
-make pdf              # make sure you have the Makefile ready, or
-emacs 20231159xxx.org # write an org file
+<pre class="src src-sh">mkdir 20231152xxx       <span style="color: #6c7086;"># </span><span style="color: #6c7086;">create a new directory</span>
+<span style="color: #f38ba8;">cd</span> 20231152xxx
+vim tcpServer.c         <span style="color: #6c7086;"># </span><span style="color: #6c7086;">Implement the TCP server in C</span>
+vim tcpClient.c         <span style="color: #6c7086;"># </span><span style="color: #6c7086;">Implement the TCP client in C</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">compile and run above C programs successfully, and then</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">do the HTTP demo</span>
+vim tmux-http.sh         <span style="color: #6c7086;"># </span><span style="color: #6c7086;">write your script</span>
+ttyrec  http-demo.ttyrec <span style="color: #6c7086;"># </span><span style="color: #6c7086;">make your demo screencast</span>
+ttyplay http-demo.ttyrec <span style="color: #6c7086;"># </span><span style="color: #6c7086;">play screencast</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">make sure you successfully finished all the above, then</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">write your report</span>
+vim 20231152xxx.yaml  <span style="color: #6c7086;"># </span><span style="color: #6c7086;">write a yaml file, and</span>
+vim 20231152xxx.md    <span style="color: #6c7086;"># </span><span style="color: #6c7086;">your report in markdown format</span>
+make pdf              <span style="color: #6c7086;"># </span><span style="color: #6c7086;">make sure you have the Makefile ready, or</span>
+emacs 20231152xxx.org <span style="color: #6c7086;"># </span><span style="color: #6c7086;">write an org file</span>
 </pre>
 </div></li>
 
@@ -117,9 +117,9 @@ emacs 20231159xxx.org # write an org file
 make a tar ball.
 </p>
 <div class="org-src-container">
-<pre class="src src-sh">cd ..                                                      
-tar zcf 20231159xxx.tgz 20231159xxx                        
-ls -l # make sure your tar ball is smaller than 1MB in size
+<pre class="src src-sh"><span style="color: #f38ba8;">cd</span> ..                                                      
+tar zcf 20231152xxx.tgz 20231152xxx                        
+ls -l <span style="color: #6c7086;"># </span><span style="color: #6c7086;">make sure your tar ball is smaller than 1MB in size</span>
 </pre>
 </div></li>
 
@@ -142,10 +142,10 @@ Here is a short tutorial about writing lab report: <a href="tutorial.ttyrec"><co
 Feel free to make your own <code>ttyrec</code> files while doing this lab work. For example:
 </p>
 
-<pre class="example" id="orgfb41596">
-ttyrec  20231159xxx-http.ttyrec
-ttyrec  20231159xxx-email.ttyrec
-ttyrec  20231159xxx-ftp.ttyrec
+<pre class="example" id="org549422a">
+ttyrec  20231152xxx-http.ttyrec
+ttyrec  20231152xxx-email.ttyrec
+ttyrec  20231152xxx-ftp.ttyrec
 </pre>
 
 <dl class="org-dl">
@@ -154,11 +154,11 @@ learn the very basics of it.</dd>
 </dl>
 </div>
 
-<div id="outline-container-orgb20b1ee" class="outline-3">
-<h3 id="orgb20b1ee"><span class="section-number-3">1.1.</span> Deadline: <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-07-07 Sun&gt;</span></span></h3>
+<div id="outline-container-org00cf272" class="outline-3">
+<h3 id="org00cf272"><span class="section-number-3">1.1.</span> Deadline: <span class="timestamp-wrapper"><span class="timestamp">[2024-12-22 Sun]</span></span></h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>Submit your report as a <code>tgz</code> file <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=777">here</a>. In your <code>tgz</code> file, there
+<li>Submit your report as a <code>tgz</code> file <a href="https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=830">here</a>. In your <code>tgz</code> file, there
 must be:
 
 <ul class="org-ul">
@@ -176,8 +176,8 @@ must be:
 </div>
 </div>
 
-<div id="outline-container-org54e9c4a" class="outline-2">
-<h2 id="org54e9c4a"><span class="section-number-2">2.</span> <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></h2>
+<div id="outline-container-orgf450ae2" class="outline-2">
+<h2 id="orgf450ae2"><span class="section-number-2">2.</span> <code>tmux, nc, ip, tcpdump, ss, nmap, curl</code></h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Here are the bash scripts I used in the class for demostrating how some protocols work.
@@ -193,8 +193,8 @@ Here are the bash scripts I used in the class for demostrating how some protocol
 <hr>
 </div>
 
-<div id="outline-container-orgf2f9e87" class="outline-3">
-<h3 id="orgf2f9e87"><span class="section-number-3">2.1.</span> Your tasks</h3>
+<div id="outline-container-orgfb9515f" class="outline-3">
+<h3 id="orgfb9515f"><span class="section-number-3">2.1.</span> Your tasks</h3>
 <div class="outline-text-3" id="text-2-1">
 <ol class="org-ol">
 <li>Run the above scripts to get familar with these tools, and get a thorough understanding about these protocols;</li>
@@ -212,7 +212,7 @@ Packet analysis. Upon running the following command:
 the following packet is captured:
 </p>
 
-<pre class="example" id="org08e0839">
+<pre class="example" id="orgffae92e">
 08:34:10.790666 IP (tos 0x0, ttl 64, id 12824, offset 0, flags [DF],
 proto TCP (6), length 64)
 127.0.0.1.46668 &gt; 127.0.0.1.3333: Flags [P.], seq 2400005725:2400005737,
@@ -238,8 +238,8 @@ length 12
 </div>
 </div>
 
-<div id="outline-container-org440fb10" class="outline-2">
-<h2 id="org440fb10"><span class="section-number-2">3.</span> Socket programming</h2>
+<div id="outline-container-org0595b99" class="outline-2">
+<h2 id="org0595b99"><span class="section-number-2">3.</span> Socket programming</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The followings are the <a href="https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/src/">Python programs</a> I used in the class for demostrating
@@ -252,174 +252,174 @@ socket programming. Your tasks
 </ol>
 </div>
 
-<div id="outline-container-org67570f0" class="outline-3">
-<h3 id="org67570f0"><span class="section-number-3">3.1.</span> TCP</h3>
+<div id="outline-container-org8292a83" class="outline-3">
+<h3 id="org8292a83"><span class="section-number-3">3.1.</span> TCP</h3>
 <div class="outline-text-3" id="text-3-1">
 </div>
-<div id="outline-container-org4d9eebc" class="outline-4">
-<h4 id="org4d9eebc"><span class="section-number-4">3.1.1.</span> A simple TCP server written in Python3</h4>
+<div id="outline-container-orgbe681a3" class="outline-4">
+<h4 id="orgbe681a3"><span class="section-number-4">3.1.1.</span> A simple TCP server written in Python3</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <div class="org-src-container">
-<pre class="src src-python">#!/usr/bin/python3
+<pre class="src src-python"><span style="color: #6c7086;">#</span><span style="color: #6c7086;">!/usr/bin/python3</span>
 
-### A simple TCP server ###
+<span style="color: #6c7086;">### </span><span style="color: #6c7086;">A simple TCP server ###</span>
 
-from socket import *
-serverPort = 12000
-serverSocket = socket(AF_INET,SOCK_STREAM)
-serverSocket.bind(('',serverPort))
-serverSocket.listen(0)
-print(serverSocket.getsockname())
-print('The server is ready to receive')
-while 1:
-    connectionSocket, addr = serverSocket.accept()
-    print(connectionSocket.getsockname())
-    sentence = connectionSocket.recv(1024)
-    capitalizedSentence = sentence.upper()
-    connectionSocket.send(capitalizedSentence)
-    connectionSocket.close()
+<span style="color: #cba6f7;">from</span> socket <span style="color: #cba6f7;">import</span> <span style="color: #89dceb;">*</span>
+<span style="color: #cdd6f4;">serverPort</span> <span style="color: #89dceb;">=</span> 12000
+<span style="color: #cdd6f4;">serverSocket</span> <span style="color: #89dceb;">=</span> socket<span style="color: #f38ba8;">(</span>AF_INET,SOCK_STREAM<span style="color: #f38ba8;">)</span>
+serverSocket.bind<span style="color: #f38ba8;">(</span><span style="color: #fab387;">(</span><span style="color: #a6e3a1;">''</span>,serverPort<span style="color: #fab387;">)</span><span style="color: #f38ba8;">)</span>
+serverSocket.listen<span style="color: #f38ba8;">(</span>0<span style="color: #f38ba8;">)</span>
+<span style="color: #f38ba8;">print</span><span style="color: #f38ba8;">(</span>serverSocket.getsockname<span style="color: #fab387;">()</span><span style="color: #f38ba8;">)</span>
+<span style="color: #f38ba8;">print</span><span style="color: #f38ba8;">(</span><span style="color: #a6e3a1;">'The server is ready to receive'</span><span style="color: #f38ba8;">)</span>
+<span style="color: #cba6f7;">while</span> 1:
+    <span style="color: #cdd6f4;">connectionSocket</span>, <span style="color: #cdd6f4;">addr</span> <span style="color: #89dceb;">=</span> serverSocket.accept<span style="color: #f38ba8;">()</span>
+    <span style="color: #f38ba8;">print</span><span style="color: #f38ba8;">(</span>connectionSocket.getsockname<span style="color: #fab387;">()</span><span style="color: #f38ba8;">)</span>
+    <span style="color: #cdd6f4;">sentence</span> <span style="color: #89dceb;">=</span> connectionSocket.recv<span style="color: #f38ba8;">(</span>1024<span style="color: #f38ba8;">)</span>
+    <span style="color: #cdd6f4;">capitalizedSentence</span> <span style="color: #89dceb;">=</span> sentence.upper<span style="color: #f38ba8;">()</span>
+    connectionSocket.send<span style="color: #f38ba8;">(</span>capitalizedSentence<span style="color: #f38ba8;">)</span>
+    connectionSocket.close<span style="color: #f38ba8;">()</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga5c692d" class="outline-4">
-<h4 id="orga5c692d"><span class="section-number-4">3.1.2.</span> A simple TCP client written in Python3</h4>
+<div id="outline-container-orgba83974" class="outline-4">
+<h4 id="orgba83974"><span class="section-number-4">3.1.2.</span> A simple TCP client written in Python3</h4>
 <div class="outline-text-4" id="text-3-1-2">
 <div class="org-src-container">
-<pre class="src src-python">#!/usr/bin/python3
+<pre class="src src-python"><span style="color: #6c7086;">#</span><span style="color: #6c7086;">!/usr/bin/python3</span>
 
-### A simple TCP client ###
+<span style="color: #6c7086;">### </span><span style="color: #6c7086;">A simple TCP client ###</span>
 
-from time import *
-from socket import *
-serverName = '127.0.0.1'
-serverPort = 12000
-clientSocket = socket(AF_INET, SOCK_STREAM)
-clientSocket.connect((serverName,serverPort))
-print(clientSocket.getsockname())
-sentence = input('Input lowercase sentence:')
-clientSocket.send(bytes(sentence,'utf-8'))
-modifiedSentence = clientSocket.recv(1024)
-print('From Server:', str(modifiedSentence,'utf-8'))
-clientSocket.close()
+<span style="color: #cba6f7;">from</span> time <span style="color: #cba6f7;">import</span> <span style="color: #89dceb;">*</span>
+<span style="color: #cba6f7;">from</span> socket <span style="color: #cba6f7;">import</span> <span style="color: #89dceb;">*</span>
+<span style="color: #cdd6f4;">serverName</span> <span style="color: #89dceb;">=</span> <span style="color: #a6e3a1;">'127.0.0.1'</span>
+<span style="color: #cdd6f4;">serverPort</span> <span style="color: #89dceb;">=</span> 12000
+<span style="color: #cdd6f4;">clientSocket</span> <span style="color: #89dceb;">=</span> socket<span style="color: #f38ba8;">(</span>AF_INET, SOCK_STREAM<span style="color: #f38ba8;">)</span>
+clientSocket.connect<span style="color: #f38ba8;">(</span><span style="color: #fab387;">(</span>serverName,serverPort<span style="color: #fab387;">)</span><span style="color: #f38ba8;">)</span>
+<span style="color: #f38ba8;">print</span><span style="color: #f38ba8;">(</span>clientSocket.getsockname<span style="color: #fab387;">()</span><span style="color: #f38ba8;">)</span>
+<span style="color: #cdd6f4;">sentence</span> <span style="color: #89dceb;">=</span> <span style="color: #f38ba8;">input</span><span style="color: #f38ba8;">(</span><span style="color: #a6e3a1;">'Input lowercase sentence:'</span><span style="color: #f38ba8;">)</span>
+clientSocket.send<span style="color: #f38ba8;">(</span><span style="color: #f38ba8;">bytes</span><span style="color: #fab387;">(</span>sentence,<span style="color: #a6e3a1;">'utf-8'</span><span style="color: #fab387;">)</span><span style="color: #f38ba8;">)</span>
+<span style="color: #cdd6f4;">modifiedSentence</span> <span style="color: #89dceb;">=</span> clientSocket.recv<span style="color: #f38ba8;">(</span>1024<span style="color: #f38ba8;">)</span>
+<span style="color: #f38ba8;">print</span><span style="color: #f38ba8;">(</span><span style="color: #a6e3a1;">'From Server:'</span>, <span style="color: #f38ba8;">str</span><span style="color: #fab387;">(</span>modifiedSentence,<span style="color: #a6e3a1;">'utf-8'</span><span style="color: #fab387;">)</span><span style="color: #f38ba8;">)</span>
+clientSocket.close<span style="color: #f38ba8;">()</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org57b7fb2" class="outline-4">
-<h4 id="org57b7fb2"><span class="section-number-4">3.1.3.</span> A simple TCP demo script</h4>
+<div id="outline-container-orgb956181" class="outline-4">
+<h4 id="orgb956181"><span class="section-number-4">3.1.3.</span> A simple TCP demo script</h4>
 <div class="outline-text-4" id="text-3-1-3">
 <div class="org-src-container">
-<pre class="src src-sh">#!/bin/bash
+<pre class="src src-sh"><span style="color: #6c7086;">#</span><span style="color: #6c7086;">!/bin/</span><span style="color: #cba6f7;">bash</span>
 
-### A simple TCP demo script ###
+<span style="color: #6c7086;">### </span><span style="color: #6c7086;">A simple TCP demo script ###</span>
 
-set -euC
+<span style="color: #f38ba8;">set</span> -euC
 
-tmux rename-window "TCP demo"
+tmux rename-window <span style="color: #a6e3a1;">"TCP demo"</span>
 
-#    Window setup
-# +--------+--------+
-# | server | client |
-# +--------+--------+
-# |      watch      |
-# +-----------------+
-# |     tcpdump     |
-# +-----------------+
-#
+<span style="color: #6c7086;">#    </span><span style="color: #6c7086;">Window setup</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">+--------+--------+</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">| server | client |</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">+--------+--------+</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">|      watch      |</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">+-----------------+</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">|     tcpdump     |</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">+-----------------+</span>
+<span style="color: #6c7086;">#</span>
 tmux split-window -h
 tmux split-window -fl99
 tmux split-window -l12
 
-tmux send-keys -t{top-left} "./tcpServer.py" 
+tmux send-keys -t<span style="color: #f38ba8;">{</span>top-left<span style="color: #f38ba8;">}</span> <span style="color: #a6e3a1;">"./tcpServer.py"</span> 
 
-tmux send-keys -t{top-right} "./tcpClient.py"
+tmux send-keys -t<span style="color: #f38ba8;">{</span>top-right<span style="color: #f38ba8;">}</span> <span style="color: #a6e3a1;">"./tcpClient.py"</span>
 
-tmux send-keys -t{up-of} "watch -tn.1 'ss -ant \"( sport == 12000 or dport == 12000 )\"'" C-m
+tmux send-keys -t<span style="color: #f38ba8;">{</span>up-of<span style="color: #f38ba8;">}</span> <span style="color: #a6e3a1;">"watch -tn.1 'ss -ant \"( sport == 12000 or dport == 12000 )\"'"</span> C-m
 
-tmux send-keys "sudo tcpdump -ilo -vvvnnxXSK -s0 port 12000" C-m
+tmux send-keys <span style="color: #a6e3a1;">"sudo tcpdump -ilo -vvvnnxXSK -s0 port 12000"</span> C-m
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orge77574c" class="outline-3">
-<h3 id="orge77574c"><span class="section-number-3">3.2.</span> UDP</h3>
+<div id="outline-container-orgf8510fe" class="outline-3">
+<h3 id="orgf8510fe"><span class="section-number-3">3.2.</span> UDP</h3>
 <div class="outline-text-3" id="text-3-2">
 </div>
-<div id="outline-container-org4327fb6" class="outline-4">
-<h4 id="org4327fb6"><span class="section-number-4">3.2.1.</span> A simple UDP server written in Python3</h4>
+<div id="outline-container-orgc1e9567" class="outline-4">
+<h4 id="orgc1e9567"><span class="section-number-4">3.2.1.</span> A simple UDP server written in Python3</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <div class="org-src-container">
-<pre class="src src-python">#!/usr/bin/python3
+<pre class="src src-python"><span style="color: #6c7086;">#</span><span style="color: #6c7086;">!/usr/bin/python3</span>
 
-### A simple UDP server ###
+<span style="color: #6c7086;">### </span><span style="color: #6c7086;">A simple UDP server ###</span>
 
-from socket import *
-serverPort = 12000
-serverSocket = socket(AF_INET, SOCK_DGRAM)
-serverSocket.bind(('', serverPort))
-print("The server is ready to receive")
-while 1:
-    message, clientAddress = serverSocket.recvfrom(2048)
-    modifiedMessage = message.upper()
-    serverSocket.sendto(modifiedMessage, clientAddress)
+<span style="color: #cba6f7;">from</span> socket <span style="color: #cba6f7;">import</span> <span style="color: #89dceb;">*</span>
+<span style="color: #cdd6f4;">serverPort</span> <span style="color: #89dceb;">=</span> 12000
+<span style="color: #cdd6f4;">serverSocket</span> <span style="color: #89dceb;">=</span> socket<span style="color: #f38ba8;">(</span>AF_INET, SOCK_DGRAM<span style="color: #f38ba8;">)</span>
+serverSocket.bind<span style="color: #f38ba8;">(</span><span style="color: #fab387;">(</span><span style="color: #a6e3a1;">''</span>, serverPort<span style="color: #fab387;">)</span><span style="color: #f38ba8;">)</span>
+<span style="color: #f38ba8;">print</span><span style="color: #f38ba8;">(</span><span style="color: #a6e3a1;">"The server is ready to receive"</span><span style="color: #f38ba8;">)</span>
+<span style="color: #cba6f7;">while</span> 1:
+    <span style="color: #cdd6f4;">message</span>, <span style="color: #cdd6f4;">clientAddress</span> <span style="color: #89dceb;">=</span> serverSocket.recvfrom<span style="color: #f38ba8;">(</span>2048<span style="color: #f38ba8;">)</span>
+    <span style="color: #cdd6f4;">modifiedMessage</span> <span style="color: #89dceb;">=</span> message.upper<span style="color: #f38ba8;">()</span>
+    serverSocket.sendto<span style="color: #f38ba8;">(</span>modifiedMessage, clientAddress<span style="color: #f38ba8;">)</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga3ea5bf" class="outline-4">
-<h4 id="orga3ea5bf"><span class="section-number-4">3.2.2.</span> A simple UDP client written in Python3</h4>
+<div id="outline-container-org1c9d2e8" class="outline-4">
+<h4 id="org1c9d2e8"><span class="section-number-4">3.2.2.</span> A simple UDP client written in Python3</h4>
 <div class="outline-text-4" id="text-3-2-2">
 <div class="org-src-container">
-<pre class="src src-python">#!/usr/bin/python3
+<pre class="src src-python"><span style="color: #6c7086;">#</span><span style="color: #6c7086;">!/usr/bin/python3</span>
 
-### A simple UDP client ###
+<span style="color: #6c7086;">### </span><span style="color: #6c7086;">A simple UDP client ###</span>
 
-from socket import *
-serverName = '127.0.0.1'
-serverPort = 12000
-clientSocket = socket(AF_INET, SOCK_DGRAM)
-message = input('Input lowercase sentence:')
-clientSocket.sendto(bytes(message,'utf-8'),(serverName, serverPort))
-modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
-print(str(modifiedMessage,'utf-8'))
-clientSocket.close()
+<span style="color: #cba6f7;">from</span> socket <span style="color: #cba6f7;">import</span> <span style="color: #89dceb;">*</span>
+<span style="color: #cdd6f4;">serverName</span> <span style="color: #89dceb;">=</span> <span style="color: #a6e3a1;">'127.0.0.1'</span>
+<span style="color: #cdd6f4;">serverPort</span> <span style="color: #89dceb;">=</span> 12000
+<span style="color: #cdd6f4;">clientSocket</span> <span style="color: #89dceb;">=</span> socket<span style="color: #f38ba8;">(</span>AF_INET, SOCK_DGRAM<span style="color: #f38ba8;">)</span>
+<span style="color: #cdd6f4;">message</span> <span style="color: #89dceb;">=</span> <span style="color: #f38ba8;">input</span><span style="color: #f38ba8;">(</span><span style="color: #a6e3a1;">'Input lowercase sentence:'</span><span style="color: #f38ba8;">)</span>
+clientSocket.sendto<span style="color: #f38ba8;">(</span><span style="color: #f38ba8;">bytes</span><span style="color: #fab387;">(</span>message,<span style="color: #a6e3a1;">'utf-8'</span><span style="color: #fab387;">)</span>,<span style="color: #fab387;">(</span>serverName, serverPort<span style="color: #fab387;">)</span><span style="color: #f38ba8;">)</span>
+<span style="color: #cdd6f4;">modifiedMessage</span>, <span style="color: #cdd6f4;">serverAddress</span> <span style="color: #89dceb;">=</span> clientSocket.recvfrom<span style="color: #f38ba8;">(</span>2048<span style="color: #f38ba8;">)</span>
+<span style="color: #f38ba8;">print</span><span style="color: #f38ba8;">(</span><span style="color: #f38ba8;">str</span><span style="color: #fab387;">(</span>modifiedMessage,<span style="color: #a6e3a1;">'utf-8'</span><span style="color: #fab387;">)</span><span style="color: #f38ba8;">)</span>
+clientSocket.close<span style="color: #f38ba8;">()</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgef7ba61" class="outline-4">
-<h4 id="orgef7ba61"><span class="section-number-4">3.2.3.</span> A simple UDP demo script</h4>
+<div id="outline-container-orgaaeb4fd" class="outline-4">
+<h4 id="orgaaeb4fd"><span class="section-number-4">3.2.3.</span> A simple UDP demo script</h4>
 <div class="outline-text-4" id="text-3-2-3">
 <div class="org-src-container">
-<pre class="src src-sh">#!/bin/bash
+<pre class="src src-sh"><span style="color: #6c7086;">#</span><span style="color: #6c7086;">!/bin/</span><span style="color: #cba6f7;">bash</span>
 
-### A simple UDP demo script ###
+<span style="color: #6c7086;">### </span><span style="color: #6c7086;">A simple UDP demo script ###</span>
 
-set -euC
+<span style="color: #f38ba8;">set</span> -euC
 
-tmux rename-window "UDP demo"
+tmux rename-window <span style="color: #a6e3a1;">"UDP demo"</span>
 
-#    Window setup
-# +--------+--------+
-# | server | client |
-# +--------+--------+
-# |     tcpdump     |
-# +-----------------+
-#
+<span style="color: #6c7086;">#    </span><span style="color: #6c7086;">Window setup</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">+--------+--------+</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">| server | client |</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">+--------+--------+</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">|     tcpdump     |</span>
+<span style="color: #6c7086;"># </span><span style="color: #6c7086;">+-----------------+</span>
+<span style="color: #6c7086;">#</span>
 tmux split-window -h
 tmux split-window -fl99
 
-tmux send-keys -t{top-left}  "./udpServer.py" 
-tmux send-keys -t{top-right} "./udpClient.py"
+tmux send-keys -t<span style="color: #f38ba8;">{</span>top-left<span style="color: #f38ba8;">}</span>  <span style="color: #a6e3a1;">"./udpServer.py"</span> 
+tmux send-keys -t<span style="color: #f38ba8;">{</span>top-right<span style="color: #f38ba8;">}</span> <span style="color: #a6e3a1;">"./udpClient.py"</span>
 
-tmux send-keys "sudo tcpdump -ilo -vvvnnxXK port 12000" C-m
+tmux send-keys <span style="color: #a6e3a1;">"sudo tcpdump -ilo -vvvnnxXK port 12000"</span> C-m
 </pre>
 </div>
 </div>
@@ -429,7 +429,7 @@ tmux send-keys "sudo tcpdump -ilo -vvvnnxXK port 12000" C-m
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Xiaolin Wang</p>
-<p class="date">Created: 2024-07-01 Mon 22:08</p>
+<p class="date">Created: 2024-12-04 Wed 21:12</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

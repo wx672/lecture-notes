@@ -28,13 +28,13 @@ If the mouse cursor isn't there at all, that probably means the Xorg doesn't wor
 
 Have fun!"
 
-PKG_IMP="alsa-utils aptitude aria2 bash-completion blight bluetooth ca-certificates curl debconf default-jre dialog dosfstools dzen2 git git-extras info init iputils-ping isc-dhcp-client isenkram iw less libpam-tmpdir linux-image-amd64 mosh nano neovim network-manager os-prober pipewire-audio rename rfkill stow sudo systemd-resolved systemd-timesyncd tmux tmux-plugin-manager udiskie wpasupplicant xorg xsel wmctrl whiptail"
+PKG_IMP="alsa-utils aptitude aria2 bash-completion blight bluetooth ca-certificates curl debconf dzen2 git git-extras info init iputils-ping isc-dhcp-client isenkram iw less libpam-tmpdir linux-image-amd64 mosh nano neovim network-manager os-prober pipewire-audio rename rfkill stow sudo systemd-resolved systemd-timesyncd tmux tmux-plugin-manager udiskie wpasupplicant xorg xsel wmctrl whiptail"
 
 # use isenkram to handle firmwares 
 #firmware-linux-nonfree firmware-misc-nonfree firmware-amd-graphics firmware-iwlwifi 
-PKG_REC="alacritty apt-file bat catdoc cht.sh convmv dict dict-foldoc dict-gcide dict-jargon dict-vera dict-wn elpa-pdf-tools-server emacs emacs-common-non-dfsg eza fd-find ffmpeg firmware-linux-free fzf g++ gawk gcc gdb global hunspell imagemagick ipcalc keynav kmscon lf libnotify-bin libreoffice-calc libreoffice-impress libreoffice-writer libreoffice-qt6 libtext-csv-xs-perl lshw lynx make manpages-posix manpages-posix-dev mdp mpv mupdf mupdf-tools nala netcat-openbsd nmap notification-daemon nsxiv ntfs-3g org-mode-doc 7zip-rar pandoc parted poppler-utils profile-sync-daemon proxychains4 pulsemixer pv pqiv qutebrowser qt6ct rar ripgrep rofi rsync tcpdump tlp tmate tpp ttyrec universal-ctags unoconv unrar visidata vivid wamerican-insane wireless-regdb xbanish xlsx2csv zathura zoxide"
+PKG_REC="apt-file bat catdoc cht.sh convmv default-jre dialog dict dict-foldoc dict-gcide dict-jargon dict-vera dict-wn dosfstools elpa-pdf-tools-server emacs emacs-common-non-dfsg eza fd-find ffmpeg firmware-linux-free fzf g++ gawk gcc gdb global hunspell imagemagick ipcalc keynav kmscon lf libnotify-bin libreoffice-calc libreoffice-impress libreoffice-writer libreoffice-qt6 libtext-csv-xs-perl lloconv lshw make manpages-posix manpages-posix-dev mdp mpv mupdf nala ncat netcat-openbsd nmap notification-daemon nsxiv ntfs-3g org-mode-doc pandoc parted poppler-utils profile-sync-daemon procs proxychains4 pulsemixer pv pqiv qutebrowser qt6ct ripgrep rofi rsync tcpdump tlp tmate tpp ttyrec unar universal-ctags visidata vivid wamerican-insane wireless-regdb xbanish xlsx2csv zathura zoxide"
 
-PKG_CHN="fcitx5 fcitx5-chinese-addons fcitx5-config-qt fcitx5-frontend-gtk3 fcitx5-frontend-gtk4 fcitx5-frontend-qt5 fcitx5-module-cloudpinyin fcitx5-module-pinyinhelper fcitx5-module-punctuation fcitx5-module-xorg fonts-arphic-ukai fonts-arphic-uming fonts-noto-cjk fonts-wqy-microhei fonts-wqy-zenhei im-config"
+PKG_CHN="fcitx5 fcitx5-config-qt fcitx5-frontend-gtk2 fcitx5-frontend-all fcitx5-chinese-addons fcitx5-module-cloudpinyin fcitx5-pinyin fonts-noto-cjk fonts-wqy-microhei im-config"
 
 TRY_NET="Try:\n\n
 1. Make sure your Ethernet cable is firmly connected.\n
@@ -165,19 +165,10 @@ apt_setup()
   # sources.list
 	colorEcho $INFO "Populating /etc/apt/sources.list ..."
     
-  cat <<EOF | sudo tee /etc/apt/sources.list
-deb http://mirrors.163.com/debian     sid main contrib non-free non-free-firmware
-deb http://ftp2.cn.debian.org/debian  sid main contrib non-free non-free-firmware
-deb http://mirrors.ustc.edu.cn/debian sid main contrib non-free non-free-firmware
-# deb http://mirrors.163.com/debian testing main contrib non-free non-free-firmware
-# deb http://mirrors.163.com/debian testing-updates main contrib non-free non-free-firmware
-# deb http://mirrors.163.com/debian testing-proposed-updates main contrib non-free non-free-firmware
-# deb http://ftp2.cn.debian.org/debian testing main contrib non-free non-free-firmware
-# deb http://ftp2.cn.debian.org/debian testing-updates main contrib non-free non-free-firmware
-# deb http://ftp2.cn.debian.org/debian testing-proposed-updates main contrib non-free non-free-firmware
-# deb http://mirrors.ustc.edu.cn/debian testing main contrib non-free non-free-firmware
-# deb http://mirrors.ustc.edu.cn/debian testing-updates main contrib non-free non-free-firmware
-# deb http://mirrors.ustc.edu.cn/debian testing-proposed-updates main contrib non-free non-free-firmware
+	cat <<EOF | sudo tee /etc/apt/sources.list
+deb http://ftp.cn.debian.org/debian/ testing main contrib non-free non-free-firmware
+deb https://mirror.sjtu.edu.cn/debian/ testing main contrib non-free non-free-firmware
+deb https://mirrors.bfsu.edu.cn/debian/ testing main contrib non-free non-free-firmware
 EOF
 
 	# sometimes have to try -t=sid -t=testing to get around dep issues
@@ -205,14 +196,14 @@ EOF
 
 	cat <<EOF | sudo tee /etc/apt-fast.conf
 DOWNLOADBEFORE=true
-MIRRORS=( 'http://mirrors.163.com/debian,http://mirrors.ustc.edu.cn/debian,http://ftp2.cn.debian.org/debian' )
+MIRRORS=( 'https://mirrors.qvq.net.cn/debian,https://mirrors.ustc.edu.cn/debian,https://mirror.sjtu.edu.cn/debian' )
 EOF
 }
 
 dist_upgrade(){
 	colorEcho $INFO "Upgrading the base system..."
 
-	until { sudo apt-get update && sudo apt-get -t=sid -y dist-upgrade; }; do
+	until { sudo apt-get update && sudo apt-get -y dist-upgrade; }; do
 		errbox "apt update/dist-upgrade failed" "Most probably a network problem. $TRY_NET"
 	done
 
@@ -220,26 +211,24 @@ dist_upgrade(){
 }
 
 more_pkgs(){
-    sudo apt-get -y install aria2
+  sudo apt-get -y install aria2
 
-    if $WGET $BASEURL/debian-install/apt-fast.deb
-	then
-	    sudo dpkg -i apt-fast.deb && \
-			rm -f apt-fast.deb || \
-				colorEcho $ERR "Failed installing apt-fast!";
-	fi
+  $WGET $BASEURL/debian-install/apt-fast.deb && {
+    sudo dpkg -i apt-fast.deb && \
+		rm -f apt-fast.deb || \
+		colorEcho $ERR "Failed installing apt-fast!";
+	}
 
 	mywhiptail -m "$(echo $PKG_IMP $PKG_REC $PKG_CHN | wc -w)+ packages to be installed!" \
-			   "This step usually takes about an hour to finish. It could take longer if your network is slow."
+	   "This step usually takes about an hour to finish. It could take longer if your network is slow."
 
-    if APT=$(command -v apt-fast) && command -v aria2c; then
-        colorEcho $INFO "Great! Found both apt-fast and aria2c."
-    else
-        APT="apt-get"
-    fi
+  if APT=$(command -v apt-fast) && command -v aria2c; then
+      colorEcho $INFO "Great! Found both apt-fast and aria2c."
+  else
+      APT="apt-get"
+  fi
            
-	until sudo $APT install -y $PKG_IMP
-	do
+	until sudo $APT install -y $PKG_IMP; do
 		errbox "$APT install failed for some important packages" \
 			   "In case of a networking problem, $TRY_NET"
 	done
@@ -259,19 +248,19 @@ more_pkgs(){
 	sudo systemctl restart systemd-resolved.service
 	###############################################
 	
-	until sudo $APT install -y $PKG_REC
-	do
+	until sudo $APT install -y $PKG_REC; do
 		errbox "$APT install failed for some recommended packages" \
 			   "In case of a networking problem, $TRY_NET"
 	done
 	
-	until sudo $APT install -y $PKG_CHN
-	do
+	until sudo $APT install -y $PKG_CHN; do
 		errbox "$APT install failed for some Chinese packages" \
 			   "In case of a networking problem, $TRY_NET"
 	done
 
-    unset APT
+  unset APT
+
+  command -v xterm && sudo apt purge xterm
 }
 
 dotfile()
@@ -285,36 +274,24 @@ EOF
 
 	colorEcho $INFO "Cloning dotfiles from $BASEURL/dotfile/.git ..."
 	
-  until git clone $BASEURL/dotfile/.git $DOTFILE
-	do
+  until git clone $BASEURL/dotfile/.git $DOTFILE;	do
 		errbox "git clone dotfile failed" "$TRY_APT"
 	done
 
-	# replaced later by ~/.config/git/config
-	rm -f .gitconfig
+	rm -f .gitconfig # replaced later with ~/.config/git/config
 
 	> .xsession-errors && sudo chattr +i .xsession-errors
 
-	#stow
-	
-	rm -f $HOME/.bash* $HOME/.profile
+	###### stow ######
+	rm -f $HOME/{.bash*,.profile}
 
 	mkdir -p .config/tmux .local/share .emacs.d .cache/emacs/etc/yasnippet
 
 	cd $DOTFILE
 
-	until stow -R alacritty applications aria2 bash bash-completion bin cheat dot.config emacs fcitx5 fontconfig git gtk* help home keynav latexmk less lf lftp mpv nvim picom psd qt5ct qutebrowser ripgrep rofi starship systemd tmate tmux visidata vivid w3m wallpapers xorg yt-dlp zathura
-	do
+	until stow -Rt $HOME applications aria2 bash bash-completion bat bin cheat dot.config emacs fcitx5 fontconfig git gtk* helix help home keynav latexmk less lf lftp mpv mime nvim pandoc picom psd qutebrowser ripgrep rofi starship systemd tmate tmux visidata vivid w3m wallpapers wezterm xorg yt-dlp zathura zellij;	do
 		errbox "Error stowing some packages" "Fix this in another console (Ctrl-Alt-F2) and then come back to continue."
 	done	
-
-	sudo cp $DOTFILE/usr/local/bin/* /usr/local/bin/
-
-	sudo ln -sf /usr/bin/st /usr/local/bin/xterm
-  sudo ln -sf /usr/bin/batcat /usr/local/bin/bat
-  sudo ln -sf /usr/bin/batcat /usr/local/bin/cat
-  sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd
-  sudo ln -sf /usr/bin/nsxiv /usr/local/bin/sxiv
 }
 
 misc_files()
@@ -324,34 +301,44 @@ misc_files()
 	local DIR="$HOME/tmp"
 	mkdir -p $DIR
 	
-	until $WGET -nc -P $DIR $BASEURL/debian-install/misc/{stterm.deb,dwm.deb,elpa.tgz,tmux-plugins.tgz,FiraCodeNerdFont.tgz,cn/dict-cn.tgz,cargo.bin.tgz,media-test.mp4,starship}
-	do
+	until $WGET -nc -P $DIR $BASEURL/debian-install/misc/{catppuccin.tgz,stterm.deb,dwm.deb,elpa.tgz,tmux-plugins.tgz,cn/dict-cn.tgz,media-test.mp4,starship}; do
 		errbox "Failed downloading misc files" "$TRY_APT"
 	done
 	
 	sudo dpkg -i $DIR/*.deb
 	
-	tar zxf $DIR/elpa.tgz -C $HOME/.emacs.d/
+	tar xf $DIR/elpa.tgz         -C $HOME/.emacs.d/
+	tar xf $DIR/catppuccin.tgz   -C $HOME/.config/qutebrowser/
+	tar xf $DIR/tmux-plugins.tgz -C $HOME/.config/tmux/
 
-	# systemctl --user enable emacs
-
-	tar zxf $DIR/tmux-plugins.tgz -C $HOME/.config/tmux/
-
-	sudo tar zxf $DIR/dict-cn.tgz -C /usr/share/dictd/ && {
-    sudo dpkg-reconfigure --frontend noninteractive dictd
+	sudo tar xf $DIR/dict-cn.tgz -C /usr/share/dictd/ && {
+		sudo dpkg-reconfigure --frontend noninteractive dictd
 	}
 
-  sudo mkdir -p /usr/local/share/fonts/truetype/nerd-fonts
-	sudo tar zxf $DIR/FiraCodeNerdFont.tgz -C /usr/local/share/fonts/truetype/nerd-fonts/
+	### Fonts
+	until aria2c -d $DIR --no-conf -x16 $BASEURL/debian-install/misc/fonts.txz; do
+		errbox "Failed downloading misc files" "$TRY_APT"
+	done
+
+	sudo chown -R $USER:$USER /usr/local
+	tar xf $DIR/fonts.txz -C /usr/local/share/
+
+	# sudo mkdir -p /usr/local/share/fonts/truetype/nerd-fonts
+	# sudo tar zxf $DIR/FiraCodeNerdFont.tgz -C /usr/local/share/fonts/truetype/nerd-fonts/
 	
-  tar zxf $DIR/cargo.bin.tgz cargo/bin/sk -O > $DIR/sk
-	
-	sudo mv $DIR/{starship,sk} /usr/local/bin && sudo chmod 755 /usr/local/bin/*
-	
+	### Populating /usr/local/bin/
+	sudo cp $DOTFILE/usr/local/bin/* /usr/local/bin/ # cheat, ffcast, sk, uni
+	sudo mv $DIR/starship /usr/local/bin 
+	sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd
+	sudo update-alternatives --install /usr/local/bin/cat cat /usr/bin/cat 30
+	sudo update-alternatives --install /usr/local/bin/cat cat /usr/bin/batcat 50
+	batcat cache --build
+	sudo chmod 755 /usr/local/bin/*
 	rm -rf $DIR
 
-	for f in $HOME/.config/systemd/user/*.service; do
-		systemctl --user enable $f
+	### Enable user services
+	for s in emacs fcitx picom udiskie xbanish; do
+		systemctl --user enable $s
 	done
 }
 
@@ -453,17 +440,13 @@ alternatives_setup()
 
 	# x-terminal-emulator
 
-	until command -v alacritty; do sudo apt install -y alacritty; done
+	# until command -v alacritty; do sudo apt install -y alacritty; done
 
-	ALACRITTY="$(command -v alacritty)"
+	# ALACRITTY="$(command -v alacritty)"
 
-	# no need to install. thanks to 'dpkg -i alacritty.deb'.
-    sudo update-alternatives --install /usr/bin/x-terminal-emulator \
-			 x-terminal-emulator "$ALACRITTY" 90
-	
-	[ "$ALACRITTY" ] && {
-        sudo update-alternatives --set x-terminal-emulator "$ALACRITTY"
-	}
+	# [ "$ALACRITTY" ] && {
+    #     sudo update-alternatives --set x-terminal-emulator "$ALACRITTY"
+	# }
 }
 
 ############# Real work starts here ##############

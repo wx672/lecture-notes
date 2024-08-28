@@ -16,10 +16,10 @@
 # (setq org-export-html-use-infojs nil)
 
 * UEFI
-现在（2018年10月）的电脑都很新潮，在主板上几乎都用UEFI取代了传统的BIOS。关于UEFI设置，我的
-经验是：
+现在（2018年10月）的电脑都很新潮，在主板上几乎都用UEFI取代了传统的BIOS。关于UEFI设置，我的经验是：
 
 - 把下列和Windows相关的选项都关掉（disable）:
+
   - =Secure boot=
   - =QuickBoot/FastBoot=
   - =Intel Smart Response Technology (SRT)=
@@ -41,32 +41,35 @@
 安装Debian最小系统的大致步骤如下：
 
 1. 先准备好一个安装盘（LiveUSB）
-   # 1) *下载:* [[https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/][https://cdimage.debian.org/cdimage/release/current/amd64/iso-cd/]]
-   #    - 该目录中有三个（也许更多）iso文件，下载名字最短的那个就好。比如：
-   #      #+begin_example
-   #      debian-12.1.0-amd64-netinst.iso     <-- 只要这个
-   #     	debian-edu-12.1.0-amd64-netinst.iso
-   # 		debian-mac-12.1.0-amd64-netinst.iso
-   #      #+end_example
-   1) *下载:*
-      https://cdimage.debian.org/cdimage/release/current/amd64/bt-dvd/
-	  - 该目录中有一个torrent文件，比如:
-        =debian-12.6.0-amd64-DVD-1.iso.torrent=, 把它下载下来。在
-        Debian/Ubuntu平台BT下载很容易，敲个命令就行了，比如：
-		#+begin_src sh
-		  aria2c --no-conf debian-12.6.0-amd64-DVD-1.iso.torrent
-		#+end_src
-		下载得到的是一个4G大小的DVD文件，我们需要把它“刻”到U盘上。
-		
+   1) *下载链接:* [[https://cdimage.debian.org/cdimage/release/current/amd64/bt-cd/][https://cdimage.debian.org/cdimage/release/current/amd64/bt-cd/]]
+      
+      该目录中有三个torrent文件，比如:
+        
+      #+begin_example
+      - debian-12.7.0-amd64-netinst.iso.torrent     <-- 只要这一个
+      - debian-edu-12.7.0-amd64-netinst.iso.torrent
+      - debian-mac-12.7.0-amd64-netinst.iso.torrent
+      #+end_example
+
+      把名字最短的那个（也就是上面三个中的第一个）下载下来。在
+      Debian/Ubuntu平台BT下载很容易，敲个命令就行了，比如：
+      
+      #+begin_src sh
+        aria2c --no-conf debian-12.7.0-amd64-netinst.iso.torrent
+        # 文件名太长？那么就：
+        aria2c --no-conf deb<TAB>  # <TAB> 指的是键盘上的 TAB 键，它能帮你补全文件名。
+      #+end_src
+
+      下载得到的是一个600多兆的iso文件，我们需要把它“刻”到U盘上。
+  		
    2) *制作U盘:* 在Debian/Ubuntu平台上制作启动U盘非常简单，敲个命令就行了：
       #+BEGIN_SRC sh
-		sudo cp debian-12.6.0-amd64-DVD-1.iso /dev/sdX  # 把 sdX 换成 sdb 或者 sdc。
-														# 用 lsblk 命令看一眼，
-														# 就知道是 b 还是 c 了。
-		# 文件名太长？那么就：
-		sudo cp deb<TAB> /dev/sdX  # <TAB> 指的是键盘上的 TAB 键，它能帮你补全文件名。
-
-		sync
+        sudo cp debian-12.7.0-amd64-netinst.iso /dev/sdX  # 把 sdX 换成 sdb 或者 sdc。
+                                                          # 用 lsblk 命令看一眼，
+                                                          # 就知道是 b 还是 c 了。
+        # 文件名太长？那么就：
+        sudo cp deb<TAB> /dev/sdX  # <TAB> 指的是键盘上的 TAB 键，它能帮你补全文件名。
+        sync                       # 一定要 sync!!!
       #+END_SRC
       【注意】
       - 找个小U盘，越小越好。整盘覆盖，当然是越小越快。
@@ -240,14 +243,14 @@
 	 wget cs6.swfu.edu.cn/~wx672/debian-install/install.sh
    #+end_src
 
-   #+CAPTION: 用 ~wget~ 下载安装程序（~install.sh~）
+   #+CAPTION: 用 wget 下载安装程序（install.sh）
    [[file:screenshots/37.png]]
    
 4. 运行
 
    #+begin_src sh
 	 chmod +x install.sh
-	 ./install.sh
+	 ./install.sh   # 注意，千万不要"sudo ./install.sh"！不要sudo！不要sudo！
    #+end_src
 
    #+CAPTION: 开始安装

@@ -9,10 +9,9 @@ texlive
 texlive-bibtex-extra
 texlive-extra-utils
 texlive-fonts-extra
-texlive-fonts-extra-links
 texlive-lang-chinese
 texlive-lang-english
 texlive-lang-japanese
+texlive-pictures
 texlive-plain-generic
 texlive-science
-texlive-xetex
