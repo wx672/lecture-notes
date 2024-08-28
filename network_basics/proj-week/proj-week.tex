@@ -45,7 +45,7 @@ pandoc input.md -o output.pdf --pdf-engine=lualatex
 \item This HTML page itself is generated from an \href{proj-week.org}{org file
 (proj-week.org)}. You can take it as an example.
 
-\item Report template: \href{20231159xxx.org}{\texttt{org file}}, \href{20231159xxx.pdf}{\texttt{html file}}, \href{20231159xxx.md}{\texttt{markdown file}}.
+\item Report template: \href{20231152xxx.org}{\texttt{org file}}, \href{20231152xxx.pdf}{\texttt{html file}}, \href{20231152xxx.md}{\texttt{markdown file}}.
 \end{itemize}
 
 \item your source codes (\href{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/network\_basics/scripts/}{examples}).
@@ -56,24 +56,24 @@ Here's how:
 
 \noindent\rule{\textwidth}{0.5pt}
 \begin{enumerate}
-\item make a directory, e.g. 20231159xxx, in this dir try very hard to make all
+\item make a directory, e.g. 20231152xxx, in this dir try very hard to make all
 the files available.
 
 \begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{sh}
-mkdir 20231159xxx       # create a new directory
-cd 20231159xxx
+mkdir 20231152xxx       # create a new directory
+cd 20231152xxx
 vim tmux-http.sh        # write your script
 vim tcpServer.c         # Implement the TCP server in C
 vim tcpClient.c         # Implement the TCP client in C
-vim 20231159xxx.md      # write your report in markdown format, or
-vim 20231159xxx.org     # in org format
+vim 20231152xxx.md      # write your report in markdown format, or
+vim 20231152xxx.org     # in org format
 ttyrec http-demo.ttyrec # make your demo screencast
 \end{minted}
 
 \item make a tar ball.
 \begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{sh}
 cd ..                                                      
-tar zcf 20231159xxx.tgz 20231159xxx                        
+tar zcf 20231152xxx.tgz 20231152xxx                        
 ls -l # make sure your tar ball is smaller than 1MB in size
 \end{minted}
 
@@ -92,9 +92,9 @@ ttyplay  tutorial.ttyrec
 Feel free to make your own \texttt{ttyrec} files while doing this lab work. For example:
 
 \begin{verbatim}
-ttyrec  20231159xxx-http.ttyrec
-ttyrec  20231159xxx-email.ttyrec
-ttyrec  20231159xxx-ftp.ttyrec
+ttyrec  20231152xxx-http.ttyrec
+ttyrec  20231152xxx-email.ttyrec
+ttyrec  20231152xxx-ftp.ttyrec
 \end{verbatim}
 
 \begin{description}

@@ -465,28 +465,6 @@ all the data received.
   \end{center}
 \end{frame}
 
-\begin{frame}{SYN-flood}
-  \begin{itemize}
-  \item[\$] \cmd{sudo apt install hping3}
-  \item[\$] \cmd{sudo tcpdump -ilo port 3333}
-  \item[\$] \cmd{ss -anto state syn-recv}
-  \item[\$] \cmd{sudo hping3 -\phantom{}-flood -I lo -S -p 3333 127.0.0.1}
-  \item[\$] \cmd{sudo iptables -A OUTPUT -p tcp -m tcp -\phantom{}-tcp-flags RST RST -j DROP}
-  \item[\$] \cmd{sudo python3 -m http.server 3333}
-  % \item[\$] \cmd{sudo iptables -D OUTPUT -p tcp -m tcp --tcp-flags RST RST -j DROP}
-  % \item[] 
-  % \item[\$] \cmd{\# Syn-flood protection:}
-  % \item[\$] \cmd{sudo iptables -A INPUT -p tcp --syn -m limit --limit 1/s -j ACCEPT}
-  \end{itemize}
-\end{frame}
-
-\begin{itemize}
-\item \url{https://www.binarytides.com/tcp-syn-flood-dos-attack-with-hping/}
-\item \url{https://linoxide.com/firewall/block-common-attacks-iptables/}
-\end{itemize}
-
-%\mode<article>{\clearpage}
-
 \begin{frame}<beamer>
   \centering
   \includegraphics[height=\textheight]{state-wikipedia}
@@ -569,6 +547,28 @@ changes\citetitle[Sec.~3.2, \emph{RFC 793}]{rfc793}:
     \end{iblock}
   \end{minipage}  
 \end{frame}
+
+\begin{frame}{SYN-flood}
+  \begin{itemize}
+  \item[\$] \cmd{sudo apt install hping3}
+  \item[\$] \cmd{sudo tcpdump -ilo port 3333}
+  \item[\$] \cmd{ss -anto state syn-recv}
+  \item[\$] \cmd{sudo hping3 -\phantom{}-flood -I lo -S -p 3333 127.0.0.1}
+  \item[\$] \cmd{sudo iptables -A OUTPUT -p tcp -m tcp -\phantom{}-tcp-flags RST RST -j DROP}
+  \item[\$] \cmd{sudo python3 -m http.server 3333}
+  % \item[\$] \cmd{sudo iptables -D OUTPUT -p tcp -m tcp --tcp-flags RST RST -j DROP}
+  % \item[] 
+  % \item[\$] \cmd{\# Syn-flood protection:}
+  % \item[\$] \cmd{sudo iptables -A INPUT -p tcp --syn -m limit --limit 1/s -j ACCEPT}
+  \end{itemize}
+\end{frame}
+
+\begin{itemize}
+\item \url{https://www.binarytides.com/tcp-syn-flood-dos-attack-with-hping/}
+\item \url{https://linoxide.com/firewall/block-common-attacks-iptables/}
+\end{itemize}
+
+%\mode<article>{\clearpage}
 
 \begin{frame}{\texttt{netstat}}
   \CMD{sudo apt install net-tools}

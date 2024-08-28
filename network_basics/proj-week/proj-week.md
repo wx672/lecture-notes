@@ -18,14 +18,14 @@ header-includes: |
      generated from your `org` or `md` file. Tips: 
      
      - Report template
-       : [`org file`](20231159xxx.org), [`markdown file`](20231159xxx.md),
-		 [`yaml file`](20231159xxx.yaml), [Makefile](Makefile)
+       : [`org file`](20231152xxx.org), [`markdown file`](20231152xxx.md),
+		 [`yaml file`](20231152xxx.yaml), [Makefile](Makefile)
   
      - In Emacs org-mode, press `C-c C-e l p` to export a PDF file;
      
      - For `Markdown` to PDF, you can simply do `make pdf` if you are
 	   using Linux in the J219 lab and have this [Makefile](Makefile)
-	   along with your `md` and [`yaml`](20231159xxx.yaml) file. 
+	   along with your `md` and [`yaml`](20231152xxx.yaml) file. 
      
   2. your program source files (bash scripts, C programs).
   
@@ -35,17 +35,17 @@ header-includes: |
     
 Here's how: 
 
-1.  make a directory, e.g. 20231159xxx. In this directory, try very hard to make all
+1.  make a directory, e.g. 20231152xxx. In this directory, try very hard to make all
     the files available.
     
     ```sh
-    mkdir  20231159xxx      # create a new directory
-    cd 20231159xxx
+    mkdir  20231152xxx      # create a new directory
+    cd 20231152xxx
     vim tmux-http.sh        # write your script
 	vim tcpServer.c         # Implement the TCP server in C
 	vim tcpClient.c         # Implement the TCP client in C
-    vim 20231159xxx.org     # write your report with emacs-org, or
-    vim 20231159xxx.md      # write your report in markdown format
+    vim 20231152xxx.org     # write your report with emacs-org, or
+    vim 20231152xxx.md      # write your report in markdown format
     ttyrec http-demo.ttyrec # make your demo screencast
     ```
     
@@ -53,7 +53,7 @@ Here's how:
     
     ```sh
     cd ..
-    tar zcf 20231159xxx.tgz 20231159xxx
+    tar zcf 20231152xxx.tgz 20231152xxx
     ls -l # make sure your tar ball is smaller than 1MB in size
     ```
     
@@ -71,9 +71,9 @@ Here's how:
     Feel free to make your own `ttyrec` file while doing this lab work. For example:
     
     ```sh
-    ttyrec  20231159xxx-http.ttyrec
-    ttyrec  20231159xxx-email.ttyrec
-    ttyrec  20231159xxx-ftp.ttyrec
+    ttyrec  20231152xxx-http.ttyrec
+    ttyrec  20231152xxx-email.ttyrec
+    ttyrec  20231152xxx-ftp.ttyrec
     ```
 
 - **Bonus points:** Manage your project with `git`. `man gittutorial` to

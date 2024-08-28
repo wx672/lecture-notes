@@ -1,0 +1,208 @@
+\documentclass{swfulabreport}
+
+\swfusetup{%
+  Title     ={Hacking with Linux networking CLI tools}, % 课程名称
+  Author    ={Who Am I}, % 
+  ID        ={20231152xxx}, % 学号
+  Class     ={计科2023级},%
+  Tutor     ={王晓林}, %指导教师
+  Year      ={2024},%
+  Month     ={12},%
+  Date      ={18},%
+  Reviewer  ={王晓林},%
+  ReviewDate={2024/12/19},%
+  Mark      =,%
+  LabDate   ={2024/12/16 -- 2024/12/17},%
+  LabDays   ={2},%
+  Lab       ={生物楼219},%经管楼219
+  Heads     ={120},%
+  Grouping  ={不分组},%
+  Why   ={掌握Linux平台上常用网络工具的使用，并理解基本的网络编程过程。
+
+\begin{itemize}
+\tightlist
+\item
+  掌握用tcpdump捕获并分析数据包
+\item
+  掌握用netcat完成简单的网络会话
+\item
+  掌握基本的网络编程
+\end{itemize}},%实验目的
+  Req   ={\begin{itemize}
+\tightlist
+\item
+  在Linux平台完成所有实验
+\item
+  在Linux平台完成实验报告
+\item
+  努力尝试用英文撰写实验报告
+\item
+  将实验作业及报告以tgz格式打包，并上传到指定教学网站
+\item
+  迟交报告将被扣分
+\end{itemize}},%实验要求
+  What  ={详见\href{https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/proj-week/proj-week.html}{《实验指导书》}。},%实验内容
+  Sched ={\begin{itemize}
+\tightlist
+\item
+  2024/12/16: 学习使用tmux，ttyrec等实验所需的命令行工具。 学习使用ip,
+  tcpdump, netcat, curl, ss, nmap等网络工具。
+\item
+  2024/12/17: 完成用tcpdump捕获、分析数据包，用netcat实现网络协议会话，
+  以及网络编程等规定实验项目。完成所有实验，并撰写实验报告。
+\end{itemize}},%课程实习安排
+  Sumup ={不要少于300字。},%实习总结
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Packet analysis}\label{packet-analysis}
+
+\begin{minted}[autogobble]{sh}
+sudo tcpdump -ilo -nnvvvxXKS -s0 port 3333
+\end{minted}
+
+Upon running the above command, the following packet is captured:
+
+\begin{minted}[autogobble]{text}
+08:34:10.790666 IP (tos 0x0, ttl 64, id 12824, offset 0, flags [DF],
+proto TCP (6), length 64)
+
+127.0.0.1.46668 > 127.0.0.1.3333: Flags [P.], seq 2400005725:2400005737,
+ack 373279396, win 512, options [nop,nop,...], length 12
+
+  0x0000:  4500 0040 3218 4000 4006 0a9e 7f00 0001  E..@2.@.@.......
+  0x0010:  7f00 0001 b64c 0d05 8f0d 2e5d 163f caa4  .....L.....].?..
+  0x0020:  8018 0200 fe34 0000 0101 080a c24e e2d7  .....4.......N..
+  0x0030:  c24e 1217 6865 6c6c 6f20 776f 726c 640a  .N..hello.world.
+\end{minted}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Tell me the meaning of each option used in the previous command.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{-i}:
+  \item
+    \textbf{-nn}:
+  \item
+    \textbf{-vvv}:
+  \item
+    \textbf{-x}:
+  \item
+    \textbf{-X}:
+  \item
+    \textbf{-S}:
+  \item
+    \textbf{-K}:
+  \item
+    \textbf{-s0}:
+  \end{itemize}
+\item
+  Please analyze this captured packet and explain it to me as detailed
+  as you can.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Answer:}
+  \end{itemize}
+\end{enumerate}
+
+\section{HTTP}\label{http}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Write a simple script showing how HTTP works (you need
+  \mintinline[]{text}{curl}).
+\end{enumerate}
+
+\begin{minted}[autogobble]{sh}
+#!/bin/bash
+\end{minted}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Record your HTTP demo session with \mintinline[]{text}{ttyrec}.
+\end{enumerate}
+
+\section{Socket programming}\label{socket-programming}
+
+\subsection{TCP}\label{tcp}
+
+\begin{minted}[autogobble]{c}
+  /* A simple TCP server written in C */
+
+  // Your code
+\end{minted}
+
+\begin{minted}[autogobble]{c}
+  /* A simple TCP client written in C */
+
+  // Your code
+\end{minted}
+
+\subsection{UDP}\label{udp}
+
+\begin{minted}[autogobble]{c}
+  /* A simple UDP server written in C */
+
+  // Your code
+\end{minted}
+
+\begin{minted}[autogobble]{c}
+  /* A simple UDP client written in C */
+
+  // Your code
+\end{minted}
+
+\section{Questions}\label{questions}
+
+List at least 5 problems you've met while doing this work. When listing
+your problems, you have to tell me:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Description of this problem. For example,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    What were you trying to do before seeing this problem?
+  \end{itemize}
+\item
+  How did you try solving this problem? For example,
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Did you google? web links?
+  \item
+    Did you read the man page?
+  \item
+    Did you ask others for hints?
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Problem 1}\label{problem-1}
+
+\subsection{Problem 2}\label{problem-2}
+
+\subsection{Problem 3}\label{problem-3}
+
+\subsection{Problem 4}\label{problem-4}
+
+\subsection{Problem 5}\label{problem-5}
+
+\end{document}

@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.3 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{1}
-  \datalist[entry]{none/global//global/global}
-    \entry{tanenbaum2015modern}{book}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{tanenbaum2015modern}{book}{}{}
       \name{author}{1}{}{%
         {{hash=2414455c999bc471f803cd14fdea939d}{%
            family={Tanenbaum},
@@ -42,13 +42,16 @@
       }
       \strng{namehash}{2414455c999bc471f803cd14fdea939d}
       \strng{fullhash}{2414455c999bc471f803cd14fdea939d}
+      \strng{fullhashraw}{2414455c999bc471f803cd14fdea939d}
       \strng{bibnamehash}{2414455c999bc471f803cd14fdea939d}
       \strng{authorbibnamehash}{2414455c999bc471f803cd14fdea939d}
       \strng{authornamehash}{2414455c999bc471f803cd14fdea939d}
       \strng{authorfullhash}{2414455c999bc471f803cd14fdea939d}
+      \strng{authorfullhashraw}{2414455c999bc471f803cd14fdea939d}
       \strng{nameabibnamehash}{2414455c999bc471f803cd14fdea939d}
       \strng{nameanamehash}{2414455c999bc471f803cd14fdea939d}
       \strng{nameafullhash}{2414455c999bc471f803cd14fdea939d}
+      \strng{nameafullhashraw}{2414455c999bc471f803cd14fdea939d}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -72,7 +75,7 @@
       \endverb
       \keyw{tanenbaum2015modern}
     \endentry
-    \entry{silberschatz13essentials}{book}{}
+    \entry{silberschatz13essentials}{book}{}{}
       \name{author}{3}{}{%
         {{hash=4f34927dfbed9f6425b40ef776942177}{%
            family={Silberschatz},
@@ -103,13 +106,16 @@
       }
       \strng{namehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
       \strng{fullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{fullhashraw}{1a4f8cf7041fd1907bf85491d6cd2385}
       \strng{bibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
       \strng{authorbibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
       \strng{authornamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
       \strng{authorfullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{authorfullhashraw}{1a4f8cf7041fd1907bf85491d6cd2385}
       \strng{nameabibnamehash}{1a4f8cf7041fd1907bf85491d6cd2385}
       \strng{nameanamehash}{f55d1198f4c1e44d9bc3db5239ea2c58}
       \strng{nameafullhash}{1a4f8cf7041fd1907bf85491d6cd2385}
+      \strng{nameafullhashraw}{1a4f8cf7041fd1907bf85491d6cd2385}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -133,7 +139,7 @@
       \endverb
       \keyw{silberschatz13essentials}
     \endentry
-    \entry{bovet2005understanding}{book}{}
+    \entry{bovet2005understanding}{book}{}{}
       \name{author}{2}{}{%
         {{hash=4e6ca956728eb9b26ad462fad9dacebd}{%
            family={Bovet},
@@ -166,13 +172,16 @@
       }
       \strng{namehash}{98936862f22b163b51b14525285c6d69}
       \strng{fullhash}{a98d08854c8f941be39faef502dc8019}
+      \strng{fullhashraw}{a98d08854c8f941be39faef502dc8019}
       \strng{bibnamehash}{a98d08854c8f941be39faef502dc8019}
       \strng{authorbibnamehash}{a98d08854c8f941be39faef502dc8019}
       \strng{authornamehash}{98936862f22b163b51b14525285c6d69}
       \strng{authorfullhash}{a98d08854c8f941be39faef502dc8019}
+      \strng{authorfullhashraw}{a98d08854c8f941be39faef502dc8019}
       \strng{nameabibnamehash}{a98d08854c8f941be39faef502dc8019}
       \strng{nameanamehash}{98936862f22b163b51b14525285c6d69}
       \strng{nameafullhash}{a98d08854c8f941be39faef502dc8019}
+      \strng{nameafullhashraw}{a98d08854c8f941be39faef502dc8019}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -190,7 +199,7 @@
       \true{nocite}
       \keyw{bovet2005understanding}
     \endentry
-    \entry{cs241}{book}{}
+    \entry{cs241}{book}{}{}
       \name{author}{3}{}{%
         {{hash=498dec3700eda62744cbc7a0831ea0f4}{%
            family={Venkatesh},
@@ -233,13 +242,16 @@
       }
       \strng{namehash}{86038ebedc34a61f7fb0fa7c20088f0a}
       \strng{fullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{fullhashraw}{71825fffcb152935f4fa5388976e3ea9}
       \strng{bibnamehash}{71825fffcb152935f4fa5388976e3ea9}
       \strng{authorbibnamehash}{71825fffcb152935f4fa5388976e3ea9}
       \strng{authornamehash}{86038ebedc34a61f7fb0fa7c20088f0a}
       \strng{authorfullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{authorfullhashraw}{71825fffcb152935f4fa5388976e3ea9}
       \strng{nameabibnamehash}{71825fffcb152935f4fa5388976e3ea9}
       \strng{nameanamehash}{86038ebedc34a61f7fb0fa7c20088f0a}
       \strng{nameafullhash}{71825fffcb152935f4fa5388976e3ea9}
+      \strng{nameafullhashraw}{71825fffcb152935f4fa5388976e3ea9}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
@@ -266,8 +278,8 @@
 \endrefsection
 
 \refsection{2}
-  \datalist[entry]{none/global//global/global}
-    \entry{wiki:interrupt}{online}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{wiki:interrupt}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -283,13 +295,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
@@ -313,7 +328,7 @@
       \endverb
       \keyw{wiki:interrupt}
     \endentry
-    \entry{wiki:syscall}{online}{}
+    \entry{wiki:syscall}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -329,13 +344,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -363,8 +381,8 @@
 \endrefsection
 
 \refsection{3}
-  \datalist[entry]{none/global//global/global}
-    \entry{wiki:process}{online}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{wiki:process}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -380,13 +398,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
@@ -410,7 +431,7 @@
       \endverb
       \keyw{wiki:process}
     \endentry
-    \entry{wiki:thread}{online}{}
+    \entry{wiki:thread}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -426,13 +447,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -456,7 +480,7 @@
       \endverb
       \keyw{wiki:thread}
     \endentry
-    \entry{wiki:pcb}{online}{}
+    \entry{wiki:pcb}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -472,13 +496,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
@@ -506,8 +533,8 @@
 \endrefsection
 
 \refsection{4}
-  \datalist[entry]{none/global//global/global}
-    \entry{wiki:peterson}{online}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{wiki:peterson}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -523,13 +550,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -556,8 +586,8 @@
 \endrefsection
 
 \refsection{5}
-  \datalist[entry]{none/global//global/global}
-    \entry{wiki:ipc}{online}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{wiki:ipc}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -573,13 +603,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
@@ -603,7 +636,7 @@
       \endverb
       \keyw{wiki:ipc}
     \endentry
-    \entry{wiki:semaphore}{online}{}
+    \entry{wiki:semaphore}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -619,13 +652,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -653,8 +689,8 @@
 \endrefsection
 
 \refsection{6}
-  \datalist[entry]{none/global//global/global}
-    \entry{wiki:sched}{online}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{wiki:sched}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -670,13 +706,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -703,8 +742,8 @@
 \endrefsection
 
 \refsection{7}
-  \datalist[entry]{none/global//global/global}
-    \entry{wiki:deadlock}{online}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{wiki:deadlock}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -720,13 +759,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -753,8 +795,8 @@
 \endrefsection
 
 \refsection{8}
-  \datalist[entry]{none/global//global/global}
-    \entry{wiki:mm}{online}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{wiki:mm}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -770,13 +812,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
@@ -800,7 +845,7 @@
       \endverb
       \keyw{wiki:mm}
     \endentry
-    \entry{wiki:vm}{online}{}
+    \entry{wiki:vm}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -816,13 +861,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -850,8 +898,8 @@
 \endrefsection
 
 \refsection{9}
-  \datalist[entry]{none/global//global/global}
-    \entry{wiki:fs}{online}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{wiki:fs}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -867,13 +915,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{1}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
@@ -897,7 +948,7 @@
       \endverb
       \keyw{wiki:fs}
     \endentry
-    \entry{wiki:file}{online}{}
+    \entry{wiki:file}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -913,13 +964,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
@@ -943,7 +997,7 @@
       \endverb
       \keyw{wiki:file}
     \endentry
-    \entry{wiki:inode}{online}{}
+    \entry{wiki:inode}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -959,13 +1013,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{3}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
@@ -989,7 +1046,7 @@
       \endverb
       \keyw{wiki:inode}
     \endentry
-    \entry{wiki:exttwo}{online}{}
+    \entry{wiki:exttwo}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -1005,13 +1062,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{4}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
@@ -1035,7 +1095,7 @@
       \endverb
       \keyw{wiki:exttwo}
     \endentry
-    \entry{wiki:vfs}{online}{}
+    \entry{wiki:vfs}{online}{}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -1051,13 +1111,16 @@
       }
       \strng{namehash}{9c677286866aad38f8e9b660f5411814}
       \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhashraw}{9c677286866aad38f8e9b660f5411814}
       \strng{nameabibnamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameanamehash}{9c677286866aad38f8e9b660f5411814}
       \strng{nameafullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{nameafullhashraw}{9c677286866aad38f8e9b660f5411814}
       \field{extraname}{5}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
