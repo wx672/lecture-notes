@@ -30,9 +30,11 @@ should be included in:
 	  using Linux in the J219 lab and have these [[file:20231152xxx.yaml][=yaml file=]] and [[file:Makefile][=Makefile=]]
 	  along with your =md= file.
 
-- your source codes ([[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/][examples]]).
+- Your [[file:20231152xxx-实习日志.pdf][lab journal (example)]].
 
-- a screencast file in =ttyrec= format recording your operations (=man ttyrec=).
+- Your source codes ([[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/scripts/][examples]]).
+
+- A screencast file in =ttyrec= format recording your operations (=man ttyrec=).
 
   Here's how:
   ------
@@ -84,7 +86,7 @@ Feel free to make your own =ttyrec= files while doing this lab work. For example
 
 - *Bonus point* :: Manage your project with =git=. =man gittutorial= to
   learn the very basics of it.
-
+  
 ** Deadline: [2024-12-22 Sun]
 
 - Submit your report as a =tgz= file [[https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=830][here]]. In your =tgz= file, there
@@ -94,6 +96,8 @@ Feel free to make your own =ttyrec= files while doing this lab work. For example
   + your report in PDF format.
   + your bash script for demostrating a HTTP session.
   + one or more =ttyrec= files for demostrating whatever you did.
+
+- All the paperwork templates and examples can be found [[https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/proj-week/][here]].
 
 - Late reports will be penalized 20% per day.
 

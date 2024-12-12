@@ -28,14 +28,6 @@ If the mouse cursor isn't there at all, that probably means the Xorg doesn't wor
 
 Have fun!"
 
-PKG_IMP="alsa-utils aptitude aria2 bash-completion blight bluetooth ca-certificates curl debconf dzen2 git git-extras info init iputils-ping isc-dhcp-client isenkram iw less libpam-tmpdir linux-image-amd64 mosh nano neovim network-manager os-prober pipewire-audio rename rfkill stow sudo systemd-resolved systemd-timesyncd tmux tmux-plugin-manager udiskie wpasupplicant xorg xsel wmctrl whiptail"
-
-# use isenkram to handle firmwares 
-#firmware-linux-nonfree firmware-misc-nonfree firmware-amd-graphics firmware-iwlwifi 
-PKG_REC="apt-file bat catdoc cht.sh convmv default-jre dialog dict dict-foldoc dict-gcide dict-jargon dict-vera dict-wn dosfstools elpa-pdf-tools-server emacs emacs-common-non-dfsg eza fd-find ffmpeg firmware-linux-free fzf g++ gawk gcc gdb global hunspell imagemagick ipcalc keynav kmscon lf libnotify-bin libreoffice-calc libreoffice-impress libreoffice-writer libreoffice-qt6 libtext-csv-xs-perl lloconv lshw make manpages-posix manpages-posix-dev mdp mpv mupdf nala ncat netcat-openbsd nmap notification-daemon nsxiv ntfs-3g org-mode-doc pandoc parted poppler-utils profile-sync-daemon procs proxychains4 pulsemixer pv pqiv qutebrowser qt6ct ripgrep rofi rsync tcpdump tlp tmate tpp ttyrec unar universal-ctags visidata vivid wamerican-insane wireless-regdb xbanish xlsx2csv zathura zoxide"
-
-PKG_CHN="fcitx5 fcitx5-config-qt fcitx5-frontend-gtk2 fcitx5-frontend-all fcitx5-chinese-addons fcitx5-module-cloudpinyin fcitx5-pinyin fonts-noto-cjk fonts-wqy-microhei im-config"
-
 TRY_NET="Try:\n\n
 1. Make sure your Ethernet cable is firmly connected.\n
 2. Press Ctrl-Alt-F2 to login another console.\n
@@ -56,6 +48,15 @@ ERR_USAGE=1
 ERR_QUIT=2
 ERR_APT=3
 ERR_NET=4
+
+### Use equivs-build: wx672-mandatory, wx672-recommend, wx672-chinese instead.
+# PKG_IMP="alsa-utils aptitude aria2 bash-completion blight bluetooth ca-certificates curl debconf dwm dzen2 git git-extras info init iputils-ping isc-dhcp-client isenkram iw less libpam-tmpdir linux-image-amd64 mosh nano neovim network-manager os-prober pipewire-audio rename rfkill stow stterm sudo systemd-resolved systemd-timesyncd tmux tmux-plugin-manager udiskie wpasupplicant xorg xsel wmctrl whiptail"
+
+# use isenkram to handle firmwares 
+#firmware-linux-nonfree firmware-misc-nonfree firmware-amd-graphics firmware-iwlwifi 
+# PKG_REC="apt-file bat catdoc cht.sh convmv default-jre dialog dict dict-foldoc dict-gcide dict-jargon dict-vera dict-wn dosfstools du-dust elpa-pdf-tools-server emacs emacs-common-non-dfsg eza fd-find ffmpeg firmware-linux-free fzf g++ gawk gcc gdb git-delta global hunspell imagemagick ipcalc keynav kmscon lf libnotify-bin libreoffice-calc libreoffice-impress libreoffice-writer libreoffice-qt6 libtext-csv-xs-perl lloconv lpdf lshw make manpages-posix manpages-posix-dev mdp mihomo mpv mupdf nala ncat netcat-openbsd nmap notification-daemon nsxiv ntfs-3g org-mode-doc pandoc parted poppler-utils profile-sync-daemon procs proxychains4 pulsemixer pv pqiv qrcp qutebrowser qt6ct ripgrep rofi rsync tcpdump tlp tmate tpp ttyrec unar universal-ctags visidata vivid wamerican-insane wezterm wireless-regdb xbanish xlsx2csv zathura zoxide"
+
+# PKG_CHN="fcitx5 fcitx5-config-qt fcitx5-frontend-gtk2 fcitx5-frontend-all fcitx5-chinese-addons fcitx5-module-cloudpinyin fcitx5-pinyin fonts-noto-cjk fonts-wqy-microhei im-config"
 
 ######### Color output #########
 ERR=$(tput setaf 1)     # red
@@ -166,11 +167,14 @@ apt_setup()
 	colorEcho $INFO "Populating /etc/apt/sources.list ..."
     
 	cat <<EOF | sudo tee /etc/apt/sources.list
-deb http://ftp.cn.debian.org/debian/ testing main contrib non-free non-free-firmware
-deb https://mirror.sjtu.edu.cn/debian/ testing main contrib non-free non-free-firmware
-deb https://mirrors.bfsu.edu.cn/debian/ testing main contrib non-free non-free-firmware
+deb http://ftp.cn.debian.org/debian/ sid main contrib non-free non-free-firmware
+deb https://mirror.sjtu.edu.cn/debian/ sid main contrib non-free non-free-firmware
+deb https://mirrors.bfsu.edu.cn/debian/ sid main contrib non-free non-free-firmware
 EOF
 
+	cat <<EOF | sudo tee /etc/apt/sources.list.d/cs6.list
+deb [trusted=yes] https://cs6.swfu.edu.cn/debian /
+EOF
 	# sometimes have to try -t=sid -t=testing to get around dep issues
 	# colorEcho $INFO "Populating /etc/apt/preferences.d/ ..."
 
@@ -196,7 +200,7 @@ EOF
 
 	cat <<EOF | sudo tee /etc/apt-fast.conf
 DOWNLOADBEFORE=true
-MIRRORS=( 'https://mirrors.qvq.net.cn/debian,https://mirrors.ustc.edu.cn/debian,https://mirror.sjtu.edu.cn/debian' )
+MIRRORS=( 'http://ftp.cn.debian.org/debian,https://mirrors.ustc.edu.cn/debian,https://mirrors.bfsu.edu.cn/debian' )
 EOF
 }
 
@@ -211,25 +215,28 @@ dist_upgrade(){
 }
 
 more_pkgs(){
-  sudo apt-get -y install aria2
+	# apt-fast is from https://cs6.swfu.edu.cn/debian/pool/
+	sudo apt-get -y install aria2 apt-fast
+	
+	# $WGET $BASEURL/debian-install/apt-fast.deb && {
+	#   sudo dpkg -i apt-fast.deb && \
+		# 		rm -f apt-fast.deb || \
+		# 		colorEcho $ERR "Failed installing apt-fast!";
+	# 	}
 
-  $WGET $BASEURL/debian-install/apt-fast.deb && {
-    sudo dpkg -i apt-fast.deb && \
-		rm -f apt-fast.deb || \
-		colorEcho $ERR "Failed installing apt-fast!";
-	}
-
-	mywhiptail -m "$(echo $PKG_IMP $PKG_REC $PKG_CHN | wc -w)+ packages to be installed!" \
+	# mywhiptail -m "$(echo $PKG_IMP $PKG_REC $PKG_CHN | wc -w)+ packages to be installed!" \
+	mywhiptail -m "Hundreds of packages to be installed!" \
 	   "This step usually takes about an hour to finish. It could take longer if your network is slow."
 
-  if APT=$(command -v apt-fast) && command -v aria2c; then
-      colorEcho $INFO "Great! Found both apt-fast and aria2c."
-  else
-      APT="apt-get"
-  fi
+	if APT=$(command -v apt-fast) && command -v aria2c; then
+		colorEcho $INFO "Great! Found both apt-fast and aria2c."
+	else
+		APT="apt-get"
+	fi
            
-	until sudo $APT install -y $PKG_IMP; do
-		errbox "$APT install failed for some important packages" \
+	# until sudo $APT install -y $PKG_IMP; do
+	until sudo $APT install -y wx672-mandatory; do
+		errbox "$APT install wx672-mandatory failed!" \
 			   "In case of a networking problem, $TRY_NET"
 	done
 
@@ -248,19 +255,30 @@ more_pkgs(){
 	sudo systemctl restart systemd-resolved.service
 	###############################################
 	
-	until sudo $APT install -y $PKG_REC; do
-		errbox "$APT install failed for some recommended packages" \
+	# until sudo $APT install -y $PKG_REC; do
+	until sudo $APT install -y wx672-recommend; do
+		errbox "$APT install wx672-recommend failed!" \
 			   "In case of a networking problem, $TRY_NET"
 	done
 	
-	until sudo $APT install -y $PKG_CHN; do
-		errbox "$APT install failed for some Chinese packages" \
+	# until sudo $APT install -y $PKG_CHN; do
+	until sudo $APT install -y wx672-chinese; do
+		errbox "$APT install wx672-chinese failed!" \
 			   "In case of a networking problem, $TRY_NET"
 	done
 
-  unset APT
+	until sudo $APT install -y wx672exe wx672cli; do
+		errbox "$APT install wx672exe wx672cli failed!" \
+			   "In case of a networking problem, $TRY_NET"
+	done
 
-  command -v xterm && sudo apt purge xterm
+	until sudo $APT install -y wx672fonts; do
+		errbox "$APT install wx672fonts failed!" \
+			   "In case of a networking problem, $TRY_NET"
+	done
+
+	unset APT
+	command -v xterm && sudo apt purge xterm
 }
 
 dotfile()
@@ -274,7 +292,7 @@ EOF
 
 	colorEcho $INFO "Cloning dotfiles from $BASEURL/dotfile/.git ..."
 	
-  until git clone $BASEURL/dotfile/.git $DOTFILE;	do
+	until git clone $BASEURL/dotfile/.git $DOTFILE;	do
 		errbox "git clone dotfile failed" "$TRY_APT"
 	done
 
@@ -288,8 +306,9 @@ EOF
 	mkdir -p .config/tmux .local/share .emacs.d .cache/emacs/etc/yasnippet
 
 	cd $DOTFILE
-
-	until stow -Rt $HOME applications aria2 bash bash-completion bat bin cheat dot.config emacs fcitx5 fontconfig git gtk* helix help home keynav latexmk less lf lftp mpv mime nvim pandoc picom psd qutebrowser ripgrep rofi starship systemd tmate tmux visidata vivid w3m wallpapers wezterm xorg yt-dlp zathura zellij;	do
+	
+	# bin is no longer stowed since it's managed by wx672cli now.
+	until stow -Rt $HOME applications aria2 bash bash-completion bat cheat dot.config emacs fcitx5 fontconfig git gtk* helix help home keynav latexmk less lf lftp mpv mime nvim pandoc picom psd qutebrowser ripgrep rofi starship systemd tmate tmux visidata vivid w3m wallpapers wezterm xorg yt-dlp zathura zellij;	do
 		errbox "Error stowing some packages" "Fix this in another console (Ctrl-Alt-F2) and then come back to continue."
 	done	
 }
@@ -300,12 +319,12 @@ misc_files()
 	
 	local DIR="$HOME/tmp"
 	mkdir -p $DIR
-	
-	until $WGET -nc -P $DIR $BASEURL/debian-install/misc/{catppuccin.tgz,stterm.deb,dwm.deb,elpa.tgz,tmux-plugins.tgz,cn/dict-cn.tgz,media-test.mp4,starship}; do
+	#stterm.deb,dwm.deb,
+	until $WGET -nc -P $DIR $BASEURL/debian-install/misc/{catppuccin.tgz,elpa.tgz,tmux-plugins.tgz,cn/dict-cn.tgz,media-test.mp4}; do
 		errbox "Failed downloading misc files" "$TRY_APT"
 	done
 	
-	sudo dpkg -i $DIR/*.deb
+	# sudo dpkg -i $DIR/*.deb
 	
 	tar xf $DIR/elpa.tgz         -C $HOME/.emacs.d/
 	tar xf $DIR/catppuccin.tgz   -C $HOME/.config/qutebrowser/
@@ -315,25 +334,22 @@ misc_files()
 		sudo dpkg-reconfigure --frontend noninteractive dictd
 	}
 
-	### Fonts
-	until aria2c -d $DIR --no-conf -x16 $BASEURL/debian-install/misc/fonts.txz; do
-		errbox "Failed downloading misc files" "$TRY_APT"
-	done
+	### Fonts (obsolete)
+	### use wx672fonts.deb instead
+	# until aria2c -d $DIR --no-conf -x16 $BASEURL/debian-install/misc/fonts.txz; do
+	# 	errbox "Failed downloading misc files" "$TRY_APT"
+	# done
 
 	sudo chown -R $USER:$USER /usr/local
-	tar xf $DIR/fonts.txz -C /usr/local/share/
+	# tar xf $DIR/fonts.txz -C /usr/local/share/
 
 	# sudo mkdir -p /usr/local/share/fonts/truetype/nerd-fonts
 	# sudo tar zxf $DIR/FiraCodeNerdFont.tgz -C /usr/local/share/fonts/truetype/nerd-fonts/
 	
 	### Populating /usr/local/bin/
-	sudo cp $DOTFILE/usr/local/bin/* /usr/local/bin/ # cheat, ffcast, sk, uni
-	sudo mv $DIR/starship /usr/local/bin 
-	sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd
-	sudo update-alternatives --install /usr/local/bin/cat cat /usr/bin/cat 30
-	sudo update-alternatives --install /usr/local/bin/cat cat /usr/bin/batcat 50
-	batcat cache --build
-	sudo chmod 755 /usr/local/bin/*
+	# sudo cp $DOTFILE/usr/local/bin/* /usr/local/bin/ # cheat, ffcast, sk, uni
+	# sudo mv $DIR/starship /usr/local/bin 
+	# sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd
 	rm -rf $DIR
 
 	### Enable user services
@@ -434,19 +450,19 @@ EOF
 # no longer needed since is done by the *.postinst scripts
 alternatives_setup()
 {
-	# x-window-manager
-	WM="$(command -v dwm)"
+	local WM="$(command -v dwm)"
 	[ "$WM" ] && sudo update-alternatives --set x-window-manager "$WM"
 
-	# x-terminal-emulator
+	local WEZ="/usr/local/bin/open-wezterm-here"
+	local ST="$(command -v st)"
 
-	# until command -v alacritty; do sudo apt install -y alacritty; done
+	[ "$WEZ" ] && sudo update-alternatives --set x-terminal-emulator "$WEZ" \
+					   || sudo update-alternatives --set x-terminal-emulator "$ST"
 
-	# ALACRITTY="$(command -v alacritty)"
-
-	# [ "$ALACRITTY" ] && {
-    #     sudo update-alternatives --set x-terminal-emulator "$ALACRITTY"
-	# }
+	sudo update-alternatives --install /usr/local/bin/cat cat /usr/bin/cat 30
+	sudo update-alternatives --install /usr/local/bin/cat cat /usr/bin/batcat 50
+	batcat cache --build
+	sudo chmod 755 /usr/local/bin/*
 }
 
 ############# Real work starts here ##############
