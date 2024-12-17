@@ -277,6 +277,11 @@ more_pkgs(){
 			   "In case of a networking problem, $TRY_NET"
 	done
 
+	until sudo $APT install -y wx672texmf; do
+		errbox "$APT install wx672texmf failed!" \
+			   "In case of a networking problem, $TRY_NET"
+	done
+
 	unset APT
 	command -v xterm && sudo apt purge xterm
 }
