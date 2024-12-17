@@ -1,4 +1,4 @@
-##############################
+a##############################
 #!/bin/bash
 
 BASEURL="https://cs6.swfu.edu.cn/~wx672"
@@ -198,10 +198,6 @@ EOF
 # Pin-Priority: 50
 # EOF
 
-	cat <<EOF | sudo tee /etc/apt-fast.conf
-DOWNLOADBEFORE=true
-MIRRORS=( 'http://ftp.cn.debian.org/debian,https://mirrors.ustc.edu.cn/debian,https://mirrors.bfsu.edu.cn/debian' )
-EOF
 }
 
 dist_upgrade(){
@@ -217,7 +213,13 @@ dist_upgrade(){
 more_pkgs(){
 	# apt-fast is from https://cs6.swfu.edu.cn/debian/pool/
 	sudo apt-get -y install aria2 apt-fast
-	
+
+### managed in apt-fast.deb	
+# 	cat <<EOF | sudo tee /etc/apt-fast.conf
+# DOWNLOADBEFORE=true
+# MIRRORS=( 'http://ftp.cn.debian.org/debian,https://mirrors.ustc.edu.cn/debian,https://mirrors.bfsu.edu.cn/debian' )
+# EOF
+
 	# $WGET $BASEURL/debian-install/apt-fast.deb && {
 	#   sudo dpkg -i apt-fast.deb && \
 		# 		rm -f apt-fast.deb || \
@@ -262,8 +264,8 @@ more_pkgs(){
 	done
 	
 	# until sudo $APT install -y $PKG_CHN; do
-	until sudo $APT install -y wx672-chinese; do
-		errbox "$APT install wx672-chinese failed!" \
+	until sudo $APT install -y wx672chinese; do
+		errbox "$APT install wx672chinese failed!" \
 			   "In case of a networking problem, $TRY_NET"
 	done
 
@@ -274,6 +276,11 @@ more_pkgs(){
 
 	until sudo $APT install -y wx672fonts; do
 		errbox "$APT install wx672fonts failed!" \
+			   "In case of a networking problem, $TRY_NET"
+	done
+
+	until sudo $APT install -y wx672texmf; do
+		errbox "$APT install wx672texmf failed!" \
 			   "In case of a networking problem, $TRY_NET"
 	done
 
@@ -319,8 +326,8 @@ misc_files()
 	
 	local DIR="$HOME/tmp"
 	mkdir -p $DIR
-	#stterm.deb,dwm.deb,
-	until $WGET -nc -P $DIR $BASEURL/debian-install/misc/{catppuccin.tgz,elpa.tgz,tmux-plugins.tgz,cn/dict-cn.tgz,media-test.mp4}; do
+	#stterm.deb,dwm.deb,cn/dict-cn.tgz
+	until $WGET -nc -P $DIR $BASEURL/debian-install/misc/{catppuccin.tgz,elpa.tgz,tmux-plugins.tgz,media-test.mp4}; do
 		errbox "Failed downloading misc files" "$TRY_APT"
 	done
 	
@@ -330,9 +337,7 @@ misc_files()
 	tar xf $DIR/catppuccin.tgz   -C $HOME/.config/qutebrowser/
 	tar xf $DIR/tmux-plugins.tgz -C $HOME/.config/tmux/
 
-	sudo tar xf $DIR/dict-cn.tgz -C /usr/share/dictd/ && {
-		sudo dpkg-reconfigure --frontend noninteractive dictd
-	}
+	sudo dpkg-reconfigure --frontend noninteractive dictd
 
 	### Fonts (obsolete)
 	### use wx672fonts.deb instead
@@ -341,15 +346,7 @@ misc_files()
 	# done
 
 	sudo chown -R $USER:$USER /usr/local
-	# tar xf $DIR/fonts.txz -C /usr/local/share/
 
-	# sudo mkdir -p /usr/local/share/fonts/truetype/nerd-fonts
-	# sudo tar zxf $DIR/FiraCodeNerdFont.tgz -C /usr/local/share/fonts/truetype/nerd-fonts/
-	
-	### Populating /usr/local/bin/
-	# sudo cp $DOTFILE/usr/local/bin/* /usr/local/bin/ # cheat, ffcast, sk, uni
-	# sudo mv $DIR/starship /usr/local/bin 
-	# sudo ln -sf /usr/bin/fdfind /usr/local/bin/fd
 	rm -rf $DIR
 
 	### Enable user services
