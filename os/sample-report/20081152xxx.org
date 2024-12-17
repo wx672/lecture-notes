@@ -1,5 +1,6 @@
 #+TITLE:    《操作系统原理》实验报告
 #+AUTHOR:    姓名(学号)
+#+DATE:      242501
 #+EMAIL:     
 #+LANGUAGE:  cn
 #+OPTIONS:   H:3 num:t toc:2 \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
@@ -31,119 +32,426 @@
        : uname -a	
        : Linux debian 3.0.0-1-amd64
     3. How long has it been since your PC last booted? =uptime=
-       : 
-    4. How much of the total CPU time has been spent executing in user mode? kernel mode? idle? =top=
-       : 
+       : uptime
+       :  13:34:46 up 12 min,  2 users,  load average: 0.23, 0.69, 0.52
+    4. How much of the total CPU time has been spent executing in user
+       mode? kernel mode? idle? =top=
+       : top -bn1 | rg Cpu
+       : %Cpu(s):  0.7 us,  0.7 sy,  0.0 ni, 98.5 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
     5. How much memory is configured in your PC? =top,free,/proc/meminfo=
-       : 
+       : free
+       :       <total>   used     free     shared  buff/cache  available
+       : Mem:  15695916  2234836  9521456  219776  4493980     13461080
+       : Swap:   999420  0        999420
+       
     6. How much memory is currently available? =top,free,/proc/meminfo=
-       : 
-    7. How many disk read/write requests have been made? =/proc/diskstats=
-       : 
+
+       : free
+       :       total     used     <free>   shared  buff/cache  available
+       : Mem:  15695916  2234836  9521456  219776  4493980     13461080
+       : Swap:   999420  0        999420
+       
+    7. How many disk read/write requests have been made?
+       =/proc/diskstats, Documentation/admin-guide/iostats.rst=
+
+       : cat /proc/diskstats
+       
     8. How many context switches has the kernel performed? =/proc/stat=
-       : 
+
+       : cat /proc/stat | rg ctxt
+       : 6915766
+
     9. How many context switches has a process had? =/proc/[pid]/status=
-       : 
+
+       : cat /proc/$$/stat | rg ctxt
+       : voluntary_ctxt_switches:    1428
+       : nonvoluntary_ctxt_switches: 2
+
     10. How many processes have been created since the system was booted? =/proc/stat=
-	: 
+	
+        : cat /proc/stat | rg processes
+        : processes 26352
+
     11. How many processes are there in the ready queue? =/proc/stat=
-	: 
+
+        : cat /proc/stat | rg processes
+        : processes 26352
+	: cat /proc/stat | rg running
+        : procs_running 2
+        : in queue = processes - procs_running = 26352 - 2 = 26350
+        
     12. How many processes are blocked waiting for I/O to complete? =/proc/stat=
-  	: 
+
+  	: cat /proc/stat | rg blocked
+        : procs_blocked 0
+        
     13. What does the following command do?
-	: cd /proc/`ps | head -2 | tail -1 | cut -f1 -d' '` && ls -l
+        
+	: cd /proc/$(ps | head -2 | tail -1 | cut -f1 -d' ') && ls -l
+
+        To see all the information associated with a process.
+        : cd /proc/PID && ls -l
 
 **** Sum up
-     In your /email message/, please answer the following questions.
      1. How many hours you spent in this section?
-	- 
+	- More then 2 hours.
      2. What's the major difficulties you met in this section? 
-	1. 
-	2. 
-	3. 
+	1. Reading man pages.
+	2. Reading kernel documentations
+	3. English.
      3. How did you solve (or try solving) them?
-	- 
+	- Be very patient.
      4. Have you learnt anything? Or your time was just wasted?
-	- 
+	- Learned a lot.
+          
 *** Play with the kernel
     - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-2]] 
     - 实验环境 :: 
       - OS version: (=uname -srv=)
-      - Kernel source version: (=ls /usr/src/=)  
+
+        : Linux 6.12.17-amd64
+
+      - Kernel source version: (=ls /usr/src/=)
+
+        : 6.12.17
+        
       - GCC version: (=gcc -v | tail -1=)
+
+        : 14.2.0
+        
 **** 实验步骤
-     1. 实
-     2. 验
-     3. 步
-     4. 骤
+     1. Install kernel source package.
+        
+        : sudo apt install linux-source
+        
+     2. Read README file.
+
+        : cat /usr/src/linux-source-6.12/README
+        
+     3. Browse the kernel source tree with =global=.  Find the following
+        "famous" code, and tell me why they are "famous".
+        
+        - start_kernel() :: in =init/main.c=. Kernel entry point.
+          
+        - init() :: There are lots of functions in the kernel souurce
+          named =init()=. The most important one is for kernel
+          initialization.
+          
+        - struct task_struct :: in =include/linux/sched.h=. It's the
+          implementation of the concept =process=.
+          
+        - struct inode :: in =include/linux/fs.h=. It's the definition
+          of file inodes.
+          
+        - struct file :: in =include/linux/fs.h=. It's the definition of
+          opened files.
+          
+        - fork() :: in =kernel/fork.c=. It's for generating a new
+          process. =man 2 fork=
+          
+        - include/asm-generic/unistd.h :: =man unistd.h=
+          
+        - arch/x86/entry/entry.S :: Common place for both 32- and
+          64-bit entry routines.
+          
+        - kernel/printk/printk.c :: Similar to =printf()= but works in
+          the kernel only.
+
 **** Sum up
-     In your email message, please answer the following questions.
      1. How many hours you spent in this section?
-	- 
+
+        - More then 10 hours
+
      2. What's the major difficulties you met in this section? 
-	1. 
-	2. 
-	3. 
+
+        - Learning how to compile kernel source.
+
      3. How did you solve (or try solving) them?
-	- 
+
+        - Reading lots of online tutorials.
+          
      4. Have you learnt anything? Or your time was just wasted?
-	- 
+        
+	- A lot.
 
 *** Hello, kernel Module!
     - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-3]] 
     - 实验环境 :: 
       - OS version: (=uname -srv=)
-      - Kernel source version: (=ls /usr/src/=)  
+
+        : Linux 6.12.17-amd64
+
+      - Kernel source version: (=ls /usr/src/=)
+
+        : 6.12.17
+        
       - GCC version: (=gcc -v | tail -1=)
+
+        : 14.2.0
+
 **** 实验步骤
-     1. 实
-     2. 验
-     3. 步
-     4. 骤
+     1. Find out the right kernel headers package matching your
+        running kernel:
+
+        #+begin_src sh
+          uname -a
+          aptitude search ^linux-headers
+        #+end_src
+
+        linux-headers-6.12.19-amd64
+
+        install the right headers-package matching your running
+        kernel:
+        
+        #+begin_src sh
+          sudo aptitude install linux-headers-`uname -r`
+        #+end_src
+        
+     2. Make a directory to store your =Hello, world!= kernel module
+        
+        #+begin_src sh
+          mkdir hello-lkm && cd hello-lkm
+        #+end_src
+        
+     3. In =hello-lkm= directory, write a [[file:src/hello-lkm/hello-1.c][hello-1.c]]. (See [[https://www.geeksforgeeks.org/linux-kernel-module-programming-hello-world-program/][Linux Kernel
+        Module Programming: Hello World Program]])
+
+        #+begin_src c
+          include <linux/module.h>	 /* Needed by all modules */
+          include <linux/kernel.h>	 /* Needed for KERN_INFO */
+          include <linux/init.h>	 /* Needed for the macros */
+          
+          //< The license type -- this affects runtime behavior
+          ODULE_LICENSE("GPL");
+          
+          //< The author -- visible when you use modinfo
+          ODULE_AUTHOR("Akshat Sinha");
+          
+          //< The description -- see modinfo
+          ODULE_DESCRIPTION("A simple Hello world LKM!");
+          
+          //< The version of the module
+          ODULE_VERSION("0.1");
+          
+          tatic int __init hello_start(void)
+          
+                 printk(KERN_INFO "Loading hello module...\n");
+                 printk(KERN_INFO "Hello world\n");
+                 return 0;
+          
+
+          static void __exit hello_end(void)
+          {
+          	printk(KERN_INFO "Goodbye Mr.\n");
+          }
+          
+          module_init(hello_start);
+          module_exit(hello_end);
+        #+end_src
+     4. Write a [[file:src/hello-lkm/Makefile][Makefile]]
+        
+        #+begin_src makefile
+          obj-m += hello-1.o
+
+          all:
+	      make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+	  clean:
+	      make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
+        #+end_src
+
+     5. =make=
+
+        If everything is ok, there should be a =hello-1.ko= file in your
+        =hello-lkm= directory.
+
+     6. You can view details of the =hello-1.ko= with =modinfo=
+
+        #+begin_src sh
+          modinfo hello-1.ko
+        #+end_src
+        
+     7. Install the module into the running kernel
+        
+        #+begin_src sh
+          sudo insmod ./hello-1.ko
+        #+end_src
+
+     8. See if it's loaded into the kernel
+        
+        #+begin_src sh
+          lsmod | grep hello
+        #+end_src
+        
+        Does it show up? Well, and you can see "Hello world" in the
+        system log:
+        
+        #+begin_src sh
+          sudo dmesg | tail
+        #+end_src
+        
+     9. Now, you can remove this useless module from the kernel by
+        doing:
+        
+        #+begin_src sh
+          sudo rmmod hello_1
+        #+end_src
+        
+     10. And you should see "Goodbye, Mr." here:
+        
+         #+begin_src sh
+           dmesg | tail
+         #+end_src
+
 **** Questions
      1. What's a kernel module?
+
+        A: piece of software that can be loaded into the OS kernel at
+        run time.
+
      2. How do modules get into the kernel?
+
+        : sudo insmod ./hello-1.ko
+        
      3. How do you know a kernel module is loaded?
+
+        : lsmod | grep hello
+        
      4. How do you know a module is working properly or not?
+
+        : sudo dmesg | tail
+        
      5. How do you unload a module?
-     6. What's the major problems you met in this section? And how did you solve (or try solving) them?
+
+        : sudo rmmod hello_1
+        
+     6. What's the major problems you met in this section? And how did
+        you solve (or try solving) them?
+
+        It's not hard to follow the provided tutorial article step by
+        step. The hard part is to understand each step.
 
 **** Sum up
-     In your email message, please answer the following questions.
      1. How many hours you spent in this section?
-	- 
+	- More than 8 hours.
      2. What's the major difficulties you met in this section? 
-	1. 
-	2. 
-	3. 
+        - to understand each step.
      3. How did you solve (or try solving) them?
-	- 
+	- Google.
      4. Have you learnt anything? Or your time was just wasted?
-	- 
+	- A lot.
 
 *** System calls
     - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-2-4]]  
     - 实验环境 :: 
       - OS version: (=uname -srv=)
-      - Kernel source version: (=ls /usr/src/=)  
+
+        : Linux 6.12.17-amd64
+
+      - Kernel source version: (=ls /usr/src/=)
+
+        : 6.12.17
+        
       - GCC version: (=gcc -v | tail -1=)
+
+        : 14.2.0
+
 **** 实验步骤
-     1. 实
-     2. 验
-     3. 步
-     4. 骤
+
+*REF:*  https://medium.com/anubhav-shrimal/adding-a-hello-world-system-call-to-linux-kernel-dad32875872
+
+1. Download kernel source. I am using 6.12.19.
+2. In the kernel source dir, make a new directory =hellosyscall=.
+3. Inside =hellosyscall=, write a new file =hellosyscall.c=.
+   #+begin_src c
+     #include <linux/kernel.h>
+     #include <linux/syscalls.h>
+     
+     SYSCALL_DEFINE0(hellosyscall)
+     {
+         printk("Hello, world!\n");
+         return 0;
+     }
+   #+end_src
+4. Write a Makefile.
+   #+begin_src makefile
+     obj-y := hellosyscall.o
+   #+end_src
+5. Edit the =Makefile= in the parent dir (the kernel source root dir).
+   #+begin_src makefile
+     core-y += hellosyscall/
+   #+end_src
+6. Add the new system call to the system call table
+   
+   : vi arch/x86/entry/syscalls/syscall_64.tbl
+   append the following line at the end of this file:
+   : 335 common hellosyscall sys_hellosyscall
+   
+7. Add new system call to the system call header file
+
+   : vi include/linux/syscalls.h
+   
+   Add the following line to the end of the document before the #endif statement:
+
+   : asmlinkage long sys_hellosyscall(void);
+
+8. Compile the kernal source.
+
+   : sudo make menuconfig
+   : sudo make -j8
+   
+9. Install the updated kernel.
+   : sudo make modules_install install
+   : sudo update-grub
+
+10. =reboot=
+
+11. test code
+
+    #+begin_src c
+      #include <linux/kernel.h>
+      #include <sys/syscall.h>
+      #include <stdio.h>
+      #include <unistd.h>
+      #include <string.h>
+      #include <errno.h>
+      #define __NR_hellosyscall 335
+      long hellosyscall_syscall(void)
+      {
+       return syscall(__NR_hellosyscall);
+      }
+      int main(int argc, char *argv[])
+      {
+       long activity;
+       activity = hellosyscall_syscall();
+      if(activity < 0)
+       {
+       perror("The system call has failed!\n");
+       }
+      else
+       {
+       printf("Your system call is working! Hello, world!\n");
+       }
+      return 0;
+      }
+    #+end_src
+
+   compile and run:
+   : gcc -o report report.c
+   : ./report
+   : sudo dmesg
+   
 **** Sum up
-     In your email message, please answer the following questions.
      1. How many hours you spent in this section?
-	- 
+	- >= 12 hours.
+          
      2. What's the major difficulties you met in this section? 
-	1. 
-	2. 
-	3. 
+        - Understanding the example code.
+          
      3. How did you solve (or try solving) them?
-	- 
+	- Read the tutorial very carefully again and again.
+          
      4. Have you learnt anything? Or your time was just wasted?
-	- 
+	- A lot.
 
 * Process management
   - [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3]]
@@ -151,142 +459,484 @@
    - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-1-1]]
    - 实验环境 :: 
      - OS version: (=uname -srv=)
-     - Kernel source version: (=ls /usr/src/=)  
+
+       : Linux 6.12.17-amd64
+
+     - Kernel source version: (=ls /usr/src/=)
+
+       : 6.12.17
+       
      - GCC version: (=gcc -v | tail -1=)
+
+       : 14.2.0
+
 *** 实验步骤
-    1. 实
-    2. 验
-    3. 步
-    4. 骤
+     1. There is an example c program at the end of the =wait= manual page (=man
+        wait=). Read it, compile it, and run it. Then answer the
+        following questions:
+        
+        1) Both =exit()= and =_exit()= are used in the program. What's the
+           difference?
+
+           - =_exit()= :: =_exit()= is a system call. It terminates the
+             calling process "immediately".  Any open file descriptors
+             belonging to the process are closed.  Any children of the
+             process are inherited by =init(1)= (or by the nearest
+             "subreaper" process as defined through the use of the
+             =prctl(2)= =PR_SET_CHILD_SUBREAPER= operation).  The
+             process's parent is sent a =SIGCHLD= signal.
+             
+           - =exit()= :: The =exit()= function is a library call provided
+             by LIBC. It causes normal process termination and the
+             least significant byte of status (i.e., status =& 0xFF=) is
+             returned to the parent (see =wait(2)=).
+
+             All open =stdio(3)= streams are flushed and closed.  Files
+             created by =tmpfile(3)= are removed.
+
+             The C standard specifies two constants, =EXIT_SUCCESS= and
+             =EXIT_FAILURE=, that may be passed to =exit()= to indicate
+             successful or unsuccessful termination, respectively.
+
+        2) Tell me about the following line of code:
+           
+           : w = waitpid(cpid, &status, WUNTRACED | WCONTINUED);
+           
+           =waitpid()= is a system call. It waits for process to change
+           state.
+           - w :: It's the return value. On success, it returns the
+             process ID of the child whose state has changed; if
+             =WNOHANG= was specified and one or more child(ren)
+             specified by pid exist, but have not yet changed state,
+             then 0 is returned.  On failure, -1 is returned.
+           - =cpid= :: It's the child pid.
+           - =&status= :: It's the address of stored status information. 
+           - =WUNTRACED | WCONTINUED= :: Two of a bunch of options. By
+             default, =waitpid()= waits only for terminated children,
+             but this behavior is modifiable via the options argument,
+             as described below.
+             - =WUNTRACED= :: return if a child has stopped (but not
+               traced via =ptrace(2)=).  Status for traced children
+               which have stopped is provided even if this option is
+               not specified.
+             - =WCONTINUED= :: return if a stopped child has been
+               resumed by delivery of =SIGCONT=.
+     
+     2. =system()=, =fork()=, =exec()=
+ 
+        Compile and run the following 4 programs. Tell me what they
+        do? And [[http://stackoverflow.com/questions/1697440/difference-between-system-and-exec-in-linux][their differences]] (last visited: [2020-11-20 Fri])?
+        
+        #+BEGIN_SRC c
+        #include <stdlib.h>
+        #include <stdio.h>
+        int main()
+        {
+            printf("Running ps with system\n");
+            system("ps -ax &");
+            printf("Done.\n");
+            exit(0);
+        }
+        #+END_SRC
+
+        - Answer :: The above program runs the shell command =ps= with
+          the =system()= function.
+          
+        #+BEGIN_SRC c
+        #include <unistd.h>
+        #include <stdio.h>
+        int main()
+        {
+            printf("Running ps with execlp\n");
+            execlp("ps", "ps", "-ax", 0);
+            printf("Done.\n");
+            exit(0);
+        }
+        #+END_SRC
+
+        - Answer :: The above program runs the shell command =ps= with
+          the =execlp()= function.
+          
+        #+BEGIN_SRC c
+        #include <stdio.h>
+        #include <unistd.h>
+        int main(){
+        
+           pid_t child_p;
+           printf("Running ps with fork\n");
+        
+           child_p = fork();
+        
+           execlp("ps", "ps", "-ax", 0);
+           return 0;
+        }
+        #+END_SRC
+
+        - Answer :: The above program runs the shell command =ps= with
+          the =fork()= function. =ps= is done in the parent process.
+          
+        #+BEGIN_SRC c
+        #include <unistd.h>
+        #include <stdio.h>
+        int main()
+        {
+            pid_t pid;
+            printf("Running ps again with fork\n");
+            pid = fork();
+            if ( pid == 0 ) { // in the child, do exec
+            execlp("ps", "ps", "-ax", 0);
+            }
+            else if (pid < 0) // failed to fork
+            {
+                printf("fork failed.\n");
+                exit(1);
+            }
+            else // parent
+            {
+            wait(NULL);
+            }
+            exit(0);
+        }
+        #+END_SRC
+
+        - Answer :: The above program runs the shell command =ps= with
+          the =fork()= function. =ps= is done in the child process.
+                  
+     3. more on =fork()= and =wait()= 
+
+        Compile and run [[./src/proc/fork-blp.c][this program]]. Tell me why the output is weird (mixed with
+        the =$= prompt)? And fix it with the =wait()= system call.
+        
+     4. zombies and =waitpid()=
+        
+        - Read the *NOTES* section in the =wait= manual page (=man 2 wait=) to get a clear
+          idea about zombie processes. And tell me why zombie is not welcomed.
+        - At the end of =wait= manual page (=man 2 wait=), there is an example
+          program. Play with it, and tell me about =WUNTRACED=, =WCONTINUED=, =WIFEXITED=,
+          =WEXITSTATUS=, =WIFSIGNALED=, =WTERMSIG=, =WIFSTOPPED=, =WSTOPSIG=,
+          =WIFCONTINUED=, =pause()=.
+        - Compile and run [[./src/proc/zombie.c][this small program]]. This program can leave a [[http://en.wikipedia.org/wiki/Zombie_process][zombie process]]
+          in the system. You can see it with
+          : ps u
+          
+        - Your task :: .
+          - Write a similar program that leaves 5 zombies.
+          - Tell me what's the difference between a [[http://en.wikipedia.org/wiki/Zombie_process][zombie process]] and a [[http://en.wikipedia.org/wiki/Orphan_process][orphan process]]?
+          - Read [[https://cs6.swfu.edu.cn/calibre/get/PDF/39/calibre][Beginning Linux Programming]] (last visited: [2020-11-20 Fri]), Chapter 11, page 503 to learn how to avoid
+                zombies with =waitpid()= system call. And correct the above program.
+          - Tell me the difference between =exit()= and =return=.
+
 *** Sum up
-    In your email message, please answer the following questions.
     1. How many hours you spent in this section?
-       - 
+       - More than 5 hours.
     2. What's the major difficulties you met in this section? 
-       1. 
-       2. 
-       3. 
+       - Read manual pages.
     3. How did you solve (or try solving) them?
-       - 
+       - Read.
     4. Have you learnt anything? Or your time was just wasted?
-       - 
+       - A lot.
 
 ** Thread
    - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-2]]
-   - 实验环境 :: 
+   - 实验环境 :: .
      - OS version: (=uname -srv=)
-     - Kernel source version: (=ls /usr/src/=)  
+
+       : Linux 6.12.17-amd64
+
+     - Kernel source version: (=ls /usr/src/=)
+
+       : 6.12.17
+       
      - GCC version: (=gcc -v | tail -1=)
+
+       : 14.2.0
+
 *** 实验步骤
-    1. 实
-    2. 验
-    3. 步
-    4. 骤
+1. At the end of =pthread_create= manual page (=man 3 pthread_create=), there is an example
+   program. Play with it, and then tell me:
+
+   1. What's the =tinfo[]=?
+      - =tinfo[]= :: 
+
+   2. What's the =res=?
+      - =res= ::
+        
+2. At the end of =pthread_attr_init= manual page (=man 3 pthread_attr_init=), there is an
+   example program. Compile and run it.
+   
+3. Compile and run [[./src/proc/thread2.c][this program]]. Now, remove the =pthread_join= call, i.e. comment
+   out line 29-32. Compile and run it again for multiple times. Tell me the
+   difference, and why?
+
 *** Sum up
     In your email message, please answer the following questions.
     1. How many hours you spent in this section?
-       - 
+       - More than 3 hours.
+         
     2. What's the major difficulties you met in this section? 
-       1. 
-       2. 
-       3. 
+       - Understanding the sources codes.        
+        
     3. How did you solve (or try solving) them?
-       - 
+       - Reading man pages.
+         
     4. Have you learnt anything? Or your time was just wasted?
-       - 
+       - A lot.
 
 ** IPC
    - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-3-3]]
    - 实验环境 :: 
      - OS version: (=uname -srv=)
-     - Kernel source version: (=ls /usr/src/=)  
+
+       : Linux 6.12.17-amd64
+
+     - Kernel source version: (=ls /usr/src/=)
+
+       : 6.12.17
+       
      - GCC version: (=gcc -v | tail -1=)
+
+       : 14.2.0
+
 *** 实验步骤
-    1. 实
-    2. 验
-    3. 步
-    4. 骤
+**** Signals
+1. understanding =signal()=
+     
+   If you can understand
+         
+   #+begin_src c
+   typedef int MYINT;
+   MYINT myfunction(MYINT);
+   #+end_src
+         
+   Then, you should be able to understand
+
+   #+begin_src c
+   typedef void (*sighandler_t)(int);
+   sighandler_t signal(int signum, sighandler_t handler);
+   #+end_src
+         
+   Now, tell me your understanding about the following [[http://en.wikipedia.org/wiki/Function_prototype][function prototype]]:
+         
+   #+begin_example
+   void (*signal(int sig, void (*func)(int)))(int);
+                `-------------------v------------'
+                                     `----> *signal() is a function returning a 'function pointer'
+                                      `               pointing to a function of type void(*)(int)
+                                       `--> *signal() takes 2 arguments:
+                                              .  sig - an int
+                                              . func - a 'function pointer' void(*)(int)
+   #+end_example
+
+   Put it in another way:
+
+   #+begin_example
+   void (*signal(int sig, void (*func)(int)))(int);
+   void (                 *                 )(int);
+   `--------------------v------------------------'
+                         `---> void(*)(int) is a function pointer which is:
+                               - returned by function '*signal()'
+                               - pointing to a function taking an int, returning void
+   #+end_example
+
+   - =man 2 signal= can help
+
+2. Following /Beej's Guide to Unix IPC/, [[http://beej.us/guide/bgipc/html/multi/signals.html][section 3]] to play with signals. And then
+   tell me details about the following code
+   : int sigaction(int signum, const struct sigaction *act, struct sigaction *oldact);
+   - =man 2 sigaction= can help
+**** Pipe
+1. Follow /Beej's Guide to Unix IPC/, [[http://beej.us/guide/bgipc/html/multi/pipes.html][section 4]] step by step to learn how to use =pipe=.
+2. Modify [[http://beej.us/guide/bgipc/examples/pipe3.c][pipe3.c]] in /Beej's Guide to Unix IPC/, [[http://beej.us/guide/bgipc/html/multi/pipes.html][section 4]] to make the child does the =wc -l=, and the parent does the =ls=.
+3. At the end of =pipe= manual page (=man 2 pipe=), there is an example
+   program. Compile it, run it, understand it, and then, modify the
+   program, let parent do read, and child do write.
+   
+**** FIFO
+1. Follow /Beej's Guide to Unix IPC/, [[http://beej.us/guide/bgipc/output/html/singlepage/bgipc.html#fifos][section 5]] step by step to learn how to use FIFOs.
+2. When you run the example programs (=speak= and =tick=), there should be a new file named =american_maid= appear in your working directory (=$PWD=). What will happen if you delete this FIFO file while the two programs running? Why?
+3. Modify the example programs to use =mkfifo= instead of =mknod=.
+4. Extend the example programs, and make it have 3 writers.
+**** File Locking
+1. Follow /Beej's Guide to Unix IPC/, [[http://beej.us/guide/bgipc/html/multi/flocking.html][section 6]] step by step to learn how to use File locks.
+2. Try the example =lockdemo.c= with both =F_RDLCK= and =F_WRLCK=.
+3. Tell me whether the locked file, e.g. =lockdemo.c= can be delete while the programs are running? And why?
+
+**** Message Queues
+1. Follow /Beej's Guide to Unix IPC/, [[http://beej.us/guide/bgipc/html/multi/mq.html][section 7]] step by step to learn how to use message queues.
+2. What happens when you're running both in separate windows and you kill one or the other?
+3. Also try running two copies of =kirk= or two copies of =spock= to get an idea of what
+   happens when you have two readers or two writers.
+4. Another interesting demonstration is to run kirk, enter a bunch of messages, then run spock
+   and see it retrieve all the messages in one swoop. Just messing around with these toy
+   programs will help you gain an understanding of what is really going on.
+5. What happens if you =ipcrm= the queue while it's in use? Why?
+6. Create a message queue with =ipcmk=, and use it in your programs.
+**** Semaphores
+1. Follow /Beej's Guide to Unix IPC/, [[http://beej.us/guide/bgipc/html/multi/semaphores.html][section 8]] step by step to learn how to use semaphores.
+2. Semaphores are used to lock some shared resources to enforce mutual-exclusion. In the demo program =semdemo.c=, what's locked?
+3. Draw a flow chart to show how the demo program works.
+
 *** Sum up
     In your email message, please answer the following questions.
     1. How many hours you spent in this section?
-       - 
+       - More than 8 hours.
+         
     2. What's the major difficulties you met in this section? 
-       1. 
-       2. 
-       3. 
+       - Understanding the source codes.
+         
     3. How did you solve (or try solving) them?
-       - 
+       - Reading man pages and online resources.
+         
     4. Have you learnt anything? Or your time was just wasted?
-       - 
+       - A lot.
 
 * Memory management
   - [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4]]
+  - 实验环境 :: .
+    - OS version: (=uname -srv=)
+
+      : Linux 6.12.17-amd64
+
+    - Kernel source version: (=ls /usr/src/=)
+
+      : 6.12.17
+       
+    - GCC version: (=gcc -v | tail -1=)
+
+      : 14.2.0
+
 ** Basic commands
-   - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-1]]
-   - 实验环境 :: 
-     - OS version: (=uname -srv=)
-     - Kernel source version: (=ls /usr/src/=)  
-     - GCC version: (=gcc -v | tail -1=)
+- 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-1]]
+
 *** 实验步骤
-    1. 实
-    2. 验
-    3. 步
-    4. 骤
+**** top
+With the help of =man top=, get a clear idea about:
+
+- VIRT :: Virtual Image (kb)
+
+  The total amount of virtual memory used by the task. It includes all
+  code, data and shared libraries plus pages that have been swapped out.
+
+  VIRT = SWAP + RES
+
+- SWAP :: Swapped size (kb)
+
+  The swapped out portion of a task's total virtual memory image.
+
+- RES :: Resident size (kb). (=ps -aly=).
+
+     The non-swapped physical memory a task has used.
+
+     RES = CODE + DATA
+
+- CODE :: Code size (kb)
+
+  The amount of physical memory devoted to executable code, also
+  known as the 'text resident set' size or TRS.
+
+- DATA :: Data+Stack size (kb)
+
+  The amount of physical memory devoted to other than executable
+  code, also known as the 'data resident set' size or DRS.
+
+- SHR :: Shared Mem size (kb)
+
+     The amount of shared memory used by a task. It simply reflects
+     memory that could be potentially shared with other processes.
+
+- nFLT :: Page Fault count
+
+  The number of major page faults that have occurred for a task.  A page fault occurs
+  when a process attempts to read from or write to a virtual page that is not
+  currently present in its address space.  A major page fault is when backing storage
+  access (such as a disk) is involved in making that page available.
+
+- nDRT :: Dirty Pages count
+
+  The number of pages that have been modified since they were last written to disk.
+  Dirty pages must be written to disk before the corresponding physical memory
+  location can be used for some other virtual page.
+
+**** =size=, =objdump=, =nm=
+
+Compile [[./src/mem/size.c][this c program]] with
+: gcc -Wall size.c
+Then, use =size= to see the size of its /text/, /data/, and /bss/ segments.
+: size a.out
+The output should be something like
+: text   data   bss        dec         hex    filename
+: 1200   520    1024032    1025752     fa6d8      a.out
+If you exam its size with =ls -l=, you should get something similar to the following
+line
+: -rwxr-xr-x   1 wx672          wx672        6627 Oct 18 18:05 a.out
+Tell me:
+1. What does the =6627= mean?
+2. What do the =1200=, =520=, =1024032=, and =1025752= mean?
 ** Shared Memory Segments
-   - 实验内容 :: [[http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-2]]
-   - 实验环境 :: 
-     - OS version: (=uname -srv=)
-     - Kernel source version: (=ls /usr/src/=)  
-     - GCC version: (=gcc -v | tail -1=)
-*** 实验步骤
-    1. 实
-    2. 验
-    3. 步
-    4. 骤
+1. Follow /Beej's Guide to Unix IPC/, [[http://beej.us/guide/bgipc/html/multi/shm.html][section 9]] step by step to learn how to use shared memory segments.
+2. Use =ipcrm= to remove the segment you just created while running the example code.
+3. Add semaphore mechanism into the sample program (=shmdemo.c=) to enforce mutual-exclusive
+   access to the shared data area.
+
 ** Memory Mapped Files
-   - 实验内容 :: http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-4-3
-   - 实验环境 :: 
-     - OS version: (=uname -srv=)
-     - Kernel source version: (=ls /usr/src/=)  
-     - GCC version: (=gcc -v | tail -1=)
-*** 实验步骤
-    1. 实
-    2. 验
-    3. 步
-    4. 骤
-*** Sum up
-    In your email message, please answer the following questions.
-    1. How many hours you spent in this section?
-       - 
-    2. What's the major difficulties you met in this section? 
-       1. 
-       2. 
-       3. 
-    3. How did you solve (or try solving) them?
-       - 
-    4. Have you learnt anything? Or your time was just wasted?
-       - 
+1. Follow /Beej's Guide to Unix IPC/, [[http://beej.us/guide/bgipc/html/multi/mmap.html][section 10]] step by step to learn how to use memory mapped files.
+2. Write a small program to find out the page size of your Linux PC.
+3. Add semaphore mechanism into the sample program (=mmapdemo.c=) to enforce mutual-exclusive
+   access to the shared data area.
 
 * File system
-  - *实验内容* http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-5
-  - *实验环境* 
-    - OS version: (=uname -srv=)
-    - Kernel source version: (=ls /usr/src/=)  
-    - GCC version: (=gcc -v | tail -1=)
+- *实验内容* http://cs6.swfu.edu.cn/~wx672/lecture_notes/os/lab.html#sec-5
+- 实验环境 :: 
+  - OS version: (=uname -srv=)
+
+    : Linux 6.12.17-amd64
+
+  - Kernel source version: (=ls /usr/src/=)
+
+    : 6.12.17
+       
+  - GCC version: (=gcc -v | tail -1=)
+
+    : 14.2.0
+
 ** 实验步骤
-   1. 实
-   2. 验
-   3. 步
-   4. 骤
+*** File system creation
+1. Create a initialized file
+   : dd if=/dev/zero of=fs.img bs=1k count=10000
+   You now have a file called =fs.img= that's 10MB.
+2. Use the =losetup= command to associate a loop device with the file (making it look
+   like a block device instead of just a regular file within the file system):
+   : sudo losetup /dev/loop0 fs.img
+3. Creating an ext2 file system within the loop device
+   : sudo mke2fs /dev/loop0 
+4. Mount the newly created file system onto =/mnt= directory
+   : sudo mount -t ext2 /dev/loop0 /mnt
+   or
+   : sudo mount -o loop fs.img /mnt
+5. Get information about your new file system   
+   : dumpe2fs /dev/loop0
+**** Your tasks
+    1. By following the above 5 steps, you've got a new file system mounted on =/mnt=
+       directory. Now you can get into =/mnt=, and create a new file in it. And then
+       associate it with a loop device (=/dev/loop1=), and create another file system in
+       it.
+    2. Plug your USB disk into your PC's USB port, and check 
+       1. what file system it is?
+       2. which directory it's mounted on?
+       3. Use =fsck= to get some details about your USB disk.
+*** Finding a file with =hexdump=
+Follow the instructions in
+[[https://cs6.swfu.edu.cn/~wx672/lecture_notes/os/ext2-analysis.html#sec-3]] (last visited: [2020-11-20 Fri])
+to learn how to find a file with =hexdump= in your newly created file system.
+And then answer this question:
+- After you do '=cat hello=' at the command line, you will see on the screen the
+  content of file =hello=, in our case it is '=helloworld='.
+     
+  Now give me a detailed picture about what is happened in the OS from '=cat hello=' to
+  '=helloworld=' is shown on the screen.
 *** Sum up
-    In your email message, please answer the following questions.
-    1. How many hours you spent in this section?
-       - 
-    2. What's the major difficulties you met in this section? 
-       1. 
-       2. 
-       3. 
-    3. How did you solve (or try solving) them?
-       - 
-    4. Have you learnt anything? Or your time was just wasted?
-       - 
+1. How many hours you spent in this section?
+2. What's the major difficulties you met in this section? And,
+3. How did you solve (or try solving) them?
+4. Have you learnt anything? Or your time was just wasted?
+

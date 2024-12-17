@@ -1,62 +1,75 @@
 \documentclass{swfulabreport}
 
 \swfusetup{%
-  Title     ={Hacking with Linux networking CLI tools}, % 课程名称
-  Author    ={Who Am I}, % 
+  Title     ={《计算机网络》课程实习}, % 课程名称
+  School    ={大数据与智能工程学院},%学院
+  Subject	={计算机科学与技术},%专业
+  Grade     ={2023}, % 年级
+  Author    ={艾学习}, % 姓名
   ID        ={20231152xxx}, % 学号
-  Class     ={计科2023级},%
   Tutor     ={王晓林}, %指导教师
+  LabDays   ={2},%实习天数
+  LabDate   ={2024/12/16 -- 2024/12/17},%实习日期
+  Lab       ={生物楼219},%经管楼219
   Year      ={2024},%
   Month     ={12},%
   Date      ={18},%
-  Reviewer  ={王晓林},%
-  ReviewDate={2024/12/19},%
-  Mark      =,%
-  LabDate   ={2024/12/16 -- 2024/12/17},%
-  LabDays   ={2},%
-  Lab       ={生物楼219},%经管楼219
-  Heads     ={120},%
-  Grouping  ={不分组},%
-  Why   ={掌握Linux平台上常用网络工具的使用，并理解基本的网络编程过程。
-
-\begin{itemize}
-\tightlist
-\item
-  掌握用tcpdump捕获并分析数据包
-\item
-  掌握用netcat完成简单的网络会话
-\item
-  掌握基本的网络编程
-\end{itemize}},%实验目的
-  Req   ={\begin{itemize}
-\tightlist
-\item
-  在Linux平台完成所有实验
-\item
-  在Linux平台完成实验报告
-\item
-  努力尝试用英文撰写实验报告
-\item
-  将实验作业及报告以tgz格式打包，并上传到指定教学网站
-\item
-  迟交报告将被扣分
-\end{itemize}},%实验要求
-  What  ={详见\href{https://cs6.swfu.edu.cn/~wx672/lecture_notes/network_basics/proj-week/proj-week.html}{《实验指导书》}。},%实验内容
-  Sched ={\begin{itemize}
-\tightlist
-\item
-  2024/12/16: 学习使用tmux，ttyrec等实验所需的命令行工具。 学习使用ip,
-  tcpdump, netcat, curl, ss, nmap等网络工具。
-\item
-  2024/12/17: 完成用tcpdump捕获、分析数据包，用netcat实现网络协议会话，
-  以及网络编程等规定实验项目。完成所有实验，并撰写实验报告。
-\end{itemize}},%课程实习安排
-  Sumup ={不要少于300字。},%实习总结
+  CommentsDate ={2024年12月19日},%
+  Comments  ={Well done!},%
+  Mark      ={100},%
+  Sig       ={wangxiaolin},% default wangxiaolin
 }
 
 \begin{document}
 
 \maketitle
+
+\tableofcontents
+\clearpage
+
+\section{实习的任务、作用和目的}\label{ux5b9eux4e60ux7684ux4efbux52a1ux4f5cux7528ux548cux76eeux7684}
+
+\subsection{实习目的}\label{ux5b9eux4e60ux76eeux7684}
+
+掌握Linux平台上常用网络工具的使用，并理解基本的网络编程过程。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  掌握用tcpdump捕获并分析数据包\\
+\item
+  掌握用netcat完成简单的网络会话\\
+\item
+  掌握基本的网络编程
+\end{enumerate}
+
+\subsection{实验要求}\label{ux5b9eux9a8cux8981ux6c42}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  在Linux平台完成所有实验\\
+\item
+  在Linux平台完成实验报告\\
+\item
+  努力尝试用英文撰写实验报告\\
+\item
+  将实验作业及报告以tgz格式打包，并上传到指定教学网站\\
+\item
+  迟交报告将被扣分
+\end{enumerate}
+
+\section{实习主要内容（含工具、方法等）}\label{ux5b9eux4e60ux4e3bux8981ux5185ux5bb9ux542bux5de5ux5177ux65b9ux6cd5ux7b49}
+
+详见《实习指导书》。
+
+\begin{itemize}
+\tightlist
+\item
+  https://cs6.swfu.edu.cn/\textasciitilde wx672/lecture\_notes/network\_basics/proj-week/proj-week.html
+\end{itemize}
 
 \section{Packet analysis}\label{packet-analysis}
 
@@ -204,5 +217,11 @@ your problems, you have to tell me:
 \subsection{Problem 4}\label{problem-4}
 
 \subsection{Problem 5}\label{problem-5}
+
+\section{实习总结}\label{ux5b9eux4e60ux603bux7ed3}
+
+不要少于300字。
+
+\comments %can optionally take an argument
 
 \end{document}
