@@ -1,0 +1,26 @@
+\documentclass[varwidth=45em,crop]{standalone}
+
+\usepackage{fontspec}
+
+\setmonofont{DejaVu Sans Mono}
+
+\begin{document}
+\begin{verbatim}
+Token Ring:
+┌───┬───┬───┬──────────────────┬──────────────────┬──//──┬───┬───┬───┐
+│SFD│AC │FC │   DST ADDRESS    │   SRC ADDRESS    │ data │CRC│ED │FS │
+└───┴───┴───┴──────────────────┴──────────────────┴──//──┴───┴───┴───┘
+  1   1   1          6                  6           >=0    1   1   1
+
+Ethernet:
+┌──────────────────┬──────────────────┬──────┬──//──┬────────────┐
+│   DST ADDRESS    │   SRC ADDRESS    │ Type │ data │    FCS     │
+└──────────────────┴──────────────────┴──────┴──//──┴────────────┘
+         6                  6            2     >=0        4
+\end{verbatim}
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
