@@ -1,0 +1,320 @@
+\documentclass{swfucoursework}
+
+\swfusetup{%
+  Title     ={Linux应用}, % 课程名称
+  School    ={大数据与智能工程学院},%学院
+  Author    ={艾学习}, % 姓名
+  ID        ={20251152xxx}, % 学号
+  Class     ={计算机科学与技术2025班},%班级
+  Tutor     ={王晓林}, %指导教师
+  Term      ={2025 -- 2026 -- 01},%学期
+  CommentsDate ={2025年11月1日},%
+  Comments  ={Good!},%
+  Mark      ={B},%
+  Sig       ={wangxiaolin},% default wangxiaolin
+}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\section{实习目的}\label{ux5b9eux4e60ux76eeux7684}
+
+熟练掌握Linux平台的使用，掌握基本命令及基本的shell编程，
+了解Linux平台上的常用软件开发环境及开发步骤。
+
+\section{实验要求}\label{ux5b9eux9a8cux8981ux6c42}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  在Linux平台完成所有实验\\
+\item
+  在Linux平台完成实验报告\\
+\item
+  努力尝试用英文撰写实验报告\\
+\item
+  将实验作业及报告以tgz格式打包，并上传到指定教学网站\\
+\item
+  迟交报告将被扣分
+\end{enumerate}
+
+\section{实验主要内容（含工具、方法等）}\label{ux5b9eux9a8cux4e3bux8981ux5185ux5bb9ux542bux5de5ux5177ux65b9ux6cd5ux7b49}
+
+详见《实验指导书》。
+
+\begin{itemize}
+\tightlist
+\item
+  https://cs6.swfu.edu.cn/\textasciitilde wx672/lecture\_notes/linux/bash/shell\_basics.html
+\item
+  https://cs6.swfu.edu.cn/\textasciitilde wx672/lecture\_notes/linux/c/c\_dev.html
+\end{itemize}
+
+\subsection{Basic Commands and
+Concepts}\label{basic-commands-and-concepts}
+
+\subsubsection{Try the following
+commands}\label{try-the-following-commands}
+
+\begin{minted}[autogobble]{sh}
+pwd; ls; cd; mkdir; cat; less; man; echo; help;
+mv; cp; rm; 
+vi;
+\end{minted}
+
+\textbf{Answer:}
+
+\begin{minted}[autogobble]{sh}
+# pwd - shows the present working directory.
+pwd
+# Output: /tmp
+
+# ls - list files in current dir.
+ls
+# Output: lots of files and directories.
+
+# cd - change directory
+cd      # go home
+cd /tmp # get into /tmp dir
+
+# mkdir - create a new dir
+mkdir /tmp/coursework # create a new dir coursework inside /tmp
+mkdir -p /tmp/coursework/programming/{c,bash,python} # gets a set of dirs
+
+# cat - concatenate files
+cat > /tmp/tmp.txt # write into /tmp/tmp.txt
+cat /tmp/tmp.txt   # show content of /tmp/tmp.txt
+cat >> /tmp/tmp.txt # appned into it
+cat /tmp/tmp.txt > /tmp/a.txt # copy tmp.txt to a.txt in /tmp
+
+# less - view a file
+less /tmp/a.txt # read a.txt
+
+# man - read manual
+man less # read the manual of less
+
+# echo - write to stdout
+echo 'hello, world!'
+echo $PATH  # output the value of the variable PATH
+
+# help - show help message of bash built-in commands
+help echo
+
+# mv - rename/move files
+mv /tmp/a.txt /tmp/b.txt
+
+# cp - copy
+cp /tmp/b.txt /tmp/c.txt
+
+# rm - remove files
+rm /tmp/c.txt
+ 
+# vi - a text editor
+\end{minted}
+
+\subsubsection{Try the following CLI
+shortcuts}\label{try-the-following-cli-shortcuts}
+
+\begin{itemize}
+\tightlist
+\item
+  C-a, C-e, C-f, C-b, C-n, C-p, C-u, C-k, C-y, C-d, C-r, TAB
+\end{itemize}
+
+\textbf{Answer:}
+
+\begin{itemize}
+\tightlist
+\item
+  Ctrl-a: beginning of line
+\item
+  Ctrl-e: end of line
+\item
+  Ctrl-f: forward
+\item
+  Ctrl-b: backward
+\item
+  Ctrl-n: next
+\item
+  Ctrl-p: previous
+\item
+  Ctrl-r: reverse search
+\item
+  Ctrl-u: cut to beginning
+\item
+  Ctrl-k: kill (cut to end)
+\item
+  Ctrl-y: yank (paste)
+\item
+  Ctrl-d: delete a character
+\item
+  TAB: magic key, completion
+\end{itemize}
+
+\subsubsection{\texorpdfstring{Output redirection
+(\mintinline[]{text}{>},
+\mintinline[]{text}{>>})}{Output redirection (, )}}\label{output-redirection}
+
+\begin{itemize}
+\item
+  To show the current time and date on the screen, you can do
+  \mintinline[]{text}{date}. What if you do
+  \mintinline[]{text}{date > file1}?
+
+  \textbf{Answer:} Output to file1.
+\item
+  To show a string on the screen, you can do
+  \mintinline[]{text}{echo 'Hello, world'}. How to output to file1?
+
+  \textbf{Answer:} \mintinline[]{text}{echo 'Hello, world!' >> file1}.
+  This can append to file1.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{Wildcard characters
+(\mintinline[]{text}{*},
+\mintinline[]{text}{?})}{Wildcard characters (, )}}\label{wildcard-characters}
+
+Suppose you have \mintinline[]{text}{file1}, \mintinline[]{text}{file2},
+\mintinline[]{text}{hello}, \mintinline[]{text}{hello.c} in
+\mintinline[]{text}{/tmp} dir, and two dirs \mintinline[]{text}{f} and
+\mintinline[]{text}{h} in \mintinline[]{text}{/tmp}. What do the
+following commands do?\\
+- \mintinline[]{text}{mv f* f} - \mintinline[]{text}{mv h* h}
+
+\textbf{Answer:}
+
+\begin{itemize}
+\tightlist
+\item
+  move \mintinline[]{text}{file1} and \mintinline[]{text}{file2} to
+  \mintinline[]{text}{/tmp/f/}
+\item
+  move \mintinline[]{text}{hello} and \mintinline[]{text}{hello.c} to
+  \mintinline[]{text}{/tmp/h/}.
+\end{itemize}
+
+Suppose you have files fa fb fc faa fbb fcc faaa fbbb fccc in
+\mintinline[]{text}{/tmp/} dir. What's the output of
+\mintinline[]{text}{ls f?}, \mintinline[]{text}{ls f??},
+\mintinline[]{text}{ls f???}?
+
+\textbf{Answer:}
+
+\begin{itemize}
+\tightlist
+\item
+  \mintinline[]{text}{ls f?} shows \mintinline[]{text}{fa fb fc}
+\item
+  \mintinline[]{text}{ls f??} shows \mintinline[]{text}{faa fbb fcc}
+\item
+  \mintinline[]{text}{ls f???} shows \mintinline[]{text}{faaa fbbb fccc}
+\end{itemize}
+
+\mintinline[]{text}{?} means matching \emph{any one character}.
+
+\subsubsection{\texorpdfstring{Understanding
+\mintinline[]{text}{ls -l}}{Understanding }}\label{understanding-ls--l}
+
+\textbf{Answer:}
+
+\begin{minted}[autogobble]{text}
+-rw------- 1 sam sam    57 Apr 17  1998 weather.txt
+drwxr-xr-x 6 sam sam   102 Oct  9  1999 web_page
+-rw-rw-r-- 1 sam sam 27648 Feb 11 20:41 web_site.tar
+-rw------- 1 sam sam   574 Dec 16  1998 xmas_file.txt
+╷────┬──── ╷ ─┬─ ─┬─ ──┬── ─────┬────── ──────┬──────
+│    │     │  │   │    │        │             │
+│    │     │  │   │    │        │         File Name
+│    │     │  │   │    │        │
+│    │     │  │   │    │        └─── Modification Time
+│    │     │  │   │    │
+│    │     │  │   │    └──────────── Size (in bytes)
+│    │     │  │   │
+│    │     │  │   └───────────────── Group
+│    │     │  │
+│    │     │  └───────────────────── Owner
+│    │     │
+│    │     └──────────────────────── Number of hard links
+│    │
+│    └────────────────────────────── File Permissions
+│
+└─────────────────────────────────── File types
+\end{minted}
+
+\paragraph{File types}\label{file-types}
+
+• ``d'' --- directory • ``-'' --- regular file • ``l'' --- soft link •
+``c'' --- character device • ``b'' --- block device • ``s'' --- socket •
+``p'' --- named pipe (FIFO)
+
+\paragraph{File modes}\label{file-modes}
+
+\begin{minted}[autogobble]{text}
+drwxr-xr-x 2 wx672 wx672 4096 Sep 26 17:59 f/
+drwxr-xr-x 2 wx672 wx672 4096 Sep 26 20:49 f-test/
+drwxr-xr-x 2 wx672 wx672 4096 Sep 26 18:00 h/
+ └┼┘└┼┘└┼┘
+  │  │  │
+  │  │  │
+  │  │  └─── Other's permission
+  │  └────── Group's permission
+  └───────── Owner's permission
+\end{minted}
+
+\begin{itemize}
+\tightlist
+\item
+  ``rwx'' --- readable, writable, executable
+\item
+  ``r-x'' --- readable, not writable, executable
+\item
+  ``r--'' --- readable, not writable, not executable
+\item
+  ``---'' --- not readable, not writable, not executable
+\end{itemize}
+
+\subsubsection{\texorpdfstring{File modes
+(\mintinline[]{text}{chmod})}{File modes ()}}\label{file-modes-chmod}
+
+Comment on the following commands:
+
+\textbf{Answer:}
+
+\begin{minted}[autogobble]{text}
+chmod 777 f # everyone can rwx
+chmod 700 f # owner can rwx, anyone else can do nothing
+chmod 600 f # owner can rw-, anyone else can do nothing
+chmod 000 f # nobody can do anything
+chmod 755 f # owner can rwx, anyone else has r-x
+chmod a+rwx f # same as 777
+chmod a-rwx f # same as 000
+chmod go-rwx f # group member and other users can do nothing
+chmod u+x f # # add executable permission to owner
+\end{minted}
+
+\subsubsection{Shell variables}\label{shell-variables}
+
+Show the values of these variables: PATH, PWD, HOME, USER.
+
+\textbf{Answer:}
+
+\begin{minted}[autogobble]{sh}
+echo $PATH
+echo $PWD
+echo $HOME
+echo $USER
+\end{minted}
+
+What does \mintinline[]{text}{PATH="./:$PATH"} do?
+
+\textbf{Answer:} Change the value of \mintinline[]{text}{PATH} by
+prepending it with \mintinline[]{text}{./}.
+
+\comments %can optionally take an argument
+
+\end{document}

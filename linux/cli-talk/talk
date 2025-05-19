@@ -1,4 +1,0 @@
-#!/bin/sh
-
-MDP_LIST_HEAD='    - ' mdp cli-talk.md
-
