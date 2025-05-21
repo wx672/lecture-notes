@@ -1,13 +1,15 @@
 \documentclass{standalone}
 
-\usepackage{settings}
+\usepackage{ctex}
+\usepackage{wx672tikz}
+%\usepackage{settings}
 \usepackage{tikz-penciline}
 
 \newcommand\trump{\includegraphics[width=3em]{trump-kim1}}
 \newcommand\kim{\includegraphics[width=3em]{trump-kim2}}
-\newcommand\trmale{\includegraphics[width=3em]{trump-kim3}}
+\newcommand\trmale{\includegraphics[width=3em]{trump-kim3}}%👲
 \newcommand\trfemale{\includegraphics[width=3em]{trump-kim4}}
-\newcommand\secmale{\includegraphics[width=3em]{trump-kim5}}
+\newcommand\secmale{\reflectbox{\includegraphics[width=3em]{trump-kim5}}}
 \newcommand\secfemale{\includegraphics[width=3em]{trump-kim5}}
 \newCJKfontfamily\korea{Noto Serif CJK KR}
 \setCJKmainfont{AiNiChuanYueRenHai}
@@ -23,12 +25,13 @@
 \begin{document}
 \begin{tikzpicture}[%
   decoration={amplitude=1.5pt}, penciline={jag ratio=1},% thick,%
-  chain/.style={on chain},
-  node distance=5mm,
-  tight/.style={outer sep=-3mm, inner sep=0pt}
+  chain/.style={on chain},%
+  node distance=5mm,%
+  tight/.style={outer sep=-3mm, inner sep=0pt}%
   ]  
 
-  {[start chain=1 going below,%
+  {
+    [start chain=1 going below,%
     every on chain/.style={join={by ->, decorate,%
         "{\purisa Ask for service}" {scale=.4, inner sep=2pt},%
         % ""' {scale=.4, inner sep=2pt}
