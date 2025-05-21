@@ -288,23 +288,25 @@ See also: \citetitle[Sec.~3.3, \emph{Process Switch}]{bovet2005understanding}.
 
 \begin{frame}{Why Having a Kind of Process Within a Process?}{}
   \begin{itemize}
-  \item Responsiveness
+  \item[🙂] Responsiveness
     \begin{itemize}
-    \item Good for interactive applications.
-    \item A process with multiple threads makes a great server (e.g. a web server):
+    \item[🙂] Good for interactive applications.
+    \item[🙂] A process with multiple threads makes a great server (e.g. a web server):
       \begin{itemize}
       \item[] Have one server process, many "worker" threads -- if one thread blocks (e.g. on a
         read), others can still continue executing
       \end{itemize}
     \end{itemize}
-  \item Economy -- Threads are cheap!
+  \item[🙂] Economy --- Threads are cheap!
     \begin{itemize}
-    \item Cheap to create -- only need a stack and storage for registers
-    \item Use very little resources -- don't need new address space, global data, program code, or
-      OS resources
-    \item switches are fast -- only have to save/restore PC, SP, and registers
+    \item[🙂] Cheap to create --- only need a stack and storage for
+      registers
+    \item[🙂] Use very little resources --- don't need new address
+      space, global data, program code, or OS resources
+    \item[🙂] switches are fast --- only have to save/restore PC, SP, and
+      registers
     \end{itemize}
-  \item Resource sharing -- Threads can pass data via shared memory; no need for IPC
+  \item[🙂] Resource sharing --- Threads can pass data via shared memory; no need for IPC
     \item Can take advantage of multiprocessors
   \end{itemize}
 \end{frame}
@@ -1125,7 +1127,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
     \mode<article>{ \cfile{figs/pseudo/disable-int.c} }
   \end{minipage}\quad
   \begin{minipage}{.65\linewidth}
-    \begin{block}{Problems:}
+    \begin{block}{🙁}
       \begin{itemize}
       \item It's not wise to give user process the power of turning off INTs.
         \begin{itemize}
@@ -1145,7 +1147,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
     \mode<article>{ \cfile{figs/pseudo/lock-var.c} }
   \end{minipage}\quad
   \begin{minipage}{.5\linewidth}
-    \begin{block}{Problem:}
+    \begin{block}{🙁}
       \begin{itemize}
       \item What if an interrupt occurs right at line 5?
       \item Checking the lock again while backing from an interrupt?
@@ -1159,7 +1161,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
     \mode<beamer>{ \includegraphics[width=\textwidth]{strict-alternation} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{strict-alternation-bw} }
   \end{center}
-  \begin{block}{Problem: violates \hyperlink{cond}{condition-2}}
+  \begin{block}{🙁: Violates \hyperlink{cond}{condition-2}}
     \begin{itemize}
     \item One process can be blocked by another not in its critical region.
     \item Requires the two processes strictly alternate in entering their critical region.
@@ -1190,7 +1192,7 @@ some system calls such as \texttt{getpid()}, \texttt{kill()}, and \texttt{\_exit
   \mode<beamer>{ \includegraphics[width=\textwidth]{lock2-sigint-c} }%
   \mode<article>{\cfile{../src/proc/lock2-sigint.c}}
   \begin{itemize}
-  \item[☹] \texttt{sigint()} is too crude to be reliable. Need a more sophisticated design.
+  \item[🙁] \texttt{sigint()} is too crude to be reliable. Need a more sophisticated design.
   \end{itemize}
 \end{frame}
 
@@ -1218,7 +1220,7 @@ p.~124]{tanenbaum2015modern}.
 \end{frame}
 
 \begin{frame}{Producer-Consumer Problem}{Race Condition}
-  \begin{block}{Problem}
+  \begin{block}{🙁}
     \begin{enumerate}
     \item Consumer is going to sleep upon seeing an empty buffer, but INT occurs;
     \item Producer inserts an item, increasing \texttt{count} to \texttt{1}, then call
@@ -1309,11 +1311,13 @@ p.~124]{tanenbaum2015modern}.
   We don't need semaphores to solve synchronization problems, but there are some advantages to using
   them:
   \begin{itemize}
-  \item Semaphores impose deliberate constraints that help programmers avoid errors.
-  \item Solutions using semaphores are often clean and organized, making it easy to demonstrate
-    their correctness.
-  \item Semaphores can be implemented efficiently on many systems, so solutions that use semaphores
-    are portable and usually efficient.
+  \item[🙂] Semaphores impose deliberate constraints that help
+    programmers avoid errors.
+  \item[🙂] Solutions using semaphores are often clean and organized,
+    making it easy to demonstrate their correctness.
+  \item[🙂] Semaphores can be implemented efficiently on many systems,
+    so solutions that use semaphores are portable and usually
+    efficient.
   \end{itemize}
 \end{frame}
 
@@ -1906,7 +1910,7 @@ user process to use it directly.
         AF\_INET6&sockaddr\_in6& ip6:port\\
       \end{tblr}
     \end{center}
-  \item[Type] \texttt{SOCK\_STREAM} (ﬁ), \texttt{SOCK\_DGRAM} ()
+  \item[Type] \texttt{SOCK\_STREAM} (🕿), \texttt{SOCK\_DGRAM} (🖃)
   \item[Protocol] always 0
   \end{description}
 \end{frame}
@@ -1996,7 +2000,7 @@ Sockets vs. pipes \citetitle[Chap.~15, \emph{Sockets}]{matthew2008beginning}:
     \mode<beamer>{\centering \includegraphics[width=.5\textwidth]{dphil-0} }%
     \mode<article>{ \includegraphics[width=.5\textwidth]{dphil-0} } \pause
     \begin{itemize}
-    \item[☹] Only one philosopher can eat at a time.
+    \item[🙁] Only one philosopher can eat at a time.
     \item[?] How about 2 mutexes? 5 mutexes?
     \end{itemize}
   \end{minipage}
@@ -2326,9 +2330,9 @@ batch ones.
 
 \begin{frame}{Scheduling In Batch Systems}{First-Come First-Served}
   \begin{itemize}
-  \item nonpreemptive
-  \item simple
-  \item also has a disadvantage
+  \item[🙂] nonpreemptive
+  \item[🙂] simple
+  \item[\textcolor{red}{🙁}] also has a disadvantage
     \begin{itemize}
     \item[] What if a CPU-bound process (e.g. runs 1s at a time) followed by many I/O-bound
       processes (e.g. 1000 disk reads to complete)?
@@ -2370,12 +2374,12 @@ batch ones.
     \mode<article>{ \includegraphics[width=.6\textwidth]{mos-figs-2-41} }
   \end{center}
   \begin{itemize}
-  \item Simple, and most widely used;
+  \item[🙂] Simple, and most widely used;
   \item Each process is assigned a time interval, called its \emph{quantum};
   \item How long shoud the quantum be?
     \begin{itemize}
-    \item too short --- too many process switches, lower CPU efficiency;
-    \item too long --- poor response to short interactive requests;
+    \item[\textcolor{red}{🙁}] too short --- too many process switches, lower CPU efficiency;
+    \item[\textcolor{red}{🙁}] too long --- poor response to short interactive requests;
     \item usually around 20\char`~\unit[50]{ms}.
     \end{itemize}
   \end{itemize}
@@ -2476,8 +2480,9 @@ batch ones.
   \item[😐] an algorithm with $O(n)$ complexity
   \item a single runqueue for all processors
     \begin{itemize}
-    \item[☺] good for load balancing
-    \item[\textcolor{red}{☹}] bad for CPU caches, when a task is rescheduled from one CPU to another
+    \item[🙂] good for load balancing
+    \item[\textcolor{red}{🙁}] bad for CPU caches, when a task is
+      rescheduled from one CPU to another
     \end{itemize}
   \item[😐] a single runqueue lock --- only one CPU working at a time
   \end{itemize}
@@ -2493,9 +2498,9 @@ spends too much time in high-end systems running thousands of processes\citetitl
 
 \begin{frame}{Scheduling In Linux 2.6 Kernel}
   \begin{itemize}
-  \item[☺] $O(1)$ --- Time for finding a task to execute depends not on \emph{the
+  \item[🙂] $O(1)$ --- Time for finding a task to execute depends not on \emph{the
       number of active tasks} but instead on \emph{the number of priorities}
-  \item[☺] Each CPU has its own \emph{runqueue}, and schedules itself independently; better cache
+  \item[🙂] Each CPU has its own \emph{runqueue}, and schedules itself independently; better cache
     efficiency
   \item The job of the scheduler is simple --- Choose the task on the highest priority list to
     execute
@@ -2544,15 +2549,15 @@ spends too much time in high-end systems running thousands of processes\citetitl
       \end{multicols}
     \item[from 2.5 on:] $O(1)$ scheduler
       \begin{itemize}
-      \item[☺] 140 priority lists --- scaled well
-      \item[☺] one run queue per CPU --- true SMP support
-      \item[☺] preemptive
-      \item[☺] ideal for large server workloads
-      \item[\textcolor{red}{☹}] showed latency on desktop systems
+      \item[🙂] 140 priority lists --- scaled well
+      \item[🙂] one run queue per CPU --- true SMP support
+      \item[🙂] preemptive
+      \item[🙂] ideal for large server workloads
+      \item[\textcolor{red}{🙁}] showed latency on desktop systems
       \end{itemize}
     \item[from 2.6.23 on:] Completely Fair Scheduler (CFS)
       \begin{itemize}
-      \item[☺] improved interactive performance
+      \item[🙂] improved interactive performance
       \end{itemize}
     \end{description}
   \end{block}
@@ -2583,13 +2588,13 @@ spends too much time in high-end systems running thousands of processes\citetitl
   \begin{itemize}
   \item can run only a single task at once --- unfair
     \begin{itemize}
-    \item[☺] while one task is running
-    \item[\textcolor{red}{☹}] the others have to wait
+    \item[🙂] while one task is running
+    \item[\textcolor{red}{🙁}] the others have to wait
     \end{itemize}
   \item \texttt{p->wait\_runtime} is the amount of time the task should now run on the CPU
     for it becomes completely fair and balanced.
     \begin{itemize}
-    \item[☺] on ideal CPU, the \texttt{p->wait\_runtime} value would always be zero
+    \item[🙂] on ideal CPU, the \texttt{p->wait\_runtime} value would always be zero
     \end{itemize}
   \item CFS always tries to run the task with the largest \texttt{p->wait\_runtime} value
   \end{itemize}
@@ -3025,20 +3030,19 @@ See also: \emph{Discussing the Completely Fair
   \begin{minipage}{.6\linewidth}
     \begin{block}{In practice}
       \begin{itemize}
-      \item processes rarely know in advance their max future resource
-        needs;
-      \item the number of processes is not fixed;
-      \item the number of available resources is not fixed.
+      \item[\textcolor{red}{🙁}] processes rarely know in advance their max future resource needs;
+      \item[\textcolor{red}{🙁}] the number of processes is not fixed;
+      \item[\textcolor{red}{🙁}] the number of available resources is not fixed.
       \end{itemize}
     \end{block}
   \end{minipage}\qquad
   \begin{minipage}{.3\linewidth}
     \includegraphics[width=\linewidth]{mi}
   \end{minipage}
-  \begin{description}
-  \item[Conclusion:] Deadlock avoidance is essentially a mission
-    impossible.
-  \end{description}
+  % \begin{description}
+  % \item[Conclusion:] Deadlock avoidance is essentially a mission
+  %   impossible.
+  % \end{description}
 \end{frame}
 
 \subsection{Deadlock Prevention}
@@ -3048,7 +3052,7 @@ See also: \emph{Discussing the Completely Fair
   \begin{block}{Attacking the Mutual Exclusion Condition}
     \begin{itemize}
     \item For example, using a \emph{printing daemon} to avoid exclusive access to a printer.
-    \item Not always possible
+    \item[\textcolor{red}{🙁}] Not always possible
       \begin{itemize}
       \item Not required for sharable resources;
       \item must hold for nonsharable resources.
@@ -3078,7 +3082,7 @@ p.~452]{tanenbaum2015modern} for the \emph{printer daemon} example.
       \item[if] one or more resources are busy
       \item[then] nothing will be allocated (just wait)
       \end{itemize}
-    \item[Problem:] \ 
+    \item[\textcolor{red}{🙁}] \ 
       \begin{itemize}
       \item many processes don't know what they will need before running
       \item Low resource utilization; starvation possible
@@ -3102,7 +3106,7 @@ p.~452]{tanenbaum2015modern} for the \emph{printer daemon} example.
       \end{enumerate}
     \end{itemize}
   \end{block}
-  Low resource utilization; starvation possible
+  \textcolor{red}{🙁}: Low resource utilization; starvation possible
 \end{frame}
 
 \begin{frame}
@@ -3133,7 +3137,7 @@ p.~452]{tanenbaum2015modern} for the \emph{printer daemon} example.
   %   \mode<article>{ \includegraphics[width=.5\textwidth]{mos-figs-3-13} }
   % \end{center}
   \begin{itemize}
-    \item[] It's hard to find an ordering that satisfies everyone.
+    \item[\textcolor{red}{🙁}] It's hard to find an ordering that satisfies everyone.
   \end{itemize}
 \end{frame}
 
@@ -3150,10 +3154,9 @@ p.~452]{tanenbaum2015modern} for the \emph{printer daemon} example.
       \item cost of prevention is high
       \end{itemize}
     \item UNIX and Windows takes this approach
-    \item It is a trade off between
+    \item It's a trade off
       \begin{itemize}
-      \item convenience
-      \item correctness
+      \item[] convenience vs. correctness
       \end{itemize}
     \end{itemize}
   \end{minipage}\hfill

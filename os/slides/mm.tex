@@ -9,7 +9,7 @@
   \begin{description}
   \item[In a perfect world] Memory is \emph{large, fast, non-volatile}
   \end{description}
-  \begin{iblock}{In real world ...}
+  \begin{iblock}{In real world \ldots}
     \begin{center}
       \mode<beamer>{ \includegraphics[width=.8\textwidth]{mem-hierarchy} }%mos-figs-1-7
       \mode<article>{ \includegraphics[width=.5\textwidth]{mem-hierarchy} }%
@@ -21,7 +21,7 @@
 \end{frame}
 
 \begin{frame}{Basic Memory Management}{Real Mode}
-  \begin{iblock}{In the old days ... }
+  \begin{iblock}{In the old days \ldots }
     \begin{itemize}
     \item Every program simply saw the physical memory
     \item mono-programming without swapping or paging
@@ -75,7 +75,7 @@
       \fbox{\texttt{JMP 28}}
     \end{center}
     \begin{center}
-      {\rotatebox{270}{\huge \symbola ➠}}
+      {\rotatebox{270}{\huge ➠}}
     \end{center}
     \begin{center}
       \fbox{\texttt{JMP 300068}}
@@ -428,7 +428,7 @@ There are also disadvantages:
 
 \begin{frame}{GNU C Library}
   \begin{minipage}{.55\linewidth}
-    Linux API > POSIX API
+     API > POSIX API
     \ttfamily
     \begin{itemize}
     \item[\$] man 7 libc
@@ -643,7 +643,7 @@ There are also disadvantages:
 %   \end{center}
 % \end{frame}
 
-\begin{frame}{Intel i386 Page Table Entry}
+\begin{frame}{\intel i386 Page Table Entry}
   \begin{itemize}
   \item Commonly \unit[4]{bytes} (\unit[32]{bits}) long
   \item Page size is usually \unit[4]{K} (\unit[\(2^{12}\)]{bytes}). OS dependent
@@ -1048,7 +1048,7 @@ There are also disadvantages:
 
 See also: \url{http://cseweb.ucsd.edu/classes/fa03/cse120/Lec08.pdf}.
 
-\begin{frame}{Linux prefers paging to segmentation}
+\begin{frame}{ prefers paging to segmentation}
   \begin{iblock}{Because}
   \begin{itemize}
   \item Segmentation and paging are somewhat redundant
@@ -1056,7 +1056,7 @@ See also: \url{http://cseweb.ucsd.edu/classes/fa03/cse120/Lec08.pdf}.
   \item Maximum portability. RISC architectures in particular have limited support for segmentation
   \end{itemize}
   \end{iblock}
-  The Linux 2.6 uses segmentation only when required by the 80x86 architecture.
+  The  2.6 uses segmentation only when required by the 80x86 architecture.
 \end{frame}
 
 
@@ -1071,7 +1071,7 @@ See also: \url{http://cseweb.ucsd.edu/classes/fa03/cse120/Lec08.pdf}.
 %   \end{center}
 % \end{frame}
 
-\begin{frame}{Case Study: The Intel Pentium}{Segmentation With Paging}
+\begin{frame}{Case Study: \intel Pentium}{Segmentation With Paging}
   \begin{center}
     \mode<beamer>{ \includegraphics[width=\textwidth]{addr-trans} }%
     \mode<article>{ \includegraphics[width=.7\textwidth]{addr-trans} }
@@ -1148,7 +1148,7 @@ See also:
 \end{itemize}
 
 \begin{frame}{Segment Registers}
-  \begin{iblock}{The Intel Pentium has}
+  \begin{iblock}{The \intel Pentium has}
     \begin{itemize}
     \item \alert{6 segment registers}, allowing 6 segments to be addressed at
       any one time by a process
@@ -1221,7 +1221,7 @@ See also:
       \item[1] -- 32-bit seg
       \end{itemize}
     \item[DPL:] Descriptor Privilege Level. 0 or 3
-    \item[AVL:] ignored by Linux
+    \item[AVL:] ignored by 
     \item[Limit:] 20 bit, \(\Rightarrow{}2^{20}\) in size
     \item[S:] System flag\par
       \begin{itemize}
@@ -1238,8 +1238,8 @@ See also:
   \end{multicols}}
 \end{frame}
 
-\begin{frame}{The Four Main Linux Segments}
-  \begin{iblock}{Every process in Linux has these 4 segments}
+\begin{frame}{The Four Main  Segments}
+  \begin{iblock}{Every process in  has these 4 segments}
     \begin{center}
       \begin{tblr}{colspec={lllllllll},hline{1,2,Z},
           cell{2-5}{2-9}={font=\ttfamily}%
@@ -1296,7 +1296,7 @@ See also:
 %   \end{iblock}
 % \end{frame}
 
-\begin{frame}{Pentium Paging}{Linear Address $\Rightarrow$ Physical Address}
+\begin{frame}{\intel Pentium (x86) Paging}%{Linear Address $\Rightarrow$ Physical Address}
   \begin{minipage}{.4\textwidth}
     \mbox{Two page size in Pentium:}
     \begin{small}
@@ -1327,7 +1327,16 @@ See also:
 %   \end{center}
 % \end{frame}
 
-\begin{frame}{Paging In Linux}{4-level paging for both 32-bit and 64-bit}
+% \begin{frame}{\intel x86\_64 Paging}
+%   \begin{center}
+%     \includegraphics[width=\textwidth]{intel-4-level-paging}
+%   \end{center}
+%   \begin{block}{Paging In }
+%     4-level paging for both 32-bit and 64-bit
+%   \end{block}
+% \end{frame}
+
+\begin{frame}{Paging In }{4-level paging for both 32-bit and 64-bit}
   \centering%
   \mode<beamer>{ \includegraphics[width=.9\textwidth]{4-level-paging} }%
   \mode<article>{ \includegraphics[width=.5\textwidth]{4-level-paging} }
@@ -1580,19 +1589,19 @@ See also:
     \item choose page with lowest value counter
     \item Keep counter in each page table entry
     \item counter overflow --- periodically zero the counter
-    \item require a \alert{search} of the page table to find the LRU page
-    \item update time-of-use field in the page table \alert{every memory reference!}
+    \item[\textcolor{red}{🙁}] require a \alert{search} of the page table to find the LRU page
+    \item[\textcolor{red}{🙁}] update time-of-use field in the page table \alert{every memory reference!}
     \end{itemize}
   \end{iblock}
   \begin{iblock}{\alert{Stack}: keep a linked list (stack) of pages}
     \begin{itemize}
     \item most recently used at top, least (LRU) at bottom
       \begin{itemize}
-      \item no search for replacement
+      \item[🙂] no search for replacement
       \end{itemize}
     \item whenever a page is referenced, it's removed from the stack and put on the top
       \begin{itemize}
-      \item update this list \alert{every memory reference!}
+      \item[\textcolor{red}{🙁}] update this list \alert{every memory reference!}
       \end{itemize}
     \end{itemize}
   \end{iblock}
@@ -1827,13 +1836,13 @@ good performance, it is widely used in practice\citetitle[Sec~3.4.9]{tanenbaum20
 \begin{frame}{Other Issues --- Page Size}%{There is no single best page size}
   Larger page size
   \begin{itemize}
-  \item[\alert{☹}] Bigger internal fragmentation
-  \item[\alert{☹}] longer I/O time
+  \item[\alert{🙁}] Bigger internal fragmentation
+  \item[\alert{🙁}] longer I/O time
   \end{itemize}
   Smaller page size
   \begin{itemize}
-  \item[\alert{☹}] Larger page table
-  \item[\alert{☹}] more page faults
+  \item[\alert{🙁}] Larger page table
+  \item[\alert{🙁}] more page faults
     \begin{itemize}
     \item one page fault for each byte, if page size \(= \unit[1]{Byte}\)
     \item for a \unit[200]{K} process, with page size \(= \unit[200]{K}\), only one page fault

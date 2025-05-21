@@ -16,7 +16,7 @@
 # (setq org-export-html-use-infojs nil)
 
 * UEFI
-现在（2018年10月）的电脑都很新潮，在主板上几乎都用UEFI取代了传统的BIOS。关于UEFI设置，我的经验是：
+现在（2026/03/24）的电脑，在主板上几乎都用UEFI取代了传统的BIOS。关于UEFI设置，我的经验是：
 
 - 把下列和Windows相关的选项都关掉（disable）:
 
@@ -25,18 +25,19 @@
   - =Intel Smart Response Technology (SRT)=
   - =FastStartup=
 
-- 如果在下面的安装过程中（硬盘分区的时候）看不到硬盘，那么你需要在UEFI设置里找到Intel Rapid Storage
-  Technology (Intel RST)，把它设置为AHCI。
+- 如果在下面的安装过程中（硬盘分区的时候）看不到硬盘，那么你需要在UEFI
+  设置里找到 “Intel Rapid Storage Technology (Intel RST)”，把它设置为 “AHCI”。
 
 * 安装最小系统
 
-【注意事项】为了避免不必要的麻烦：
+为了避免不必要的麻烦，【注意】：
 
-1. 不要选择图形界面安装（Graphical Install）； *不要图形界面*; *不要图形界面*; 
-2. 不要选择中文安装界面； *不要中文*; *不要中文*; 
-3. 不要为root设置密码; *不要root密码*; *不要root密码*;
-4. 安装过程中不要联网; *不要联网*; *不要联网*;
-5. 只要两个分区 =swap= 和 =/= ，换言之，不要 =/boot, /home, /var, ...= 等分区。
+1. 不要选择图形界面安装（Graphical Install）! *不要图形界面! 不要图形界面*!
+2. 不要选择中文安装界面! *不要中文! 不要中文!* 
+3. 不要为root设置密码; *不要root密码! 不要root密码!*
+4. 安装过程中不要联网; *不要联网! 不要联网*!
+5. 只要两个分区 =swap= 和 =/= ，换言之, *不要 =/boot, /home, /var, ...= 等分
+   区* 。
 
 安装Debian最小系统的大致步骤如下：
 
@@ -46,16 +47,16 @@
       该目录中有三个torrent文件，比如:
         
       #+begin_example
-      - debian-12.7.0-amd64-netinst.iso.torrent     <-- 只要这一个
-      - debian-edu-12.7.0-amd64-netinst.iso.torrent
-      - debian-mac-12.7.0-amd64-netinst.iso.torrent
+      - debian-13.1.0-amd64-netinst.iso.torrent     <-- 只要这一个
+      - debian-edu-13.1.0-amd64-netinst.iso.torrent
+      - debian-mac-13.1.0-amd64-netinst.iso.torrent
       #+end_example
 
       把名字最短的那个（也就是上面三个中的第一个）下载下来。在
       Debian/Ubuntu平台BT下载很容易，敲个命令就行了，比如：
       
       #+begin_src sh
-        aria2c --no-conf debian-12.7.0-amd64-netinst.iso.torrent
+        aria2c --no-conf debian-13.1.0-amd64-netinst.iso.torrent
         # 文件名太长？那么就：
         aria2c --no-conf deb<TAB>  # <TAB> 指的是键盘上的 TAB 键，它能帮你补全文件名。
       #+end_src
@@ -64,10 +65,10 @@
   		
    2) *制作U盘:* 在Debian/Ubuntu平台上制作启动U盘非常简单，敲个命令就行了：
       #+BEGIN_SRC sh
-        sudo cp debian-12.7.0-amd64-netinst.iso /dev/sdX  # 把 sdX 换成 sdb 或者 sdc。
+        sudo cp debian-13.1.0-amd64-netinst.iso /dev/sdX  # 把 sdX 换成 sdb 或者 sdc。
                                                           # 用 lsblk 命令看一眼，
                                                           # 就知道是 b 还是 c 了。
-        # 文件名太长？那么就：
+        # 文件名太长？那么就用<TAB>键帮你补全：
         sudo cp deb<TAB> /dev/sdX  # <TAB> 指的是键盘上的 TAB 键，它能帮你补全文件名。
         sync                       # 一定要 sync!!!
       #+END_SRC
@@ -76,22 +77,21 @@
       - *如果没有现成的Linux系统，只有Windows可用，怎么做启动U盘？* 抱歉，我也不知道。我
         知道肯定可以，而且见人做过，只不过我真的不用Windows，所以真的不关心。
 
-2. 拔掉网线，从U盘重启系统，开始安装。大概半个小时，一个“最小系统”就装
+2. 拔掉网线，从U盘重启系统，开始安装。大概半个小时，一个最小系统就装
    好了。「拔掉网线」只是我的个人习惯，并不是必须的。联网安装的话，可能会遭遇若干问题：
    1) 如果网络不畅，安装过程会很慢，甚至失败；
-   2) 现在时髦的笔记本都不带有线网口，如果选择联网安装，安装过程中就要涉及安装网卡驱动、输
+   2) 时髦的笔记本往往不带有线网口，如果选择联网安装，安装过程中就要涉及安装网卡驱动、输
       入无线密码等步骤，麻烦多多；
    3) 联网安装，系统还会提示你选择镜像源、选择要安装的“全家桶”，这些貌似友好的功能选项，在
       我看弊大于利，只能增加入门者的困扰。
 3. 完事后，拔掉U盘，重启系统。
 4. 【注意】
-   + 安装的时候 *不要选择中文语言环境*, 因为后面的安装配置工作都是在非图形环境下进行，
+   + 再次强调, *不要选择中文语言环境*! 因为后面的安装配置工作都是在非图形环境下进行，
      采用中文的话，你很可能会遭遇乱码。
-   + 提示你“Loading missing firmware”的时候，选择 <NO>。
-   + “Configure the network”的时候，选择一连串的“Cancel”，直到你看到“Do not configure the
-     network at this time”。
-   + 看到提示“Root password:”的时候，不要给密码，直接“回车”跳过这一步。
-   + 看到“continue without a network mirror?”的时候，选择 <Yes>。
+   + 提示你 ~Loading missing firmware~ 的时候，选择 ~<NO>~ 。
+   + ~Configure the network~ 的时候，选择一连串的 ~Cancel~, 直到你看到 ~Do not configure the     network at this time~ 。
+   + 看到提示 ~Root password:~ 的时候， *不要给密码!* 直接 ~<回车>~ 跳过这一步。
+   + 看到 ~continue without a network mirror?~ 的时候，选择 ~<Yes>~ 。
    + 硬盘分区的时候，如果你是装Linux单系统，就非常简单，没啥可说的；如果你是要装双系统（保
      留原来的Windows），那么，有三点烦，
      1. 可用空间不够怎么办？删掉哪个分区？如何压缩原来的Windows分区？总之，烦！
@@ -128,7 +128,7 @@
 
    [[file:screenshots/07.png]]
 
-7. 回车跳过，不要给root设置密码！
+7. 回车跳过，千万不要给root设置密码！
 
    [[file:screenshots/08.png]]
 
@@ -156,8 +156,7 @@
 
 12. 硬盘分区，很重要！
 
-    - 如果像我一样，你也是装Linux单系统的话，选“Guided - use entire
-      disk”；
+    - 如果像我一样，你也是装Linux单系统的话，选“Guided - use entire disk”；
 
     - 如果是装双系统，就选“Manual”。
 
@@ -229,14 +228,28 @@
    总之，现在刚装完最小系统，无线网很可能还不好使。连好网线，再敲下面的命令，应该就能连上网了。
 
    #+begin_src sh
-     ip a          #注释：查看网卡是否已经有IP地址了
-     sudo dhclient #注释：自动获得IP地址
+     ip a          #查看网卡是否已经有IP地址了。如果没有，
+     sudo dhclient #自动获得IP地址
+     # 如果遭遇command not found（最小系统没装好？），就
+     sudo dhcpcd
    #+end_src
 
    #+CAPTION: 敲命令联网的全过程
    [[file:screenshots/36.png]]
    
 3. 下载
+
+   # 从2005年初至今（2025年8月底），我们的教学服务器在安全稳定地运行了21年之后，公网IP
+   # 被有关部门莫名其妙地收回了。20余年来，学校的网络硬件越来越好，但网络服务
+   # 却……。为什么？你懂的。我们正在努力向学校有关部门重新申请一
+   # 个公网IP。现在呢，为了能完成系统安装，我们不得不多做一点事情，其实
+   # 也不复杂，改一下 =/etc/hosts= 文件而已。 =sudo vi /etc/hosts=, 在里面添
+   # 加如下一行：
+
+   # #+begin_example
+   # 10.100.2.239  cs6.swfu.edu.cn  cs6
+   # #+end_example
+   # 改好之后，存盘退出。然后就可以继续了。
 
    #+begin_src sh
 	 cd
@@ -256,7 +269,7 @@
    #+CAPTION: 开始安装
    [[file:screenshots/38.png]]
    
-   网络顺畅的话，半个小时应该就完事了。不顺畅的话……把网络搞顺畅了再说吧。
+   网络顺畅的话，半小时就能完事。不顺畅的话……把网络搞顺畅了再说吧。
 
    *程序运行过程中，会不时给出英文提示，千万要耐心看明白，然后再操作。*
 
@@ -277,39 +290,39 @@
    #+CAPTION: 正常友善提示，回车继续
    [[file:screenshots/44.png]]
 
-   #+CAPTION: 出错了！别紧张，下面我就来详细说说遇到问题该怎么办。
-   [[file:screenshots/45.png]]
+   # #+CAPTION: 出错了！别紧张，下面我就来详细说说遇到问题该怎么办。
+   # [[file:screenshots/45.png]]
 
-   首先要看明白具体的出错信息。“ =git: command not found= ”，我估计初学
-   者不容易看明白发生了什么。 =git= 是我们在安装过程中要用到的一个命令，
-   居然没找到，怎么办？其实，我也感觉很意外，前面一切都很顺利，没看见
-   红字啊。初步判断，是我这个安装程序（ =install.sh= ）里有bug，前面安装
-   必备软件的时候，肯定是出错了，但没报错。那现在怎么办呢？如果你真的
-   是初学者，对Debian还一无所知，那么就求救吧。
+   # 首先要看明白具体的出错信息。“ =git: command not found= ”，我估计初学
+   # 者不容易看明白发生了什么。 =git= 是我们在安装过程中要用到的一个命令，
+   # 居然没找到，怎么办？其实，我也感觉很意外，前面一切都很顺利，没看见
+   # 红字啊。初步判断，是我这个安装程序（ =install.sh= ）里有bug，前面安装
+   # 必备软件的时候，肯定是出错了，但没报错。那现在怎么办呢？如果你真的
+   # 是初学者，对Debian还一无所知，那么就求救吧。
 
-   其实，解决这个小问题也不难，把前面安装必备软件的步骤再做一遍，看看
-   到底是哪里出错。具体步骤如下：
+   # 其实，解决这个小问题也不难，把前面安装必备软件的步骤再做一遍，看看
+   # 到底是哪里出错。具体步骤如下：
 
-   1. 按 =Ctrl-Alt-F2= 切换到另一个终端，登录进去。
-   2. 读取 =install.sh= 里面的几个重要变量。
-      #+begin_src sh
-        source ./install.sh #注释：执行小程序
-        ^C                  #注释：按 Ctrl-C 中止小程序
-      #+end_src
-      注意，我们并不想完整执行这个小程序，只想执行前面给变量赋值的几句，所
-      以，快速按 ~Ctrl-C~ 将其中止。这时 =PKG_IMP, PKG_REC, PKG_CHN= 这三
-      个变量就已经被赋好值了，
-      - =PKG_IMP= 的值是一长串重要软件包的名字，没有这些软件系统不能正常工作
-      - =PKG_REC= 的值是一长串推荐安装的软件包的名字，比如浏览器
-      - =PKG_CHN= 的值是一长串中文支持软件包的名字，比如中文输入法
+   # 1. 按 =Ctrl-Alt-F2= 切换到另一个终端，登录进去。
+   # 2. 读取 =install.sh= 里面的几个重要变量。
+   #    #+begin_src sh
+   #      source ./install.sh #注释：执行小程序
+   #      ^C                  #注释：按 Ctrl-C 中止小程序
+   #    #+end_src
+   #    注意，我们并不想完整执行这个小程序，只想执行前面给变量赋值的几句，所
+   #    以，快速按 ~Ctrl-C~ 将其中止。这时 =PKG_IMP, PKG_REC, PKG_CHN= 这三
+   #    个变量就已经被赋好值了，
+   #    - =PKG_IMP= 的值是一长串重要软件包的名字，没有这些软件系统不能正常工作
+   #    - =PKG_REC= 的值是一长串推荐安装的软件包的名字，比如浏览器
+   #    - =PKG_CHN= 的值是一长串中文支持软件包的名字，比如中文输入法
 
-      现在，我们就要手工敲命令来安装这些软件包。
-      #+begin_src sh
-        sudo apt-get install $PKG_IMP $PKG_REC $PKG_CHN
-      #+end_src
-      安装很顺利，没出错。所以，我到现在也没搞清楚前面自动执行安装程序
-      的时候 =git= 为什么会没装上。以后再研究吧，现在按 =Ctrl-Alt-F1= 切换
-      回报错的终端，按任意键（除了“q”）继续。
+   #    现在，我们就要手工敲命令来安装这些软件包。
+   #    #+begin_src sh
+   #      sudo apt-get install $PKG_IMP $PKG_REC $PKG_CHN
+   #    #+end_src
+   #    安装很顺利，没出错。所以，我到现在也没搞清楚前面自动执行安装程序
+   #    的时候 =git= 为什么会没装上。以后再研究吧，现在按 =Ctrl-Alt-F1= 切换
+   #    回报错的终端，按任意键（除了“q”）继续。
 
       #+CAPTION: 胜利结束。先仔细看看屏幕提示再回车！
       [[file:screenshots/46.png]]
@@ -358,7 +371,7 @@
 
    之后，重启。如果还不灵，你就自己去google吧。Have fun!
   
-** 老办法（可以不看了）
+** 老办法（可以不看了）                                           :noexport:
 # 下面的安装配置说明完全是针对Debian系统。我们学院的机房系统已经统一换成了Debian Testing。
 # 而且去掉了容易出毛病的花哨界面，只用 =startx= + =sawfish= 。
 # 这也许不算完美，但它简单、可靠、高效。除此之外，你还需要什么呢？
@@ -440,7 +453,7 @@
 
    我日常使用的大概就是这些了。
    
-* 配置（可以不看了）
+* 配置（可以不看了）                                               :noexport:
 
 ** sudo 的时候总要问密码，是不是很烦？
 那就不让它问了：
@@ -627,7 +640,7 @@ sudo apt install the-32bit-lib-package
 :END:
 
 办法很多：
-1. 用Android手机的USB Tethering功能。以我自己的手机系统为例（LineageOS 16.0/Android 9），
+1. 用Android手机的USB Tethering功能。以我自己的手机系统为例（crDroid 12.8/Android 16），
    很简单，
    1) 用USB线连接手机和电脑；
    2) 在手机的「系统设置」里有个搜索框，在里面输入“tethering”，马上就能找到“Hotspot &
@@ -637,23 +650,18 @@ sudo apt install the-32bit-lib-package
       3: enp2s0f4u2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UNKNOWN group default qlen 1000
          link/ether 26:b1:c7:c5:02:1f brd ff:ff:ff:ff:ff:ff
       #+END_EXAMPLE
-      从上面的屏幕输出信息可以看到，这块有线网卡的名字是 =enp2s0f4u2= 。然后，以root身份，
-      敲下面这条命令：
+      从上面的屏幕输出信息可以看到，这块有线网卡的名字是 =enp2s0f4u2= 。然后，敲下面这条命令：
       #+BEGIN_SRC sh
       sudo dhclient enp2s0f4u2
       #+END_SRC
       你就可以获得一个IP地址了，也就是说，你已经成功联网了。
 2. 去找一个USB无线网卡试试。我找到一个Realtek的指甲盖大小的USB无线网卡，不需要驱动，插上就
    能用。我也尝试过两个比较古老的tp-link无线网卡，不好使。
-3. 另外，如果你真的和我一样，用的是华为Honor Magicbook，那么也许你不必去找USB网卡，可以先
-   试试能否让内置网卡工作。Magicbook的内置网卡是Intel的。既然完成后面的安装步骤之后它能正
-   常工作，那我想，现在使使劲应该也能解决问题吧。但毕竟我还没有亲自尝试过，所以只能先给出
+3. 当然，也可以试试能否让内置无线网卡工作，但毕竟我还没有亲自尝试过，所以只能先给出
    一些想法：
-   - 之所以内置网卡暂时不工作，我怀疑是我们用来安装最小系统的iso文件不够新。它是以Debian稳
-     定版（stretch）为基础做出来的，其中的内核（4.9）和相应固件（firmware-iwlwifi）都偏旧，
-     可能尚不支持这么新潮（2018年）的硬件。所以，可以试试把内核和相应固件从稳定版更新到测
-     试版（buster）。在没有网络连接的情况下，显然这需要我们另找办法下载，并手动安装一些软
-     件包，包括：
+   - 可以试试把内核和相应固件从稳定版更新到测试版（testing）。在没有网
+     络连接的情况下，显然这需要我们另找办法下载，并手动安装一些软件包，
+     包括：
      * [[https://packages.debian.org/buster/linux-image-amd64][linux-image-amd64]]
      * [[https://packages.debian.org/buster/firmware-iwlwifi][firmware-iwlwifi]]
      * 还有若干被上述两个软件包依赖的软件包
@@ -669,7 +677,7 @@ sudo apt install the-32bit-lib-package
    完整的DVD安装盘包含3个iso文件，你可以先下载第一个试试。如果里面有了你需要的无线网卡驱动
    和相关程序，那么激活网卡之后，你就可以直接网络安装了，无需下载其它的iso文件了。
 
-** 无线联网时的密码设置
+** 无线联网时的密码设置                                           :noexport:
 :PROPERTIES:
 :CUSTOM_ID: app2
 :END:
@@ -742,7 +750,7 @@ apt show firmware-atheros
 关于显卡，听说Nvidia显卡比较难伺候，好在我从来没碰到过，因为只有游戏本才配置这么贵的显
 卡。如果你（曾经人品不好）不幸碰到了，那么，省事起见，我建议你暂时不要用它，就用主板上内置
 的（通常是Intel）显卡就好。直到有一天你成了一个熟练的Linux用户之后，再把它激活。
-* 附录：LaTeX （非必须）
+* 附录：LaTeX （非必须）                                           :noexport:
 在Linux平台，你不用非要学习使用LaTeX来排版你的文章、报告、论文，
 因为你已经有了一套开源的office软件。如果前面的事情你都顺利完成了，那么现在只需要按
 =Super-o= （键盘上那个Win键，我们叫它Super键）

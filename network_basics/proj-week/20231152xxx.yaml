@@ -1,22 +1,22 @@
 ---
+grade: 2024
+id: 20241152xxx
+labdate: '2025/12/15 -- 2025/12/17'
+year: 2025
+month: 12
+daya: 15
+dayz: 16
+date: 17
+labdays: 2
+mark: 100
 title: '《计算机网络》课程实习'
 school: '大数据与智能工程学院'
 subject: '计算机科学与技术'
-grade: 2023
 author: '艾学习'
-id: 20231152xxx
 tutor: '王晓林'
-labdate: '2024/12/16 -- 2024/12/17'
-labdays: 2
-lab: '生物楼219'
-year: 2024
-month: 12
-daya: 16
-dayz: 17
-date: 18
-commentsdate: '2024年12月19日'
+lab: '园林楼215'
+commentsdate: '2025年12月21日'
 comments: 'Well done!'
-mark: 100
 sig: 'wangxiaolin'
 dayaa: |
   熟悉实验环境，学习Linux命令行的使用，查阅相关网络命令的手册。

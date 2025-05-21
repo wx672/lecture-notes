@@ -1,4 +1,4 @@
-% Created 2024-06-30 Sun 16:07
+% Created 2025-12-16 Tue 10:54
 % Intended LaTeX compiler: lualatex
 \documentclass{article}
 \usepackage{wx672babel}
@@ -14,16 +14,15 @@
  pdftitle={Hacking with Linux networking command line tools},
  pdfkeywords={ssh, tmux, http, ftp, smtp, iptables, network, networking},
  pdfsubject={Network lab tutorial week},
- pdfcreator={Emacs 29.3 (Org mode 9.6.15)}, 
+ pdfcreator={Emacs 30.2 (Org mode 9.7.11)}, 
  pdflang={English}}
 \begin{document}
 
 \maketitle
 \tableofcontents
 
-
 \section{Caution}
-\label{sec:org78dbaf4}
+\label{sec:org982228c}
 You must submit your report as a \texttt{tar ball} in which the following files
 should be included in:
 
@@ -33,41 +32,57 @@ generated from your \texttt{org} or \texttt{md} file.
 
 Tips: 
 \begin{itemize}
-\item In Emacs, press \texttt{C-c C-e l p} to export a PDF file from your org file.
+\item Report template: \href{20231152xxx.org}{\texttt{org file}}, \href{20231152xxx.md}{\texttt{markdown file}},
+\href{20231152xxx.yaml}{\texttt{yaml file}}, \href{Makefile}{\texttt{Makefile}}, and the generated \href{20231152xxx.pdf}{\texttt{pdf file}}.
 
-\item For \texttt{Markdown} to PDF, you can try \texttt{markdown}, \texttt{pandoc}, \texttt{cmark},
-whatever. For example:
+\item In Emacs org-mode, press \texttt{C-c C-e l p} to export a PDF file.
 
-\begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{shell}
-pandoc input.md -o output.pdf --pdf-engine=lualatex
-\end{minted}
-
-\item This HTML page itself is generated from an \href{proj-week.org}{org file
-(proj-week.org)}. You can take it as an example.
-
-\item Report template: \href{20231152xxx.org}{\texttt{org file}}, \href{20231152xxx.pdf}{\texttt{html file}}, \href{20231152xxx.md}{\texttt{markdown file}}.
+\item For \texttt{Markdown} to PDF, you can simply do \texttt{make pdf} if you are
+using Linux in lab 215 and have these \href{20231152xxx.yaml}{\texttt{yaml file}} and \href{Makefile}{\texttt{Makefile}}
+along with your \texttt{md} file.
 \end{itemize}
 
-\item your source codes (\href{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/network\_basics/scripts/}{examples}).
+\item Your \href{20231152xxx-实习日志.pdf}{lab journal (example)}.
 
-\item a screencast file in \texttt{ttyrec} format recording your operations (\texttt{man ttyrec}).
+\item Your source codes (\href{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/network\_basics/scripts/}{examples}).
+
+\item A screencast file in \texttt{ttyrec} format recording your operations (\texttt{man ttyrec}).
 
 Here's how:
 
 \noindent\rule{\textwidth}{0.5pt}
 \begin{enumerate}
-\item make a directory, e.g. 20231152xxx, in this dir try very hard to make all
+\item make a directory, e.g. \texttt{20231152xxx}, in this dir try very hard to make all
 the files available.
 
 \begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{sh}
 mkdir 20231152xxx       # create a new directory
 cd 20231152xxx
-vim tmux-http.sh        # write your script
 vim tcpServer.c         # Implement the TCP server in C
 vim tcpClient.c         # Implement the TCP client in C
-vim 20231152xxx.md      # write your report in markdown format, or
-vim 20231152xxx.org     # in org format
-ttyrec http-demo.ttyrec # make your demo screencast
+# compile and run above C programs successfully, and then
+
+# do the HTTP demo
+vim tmux-http.sh 
+
+# record a screencase using ttyrec (in a plain terminal without tmux)
+ttyrec -f http-demo.ttyrec -- tmux new
+# play screencast
+ttyplay http-demo.ttyrec 
+
+# make sure you successfully finished all the above, then
+# write your report
+vim 20231152xxx.yaml  # write a yaml file, and
+vim 20231152xxx.md    # your report in markdown format
+
+# generate the PDFs from the above yaml and md files 
+# (make sure you have the Makefile ready)
+make report_pdf
+make journal_pdf
+
+# in case you prefer emacs to vi
+emacs 20231152xxx.org # report in emacs-org format
+# in emacs type C-c C-e l p to generate a PDF
 \end{minted}
 
 \item make a tar ball.
@@ -77,7 +92,7 @@ tar zcf 20231152xxx.tgz 20231152xxx
 ls -l # make sure your tar ball is smaller than 1MB in size
 \end{minted}
 
-\item submit the \texttt{tgz} file to our \href{https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=760}{moodle site}.
+\item submit the \texttt{tgz} file to our \href{https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=885}{moodle site}.
 \end{enumerate}
 
 \noindent\rule{\textwidth}{0.5pt}
@@ -92,21 +107,20 @@ ttyplay  tutorial.ttyrec
 Feel free to make your own \texttt{ttyrec} files while doing this lab work. For example:
 
 \begin{verbatim}
-ttyrec  20231152xxx-http.ttyrec
-ttyrec  20231152xxx-email.ttyrec
-ttyrec  20231152xxx-ftp.ttyrec
+ttyrec -f 20231152xxx-http.ttyrec -- tmux new
+ttyrec -f 20231152xxx-email.ttyrec -- tmux new
+ttyrec -f 20231152xxx-ftp.ttyrec -- tmux new
 \end{verbatim}
 
 \begin{description}
 \item[{\textbf{Bonus point}}] Manage your project with \texttt{git}. \texttt{man gittutorial} to
 learn the very basics of it.
 \end{description}
-
-\subsection{Deadline: \textit{<2024-07-07 Sun>}}
-\label{sec:org4f38793}
+\subsection{Deadline: \textit{{[}2025-12-21 Sun]}}
+\label{sec:orgd0c1114}
 
 \begin{itemize}
-\item Submit your report as a \texttt{tgz} file \href{https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=777}{here}. In your \texttt{tgz} file, there
+\item Submit your report as a \texttt{tgz} file \href{https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=885}{here}. In your \texttt{tgz} file, there
 must be:
 
 \begin{itemize}
@@ -116,13 +130,14 @@ must be:
 \item one or more \texttt{ttyrec} files for demostrating whatever you did.
 \end{itemize}
 
+\item All the paperwork templates and examples can be found \href{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/network\_basics/proj-week/}{here}.
+
 \item Late reports will be penalized 20\% per day.
 
 \item MS-word file will \textbf{NOT} be accepted. Cheating will result in automatic failure of this work.
 \end{itemize}
-
 \section{\texttt{tmux, nc, ip, tcpdump, ss, nmap, curl}}
-\label{sec:orgef2e17f}
+\label{sec:org8e594b5}
 
 Here are the bash scripts I used in the class for demostrating how some protocols work.
 
@@ -134,9 +149,8 @@ Here are the bash scripts I used in the class for demostrating how some protocol
 \end{itemize}
 
 \noindent\rule{\textwidth}{0.5pt}
-
 \subsection{Your tasks}
-\label{sec:org2619ca1}
+\label{sec:org6fc086e}
 
 \begin{enumerate}
 \item Run the above scripts to get familar with these tools, and get a thorough understanding about these protocols;
@@ -171,9 +185,8 @@ length 12
 
 \item Record your HTTP demo session with \texttt{ttyrec}.
 \end{enumerate}
-
 \section{Socket programming}
-\label{sec:org50b25e8}
+\label{sec:org8a73984}
 
 The followings are the \href{https://cs6.swfu.edu.cn/\~wx672/lecture\_notes/network\_basics/src/}{Python programs} I used in the class for demostrating
 socket programming. Your tasks
@@ -182,12 +195,11 @@ socket programming. Your tasks
 \item Try these programs with a remote server IP instead of 127.0.0.1.
 \item Rewrite them in C.
 \end{enumerate}
-
 \subsection{TCP}
-\label{sec:org111600d}
+\label{sec:org1cc85c7}
 
 \subsubsection{A simple TCP server written in Python3}
-\label{sec:org5d09a7f}
+\label{sec:org0db0ba5}
 
 \begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{python}
 #!/usr/bin/python3
@@ -209,9 +221,8 @@ while 1:
     connectionSocket.send(capitalizedSentence)
     connectionSocket.close()
 \end{minted}
-
 \subsubsection{A simple TCP client written in Python3}
-\label{sec:orgb17ff84}
+\label{sec:orge5e6dca}
 
 \begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{python}
 #!/usr/bin/python3
@@ -231,9 +242,8 @@ modifiedSentence = clientSocket.recv(1024)
 print('From Server:', str(modifiedSentence,'utf-8'))
 clientSocket.close()
 \end{minted}
-
 \subsubsection{A simple TCP demo script}
-\label{sec:orgfc84ea5}
+\label{sec:orgdf1e2a5}
 
 \begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{sh}
 #!/bin/bash
@@ -265,12 +275,11 @@ tmux send-keys -t{up-of} "watch -tn.1 'ss -ant \"( sport == 12000 or dport == 12
 
 tmux send-keys "sudo tcpdump -ilo -vvvnnxXSK -s0 port 12000" C-m
 \end{minted}
-
 \subsection{UDP}
-\label{sec:orga187657}
+\label{sec:orga5eac96}
 
 \subsubsection{A simple UDP server written in Python3}
-\label{sec:org05f4664}
+\label{sec:org02299d9}
 
 \begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{python}
 #!/usr/bin/python3
@@ -287,9 +296,8 @@ while 1:
     modifiedMessage = message.upper()
     serverSocket.sendto(modifiedMessage, clientAddress)
 \end{minted}
-
 \subsubsection{A simple UDP client written in Python3}
-\label{sec:org2fe842a}
+\label{sec:org8814dbd}
 
 \begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{python}
 #!/usr/bin/python3
@@ -306,9 +314,8 @@ modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
 print(str(modifiedMessage,'utf-8'))
 clientSocket.close()
 \end{minted}
-
 \subsubsection{A simple UDP demo script}
-\label{sec:org235522c}
+\label{sec:org180bdf7}
 
 \begin{minted}[mathescape=true,linenos=true,numbersep=5pt,frame=lines,framesep=2mm]{sh}
 #!/bin/bash

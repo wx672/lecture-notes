@@ -57,7 +57,7 @@ Here's how:
     ls -l # make sure your tar ball is smaller than 1MB in size
     ```
     
-3.  upload the `tgz` file to our [moodle site](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=777).
+3.  upload the `tgz` file to our [moodle site](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=885).
     
 ---
 
@@ -82,7 +82,7 @@ Here's how:
 - **Deadline:** <span class="timestamp-wrapper"><span class="timestamp">&lt;2024-7-7 Sun&gt; </span></span> 
 
   - Submit your report as a `tgz` file
-    [here](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=777). In
+    [here](https://cs6.swfu.edu.cn/moodle/mod/assign/view.php?id=885). In
     your `tgz` file, there must be:
    
     1. your report in `org` or `markdown` format

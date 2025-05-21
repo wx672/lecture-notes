@@ -2,6 +2,7 @@ out = 20231152xxx
 metadata := $(out).yaml
 report_inputs  := $(metadata) $(out).md 
 journal_inputs := $(metadata)
+minted_filter = /usr/local/share/pandoc/filters/minted.lua
 
 journal_pdf: journal_tex
 	latexmk $(out)-journal
@@ -13,10 +14,10 @@ report_pdf: report_tex
 	latexmk $(out)
 
 report_tex: $(report_inputs)
-	pandoc --lua-filter=minted.lua -t latex --template swfulabreport -o $(out).tex $^ 
+	pandoc --lua-filter=$(minted_filter) -t latex --template swfulabreport -o $(out).tex $^ 
 
 report_html: $(report_inputs)
-	pandoc -s -t html5 --lua-filter=minted.lua -o $(out).html $^ 
+	pandoc -s -t html5 --lua-filter=$(minted_filter) -o $(out).html $^ 
 
 report_docx: $(report_inputs)
 	pandoc -t docx -o $(out).docx $^ 

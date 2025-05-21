@@ -4,13 +4,13 @@
 
 -> # Why bother? <-
 
-* Linux? I've got MS-Windows already
+* *Linux*? I've got *Windows* already
 
 ^
-* Cars? I've got a bicycle already
+* *Car*? I've got a *bike* already
 
 ^
-* Computer? I've got a pencil already
+* *Computer*? I've got a *pencil* already
 
 ^
 It's all about choice, isn't it?
@@ -24,7 +24,7 @@ It's all about choice, isn't it?
 It's about *common sense*.
 
 ^
--> For you, it's more than common sense... <-
+-> For you, it's more than *common sense*... <-
 
 ---
 
@@ -35,10 +35,10 @@ It's about *common sense*.
 ^
 Your tool kit:
 
-* MS-Word for reports
-* MS-Powerpoint for presentations
-* MS-Excel for spreadsheets
-* Coding? Without a mouse I don't know where to put my hands *🙁*
+* MS *Word* for reports
+* MS *Powerpoint* for presentations
+* MS *Excel* for spreadsheets
+* Coding? Without a *mouse* I don't know where to put my hands *🙁*
 
 -> Any difference from office girls? <-
 
@@ -54,15 +54,16 @@ Your tool kit:
 ▝▘     ▀▀  ▀▀▝▘▝▀▀▀▘▝▘ ▝▘    ▀  ▝▀▀ ▝▀ ▀▘  ▀▀   ▝▘ ▝▀ ▝▀▘  ▝▀▀ ▝▘ ▀▘ ▀▀▀   ▀ 
 ```
 
--> Programmers write everything in *plain text* with a text editor. *Why?* <-
+-> Programmers write everything in *plain text* with a *text editor*. <-
+-> *Why?* <-
 
 ^
 -> It's more *programmer friendly* than formatted text <-
 
-   • _Portability_      • _Virus free_           • _Size matters_
-   • _Version control_  • _Backward compatible_
+   • Portability      • Virus free           • Size matters
+   • Version control  • Backward compatible
 
-Ever read *RFCs*, *man pages*, and tons of README files on [github](https://github.com)?
+Ever read *RFCs*, *man pages*, and tons of README files on [](https://github.com)?
 
 ---
 
@@ -70,11 +71,11 @@ Ever read *RFCs*, *man pages*, and tons of README files on [github](https://gith
 
 For me, *everything Emacs*
 
-- Reports?      Emacs (Org-mode, Markdown, LaTeX)
-- Slides?       Emacs (Markdown, LaTeX Beamer)
-- Flowcharts?   Emacs (AsciiArt, LaTeX Tikz), pencil drawing
-- Spreadsheets? Emacs (org-mode), visidata
-- Programming?  Emacs (C/C++, Java, Python, ...)
+- Reports?       (Org-mode, Markdown, LaTeX)
+- Slides?        (Markdown, LaTeX Beamer)
+- Flowcharts?    (AsciiArt, LaTeX Tikz), pencil drawing
+- Spreadsheets?  (org-mode), visidata
+- Programming?   (C/C++, Java, Python, ...)
 
 
 -> *One vs. Many* <-
@@ -109,8 +110,8 @@ Status
      ▓▓▓▓
 
 ^
-Using CLI in front of your girl friend!
-     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+*Using CLI in front of your girl friend!*
+     *▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*
 
 ---
 -> # Want pictures? <-
@@ -150,7 +151,6 @@ Using CLI in front of your girl friend!
 -> ├────────────────────────────────┤
 -> │ Patience                       │
 -> └────────────────────────────────┘
-^
 
 -> The most important one? <-
 
