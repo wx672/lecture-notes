@@ -4,10 +4,10 @@
 
 -> # Why bother? <-
 
-* Linux? I've got MS-Windows already
+* Linux? I've got ** already
 
 ^
-* Cars? I've got a bicycle already
+* Car? I've got a *🚲* already
 
 ^
 * Computer? I've got a pencil already
@@ -59,10 +59,10 @@ Your tool kit:
 ^
 -> It's more *programmer friendly* than formatted text <-
 
-   • _Portability_      • _Virus free_           • _Size matters_
-   • _Version control_  • _Backward compatible_
+   • Portability      • Virus free           • Size matters
+   • Version control  • Backward compatible
 
-Ever read *RFCs*, *man pages*, and tons of README files on [github](https://github.com)?
+Ever read *RFCs*, *man pages*, and tons of README files on [](https://github.com)?
 
 ---
 
@@ -70,11 +70,11 @@ Ever read *RFCs*, *man pages*, and tons of README files on [github](https://gith
 
 For me, *everything Emacs*
 
-- Reports?      Emacs (Org-mode, Markdown, LaTeX)
-- Slides?       Emacs (Markdown, LaTeX Beamer)
-- Flowcharts?   Emacs (AsciiArt, LaTeX Tikz), pencil drawing
-- Spreadsheets? Emacs (org-mode), visidata
-- Programming?  Emacs (C/C++, Java, Python, ...)
+- Reports?       (Org-mode, Markdown, LaTeX)
+- Slides?        (Markdown, LaTeX Beamer)
+- Flowcharts?    (AsciiArt, LaTeX Tikz), pencil drawing
+- Spreadsheets?  (org-mode), visidata
+- Programming?   (C/C++, Java, Python, ...)
 
 
 -> *One vs. Many* <-
@@ -109,8 +109,8 @@ Status
      ▓▓▓▓
 
 ^
-Using CLI in front of your girl friend!
-     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+*Using CLI in front of your girl friend!*
+     *▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*
 
 ---
 -> # Want pictures? <-
