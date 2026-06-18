@@ -14,7 +14,7 @@ CS6="cs6.swfu.edu.cn"
 BASEURL="https://$CS6/~wx672"
 EMAIL="wx672ster@gmail.com"
 DOTFILE_DIR="$HOME/.dotfile"
-KEYS=( wx672repo.gpg danklinux.gpg debian.griffo.io.gpg onlyoffice.gpg )
+KEY_FILE="wx672repo.gpg"
 KEY_DIR="/etc/apt/trusted.gpg.d"
 
 APT_REPOS=(
@@ -32,30 +32,6 @@ CS6_REPO=(
 		"Components: main"
 		"Signed-By: /etc/apt/trusted.gpg.d/wx672repo.gpg"
 		"Trusted: yes"
-)
-
-NIRI_REPO=(
-	"Types: deb"
-	"URIs: https://download.opensuse.org/repositories/home:/AvengeMedia:/danklinux/Debian_Unstable/"
-	"Suites: ./"
-	"Signed-By: /etc/apt/trusted.gpg.d/danklinux.gpg"
-)
-
-GRIFFO_REPO=(
-	"Types: deb"
-	"URIs: https://debian.griffo.io/apt"
-	"Suites: forky"
-	"Components: main"
-	"Signed-By: /etc/apt/trusted.gpg.d/debian.griffo.io.gpg"
-)
-
-OFFICE_REPO=(
-	"Types: deb"
-	"URIs: https://download.onlyoffice.com/repo/debian"
-	"Suites: squeeze"
-	"Components: main"
-	"Signed-By: /etc/apt/trusted.gpg.d/onlyoffice.gpg"
-	"Trusted: yes"
 )
 
 UNSTABLE=(
@@ -82,14 +58,14 @@ Try:
 4. Come back (Ctrl-Alt-F1) to continue.
 If the issue persists, exit the script. Shout at $EMAIL.
 EOF
-)
+													 )
 
 APT_TROUBLESHOOTING_MSG=$(cat <<EOF
 Possible causes:
 1. Network failure. Fix the network and retry.
 2. Server-side issue (down or repository changed?). Report a bug to $EMAIL.
 EOF
-)
+											 )
 
 SUDO_TROUBLESHOOTING_MSG=$(cat <<EOF
 You shouldn't have set the root password during base system installation!
@@ -98,14 +74,14 @@ To fix:
 2. Install sudo (apt install sudo).
 3. Come back (Ctrl-Alt-F1) to continue.
 EOF
-)
+												)
 
 TEX_MSG=$(cat <<EOF
 It will take quite a while to install this package.
 If you don't need LaTeX, you can skip it for now.
 You can install it later when you really need it.
 EOF
-)
+			 )
 
 NOTE_MSG=$(cat <<EOF
 This script requires a successfully installed Debian base system.
@@ -115,28 +91,27 @@ If not installed, follow the guide at:
 
 NOTE: Do NOT set a root password during base system installation!
 EOF
-)
+				)
 
 CONGRATS_MSG=$(cat <<EOF
 The system will now reboot.
 
 After reboot, if you see the mouse cursor:
   * Press Super-t to open a terminal.
-  * Press Super-? to see keyboard shortcuts.
+  * Press Super-F1 to see keyboard shortcuts.
   * Use 'nmtui' to activate the Wi-Fi.
   * Trigger Chinese input (fcitx5) with Shift-space. Try 'fcitx5-configtool' if needed.
 
-If the mouse cursor is missing, Wayland (Niri) may have issues, likely due to the graphics driver.
+If the mouse cursor is missing, Xorg may have issues, likely due to the graphics driver.
 Search online for your graphics card model and driver solutions.
 
 Have fun!
 EOF
-)
+						)
 
 # === Global Variables ===
 LOG_FILE="/var/log/wx672install.log"
 DRY_RUN=false
-
 # shellcheck disable=SC2034
 {
 	ERROR=$(tput setaf 1)   # Red
@@ -249,13 +224,10 @@ configure_apt() {
 		log_message "INFO" "Configuring APT repositories..."
 		run_command sudo rm -f /etc/apt/sources.list
 
-		# Keys for extra repos
+		# Key for cs6
 		run_command sudo mkdir -p /etc/apt/trusted.gpg.d
-
-		for KEY in "${KEYS[@]}"; do
-			run_command sudo wget $BASEURL/keys/$KEY -O $KEY_DIR/$KEY || {
-				handle_error "Failed installing GPG keys" "$APT_TROUBLESHOOTING_MSG"; }
-		done
+		run_command sudo wget $BASEURL/$KEY_FILE -O $KEY_DIR/$KEY_FILE || {
+			handle_error "GPG key for cs6 repo setup failed" "$APT_TROUBLESHOOTING_MSG"; }
 
 		log_message "SUCCESS" "Done setting up gpg key for cs6 repo."
 
@@ -263,13 +235,6 @@ configure_apt() {
 		printf "%s\n" "${APT_REPOS[@]}" | run_command sudo tee /etc/apt/sources.list.d/debian.sources
 		# CS6 sources
 		printf "%s\n" "${CS6_REPO[@]}" | run_command sudo tee /etc/apt/sources.list.d/cs6.sources
-		# Wayland sources
-		printf "%s\n" "${NIRI_REPO[@]}" | run_command sudo tee /etc/apt/sources.list.d/danklinux.sources
-		# griffo.io sources
-		printf "%s\n" "${GRIFFO_REPO[@]}" | run_command sudo tee /etc/apt/sources.list.d/griffo.io.sources
-		# onlyoffice sources
-		printf "%s\n" "${OFFICE_REPO[@]}" | run_command sudo tee /etc/apt/sources.list.d/onlyoffice.sources
-		
 		# APT preferences
 		printf "%s\n" "${UNSTABLE[@]}" | run_command sudo tee /etc/apt/preferences.d/unstable.pref
 		printf "%s\n" "${TESTING[@]}"  | run_command sudo tee /etc/apt/preferences.d/testing.pref
@@ -352,7 +317,7 @@ install_packages() {
 		apt_cmd=$(command -v nala || command -v apt-fast || echo apt)
 
 		log_message "INFO" "Installing ${package_group[*]}..."
-		run_command sudo "$apt_cmd" install --no-install-recommends -y "${package_group[@]}" || {
+		run_command sudo "$apt_cmd" install -y "${package_group[@]}" || {
 				handle_error "Failed to install ${package_group[*]}" "$APT_TROUBLESHOOTING_MSG"; }
 
 		log_message "SUCCESS" "${package_group[*]} installed."
@@ -368,20 +333,22 @@ install_all_packages() {
 		install_packages wx672tmux
 		install_packages wx672emacs
 		install_packages wx672font
-		install_packages wx672wayland wx672awww
-		install_packages wx672qutebrowser 
+		install_packages wx672xorg
+		install_packages wx672qutebrowser
 		
-		# if display_dialog -s "Installing wx672texmf?" "$TEX_MSG"; then
-		# 		true
-		# else
-		# 		install_packages wx672texmf
-		# fi
+		if display_dialog -s "Installing wx672texmf?" "$TEX_MSG"; then
+				true
+		else
+				install_packages wx672texmf
+		fi
 }
 
 misc_files() {
 		log_message "INFO" "Managing miscellaneous files..."
 
-		command -v blight && run_command sudo blight setup
+		command -v blight && {
+			run_command sudo blight setup
+		}
 
 		# Enable user services (come along with wx672cli)
 		# for s in "${USER_SERVICES[@]}"; do
@@ -433,8 +400,8 @@ EOF
 }
 
 configure_keyboard() {
-	log_message "INFO" "Configuring keyboard..."
-	cat <<EOF | run_command sudo tee /etc/default/keyboard
+		log_message "INFO" "Configuring keyboard..."
+		cat <<EOF | run_command sudo tee /etc/default/keyboard
 XKBMODEL="pc105"
 XKBLAYOUT="us"
 XKBVARIANT=""
@@ -442,9 +409,7 @@ XKBOPTIONS="terminate:ctrl_alt_bksp,ctrl:nocaps"
 BACKSPACE="guess"
 EOF
 
-	# perhaps needed for running xwayland based apps
-	sudo mkdir -p /etc/X11/xorg.conf.d
-	cat <<EOF | run_command sudo tee /etc/X11/xorg.conf.d/30-libinput.conf
+		cat <<EOF | run_command sudo tee /etc/X11/xorg.conf.d/30-libinput.conf
 Section "InputClass"
   Identifier "libinput touchpad catchall"
   MatchIsTouchpad "on"
@@ -459,12 +424,30 @@ Section "InputClass"
 EndSection
 EOF
 
-	log_message "SUCCESS" "Done setting up keyboard."
+		log_message "SUCCESS" "Done setting up keyboard."
 }
 
 configure_timezone() {
 		log_message "INFO" "Configuring timezone..."
+# 		run_command sudo debconf-set-selections <<EOF
+# tzdata  tzdata/Areas            select  Asia
+# tzdata  tzdata/Zones/Africa     select
+# tzdata  tzdata/Zones/America    select
+# tzdata  tzdata/Zones/Antarctica select
+# tzdata  tzdata/Zones/Arctic     select
+# tzdata  tzdata/Zones/Asia       select  Shanghai
+# tzdata  tzdata/Zones/Atlantic   select
+# tzdata  tzdata/Zones/Australia  select
+# tzdata  tzdata/Zones/Etc        select  UTC
+# tzdata  tzdata/Zones/Europe     select
+# tzdata  tzdata/Zones/Indian     select
+# tzdata  tzdata/Zones/Pacific    select
+# tzdata  tzdata/Zones/US         select
+# EOF
+# 		echo 'Asia/Shanghai' | run_command sudo tee /etc/timezone
+# 		run_command sudo dpkg-reconfigure -fnoninteractive tzdata
 		run_command sudo ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+		
 		log_message "SUCCESS" "Done setting up tzdata."
 }
 
@@ -498,7 +481,7 @@ main() {
 		dist_upgrade
 		install_nala || install_apt_fast
 		install_all_packages
-		# misc_files
+		misc_files
 		configure_auto_login
 		configure_locale
 		configure_keyboard
